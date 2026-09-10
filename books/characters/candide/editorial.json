@@ -1,0 +1,2432 @@
+{
+  "bookId": "candide",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete novel in both English editions: named cast and references, reviewed recognizable unnamed roles, historical diners, and source-gated returns and imposture exclusions.",
+  "entities": [
+    {
+      "id": "candide",
+      "name": "Candide",
+      "category": "central",
+      "body": "The young Westphalian man whose travels the novel follows, raised in the baron’s household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Candide"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cunegonde",
+      "name": "Cunegonde",
+      "category": "major",
+      "body": "The baron’s daughter and Candide’s beloved.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Miss Cunegonde",
+        "Cunegonde"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            30,
+            1
+          ],
+          "body": "Candide’s wife, the baron’s daughter he has long loved."
+        }
+      ]
+    },
+    {
+      "id": "pangloss",
+      "name": "Pangloss",
+      "category": "major",
+      "body": "Candide’s tutor, who teaches that this is the best of all possible worlds.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dr. Pangloss",
+        "Doctor Pangloss",
+        "Pangloss"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cacambo",
+      "name": "Cacambo",
+      "category": "major",
+      "body": "Candide’s resourceful valet and traveling companion.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cacambo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "martin",
+      "name": "Martin",
+      "category": "major",
+      "body": "The pessimistic scholar whom Candide chooses as a traveling companion.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Martin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "old-woman",
+      "name": "The old woman",
+      "category": "major",
+      "body": "The elderly servant who helps Candide in Lisbon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "old woman"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            7,
+            11
+          ],
+          "body": "Cunegonde’s elderly servant and traveling companion."
+        },
+        {
+          "after": [
+            11,
+            0
+          ],
+          "body": "Cunegonde’s elderly companion, the daughter of Pope Urban X and the Princess of Palestrina."
+        }
+      ]
+    },
+    {
+      "id": "young-baron",
+      "name": "Cunegonde’s brother",
+      "category": "major",
+      "body": "The baron’s son and Cunegonde’s brother, raised in the same household as Candide.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            14,
+            28
+          ],
+          "body": "Cunegonde’s brother, the young baron who became a Jesuit."
+        }
+      ],
+      "roleAfter": [
+        14,
+        28
+      ]
+    },
+    {
+      "id": "baron",
+      "name": "The Baron of Thunder-ten-Tronckh",
+      "category": "supporting",
+      "body": "The Westphalian nobleman in whose household Candide grows up, father of Cunegonde and her brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "baroness",
+      "name": "The baroness",
+      "category": "supporting",
+      "body": "The baron’s wife and mother of Cunegonde and her brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Baroness"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "james",
+      "name": "James the Anabaptist",
+      "category": "supporting",
+      "body": "The kindly Anabaptist businessman who helps Candide in Holland.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "James",
+        "Anabaptist"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "paquette",
+      "name": "Paquette",
+      "category": "supporting",
+      "body": "The baroness’s chambermaid, known to Candide from his childhood household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Paquette"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            24,
+            13
+          ],
+          "body": "The baroness’s former chambermaid, now earning her living through sex work."
+        }
+      ]
+    },
+    {
+      "id": "giroflee",
+      "name": "Friar Giroflee",
+      "category": "supporting",
+      "body": "The Theatine friar whom Candide meets in Venice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Friar Giroflee",
+        "Friar Giroflée",
+        "Giroflee",
+        "Giroflée"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            30,
+            5
+          ],
+          "body": "The former Theatine friar whom Candide met in Venice."
+        }
+      ]
+    },
+    {
+      "id": "issachar",
+      "name": "Don Issachar",
+      "category": "supporting",
+      "body": "The merchant in Lisbon who keeps Cunegonde in his household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Don Issachar",
+        "Issachar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "inquisitor",
+      "name": "The Grand Inquisitor",
+      "category": "supporting",
+      "body": "The senior Inquisition official in Lisbon who shares access to Cunegonde with Don Issachar.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Grand Inquisitor",
+        "Inquisitor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "governor",
+      "name": "Don Fernando",
+      "category": "supporting",
+      "body": "The governor of Buenos Aires, who receives Candide and Cunegonde.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Don Fernando"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "vanderdendur",
+      "name": "Vanderdendur",
+      "category": "supporting",
+      "body": "The Dutch merchant and shipowner in Surinam.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mynheer Vanderdendur",
+        "Vanderdendur"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "abbe",
+      "name": "The abbé of Périgord",
+      "category": "supporting",
+      "body": "The cleric who acts as Candide’s guide to Parisian society.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Abbe",
+        "Abbé",
+        "Perigordian",
+        "Périgordian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "marquise",
+      "name": "The Marchioness of Parolignac",
+      "category": "supporting",
+      "body": "The Parisian hostess who runs the card-playing gathering Candide attends.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Marchioness of Parolignac",
+        "Marquise of Parolignac",
+        "Marchioness",
+        "Marquise"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pococurante",
+      "name": "Senator Pococurante",
+      "category": "supporting",
+      "body": "The wealthy Venetian senator and collector whom Candide and Martin visit.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pococurante",
+        "Senator"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "achmet",
+      "name": "Ahmed III",
+      "category": "supporting",
+      "body": "The former Ottoman sultan, called Achmet here, dining at the Venice inn.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Achmet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ivan",
+      "name": "Ivan VI",
+      "category": "supporting",
+      "body": "The Russian emperor deposed in infancy, portrayed as a diner at the Venice inn.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ivan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "charles-edward",
+      "name": "Charles Edward Stuart",
+      "category": "supporting",
+      "body": "The Stuart claimant to the British throne, one of the royal diners in Venice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Charles Edward"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "augustus",
+      "name": "Augustus III",
+      "category": "supporting",
+      "body": "The king of Poland and elector of Saxony, the fourth royal diner in Venice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "stanislaus",
+      "name": "Stanisław Leszczyński",
+      "category": "supporting",
+      "body": "The former king of Poland and duke of Lorraine, the fifth royal diner in Venice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "theodore",
+      "name": "Theodore of Corsica",
+      "category": "supporting",
+      "body": "The former elected king of Corsica, one of the royal diners in Venice.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Theodore"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ragotsky",
+      "name": "Prince Ragotsky",
+      "category": "supporting",
+      "body": "The exiled Transylvanian prince whose household holds Cunegonde and the old woman as slaves.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ragotsky",
+        "Ragotski",
+        "Transylvanian prince"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dervish",
+      "name": "The dervish",
+      "category": "supporting",
+      "body": "The Muslim religious sage whom Candide and his companions consult near Constantinople.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dervish",
+        "dervish"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "farmer",
+      "name": "The Turkish farmer",
+      "category": "supporting",
+      "body": "The old man near Constantinople who cultivates his small farm with his children.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dioscorides",
+      "name": "Dioscorides",
+      "category": "reference",
+      "body": "The ancient physician cited for his remedies.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dioscorides"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "columbus",
+      "name": "Christopher Columbus",
+      "category": "reference",
+      "body": "The Atlantic explorer named in Pangloss’s account.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Christopher Columbus",
+        "Columbus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "urban",
+      "name": "Pope Urban X",
+      "category": "reference",
+      "body": "The invented pope identified as the old woman’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pope Urban X",
+        "Urban X"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "palestrina",
+      "name": "The Princess of Palestrina",
+      "category": "reference",
+      "body": "The old woman’s mother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Princess of Palestrina"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "massa",
+      "name": "The Prince of Massa Carara",
+      "category": "reference",
+      "body": "The Italian prince to whom the old woman was betrothed in her youth.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Prince of Massa Carara",
+        "Prince of Massa Carrara"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "muley",
+      "name": "Muley-Ismael",
+      "category": "reference",
+      "body": "The Moroccan ruler whose sons fight for power in the old woman’s account.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Muley-Ismael"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "robek",
+      "name": "Robek",
+      "category": "reference",
+      "body": "The writer cited in the old woman’s discussion of suicide, also spelled Robeck.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Robek",
+        "Robeck"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "didrie",
+      "name": "Father Didrie",
+      "category": "reference",
+      "body": "The Jesuit who helps Cunegonde’s brother after the attack on the family’s castle.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Didrie"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "raleigh",
+      "name": "Sir Walter Raleigh",
+      "category": "reference",
+      "body": "The English explorer named in the account of Europeans searching for El Dorado.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Walter Raleigh"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "freron",
+      "name": "Élie Fréron",
+      "category": "reference",
+      "body": "The French critic used as a byword for hostile literary journalism.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Freron",
+        "Fréron"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "clairon",
+      "name": "Clairon",
+      "category": "supporting",
+      "body": "The celebrated French actress whom Candide wants to meet.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Clairon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "monime",
+      "name": "Adrienne Lecouvreur",
+      "category": "reference",
+      "body": "The French actress referred to as Miss Monime, after one of her stage roles.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Miss Monime",
+        "Monime"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "elizabeth",
+      "name": "Elizabeth I",
+      "category": "reference",
+      "body": "The English queen represented in the play Candide watches in Paris.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Queen Elizabeth"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gauchat",
+      "name": "Gabriel Gauchat",
+      "category": "reference",
+      "body": "The French religious writer discussed at the Parisian supper.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gauchat"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "trublet",
+      "name": "Nicolas Trublet",
+      "category": "reference",
+      "body": "The French cleric and writer discussed at the Parisian supper.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Trublet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "raphael",
+      "name": "Raphael",
+      "category": "reference",
+      "body": "The Italian Renaissance painter whose works Pococurante owns.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Raphael"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Julius Caesar",
+      "category": "reference",
+      "body": "The Roman commander and ruler invoked in the conversation.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Caesar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cato",
+      "name": "Cato",
+      "category": "reference",
+      "body": "The Roman statesman invoked as an example of grave public virtue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cato"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "category": "reference",
+      "body": "The ancient Greek epic poet, author of the Iliad and Odyssey.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Homer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen of Troy",
+      "category": "reference",
+      "body": "The woman at the center of the Trojan War story discussed by Pococurante.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Helen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "virgil",
+      "name": "Virgil",
+      "category": "reference",
+      "body": "The Roman poet who wrote the Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Virgil"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeneas",
+      "name": "Aeneas",
+      "category": "reference",
+      "body": "The Trojan hero of Virgil’s Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "AEneas",
+        "Aeneas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cloanthus",
+      "name": "Cloanthus",
+      "category": "reference",
+      "body": "One of Aeneas’s Trojan companions in the Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cloanthus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "achates",
+      "name": "Achates",
+      "category": "reference",
+      "body": "Aeneas’s faithful companion in the Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Achates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ascanius",
+      "name": "Ascanius",
+      "category": "reference",
+      "body": "Aeneas’s young son in the Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ascanius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "latinus",
+      "name": "Latinus",
+      "category": "reference",
+      "body": "The Italian king and father of Lavinia in the Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Latinus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "amata",
+      "name": "Amata",
+      "category": "reference",
+      "body": "Latinus’s wife and Lavinia’s mother in the Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Amata"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lavinia",
+      "name": "Lavinia",
+      "category": "reference",
+      "body": "The daughter of Latinus and Amata in the Aeneid.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lavinia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tasso",
+      "name": "Torquato Tasso",
+      "category": "reference",
+      "body": "The Italian poet compared with Virgil and Milton.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Tasso"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ariosto",
+      "name": "Ludovico Ariosto",
+      "category": "reference",
+      "body": "The Italian poet whose fantastic epic is discussed by Pococurante.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ariosto"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "horace",
+      "name": "Horace",
+      "category": "reference",
+      "body": "The Roman poet whose satires and odes Pococurante criticizes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Horace"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rupilius",
+      "name": "Rupilius",
+      "category": "reference",
+      "body": "The figure mocked in the quarrel from Horace’s satire.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Rupilius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "maecenas",
+      "name": "Maecenas",
+      "category": "reference",
+      "body": "Horace’s wealthy Roman patron.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Maecenas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cicero",
+      "name": "Cicero",
+      "category": "reference",
+      "body": "The Roman orator and philosopher discussed in Pococurante’s library.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cicero"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rabirius",
+      "name": "Rabirius",
+      "category": "reference",
+      "body": "The Roman defendant named in a speech by Cicero.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Rabirius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cluentius",
+      "name": "Cluentius",
+      "category": "reference",
+      "body": "The Roman defendant defended by Cicero.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cluentius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "seneca",
+      "name": "Seneca",
+      "category": "reference",
+      "body": "The Roman Stoic philosopher and author.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Seneca"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "milton",
+      "name": "John Milton",
+      "category": "reference",
+      "body": "The English poet who wrote Paradise Lost.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Milton"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "category": "reference",
+      "body": "The ancient Greek philosopher.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Plato"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mahmoud",
+      "name": "Mahmud I",
+      "category": "reference",
+      "body": "The Ottoman sultan whom Achmet identifies as his nephew and successor.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sultan Mahmoud",
+        "Mahmoud"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leibniz",
+      "name": "Gottfried Wilhelm Leibniz",
+      "category": "reference",
+      "body": "The German philosopher named in the discussion of optimism.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Leibnitz",
+        "Leibniz"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The divine creator invoked in religious expressions and philosophical debate.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God",
+        "Eternal"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antichrist",
+      "name": "The Antichrist",
+      "category": "reference",
+      "body": "The religious adversary of Christ invoked in the argument about the pope.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Anti-Christ",
+        "Antichrist"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mary",
+      "name": "The Virgin Mary",
+      "category": "reference",
+      "body": "The mother of Jesus, invoked as Our Lady of Atocha and the Holy Virgin.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "our lady of Atocha",
+        "Our Lady of Atocha",
+        "Holy Virgin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anthony",
+      "name": "Saint Anthony of Padua",
+      "category": "reference",
+      "body": "The Christian saint invoked by the old woman.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "St. Anthony of Padua",
+        "Saint Anthony of Padua"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "saint-james",
+      "name": "Saint James of Compostela",
+      "category": "reference",
+      "body": "The apostle associated with the shrine at Compostela, invoked by the old woman.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "St. James of Compostella",
+        "Saint James of Compostela",
+        "St. James of Compostela"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ignatius",
+      "name": "Saint Ignatius of Loyola",
+      "category": "reference",
+      "body": "The founder of the Jesuit order.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "St. Ignatius",
+        "Saint Ignatius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "category": "reference",
+      "body": "The goddess of love represented by the Medici statue.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Venus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "muhammad",
+      "name": "Muhammad",
+      "category": "reference",
+      "body": "The prophet of Islam, called Mahomet in the original edition.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Mahomet",
+        "Muhammad"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "centaurs",
+      "name": "The centaurs",
+      "category": "reference",
+      "body": "The half-human, half-horse creatures of classical mythology.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Centaurs"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fauns",
+      "name": "The fauns",
+      "category": "reference",
+      "body": "The woodland beings of classical mythology.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Fauns"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "satyrs",
+      "name": "The satyrs",
+      "category": "reference",
+      "body": "The part-human wild beings of classical mythology.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Satyrs"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "category": "reference",
+      "body": "The first man in the biblical creation story.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Adam"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "moses",
+      "name": "Moses",
+      "category": "reference",
+      "body": "The biblical lawgiver traditionally associated with the account in Genesis.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Moses"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "messiah",
+      "name": "The Messiah",
+      "category": "reference",
+      "body": "The Son of God as represented in Milton’s Paradise Lost.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Messiah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "satan",
+      "name": "Lucifer",
+      "category": "reference",
+      "body": "The devil as represented in Milton’s Paradise Lost.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Lucifer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sin",
+      "name": "Sin",
+      "category": "reference",
+      "body": "The personified figure in Paradise Lost discussed by Pococurante.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "category": "reference",
+      "body": "The personified figure in Paradise Lost discussed by Pococurante.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "abraham",
+      "name": "Abraham",
+      "category": "reference",
+      "body": "The biblical patriarch invoked by the diamond buyer.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Abraham"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eglon",
+      "name": "Eglon",
+      "category": "reference",
+      "body": "The Moabite king in Pangloss’s list of rulers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Eglon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ehud",
+      "name": "Ehud",
+      "category": "reference",
+      "body": "The biblical judge named with Eglon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ehud"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "absalom",
+      "name": "Absalom",
+      "category": "reference",
+      "body": "The biblical prince, son of David.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Absalom"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nadab",
+      "name": "Nadab",
+      "category": "reference",
+      "body": "The king of Israel, son of Jeroboam.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nadab"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jeroboam",
+      "name": "Jeroboam",
+      "category": "reference",
+      "body": "The king of Israel and father of Nadab.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jeroboam"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "baasha",
+      "name": "Baasha",
+      "category": "reference",
+      "body": "The king of Israel called Baasa in the original.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Baasa",
+        "Baasha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "elah",
+      "name": "Elah",
+      "category": "reference",
+      "body": "The Israelite king called Ela in the original.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ela",
+        "Elah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zimri",
+      "name": "Zimri",
+      "category": "reference",
+      "body": "The king of Israel named in the catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Zimri"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ahaziah",
+      "name": "Ahaziah",
+      "category": "reference",
+      "body": "The king of Judah named with Jehu in the catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ahaziah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jehu",
+      "name": "Jehu",
+      "category": "reference",
+      "body": "The Israelite king named in Pangloss’s catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jehu"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "athaliah",
+      "name": "Athaliah",
+      "category": "reference",
+      "body": "The queen who ruled Judah.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Athaliah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jehoiada",
+      "name": "Jehoiada",
+      "category": "reference",
+      "body": "The high priest named with Athaliah.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jehoiada"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jehoiakim",
+      "name": "Jehoiakim",
+      "category": "reference",
+      "body": "The king of Judah named in the catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jehoiakim"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jeconiah",
+      "name": "Jeconiah",
+      "category": "reference",
+      "body": "The king of Judah also known as Jehoiachin.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jeconiah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zedekiah",
+      "name": "Zedekiah",
+      "category": "reference",
+      "body": "The last king of Judah before the Babylonian conquest.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Zedekiah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "croesus",
+      "name": "Croesus",
+      "category": "reference",
+      "body": "The king of Lydia famous for his wealth.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Croesus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "astyages",
+      "name": "Astyages",
+      "category": "reference",
+      "body": "The last king of the Median Empire.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Astyages"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "darius",
+      "name": "Darius III",
+      "category": "reference",
+      "body": "The Persian king recalled among rulers brought low.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Darius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dionysius",
+      "name": "Dionysius of Syracuse",
+      "category": "reference",
+      "body": "The Syracusan tyrant recalled in the list of fallen rulers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dionysius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pyrrhus",
+      "name": "Pyrrhus",
+      "category": "reference",
+      "body": "The king of Epirus and military commander.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pyrrhus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "perseus",
+      "name": "Perseus of Macedon",
+      "category": "reference",
+      "body": "The Macedonian king, distinct from the mythical hero of the same name.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Perseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hannibal",
+      "name": "Hannibal",
+      "category": "reference",
+      "body": "The Carthaginian commander.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hannibal"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jugurtha",
+      "name": "Jugurtha",
+      "category": "reference",
+      "body": "The Numidian king who fought Rome.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jugurtha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ariovistus",
+      "name": "Ariovistus",
+      "category": "reference",
+      "body": "The Germanic leader who fought Julius Caesar.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ariovistus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pompey",
+      "name": "Pompey",
+      "category": "reference",
+      "body": "The Roman commander and rival of Julius Caesar.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pompey"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nero",
+      "name": "Nero",
+      "category": "reference",
+      "body": "The Roman emperor.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nero"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "otho",
+      "name": "Otho",
+      "category": "reference",
+      "body": "The Roman emperor of the year 69.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Otho"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "vitellius",
+      "name": "Vitellius",
+      "category": "reference",
+      "body": "The Roman emperor of the year 69.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Vitellius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "domitian",
+      "name": "Domitian",
+      "category": "reference",
+      "body": "The Roman emperor named in the catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Domitian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mary-stuart",
+      "name": "Mary Stuart",
+      "category": "reference",
+      "body": "Mary, Queen of Scots, named among unfortunate rulers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mary Stuart"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "candide-mother",
+      "name": "The baron’s sister",
+      "category": "reference",
+      "body": "The woman whom the household suspects to be Candide’s mother.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "candide-father",
+      "name": "The neighboring gentleman",
+      "category": "reference",
+      "body": "The gentleman whom the household suspects to be Candide’s father.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "curate",
+      "name": "The village curate",
+      "category": "reference",
+      "body": "The priest serving as the baron’s household chaplain.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "recruiters",
+      "name": "The Bulgarian recruiters",
+      "category": "supporting",
+      "body": "The two men in blue who approach Candide at the inn.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "bulgarian-king",
+      "name": "The king of the Bulgarians",
+      "category": "supporting",
+      "body": "The ruler of the army into which Candide is recruited.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "abare-king",
+      "name": "The king of the Abares",
+      "category": "supporting",
+      "body": "The ruler opposing the Bulgarian army.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "army-surgeon",
+      "name": "The army surgeon",
+      "category": "supporting",
+      "body": "The surgeon who treats Candide after his punishment in the regiment.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "orator",
+      "name": "The Dutch orator",
+      "category": "supporting",
+      "body": "The preacher whom Candide asks for help in Holland.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "orator-wife",
+      "name": "The orator’s wife",
+      "category": "supporting",
+      "body": "The preacher’s wife in the encounter in Holland.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "grey-confessor",
+      "name": "Paquette’s confessor",
+      "category": "reference",
+      "body": "The Franciscan friar involved with Paquette in her account of life at the castle.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "countess",
+      "name": "The old countess",
+      "category": "reference",
+      "body": "The countess in Pangloss’s account of the chain of infection.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "cavalry-captain",
+      "name": "The cavalry captain",
+      "category": "reference",
+      "body": "The cavalry officer in Pangloss’s chain of infection.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chain-marchioness",
+      "name": "The marchioness in Pangloss’s account",
+      "category": "reference",
+      "body": "The noblewoman in Pangloss’s chain of infection.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "page",
+      "name": "The page",
+      "category": "reference",
+      "body": "The young attendant in Pangloss’s chain of infection.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chain-jesuit",
+      "name": "The Jesuit in Pangloss’s account",
+      "category": "reference",
+      "body": "The Jesuit in Pangloss’s chain of infection.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "columbus-companion",
+      "name": "Columbus’s companion",
+      "category": "reference",
+      "body": "The unnamed companion of Columbus in Pangloss’s account.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "sailor",
+      "name": "The sailor at Lisbon",
+      "category": "supporting",
+      "body": "The sailor traveling on the ship with Candide, Pangloss and James.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "familiar",
+      "name": "The Inquisition agent",
+      "category": "supporting",
+      "body": "The official who questions Pangloss at the meal in Lisbon.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "familiar-footman",
+      "name": "The agent’s footman",
+      "category": "supporting",
+      "body": "The servant attending the Inquisition agent at the meal.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "biscayan",
+      "name": "The Biscayan prisoner",
+      "category": "supporting",
+      "body": "The man prosecuted for marrying his godmother.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "godmother",
+      "name": "The Biscayan’s godmother",
+      "category": "reference",
+      "body": "The woman whom the Biscayan prisoner has married.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "portuguese-prisoners",
+      "name": "The two Portuguese prisoners",
+      "category": "supporting",
+      "body": "The men prosecuted for rejecting the bacon in their meal.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "bulgarian-soldier",
+      "name": "The soldier at the castle",
+      "category": "reference",
+      "body": "The Bulgarian soldier in Cunegonde’s account of the attack on her home.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "bulgarian-captain",
+      "name": "Cunegonde’s Bulgarian captain",
+      "category": "reference",
+      "body": "The Bulgarian officer who takes charge of Cunegonde after the attack on the castle.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "friar-thief",
+      "name": "The friar at Badajos",
+      "category": "supporting",
+      "body": "The Franciscan friar encountered at the inn during the flight from Lisbon.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "prior",
+      "name": "The Benedictine prior",
+      "category": "supporting",
+      "body": "The monk who buys one of the travelers’ horses.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "prince-mistress",
+      "name": "The prince’s former mistress",
+      "category": "reference",
+      "body": "The older marchioness who invites the Prince of Massa Carara to drink chocolate.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "corsair",
+      "name": "The corsair captain",
+      "category": "reference",
+      "body": "The pirate captain in the old woman’s account of her voyage from Italy.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "eunuch",
+      "name": "The Italian eunuch",
+      "category": "reference",
+      "body": "The former chapel musician of the Princess of Palestrina whom the old woman encounters in Africa.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dey",
+      "name": "The Dey of Algiers",
+      "category": "reference",
+      "body": "The ruler of Algiers in the old woman’s account.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "aga",
+      "name": "The Janissary officer",
+      "category": "reference",
+      "body": "The officer who takes the old woman and his household to Azof.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "azof-imam",
+      "name": "The imam at Azof",
+      "category": "reference",
+      "body": "The religious teacher with the besieged Janissaries in the old woman’s account.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "french-surgeon",
+      "name": "The French surgeon",
+      "category": "reference",
+      "body": "The surgeon who treats the women after the siege of Azof.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "boyar",
+      "name": "The Russian boyar",
+      "category": "reference",
+      "body": "The nobleman who employs the old woman as a gardener.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "alcalde",
+      "name": "The alcalde",
+      "category": "supporting",
+      "body": "The magistrate arriving at Buenos Aires in pursuit of the fugitives.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "sergeant",
+      "name": "The Jesuit guard sergeant",
+      "category": "supporting",
+      "body": "The soldier who reports Candide’s arrival to the commandant in Paraguay.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "jesuit-general",
+      "name": "The Jesuit general",
+      "category": "reference",
+      "body": "The head of the Jesuit order in Rome, mentioned in the young baron’s story.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "oreillons",
+      "name": "The Oreillons",
+      "category": "supporting",
+      "body": "The community encountered by Candide and Cacambo after leaving the Jesuit territory.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "girls",
+      "name": "The two girls in the wilderness",
+      "category": "supporting",
+      "body": "The young women whom Candide and Cacambo encounter with two monkeys.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "monkeys",
+      "name": "The two monkeys",
+      "category": "supporting",
+      "body": "The animals accompanying the two girls in the wilderness.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "schoolchildren",
+      "name": "The children of El Dorado",
+      "category": "supporting",
+      "body": "The village children playing with precious stones.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "schoolmaster",
+      "name": "The schoolmaster",
+      "category": "supporting",
+      "body": "The teacher who calls the children of El Dorado to school.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "landlord",
+      "name": "The innkeeper in El Dorado",
+      "category": "supporting",
+      "body": "The host who welcomes the travelers at the village inn.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder",
+      "name": "The elder of El Dorado",
+      "category": "supporting",
+      "body": "The old resident who explains his country’s customs to Candide and Cacambo.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "eldorado-king",
+      "name": "The king of El Dorado",
+      "category": "supporting",
+      "body": "The hospitable ruler of El Dorado.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "enslaved-man",
+      "name": "The enslaved man at Surinam",
+      "category": "supporting",
+      "body": "The man enslaved by Vanderdendur whom Candide meets outside Surinam.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "enslaved-mother",
+      "name": "The enslaved man’s mother",
+      "category": "reference",
+      "body": "The mother remembered by the man Candide meets at Surinam.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "spanish-captain",
+      "name": "The Spanish sea captain",
+      "category": "supporting",
+      "body": "The captain at Surinam who knows about Cunegonde in Buenos Aires.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dutch-magistrate",
+      "name": "The Dutch magistrate",
+      "category": "supporting",
+      "body": "The official who receives Candide’s complaint at Surinam.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "martin-wife",
+      "name": "Martin’s wife",
+      "category": "reference",
+      "body": "The wife mentioned in Martin’s account of his misfortunes.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "martin-son",
+      "name": "Martin’s son",
+      "category": "reference",
+      "body": "The son mentioned in Martin’s account of his misfortunes.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "martin-daughter",
+      "name": "Martin’s daughter",
+      "category": "reference",
+      "body": "The daughter mentioned in Martin’s account of his misfortunes.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "daughter-lover",
+      "name": "The Portuguese man",
+      "category": "reference",
+      "body": "The man with whom Martin’s daughter runs away.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "paris-doctors",
+      "name": "The Paris physicians",
+      "category": "supporting",
+      "body": "The two doctors who attend Candide at his inn in Paris.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "devotees",
+      "name": "The Paris devotees",
+      "category": "supporting",
+      "body": "The two religious attendants who tend to Candide at the Paris inn.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "parson",
+      "name": "The Paris parson",
+      "category": "supporting",
+      "body": "The cleric who asks the sick Candide for a signed religious undertaking.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "critic",
+      "name": "The theater critic",
+      "category": "supporting",
+      "body": "The hostile critic seated near Candide at the theater.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "marquise-daughter",
+      "name": "The marchioness’s daughter",
+      "category": "supporting",
+      "body": "The fifteen-year-old daughter at the Parolignac card table.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "banker",
+      "name": "The card-table banker",
+      "category": "supporting",
+      "body": "The man running the game at the marchioness’s gathering.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "scholar",
+      "name": "The scholar at supper",
+      "category": "supporting",
+      "body": "The literary scholar who discusses plays and philosophy at the marchioness’s table.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "impostor",
+      "name": "The false Cunegonde",
+      "category": "supporting",
+      "body": "The woman in Paris who impersonates Cunegonde.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "impostor-maid",
+      "name": "The maid in the Paris hotel",
+      "category": "supporting",
+      "body": "The servant attending the woman presented to Candide at the Paris hotel.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "officer",
+      "name": "The Paris officer",
+      "category": "supporting",
+      "body": "The officer who arrives at the hotel with the abbé.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "officer-brother",
+      "name": "The officer’s brother",
+      "category": "supporting",
+      "body": "The officer’s brother in Dieppe, who arranges the onward voyage.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "byng",
+      "name": "Admiral John Byng",
+      "category": "supporting",
+      "body": "The British naval officer shown at Portsmouth.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "french-admiral",
+      "name": "The French admiral",
+      "category": "reference",
+      "body": "The opposing commander discussed in the explanation at Portsmouth.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dutch-skipper",
+      "name": "The Dutch skipper",
+      "category": "supporting",
+      "body": "The captain carrying Candide and Martin from France to England and then Venice.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "paquette-surgeon",
+      "name": "Paquette’s surgeon",
+      "category": "reference",
+      "body": "The doctor who treats Paquette and takes her as his mistress.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "surgeon-wife",
+      "name": "The surgeon’s wife",
+      "category": "reference",
+      "body": "The wife of Paquette’s doctor.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "paquette-judge",
+      "name": "The judge in Paquette’s story",
+      "category": "reference",
+      "body": "The official who arranges Paquette’s release from jail.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "giroflee-brother",
+      "name": "Giroflee’s elder brother",
+      "category": "reference",
+      "body": "The brother whose inheritance is favored when Giroflee is sent into the church.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pococurante-girls",
+      "name": "Pococurante’s attendants",
+      "category": "supporting",
+      "body": "The two young women serving at the senator’s house.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "levatine-captain",
+      "name": "The Levantine captain",
+      "category": "supporting",
+      "body": "The galley captain with whom Candide negotiates for the enslaved rowers.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "diamond-buyer",
+      "name": "The diamond buyer",
+      "category": "supporting",
+      "body": "The Jewish merchant who buys Candide’s diamond at Constantinople.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "ichoglan",
+      "name": "The young ichoglan",
+      "category": "reference",
+      "body": "The young Ottoman page in the baron’s account of Constantinople.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "baron-cadi",
+      "name": "The baron’s judge",
+      "category": "reference",
+      "body": "The Ottoman judge in the baron’s account of his imprisonment.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pangloss-surgeon",
+      "name": "The Portuguese surgeon",
+      "category": "reference",
+      "body": "The surgeon and barber in Pangloss’s account of surviving the hanging.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pangloss-wife",
+      "name": "The Portuguese surgeon’s wife",
+      "category": "reference",
+      "body": "The wife of the surgeon who treats Pangloss.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "knight-malta",
+      "name": "The knight of Malta",
+      "category": "reference",
+      "body": "Pangloss’s employer during part of his travels.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "venetian-merchant",
+      "name": "The Venetian merchant",
+      "category": "reference",
+      "body": "The merchant who employs Pangloss and takes him to Constantinople.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "mosque-imam",
+      "name": "The imam at the mosque",
+      "category": "reference",
+      "body": "The religious official in Pangloss’s account of the mosque at Constantinople.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "devotee",
+      "name": "The young woman at the mosque",
+      "category": "reference",
+      "body": "The worshipper whose bouquet Pangloss picks up.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pangloss-cadi",
+      "name": "Pangloss’s judge",
+      "category": "reference",
+      "body": "The Ottoman judge in Pangloss’s account of his imprisonment.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "farmer-children",
+      "name": "The farmer’s children",
+      "category": "supporting",
+      "body": "The Turkish farmer’s two sons and two daughters, who work with him.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "viziers",
+      "name": "The two viziers",
+      "category": "reference",
+      "body": "The Ottoman ministers whose fate is reported near the end of the novel.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "mufti",
+      "name": "The mufti",
+      "category": "reference",
+      "body": "The Ottoman religious official mentioned in the news from Constantinople.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "richard2",
+      "name": "Richard II",
+      "category": "reference",
+      "body": "The English king named in Pangloss’s catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Richard II"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "edward2",
+      "name": "Edward II",
+      "category": "reference",
+      "body": "The English king named in Pangloss’s catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Edward II"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "henry6",
+      "name": "Henry VI",
+      "category": "reference",
+      "body": "The English king named in Pangloss’s catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Henry VI"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "richard3",
+      "name": "Richard III",
+      "category": "reference",
+      "body": "The English king named in Pangloss’s catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Richard III"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "charles1",
+      "name": "Charles I",
+      "category": "reference",
+      "body": "The British king named in Pangloss’s catalogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Charles I"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "henry-emperor",
+      "name": "Emperor Henry IV",
+      "category": "reference",
+      "body": "The Holy Roman emperor, distinct from the French kings named alongside him.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Emperor Henry IV"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "french-henrys",
+      "name": "The three Henrys of France",
+      "category": "reference",
+      "body": "Henry II, Henry III and Henry IV, the French kings grouped together in Pangloss’s catalogue.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "three Henrys of France"
+      ],
+      "snapshots": []
+    }
+  ]
+}
