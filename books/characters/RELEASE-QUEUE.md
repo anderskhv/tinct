@@ -66,8 +66,10 @@ All use build_reviewed.py; most also use reviewed_aliases.py. These are Referenc
 | The Bacchae | 58215ac7 | 42 / 42 | build_bacchae.py |
 | Oedipus at Colonus | e114711d | 54 / 54 | build_oedipus_at_colonus.py |
 | The Oresteia | b9960018 | 103 / 103 | build_oresteia.py |
+| Candide | a6b3da7c | 210 / 210 | build_candide.py |
+| A Little Princess | 52271f0b | 86 / 86 | build_a_little_princess.py |
 
-All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia also use reviewed_aliases.py. Review Gilgamesh's inherited Imini/Irnini and mother Ninazu wording issues before enablement; the source is unchanged. Heart of Darkness separates the two accountants, Company officials and Kurtz's visitors. Bacchae distinguishes the two messengers and the two groups of worshippers. This queue does not expand the active release owner's current batch.
+All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia also use reviewed_aliases.py. Review Gilgamesh's inherited Imini/Irnini and mother Ninazu wording issues before enablement; the source is unchanged. Heart of Darkness separates the two accountants, Company officials and Kurtz's visitors. Bacchae distinguishes the two messengers and the two groups of worshippers. Candide gates returned identities and excludes the false Cunegonde; A Little Princess separates the Paris-school lead from Sara and the doll, and gates Carrisford’s business connection to reader knowledge. This queue does not expand the active release owner's current batch.
 
 ## Held separately
 
@@ -75,6 +77,6 @@ The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source 
 
 ## Verification and tracking
 
-Current complete content suite: 162 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 180 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
