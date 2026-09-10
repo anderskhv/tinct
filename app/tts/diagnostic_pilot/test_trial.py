@@ -52,6 +52,18 @@ class Tests(unittest.TestCase):
    trial.paragraph(model,audio,'one','off',out,configuration={'model':'a'});self.assertEqual(len(model.calls),2)
    trial.paragraph(model,audio,'two','off',out,configuration={'model':'a'});self.assertEqual(len(model.calls),3)
    trial.paragraph(model,audio,'two','off',out,configuration={'model':'b'});self.assertEqual(len(model.calls),4)
+ def test_nonspoken_policy_preserves_indexes_and_rejects_prose(self):
+  from spoken_policy import validate_map,is_scene_separator
+  self.assertTrue(is_scene_separator('***'));self.assertTrue(is_scene_separator(' * * * '))
+  for text in ['*','**','—','***hello','[Silence]','']:
+   self.assertFalse(is_scene_separator(text))
+  e=dict(text_paragraph_count=3,paragraphs=[dict(index=0),dict(index=2)],nonspoken=[dict(index=1,text='***')])
+  self.assertTrue(validate_map(e));e['nonspoken'][0]['text']='hello';self.assertFalse(validate_map(e))
+ def test_nonidentity_audio_filename_is_validated(self):
+  with tempfile.TemporaryDirectory() as d:
+   d=Path(d);(d/'p1.mp3').write_bytes(b'fake');source=[dict(key='test/original-en/ch1',group='test',title='Test',text_paragraph_count=1,paragraphs=[dict(index=0,file='p1.mp3',path='p1.mp3',sha256=trial.sha(d/'p1.mp3'),duration=2,text='one')])];(d/'input.json').write_text(json.dumps(source));args=NS(input=d/'input.json',output=d/'out',model_path=d/'model')
+   with patch.dict('sys.modules',{'faster_whisper':NS(WhisperModel=lambda *a,**k:Model(['one']))}):trial.worker(args)
+   candidate=json.loads((d/'out/test/original-en/ch1/auto/words.candidate.json').read_text());self.assertEqual(candidate['paragraphs'][0]['file'],'p1.mp3')
  def test_exact_helper_pin(self):
   import hashlib,subprocess
   original=subprocess.check_output(['git','show','f5b23de7795e73983edf55d922d0801d57d61287:app/tts/words_sidecar_lib.py'])

@@ -4,6 +4,7 @@ import importlib.util
 import argparse,dataclasses,difflib,hashlib,importlib.metadata,json,os,platform,signal,subprocess,sys,time
 from pathlib import Path
 import pinned_words_sidecar_lib as lib
+from spoken_policy import validate_map
 GATE=.85
 
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -65,13 +66,13 @@ def worker(args):
  for e in cohort:
   result=dict(key=e['key'],group=e['group'],status='pending',reasons=[],paragraphs=[])
   for mode in getattr(args,'arms',['off','auto']):
-   directory=args.output/e['key']/mode;passed=[];expected=[];result=dict(key=e['key'],group=e['group'],mode=mode,status='running',reasons=[],paragraphs=[])
+   directory=args.output/e['key']/mode;passed=[];expected=[[] for _ in range(e['text_paragraph_count'])];result=dict(key=e['key'],group=e['group'],mode=mode,status='running',reasons=[],paragraphs=[])
    write(directory/'chapter.json',result)
    for r in e['paragraphs']:
     audio=args.input.parent/r['path']
     if sha(audio)!=r['sha256']:raise ValueError('audio changed: '+str(audio))
     selected=paragraph(model,audio,r['text'],mode,directory/f"p{r['index']}.diagnostic.json",configuration=dict(model=getattr(args,'model_sha256',None),device=getattr(args,'device','cuda'),compute=getattr(args,'compute_type','float16')))
-    words=selected['candidate_words'];stats=selected['stats'];expected.append(selected['expected_tokens']);passed.append((r['index'],r['file'],words))
+    words=selected['candidate_words'];stats=selected['stats'];expected[r['index']]=selected['expected_tokens'];passed.append((r['index'],r['file'],words))
     reasons=list(selected['rejection_reasons'])
     if any(w['end']>r['duration']+.1 for w in words):reasons.append('timing_exceeds_decoded_audio')
     result['paragraphs'].append(dict(index=r['index'],ratio=selected['match_ratio'],reasons=reasons))
@@ -81,6 +82,7 @@ def worker(args):
    candidate=lib.build_sidecar(book,edition,int(ch[2:]),e['title'],passed)
    totals=dict(expectedWords=0,heardWords=0,matchedWords=0)
    for entry in candidate['paragraphs']:
+    entry['file']=next(r['file'] for r in e['paragraphs'] if r['index']==entry['paragraph'])
     diagnostic=json.loads((directory/f"p{entry['paragraph']}.diagnostic.json").read_text())
     selected=next(a for a in diagnostic['attempts'] if a['mode']==diagnostic['selected_mode']);stats=selected['stats']
     entry['alignment']=dict(expectedWords=stats['expected_words'],heardWords=stats['heard_words'],matchedWords=stats['matched_words'],matchRatio=selected['match_ratio'],bias=selected['mode'])
@@ -97,7 +99,7 @@ def main():
  if a.output.exists() and any(a.output.iterdir()) and not a.worker and not a.resume:p.error('Use a fresh output directory or explicit --resume')
  entries=json.loads(a.input.read_text())
  for e in entries:
-  if [r['index'] for r in e['paragraphs']]!=list(range(e['text_paragraph_count'])):p.error('Incomplete chapter map: '+e['key'])
+  if not validate_map(e):p.error('Incomplete chapter map: '+e['key'])
   for r in e['paragraphs']:
    if sha(a.input.parent/r['path'])!=r['sha256']:p.error('Audio hash mismatch')
  if a.worker:worker(a);return
