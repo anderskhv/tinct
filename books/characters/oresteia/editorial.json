@@ -1,0 +1,1229 @@
+{
+  "bookId": "oresteia",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All three plays and 26 local sections in both English editions: named cast, separate choruses, individual elders, speaking roles, family and mythological references. Exact reviewed aliases and selected contextual references.",
+  "entities": [
+    {
+      "id": "agamemnon",
+      "name": "Agamemnon",
+      "category": "central",
+      "body": "The king of Argos, commander of the Greek expedition to Troy, and husband of Clytemnestra.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "AGAMEMNON",
+        "Agamemnon",
+        "VOICE OF AGAMEMNON"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "clytemnestra",
+      "name": "Clytemnestra",
+      "category": "central",
+      "body": "Agamemnon’s wife and queen of Argos, mother of Orestes, Electra and Iphigenia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CLYTEMNESTRA",
+        "CLYTEMNESTSA",
+        "Clytemnestra",
+        "GHOST OF CLYTEMNESTRA",
+        "GHOST"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "orestes",
+      "name": "Orestes",
+      "category": "central",
+      "body": "The son of Agamemnon and Clytemnestra, and brother of Electra.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ORESTES",
+        "OSESTES",
+        "Orestes"
+      ],
+      "snapshots": [],
+      "roleAfter": [
+        11,
+        0
+      ]
+    },
+    {
+      "id": "cassandra",
+      "name": "Cassandra",
+      "category": "major",
+      "body": "The Trojan princess and prophetess brought back as Agamemnon’s captive.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CASSANDRA",
+        "Cassandra"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aegisthus",
+      "name": "Aegisthus",
+      "category": "major",
+      "body": "Clytemnestra’s lover and the son of Thyestes, from the rival branch of Agamemnon’s family.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "AEGISTHUS",
+        "Aegisthus",
+        "AEgisthus",
+        "VOICE OF AEGISTHUS"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "electra",
+      "name": "Electra",
+      "category": "major",
+      "body": "The daughter of Agamemnon and Clytemnestra, and sister of Orestes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ELECTRA",
+        "Electra"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "category": "major",
+      "body": "The god of prophecy, worshipped at Delphi and also called Loxias or Phoebus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "APOLLO",
+        "Apollo",
+        "Loxias",
+        "Phoebus"
+      ],
+      "snapshots": [],
+      "roleAfter": [
+        19,
+        5
+      ]
+    },
+    {
+      "id": "athena",
+      "name": "Athena",
+      "category": "major",
+      "body": "The patron goddess of Athens, daughter of Zeus, also called Pallas.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "ATHENA",
+        "Athena",
+        "Pallas"
+      ],
+      "snapshots": [],
+      "roleAfter": [
+        22,
+        0
+      ]
+    },
+    {
+      "id": "furies",
+      "name": "The Furies",
+      "category": "major",
+      "body": "The ancient avenging goddesses who punish violations of family bonds.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "THE FURIES",
+        "Furies"
+      ],
+      "snapshots": [],
+      "roleAfter": [
+        17,
+        100
+      ]
+    },
+    {
+      "id": "argive-chorus",
+      "name": "The Argive elders",
+      "category": "major",
+      "body": "The elders of Argos who form the chorus in Agamemnon.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "libation-chorus",
+      "name": "The libation bearers",
+      "category": "major",
+      "body": "The enslaved women of the palace who accompany Electra and form the second play’s chorus.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "watchman",
+      "name": "The watchman",
+      "category": "supporting",
+      "body": "The palace watchman waiting for the beacon that will signal news from Troy.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "A WATCHMAN"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "herald",
+      "name": "The herald",
+      "category": "supporting",
+      "body": "The messenger returning from the Greek expedition to Troy.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "HERALD",
+        "Herald"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "argive-leader",
+      "name": "The leader of the Argive elders",
+      "category": "supporting",
+      "body": "The spokesman for the elders of Argos.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "LEADER OF THE CHORUS"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "elder-1",
+      "name": "Argive elder 1",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-2",
+      "name": "Argive elder 2",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-3",
+      "name": "Argive elder 3",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-4",
+      "name": "Argive elder 4",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-5",
+      "name": "Argive elder 5",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-6",
+      "name": "Argive elder 6",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-7",
+      "name": "Argive elder 7",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-8",
+      "name": "Argive elder 8",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-9",
+      "name": "Argive elder 9",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-10",
+      "name": "Argive elder 10",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elder-11",
+      "name": "Argive elder 11",
+      "category": "supporting",
+      "body": "One of the elders separately voicing advice during the palace crisis.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pylades",
+      "name": "Pylades",
+      "category": "supporting",
+      "body": "Orestes’s companion, son of Strophius of Phocis.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PYLADES",
+        "Pylades"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kilissa",
+      "name": "Kilissa",
+      "category": "supporting",
+      "body": "Orestes’s old nurse in the palace of Argos.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Kilissa",
+        "A NURSE"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "doorkeeper",
+      "name": "The palace doorkeeper",
+      "category": "supporting",
+      "body": "The servant who answers the travelers’ knock at the palace.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "aegisthus-servant",
+      "name": "Aegisthus’s servant",
+      "category": "supporting",
+      "body": "The palace servant who calls for help from Clytemnestra’s quarters.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pythia",
+      "name": "The Pythian priestess",
+      "category": "supporting",
+      "body": "Apollo’s priestess at the oracle of Delphi.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "THE PYTHIAN PRIESTESS"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "first-fury",
+      "name": "The first Fury",
+      "category": "supporting",
+      "body": "One of the avenging goddesses, speaking separately as they wake.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "FIRST FURY"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jurors",
+      "name": "The Athenian jurors",
+      "category": "supporting",
+      "body": "The twelve Athenian citizens assembled by Athena to hear the case.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "escort",
+      "name": "The Athenian escort",
+      "category": "supporting",
+      "body": "The women and children who form the ceremonial procession at the end of the trilogy.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "CHANT"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "robe-maidens",
+      "name": "The palace maidens",
+      "category": "supporting",
+      "body": "Clytemnestra’s attendants carrying the purple robes for Agamemnon’s reception.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "atreus",
+      "name": "Atreus",
+      "category": "reference",
+      "body": "The father of Agamemnon and Menelaus, and brother of Thyestes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Atreus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thyestes",
+      "name": "Thyestes",
+      "category": "reference",
+      "body": "Atreus’s brother and rival, and father of Aegisthus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Thyestes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thyestes-children",
+      "name": "Thyestes’s children",
+      "category": "reference",
+      "body": "The children of Thyestes recalled in the account of the family’s older crimes.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "menelaus",
+      "name": "Menelaus",
+      "category": "reference",
+      "body": "Agamemnon’s brother and Helen’s husband, a leader of the Greek expedition.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Menelaus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "category": "reference",
+      "body": "Menelaus’s wife, whose departure with Paris lies behind the Trojan War.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Helen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "category": "reference",
+      "body": "The Trojan prince who takes Helen from Menelaus, also called Alexander.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Paris",
+        "Alexander"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "priam",
+      "name": "Priam",
+      "category": "reference",
+      "body": "The king of Troy and father of Paris and Cassandra.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Priam"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tyndareus",
+      "name": "Tyndareus",
+      "category": "reference",
+      "body": "Clytemnestra’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Tyndareus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leda",
+      "name": "Leda",
+      "category": "reference",
+      "body": "Clytemnestra’s mother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Leda"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "calchas",
+      "name": "Calchas",
+      "category": "reference",
+      "body": "The seer who interprets signs for the Greek army at Troy.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Calchas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "iphigenia",
+      "name": "Iphigenia",
+      "category": "reference",
+      "body": "The daughter of Agamemnon and Clytemnestra recalled in the account of the expedition’s departure.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Iphigenia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "odysseus",
+      "name": "Odysseus",
+      "category": "reference",
+      "body": "The Greek commander praised by Agamemnon for his loyalty during the war.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Odysseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "geryon",
+      "name": "Geryon",
+      "category": "reference",
+      "body": "The three-bodied mythical figure used in Clytemnestra’s comparison.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [
+        "Geryon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "strophius",
+      "name": "Strophius",
+      "category": "reference",
+      "body": "The ruler in Phocis who is caring for Orestes, and father of Pylades.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Strophius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "asclepius",
+      "name": "Asclepius",
+      "category": "reference",
+      "body": "The divine healer famed for restoring the dead to life.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Asclepius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "heracles",
+      "name": "Heracles",
+      "category": "reference",
+      "body": "The hero, son of Alcmena, cited as someone who endured servitude.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "alcmena",
+      "name": "Alcmena",
+      "category": "reference",
+      "body": "The mother of Heracles.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Alcmena"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "itys",
+      "name": "Itys",
+      "category": "reference",
+      "body": "The child mourned in the mythical nightingale’s song.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Itys"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "scylla-monster",
+      "name": "Scylla, the sea monster",
+      "category": "reference",
+      "body": "The monster feared by sailors, used in Cassandra’s comparison.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "scylla-daughter",
+      "name": "Scylla, the king’s daughter",
+      "category": "reference",
+      "body": "The daughter who betrays her father for Minos in the chorus’s story.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chryseis",
+      "name": "Chryseis",
+      "category": "reference",
+      "body": "The Trojan captive associated with Agamemnon, invoked as a type of his wartime lovers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Chryseis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tantalus",
+      "name": "Tantalus",
+      "category": "reference",
+      "body": "An ancestor of the royal house of Atreus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Tantalus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pleisthenes",
+      "name": "Pleisthenes",
+      "category": "reference",
+      "body": "An ancestral name used for the royal family of Agamemnon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pleisthenes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pelops",
+      "name": "Pelops",
+      "category": "reference",
+      "body": "The father of Atreus and Thyestes, an ancestor of the royal house.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pelops"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "category": "reference",
+      "body": "The legendary musician whose song charms its listeners.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Orpheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "althea",
+      "name": "Althea",
+      "category": "reference",
+      "body": "The mother in the story of a son’s life bound to a burning brand.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Althea"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "althea-son",
+      "name": "Althea’s son",
+      "category": "reference",
+      "body": "The son whose life is bound to a piece of wood in the chorus’s story.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "minos",
+      "name": "Minos",
+      "category": "reference",
+      "body": "The Cretan king for whom Scylla betrays her father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Minos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "scylla-father",
+      "name": "Scylla’s father",
+      "category": "reference",
+      "body": "The king whose magical lock of hair is cut by his daughter Scylla.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "perseus",
+      "name": "Perseus",
+      "category": "reference",
+      "body": "The mythical hero invoked as a model of resolve.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Perseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "delphos",
+      "name": "Delphos",
+      "category": "reference",
+      "body": "The legendary king who welcomes Apollo to Delphi.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Delphos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pentheus",
+      "name": "Pentheus",
+      "category": "reference",
+      "body": "The king associated with opposition to Dionysus, recalled by the priestess.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pentheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phineus",
+      "name": "Phineus",
+      "category": "reference",
+      "body": "The king whose food is seized by the Harpies in the mythical comparison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Phineus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ixion",
+      "name": "Ixion",
+      "category": "reference",
+      "body": "The mythical figure whose purification is recalled as a precedent.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ixion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "category": "reference",
+      "body": "The legendary Athenian king associated with the conflict against the Amazons.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Theseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aegeus",
+      "name": "Aegeus",
+      "category": "reference",
+      "body": "Theseus’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aegeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pheres",
+      "name": "Pheres",
+      "category": "reference",
+      "body": "The king whose household is recalled in the story of Apollo and the Fates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pheres"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "erechtheus",
+      "name": "Erechtheus",
+      "category": "reference",
+      "body": "An ancient king and hero of Athens.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Erechtheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cranaos",
+      "name": "Cranaos",
+      "category": "reference",
+      "body": "A legendary early king whose descendants stand for the Athenians.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cranaos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "category": "reference",
+      "body": "The chief Olympian god, invoked as guardian of justice and hospitality.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Zeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "category": "reference",
+      "body": "The god of shepherds and wild places.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Pan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "artemis",
+      "name": "Artemis",
+      "category": "reference",
+      "body": "The goddess of the hunt, invoked in the account of the Greek fleet.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Artemis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hephaestus",
+      "name": "Hephaestus",
+      "category": "reference",
+      "body": "The god of fire, named in the description of the beacon signal.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hephaestus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "category": "reference",
+      "body": "The messenger god, son of Zeus and Maia, who also guides souls.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hermes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ares",
+      "name": "Ares",
+      "category": "reference",
+      "body": "The god of war.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ares"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "persephone",
+      "name": "Persephone",
+      "category": "reference",
+      "body": "The queen of the underworld.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Persephone"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "maia",
+      "name": "Maia",
+      "category": "reference",
+      "body": "Hermes’s mother.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Maia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "themis",
+      "name": "Themis",
+      "category": "reference",
+      "body": "The goddess of divine order, named among the early holders of Delphi’s oracle.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Themis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phoebe",
+      "name": "Phoebe",
+      "category": "reference",
+      "body": "The Titan goddess who passes the Delphic oracle to Apollo.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Phoebe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "category": "reference",
+      "body": "The primordial goddess named as Delphi’s first prophetic power.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dionysus",
+      "name": "Dionysus",
+      "category": "reference",
+      "body": "The god of wine and ecstatic worship, called Bacchus here.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Bacchus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "poseidon",
+      "name": "Poseidon",
+      "category": "reference",
+      "body": "The god of the sea.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Poseidon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hera",
+      "name": "Hera",
+      "category": "reference",
+      "body": "Zeus’s wife, invoked as a guardian of marriage.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hera"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aphrodite",
+      "name": "Aphrodite",
+      "category": "reference",
+      "body": "The goddess of love.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Aphrodite"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leto",
+      "name": "Leto",
+      "category": "reference",
+      "body": "Apollo’s mother.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Leto"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cronos",
+      "name": "Cronos",
+      "category": "reference",
+      "body": "The Titan who is Zeus’s father.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Cronos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sun",
+      "name": "The Sun",
+      "category": "reference",
+      "body": "The all-seeing sun invoked as a divine witness.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "night",
+      "name": "Night",
+      "category": "reference",
+      "body": "The primordial goddess, mother of the Furies.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "justice",
+      "name": "Justice",
+      "category": "reference",
+      "body": "Justice personified as a daughter of Zeus.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "persuasion",
+      "name": "Persuasion",
+      "category": "reference",
+      "body": "The divine power of persuasion invoked by Athena.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [
+        "Persuasion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fates",
+      "name": "The Fates",
+      "category": "reference",
+      "body": "The goddesses who determine the allotted course of lives.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Fates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gorgons",
+      "name": "The Gorgons",
+      "category": "reference",
+      "body": "The terrifying mythical beings used in comparisons with the avenging goddesses.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Gorgons",
+        "Gorgon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "harpies",
+      "name": "The Harpies",
+      "category": "reference",
+      "body": "The winged creatures who snatch Phineus’s food in the myth.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Harpies"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nymphs",
+      "name": "The nymphs",
+      "category": "reference",
+      "body": "The nature spirits worshipped at the Corycian cave.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Nymphs"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "amazons",
+      "name": "The Amazons",
+      "category": "reference",
+      "body": "The women warriors recalled in the account of Athens’s past.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Amazons"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "inachus",
+      "name": "Inachus",
+      "category": "reference",
+      "body": "The river god to whom Orestes dedicates a lock of hair.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Inachus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "admetus",
+      "name": "Admetus",
+      "category": "reference",
+      "body": "The son of Pheres whose escape from death is recalled in the exchange about Apollo and the Fates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "ate",
+      "name": "Ate",
+      "category": "reference",
+      "body": "The divine personification of ruin and destructive delusion.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [
+        "Atè",
+        "Ate"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zephyr",
+      "name": "Zephyr",
+      "category": "reference",
+      "body": "The west wind, named in the account of Helen’s voyage.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Zephyr",
+        "West Wind"
+      ],
+      "snapshots": []
+    }
+  ]
+}
