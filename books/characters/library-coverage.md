@@ -62,7 +62,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Fear and Trembling (`fear-and-trembling`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Communist Manifesto (`communist-manifesto`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Second Treatise of Government (`second-treatise`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| An Enquiry Concerning Human Understanding (`hume-enquiry`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| An Enquiry Concerning Human Understanding (`hume-enquiry`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Social Contract (`social-contract`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Wealth of Nations (`wealth-of-nations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Sorrows of Young Werther (`werther`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
