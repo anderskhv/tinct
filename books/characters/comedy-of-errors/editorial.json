@@ -1,0 +1,642 @@
+{
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All eleven scenes: both pairs of twins, family and city participants, minor tradespeople and named allusions; contextual names and the abbess identity gate.",
+  "entities": [
+    {
+      "id": "antipholus-syracuse",
+      "name": "Antipholus of Syracuse",
+      "category": "central",
+      "body": "Egeon’s son, the visiting twin searching for his mother and brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ANTIPHOLUS OF SYRACUSE",
+        "Antipholus of Syracuse"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antipholus-ephesus",
+      "name": "Antipholus of Ephesus",
+      "category": "central",
+      "body": "The twin established in Ephesus, married to Adriana.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ANTIPHOLUS OF EPHESUS",
+        "Antipholus of Ephesus",
+        "Antipholus (of Ephesus)"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dromio-syracuse",
+      "name": "Dromio of Syracuse",
+      "category": "central",
+      "body": "The servant travelling with Antipholus of Syracuse; he too has a twin brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "DROMIO OF SYRACUSE",
+        "Dromio of Syracuse"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dromio-ephesus",
+      "name": "Dromio of Ephesus",
+      "category": "central",
+      "body": "The servant of Antipholus of Ephesus and twin brother of the other Dromio.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "DROMIO OF EPHESUS",
+        "Dromio of Ephesus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "egeon",
+      "name": "Egeon",
+      "category": "major",
+      "body": "The merchant from Syracuse and father of the Antipholus twins.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "EGEON",
+        "Egeon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adriana",
+      "name": "Adriana",
+      "category": "major",
+      "body": "Antipholus of Ephesus’s wife and Luciana’s sister.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ADRIANA",
+        "Adriana"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "luciana",
+      "name": "Luciana",
+      "category": "major",
+      "body": "Adriana’s unmarried sister.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LUCIANA",
+        "Luciana"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "solinus",
+      "name": "Solinus",
+      "category": "supporting",
+      "body": "The Duke of Ephesus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "DUKE",
+        "Solinus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "egeon-wife",
+      "name": "Egeon’s wife",
+      "category": "supporting",
+      "body": "The mother of Egeon’s twin sons, separated from him in the shipwreck.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            11,
+            119
+          ],
+          "name": "Emilia",
+          "body": "Egeon’s wife and the twins’ mother, now identified as the abbess."
+        }
+      ]
+    },
+    {
+      "id": "abbess",
+      "name": "The abbess",
+      "category": "supporting",
+      "body": "The woman who heads the religious house in Ephesus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ABBESS",
+        "Abbess",
+        "abbess",
+        "Emilia"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            11,
+            119
+          ],
+          "name": "Emilia, the abbess",
+          "body": "The abbess of Ephesus, Egeon’s wife and the twins’ mother."
+        }
+      ]
+    },
+    {
+      "id": "angelo",
+      "name": "Angelo",
+      "category": "major",
+      "body": "The goldsmith making a chain for Antipholus of Ephesus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ANGELO",
+        "Angelo",
+        "goldsmith"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "balthasar",
+      "name": "Balthasar",
+      "category": "supporting",
+      "body": "The merchant accompanying Antipholus of Ephesus to dinner.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "BALTHASAR",
+        "Balthasar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "first-merchant",
+      "name": "The first merchant",
+      "category": "supporting",
+      "body": "The merchant who knows Antipholus of Syracuse and warns him about the city’s laws.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "second-merchant",
+      "name": "The second merchant",
+      "category": "supporting",
+      "body": "The merchant to whom Angelo owes money.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "courtesan",
+      "name": "The courtesan",
+      "category": "supporting",
+      "body": "The courtesan at the Porpentine, an acquaintance of Antipholus of Ephesus.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "COURTESAN",
+        "Courtesan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "luce",
+      "name": "Luce",
+      "category": "supporting",
+      "body": "A maid in Adriana’s household who speaks from inside the house.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LUCE",
+        "Luce"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nell",
+      "name": "Nell",
+      "category": "supporting",
+      "body": "The kitchen maid promised to Dromio of Ephesus, also jokingly called Dowsabel.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nell",
+        "Dowsabel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pinch",
+      "name": "Doctor Pinch",
+      "category": "supporting",
+      "body": "The schoolmaster called in as an exorcist.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PINCH",
+        "Doctor Pinch",
+        "Pinch"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jailer",
+      "name": "Egeon’s jailer",
+      "category": "supporting",
+      "body": "The jailer charged with holding Egeon.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "JAILER",
+        "Jailer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "officer",
+      "name": "The arresting officer",
+      "category": "supporting",
+      "body": "The officer enforcing the debt claims involving Angelo and Antipholus of Ephesus.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "OFFICER"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "messenger",
+      "name": "Adriana’s messenger",
+      "category": "supporting",
+      "body": "A servant from Adriana’s household who brings her news.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "MESSENGER",
+        "Messenger"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "headsman",
+      "name": "The headsman",
+      "category": "supporting",
+      "body": "The executioner attending Egeon.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Headsman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ducal-officers",
+      "name": "The duke’s officers and attendants",
+      "category": "supporting",
+      "body": "The officials and attendants accompanying the Duke of Ephesus.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Officers",
+        "Attendants"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pinch-assistants",
+      "name": "Pinch’s assistants",
+      "category": "supporting",
+      "body": "The helpers brought in to restrain the men Pinch is treating.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Assistants"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "menaphon",
+      "name": "Duke Menaphon",
+      "category": "reference",
+      "body": "Solinus’s uncle, the warrior who brought Antipholus of Ephesus to the city.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Duke Menaphon",
+        "Menaphon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "syracuse-duke",
+      "name": "The Duke of Syracuse",
+      "category": "reference",
+      "body": "The ruler whose treatment of Ephesian merchants Solinus describes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "factor",
+      "name": "Egeon’s factor",
+      "category": "reference",
+      "body": "Egeon’s commercial agent at Epidamnum.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dromio-mother",
+      "name": "The Dromios’ mother",
+      "category": "reference",
+      "body": "The poor woman who gave birth to the twin servants at the same inn as Egeon’s sons.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "saddler",
+      "name": "The saddler",
+      "category": "reference",
+      "body": "The tradesman paid for Adriana’s riding equipment.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "saddler"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "innkeeper",
+      "name": "The Centaur’s innkeeper",
+      "category": "reference",
+      "body": "The host at the inn where Antipholus of Syracuse is staying.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "tailor",
+      "name": "The tailor",
+      "category": "reference",
+      "body": "The tradesman who takes Antipholus of Syracuse’s measurements.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "tailor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rope-maker",
+      "name": "The rope-maker",
+      "category": "reference",
+      "body": "The tradesman from whom Dromio of Ephesus buys a rope.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "rope-maker",
+        "ropemaker"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "maud",
+      "name": "Maud",
+      "category": "reference",
+      "body": "One of the women Dromio of Ephesus calls for at his master’s door.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Maud"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bridget",
+      "name": "Bridget",
+      "category": "reference",
+      "body": "One of the women Dromio of Ephesus calls for at his master’s door.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Bridget"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "marian",
+      "name": "Marian",
+      "category": "reference",
+      "body": "One of the women Dromio of Ephesus calls for at his master’s door.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Marian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cicely",
+      "name": "Cicely",
+      "category": "reference",
+      "body": "One of the women Dromio of Ephesus calls for at his master’s door.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cicely"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gillian",
+      "name": "Gillian",
+      "category": "reference",
+      "body": "One of the women Dromio of Ephesus calls for at his master’s door.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gillian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ginn",
+      "name": "Ginn",
+      "category": "reference",
+      "body": "One of the women Dromio of Ephesus calls for at his master’s door.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ginn"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sailors",
+      "name": "The ship’s sailors",
+      "category": "reference",
+      "body": "The crew in Egeon’s account of the family’s voyage.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "corinth-fishermen",
+      "name": "The Corinthian fishermen",
+      "category": "reference",
+      "body": "The fishermen involved in the separation of Egeon’s family.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "fishermen of Corinth"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "epidamnum-men",
+      "name": "The men of Epidamnum",
+      "category": "reference",
+      "body": "The men whom the abbess recalls from the shipwreck.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "men of Epidamnum"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rescuing-crew",
+      "name": "Egeon’s rescuers",
+      "category": "reference",
+      "body": "The crew of the ship that takes Egeon and the children with him aboard.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The deity invoked in the play’s prayers and exclamations.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gods",
+      "name": "The gods",
+      "category": "reference",
+      "body": "The divine powers invoked by Egeon.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "gods"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "category": "reference",
+      "body": "Chance imagined as a power dividing Egeon’s family.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [
+        "Fortune"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "time",
+      "name": "Father Time",
+      "category": "reference",
+      "body": "Time personified in the servants’ jokes.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [
+        "Father Time"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "noah",
+      "name": "Noah",
+      "category": "reference",
+      "body": "The biblical figure associated with the great flood.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Noah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "category": "reference",
+      "body": "The first man in Genesis, invoked in Dromio’s joke about the officer’s leather clothes.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "prodigal",
+      "name": "The Prodigal Son",
+      "category": "reference",
+      "body": "The returning son welcomed with a feast in Jesus’ parable.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Prodigal Son",
+        "Prodigal"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "satan",
+      "name": "Satan",
+      "category": "reference",
+      "body": "The devil invoked in the characters’ accusations of demonic activity.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Satan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "circe",
+      "name": "Circe",
+      "category": "reference",
+      "body": "The sorceress of Greek myth whose cup transforms men into animals.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Circe"
+      ],
+      "snapshots": []
+    }
+  ]
+}
