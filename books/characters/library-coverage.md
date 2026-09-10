@@ -16,7 +16,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | A Midsummer Night's Dream (`midsummer`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Romeo and Juliet (`romeo-and-juliet`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Tempest (`the-tempest`) | validated-package | Release owner: review documented inherited song-speaker defects; integrate versioned asset and verify production |
-| The Art of War (`the-art-of-war`) | validated-package | Release owner: integrate versioned asset and verify production |
+| The Art of War (`the-art-of-war`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Pride and Prejudice (`pride-and-prejudice`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Crime and Punishment (`crime-and-punishment`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Republic (`the-republic`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
@@ -26,11 +26,11 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Aeneid (`the-aeneid`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Paradise Lost (`paradise-lost`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Frankenstein (`frankenstein`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Manual (`the-manual`) | validated-package | Release owner: integrate versioned asset and verify production |
-| Apology (`apology`) | validated-package | Release owner: integrate versioned asset and verify production |
+| The Manual (`the-manual`) | validated-package | Maintain source fingerprint checks on future edition changes |
+| Apology (`apology`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Symposium (`symposium`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Phaedo (`phaedo`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Crito (`crito`) | validated-package | Release owner: integrate versioned asset and verify production |
+| Crito (`crito`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Phaedrus (`phaedrus`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Poetics (`poetics`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Moby Dick (`moby-dick`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

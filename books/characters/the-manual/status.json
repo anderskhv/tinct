@@ -1,9 +1,19 @@
 {
   "contentStatus": "validated-package",
-  "appStatus": "awaiting-integration",
+  "appStatus": "live",
   "reviewedEditions": [
     "original-en",
     "modern-en"
   ],
-  "nextAction": "Release owner: integrate versioned asset and verify production"
+  "nextAction": "Maintain source fingerprint checks on future edition changes",
+  "productionVerification": {
+    "reportedBy": "release owner",
+    "date": "2026-09-10",
+    "bundle": "index-D_c4t1iT.js",
+    "workerVersion": "07acbcbd-0c28-4cfc-b6e7-358ae2d3542b",
+    "report": "docs/character-cards-four-2026-09-10.md",
+    "evidenceCommit": "10de86bb",
+    "artifacts": "/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-characters-four/",
+    "checks": "Both edition pairs; exact bundle and asset bytes; 60 live card scenarios plus four documented modern omissions; 15 smoke checks."
+  }
 }

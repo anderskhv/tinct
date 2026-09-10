@@ -8,10 +8,11 @@ Updated September 10, 2026. This is a content-lane handoff to the existing relea
 - Bible: Baruch only. Preserve all three enabled English variants.
 - Hamlet: release-owner verified, index-CfVbJ712.js. Evidence docs/character-cards-hamlet-2026-09-10.md in shipping/main.
 - Macbeth: release-owner verified, index-BjPCOKB7.js. Evidence docs/character-cards-macbeth-2026-09-10.md in shipping/main.
+- Crito, Apology, The Manual and The Art of War: both English editions production verified, index-D_c4t1iT.js; Worker 07acbcbd-0c28-4cfc-b6e7-358ae2d3542b. Evidence commit 10de86bb, docs/character-cards-four-2026-09-10.md.
 
 These bundle names identify the verification releases, not necessarily the currently served bundle after later deployments.
 
-## Next approved batch: integration in progress
+## First four: production verified September 10
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
@@ -79,10 +80,12 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | Phaedo | 650626ed | 54 / 54 | build_phaedo.py |
 | Phaedrus | 27e825aa | 89 / 88 | build_phaedrus.py |
 | Symposium | 9a088916 | 93 / 91 | build_symposium.py |
+| The Comedy of Errors | 5dbc6da6 | 51 / 51 | build_comedy_of_errors.py |
+| Notes from Underground | bdadefbd | 79 / 79 | build_notes_from_underground.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
-The release owner confirmed active integration of Crito, Apology, Manual and Art of War on September 10 and will drain the remaining validated queue without new approval requests. Authoring continues independently; this is not production verification.
+The release owner verified the first four on September 10 and will drain the remaining validated queue without new approval requests. Comedy of Errors scopes twin names and gates Emilia’s concealed identity. Notes from Underground separates narrator/author, officers, servants and literary references. Authoring continues independently; queued packages are not yet production verified.
 
 ## Held separately
 
@@ -90,6 +93,6 @@ The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source 
 
 ## Verification and tracking
 
-Current complete content suite: 211 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 225 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
