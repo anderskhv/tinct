@@ -8,11 +8,12 @@ Follow [EDITORIAL-POLICY.md](EDITORIAL-POLICY.md). Provide short recognition hel
 
 ## Scope and progress
 
-Current registry inventory: 100 published books, 201 English source edition files. The staged Treasure Island is outside this published-library rollout. Scope clarification (whole books versus opening-chapter samples) and preference for parallel agents were requested; until answered, preparatory work supports either scope. No parallel agents have been started.
+Current registry inventory: 100 published books, 201 English source edition files. The staged Treasure Island is outside this published-library rollout. Full published-library execution was explicitly confirmed on September 10 through the originating character-design task. No further scope confirmation is needed. No parallel agents have been started.
 
 - The Awakening: the prior 86-entry copy revision is live; further shortening of running reminders remains under the newly clarified recognition standard.
 - War and Peace: approved opening sample and categories; 45 baseline draft cards, still awaiting full source/alias/gate review.
-- Hamlet: 31 baseline draft cards; same-name fathers/sons and player roles require explicit bindings; reference inventory incomplete.
+- Hamlet: 80-entry complete scoped package validated across all 20 scenes; handed to the release owner for integration.
+- Bible: Baruch-only cards are live in KJV/WEB/modern English, maintained by the release owner; preserve them when expanding coverage.
 - All 100 books: source inventory and unreviewed candidate worksheet prepared. Existing Threads supply 1,134 candidates, not a completeness guarantee. Their plot summaries are deliberately not copied.
 
 The source-candidate audit finds 39 shared alias strings and 21 unmatched candidate/edition pairs. These are only mechanically detectable problems: unshared aliases can still point at the wrong person. Verified examples include Prince/King Hamlet, Pierre/Count Bezukhov, the two Tikhons, and Natasha/her mother. No runtime lookup should use these worksheets directly.

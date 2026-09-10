@@ -1,6 +1,6 @@
 # Character content: library coverage
 
-Snapshot: 2026-09-09. Regenerate with `python3 books/characters/inventory.py`.
+Snapshot: 2026-09-10. Regenerate with `python3 books/characters/inventory.py`.
 
 Only published BOOKS entries are included. Existing Threads content is not evidence of spoiler-safe character readiness.
 
@@ -9,9 +9,9 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Odyssey (`odyssey`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Ulysses (`ulysses`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | War and Peace (`war-and-peace`) | recognition-draft | Review 45 draft entries and extend complete source inventory; reject ambiguous inherited aliases |
-| The Bible (`bible`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Bible (`bible`) | partial-baruch-only | Expand full Bible people/reference inventory while preserving live Baruch son of Neriah; authoritative source is shipping checkout books/characters/bible/baruch.json |
 | The Epic of Gilgamesh (`gilgamesh`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Hamlet (`hamlet`) | recognition-draft | Review full play and reference coverage; resolve same-name father/son and player/king bindings |
+| Hamlet (`hamlet`) | validated-package | Release owner: integrate versioned asset, verify reader selection and production |
 | Macbeth (`macbeth`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | A Midsummer Night's Dream (`midsummer`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Romeo and Juliet (`romeo-and-juliet`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

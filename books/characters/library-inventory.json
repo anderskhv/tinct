@@ -1,5 +1,5 @@
 {
-  "observedOn": "2026-09-09",
+  "observedOn": "2026-09-10",
   "source": "app/src/data/bookRegistry.ts BOOKS",
   "registrySha256": "7176c8d9929dcfc508f14ad7c7ff37a0d93d48949fee1e590e7a17b49011fcc7",
   "publishedCount": 100,
@@ -85,9 +85,13 @@
     {
       "bookId": "bible",
       "title": "The Bible",
-      "contentStatus": "not-started",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "partial-baruch-only",
+      "appStatus": "production-verified-partial",
+      "reviewedEditions": [
+        "kjv-en",
+        "web-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "kjv-en",
@@ -112,7 +116,7 @@
         }
       ],
       "existingThreadCandidates": 305,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Expand full Bible people/reference inventory while preserving live Baruch son of Neriah; authoritative source is shipping checkout books/characters/bible/baruch.json"
     },
     {
       "bookId": "gilgamesh",
@@ -142,9 +146,12 @@
     {
       "bookId": "hamlet",
       "title": "Hamlet",
-      "contentStatus": "recognition-draft",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -162,7 +169,7 @@
         }
       ],
       "existingThreadCandidates": 13,
-      "nextAction": "Review full play and reference coverage; resolve same-name father/son and player/king bindings"
+      "nextAction": "Release owner: integrate versioned asset, verify reader selection and production"
     },
     {
       "bookId": "macbeth",
