@@ -1,0 +1,30 @@
+{
+  "bookId": "gilgamesh",
+  "scope": "All twelve local tablets in both English editions: named heroes, divine actors and references, distinct recognizable unnamed roles and selected groups. Source defects and ambiguous divine names are documented separately.",
+  "authoredEntries": 70,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "1c9886e2b341187c3dd2b0e4fbcbfc285e65f7631ae6944d094424ac50ef31cc",
+      "chapters": 12,
+      "paragraphs": 253,
+      "entries": 70,
+      "mentions": 911,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "419a43b05bfcbf84dce9f1948158a8f3d34a4b6dc41c93767c827aede87ad63c",
+      "chapters": 12,
+      "paragraphs": 253,
+      "entries": 69,
+      "mentions": 851,
+      "omittedEntities": [
+        "asakku"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

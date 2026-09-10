@@ -10,7 +10,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Ulysses (`ulysses`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | War and Peace (`war-and-peace`) | recognition-draft | Review 45 draft entries and extend complete source inventory; reject ambiguous inherited aliases |
 | The Bible (`bible`) | partial-baruch-only | Expand full Bible people/reference inventory while preserving live Baruch son of Neriah; authoritative source is shipping checkout books/characters/bible/baruch.json |
-| The Epic of Gilgamesh (`gilgamesh`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Epic of Gilgamesh (`gilgamesh`) | validated-package | Review documented source defects, integrate versioned asset and verify production |
 | Hamlet (`hamlet`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Macbeth (`macbeth`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | A Midsummer Night's Dream (`midsummer`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

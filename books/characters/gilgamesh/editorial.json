@@ -1,0 +1,850 @@
+{
+  "bookId": "gilgamesh",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All twelve local tablets in both English editions: named heroes, divine actors and references, distinct recognizable unnamed roles and selected groups. Source defects and ambiguous divine names are documented separately.",
+  "entities": [
+    {
+      "id": "gilgamesh",
+      "name": "Gilgamesh",
+      "category": "central",
+      "body": "The king of Uruk and the epic’s principal hero, son of Ninsun and Lugalbanda.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gilgamesh",
+        "Gilgamsh",
+        "Gigamesh",
+        "Gilagmesh",
+        "Gilamesh"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "enkidu",
+      "name": "Enkidu",
+      "category": "central",
+      "body": "The wild man created by Aruru to match Gilgamesh in strength.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Enkidu"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            2,
+            15
+          ],
+          "body": "Gilgamesh’s closest friend and companion, originally a wild man raised among animals."
+        }
+      ]
+    },
+    {
+      "id": "shamash",
+      "name": "Shamash",
+      "category": "major",
+      "body": "The sun god, protector of Gilgamesh and Enkidu.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Shamash",
+        "Sun God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "humbaba",
+      "name": "Humbaba",
+      "category": "major",
+      "body": "The fearsome guardian appointed by Enlil to protect the Cedar Forest.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [
+        "Humbaba"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ishtar",
+      "name": "Ishtar",
+      "category": "major",
+      "body": "The goddess of love and war, daughter of Anu and Antum.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ishtar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "utnapishtim",
+      "name": "Utnapishtim",
+      "category": "major",
+      "body": "Gilgamesh’s distant ancestor, a man granted everlasting life.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Utnapishtim",
+        "Utnapishim",
+        "Atra-hasis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ninsun",
+      "name": "Ninsun",
+      "category": "supporting",
+      "body": "Gilgamesh’s mother, a wise cow-goddess who interprets his dreams.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ninsun"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lugalbanda",
+      "name": "Lugalbanda",
+      "category": "supporting",
+      "body": "Gilgamesh’s divine father, invoked as his protector.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Lugalbanda"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "shamhat",
+      "name": "Shamhat",
+      "category": "supporting",
+      "body": "The sex worker from Uruk sent to introduce Enkidu to human society.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Shamhat"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "siduri",
+      "name": "Siduri",
+      "category": "supporting",
+      "body": "The tavern-keeper who lives beside the sea. Also spelled Sirudi here.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Siduri",
+        "Sirudi",
+        "tavern-keeper"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "urshanabi",
+      "name": "Urshanabi",
+      "category": "supporting",
+      "body": "Utnapishtim’s ferryman, who crosses the Waters of Death. Also spelled Urshinabi here.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Urshanabi",
+        "Urshinabi"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anu",
+      "name": "Anu",
+      "category": "supporting",
+      "body": "The sky god and father of Ishtar.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Anu"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "enlil",
+      "name": "Enlil",
+      "category": "supporting",
+      "body": "A leading god who exercises authority over humanity and the other gods. Also called Bel here.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Enlil",
+        "Bel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ea",
+      "name": "Ea / Enki",
+      "category": "supporting",
+      "body": "The god of wisdom and fresh water, also called Enki and Nudimmud.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ea",
+        "Enki",
+        "Nudimmud"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aruru",
+      "name": "Aruru",
+      "category": "supporting",
+      "body": "The creator goddess who fashions human beings.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Aruru"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adad",
+      "name": "Adad",
+      "category": "supporting",
+      "body": "The god of storms and thunder.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Adad"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sin",
+      "name": "Sin",
+      "category": "supporting",
+      "body": "The moon god, also invoked as Namra-sit.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Sin",
+        "Namra-sit"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ereshkigal",
+      "name": "Ereshkigal",
+      "category": "supporting",
+      "body": "The queen of the underworld, also called Irkalla in this edition.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ereshkigal",
+        "Irkalla"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nergal",
+      "name": "Nergal",
+      "category": "supporting",
+      "body": "A god associated with death, warfare and the underworld.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Nergal"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ninurta",
+      "name": "Ninurta",
+      "category": "supporting",
+      "body": "A warrior god who takes part in the gods’ council and the Flood story.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ninurta"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antum",
+      "name": "Antum",
+      "category": "supporting",
+      "body": "Ishtar’s mother and Anu’s consort.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Antum"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bull",
+      "name": "The Bull of Heaven",
+      "category": "supporting",
+      "body": "The divine bull under Anu’s control, requested by Ishtar.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [
+        "Bull of Heaven",
+        "Heaven-Bull"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anunnaki",
+      "name": "The Anunnaki",
+      "category": "supporting",
+      "body": "A collective name for the great gods who determine human fate.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Anunnaki"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "trapper",
+      "name": "The trapper",
+      "category": "supporting",
+      "body": "The hunter who encounters Enkidu at the animals’ watering place.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "trapper"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "trapper-father",
+      "name": "The trapper’s father",
+      "category": "supporting",
+      "body": "The trapper’s father, whom he consults about Enkidu.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "elders",
+      "name": "The elders of Uruk",
+      "category": "supporting",
+      "body": "The city’s senior counselors, who advise Gilgamesh.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "elders of Uruk",
+        "elders"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "scorpion-man",
+      "name": "The scorpion-man",
+      "category": "supporting",
+      "body": "One of the guardians of the mountain of Mashu and the sun’s passage.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [
+        "scorpion-man"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "scorpion-wife",
+      "name": "The scorpion-man’s wife",
+      "category": "supporting",
+      "body": "The scorpion-man’s wife and fellow guardian at Mount Mashu.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "scorpion-guardians",
+      "name": "The scorpion guardians",
+      "category": "supporting",
+      "body": "The beings who guard the entrance to Mount Mashu.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Scorpion-men"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "stone-men",
+      "name": "The Stone Men",
+      "category": "supporting",
+      "body": "Urshanabi’s stone boat crew, immune to the Waters of Death.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Stone Men"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "utnapishtim-wife",
+      "name": "Utnapishtim’s wife",
+      "category": "supporting",
+      "body": "Utnapishtim’s wife, who lives with him at his distant dwelling.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "barber",
+      "name": "The barber",
+      "category": "supporting",
+      "body": "The barber who grooms Enkidu as he enters human society.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "barber"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "wedding-guest",
+      "name": "The wedding guest",
+      "category": "supporting",
+      "body": "The traveler who explains the wedding customs of Uruk to Enkidu.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dream-attacker",
+      "name": "The figure in Enkidu’s dream",
+      "category": "supporting",
+      "body": "The terrifying humanlike figure with animal claws in Enkidu’s dream.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "underworld-scribe",
+      "name": "The underworld scribe",
+      "category": "supporting",
+      "body": "The scribe who reads a tablet before Ereshkigal.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "carpenter",
+      "name": "The carpenter",
+      "category": "reference",
+      "body": "The carpenter whose shop Gilgamesh recalls in the story of his ball and mallet.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "carpenter-wife",
+      "name": "The carpenter’s wife",
+      "category": "reference",
+      "body": "The carpenter’s wife, whom Gilgamesh regards as being like a mother.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "carpenter-daughter",
+      "name": "The carpenter’s daughter",
+      "category": "reference",
+      "body": "The carpenter’s daughter, whom Gilgamesh regards as being like a sister.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "snake",
+      "name": "The serpent",
+      "category": "supporting",
+      "body": "The snake at the watering place on Gilgamesh’s return journey.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "aya",
+      "name": "Aya",
+      "category": "reference",
+      "body": "The goddess who is Shamash’s consort.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Aya"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nisaba",
+      "name": "Nisaba",
+      "category": "reference",
+      "body": "The grain goddess, invoked in the description of Enkidu’s hair.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Nisaba"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "igigi",
+      "name": "The Igigi",
+      "category": "reference",
+      "body": "A collective name for a group of gods.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Igigi"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "irnina",
+      "name": "Irnina",
+      "category": "reference",
+      "body": "A divine figure associated with victory and the underworld, invoked in Ninsun’s prayer.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Irnina"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "irnini",
+      "name": "Irnini",
+      "category": "reference",
+      "body": "The divine name attached to the Cedar Forest’s sanctuary in this translation; printed Imini in the original edition.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Irnini",
+        "Imini"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ningishzida",
+      "name": "Ningishzida",
+      "category": "reference",
+      "body": "An underworld god invoked in Ninsun’s prayer.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ningishzida"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dumuzi",
+      "name": "Dumuzi",
+      "category": "reference",
+      "body": "Ishtar’s youthful husband, a shepherd god.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Dumuzi"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thunderbird",
+      "name": "The Thunderbird",
+      "category": "reference",
+      "body": "The mighty supernatural bird invoked in the heroes’ dreams and comparisons.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [
+        "Thunderbird"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "allallu",
+      "name": "The allallu-bird",
+      "category": "reference",
+      "body": "The brightly colored bird named among Ishtar’s former lovers.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "allallu-bird"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "silili",
+      "name": "Silili",
+      "category": "reference",
+      "body": "The mother of the horse named among Ishtar’s former lovers.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [
+        "Silili"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ishullanu",
+      "name": "Ishullanu",
+      "category": "reference",
+      "body": "Anu’s gardener, named among the men desired by Ishtar.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ishullanu"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lover-lion",
+      "name": "The lion",
+      "category": "reference",
+      "body": "The powerful lion named among Ishtar’s former lovers.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "lover-horse",
+      "name": "The horse",
+      "category": "reference",
+      "body": "The warhorse named among Ishtar’s former lovers, offspring of Silili.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "lover-shepherd",
+      "name": "The shepherd",
+      "category": "reference",
+      "body": "The herdsman named among Ishtar’s former lovers.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "etana",
+      "name": "Etana",
+      "category": "reference",
+      "body": "A legendary king encountered among the inhabitants of the underworld.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Etana"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "shakkan",
+      "name": "Shakkan",
+      "category": "reference",
+      "body": "The god of wild animals and herds, named in the underworld vision.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Shakkan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "namtar",
+      "name": "Namtar",
+      "category": "reference",
+      "body": "A divine agent of death and disease associated with the underworld.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Namtar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hushbisha",
+      "name": "Hushbisha",
+      "category": "reference",
+      "body": "A divine attendant in the court of the underworld.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hushbisha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "qassu",
+      "name": "Quassu-tabat",
+      "category": "reference",
+      "body": "A divine attendant of Ereshkigal, honored in the funeral offerings.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Quassu-tabat"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ninshuluhha",
+      "name": "Ninshuluhha",
+      "category": "reference",
+      "body": "A deity associated with cleaning the underworld’s house.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ninshuluhha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bibbu",
+      "name": "Bibbu",
+      "category": "reference",
+      "body": "A deity serving in the underworld’s court, honored in the funeral offerings.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Bibbu"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dumuzi-abzu",
+      "name": "Dumuzi-abzu",
+      "category": "reference",
+      "body": "A separate underworld deity from Ishtar’s husband Dumuzi, named in the funeral offerings.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Dumuzi-abzu"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ubar-tutu",
+      "name": "Ubar-Tutu",
+      "category": "reference",
+      "body": "Utnapishtim’s father, also spelled Ubara-Tutu here.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ubar-Tutu",
+        "Ubara-Tutu"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mammitum",
+      "name": "Mammitum",
+      "category": "reference",
+      "body": "The goddess who determines human fate with the great gods.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Mammitum"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ennugi",
+      "name": "Ennugi",
+      "category": "reference",
+      "body": "A god named among the leaders of the divine council.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ennugi"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "puzur",
+      "name": "Puzur-Amurri",
+      "category": "reference",
+      "body": "The boatman entrusted with Utnapishtim’s ship in the Flood story.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Puzur-Amurri"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "shullat",
+      "name": "Shullat",
+      "category": "reference",
+      "body": "One of the heralds who accompany the storm god Adad.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Shullat"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hanish",
+      "name": "Hanish",
+      "category": "reference",
+      "body": "One of the heralds who accompany the storm god Adad.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hanish"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ninazu",
+      "name": "Ninazu",
+      "category": "reference",
+      "body": "An underworld god, a son of Ereshkigal in this tradition.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ninazu"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "asakku",
+      "name": "Asakku",
+      "category": "reference",
+      "body": "A demon associated with sickness and death.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [
+        "Asakku"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sages",
+      "name": "The seven Sages",
+      "category": "reference",
+      "body": "The legendary sages credited with laying the foundations of Uruk’s wall.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Seven Sages",
+        "seven Sages",
+        "seven sages"
+      ],
+      "snapshots": []
+    }
+  ]
+}
