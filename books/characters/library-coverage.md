@@ -60,7 +60,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Politics (`aristotle-politics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Leviathan (`leviathan`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Fear and Trembling (`fear-and-trembling`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Communist Manifesto (`communist-manifesto`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Communist Manifesto (`communist-manifesto`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Second Treatise of Government (`second-treatise`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | An Enquiry Concerning Human Understanding (`hume-enquiry`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Social Contract (`social-contract`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
