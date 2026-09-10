@@ -1,0 +1,131 @@
+"""Manually authored recognition cards for both full English texts of the play."""
+import json
+from pathlib import Path
+entities=[]
+def add(id,name,body,aliases='',category='supporting',kind='person'):
+ entities.append(dict(id=id,name=name,body=body,aliases=aliases.split('|') if aliases else [],category=category,kind=kind,subtitle='',snapshots=[]))
+
+for row in [
+('antony','Mark Antony','One of the three rulers of the Roman world, kept in Egypt by Cleopatra.','ANTONY|Antony|Marcus Antonius|Antonius|Domitius Antonius','central'),
+('cleopatra','Cleopatra','The Queen of Egypt, and Antony’s lover.','CLEOPATRA|Cleopatra','central'),
+('octavius','Octavius Caesar','The youngest of the three rulers of the Roman world, and Antony’s partner in it.','CAESAR|Octavius Caesar|Octavius','central'),
+('enobarbus','Domitius Enobarbus','Antony’s closest officer and the plainest speaker in his following.','ENOBARBUS|Enobarbus|Domitius','major'),
+('charmian','Charmian','One of Cleopatra’s attendants, and the closest to her.','CHARMIAN|Charmian','major'),
+('sextus','Sextus Pompeius','The son of Pompey the Great, in arms at sea against the three rulers.','POMPEY|Sextus Pompeius|Pompeius','major'),
+('lepidus','Lepidus','The third of the three rulers of the Roman world, and the weakest of them.','LEPIDUS|Lepidus','major'),
+('menas','Menas','A pirate captain in Sextus Pompeius’s service.','MENAS|Menas','major'),
+('eros','Eros','Antony’s servant and armour-bearer.','EROS|Eros','major'),
+('agrippa','Agrippa','One of Octavius Caesar’s chief officers.','AGRIPPA|Agrippa','major'),
+('dolabella','Dolabella','One of Octavius Caesar’s officers, sent to attend Cleopatra.','DOLABELLA|Dolabella','major'),
+('iras','Iras','One of Cleopatra’s attendants.','IRAS|Iras'),
+('alexas','Alexas','An attendant on Cleopatra, who carries her messages to Antony.','ALEXAS|Alexas'),
+('maecenas','Maecenas','One of Octavius Caesar’s counsellors.','MAECENAS|Maecenas'),
+('octavia','Octavia','Octavius Caesar’s sister, married to Antony to bind the two men together.','OCTAVIA|Octavia'),
+('scarus','Scarus','An officer in Antony’s army, wounded fighting for him.','SCARUS|Scarus'),
+('thidias','Thidias','Octavius Caesar’s messenger to Cleopatra, whipped for his pains.','THIDIAS|Thidias'),
+('canidius','Canidius','Antony’s lieutenant-general on land.','CANIDIUS|Canidius'),
+('proculeius','Proculeius','An officer of Octavius Caesar’s, whom Antony tells Cleopatra to trust.','PROCULEIUS|Proculeius'),
+('mardian','Mardian','A eunuch in Cleopatra’s household.','MARDIAN|Mardian'),
+('diomedes','Diomedes','An attendant on Cleopatra, sent after Antony with her message.','DIOMEDES|Diomedes'),
+('dercetus','Dercetus','A soldier of Antony’s who takes his sword to Octavius Caesar.','DERCETUS|Dercetus'),
+('ventidius','Ventidius','An officer of Antony’s, victorious against the Parthians.','VENTIDIUS|Ventidius'),
+('silius','Silius','An officer serving under Ventidius in Syria.','SILIUS|Silius'),
+('seleucus','Seleucus','Cleopatra’s treasurer, who betrays what she has kept back.','SELEUCUS|Seleucus'),
+('gallus','Gallus','An officer of Octavius Caesar’s, sent with Proculeius to the monument.','GALLUS|Gallus'),
+('taurus','Taurus','Octavius Caesar’s lieutenant-general on land at Actium.','TAURUS|Taurus'),
+('menecrates','Menecrates','A pirate captain with Menas in Sextus Pompeius’s service.','MENECRATES|Menecrates'),
+('varrius','Varrius','A follower of Sextus Pompeius who brings him news of Antony.','VARRIUS|Varrius'),
+('philo','Philo','A follower of Antony’s, who opens the play deploring his change.','PHILO|Philo'),
+('demetrius','Demetrius','A follower of Antony’s, to whom Philo speaks.','DEMETRIUS|Demetrius'),
+('soothsayer','The Soothsayer','The Egyptian soothsayer who reads the women’s fortunes and warns Antony off Caesar.','SOOTHSAYER|Soothsayer'),
+('clown','The Clown','The countryman who brings Cleopatra the asps in a basket of figs.','CLOWN|Clown'),
+]:add(*row)
+
+for row in [
+('ambassador','The Ambassador','Antony’s schoolmaster, sent as his ambassador to Octavius Caesar.','AMBASSADOR'),
+('messenger','The messenger','The messenger who brings Cleopatra news of Antony from Rome.','MESSENGER|Messenger'),
+('second-messenger','The Second Messenger','A second messenger bringing news to Octavius Caesar.','SECOND MESSENGER'),
+('soldier','The soldier','A soldier of Antony’s who urges him to fight by land.','SOLDIER'),
+('first-soldier','The First Soldier','A soldier on watch in Antony’s camp.','FIRST SOLDIER'),
+('second-soldier','The Second Soldier','A soldier on watch in Antony’s camp.','SECOND SOLDIER'),
+('third-soldier','The Third Soldier','A soldier on watch in Antony’s camp.','THIRD SOLDIER'),
+('fourth-soldier','The Fourth Soldier','A soldier on watch in Antony’s camp.','FOURTH SOLDIER'),
+('sentry','The Sentry','The sentry who finds Enobarbus in Caesar’s camp.','SENTRY'),
+('first-watch','The First Watch','A watchman with the sentry in Caesar’s camp.','FIRST WATCH'),
+('second-watch','The Second Watch','A watchman with the sentry in Caesar’s camp.','SECOND WATCH'),
+('first-guard','The First Guard','A guard at Cleopatra’s monument.','FIRST GUARD'),
+('second-guard','The Second Guard','A guard at Cleopatra’s monument.','SECOND GUARD'),
+('first-servant','The First Servant','A servant at Pompey’s galley feast.','FIRST SERVANT'),
+('second-servant','The Second Servant','A servant at Pompey’s galley feast.','SECOND SERVANT'),
+('servant','The servant','A servant announcing a messenger to Cleopatra.','SERVANT'),
+('egyptian','The Egyptian','The Egyptian sent from Cleopatra to Octavius Caesar.','EGYPTIAN'),
+]:add(*row,kind='unnamed-role')
+
+for row in [
+('attendants','The attendants','The attendants of the Egyptian court and the Roman camps.','Attendants|Attendant'),
+('soldiers','The soldiers','The soldiers of the Roman and Egyptian armies.','Soldiers'),
+('guards','The guard','Antony’s guard, and the guards set on Cleopatra’s monument.',''),
+('servants','The servants','The servants at Pompey’s galley feast.','Servants'),
+('officers','The officers','The officers of the two armies.','Officers'),
+('captains','The captains','The captains of the two armies.','Captains'),
+('ladies','The ladies','The ladies of Cleopatra’s court.','Ladies'),
+]:add(*row,kind='group')
+
+for row in [
+('julius-caesar','Julius Caesar','The Roman conqueror, Octavius Caesar’s adoptive father, and Cleopatra’s lover before Antony.','','person'),
+('pompey-great','Pompey the Great','Sextus Pompeius’s father, defeated by Julius Caesar at Pharsalia.','Pompey the Great','person'),
+('gnaeus-pompey','Gnaeus Pompey','Pompey the Great’s elder son, named by Antony among Cleopatra’s earlier lovers.','Gneius Pompey|Gnaeus Pompey','person'),
+('fulvia','Fulvia','Antony’s first wife, who made war on Octavius Caesar and dies early in the play.','Fulvia','person'),
+('lucius-antonius','Lucius','Antony’s brother, who joined Fulvia’s war against Octavius Caesar.','','person'),
+('caesarion','Caesarion','Cleopatra’s son, whom Egypt calls Julius Caesar’s.','Caesarion','person'),
+('alexander-helios','Alexander','Antony and Cleopatra’s son, given Media, Parthia and Armenia at the enthronement.','','person'),
+('ptolemy-king','Ptolemy','Cleopatra’s brother and husband, dead before the play begins; she is called his queen.','','person'),
+('ptolemy-son','Ptolemy','Antony and Cleopatra’s son, given Syria, Cilicia and Phoenicia at the enthronement.','','person'),
+('marcus-crassus','Marcus Crassus','The Roman general the Parthians killed, whom Ventidius avenges.','Marcus Crassus','person'),
+('marcus-octavius','Marcus Octavius','One of Antony’s captains at Actium; not Octavius Caesar.','Marcus Octavius','person'),
+('marcus-justeius','Marcus Justeius','One of Antony’s captains at Actium.','Marcus Justeius','person'),
+('publicola','Publicola','One of Antony’s captains at Actium.','Publicola','person'),
+('caelius','Caelius','One of Antony’s captains at Actium.','Caelius','person'),
+('pacorus','Pacorus','King Orodes’s son, killed by Ventidius in Parthia.','Pacorus','person'),
+('orodes','Orodes','The Parthian king, Pacorus’s father.','Orodes','person'),
+('labienus','Labienus','The Roman who led a Parthian army into Asia against Antony.','Labienus','person'),
+('sossius','Sossius','An officer of Antony’s in Syria, cited by Ventidius as a warning.','Sossius','person'),
+('photinus','Photinus','A eunuch named in Rome among those said to manage Cleopatra’s affairs.','Photinus','person'),
+('herod','Herod','Herod of Jewry, a client king whose homage Cleopatra imagines and whose allegiance Alexas fails to keep.','Herod','person'),
+('bocchus','Bocchus','The king of Libya, among the kings Antony assembles.','Bocchus','person'),
+('archelaus','Archelaus','The king of Cappadocia, among the kings Antony assembles.','Archelaus','person'),
+('philadelphos','Philadelphos','The king of Paphlagonia, among the kings Antony assembles.','Philadelphos','person'),
+('adallas','Adallas','The Thracian king, among the kings Antony assembles.','Adallas','person'),
+('manchus','Manchus','The king of Arabia, among the kings Antony assembles.','Manchus','person'),
+('mithridates','Mithridates','The king of Comagene, among the kings Antony assembles.','Mithridates','person'),
+('polemon','Polemon','The king of Mede, among the kings Antony assembles.','Polemon','person'),
+('amyntas','Amyntas','The king of Lycaonia, among the kings Antony assembles.','Amyntas','person'),
+('brutus','Brutus','One of Julius Caesar’s assassins, killed at Philippi.','Brutus','person'),
+('cassius','Cassius','One of Julius Caesar’s assassins, killed at Philippi.','Cassius','person'),
+('isis','Isis','The Egyptian goddess, whose habit Cleopatra wears and whose name she swears by.','Isis','mythological-figure'),
+('hercules','Hercules','The hero Antony claims descent from, and whose music leaves him.','Hercules','mythological-figure'),
+('jupiter','Jupiter','The king of the gods, also called Jove.','Jupiter|Jove','mythological-figure'),
+('juno','Juno','The queen of the gods.','Juno','mythological-figure'),
+('venus','Venus','The goddess of love, whose picture Cleopatra outdoes on the Cydnus.','Venus','mythological-figure'),
+('mars','Mars','The god of war.','Mars','mythological-figure'),
+('neptune','Neptune','The god of the sea.','Neptune','mythological-figure'),
+('phoebus','Phoebus','The sun god, whose pinches Cleopatra says have blackened her.','Phœbus|Phoebus','mythological-figure'),
+('fortune','Fortune','Fortune as the power that turns men’s luck.','Fortune','mythological-figure'),
+('atlas','Atlas','The titan who holds up the world; Cleopatra calls Antony the demi-Atlas of the earth.','Atlas','mythological-figure'),
+('telamon','Telamon','Ajax Telamon, who ran mad for Achilles’ armour, in Cleopatra’s picture of Antony’s rage.','Telamon','literary-figure'),
+('dido','Dido','The queen of Carthage, whom Antony imagines walking with Aeneas in the fields of the dead.','Dido','literary-figure'),
+('aeneas','Aeneas','Dido’s lover, named beside her.','Æneas|Aeneas','literary-figure'),
+('narcissus','Narcissus','The youth of the myth, in Cleopatra’s abuse of the messenger.','Narcissus','mythological-figure'),
+('gorgon','Gorgon','The monster whose look turned men to stone, in Cleopatra’s figure for Antony.','Gorgon','mythological-figure'),
+]:add(*row[:4],category='reference',kind=row[4])
+
+# Later cards: only the changes that alter who a name points at.
+updates={
+ 'antony':[((8,3),'One of the three rulers of the Roman world, now married to Octavius Caesar’s sister Octavia.')],
+ 'octavia':[((8,3),'Octavius Caesar’s sister, now married to Antony.')],
+ 'enobarbus':[((30,7),'Antony’s old officer, now in Octavius Caesar’s camp.')],
+ 'cleopatra':[((42,11),'The Queen of Egypt, a prisoner in her own monument.')],
+}
+for e in entities:e['snapshots']=[dict(after=list(at),body=body) for at,body in updates.get(e['id'],[])]
+BASE=Path(__file__).resolve().parent
+(BASE/'editorial.json').write_text(json.dumps(dict(bookId='antony-and-cleopatra',contentVersion='2026-09-10.1',coverage='All forty-two scenes in both original-en and modern-en: named cast, speaking and stage roles, the client kings and captains of the two rolls, the Roman past behind the action, and the gods and legendary figures named in the play.',entities=entities),ensure_ascii=False,indent=2)+'\n')

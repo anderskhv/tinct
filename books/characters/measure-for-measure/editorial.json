@@ -1,0 +1,880 @@
+{
+  "bookId": "measure-for-measure",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All seventeen scenes in both original-en and modern-en: named cast, speaking and stage roles, contextual unnamed relatives, prison-list names, and named classical and religious references.",
+  "entities": [
+    {
+      "id": "duke",
+      "name": "The Duke of Vienna",
+      "body": "The ruler of Vienna, who puts his authority into Angelo’s hands as the play opens.",
+      "aliases": [
+        "DUKE",
+        "Duke",
+        "duke",
+        "Lodowick"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            7
+          ],
+          "body": "Vienna’s Duke, who means to stay in the city disguised as a friar rather than travel abroad."
+        },
+        {
+          "after": [
+            17,
+            42
+          ],
+          "body": "Vienna’s Duke, who has moved through the city as a friar under the name Lodowick."
+        }
+      ]
+    },
+    {
+      "id": "angelo",
+      "name": "Angelo",
+      "body": "A magistrate of strict reputation, left as the Duke’s deputy to govern Vienna.",
+      "aliases": [
+        "ANGELO",
+        "Angelo",
+        "Deputy",
+        "deputy"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            145
+          ],
+          "body": "The Duke’s deputy, now married to Mariana."
+        }
+      ]
+    },
+    {
+      "id": "isabella",
+      "name": "Isabella",
+      "body": "Claudio’s sister, a novice entering the sisterhood of Saint Clare; she has not yet taken her vows.",
+      "aliases": [
+        "ISABELLA",
+        "Isabella",
+        "Isabel"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "claudio",
+      "name": "Claudio",
+      "body": "A young gentleman of Vienna, Isabella’s brother, arrested for getting Juliet with child.",
+      "aliases": [
+        "CLAUDIO",
+        "Claudio"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucio",
+      "name": "Lucio",
+      "body": "A gentleman of Vienna and a friend of Claudio’s, at home in the city’s brothels.",
+      "aliases": [
+        "LUCIO",
+        "Lucio"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "escalus",
+      "name": "Escalus",
+      "body": "An experienced counsellor of Vienna, placed second to Angelo in the Duke’s absence.",
+      "aliases": [
+        "ESCALUS",
+        "Escalus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mariana",
+      "name": "Mariana",
+      "body": "The sister of Frederick, a soldier lost at sea.",
+      "aliases": [
+        "MARIANA",
+        "Mariana"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            9,
+            69
+          ],
+          "body": "Angelo’s former betrothed, left by him when her dowry was lost at sea with her brother."
+        },
+        {
+          "after": [
+            17,
+            145
+          ],
+          "body": "Angelo’s wife, married to him at the Duke’s order."
+        }
+      ]
+    },
+    {
+      "id": "provost",
+      "name": "The Provost",
+      "body": "The officer in charge of the Vienna prison.",
+      "aliases": [
+        "PROVOST",
+        "Provost",
+        "provost"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pompey",
+      "name": "Pompey Bum",
+      "body": "Tapster to Mistress Overdone and a bawd in her house.",
+      "aliases": [
+        "POMPEY",
+        "Pompey",
+        "Bum"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            12,
+            4
+          ],
+          "body": "Mistress Overdone’s tapster, now taken on to assist the prison executioner."
+        }
+      ]
+    },
+    {
+      "id": "juliet",
+      "name": "Juliet",
+      "body": "The woman Claudio has got with child.",
+      "aliases": [
+        "JULIET",
+        "Juliet",
+        "Julietta"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            2,
+            79
+          ],
+          "body": "Claudio’s partner, bound to him by a private contract but lacking a formal wedding."
+        },
+        {
+          "after": [
+            4,
+            20
+          ],
+          "body": "Claudio’s partner; Isabella calls her cousin, though the tie is a schoolgirl adoption rather than blood."
+        }
+      ]
+    },
+    {
+      "id": "mistress-overdone",
+      "name": "Mistress Overdone",
+      "body": "The keeper of a house of prostitution in the Vienna suburbs.",
+      "aliases": [
+        "MISTRESS OVERDONE",
+        "Mistress Overdone",
+        "Overdone"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elbow",
+      "name": "Elbow",
+      "body": "A constable of Vienna, given to mangling the words he reaches for.",
+      "aliases": [
+        "ELBOW",
+        "Elbow"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "froth",
+      "name": "Master Froth",
+      "body": "A gentleman of eighty pounds a year, brought in as a customer of Mistress Overdone’s house.",
+      "aliases": [
+        "FROTH",
+        "Froth"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "abhorson",
+      "name": "Abhorson",
+      "body": "The executioner of the Vienna prison.",
+      "aliases": [
+        "ABHORSON",
+        "Abhorson"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "barnardine",
+      "name": "Barnardine",
+      "body": "A prisoner in the Vienna jail, set to die on the same morning as Claudio.",
+      "aliases": [
+        "BARNARDINE",
+        "Barnardine"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            12,
+            62
+          ],
+          "body": "A Bohemian-born prisoner of nine years’ standing, condemned for a murder he does not deny."
+        }
+      ]
+    },
+    {
+      "id": "francisca",
+      "name": "Francisca",
+      "body": "A nun of the sisterhood Isabella is entering.",
+      "aliases": [
+        "FRANCISCA",
+        "Francisca"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "friar-thomas",
+      "name": "Friar Thomas",
+      "body": "The friar from whom the Duke asks a friar’s habit and instruction.",
+      "aliases": [
+        "FRIAR THOMAS",
+        "Friar Thomas"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "friar-peter",
+      "name": "Friar Peter",
+      "body": "A friar of the Duke’s acquaintance, sent for to carry out his instructions.",
+      "aliases": [
+        "FRIAR PETER",
+        "Friar Peter"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "varrius",
+      "name": "Varrius",
+      "body": "A friend who meets the Duke outside the city on his return.",
+      "aliases": [
+        "VARRIUS",
+        "Varrius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "first-gentleman",
+      "name": "The First Gentleman",
+      "body": "One of two gentlemen trading jokes with Lucio in the street.",
+      "aliases": [
+        "FIRST GENTLEMAN"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "second-gentleman",
+      "name": "The Second Gentleman",
+      "body": "The other of the two gentlemen with Lucio in the street.",
+      "aliases": [
+        "SECOND GENTLEMAN"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "justice",
+      "name": "The Justice",
+      "body": "A magistrate who sits with Escalus at the hearing.",
+      "aliases": [
+        "JUSTICE"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "angelo-servant",
+      "name": "Angelo’s servant",
+      "body": "A servant in Angelo’s house who carries word of callers to him.",
+      "aliases": [
+        "SERVANT",
+        "Servant"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messenger",
+      "name": "Angelo’s messenger",
+      "body": "Angelo’s man, sent to the prison with his sealed order.",
+      "aliases": [
+        "MESSENGER",
+        "Messenger"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boy",
+      "name": "The boy",
+      "body": "The boy who sings for Mariana.",
+      "aliases": [
+        "BOY",
+        "Boy"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "officers",
+      "name": "The officers",
+      "body": "The officers who make the arrests and guard the prisoners.",
+      "aliases": [
+        "OFFICERS",
+        "Officers"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "attendants",
+      "name": "The attendants",
+      "body": "The attendants who wait on the Duke and are sent on his errands.",
+      "aliases": [
+        "Attendants",
+        "Attendant"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lords",
+      "name": "The lords",
+      "body": "The lords of the Duke’s court.",
+      "aliases": [
+        "LORDS",
+        "Lords"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "citizens",
+      "name": "The citizens",
+      "body": "The citizens who gather at the gate for the Duke’s return.",
+      "aliases": [
+        "CITIZENS",
+        "Citizens"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "frederick",
+      "name": "Frederick",
+      "body": "Mariana’s brother, a soldier lost at sea with his sister’s dowry aboard.",
+      "aliases": [
+        "Frederick"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ragozine",
+      "name": "Ragozine",
+      "body": "A pirate who died of a fever in the Vienna prison.",
+      "aliases": [
+        "Ragozine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kate-keepdown",
+      "name": "Mistress Kate Keepdown",
+      "body": "A woman Lucio promised to marry after getting her with child.",
+      "aliases": [
+        "Mistress Kate Keepdown",
+        "Kate Keepdown"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bridget",
+      "name": "Bridget",
+      "body": "A woman of Mistress Overdone’s house, named in Lucio’s teasing of Pompey.",
+      "aliases": [
+        "Bridget"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elbow-wife",
+      "name": "Mistress Elbow",
+      "body": "Elbow’s wife, who is with child; the hearing turns on what happened to her, but she never appears.",
+      "aliases": [
+        "Mistress Elbow"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "flavius",
+      "name": "Flavius",
+      "body": "A man in Vienna whom the Duke calls on first as he prepares to re-enter the city.",
+      "aliases": [
+        "Flavius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "valentius",
+      "name": "Valentius",
+      "body": "One of the men in Vienna the Duke sends word to before entering.",
+      "aliases": [
+        "Valentius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rowland",
+      "name": "Rowland",
+      "body": "One of the men in Vienna the Duke sends word to before entering.",
+      "aliases": [
+        "Rowland"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crassus",
+      "name": "Crassus",
+      "body": "One of the men in Vienna the Duke sends word to before entering; not the Roman of that name.",
+      "aliases": [
+        "Crassus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rash",
+      "name": "Master Rash",
+      "body": "A young man imprisoned over a debt run up on brown paper and old ginger.",
+      "aliases": [
+        "Rash"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caper",
+      "name": "Master Caper",
+      "body": "A young man imprisoned at the suit of Three-pile the mercer.",
+      "aliases": [
+        "Caper"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "three-pile",
+      "name": "Master Three-pile",
+      "body": "A mercer, and the creditor who has had Caper imprisoned.",
+      "aliases": [
+        "Three-pile"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dizy",
+      "name": "Dizy",
+      "body": "A young man among the prisoners Pompey recognises from the house he worked in.",
+      "aliases": [
+        "Dizy"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deep-vow",
+      "name": "Master Deep-vow",
+      "body": "One of the prisoners Pompey recognises as an old customer.",
+      "aliases": [
+        "Deep-vow"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "copper-spur",
+      "name": "Master Copper-spur",
+      "body": "One of the prisoners Pompey recognises as an old customer.",
+      "aliases": [
+        "Copper-spur"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "starve-lackey",
+      "name": "Master Starve-lackey",
+      "body": "A prisoner Pompey names as a rapier and dagger man.",
+      "aliases": [
+        "Starve-lackey"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "drop-heir",
+      "name": "Drop-heir",
+      "body": "A young prisoner who killed Pudding.",
+      "aliases": [
+        "Drop-heir"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pudding",
+      "name": "Pudding",
+      "body": "The man Drop-heir killed.",
+      "aliases": [
+        "Pudding"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "forthlight",
+      "name": "Master Forthlight",
+      "body": "A prisoner Pompey names as a tilter.",
+      "aliases": [
+        "Forthlight"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "shooty",
+      "name": "Master Shooty",
+      "body": "A prisoner Pompey names as a great traveller.",
+      "aliases": [
+        "Shooty"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "half-can",
+      "name": "Half-can",
+      "body": "A prisoner who stabbed Pots.",
+      "aliases": [
+        "Half-can"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pots",
+      "name": "Pots",
+      "body": "The man Half-can stabbed.",
+      "aliases": [
+        "Pots"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Julius Caesar",
+      "body": "The Roman general and ruler whose triumphs Escalus and Lucio invoke when teasing Pompey about his name.",
+      "aliases": [
+        "Caesar",
+        "Cæsar"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hannibal",
+      "name": "Hannibal",
+      "body": "The Carthaginian general who marched on Rome; Elbow reaches for “cannibal” and lands on this name instead.",
+      "aliases": [
+        "Hannibal"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pygmalion",
+      "name": "Pygmalion",
+      "body": "The sculptor of Greek myth whose statue was brought to life as a woman.",
+      "aliases": [
+        "Pygmalion"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "body": "The Roman king of the gods, also called Jupiter.",
+      "aliases": [
+        "Jove"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iniquity",
+      "name": "Iniquity",
+      "body": "The Vice of the old morality plays, a stock figure of mischief set against Justice.",
+      "aliases": [
+        "Iniquity"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-clare",
+      "name": "Saint Clare",
+      "body": "Clare of Assisi, founder of the order of nuns Isabella is entering.",
+      "aliases": [
+        "Saint Clare"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip-and-jacob",
+      "name": "Saints Philip and Jacob",
+      "body": "The apostles Philip and James, whose shared feast day fixes how old the child is.",
+      "aliases": [
+        "Philip",
+        "Jacob"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "prioress",
+      "name": "The Mother",
+      "body": "The superior of the convent Isabella is entering.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "king-of-hungary",
+      "name": "The King of Hungary",
+      "body": "The king whose war with the dukes the gentlemen joke about; he is never named.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "emperor-of-russia",
+      "name": "The Emperor of Russia",
+      "body": "The Russian emperor, named only by title in a rumour about where the Duke has gone.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pope",
+      "name": "The Pope",
+      "body": "The Pope, named only as “his Holiness” in the errand the disguised Duke claims to be on.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucio-child",
+      "name": "Lucio’s child",
+      "body": "Lucio’s child by Kate Keepdown, a year and a quarter old and kept by Mistress Overdone.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "claudio-father",
+      "name": "The father of Claudio and Isabella",
+      "body": "Their late father, remembered by Escalus as a noble man and by Isabella at his grave.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "froth-father",
+      "name": "Froth’s father",
+      "body": "Froth’s father, who died at Hallowmas and left him his eighty pounds a year.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

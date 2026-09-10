@@ -1,0 +1,1535 @@
+{
+  "bookId": "henry-iv-part-2",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All nineteen scenes in both original-en and modern-en, with the Induction and Epilogue: named cast, speaking and stage roles, the Gloucestershire and Eastcheap acquaintance named only in talk, and the classical, biblical and balladic figures of the play’s allusions.",
+  "entities": [
+    {
+      "id": "falstaff",
+      "name": "Sir John Falstaff",
+      "body": "An old knight of the Prince’s company, fat, penniless and quick.",
+      "aliases": [
+        "FALSTAFF",
+        "Falstaff",
+        "Jack Falstaff"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            19,
+            52
+          ],
+          "body": "The old knight of the Prince’s company, banished from the new king’s presence."
+        }
+      ]
+    },
+    {
+      "id": "prince-henry",
+      "name": "Prince Henry",
+      "body": "King Henry’s eldest son and heir, called Harry Monmouth.",
+      "aliases": [
+        "PRINCE",
+        "PRINCE HENRY",
+        "HENRY V"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            14,
+            55
+          ],
+          "body": "King Henry the Fourth’s heir, now king in his father’s place."
+        }
+      ]
+    },
+    {
+      "id": "henry-iv",
+      "name": "King Henry the Fourth",
+      "body": "The King, worn down by rebellion and sickness.",
+      "aliases": [
+        "HENRY IV"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "shallow",
+      "name": "Justice Shallow",
+      "body": "A country justice of Gloucestershire, and Falstaff’s old acquaintance.",
+      "aliases": [
+        "SHALLOW",
+        "Shallow",
+        "Robert Shallow"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chief-justice",
+      "name": "The Lord Chief Justice",
+      "body": "The chief justice of the King’s Bench, who once committed the Prince.",
+      "aliases": [
+        "CHIEF JUSTICE"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hostess",
+      "name": "Mistress Quickly",
+      "body": "Hostess of the Boar’s Head tavern in Eastcheap.",
+      "aliases": [
+        "HOSTESS",
+        "Hostess",
+        "Nell Quickly",
+        "Quickly"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "doll",
+      "name": "Doll Tearsheet",
+      "body": "A woman of the Boar’s Head, and Falstaff’s companion.",
+      "aliases": [
+        "DOLL",
+        "Doll Tearsheet",
+        "Doll",
+        "Dorothy"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pistol",
+      "name": "Pistol",
+      "body": "An ancient in Falstaff’s following, given to fustian and quarrels.",
+      "aliases": [
+        "PISTOL",
+        "Pistol"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bardolph",
+      "name": "Bardolph",
+      "body": "A corporal in Falstaff’s following, known by his red face.",
+      "aliases": [
+        "BARDOLPH"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "poins",
+      "name": "Poins",
+      "body": "A companion of the Prince’s.",
+      "aliases": [
+        "POINS",
+        "Poins"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lancaster",
+      "name": "Prince John of Lancaster",
+      "body": "King Henry’s second son, who commands against the rebels.",
+      "aliases": [
+        "LANCASTER"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            11,
+            37
+          ],
+          "body": "King Henry’s second son, who has taken the rebel leaders at Gaultree by a promise."
+        }
+      ]
+    },
+    {
+      "id": "archbishop",
+      "name": "The Archbishop of York",
+      "body": "Richard Scroop, the churchman leading the rebellion.",
+      "aliases": [
+        "ARCHBISHOP",
+        "Scroop"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "warwick",
+      "name": "The Earl of Warwick",
+      "body": "A nobleman of the King’s council, of the Nevil family.",
+      "aliases": [
+        "WARWICK",
+        "Warwick",
+        "Nevil"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "westmoreland",
+      "name": "The Earl of Westmoreland",
+      "body": "A nobleman who commands for the King.",
+      "aliases": [
+        "WESTMORELAND",
+        "Westmoreland"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lord-bardolph",
+      "name": "Lord Bardolph",
+      "body": "A nobleman of the rebel party; not the corporal of the same name.",
+      "aliases": [
+        "LORD BARDOLPH"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "northumberland",
+      "name": "The Earl of Northumberland",
+      "body": "Hotspur’s father, and the rebellion’s absent leader.",
+      "aliases": [
+        "NORTHUMBERLAND",
+        "Northumberland"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            6,
+            8
+          ],
+          "body": "Hotspur’s father, persuaded by his wife and Hotspur’s widow to leave the rebellion for Scotland."
+        }
+      ]
+    },
+    {
+      "id": "page",
+      "name": "The Page",
+      "body": "The boy Prince Henry gave Falstaff for a page.",
+      "aliases": [
+        "PAGE"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mowbray",
+      "name": "Lord Mowbray",
+      "body": "The Earl Marshal, one of the rebel lords.",
+      "aliases": [
+        "MOWBRAY",
+        "Mowbray"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hastings",
+      "name": "Lord Hastings",
+      "body": "One of the rebel lords.",
+      "aliases": [
+        "HASTINGS",
+        "Hastings"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "silence",
+      "name": "Justice Silence",
+      "body": "A country justice, Shallow’s cousin.",
+      "aliases": [
+        "SILENCE",
+        "Silence"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clarence",
+      "name": "Thomas, Duke of Clarence",
+      "body": "King Henry’s son, brother to the Prince.",
+      "aliases": [
+        "CLARENCE",
+        "Thomas of Clarence"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "davy",
+      "name": "Davy",
+      "body": "Justice Shallow’s servant, who runs his household and his farm.",
+      "aliases": [
+        "DAVY",
+        "Davy"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gloucester",
+      "name": "Humphrey, Duke of Gloucester",
+      "body": "King Henry’s youngest son.",
+      "aliases": [
+        "GLOUCESTER",
+        "Humphrey"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fang",
+      "name": "Fang",
+      "body": "A sergeant employed to arrest Falstaff.",
+      "aliases": [
+        "FANG",
+        "Fang"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "feeble",
+      "name": "Francis Feeble",
+      "body": "A woman’s tailor, pressed for the wars.",
+      "aliases": [
+        "FEEBLE",
+        "Feeble",
+        "Francis Feeble"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "morton",
+      "name": "Morton",
+      "body": "The gentleman who brings Northumberland the true news from Shrewsbury.",
+      "aliases": [
+        "MORTON",
+        "Morton"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mouldy",
+      "name": "Ralph Mouldy",
+      "body": "A Gloucestershire man pressed for the wars, and bought out again.",
+      "aliases": [
+        "MOULDY",
+        "Mouldy",
+        "Ralph Mouldy"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bullcalf",
+      "name": "Peter Bullcalf",
+      "body": "A Gloucestershire man pressed for the wars, and bought out again.",
+      "aliases": [
+        "BULLCALF",
+        "Bullcalf",
+        "Peter Bullcalf"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colevile",
+      "name": "Sir John Colevile",
+      "body": "A rebel knight who yields himself to Falstaff.",
+      "aliases": [
+        "COLEVILE",
+        "Colevile",
+        "Sir John Colevile"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gower",
+      "name": "Gower",
+      "body": "A gentleman who brings the Chief Justice his news.",
+      "aliases": [
+        "GOWER",
+        "Gower"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "snare",
+      "name": "Snare",
+      "body": "A sergeant employed with Fang to arrest Falstaff.",
+      "aliases": [
+        "SNARE",
+        "Snare"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "shadow",
+      "name": "Simon Shadow",
+      "body": "A Gloucestershire man pressed for the wars.",
+      "aliases": [
+        "SHADOW",
+        "Shadow",
+        "Simon Shadow"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wart",
+      "name": "Thomas Wart",
+      "body": "A Gloucestershire man pressed for the wars.",
+      "aliases": [
+        "WART",
+        "Wart",
+        "Thomas Wart",
+        "Wart’s"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "travers",
+      "name": "Travers",
+      "body": "Northumberland’s servant, who brings him the first false report.",
+      "aliases": [
+        "TRAVERS",
+        "Travers"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lady-northumberland",
+      "name": "Lady Northumberland",
+      "body": "Northumberland’s wife.",
+      "aliases": [
+        "LADY NORTHUMBERLAND"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lady-percy",
+      "name": "Lady Percy",
+      "body": "Hotspur’s widow, and Northumberland’s daughter-in-law.",
+      "aliases": [
+        "LADY PERCY"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "surrey",
+      "name": "The Earl of Surrey",
+      "body": "A nobleman attending the King.",
+      "aliases": [
+        "Surrey"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "harcourt",
+      "name": "Harcourt",
+      "body": "A gentleman who brings the King news of the northern defeat.",
+      "aliases": [
+        "Harcourt"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "blunt",
+      "name": "Sir John Blunt",
+      "body": "A knight in Prince John’s company.",
+      "aliases": [
+        "Blunt"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rumour",
+      "name": "Rumour",
+      "body": "The figure painted full of tongues who speaks the Induction.",
+      "aliases": [
+        "RUMOUR",
+        "Rumour",
+        "Rumor"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "epilogue",
+      "name": "The Epilogue",
+      "body": "The speaker who kneels for the audience’s favour at the end.",
+      "aliases": [
+        "EPILOGUE"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "servant",
+      "name": "The servant",
+      "body": "The Chief Justice’s servant, sent after Falstaff.",
+      "aliases": [
+        "SERVANT"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "first-drawer",
+      "name": "The First Drawer",
+      "body": "A drawer at the Boar’s Head.",
+      "aliases": [
+        "FIRST DRAWER"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "second-drawer",
+      "name": "The Second Drawer",
+      "body": "A drawer at the Boar’s Head.",
+      "aliases": [
+        "SECOND DRAWER"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "first-beadle",
+      "name": "The First Beadle",
+      "body": "The beadle who carries off the Hostess and Doll.",
+      "aliases": [
+        "FIRST BEADLE"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "porter",
+      "name": "The Porter",
+      "body": "Northumberland’s porter.",
+      "aliases": [
+        "PORTER"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "first-groom",
+      "name": "The First Groom",
+      "body": "A groom strewing rushes for the coronation.",
+      "aliases": [
+        "FIRST GROOM"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "second-groom",
+      "name": "The Second Groom",
+      "body": "A groom strewing rushes for the coronation.",
+      "aliases": [
+        "SECOND GROOM"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "messenger",
+      "name": "The messenger",
+      "body": "A messenger bringing word to the rebel camp.",
+      "aliases": [
+        "MESSENGER"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sneak",
+      "name": "Sneak",
+      "body": "The leader of the musicians the Hostess sends for.",
+      "aliases": [
+        "Sneak"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lords",
+      "name": "The lords",
+      "body": "The lords of the King’s council and the rebel party.",
+      "aliases": [
+        "Lords"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "officers",
+      "name": "The officers",
+      "body": "The officers who attend the Chief Justice and the arrests.",
+      "aliases": [
+        "Officers"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beadles",
+      "name": "The beadles",
+      "body": "The beadles who take the Hostess and Doll into custody.",
+      "aliases": [
+        "Beadles"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "drawers",
+      "name": "The drawers",
+      "body": "The drawers at the Boar’s Head.",
+      "aliases": [
+        "Drawers"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "grooms",
+      "name": "The grooms",
+      "body": "The grooms strewing rushes for the coronation.",
+      "aliases": [
+        "Grooms"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "justices",
+      "name": "The justices",
+      "body": "Shallow and Silence together on the Gloucestershire bench.",
+      "aliases": [
+        "Justices"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hotspur",
+      "name": "Harry Percy, called Hotspur",
+      "body": "Northumberland’s son, killed at Shrewsbury before this play opens.",
+      "aliases": [
+        "Hotspur",
+        "Coldspur",
+        "Percy"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gaunt",
+      "name": "John of Gaunt",
+      "body": "King Henry’s father, whom Shallow claims to have known.",
+      "aliases": [
+        "John a Gaunt",
+        "John of Gaunt"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "edward-iii",
+      "name": "King Edward the Third",
+      "body": "The King’s great-grandfather.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "richard-ii",
+      "name": "King Richard the Second",
+      "body": "The king Henry the Fourth deposed, whose blood the rebels invoke.",
+      "aliases": [
+        "Richard"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "glendower",
+      "name": "Owen Glendower",
+      "body": "The Welsh leader whose death is reported to the King.",
+      "aliases": [
+        "Glendower"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "douglas",
+      "name": "The Earl of Douglas",
+      "body": "The Scottish lord who fought at Shrewsbury.",
+      "aliases": [
+        "Douglas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elder-mowbray",
+      "name": "Thomas Mowbray, Duke of Norfolk",
+      "body": "The old Duke, whom Falstaff served as page; the rebel Mowbray’s father.",
+      "aliases": [
+        "Thomas Mowbray, Duke of Norfolk"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "umfrevile",
+      "name": "Sir John Umfrevile",
+      "body": "A knight who turned Travers back on the road with news.",
+      "aliases": [
+        "Sir John Umfrevile"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "katharine",
+      "name": "Katharine of France",
+      "body": "The French princess the Epilogue promises for the next play.",
+      "aliases": [
+        "Katharine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oldcastle",
+      "name": "Oldcastle",
+      "body": "The martyr the Epilogue distinguishes from Falstaff.",
+      "aliases": [
+        "Oldcastle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jane-nightwork",
+      "name": "Jane Nightwork",
+      "body": "A woman of Shallow’s young days, remembered at Gloucestershire.",
+      "aliases": [
+        "Jane Nightwork"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "robin-nightwork",
+      "name": "Robin Nightwork",
+      "body": "Jane Nightwork’s son.",
+      "aliases": [
+        "Robin Nightwork"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ellen",
+      "name": "Ellen",
+      "body": "Silence’s daughter and Shallow’s god-daughter.",
+      "aliases": [
+        "Ellen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william-shallow",
+      "name": "William",
+      "body": "Shallow’s cousin, now at Oxford.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william-cook",
+      "name": "William cook",
+      "body": "The cook of Shallow’s household.",
+      "aliases": [
+        "William cook"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william-visor",
+      "name": "William Visor of Woncot",
+      "body": "A man of Shallow’s country whom Davy asks him to favour.",
+      "aliases": [
+        "William Visor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clement-perkes",
+      "name": "Clement Perkes",
+      "body": "A man of the hill, William Visor’s adversary.",
+      "aliases": [
+        "Clement Perkes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "john-doit",
+      "name": "John Doit",
+      "body": "A Staffordshire man of Shallow’s young days.",
+      "aliases": [
+        "John Doit"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "george-barnes",
+      "name": "George Barnes",
+      "body": "A man of Shallow’s young days.",
+      "aliases": [
+        "George Barnes"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francis-pickbone",
+      "name": "Francis Pickbone",
+      "body": "A man of Shallow’s young days.",
+      "aliases": [
+        "Francis Pickbone"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "will-squele",
+      "name": "Will Squele",
+      "body": "A Cotswold man of Shallow’s young days.",
+      "aliases": [
+        "Will Squele"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sampson-stockfish",
+      "name": "Sampson Stockfish",
+      "body": "A fruiterer Shallow fought behind Gray’s Inn.",
+      "aliases": [
+        "Sampson Stockfish"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scoggin",
+      "name": "Scoggin",
+      "body": "A man whose head Shallow claims to have broken.",
+      "aliases": [
+        "Scoggin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "surecard",
+      "name": "Master Surecard",
+      "body": "The name Falstaff gives Silence on meeting him.",
+      "aliases": [
+        "Surecard"
+      ],
+      "category": "reference",
+      "kind": "unresolved-name",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "puff",
+      "name": "Puff of Barson",
+      "body": "A man Pistol boasts of outfacing.",
+      "aliases": [
+        "Puff"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "smooth",
+      "name": "Master Smooth",
+      "body": "A silkman the Hostess says Falstaff owes money to.",
+      "aliases": [
+        "Smooth"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dommelton",
+      "name": "Master Dommelton",
+      "body": "The draper who would not take Bardolph’s security.",
+      "aliases": [
+        "Dommelton"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "keech",
+      "name": "Goodwife Keech",
+      "body": "The butcher’s wife who came to borrow vinegar.",
+      "aliases": [
+        "Keech"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tisick",
+      "name": "Master Tisick",
+      "body": "The deputy who warned the Hostess about her guests.",
+      "aliases": [
+        "Tisick"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "robin-hood",
+      "name": "Robin Hood",
+      "body": "The outlaw of the ballad Silence sings.",
+      "aliases": [
+        "Robin Hood"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "will-scarlet",
+      "name": "Scarlet",
+      "body": "One of Robin Hood’s men in the same ballad.",
+      "aliases": [
+        "Scarlet"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "little-john",
+      "name": "Little John",
+      "body": "Another of Robin Hood’s men in the same ballad.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arthur",
+      "name": "King Arthur",
+      "body": "The king of the romances; Falstaff calls the Page his Dagonet.",
+      "aliases": [
+        "Arthur"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dagonet",
+      "name": "Dagonet",
+      "body": "King Arthur’s fool in the romances.",
+      "aliases": [
+        "Dagonet"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cophetua",
+      "name": "King Cophetua",
+      "body": "The king of the ballad Pistol quotes.",
+      "aliases": [
+        "Cophetua"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "calipolis",
+      "name": "Calipolis",
+      "body": "The queen of an old play Pistol quotes at Doll.",
+      "aliases": [
+        "Calipolis"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hiren",
+      "name": "Hiren",
+      "body": "The name Pistol gives his sword, out of an old play.",
+      "aliases": [
+        "Hiren"
+      ],
+      "category": "reference",
+      "kind": "unresolved-name",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amurath",
+      "name": "Amurath",
+      "body": "The Turkish sultan whose succession was a massacre of brothers.",
+      "aliases": [
+        "Amurath"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "achitophel",
+      "name": "Achitophel",
+      "body": "The false counsellor of the Bible, in Pistol’s abuse.",
+      "aliases": [
+        "Achitophel"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cain",
+      "name": "Cain",
+      "body": "The first murderer, in Falstaff’s abuse of the Page.",
+      "aliases": [
+        "Cain"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "japhet",
+      "name": "Japhet",
+      "body": "Noah’s son, whom all men claim descent from.",
+      "aliases": [
+        "Japhet"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "job",
+      "name": "Job",
+      "body": "The patient sufferer of the Bible.",
+      "aliases": [
+        "Job"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "psalmist",
+      "name": "The Psalmist",
+      "body": "The writer of the psalms, cited by Shallow.",
+      "aliases": [
+        "Psalmist"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jesus",
+      "name": "Jesus",
+      "body": "Named in the oaths of the play.",
+      "aliases": [
+        "Jesu",
+        "Jesus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-george",
+      "name": "Saint George",
+      "body": "The saint whose field in London Shallow remembers.",
+      "aliases": [
+        "Saint George"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucifer",
+      "name": "Lucifer",
+      "body": "The chief of the fallen angels.",
+      "aliases": [
+        "Lucifer"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "galen",
+      "name": "Galen",
+      "body": "The Greek physician, cited by Falstaff on his own diseases.",
+      "aliases": [
+        "Galen"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Caesar",
+      "body": "The Roman conqueror, in Pistol’s and Falstaff’s flourishes.",
+      "aliases": [
+        "Caesar",
+        "Caesars"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agamemnon",
+      "name": "Agamemnon",
+      "body": "The Greek commander at Troy.",
+      "aliases": [
+        "Agamemnon"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hector",
+      "name": "Hector",
+      "body": "The great defender of Troy.",
+      "aliases": [
+        "Hector"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "body": "The woman of Troy, in Pistol’s rant.",
+      "aliases": [
+        "Helen"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "priam",
+      "name": "Priam",
+      "body": "The king of Troy, who heard his city burning before the news came.",
+      "aliases": [
+        "Priam"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "althaea",
+      "name": "Althaea",
+      "body": "The mother of Greek myth whose burning brand ended her son’s life.",
+      "aliases": [
+        "Althaea"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atropos",
+      "name": "Atropos",
+      "body": "The fate who cuts the thread of life.",
+      "aliases": [
+        "Atropos"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alecto",
+      "name": "Alecto",
+      "body": "One of the Furies, in Pistol’s rant.",
+      "aliases": [
+        "Alecto"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cerberus",
+      "name": "Cerberus",
+      "body": "The dog of the underworld.",
+      "aliases": [
+        "Cerberus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erebus",
+      "name": "Erebus",
+      "body": "The darkness of the underworld.",
+      "aliases": [
+        "Erebus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pluto",
+      "name": "Pluto",
+      "body": "The god of the underworld.",
+      "aliases": [
+        "Pluto"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "body": "The god of the sea.",
+      "aliases": [
+        "Neptune"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "body": "The king of the gods.",
+      "aliases": [
+        "Jove"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saturn",
+      "name": "Saturn",
+      "body": "The cold planet-god, paired with Venus in the Prince’s joke.",
+      "aliases": [
+        "Saturn"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "body": "The planet and goddess of love.",
+      "aliases": [
+        "Venus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hydra",
+      "name": "Hydra",
+      "body": "The many-headed monster.",
+      "aliases": [
+        "Hydra"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "furies",
+      "name": "The Furies",
+      "body": "The avenging spirits Pistol calls on.",
+      "aliases": [
+        "Furies"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vice",
+      "name": "The Vice",
+      "body": "The mischief-maker of the old morality plays.",
+      "aliases": [
+        "Vice"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}
