@@ -86,7 +86,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Comedy of Errors (`comedy-of-errors`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Merchant of Venice (`merchant-of-venice`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Henry V (`henry-v`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Henry V (`henry-v`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | As You Like It (`as-you-like-it`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | winters-tale (`winters-tale`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Julius Caesar (`julius-caesar`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
