@@ -80,7 +80,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Jungle Book (`jungle-book`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Around the World in Eighty Days (`around-the-world-80-days`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Heart of Darkness (`heart-of-darkness`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Discourse on the Origin of Inequality (`discourse-on-inequality`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Discourse on the Origin of Inequality (`discourse-on-inequality`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Strange Case of Dr Jekyll and Mr Hyde (`jekyll-and-hyde`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Walden (`walden`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
