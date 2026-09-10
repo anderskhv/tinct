@@ -105,4 +105,4 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Anna Karenina (`anna-karenina`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Don Quixote (`don-quixote`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Essays (`essays-montaigne`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Death of Ivan Ilyich (`ivan-ilyich`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Death of Ivan Ilyich (`ivan-ilyich`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

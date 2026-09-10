@@ -1,0 +1,595 @@
+{
+  "bookId": "ivan-ilyich",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete novella in both English editions: named people, contextual household roles and named cultural references. Shared names are resolved by passage; hypothetical legal cases and commercial place names excluded.",
+  "entities": [
+    {
+      "id": "ivan",
+      "name": "Ivan Ilyich Golovin",
+      "category": "central",
+      "body": "The judge whose life and death the novella follows; Praskovya Fedorovna’s husband.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ivan Ilych Golovin",
+        "Ivan Ilyich Golovin",
+        "Ivan Ilych",
+        "Ivan Ilyich",
+        "Vanya",
+        "Jean"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "praskovya",
+      "name": "Praskovya Fedorovna",
+      "category": "major",
+      "body": "Ivan Ilyich’s wife and the mother of Lisa and Vasya.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Praskovya Fedorovna Golovina",
+        "Praskovya Fedorovna Mikhel",
+        "Praskovya Fedorovna",
+        "Praskoyva Fedorovna",
+        "Praskovya Fyodorovna",
+        "Praskovya"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gerasim",
+      "name": "Gerasim",
+      "category": "major",
+      "body": "The young assistant to the Golovins’ butler, who also nurses Ivan Ilyich.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gerasim"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peter-ivanovich",
+      "name": "Peter Ivanovich",
+      "category": "major",
+      "body": "Ivan Ilyich’s colleague and old friend from law school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Peter Ivanovich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lisa",
+      "name": "Lisa",
+      "category": "supporting",
+      "body": "Ivan Ilyich and Praskovya Fedorovna’s daughter.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lisa"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "vasya",
+      "name": "Vasya",
+      "category": "supporting",
+      "body": "Ivan Ilyich and Praskovya Fedorovna’s schoolboy son.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Vasya",
+        "Vladimir Ivanovich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "petrishchev",
+      "name": "Fedor Petrovich Petrishchev",
+      "category": "supporting",
+      "body": "The young examining magistrate engaged to Lisa; Dmitri Ivanovich Petrishchev’s son.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Fedor Petrovich",
+        "Petrishchev"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "petrishchev-father",
+      "name": "Dmitri Ivanovich Petrishchev",
+      "category": "reference",
+      "body": "The father of Fedor Petrovich, Lisa’s suitor.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dmitri Ivanovich Petrishchev"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "shebek",
+      "name": "Ivan Egorovich Shebek",
+      "category": "supporting",
+      "body": "A colleague of Ivan Ilyich at the law courts.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ivan Egorovich Shebek",
+        "Ivan Egorovich",
+        "Shebek"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fedor",
+      "name": "Fedor Vasilievich",
+      "category": "supporting",
+      "body": "A colleague of Ivan Ilyich and one of his closer acquaintances.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Fedor Vasilievich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "schwartz",
+      "name": "Schwartz",
+      "category": "supporting",
+      "body": "A colleague and card-playing acquaintance of Ivan Ilyich and Peter Ivanovich.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Schwartz"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sokolov",
+      "name": "Sokolov",
+      "category": "supporting",
+      "body": "The Golovins’ butler, senior to Gerasim.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sokolov"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peter-footman",
+      "name": "Peter",
+      "category": "supporting",
+      "body": "A footman in Ivan Ilyich’s household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Peter"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dmitri",
+      "name": "Dmitri",
+      "category": "reference",
+      "body": "A servant in Ivan Ilyich’s household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dmitri"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ilya",
+      "name": "Ilya Epimovich Golovin",
+      "category": "reference",
+      "body": "Ivan Ilyich’s father, a senior government official.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ilya Epimovich Golovin",
+        "Ilya Epimovich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "greff",
+      "name": "Baron Greff",
+      "category": "reference",
+      "body": "The government official married to Ivan Ilyich’s sister.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Baron Greff",
+        "Greff"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sister",
+      "name": "Ivan Ilyich’s sister",
+      "category": "reference",
+      "body": "Ivan Ilyich’s sister, married to Baron Greff.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "brother-in-law",
+      "name": "Praskovya’s brother",
+      "category": "supporting",
+      "body": "Praskovya Fedorovna’s brother, Ivan Ilyich’s brother-in-law.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "alexeev",
+      "name": "Alexeev",
+      "category": "reference",
+      "body": "A court official considered for Ivan Ilyich’s position.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Alexeev"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "vinnikov",
+      "name": "Vinnikov",
+      "category": "reference",
+      "body": "A court official mentioned in the discussion of possible promotions.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Vinnikov"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "shtabel",
+      "name": "Shtabel",
+      "category": "reference",
+      "body": "A court official mentioned in the discussion of possible promotions.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Shtabel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "happe",
+      "name": "Happe",
+      "category": "reference",
+      "body": "The official who receives the judicial appointment Ivan Ilyich had expected.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Happe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ilyin",
+      "name": "F. I. Ilyin",
+      "category": "reference",
+      "body": "Ivan Ilyich’s acquaintance, who brings news of changes at the ministry.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "F. I. Ilyin",
+        "Ilyin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "minister-peter",
+      "name": "Peter Ivanovich, the ministry official",
+      "category": "reference",
+      "body": "The official being replaced in the ministry; distinct from Ivan Ilyich’s friend of the same name.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "ivan-semonovich",
+      "name": "Ivan Semonovich",
+      "category": "reference",
+      "body": "The official expected to replace Peter Ivanovich at the ministry.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ivan Semonovich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peter-petrovich",
+      "name": "Peter Petrovich",
+      "category": "reference",
+      "body": "An official whose advancement helps Ivan Ilyich’s prospects.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Peter Petrovich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zachar",
+      "name": "Zachar Ivanovich",
+      "category": "reference",
+      "body": "Ivan Ilyich’s friend and colleague, able to help him obtain an appointment.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Zachar Ivanovich",
+        "Sachar Ivanovich",
+        "Zachar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "miller",
+      "name": "Miller",
+      "category": "reference",
+      "body": "The official whose position Zachar Ivanovich takes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Miller"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "trufonova",
+      "name": "Princess Trufonova",
+      "category": "reference",
+      "body": "A fashionable guest with whom Ivan Ilyich dances.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Princess Trufonova",
+        "Trufonova"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mikhail",
+      "name": "Mikhail Mikhaylovich",
+      "category": "reference",
+      "body": "Ivan Ilyich’s bridge partner.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mikhail Mikhaylovich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nikolaevich",
+      "name": "Nikolaevich",
+      "category": "reference",
+      "body": "One of the doctors whose opinions on Ivan Ilyich’s illness are discussed.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nikolaevich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leshchetitsky",
+      "name": "Leshchetitsky",
+      "category": "supporting",
+      "body": "The celebrated medical specialist whom Praskovya proposes consulting.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Leshchetitsky"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "michael",
+      "name": "Michael Danilovich",
+      "category": "supporting",
+      "body": "The doctor attending Ivan Ilyich during his illness.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Michael Danilovich"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "specialist",
+      "name": "The visiting specialist",
+      "category": "supporting",
+      "body": "The doctor brought in to consult with Michael Danilovich.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "category": "reference",
+      "body": "A companion joining the family’s theater outing; her relationship to them is not specified.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Helen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mitya",
+      "name": "Mitya",
+      "category": "reference",
+      "body": "A person in Ivan Ilyich’s childhood memories; the passage does not specify the relationship.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mitya"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "volodya",
+      "name": "Volodya",
+      "category": "reference",
+      "body": "A person in Ivan Ilyich’s childhood memories; the passage does not specify the relationship.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Volodya"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "katenka",
+      "name": "Katenka",
+      "category": "reference",
+      "body": "A woman in Ivan Ilyich’s memories of his youth; no further identity is given.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Katenka"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "scharmer",
+      "name": "Scharmer",
+      "category": "reference",
+      "body": "The fashionable tailor from whom Ivan Ilyich buys his clothes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Scharmer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "marya",
+      "name": "Empress Marya",
+      "category": "reference",
+      "body": "The Russian empress whose name is borne by the charitable and educational institutions mentioned here.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Empress Marya"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zola",
+      "name": "Émile Zola",
+      "category": "reference",
+      "body": "The French novelist whose work Ivan Ilyich tries to read.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Zola"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kiesewetter",
+      "name": "Kiesewetter",
+      "category": "reference",
+      "body": "The German philosopher and author of the logic textbook Ivan Ilyich remembers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Kiesewetter"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "caius",
+      "name": "Caius",
+      "category": "reference",
+      "body": "The example of a mortal man used in the logic textbook’s argument.",
+      "subtitle": "",
+      "kind": "hypothetical-figure",
+      "aliases": [
+        "Caius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bernhardt",
+      "name": "Sarah Bernhardt",
+      "category": "reference",
+      "body": "The celebrated French stage actress the family plans to see.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sarah Bernhardt",
+        "Bernhardt"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "capoul",
+      "name": "Capoul",
+      "category": "reference",
+      "body": "The French tenor Victor Capoul, whose hairstyle Fedor Petrovich imitates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Capoul"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adrienne",
+      "name": "Adrienne Lecouvreur",
+      "category": "reference",
+      "body": "The French actress whose life is dramatized in the play discussed by the theatergoers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Adrienne Lecouvreur"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "reader",
+      "name": "The Church Reader",
+      "category": "supporting",
+      "body": "The man reading aloud during the funeral service.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Church Reader",
+        "Reader"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "priest",
+      "name": "The priest",
+      "category": "supporting",
+      "body": "The priest conducting religious rites for the family.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    }
+  ]
+}
