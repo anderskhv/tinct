@@ -1,0 +1,1064 @@
+{
+  "bookId": "phaedrus",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete dialogue in both English editions: two speakers, Lysias, named human/divine references, imaginary speech roles and chariot figures; context-scoped Hera and Zeno aliases.",
+  "entities": [
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "category": "central",
+      "body": "The Athenian philosopher discussing love, the soul and rhetoric with Phaedrus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SOCRATES",
+        "Socrates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phaedrus",
+      "name": "Phaedrus",
+      "category": "central",
+      "body": "Socrates’ companion, an admirer of Lysias with a passion for speeches.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PHAEDRUS",
+        "Phaedrus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lysias",
+      "name": "Lysias",
+      "category": "major",
+      "body": "The Athenian speechwriter whose speech on love Phaedrus brings to the discussion.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lysias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cephalus",
+      "name": "Cephalus",
+      "category": "reference",
+      "body": "Lysias and Polemarchus’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cephalus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "acumenus",
+      "name": "Acumenus",
+      "category": "reference",
+      "body": "The physician who is a friend of Socrates and Phaedrus, and Eryximachus’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Acumenus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "epicrates",
+      "name": "Epicrates",
+      "category": "reference",
+      "body": "The Athenian hosting Lysias in the house associated with Morychus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Epicrates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "morychus",
+      "name": "Morychus",
+      "category": "reference",
+      "body": "The Athenian whose house is mentioned as the place where Lysias is staying.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Morychus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pindar",
+      "name": "Pindar",
+      "category": "reference",
+      "body": "The Greek lyric poet quoted by Socrates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pindar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "herodicus",
+      "name": "Herodicus",
+      "category": "reference",
+      "body": "The physician known for prescribing exercise, recalled for his walking regimen.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Herodicus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sappho",
+      "name": "Sappho",
+      "category": "reference",
+      "body": "The Greek lyric poet whom Socrates invokes as a source of inspiration about love.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sappho"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anacreon",
+      "name": "Anacreon",
+      "category": "reference",
+      "body": "The Greek lyric poet associated with love and song.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Anacreon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "simmias",
+      "name": "Simmias of Thebes",
+      "category": "reference",
+      "body": "The friend of Socrates recalled as an unusually eager lover of argument.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Simmias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ibycus",
+      "name": "Ibycus",
+      "category": "reference",
+      "body": "The Greek lyric poet whom Socrates quotes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ibycus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "category": "reference",
+      "body": "The ancient Greek epic poet repeatedly cited in the conversation.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Homer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "stesichorus",
+      "name": "Stesichorus",
+      "category": "reference",
+      "body": "The Greek lyric poet whose recantation about Helen inspires Socrates’ second speech.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Stesichorus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pythocles",
+      "name": "Pythocles",
+      "category": "reference",
+      "body": "Phaedrus’s father, playfully rendered as Vain Man in this translation.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Vain Man"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "euphemus",
+      "name": "Euphemus",
+      "category": "reference",
+      "body": "Stesichorus’s father, rendered as Godly Man in the wordplay.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Godly Man",
+        "Euphemus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "polemarchus",
+      "name": "Polemarchus",
+      "category": "reference",
+      "body": "Lysias’s brother, whom Socrates presents as interested in philosophy.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Polemarchus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lycurgus",
+      "name": "Lycurgus",
+      "category": "reference",
+      "body": "The traditional Spartan lawgiver named in the discussion of enduring laws.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lycurgus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "solon",
+      "name": "Solon",
+      "category": "reference",
+      "body": "The Athenian lawgiver and poet.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Solon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "darius",
+      "name": "Darius I",
+      "category": "reference",
+      "body": "The Persian king named as an example of a lawgiver.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Darius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gorgias",
+      "name": "Gorgias",
+      "category": "reference",
+      "body": "The celebrated Greek teacher of rhetoric, from Leontini.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gorgias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thrasymachus",
+      "name": "Thrasymachus",
+      "category": "reference",
+      "body": "The teacher of rhetoric from Chalcedon, also called the Chalcedonian giant.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Thrasymachus",
+        "Chalcedonian giant"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theodorus",
+      "name": "Theodorus of Byzantium",
+      "category": "reference",
+      "body": "The teacher of rhetoric whose elaborate divisions of a speech are discussed.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Theodorus",
+        "Byzantian word-maker",
+        "Byzantine word-maker"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zeno",
+      "name": "Zeno of Elea",
+      "category": "reference",
+      "body": "The philosopher renowned for paradoxes, playfully called the Eleatic Palamedes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Zeno",
+        "Eleatic Palamedes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "evenus",
+      "name": "Evenus of Paros",
+      "category": "reference",
+      "body": "The poet and teacher of rhetoric credited with indirect praise and censure.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Evenus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tisias",
+      "name": "Tisias",
+      "category": "reference",
+      "body": "The Sicilian teacher of rhetoric associated here with arguments from probability.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Tisias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prodicus",
+      "name": "Prodicus",
+      "category": "reference",
+      "body": "The sophist known for distinctions between words and their meanings.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Prodicus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hippias",
+      "name": "Hippias of Elis",
+      "category": "reference",
+      "body": "The sophist and teacher called the Elean stranger.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hippias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "polus",
+      "name": "Polus",
+      "category": "reference",
+      "body": "The teacher of rhetoric whose collection of technical terms is discussed.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Polus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "licymnius",
+      "name": "Licymnius",
+      "category": "reference",
+      "body": "The poet and teacher of rhetoric credited with supplying Polus’s terminology.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Licymnius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "protagoras",
+      "name": "Protagoras",
+      "category": "reference",
+      "body": "The sophist cited for rules of correct expression.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Protagoras"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eryximachus",
+      "name": "Eryximachus",
+      "category": "reference",
+      "body": "The physician who is Phaedrus’s friend and Acumenus’s son.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Eryximachus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sophocles",
+      "name": "Sophocles",
+      "category": "reference",
+      "body": "The Athenian tragic playwright used as an example of mastery of a whole art.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sophocles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "euripides",
+      "name": "Euripides",
+      "category": "reference",
+      "body": "The Athenian tragic playwright named alongside Sophocles.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Euripides"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pericles",
+      "name": "Pericles",
+      "category": "reference",
+      "body": "The Athenian statesman and orator whose education Socrates praises.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pericles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anaxagoras",
+      "name": "Anaxagoras",
+      "category": "reference",
+      "body": "The philosopher whose teaching about nature and mind influenced Pericles.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Anaxagoras"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hippocrates",
+      "name": "Hippocrates",
+      "category": "reference",
+      "body": "The Greek physician whose approach to understanding the body is compared with rhetoric.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hippocrates",
+        "Asclepiad"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "isocrates",
+      "name": "Isocrates",
+      "category": "reference",
+      "body": "The orator whom Socrates names as a promising friend at the close of the dialogue.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Isocrates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cicero",
+      "name": "Cicero",
+      "category": "reference",
+      "body": "The Roman author cited in the translator’s note about the Tusculan Disputations.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cic."
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "category": "reference",
+      "body": "The chief Olympian god, who leads the divine procession in Socrates’ account of the soul.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Olympian Zeus",
+        "Zeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "boreas",
+      "name": "Boreas",
+      "category": "reference",
+      "body": "The Greek god of the north wind, linked with Orithyia in the local legend.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Boreas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "orithyia",
+      "name": "Orithyia",
+      "category": "reference",
+      "body": "The Athenian princess carried away by Boreas in the legend discussed beside the stream.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Orithyia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "artemis",
+      "name": "Artemis",
+      "category": "reference",
+      "body": "The Greek goddess whose nearby temple is mentioned.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Artemis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pharmacia",
+      "name": "Pharmacia",
+      "category": "reference",
+      "body": "Orithyia’s companion in the version of the story Socrates considers.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Pharmacia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "centaurs",
+      "name": "The centaurs",
+      "category": "reference",
+      "body": "The half-human, half-horse beings called Hippocentaurs in the discussion of myths.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Hippocentaurs"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chimeras",
+      "name": "The chimeras",
+      "category": "reference",
+      "body": "The composite monsters mentioned among stories that resist rational explanation.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "chimeras",
+        "Chimeras"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gorgons",
+      "name": "The Gorgons",
+      "category": "reference",
+      "body": "The fearsome female monsters of Greek myth.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Gorgons"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "typho",
+      "name": "Typhon",
+      "category": "reference",
+      "body": "The monstrous being called Typho, with whom Socrates compares his own unexplored nature.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Typho"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hera",
+      "name": "Hera",
+      "category": "reference",
+      "body": "The Olympian goddess and wife of Zeus, called Here in the original translation.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hera"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "achelous",
+      "name": "Achelous",
+      "category": "reference",
+      "body": "The river god honored at the place where Socrates and Phaedrus rest.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Achelous"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nymphs",
+      "name": "The Nymphs",
+      "category": "reference",
+      "body": "The nature divinities associated with the stream and the speakers’ inspiration.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Nymphs"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "muses",
+      "name": "The Muses",
+      "category": "reference",
+      "body": "The goddesses of poetry, music and inspired learning.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Muses"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eros",
+      "name": "Eros",
+      "category": "reference",
+      "body": "The god of love, son of Aphrodite in the account discussed here.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Eros"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aphrodite",
+      "name": "Aphrodite",
+      "category": "reference",
+      "body": "The Greek goddess of love and beauty.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Aphrodite"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen",
+      "category": "reference",
+      "body": "Helen of Troy, the woman whom Stesichorus reviles and then praises in his recantation.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Helen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sibyl",
+      "name": "The Sibyl",
+      "category": "reference",
+      "body": "The inspired prophetess cited as an example of divine madness.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Sibyl"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hestia",
+      "name": "Hestia",
+      "category": "reference",
+      "body": "The goddess of the hearth, who remains at home in the divine procession.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hestia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ares",
+      "name": "Ares",
+      "category": "reference",
+      "body": "The Greek god of war, whose followers Socrates describes.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ares"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "category": "reference",
+      "body": "The Greek god associated with prophecy and inspiration.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Apollo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ganymede",
+      "name": "Ganymede",
+      "category": "reference",
+      "body": "The beautiful youth loved by Zeus in the myth recalled by Socrates.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Ganymede"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "odysseus",
+      "name": "Odysseus",
+      "category": "reference",
+      "body": "The Homeric hero renowned for resourceful speech, used in comparisons with rhetoricians.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Odysseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "terpsichore",
+      "name": "Terpsichore",
+      "category": "reference",
+      "body": "The Muse associated here with dancers in the story of the cicadas.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Terpsichore"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "erato",
+      "name": "Erato",
+      "category": "reference",
+      "body": "The Muse associated here with lovers in the story of the cicadas.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Erato"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "calliope",
+      "name": "Calliope",
+      "category": "reference",
+      "body": "The eldest Muse, associated here with philosophy and elevated discourse.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Calliope"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "urania",
+      "name": "Urania",
+      "category": "reference",
+      "body": "The Muse associated with heaven and thought in Socrates’ account.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Urania"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nestor",
+      "name": "Nestor",
+      "category": "reference",
+      "body": "The wise old king of Pylos in Homer, used as a model of eloquent speech.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Nestor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "palamedes",
+      "name": "Palamedes",
+      "category": "reference",
+      "body": "The Greek hero famous for ingenuity, named in the comparison about rhetoric.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Palamedes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "category": "reference",
+      "body": "The rustic god invoked in Socrates’ closing prayer.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Pan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "category": "reference",
+      "body": "The Greek messenger god invoked in the conversation.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hermes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "midas",
+      "name": "Midas",
+      "category": "reference",
+      "body": "The Phrygian king named in the quoted tomb inscription.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Midas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dionysus",
+      "name": "Dionysus",
+      "category": "reference",
+      "body": "The Greek god associated with initiatory religious madness.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Dionysus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adrastus",
+      "name": "Adrastus",
+      "category": "reference",
+      "body": "The legendary king of Argos praised for his honeyed eloquence.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Adrastus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theuth",
+      "name": "Theuth",
+      "category": "reference",
+      "body": "The Egyptian god, usually called Thoth, credited with inventing writing in Socrates’ story.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Theuth"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thamus",
+      "name": "Thamus",
+      "category": "reference",
+      "body": "The Egyptian king and god who judges Theuth’s inventions, identified here with Ammon.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Thamus",
+        "Ammon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adonis",
+      "name": "Adonis",
+      "category": "reference",
+      "body": "The mythological youth honored in the short-lived gardens used as Socrates’ comparison.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Adonis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The divine nature or a divine patron invoked in Socrates’ account of souls.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cypselids",
+      "name": "The Cypselids",
+      "category": "reference",
+      "body": "The ruling family of ancient Corinth, recalled for its lavish offerings at Olympia.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Cypselids"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lysias-youth",
+      "name": "The youth in Lysias’s speech",
+      "category": "reference",
+      "body": "The imagined young man addressed by the speaker in Lysias’s speech.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "nonlover",
+      "name": "The speaker in Lysias’s speech",
+      "category": "reference",
+      "body": "The imagined suitor who presents himself as a non-lover.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "socrates-youth",
+      "name": "The youth in Socrates’ speech",
+      "category": "reference",
+      "body": "The imagined young man addressed in Socrates’ speeches about love.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "cunning-lover",
+      "name": "The concealed lover",
+      "category": "reference",
+      "body": "The suitor in Socrates’ invented story who pretends not to love the youth.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pythia",
+      "name": "The Delphic priestess",
+      "category": "reference",
+      "body": "The prophetess of Apollo at Delphi, cited as an example of inspired speech.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "dodona",
+      "name": "The priestesses of Dodona",
+      "category": "reference",
+      "body": "The women associated with the oracle at Dodona in the discussion of divine inspiration.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "charioteer",
+      "name": "The charioteer",
+      "category": "reference",
+      "body": "The driver in Socrates’ image of the soul, trying to guide its pair of winged horses.",
+      "subtitle": "",
+      "kind": "allegorical-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "noble-horse",
+      "name": "The noble horse",
+      "category": "reference",
+      "body": "The obedient horse in the image of the human soul, responsive to guidance and restraint.",
+      "subtitle": "",
+      "kind": "allegorical-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "unruly-horse",
+      "name": "The unruly horse",
+      "category": "reference",
+      "body": "The resistant horse in the image of the human soul, pulling against the driver’s guidance.",
+      "subtitle": "",
+      "kind": "allegorical-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "cicadas",
+      "name": "The cicadas",
+      "category": "reference",
+      "body": "The singing insects, called grasshoppers in the tale, whom Socrates connects with the Muses.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "bronze-maiden",
+      "name": "The bronze maiden",
+      "category": "reference",
+      "body": "The speaking statue in the quoted inscription on Midas’s tomb.",
+      "subtitle": "",
+      "kind": "object",
+      "aliases": [],
+      "snapshots": []
+    }
+  ]
+}
