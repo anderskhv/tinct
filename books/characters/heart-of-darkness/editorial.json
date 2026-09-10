@@ -1,0 +1,674 @@
+{
+  "bookId": "heart-of-darkness",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All three parts, both English editions: named cast, distinct recognizable unnamed roles and communities, family references, the book author and cultural allusions. Exact selected references, not blanket pronoun/ethnic-label matching.",
+  "entities": [
+    {
+      "id": "marlow",
+      "name": "Charlie Marlow",
+      "category": "central",
+      "body": "The seaman whose journey into Central Africa forms the main story.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Charlie Marlow",
+        "Marlow",
+        "Charlie"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kurtz",
+      "name": "Mr. Kurtz",
+      "category": "major",
+      "body": "The Company’s leading ivory agent, based at the Inner Station.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mr. Kurtz",
+        "Kurtz"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "narrator",
+      "name": "The frame narrator",
+      "category": "supporting",
+      "body": "One of the men aboard the Nellie, listening to and recounting Marlow’s story.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "host",
+      "name": "The Director of Companies",
+      "category": "supporting",
+      "body": "The captain and host of the gathering aboard the Nellie.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Director of Companies"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lawyer",
+      "name": "The lawyer",
+      "category": "supporting",
+      "body": "One of Marlow’s companions aboard the Nellie.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Lawyer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "frame-accountant",
+      "name": "The Nellie’s accountant guest",
+      "category": "supporting",
+      "body": "The accountant listening to Marlow aboard the Nellie.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "aunt",
+      "name": "Marlow’s aunt",
+      "category": "supporting",
+      "body": "Marlow’s aunt, who uses her connections to help him obtain the river command.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "aunt"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fresleven",
+      "name": "Fresleven",
+      "category": "supporting",
+      "body": "The Danish steamboat captain whom Marlow replaces.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Fresleven"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chief",
+      "name": "The village chief",
+      "category": "supporting",
+      "body": "The village leader involved in Fresleven’s dispute over hens.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chief-son",
+      "name": "The chief’s son",
+      "category": "supporting",
+      "body": "The son of the village chief in the account of Fresleven’s quarrel.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "older-knitter",
+      "name": "The older knitting woman",
+      "category": "supporting",
+      "body": "The older woman at the Company’s European office, watching the visitors.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "younger-knitter",
+      "name": "The younger knitting woman",
+      "category": "supporting",
+      "body": "The woman at the Company’s European office who guides visitors into the waiting room.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "secretary",
+      "name": "The secretary",
+      "category": "supporting",
+      "body": "The secretary who handles Marlow’s visit and paperwork at the Company’s European office.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "secretary"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "company-head",
+      "name": "The Company’s head",
+      "category": "supporting",
+      "body": "The senior Company official who receives Marlow at the European headquarters.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "clerk",
+      "name": "The young clerk",
+      "category": "supporting",
+      "body": "The Company employee who escorts Marlow to his medical examination.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "doctor",
+      "name": "The Company doctor",
+      "category": "supporting",
+      "body": "The doctor who examines recruits before they leave for Africa.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "doctor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "swedish-captain",
+      "name": "The Swedish captain",
+      "category": "supporting",
+      "body": "The captain of the small coastal steamer that carries Marlow to the Company station.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "swedish-traveler",
+      "name": "The Swedish traveler",
+      "category": "reference",
+      "body": "The man mentioned by the Swedish captain in his account of the journey inland.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chain-gang",
+      "name": "The chained laborers",
+      "category": "supporting",
+      "body": "The African workers forced to carry loads while chained together near the station.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "guard",
+      "name": "The guard",
+      "category": "supporting",
+      "body": "The armed African guard accompanying the chained laborers.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "young-worker",
+      "name": "The young worker in the grove",
+      "category": "supporting",
+      "body": "The severely weakened young African worker whom Marlow approaches under the trees.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chief-accountant",
+      "name": "The Company’s chief accountant",
+      "category": "supporting",
+      "body": "The Company bookkeeper at the first station Marlow visits.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "chief accountant"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "laundry-worker",
+      "name": "The accountant’s laundry worker",
+      "category": "reference",
+      "body": "The African woman who maintains the accountant’s linen.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "sick-agent",
+      "name": "The sick agent",
+      "category": "supporting",
+      "body": "The ill Company agent placed in the accountant’s office.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "road-official",
+      "name": "The road official",
+      "category": "supporting",
+      "body": "The European official Marlow meets on the overland route, claiming responsibility for the road.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "walking-companion",
+      "name": "Marlow’s traveling companion",
+      "category": "supporting",
+      "body": "The European man accompanying Marlow on the overland journey to the Central Station.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "manager",
+      "name": "The Central Station manager",
+      "category": "major",
+      "body": "The Company official in charge of the Central Station, overseeing the upriver expedition.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "manager"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "manager-boy",
+      "name": "The manager’s young servant",
+      "category": "supporting",
+      "body": "The young African servant employed by the Central Station manager.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "beaten-worker",
+      "name": "The man blamed for the fire",
+      "category": "supporting",
+      "body": "The African man accused of causing the fire at the Central Station.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "brickmaker",
+      "name": "The brickmaker",
+      "category": "supporting",
+      "body": "The Central Station agent assigned to make bricks, closely aligned with the manager.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "brickmaker"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mechanic",
+      "name": "The boilermaker",
+      "category": "supporting",
+      "body": "The mechanics’ foreman who works with Marlow on repairing the steamboat.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "foreman",
+        "boiler-maker",
+        "boilermaker"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "uncle",
+      "name": "The manager’s uncle",
+      "category": "supporting",
+      "body": "The leader of the Eldorado Exploring Expedition and uncle of the Central Station manager.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "uncle"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eldorado",
+      "name": "The Eldorado Exploring Expedition",
+      "category": "supporting",
+      "body": "The expedition led by the manager’s uncle in search of wealth in the interior.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Eldorado Exploring Expedition",
+        "Eldorado Expedition"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pilgrims",
+      "name": "The pilgrims",
+      "category": "supporting",
+      "body": "Marlow’s ironic name for the European Company agents.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "pilgrims"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "crew",
+      "name": "The African crew",
+      "category": "supporting",
+      "body": "The African men hired to work aboard Marlow’s steamboat, whom he calls cannibals.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "cannibals"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "headman",
+      "name": "The crew’s headman",
+      "category": "supporting",
+      "body": "The leader of the African crew working aboard Marlow’s steamboat.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "headman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fireman",
+      "name": "The fireman",
+      "category": "supporting",
+      "body": "The African crewman tending the steamboat’s boiler.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "fireman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helmsman",
+      "name": "The helmsman",
+      "category": "supporting",
+      "body": "The African crewman who steers Marlow’s steamboat.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "helmsman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "poleman",
+      "name": "The poleman",
+      "category": "supporting",
+      "body": "The crewman measuring the depth of the river from the steamboat’s bow.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "poleman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "towson",
+      "name": "Towson or Towser",
+      "category": "reference",
+      "body": "The author of the seamanship manual Marlow finds; Marlow is unsure of the surname.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Towson",
+        "Towser"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "russian",
+      "name": "The Russian trader",
+      "category": "major",
+      "body": "The young independent trader in patched clothes, an admirer of Kurtz.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "man of patches"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "archpriest",
+      "name": "The Russian trader’s father",
+      "category": "reference",
+      "body": "The arch-priest from the Tambov region whose son is the young trader.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "arch-priest"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "van-shuyten",
+      "name": "Van Shuyten",
+      "category": "reference",
+      "body": "The Dutch trader who supplied the young Russian for his journey.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Van Shuyten"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "intended",
+      "name": "Kurtz’s Intended",
+      "category": "supporting",
+      "body": "Kurtz’s fiancée, living in Europe.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Intended"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kurtz-mother",
+      "name": "Kurtz’s mother",
+      "category": "reference",
+      "body": "Kurtz’s mother, described as half-English.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "kurtz-father",
+      "name": "Kurtz’s father",
+      "category": "reference",
+      "body": "Kurtz’s father, described as half-French.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "african-woman",
+      "name": "Kurtz’s African companion",
+      "category": "supporting",
+      "body": "The African woman closely associated with Kurtz at the Inner Station.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "company-representative",
+      "name": "The Company’s representative",
+      "category": "supporting",
+      "body": "The official who visits Marlow in Europe to claim Kurtz’s papers for the Company.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "cousin",
+      "name": "Kurtz’s cousin",
+      "category": "supporting",
+      "body": "The man who identifies himself as Kurtz’s cousin and describes his musical gifts.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "journalist",
+      "name": "The journalist",
+      "category": "supporting",
+      "body": "The journalist who knew Kurtz and discusses his public speaking with Marlow.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "drake",
+      "name": "Sir Francis Drake",
+      "category": "reference",
+      "body": "The English seafarer associated with the Golden Hind.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Sir Francis Drake"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "franklin",
+      "name": "Sir John Franklin",
+      "category": "reference",
+      "body": "The British naval explorer associated with the Erebus and Terror.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Sir John Franklin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "elizabeth",
+      "name": "Elizabeth I",
+      "category": "reference",
+      "body": "The English queen who visited Drake’s Golden Hind.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Queen’s Highness",
+        "Queen's Highness"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "buddha",
+      "name": "The Buddha",
+      "category": "reference",
+      "body": "The Buddhist spiritual teacher invoked in comparisons with Marlow’s seated pose.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Buddha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "category": "reference",
+      "body": "The ancient Greek philosopher named in the young clerk’s remark.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Plato"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "category": "reference",
+      "body": "The Roman god of war, invoked in Marlow’s ironic imagery.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Mars"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mephistopheles",
+      "name": "Mephistopheles",
+      "category": "reference",
+      "body": "The devil figure of the Faust story, used in Marlow’s comparison of the brickmaker.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Mephistopheles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "category": "reference",
+      "body": "Another name for Jupiter, the Roman chief god, invoked in oaths and imagery.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Jove",
+        "Jupiter"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The divine being invoked in religious expressions and oaths.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    }
+  ]
+}

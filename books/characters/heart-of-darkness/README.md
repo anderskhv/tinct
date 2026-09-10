@@ -1,0 +1,13 @@
+# Heart of Darkness: recognition cards
+
+All three parts, both English editions; 59 entries each. Marlow is Central. Kurtz, the Central Station manager and the Russian trader are Major. Recognizable companions, workers, officials and the Intended are Supporting. Cited figures, parents and the seamanship author are Reference. Identities remain concise rather than recounting Kurtz’s actions, the expedition’s casualties or the ending.
+
+Ordinary identities are immediate: the first station’s elegantly dressed man is the Company accountant; the man at the Inner Station is the young Russian trader; Intended means Kurtz’s fiancée. The African companion’s close association with Kurtz is identified without asserting an explicitly confirmed marital or sexual status that the text does not supply.
+
+Frame/accountant distinction: the Nellie’s accountant guest is not the Company’s chief accountant. The host called Director of Companies is not the official at the European headquarters. The two knitting women, secretary and young escort are separate entries. The Swedish captain is not Fresleven, nor the other Swedish traveler mentioned in his anecdote. The manager’s servant is not the helmsman or fireman. The crew’s headman and the poleman remain distinct.
+
+Speculative promotion titles at 1:58 refer to Kurtz; assistant-manager at 1:60 refers to the brickmaker’s ambition. Neither is a present promotion or an alias for the incumbent manager. Towson/Towser is the book’s author, not the Russian trader; Russian language/ship references at 2:35–36 do not match the trader. The author of the notes and the trader’s former hut are not revealed by an earlier card. No outcomes are added to later recognition cards.
+
+Compared ambiguous title wording with [the primary text](https://www.gutenberg.org/files/219/219-h/219-h.htm). Individual role spans are explicitly scoped; generic racial labels and pronouns are not globally matched. Source slurs, metaphors and editorial punctuation remain unchanged in the edition but are not adopted as card descriptions. Ship, brand and firearm names are not people (Nellie, Huntley/Palmer, Martini-Henry, Winchesters).
+
+Authoring-agent source review, not independent editorial approval. Regenerate author_content.py then build_heart_of_darkness.py; --check verifies freshness. Requires build_reviewed.py. Tests cover source hashes/spans, the two accountants, speculative titles, Russian/book distinction, category timing and stable identities. Before enabling, recheck source bytes, explicitly register both pairs, version the URL, and verify opening/frame cards, first Kurtz, both accountants, the Russian boundary and the Intended on production. No runtime/deployment changes in this package.
