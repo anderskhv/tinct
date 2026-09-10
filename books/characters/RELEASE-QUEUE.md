@@ -88,6 +88,7 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | Julius Caesar | 77b9b2d1 | 73 / 73 | build_julius_caesar.py |
 | The Merchant of Venice | 0e22523c | 90 / 90 | build_merchant_of_venice.py |
 | Twelfth Night | d576b613 | 65 / 65 | build_twelfth_night.py |
+| The Jungle Book | 648da045 | 104 / 104 | build_jungle_book.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
@@ -99,12 +100,14 @@ Around the World in Eighty Days separates both Forsters and both priest groups, 
 
 Twelfth Night is validated and awaiting the next grouped handoff; both source hashes matched Tinct-reader-title. Review literal addressee versus reported-assailant twin bindings and marriage versus intended-marriage gates.
 
+The Jungle Book is validated and awaiting the next grouped handoff. Its seven stories and verse distinguish Nathoo from Mowgli, all four Toomai generations, the two Alice references and individual versus collective animal roles. Both source files match Tinct-reader-title.
+
 ## Held separately
 
 The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source song-speaker labels around Ariel's songs are wrong in both editions. Release owner requested source repair review before enablement. See the-tempest/README.md. Regenerate bindings if any source bytes change.
 
 ## Verification and tracking
 
-Current complete content suite: 270 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 278 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
