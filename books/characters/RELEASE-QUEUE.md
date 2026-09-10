@@ -32,12 +32,22 @@ Shared dependencies: build_reviewed.py; Manual/Art of War additionally reviewed_
 
 All use build_reviewed.py. Validate the concealed identity boundaries in the first two and ordinary betrothal identity in Antigone. Exact production checks are in each README.
 
+## Additional validated batch
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| The Death of Ivan Ilyich | 6b2e9f11 | 48 / 48 | build_ivan_ilyich.py |
+| Medea | 47bd0434 | 37 / 37 | build_medea.py |
+| A Midsummer Night’s Dream | 7a02c049 | 72 / 66 | build_midsummer.py |
+
+All use build_reviewed.py. Review the distinct Peters in Ivan, the Corinthian Creon in Medea, and the three Helen bindings and actor/role separation in Midsummer.
+
 ## Held separately
 
 The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source song-speaker labels around Ariel's songs are wrong in both editions. Release owner requested source repair review before enablement. See the-tempest/README.md. Regenerate bindings if any source bytes change.
 
 ## Verification and tracking
 
-Current complete content suite: 75 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 92 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
