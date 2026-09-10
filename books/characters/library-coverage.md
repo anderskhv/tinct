@@ -85,7 +85,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Walden (`walden`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Comedy of Errors (`comedy-of-errors`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| The Merchant of Venice (`merchant-of-venice`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Merchant of Venice (`merchant-of-venice`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Henry V (`henry-v`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | As You Like It (`as-you-like-it`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | winters-tale (`winters-tale`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

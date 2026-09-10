@@ -1,0 +1,1196 @@
+{
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All twenty scenes: main cast, local speaking roles, differentiated court disguises and namesakes, suitors, family references and classical/biblical allusions.",
+  "entities": [
+    {
+      "id": "antonio",
+      "name": "Antonio",
+      "category": "central",
+      "body": "The Venetian merchant of the title and Bassanio’s close friend.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ANTONIO",
+        "Antonio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "portia",
+      "name": "Portia",
+      "category": "central",
+      "body": "The wealthy heiress of Belmont whom Bassanio hopes to marry.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PORTIA",
+        "Portia"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            16,
+            1
+          ],
+          "body": "The heiress of Belmont and Bassanio’s wife."
+        },
+        {
+          "after": [
+            18,
+            42
+          ],
+          "body": "Bassanio’s wife and the heiress of Belmont; Balthazar is her courtroom disguise."
+        }
+      ]
+    },
+    {
+      "id": "shylock",
+      "name": "Shylock",
+      "category": "central",
+      "body": "The Jewish moneylender in Venice, Jessica’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SHYLOCK",
+        "Shylock"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bassanio",
+      "name": "Bassanio",
+      "category": "major",
+      "body": "Antonio’s friend, the Venetian gentleman courting Portia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "BASSANIO",
+        "Bassanio"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            16,
+            1
+          ],
+          "body": "Antonio’s friend and Portia’s husband."
+        }
+      ]
+    },
+    {
+      "id": "nerissa",
+      "name": "Nerissa",
+      "category": "major",
+      "body": "Portia’s waiting-woman and confidante.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "NERISSA",
+        "Nerissa"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            16,
+            12
+          ],
+          "body": "Portia’s waiting-woman and Gratiano’s wife."
+        },
+        {
+          "after": [
+            18,
+            26
+          ],
+          "body": "Portia’s waiting-woman and Gratiano’s wife; the lawyer’s clerk is her courtroom disguise."
+        }
+      ]
+    },
+    {
+      "id": "gratiano",
+      "name": "Gratiano",
+      "category": "major",
+      "body": "The outspoken friend of Antonio and Bassanio.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "GRATIANO",
+        "Gratiano"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            16,
+            12
+          ],
+          "body": "Nerissa’s husband and the outspoken friend of Antonio and Bassanio."
+        }
+      ]
+    },
+    {
+      "id": "jessica",
+      "name": "Jessica",
+      "category": "major",
+      "body": "Shylock’s daughter and Lorenzo’s beloved.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "JESSICA",
+        "Jessica"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            17,
+            6
+          ],
+          "body": "Shylock’s daughter and Lorenzo’s wife."
+        }
+      ]
+    },
+    {
+      "id": "lorenzo",
+      "name": "Lorenzo",
+      "category": "major",
+      "body": "Bassanio’s friend and Jessica’s lover.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LORENZO",
+        "Lorenzo"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            17,
+            6
+          ],
+          "body": "Bassanio’s friend and Jessica’s husband."
+        }
+      ]
+    },
+    {
+      "id": "launcelet",
+      "name": "Launcelet Gobbo",
+      "category": "major",
+      "body": "Shylock’s servant, the son of Old Gobbo and Margery.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LAUNCELET",
+        "Launcelet Gobbo",
+        "Launcelet"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            5,
+            50
+          ],
+          "body": "Bassanio’s servant, formerly employed by Shylock; Old Gobbo is his father."
+        }
+      ]
+    },
+    {
+      "id": "salarino",
+      "name": "Salarino",
+      "category": "supporting",
+      "body": "One of the Venetian friends of Antonio and Bassanio.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SALARINO",
+        "Salarino"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "solanio",
+      "name": "Solanio",
+      "category": "supporting",
+      "body": "The Venetian companion who exchanges news with Salarino.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SOLANIO",
+        "Solanio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "salerio",
+      "name": "Salerio",
+      "category": "supporting",
+      "body": "The Venetian messenger bringing Antonio’s letter to Belmont.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SALERIO",
+        "Salerio"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gobbo",
+      "name": "Old Gobbo",
+      "category": "supporting",
+      "body": "Launcelet’s father and Margery’s husband.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "GOBBO",
+        "Old Gobbo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tubal",
+      "name": "Tubal",
+      "category": "supporting",
+      "body": "The Jewish moneylender and associate of Shylock.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "TUBAL",
+        "Tubal"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leonardo",
+      "name": "Leonardo",
+      "category": "supporting",
+      "body": "Bassanio’s servant, helping prepare his departure.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "LEONARDO",
+        "Leonardo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "balthazar-servant",
+      "name": "Balthazar",
+      "category": "supporting",
+      "body": "Portia’s servant, sent to her cousin Bellario.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "BALTHAZAR"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "stephano",
+      "name": "Stephano",
+      "category": "supporting",
+      "body": "Portia’s servant, who brings news of her return.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "STEPHANO",
+        "Stephano"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bellario",
+      "name": "Doctor Bellario",
+      "category": "supporting",
+      "body": "Portia’s cousin, a learned lawyer in Padua.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Doctor Bellario",
+        "Bellario"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "morocco",
+      "name": "The Prince of Morocco",
+      "category": "supporting",
+      "body": "The Moroccan prince courting Portia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PRINCE OF MOROCCO",
+        "Prince of Morocco"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "arragon",
+      "name": "The Prince of Arragon",
+      "category": "supporting",
+      "body": "The prince who comes to Belmont to seek Portia’s hand.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ARRAGON",
+        "Prince of Arragon",
+        "Arragon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "duke",
+      "name": "The Duke of Venice",
+      "category": "supporting",
+      "body": "The ruler of Venice who presides over the court.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "DUKE OF VENICE",
+        "DUKE",
+        "Duke"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "balthazar-lawyer",
+      "name": "Balthazar, the lawyer",
+      "category": "supporting",
+      "body": "The young legal scholar recommended in Bellario’s letter.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            18,
+            42
+          ],
+          "name": "Portia as Balthazar",
+          "body": "Portia’s assumed identity as the lawyer at the trial."
+        }
+      ]
+    },
+    {
+      "id": "court-messenger",
+      "name": "Bellario’s messenger",
+      "category": "supporting",
+      "body": "The messenger arriving with letters from Bellario.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            18,
+            26
+          ],
+          "name": "Nerissa as the clerk",
+          "body": "Nerissa’s assumed identity as the lawyer’s clerk."
+        }
+      ]
+    },
+    {
+      "id": "gaoler",
+      "name": "The jailer",
+      "category": "supporting",
+      "body": "The officer holding Antonio in custody.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Gaoler",
+        "GAOLER",
+        "gaoler",
+        "jailer",
+        "Jailer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "servingman",
+      "name": "Portia’s servingman",
+      "category": "supporting",
+      "body": "The servant announcing the departure of the suitors.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "SERVINGMAN",
+        "Servingman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "servitor",
+      "name": "The Belmont servitor",
+      "category": "supporting",
+      "body": "The servant helping arrange the Prince of Arragon’s audience.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "SERVITOR",
+        "Servitor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "belmont-messenger",
+      "name": "The Belmont messenger",
+      "category": "supporting",
+      "body": "The servant announcing the arrival of a Venetian visitor.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "MESSENGER",
+        "Messenger"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antonio-servant",
+      "name": "Antonio’s servant",
+      "category": "supporting",
+      "body": "The servant sent to summon Salarino and Solanio.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "bassanio-servant",
+      "name": "Bassanio’s unnamed servant",
+      "category": "supporting",
+      "body": "The attendant receiving Bassanio’s household instructions.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "morocco-forerunner",
+      "name": "Morocco’s forerunner",
+      "category": "supporting",
+      "body": "The messenger sent ahead to announce the Prince of Morocco.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "bassanio-forerunner",
+      "name": "Bassanio’s forerunner",
+      "category": "supporting",
+      "body": "The young Venetian sent ahead with gifts for Portia.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "musicians",
+      "name": "The musicians",
+      "category": "supporting",
+      "body": "The players performing at Belmont.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Musicians",
+        "musicians"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "magnificoes",
+      "name": "The Venetian magnificoes",
+      "category": "supporting",
+      "body": "The dignitaries attending the court.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Magnificoes",
+        "magnificoes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "portia-father",
+      "name": "Portia’s father",
+      "category": "reference",
+      "body": "The deceased father whose will sets the conditions for Portia’s marriage.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "neapolitan",
+      "name": "The Neapolitan prince",
+      "category": "reference",
+      "body": "One of Portia’s suitors, described by her as absorbed in horses.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Neapolitan prince",
+        "Neapolitan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "palatine",
+      "name": "The Count Palatine",
+      "category": "reference",
+      "body": "The solemn German suitor discussed by Portia and Nerissa.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "County Palatine",
+        "Count Palatine"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lebon",
+      "name": "Monsieur Le Bon",
+      "category": "reference",
+      "body": "The French lord among Portia’s suitors.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Monsieur Le Bon",
+        "Le Bon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "falconbridge",
+      "name": "Falconbridge",
+      "category": "reference",
+      "body": "The young English baron courting Portia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Falconbridge"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "scottish",
+      "name": "The Scottish lord",
+      "category": "reference",
+      "body": "The Scottish suitor discussed by Portia and Nerissa.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Scottish lord"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "saxony-nephew",
+      "name": "The Duke of Saxony’s nephew",
+      "category": "reference",
+      "body": "The young German suitor whom Portia describes as a heavy drinker.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "saxony",
+      "name": "The Duke of Saxony",
+      "category": "reference",
+      "body": "The uncle of the German suitor discussed at Belmont.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Duke of Saxony"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "montferrat",
+      "name": "The Marquis of Montferrat",
+      "category": "reference",
+      "body": "The nobleman who accompanied Bassanio on an earlier visit to Belmont.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Marquis of Montferrat"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "margery",
+      "name": "Margery",
+      "category": "reference",
+      "body": "Old Gobbo’s wife and Launcelet’s mother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Margery"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dobbin",
+      "name": "Dobbin",
+      "category": "reference",
+      "body": "Old Gobbo’s horse.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Dobbin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leah",
+      "name": "Leah",
+      "category": "reference",
+      "body": "Shylock’s wife, remembered through the turquoise ring she gave him.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Leah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chus",
+      "name": "Chus",
+      "category": "reference",
+      "body": "One of Shylock’s Jewish associates, named by Jessica.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Chus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "moor-woman",
+      "name": "The Moorish woman",
+      "category": "reference",
+      "body": "The woman whom Lorenzo says is pregnant by Launcelet.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "sophy",
+      "name": "The Sophy",
+      "category": "reference",
+      "body": "The Persian ruler invoked in the Prince of Morocco’s martial boast.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Sophy"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "persian-prince",
+      "name": "The Persian prince",
+      "category": "reference",
+      "body": "The prince mentioned alongside the Sophy in Morocco’s account of his sword.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Persian prince"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "solyman",
+      "name": "Sultan Solyman",
+      "category": "reference",
+      "body": "The Ottoman ruler mentioned in Morocco’s martial boast.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sultan Solyman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "heraclitus",
+      "name": "Heraclitus",
+      "category": "reference",
+      "body": "The Greek thinker traditionally known as the weeping philosopher.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "weeping philosopher"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "portia-roman",
+      "name": "Portia, Brutus’s wife",
+      "category": "reference",
+      "body": "The Roman Portia, daughter of Cato and wife of Brutus, used as a comparison for the heiress.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "cato",
+      "name": "Cato",
+      "category": "reference",
+      "body": "The Roman statesman whose daughter Portia married Brutus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cato"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "brutus",
+      "name": "Brutus",
+      "category": "reference",
+      "body": "The Roman statesman married to Cato’s daughter Portia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Brutus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pythagoras",
+      "name": "Pythagoras",
+      "category": "reference",
+      "body": "The ancient Greek philosopher associated here with the transmigration of souls.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pythagoras"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jacob",
+      "name": "Jacob",
+      "category": "reference",
+      "body": "The biblical patriarch whose dealings with Laban Shylock discusses.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Jacob"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "laban",
+      "name": "Laban",
+      "category": "reference",
+      "body": "Jacob’s uncle and employer in the biblical story.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Laban"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "abraham",
+      "name": "Abraham",
+      "category": "reference",
+      "body": "The biblical patriarch, called Abram in Shylock’s speech.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Abram",
+        "Abraham"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rebecca",
+      "name": "Rebecca",
+      "category": "reference",
+      "body": "Jacob’s mother, referred to in Shylock’s account of the patriarchs.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "jesus",
+      "name": "Jesus",
+      "category": "reference",
+      "body": "Jesus of Nazareth, referred to in Shylock’s account of the possessed swine.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Nazarite",
+        "Nazarene"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hagar",
+      "name": "Hagar",
+      "category": "reference",
+      "body": "The biblical woman whose descendants Shylock invokes in his insult to Launcelet.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Hagar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "daniel",
+      "name": "Daniel",
+      "category": "reference",
+      "body": "The biblical figure famed for wise judgment, invoked as a comparison in court.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Daniel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "barabbas",
+      "name": "Barabbas",
+      "category": "reference",
+      "body": "The prisoner released instead of Jesus in the Gospel account.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Barabbas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "janus",
+      "name": "Janus",
+      "category": "reference",
+      "body": "The Roman god traditionally represented with two faces.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Janus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nestor",
+      "name": "Nestor",
+      "category": "reference",
+      "body": "The aged Greek king renowned for wisdom in the Trojan stories.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Nestor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jason",
+      "name": "Jason",
+      "category": "reference",
+      "body": "The Greek hero who sought the Golden Fleece, used as a comparison for the suitors.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Jasons",
+        "Jason"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sibyl",
+      "name": "The Sibyl",
+      "category": "reference",
+      "body": "The long-lived prophetess of classical legend.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Sibylla",
+        "Sibyl"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "category": "reference",
+      "body": "The goddess associated with chastity and the moon.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Diana"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "category": "reference",
+      "body": "The classical hero also called Alcides.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Hercules",
+        "Alcides"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lichas",
+      "name": "Lichas",
+      "category": "reference",
+      "body": "Hercules’s servant in classical myth.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Lichas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "category": "reference",
+      "body": "The personified power governing luck and changes of worldly circumstances.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [
+        "Fortune"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fates",
+      "name": "The Fates",
+      "category": "reference",
+      "body": "The three supernatural sisters governing human destiny.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Fates",
+        "Destinies",
+        "Sisters Three"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "category": "reference",
+      "body": "The goddess of love.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Venus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "category": "reference",
+      "body": "The god of love.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Cupid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hesione",
+      "name": "Hesione",
+      "category": "reference",
+      "body": "The Trojan princess offered to a sea monster and rescued by Hercules in the comparison.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "category": "reference",
+      "body": "The Roman god of war.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Mars"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "midas",
+      "name": "Midas",
+      "category": "reference",
+      "body": "The mythical king whose touch turned things to gold.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Midas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "scylla",
+      "name": "Scylla",
+      "category": "reference",
+      "body": "The sea monster paired with Charybdis as an image of unavoidable danger.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Scylla"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "charybdis",
+      "name": "Charybdis",
+      "category": "reference",
+      "body": "The monstrous whirlpool paired with Scylla in classical myth.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Charybdis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "troilus",
+      "name": "Troilus",
+      "category": "reference",
+      "body": "The Trojan lover of Cressida.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Troilus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cressida",
+      "name": "Cressida",
+      "category": "reference",
+      "body": "Troilus’s beloved, called Cressid here.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Cressid",
+        "Cressida"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thisbe",
+      "name": "Thisbe",
+      "category": "reference",
+      "body": "The lover of Pyramus in the classical story.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Thisbe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "category": "reference",
+      "body": "The queen of Carthage who loved Aeneas.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Dido"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "medea",
+      "name": "Medea",
+      "category": "reference",
+      "body": "The sorceress associated with Jason, invoked for her rejuvenating magic.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Medea"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeson",
+      "name": "Aeson",
+      "category": "reference",
+      "body": "Jason’s father, restored to youth by Medea in the myth.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Æson",
+        "Aeson"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "category": "reference",
+      "body": "The mythical musician whose music could move animals, trees and stones.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Orpheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "endymion",
+      "name": "Endymion",
+      "category": "reference",
+      "body": "The beautiful sleeper loved by the moon goddess in classical myth.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Endymion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "argus",
+      "name": "Argus",
+      "category": "reference",
+      "body": "The many-eyed watcher of classical myth.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Argus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The deity invoked in the characters’ prayers and oaths.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "devil",
+      "name": "The devil",
+      "category": "reference",
+      "body": "The supernatural tempter invoked in religious references and curses.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "devil",
+        "Devil",
+        "Fiend"
+      ],
+      "snapshots": []
+    }
+  ]
+}
