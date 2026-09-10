@@ -57,12 +57,22 @@ All use build_reviewed.py. Review the distinct Peters in Ivan, the Corinthian Cr
 
 All use build_reviewed.py; most also use reviewed_aliases.py. These are Reference entries, not invented protagonists. The US documents legitimately have no individual entries in their last two sections. Review each README for title/context exclusions before enabling. No change to the active release batch is implied.
 
+## Further literary batch
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| Heart of Darkness | c880a0df | 59 / 59 | build_heart_of_darkness.py |
+| Gilgamesh | 3e32cda1 | 70 / 69 | build_gilgamesh.py |
+| The Bacchae | 58215ac7 | 42 / 42 | build_bacchae.py |
+
+All use build_reviewed.py. Gilgamesh and Bacchae also use reviewed_aliases.py. Review Gilgamesh's inherited Imini/Irnini and mother Ninazu wording issues before enablement; the source is unchanged. Heart of Darkness separates the two accountants, Company officials and Kurtz's visitors. Bacchae distinguishes the two messengers and the two groups of worshippers. This queue does not expand the active release owner's current batch.
+
 ## Held separately
 
 The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source song-speaker labels around Ariel's songs are wrong in both editions. Release owner requested source repair review before enablement. See the-tempest/README.md. Regenerate bindings if any source bytes change.
 
 ## Verification and tracking
 
-Current complete content suite: 129 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 148 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
