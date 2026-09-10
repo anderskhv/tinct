@@ -1,0 +1,9 @@
+# Utilitarianism: recognition references
+
+All five chapters and all four source footnotes, both English editions; 16 entries each. All are Reference. Identities explain who the philosophers, writers and correspondents are without rewriting Mill’s argument at every appearance.
+
+Footnotes retain Galt, the clergyman printed as J. Llewellyn Davis, Bain and Spencer. The printed Davis spelling is preserved for recognition rather than silently rewriting the edition. [This scholarly teaching edition reproduces the relevant footnotes](https://www.utilitarianism.net/pdf/Chapter_2_What_Utilitarianism_Is_Utilitarianism_net.pdf). Galt is the author of Annals of the Parish and Bain is Alexander Bain; see [the Cambridge research article’s bibliographical identifications](https://www.cambridge.org/core/journals/utilitas/article/abs/benthamite-radicalism-and-its-scots-presbyterian-contexts/C5BE8CDED3F6827FE47AE9B29A0B6B3D).
+
+Jesus/Christ is a single entry distinct from God/Deity. Christian, Epicurean and Owenite do not create false personal matches. Generic tyrants, drowning people, friends, criminals and judges in thought experiments are not assigned historical names. Mill’s own name is not inserted into unnamed authorial prose. No evolving assertion that a thinker supports or opposes utilitarianism is used as a permanent identity card.
+
+Authoring-agent source review, not independent editorial approval. Source editions unchanged. Regenerate author_content.py then build_utilitarianism.py; --check verifies freshness. Requires build_reviewed.py and reviewed_aliases.py. Tests cover source hashes/exact spans, the four footnotes and reference categories. Before release, recheck source bytes, explicitly register both supported editions, version the asset URL and verify the opening philosophers plus late footnote cards on production. This content package does not register or deploy runtime changes.
