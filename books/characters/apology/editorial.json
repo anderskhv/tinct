@@ -1,0 +1,692 @@
+{
+  "bookId": "apology",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete defense in both English editions: all named people, identifiable unnamed references, relatives, officials and classical figures; no invented names for generic examples.",
+  "entities": [
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "category": "central",
+      "body": "The Athenian philosopher defending himself at his trial.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Socrates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "meletus",
+      "name": "Meletus",
+      "category": "major",
+      "body": "One of Socrates’ three accusers, whom he questions directly in his defense.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Meletus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anytus",
+      "name": "Anytus",
+      "category": "major",
+      "body": "One of Socrates’ three accusers, associated with the politicians and craftsmen.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Anytus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lycon",
+      "name": "Lycon",
+      "category": "supporting",
+      "body": "One of Socrates’ three accusers, associated with the public speakers.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lycon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aristophanes",
+      "name": "Aristophanes",
+      "category": "reference",
+      "body": "The Athenian comic playwright whose Clouds caricatures Socrates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aristophanes",
+        "Aristoph."
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gorgias",
+      "name": "Gorgias",
+      "category": "reference",
+      "body": "A traveling teacher of rhetoric from Leontini, charging fees for instruction.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gorgias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prodicus",
+      "name": "Prodicus",
+      "category": "reference",
+      "body": "A traveling teacher from Ceos, charging fees for instruction.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Prodicus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hippias",
+      "name": "Hippias",
+      "category": "reference",
+      "body": "A traveling teacher from Elis, charging fees for instruction.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hippias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "callias",
+      "name": "Callias",
+      "category": "reference",
+      "body": "A wealthy Athenian who pays for education from the Sophists. Son of Hipponicus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Callias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hipponicus",
+      "name": "Hipponicus",
+      "category": "reference",
+      "body": "Callias’ father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hipponicus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "evenus",
+      "name": "Evenus",
+      "category": "reference",
+      "body": "A teacher from Paros whose fees Socrates discusses with Callias.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Evenus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chaerephon",
+      "name": "Chaerephon",
+      "category": "supporting",
+      "body": "Socrates’ longtime friend, who consulted the oracle at Delphi.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Chaerephon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "priestess",
+      "name": "The Delphic priestess",
+      "category": "reference",
+      "body": "The priestess who speaks the oracle’s response at Delphi.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Pythian prophetess",
+        "priestess"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chaerephon-brother",
+      "name": "Chaerephon’s brother",
+      "category": "supporting",
+      "body": "The unnamed brother of Chaerephon, present in court.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "his brother"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anaxagoras",
+      "name": "Anaxagoras",
+      "category": "reference",
+      "body": "The philosopher from Clazomenae known for his explanations of the natural world.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Anaxagoras"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "euripides",
+      "name": "Euripides",
+      "category": "reference",
+      "body": "The Athenian tragic playwright, mentioned in an editorial note about Anaxagoras.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Euripides"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "achilles",
+      "name": "Achilles",
+      "category": "reference",
+      "body": "The Greek warrior at Troy, son of the sea goddess Thetis.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Achilles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thetis",
+      "name": "Thetis",
+      "category": "reference",
+      "body": "The sea goddess who is Achilles’ mother.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Thetis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hector",
+      "name": "Hector",
+      "category": "reference",
+      "body": "The Trojan warrior opposed to Achilles in the Iliad.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hector"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "patroclus",
+      "name": "Patroclus",
+      "category": "reference",
+      "body": "Achilles’ close companion in the Iliad.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Patroclus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "category": "reference",
+      "body": "The chief god of the Greek pantheon.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Zeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leon",
+      "name": "Leon",
+      "category": "reference",
+      "body": "The man from Salamis whom the Thirty ordered Socrates to arrest.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Leon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thirty",
+      "name": "The Thirty",
+      "category": "reference",
+      "body": "The oligarchic rulers who briefly governed Athens after the democracy was overthrown.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Thirty Tyrants",
+        "Thirty"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prytanes",
+      "name": "The Prytanes",
+      "category": "reference",
+      "body": "The presiding members of the Athenian council, among whom Socrates served.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Prytanes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eleven",
+      "name": "The Eleven",
+      "category": "reference",
+      "body": "The Athenian magistrates responsible for prisoners.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Eleven"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "crito",
+      "name": "Crito",
+      "category": "supporting",
+      "body": "Socrates’ friend and fellow citizen, father of Critobulus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Crito"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "critobulus",
+      "name": "Critobulus",
+      "category": "supporting",
+      "body": "Crito’s son, present at Socrates’ trial.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Critobulus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lysanias",
+      "name": "Lysanias",
+      "category": "reference",
+      "body": "Aeschines’ father, from the district of Sphettus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lysanias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeschines",
+      "name": "Aeschines",
+      "category": "reference",
+      "body": "An associate of Socrates and son of Lysanias.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aeschines"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antiphon",
+      "name": "Antiphon",
+      "category": "reference",
+      "body": "Epigenes’ father, from Cephisus. This is the parent named among Socrates’ supporters.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Antiphon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "epigenes",
+      "name": "Epigenes",
+      "category": "reference",
+      "body": "An associate of Socrates and son of Antiphon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Epigenes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nicostratus",
+      "name": "Nicostratus",
+      "category": "reference",
+      "body": "Theodotus’ brother, named among the relatives supporting Socrates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nicostratus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theosdotides",
+      "name": "Theosdotides",
+      "category": "reference",
+      "body": "The father of Nicostratus and Theodotus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Theosdotides"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theodotus",
+      "name": "Theodotus",
+      "category": "reference",
+      "body": "An associate of Socrates and brother of Nicostratus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Theodotus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "paralus",
+      "name": "Paralus",
+      "category": "reference",
+      "body": "Demodocus’ son and Theages’ brother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Paralus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "demodocus",
+      "name": "Demodocus",
+      "category": "reference",
+      "body": "The father of Paralus and Theages.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Demodocus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theages",
+      "name": "Theages",
+      "category": "reference",
+      "body": "An associate of Socrates, brother of Paralus and son of Demodocus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Theages"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adeimantus",
+      "name": "Adeimantus",
+      "category": "reference",
+      "body": "Plato’s brother and son of Ariston.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Adeimantus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ariston",
+      "name": "Ariston",
+      "category": "reference",
+      "body": "The father of Adeimantus and Plato.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ariston"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "category": "supporting",
+      "body": "Socrates’ associate, present at the trial; also the author of this account.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Plato"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeantodorus",
+      "name": "Aeantodorus",
+      "category": "reference",
+      "body": "Apollodorus’ brother, named among Socrates’ supporters.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aeantodorus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollodorus",
+      "name": "Apollodorus",
+      "category": "supporting",
+      "body": "Socrates’ friend and brother of Aeantodorus, present at the trial.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Apollodorus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "minos",
+      "name": "Minos",
+      "category": "reference",
+      "body": "The legendary king of Crete, named as a judge of the dead.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Minos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rhadamanthus",
+      "name": "Rhadamanthus",
+      "category": "reference",
+      "body": "A legendary figure renowned for justice, named as a judge of the dead.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Rhadamanthus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeacus",
+      "name": "Aeacus",
+      "category": "reference",
+      "body": "A legendary Greek king, named as a judge of the dead.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aeacus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "triptolemus",
+      "name": "Triptolemus",
+      "category": "reference",
+      "body": "The legendary figure associated with teaching agriculture, here named among the judges of the dead.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Triptolemus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "category": "reference",
+      "body": "The legendary Greek singer and poet.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Orpheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musaeus",
+      "name": "Musaeus",
+      "category": "reference",
+      "body": "A legendary Greek poet associated with sacred song.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Musaeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hesiod",
+      "name": "Hesiod",
+      "category": "reference",
+      "body": "The early Greek poet known for Works and Days and the Theogony.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hesiod"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "category": "reference",
+      "body": "The Greek poet traditionally credited with the Iliad and Odyssey.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Homer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "palamedes",
+      "name": "Palamedes",
+      "category": "reference",
+      "body": "A Greek hero of the Trojan War, cited as a victim of unjust judgment.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Palamedes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ajax",
+      "name": "Ajax",
+      "category": "reference",
+      "body": "The Greek warrior at Troy, son of Telamon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ajax"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "telamon",
+      "name": "Telamon",
+      "category": "reference",
+      "body": "Ajax’s father in Greek legend.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Telamon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "odysseus",
+      "name": "Odysseus",
+      "category": "reference",
+      "body": "The Greek king of Ithaca and hero of the Odyssey.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Odysseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sisyphus",
+      "name": "Sisyphus",
+      "category": "reference",
+      "body": "The cunning king of Greek legend, whom Socrates imagines questioning.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sisyphus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "agamemnon",
+      "name": "Agamemnon",
+      "category": "reference",
+      "body": "The commander of the Greek expedition against Troy.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "leader of the great Trojan expedition"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "children",
+      "name": "Socrates’ children",
+      "category": "reference",
+      "body": "Socrates’ three sons, whose upbringing he mentions in his defense. They are not named here.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    }
+  ]
+}
