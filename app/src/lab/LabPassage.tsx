@@ -20,6 +20,8 @@ export type LabPassageMode = 'reading' | 'hearing'
 interface LabPassageProps {
   pendingLayout?: boolean
   chapterEnd?: ReactNode
+  chapterEndPage?: boolean
+  onChapterEndFit?: (fits: boolean) => void
   desktopSpread?: boolean
   nextReadingPage?: ChapterHearingPage
   alignCompare?: boolean
@@ -256,6 +258,8 @@ function wordPlaceFromTarget(target: EventTarget | null): LabWordPlace | null {
 export function LabPassage({
   pendingLayout = false,
   chapterEnd,
+  chapterEndPage = false,
+  onChapterEndFit,
   desktopSpread = false,
   nextReadingPage,
   alignCompare = false,
@@ -332,7 +336,7 @@ export function LabPassage({
   const lastSelectionPageTurnAtRef = useRef(0)
   const pageStageRef = useRef<HTMLDivElement>(null)
   const articleRef = useRef<HTMLElement>(null)
-  const [endScrollable, setEndScrollable] = useState(false)
+  const [endOverflow, setEndOverflow] = useState(false)
   const [localSelecting, setLocalSelecting] = useState<LabHighlightRange | null>(null)
   const activeSelecting = localSelecting || selectingRange
 
@@ -354,13 +358,19 @@ export function LabPassage({
     const article = articleRef.current
     if (!article) return
     article.scrollTop = 0
-    const check = () => setEndScrollable(Boolean(chapterEnd && article.scrollHeight > article.clientHeight + 1))
+    const check = () => {
+      if (chapterEndPage) return
+      const card = article.querySelector<HTMLElement>('.lab-chapter-end')
+      const overflow = Boolean(card && card.getBoundingClientRect().bottom > article.getBoundingClientRect().bottom - 8)
+      setEndOverflow(overflow)
+      onChapterEndFit?.(!overflow)
+    }
     check()
     if (typeof ResizeObserver !== 'function') return
     const observer = new ResizeObserver(check)
     observer.observe(article)
     return () => observer.disconnect()
-  }, [paintedLinesKey, nextReadingPage, compare, Boolean(chapterEnd), layoutKey])
+  }, [paintedLinesKey, nextReadingPage, compare, Boolean(chapterEnd), chapterEndPage, onChapterEndFit, layoutKey])
   useLayoutEffect(() => {
     markFullContinuedTails(articleRef.current)
   }, [paintedLinesKey, nextReadingPage, paintedBranch, compare, showHeadline, layoutKey, paragraphs])
@@ -414,7 +424,7 @@ export function LabPassage({
     // A word at the left/right edge can still be long-pressed. A short release
     // remains an edge page turn, while the long-press timer wins for selection.
     const selectionPlace = place
-    if (selectionPlace && onSelectRange && !(endScrollable && event.pointerType === 'touch')) event.preventDefault()
+    if (selectionPlace && onSelectRange) event.preventDefault()
     try { event.currentTarget.setPointerCapture(event.pointerId) } catch { /* jsdom */ }
     const touchSelection = event.pointerType === 'touch' && !!selectionPlace && !!onSelectRange
     const drag = {
@@ -524,7 +534,6 @@ export function LabPassage({
     // and always has been; the menu's Compare row is the pointer's way in.
     if (
       onCompareSwap
-      && !endScrollable
       && drag.pointerType !== 'mouse'
       && !selectingRange
       && !drag.selecting
@@ -643,7 +652,7 @@ export function LabPassage({
         compare ? 'is-compare' : '',
         desktopSpread ? 'is-spread' : '',
         chapterEnd ? 'has-chapter-end' : '',
-        endScrollable ? 'is-end-scrollable' : '',
+        chapterEndPage ? 'is-chapter-end-page' : endOverflow ? 'has-overflowing-end' : '',
         alignCompare && compare ? 'is-aligned-compare' : '',
         peek ? 'is-peek' : '',
       ].filter(Boolean).join(' ')}
@@ -707,13 +716,13 @@ export function LabPassage({
               {renderReadingLines(readingLines)}
             </div>
           )}
-          {!compare && (!desktopSpread || !nextReadingPage) && chapterEnd}
+          {!compare && (!desktopSpread || !nextReadingPage) && !chapterEndPage && chapterEnd}
         </div>
         {desktopSpread && <div className="lab-book-col lab-book-col-next" data-testid="lab-next-page-col">
           <div className="lab-hearing-stage" data-testid="lab-next-reading-stage">
             {nextReadingPage && renderReadingLines(readingPageLines(paragraphs, nextReadingPage), true)}
           </div>
-          {nextReadingPage && chapterEnd}
+          {nextReadingPage && !chapterEndPage && chapterEnd}
         </div>}
         {compare && (
           <div className="lab-book-col lab-book-col-compare" data-testid="lab-compare-col">
@@ -730,7 +739,8 @@ export function LabPassage({
           </div>
         )}
       </div>
-      {compare && chapterEnd}
+      {compare && !chapterEndPage && chapterEnd}
+      {chapterEndPage && <div className="lab-chapter-end-page" data-testid="lab-chapter-end-page">{chapterEnd}</div>}
       {hearing && !hideTransport && onTogglePlay && onSeek && onCycleSpeed && (
         <div className="lab-hearing-transport" data-testid="lab-hearing-transport">
           <button type="button" className="lab-text-btn" onClick={onTogglePlay} data-testid="lab-hearing-pause">

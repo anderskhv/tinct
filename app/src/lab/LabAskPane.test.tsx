@@ -570,6 +570,17 @@ describe('V2 multiline composer and copying', () => {
     typedLoading: false, turns: [], onDraftChange: vi.fn(), onSubmit: vi.fn(),
     onMic: vi.fn(), onVoiceMode: vi.fn(), phoneSheet: true,
   }
+  it('dismisses the mobile keyboard when sending a question', () => {
+    const onSubmit = vi.fn(), onKeyboardOpenChange = vi.fn()
+    render(<LabAskPane {...base} draft="Why?" onSubmit={onSubmit} onKeyboardOpenChange={onKeyboardOpenChange} />)
+    const field = screen.getByTestId('lab-ask-input')
+    field.focus()
+    expect(document.activeElement).toBe(field)
+    fireEvent.click(screen.getByTestId('lab-ask-send'))
+    expect(document.activeElement).not.toBe(field)
+    expect(onKeyboardOpenChange).toHaveBeenLastCalledWith(false)
+    expect(onSubmit).toHaveBeenCalledWith('Why?')
+  })
   it('grows the writing area, swaps voice for send, and uses Enter for a new line', () => {
     const onSubmit = vi.fn()
     const { rerender } = render(<LabAskPane {...base} draft="" onSubmit={onSubmit} />)

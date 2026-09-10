@@ -307,13 +307,23 @@ export async function readAnthropicStream(
     let text = ''
     let stopReason: string | null = null
     let sawStop = false
+    let finished = false
     const consume = (line: string) => {
       const reason = extractAnthropicSseStopReason(line)
       if (reason) {
         stopReason = reason
         sawStop = true
       }
-      if (line.includes('message_stop')) sawStop = true
+      if (line.trim().startsWith('data:')) {
+        const payload = line.trim().slice(5).trim()
+        if (payload === '[DONE]') { finished = true; sawStop = true }
+        else {
+          let event: { type?: string } | undefined
+          try { event = JSON.parse(payload) } catch { /* Ignore non-JSON SSE data. */ }
+          if (event?.type === 'message_stop') { finished = true; sawStop = true }
+          if (event?.type === 'error') throw new Error('Chat stream failed')
+        }
+      }
       const piece = extractAnthropicSseDelta(line)
       if (!piece) return
       text += piece
@@ -327,11 +337,12 @@ export async function readAnthropicStream(
         const lines = buffer.split(/\r?\n/)
         buffer = lines.pop() ?? ''
         for (const line of lines) consume(line)
+        if (finished) { void reader.cancel().catch(() => {}); break }
       }
       consume(buffer + decoder.decode())
     } catch {
-      return { text: text.trim(), stopReason: stopReason || 'error', sawStop: false }
-    }
+      return { text: text.trim(), stopReason: 'error', sawStop: false }
+    } finally { reader.releaseLock() }
     return { text: text.trim(), stopReason, sawStop }
   }
   const data = await response.json?.().catch(() => ({})) as { content?: Array<{ text?: string }>; stop_reason?: string | null }
@@ -344,7 +355,9 @@ export async function readAnthropicResponse(
   response: { ok?: boolean; body?: ReadableStream<Uint8Array> | null; headers?: { get?: (name: string) => string | null }; json?: () => Promise<unknown> },
   onDelta?: (text: string) => void,
 ): Promise<string> {
-  return (await readAnthropicStream(response, onDelta)).text
+  const result = await readAnthropicStream(response, onDelta)
+  if (result.stopReason === 'error' || !result.text.trim()) throw new Error('Chat stream failed')
+  return result.text
 }
 
 async function fetchLabCompanionHop(input: {

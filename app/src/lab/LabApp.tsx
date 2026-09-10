@@ -99,7 +99,7 @@ import { SelectionPopup, type PopupMode, type SelectionInfo } from '../component
 import { useDefine } from '../components/reader/useDefine'
 import { defaultPopupMode } from '../components/reader/selectionPopupMode'
 import type { ChatConversation, HighlightColor } from '../types'
-import { type LabHighlight, type LabHighlightRange } from './labHighlights'
+import { buildHighlightRange, type LabHighlight, type LabHighlightRange } from './labHighlights'
 import { useLabHighlights } from './useLabHighlights'
 import { useLabAsk } from './useLabAsk'
 import { readLabPositionLocal } from './labPositionStore'
@@ -444,6 +444,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [peekBook, setPeekBook] = useState(false)
   const [phoneAskOpen, setPhoneAskOpen] = useState(false)
   const [phoneKeyboardOpen, setPhoneKeyboardOpen] = useState(false)
+  const [chapterEndPage, setChapterEndPage] = useState(false)
+  const [chapterEndNeedsPage, setChapterEndNeedsPage] = useState(false)
+  const handleChapterEndFit = useCallback((fits: boolean) => setChapterEndNeedsPage(!fits), [])
   const askInputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
   /** Rendered page for the companion's reading trail; written once chapter progress is known. */
   const askPageRef = useRef<{ pageNumber: number; totalPages: number } | null>(null)
@@ -2403,7 +2406,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     // lookup opens controls without writing a mark; existing marks stay editable.
     const existing = highlightsApi.findRange(range, editionKey) ?? highlightsApi.findContainingRange(range, editionKey)
     const character = offsets ? resolveCharacter(comparison ? compareCharacters : primaryCharacters, book.chapterNumber, range.paragraphIndex, ...offsets, paragraph, !!existing || highlightsApi.allHighlights.some(h => h.bookId === book.bookId && h.editionKey === editionKey && h.chapterNumber === book.chapterNumber && (h.paragraphIndex < range.paragraphIndex || h.paragraphIndex === range.paragraphIndex && h.fromWord < range.toWord) && (h.endParagraphIndex > range.paragraphIndex || h.endParagraphIndex === range.paragraphIndex && h.toWord > range.fromWord))) : null
-    const highlight = existing ?? (character || intent === 'lookup' ? undefined : highlightsApi.addOrReuse(range, 'gold', editionKey))
+    const highlight = existing ?? (character || intent === 'lookup' || (range.paragraphIndex === range.endParagraphIndex && range.toWord - range.fromWord === 1) ? undefined : highlightsApi.addOrReuse(range, 'gold', editionKey))
     const mode = character ? 'character' as const : defaultPopupMode(range.text, existing?.id)
     setPopupMode(mode)
     setNoteInput(highlight?.note || '')
@@ -2812,7 +2815,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (!listen.playing) { setPausedTransportVisible(false); setSpeedPopoverOpen(false) }
   }, [desktopPaging, listen.playing])
 
-  const goNext = useCallback(() => {
+  useLayoutEffect(() => {
+    setChapterEndPage(false)
+  }, [book.bookId, book.chapterNumber, readerEditionKey, mobileCompareActive, desktopCompareActive, readingPageIndex])
+
+  const goNext = useCallback((skipEndPage = false) => {
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       if (book.paragraphs.length === 0) return
@@ -2837,6 +2844,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       goToPage(nextPage)
       return
     }
+    if (chapterEndNeedsPage && !chapterEndPage && skipEndPage !== true) { setChapterEndPage(true); return }
     const next = nextLabChapter(book.chapters, book.chapterNumber)
     // Turning past the last page finishes the chapter — on the book's final
     // chapter too, so the library can show the book as finished without
@@ -2846,9 +2854,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(next, 'start')
       else void goToChapter(next, 'start')
     }
-  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn])
+  }, [book.chapterNumber, book.chapters, book.paragraphs.length, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, markChapterFinished, desktopSpread, quietDesktopAfterTurn, chapterEndNeedsPage, chapterEndPage])
 
   const goPrev = useCallback(() => {
+    if (chapterEndPage) { setChapterEndPage(false); return }
     quietDesktopAfterTurn()
     if (chapterCoverTitle) {
       chapterNavigationRef.current += 1
@@ -2880,7 +2889,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       if (listen.playing) void browseToChapter(prev, 'end')
       else void goToChapter(prev, 'end')
     }
-  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn])
+  }, [book.chapterNumber, book.chapters, browseToChapter, chapterCoverTitle, goToChapter, goToPage, listen.playing, desktopSpread, quietDesktopAfterTurn, chapterEndPage])
 
   // Keyboard page turns, matching the classic Reader: ArrowRight / PageDown /
   // Space turn forward, ArrowLeft / PageUp turn back. Typing surfaces and open
@@ -3364,12 +3373,19 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       chapterCount: book.chapters.length,
     }, book.chapters)
     if (!request) return
+    if (kind === 'discuss') request.activity = {
+      questions: ask.turns.filter(turn => turn.role === 'user' && turn.chapterNumber === book.chapterNumber && (!turn.bookId || turn.bookId === book.bookId) && !turn.chapterAction).map(turn => turn.content).slice(-3),
+      highlights: highlightsApi.allHighlights.filter(mark => mark.bookId === book.bookId && mark.chapterNumber === book.chapterNumber && mark.editionKey === readerEditionKey).slice(-3).flatMap(mark => {
+        const range = buildHighlightRange(readerParagraphs, { paragraphIndex: mark.paragraphIndex, wordIndex: mark.fromWord }, { paragraphIndex: mark.endParagraphIndex, wordIndex: mark.toWord - 1 })
+        return range ? [range.text] : []
+      }),
+    }
     dictation.stop()
     interruptHearForAsk()
     setDesktopAskOpen(true)
     if (showPhoneChrome) setPhoneAskOpen(true)
     void ask.sendTyped(CHAPTER_CHAT_MESSAGES[kind], request)
-  }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome])
+  }, [ask, initialResolving, book, readerParagraphs, readerEditionKey, bookEditions, dictation, interruptHearForAsk, showPhoneChrome, highlightsApi.allHighlights])
 
   const showChapterEnd = chromeV2 && !initialResolving && !book.chaptersProvisional
     && nativeMeasuredContent === readerParagraphs && readingPages.length > 0
@@ -3641,8 +3657,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             />
           ) : <LabPassage
             pendingLayout={chromeV2 && measuredPaging && (nativeMeasuredContent !== readerParagraphs || desktopPaging && desktopMeasuredKey !== desktopLayoutKey)}
+            chapterEndPage={chapterEndPage}
+            onChapterEndFit={handleChapterEndFit}
             chapterEnd={showChapterEnd ? <LabChapterEnd
-              hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={goNext}
+              hasNext={nextLabChapter(book.chapters, book.chapterNumber) != null} onContinue={() => goNext(true)}
               busy={ask.typedLoading} onDiscuss={() => handleChapterChat('discuss')} onPrepare={() => handleChapterChat('prepare')}
             /> : undefined}
             desktopSpread={desktopSpread}
@@ -3872,7 +3890,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       )}
       {showReaderRail && (
         <nav className={`lab-page-turn ${showPhoneChrome ? 'is-phone-rail' : ''}`} data-testid="lab-page-turn" aria-label="Page">
-          {(!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
+          {chapterEndPage || (!chapterCoverTitle && !!currentOpeningTitle) || readingPageIndex > 0 || canPrevChapter ? (
             <button
               type="button"
               className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
@@ -3909,13 +3927,13 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               <span className="lab-chapter-progress-info">{footProgressLabel}</span>
             </div>
           )}
-          {chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
+          {chapterEndNeedsPage && !chapterEndPage || chapterCoverTitle || readingPageIndex < labNavPageList(pagesStableRef.current, draftPages, readingPages).length - 1 || canNextChapter ? (
             <button
               type="button"
               className={showPhoneChrome ? 'lab-visually-hidden' : 'lab-page-turn-btn'}
               data-testid="lab-page-next"
               aria-label={LAB_COPY.next}
-              onClick={goNext}
+              onClick={() => goNext()}
             >
               {showPhoneChrome ? '→' : <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg>}
             </button>

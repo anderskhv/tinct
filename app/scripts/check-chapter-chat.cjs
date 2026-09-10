@@ -35,12 +35,13 @@ async function main() {
    await page.waitForTimeout(2400)
    assert.equal(await page.getByTestId('lab-chapter-end').count(),0,'No actions at chapter opening')
    for(let i=0;i<60&&await page.getByTestId('lab-chapter-end').count()===0;i++) {await page.keyboard.press('ArrowRight'); await page.waitForTimeout(100)}
+   if (!await page.getByRole('button',{name:'Recap this chapter'}).isVisible()) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(150) }
    await page.getByRole('button',{name:'Prepare for the next chapter'}).scrollIntoViewIfNeeded()
    assert.equal(calls.length,0,'Rendering a chapter end must not call Chat')
    assert.equal(await page.getByRole('heading',{name:'End of chapter',exact:true}).count(),1)
    if(config.width>=800) {
     const bounds=await page.evaluate(()=>({article:document.querySelector('.lab-page-wrap > .lab-passage').getBoundingClientRect().bottom,footer:document.querySelector('.lab-desktop-page-footers').getBoundingClientRect().top}))
-    assert.ok(bounds.article<bounds.footer,'Scrollable chapter ending must clear page numbers')
+    assert.ok(bounds.article<bounds.footer,'Chapter ending must clear page numbers')
    }
    const before=await state(page)
    await page.screenshot({path:path.join(dir,`${config.name}-end.png`)})
@@ -67,7 +68,7 @@ async function main() {
    assert.deepEqual(await state(page),before,'Back to book retains chapter, place and source words')
    // Reset only this isolated anonymous fixture's free-action counter.
    await page.evaluate(()=>localStorage.removeItem('tinct:lab-ai-actions'))
-   await page.getByRole('button',{name:'Discuss this chapter'}).click()
+   await page.getByRole('button',{name:'Recap this chapter'}).click()
    await page.waitForFunction(()=>document.querySelectorAll('[data-testid="lab-ask-turn-assistant"]').length===2)
    assert.equal(calls.length,2)
    assert.equal(calls[1].messages.at(-1).content,'Recap this chapter.')
@@ -81,6 +82,7 @@ async function main() {
    assert.equal((await state(page)).chapter,before.chapter)
    assert.equal((await state(page)).place,before.place)
    assert.equal(calls.length,2,'Reload cannot rerun chapter actions')
+   if (!await page.getByRole('button',{name:'Continue to next chapter'}).isVisible()) { await page.keyboard.press('ArrowRight'); await page.waitForTimeout(150) }
    // Forward navigation still advances to the actual next chapter.
    await page.getByRole('button',{name:'Continue to next chapter'}).click(); await page.waitForTimeout(800)
    const after=await state(page)

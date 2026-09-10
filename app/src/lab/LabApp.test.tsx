@@ -2632,6 +2632,18 @@ describe('lab passage headline pages', () => {
     expect(css).not.toMatch(/\.lab-hearing-word\.is-selecting\s*\{[^}]*box-shadow:/)
   })
 
+  it('opens a touch word lookup without saving an incidental highlight', () => {
+    vi.useFakeTimers()
+    render(<LabApp pathname="/lab/phone" source={fallbackLabSource()} />)
+    const word = screen.getAllByTestId('lab-word')[1]
+    fireEvent.pointerDown(word, { pointerType: 'touch', clientX: 190, clientY: 200 })
+    act(() => { vi.advanceTimersByTime(400) })
+    fireEvent.pointerUp(word, { pointerType: 'touch', clientX: 190, clientY: 200 })
+    expect(document.querySelector('.selection-popup')).toBeTruthy()
+    expect(JSON.parse(localStorage.getItem('tinct-lab-highlights') || '[]')).toHaveLength(0)
+    vi.useRealTimers()
+  })
+
   it('opens a desktop word lookup without saving an incidental highlight', () => {
     render(<LabApp pathname="/lab/desktop" source={fallbackLabSource()} />)
     const word = screen.getAllByTestId('lab-word')[1]

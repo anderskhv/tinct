@@ -10,7 +10,7 @@ export function LabChapterEnd({ hasNext, busy, onContinue, onDiscuss, onPrepare 
         <span>Continue to next chapter</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" /></svg>
       </button>}
-      <button type="button" disabled={busy} onClick={onDiscuss}>Discuss this chapter</button>
+      <button type="button" disabled={busy} onClick={onDiscuss}>Recap this chapter</button>
       {hasNext && <button type="button" disabled={busy} onClick={onPrepare}>Prepare for the next chapter</button>}
     </div>
   </section>

@@ -35,6 +35,16 @@ describe('chapter-end request identity and instructions', () => {
     expect(chapterChatHistoryContent({ content: CHAPTER_CHAT_MESSAGES.prepare, chapterAction: request.action })).toContain('Jeremiah 35')
     expect(JSON.stringify(request.action)).not.toContain('slaves')
   })
+  it('uses bounded chapter activity for recap without personalizing preparation', () => {
+    const request = createChapterChatRequest('discuss', context, chapters)!
+    request.activity = { questions: ['Why release the slaves?'], highlights: ['they took them back'] }
+    const system = buildChapterChatInstructions(request, context.paragraphs)
+    expect(system).toContain('Why release the slaves?')
+    expect(system).toContain('they took them back')
+    const prepare = createChapterChatRequest('prepare', context, chapters)!
+    prepare.activity = request.activity
+    expect(buildChapterChatInstructions(prepare, ['Next chapter'])).not.toContain('Why release the slaves?')
+  })
   it('respects the existing system limit for long chapters', () => {
     const request = createChapterChatRequest('prepare', { ...context, paragraphs: ['long text '.repeat(10000)] }, chapters)!
     expect(buildChapterChatInstructions(request, ['long next '.repeat(10000)]).length).toBeLessThanOrEqual(32000)

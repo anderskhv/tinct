@@ -11,7 +11,7 @@ it('offers only discussion at the book end, without automatic actions', () => {
   expect(onContinue).not.toHaveBeenCalled()
   expect(onDiscuss).not.toHaveBeenCalled()
   expect(onPrepare).not.toHaveBeenCalled()
-  fireEvent.click(screen.getByRole('button', { name: 'Discuss this chapter' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Recap this chapter' }))
   expect(onDiscuss).toHaveBeenCalledTimes(1)
 })
 it('keeps Continue available while chat is busy and isolates it from reader gestures', () => {
@@ -20,7 +20,7 @@ it('keeps Continue available while chat is busy and isolates it from reader gest
     <LabChapterEnd hasNext busy onContinue={onContinue} onDiscuss={onDiscuss} onPrepare={onPrepare} />
   </div>)
   const buttons = screen.getAllByRole('button')
-  expect(buttons.map(b => b.textContent)).toEqual(['Continue to next chapter', 'Discuss this chapter', 'Prepare for the next chapter'])
+  expect(buttons.map(b => b.textContent)).toEqual(['Continue to next chapter', 'Recap this chapter', 'Prepare for the next chapter'])
   fireEvent.pointerDown(buttons[0]); fireEvent.click(buttons[0])
   fireEvent.click(buttons[1]); fireEvent.click(buttons[2])
   expect(onContinue).toHaveBeenCalledTimes(1)

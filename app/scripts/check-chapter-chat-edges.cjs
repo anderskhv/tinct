@@ -10,16 +10,20 @@ async function main(){const results=[];for(const [desktop,chapter] of [[false,77
  await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(700)
  if(chapter===779){await p.getByTestId('lab-super').click();await p.getByTestId('lab-super-row-compare').click();await p.waitForTimeout(500)}
  for(let i=0;i<60&&await p.getByTestId('lab-chapter-end').count()===0;i++){await p.keyboard.press('ArrowRight');await p.waitForTimeout(100)}
+ await p.waitForTimeout(1000)
+ for(let i=0;i<10&&await p.getByTestId('lab-chapter-end').count()===0;i++){await p.keyboard.press('ArrowRight');await p.waitForTimeout(500)}
  const root=p.getByTestId('lab-root');const place=await root.getAttribute('data-place')
+ assert.equal(await root.getAttribute('data-chapter'),String(chapter),'Still in the requested chapter')
  assert.equal(await p.getByRole('button',{name:'Prepare for the next chapter'}).count(),chapter===1189?0:1)
  assert.equal(await p.getByRole('button',{name:'Continue to next chapter'}).count(),chapter===1189?0:1)
- await p.getByRole('button',{name:'Discuss this chapter'}).scrollIntoViewIfNeeded()
+ if (!await p.getByRole('button',{name:'Recap this chapter'}).isVisible()) { await p.keyboard.press('ArrowRight'); await p.waitForTimeout(150) }
+ await p.getByRole('button',{name:'Recap this chapter'}).scrollIntoViewIfNeeded()
  assert.equal(requests.length,0)
  await p.screenshot({path:path.join(dir,(desktop?'desktop':'phone')+'-'+chapter+'-end.png')})
  // Actual audiobook can be started at the final page; opening Chat pauses it.
  if(chapter===1189 && !process.env.SKIP_AUDIO_VERIFY){await p.getByTestId('lab-v2-play').click()
  await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.playing==='true',{}, {timeout:20000})}
- await p.getByRole('button',{name:'Discuss this chapter'}).click()
+ await p.getByRole('button',{name:'Recap this chapter'}).click()
  await p.getByTestId('lab-ask-turn-assistant').waitFor()
  assert.equal(requests.length,1);assert.equal(requests[0].book.chapterNumber,chapter)
  assert.equal(requests[0].book.editionKey,desktop||chapter===1189?'kjv-en':'web-en')

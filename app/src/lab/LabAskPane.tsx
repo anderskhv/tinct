@@ -296,6 +296,10 @@ export function LabAskPane({
       return
     }
     setLocalError(null)
+    if (phoneSheet) {
+      textareaRef.current?.blur()
+      onKeyboardOpenChange?.(false)
+    }
     onSubmit(value)
   }
 

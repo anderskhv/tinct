@@ -6408,13 +6408,13 @@
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover:has(.lab-chapter-cover-art),
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-chapter-cover-art { background: var(--lab-paper); }
 
-/* Chapter-end actions are outside the source/pagination tree. A full final
-   page can scroll to its actions without making a new page or moving anchors. */
+/* Chapter-end actions stay outside the source/pagination tree. Overflowing
+   actions move as a unit to a separate view without changing source anchors. */
 .lab[data-chrome-version="v2"] .lab-passage.has-chapter-end {
-  overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; touch-action: pan-y;
+  overflow: hidden; touch-action: none;
 }
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-passage.has-chapter-end .lab-book-columns { height: auto; }
-/* Keep the terminal-page scroller above the fixed leaf numbers. Subtract
+/* Keep terminal-page actions above the fixed leaf numbers. Subtract
    the same space from its padding so the measured source area is unchanged. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-page-wrap > .lab-passage.has-chapter-end {
   height: calc(100% - 40px); padding-bottom: calc(var(--desktop-pad-bottom) - 40px);
@@ -6442,10 +6442,7 @@
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button:hover { background: var(--lab-surface); }
 .lab[data-chrome-version="v2"] .lab-chapter-end-actions button:disabled { opacity: .5; cursor: wait; }
 .lab[data-chrome-version="v2"] .lab-ask-notice .lab-text-btn { margin-left: 8px; text-decoration: underline; }
-.lab[data-chrome-version="v2"].is-phone .lab-page-wrap .lab-passage.is-end-scrollable,
-.lab[data-chrome-version="v2"].is-phone .lab-page-wrap .lab-passage.is-end-scrollable *,
-.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap .lab-passage.is-end-scrollable,
-.lab[data-chrome-version="v2"].has-phone-chrome .lab-page-wrap .lab-passage.is-end-scrollable * { touch-action: pan-y pinch-zoom; }
+
 
 /* Reader polish: footer space is part of each leaf; book progress is in the frame. */
 .lab[data-chrome-version="v2"][data-desktop-paging="true"] .lab-body { padding-bottom: 42px; }
@@ -6480,3 +6477,18 @@
 
 .lab[data-chrome-version="v2"] .lab-native-fragment-surface { position: absolute; inset: 0; }
 .lab[data-chrome-version="v2"] .lab-native-fragment-surface .lab-passage-header[hidden] { display: none; }
+
+/* While composing on a phone, reserve the viewport for conversation and draft. */
+.lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-header,
+.lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask-toolbar,
+.lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask-back-contents,
+.lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask-copy { display: none; }
+.lab[data-chrome-version="v2"].has-phone-ask.has-phone-keyboard .lab-ask { padding-top: 8px; }
+
+/* The complete end card lives on this leaf or a dedicated next page. */
+.lab[data-chrome-version="v2"] .lab-passage.has-chapter-end { overflow: hidden; touch-action: none; }
+.lab[data-chrome-version="v2"] .lab-passage.has-overflowing-end .lab-chapter-end { visibility: hidden; pointer-events: none; }
+.lab[data-chrome-version="v2"] .lab-passage.is-chapter-end-page > .lab-book-columns,
+.lab[data-chrome-version="v2"] .lab-passage.is-chapter-end-page > .lab-passage-header { display: none; }
+.lab[data-chrome-version="v2"] .lab-chapter-end-page { width: 100%; max-width: 560px; margin: 0 auto; }
+.lab[data-chrome-version="v2"] .lab-chapter-end-page .lab-chapter-end { margin-top: 0; }

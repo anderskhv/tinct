@@ -81,3 +81,18 @@ it('retains normal balance errors and retry while ignoring model navigation comm
   expect(result.current.turns.at(-1)?.content).toBe('Chapter recap.')
   expect(onPlaybackSkip).not.toHaveBeenCalled();expect(onResumeListen).not.toHaveBeenCalled();expect(onSetPlaybackSpeed).not.toHaveBeenCalled()
 })
+
+it('accepts consecutive questions when a completed SSE response keeps its connection open', async () => {
+  const fetcher = vi.fn(() => Promise.resolve(new Response(new ReadableStream({start(controller) {
+    controller.enqueue(new TextEncoder().encode('data: {"type":"content_block_delta","delta":{"type":"text_delta","text":"A complete answer."}}\n\ndata: {"type":"message_stop"}\n\n'))
+    // Deliberately do not close: protocol completion must release Send.
+  }}), {headers:{'Content-Type':'text/event-stream'}})))
+  vi.stubGlobal('fetch', fetcher)
+  const {result} = renderHook(() => useLabAsk(options))
+  for (const question of ['Who speaks?', 'Why does he say that?', 'What happens here?']) {
+    await act(async () => {await result.current.sendTyped(question)})
+    expect(result.current.typedLoading).toBe(false)
+  }
+  expect(fetcher).toHaveBeenCalledTimes(3)
+  expect(result.current.turns.filter(turn => turn.role === 'assistant')).toHaveLength(3)
+})

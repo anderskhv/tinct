@@ -13,8 +13,9 @@ export async function sha256(data: string | ArrayBuffer): Promise<string> {
   const bytes = typeof data === 'string' ? new TextEncoder().encode(data) : data
   return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), byte => byte.toString(16).padStart(2, '0')).join('')
 }
+const supportedEditions: Record<string, string[]> = { 'the-awakening': ['original-en', 'modern-en'], bible: ['kjv-en', 'web-en', 'modern-en'] }
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
-  if (bookId !== 'the-awakening' || !['original-en', 'modern-en'].includes(editionKey) || asset.bookId !== bookId || asset.schemaVersion !== 1 || asset.language !== 'en' || asset.normalization !== 'prose-reader-v1' || asset.offsetUnit !== 'utf16') return null
+  if (!supportedEditions[bookId]?.includes(editionKey) || asset.bookId !== bookId || asset.schemaVersion !== 1 || asset.language !== 'en' || asset.normalization !== 'prose-reader-v1' || asset.offsetUnit !== 'utf16') return null
   const edition = asset.editions?.[editionKey]
   if (!edition || !Array.isArray(edition.characters) || !Array.isArray(edition.mentions) || !edition.paragraphHashes || await sha256(raw) !== edition.sourceSha256) return null
   const source = JSON.parse(new TextDecoder().decode(raw)) as { chapters: { number: number; paragraphs: string[] }[] }
@@ -39,7 +40,7 @@ export async function verifyCharacters(asset: CharacterAsset, bookId: string, ed
 }
 const loads = new Map<string, Promise<VerifiedCharacters | null>>()
 export function loadCharacters(bookId?: string, editionKey?: string): Promise<VerifiedCharacters | null> {
-  if (bookId !== 'the-awakening' || !editionKey || !['original-en', 'modern-en'].includes(editionKey)) return Promise.resolve(null)
+  if (!bookId || !editionKey || !supportedEditions[bookId]?.includes(editionKey)) return Promise.resolve(null)
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
