@@ -87,7 +87,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Comedy of Errors (`comedy-of-errors`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Merchant of Venice (`merchant-of-venice`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Henry V (`henry-v`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| As You Like It (`as-you-like-it`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| As You Like It (`as-you-like-it`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | winters-tale (`winters-tale`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Julius Caesar (`julius-caesar`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Twelfth Night (`twelfth-night`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

@@ -1,0 +1,876 @@
+{
+  "bookId": "as-you-like-it",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All surviving play text and epilogue across the seventeen source reading units in original-en and modern-en. Opening Act 1 scene 1 is absent; several later scenes share units and titles are wrong. Publishing footer text is excluded. Coverage is not claimed for absent text.",
+  "entities": [
+    {
+      "id": "rosalind",
+      "name": "Rosalind",
+      "body": "Duke Senior’s daughter and Celia’s cousin; the play’s central heroine.",
+      "aliases": [
+        "ROSALIND",
+        "Rosalind",
+        "Rosalinde",
+        "Rosalinda",
+        "GANYMEDE",
+        "Ganymede"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            2,
+            47
+          ],
+          "body": "Duke Senior’s daughter, disguised as the young man Ganymede."
+        },
+        {
+          "after": [
+            17,
+            47
+          ],
+          "body": "Orlando’s bride and Duke Senior’s daughter; formerly disguised as Ganymede."
+        }
+      ]
+    },
+    {
+      "id": "orlando",
+      "name": "Orlando",
+      "body": "Sir Rowland de Boys’s youngest son and Oliver’s brother.",
+      "aliases": [
+        "ORLANDO",
+        "Orlando"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            47
+          ],
+          "body": "Rosalind’s bridegroom, Sir Rowland de Boys’s youngest son."
+        }
+      ]
+    },
+    {
+      "id": "celia",
+      "name": "Celia",
+      "body": "Duke Frederick’s daughter and Rosalind’s close friend and cousin.",
+      "aliases": [
+        "CELIA",
+        "Celia",
+        "ALIENA",
+        "Aliena"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            2,
+            48
+          ],
+          "body": "Rosalind’s cousin, traveling in disguise as Aliena."
+        },
+        {
+          "after": [
+            17,
+            47
+          ],
+          "body": "Oliver’s bride and Rosalind’s cousin; formerly disguised as Aliena."
+        }
+      ]
+    },
+    {
+      "id": "senior",
+      "name": "Duke Senior",
+      "body": "Rosalind’s father, driven into exile by his younger brother Frederick.",
+      "aliases": [
+        "DUKE SENIOR",
+        "Duke Senior"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            52
+          ],
+          "body": "Rosalind’s father, restored to his dukedom after exile."
+        }
+      ]
+    },
+    {
+      "id": "frederick",
+      "name": "Duke Frederick",
+      "body": "Celia’s father and Duke Senior’s younger brother, who has taken over the dukedom.",
+      "aliases": [
+        "DUKE FREDERICK",
+        "Duke Frederick",
+        "FREDERICK",
+        "Frederick"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            52
+          ],
+          "body": "Celia’s father and Duke Senior’s brother, who has renounced his rule for a religious life."
+        }
+      ]
+    },
+    {
+      "id": "touchstone",
+      "name": "Touchstone",
+      "body": "The court fool who is close to Celia and Rosalind.",
+      "aliases": [
+        "TOUCHSTONE",
+        "Touchstone",
+        "CLOWN"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            47
+          ],
+          "body": "The court fool and Audrey’s bridegroom."
+        }
+      ]
+    },
+    {
+      "id": "le-beau",
+      "name": "Le Beau",
+      "body": "A courtier in Duke Frederick’s household.",
+      "aliases": [
+        "LE BEAU",
+        "Le Beau"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles",
+      "name": "Charles",
+      "body": "Duke Frederick’s wrestler.",
+      "aliases": [
+        "CHARLES",
+        "Charles"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rowland",
+      "name": "Sir Rowland de Boys",
+      "body": "The late father of Oliver, Jaques de Boys and Orlando.",
+      "aliases": [
+        "Sir Rowland de Boys",
+        "Sir Rowland"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jaques",
+      "name": "Jaques",
+      "body": "The melancholy courtier living in exile with Duke Senior.",
+      "aliases": [
+        "JAQUES",
+        "Jaques"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jaques-brother",
+      "name": "Jaques de Boys",
+      "body": "Sir Rowland’s second son, brother to Oliver and Orlando.",
+      "aliases": [
+        "JAQUES de BOYS",
+        "JAQUES DE BOYS"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amiens",
+      "name": "Amiens",
+      "body": "A courtier and singer among Duke Senior’s companions in exile.",
+      "aliases": [
+        "AMIENS",
+        "Amiens"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hisperia",
+      "name": "Hisperia",
+      "body": "An attendant of Celia at Duke Frederick’s court.",
+      "aliases": [
+        "Hisperia"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "body": "The elderly servant of the de Boys family, devoted to Orlando.",
+      "aliases": [
+        "ADAM",
+        "Adam"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oliver",
+      "name": "Oliver",
+      "body": "Sir Rowland de Boys’s eldest son and Orlando’s elder brother.",
+      "aliases": [
+        "OLIVER",
+        "Oliver"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            47
+          ],
+          "body": "Celia’s bridegroom and Orlando’s elder brother."
+        }
+      ]
+    },
+    {
+      "id": "corin",
+      "name": "Corin",
+      "body": "An elderly shepherd in the Forest of Arden.",
+      "aliases": [
+        "CORIN",
+        "Corin"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "silvius",
+      "name": "Silvius",
+      "body": "The young shepherd in love with Phebe.",
+      "aliases": [
+        "SILVIUS",
+        "Silvius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            50
+          ],
+          "body": "The shepherd paired with Phebe at the wedding."
+        }
+      ]
+    },
+    {
+      "id": "phebe",
+      "name": "Phebe",
+      "body": "The shepherdess loved by Silvius.",
+      "aliases": [
+        "PHEBE",
+        "Phebe",
+        "Phebes"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            50
+          ],
+          "body": "The shepherdess who agrees to marry Silvius."
+        }
+      ]
+    },
+    {
+      "id": "jane",
+      "name": "Jane Smile",
+      "body": "The countrywoman whom Touchstone recalls as an old love.",
+      "aliases": [
+        "Jane Smile"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "audrey",
+      "name": "Audrey",
+      "body": "The countrywoman courted by Touchstone.",
+      "aliases": [
+        "AUDREY",
+        "Audrey"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            47
+          ],
+          "body": "Touchstone’s bride, a countrywoman of Arden."
+        }
+      ]
+    },
+    {
+      "id": "martext",
+      "name": "Sir Oliver Martext",
+      "body": "The village vicar whom Touchstone asks to marry him to Audrey.",
+      "aliases": [
+        "SIR OLIVER MARTEXT",
+        "Sir Oliver Martext",
+        "Sir Oliver",
+        "MARTEXT",
+        "Martext"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william",
+      "name": "William",
+      "body": "The young countryman who is in love with Audrey.",
+      "aliases": [
+        "WILLIAM",
+        "William"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "forest-first-lord",
+      "name": "The first exiled lord",
+      "body": "One of Duke Senior’s companions in the Forest of Arden.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "forest-second-lord",
+      "name": "The second exiled lord",
+      "body": "One of Duke Senior’s companions in the Forest of Arden.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "court-first-lord",
+      "name": "The first court lord",
+      "body": "A lord attending Duke Frederick at his court.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "court-second-lord",
+      "name": "The second court lord",
+      "body": "A lord attending Duke Frederick at his court.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hunting-lord",
+      "name": "The lord returning from the hunt",
+      "body": "One of the forest lords whom Jaques meets after the deer hunt.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "first-page",
+      "name": "The first page",
+      "body": "One of the Duke’s pages who sings for Touchstone and Audrey.",
+      "aliases": [
+        "FIRST PAGE"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "second-page",
+      "name": "The second page",
+      "body": "One of the Duke’s pages who sings for Touchstone and Audrey.",
+      "aliases": [
+        "SECOND PAGE"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "corin-master",
+      "name": "Corin’s employer",
+      "body": "The owner of the cottage, pasture and flock that are offered for sale.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "religious-man",
+      "name": "The old religious man",
+      "body": "The religious man whom Frederick meets at the edge of the forest.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rosalind-uncle",
+      "name": "The uncle in Ganymede’s story",
+      "body": "The religious uncle whom Rosalind, as Ganymede, credits with teaching her about love.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "magician",
+      "name": "The magician in Rosalind’s story",
+      "body": "The magician whom Rosalind claims to have known since childhood.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cured-lover",
+      "name": "The lover in Ganymede’s story",
+      "body": "The man whom Rosalind, as Ganymede, claims to have cured of love.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hymen",
+      "name": "Hymen",
+      "body": "The figure of the god of marriage who presides over the couples’ union.",
+      "aliases": [
+        "HYMEN",
+        "Hymen"
+      ],
+      "category": "supporting",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ovid",
+      "name": "Ovid",
+      "body": "The Roman poet whose exile is invoked by Touchstone.",
+      "aliases": [
+        "Ovid"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pythagoras",
+      "name": "Pythagoras",
+      "body": "The Greek philosopher associated with the transmigration of souls, invoked in Rosalind’s joke.",
+      "aliases": [
+        "Pythagoras"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleopatra",
+      "name": "Cleopatra",
+      "body": "The queen of Egypt invoked as an example of majesty in the poem about Rosalind.",
+      "aliases": [
+        "Cleopatra"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucretia",
+      "name": "Lucretia",
+      "body": "The Roman woman traditionally celebrated for chastity, invoked in the poem about Rosalind.",
+      "aliases": [
+        "Lucretia"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marlowe",
+      "name": "Christopher Marlowe",
+      "body": "The poet of Hero and Leander, addressed as the dead shepherd when Phebe quotes him.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Julius Caesar",
+      "body": "The Roman general whose boast about coming, seeing and conquering Rosalind quotes.",
+      "aliases": [
+        "Caesar"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "body": "Luck personified as a woman distributing gifts from her wheel.",
+      "aliases": [
+        "Lady Fortune",
+        "Fortune"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nature",
+      "name": "Nature",
+      "body": "Nature personified as the giver of physical qualities, contrasted with Fortune.",
+      "aliases": [
+        "Nature"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fates",
+      "name": "The Fates",
+      "body": "The classical powers governing destiny, called the Destinies.",
+      "aliases": [
+        "Destinies"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "body": "The mythological hero of extraordinary strength, invoked at the wrestling match.",
+      "aliases": [
+        "Hercules"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "body": "The classical god of love.",
+      "aliases": [
+        "Cupid"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "body": "The Roman goddess of marriage, associated with Jupiter.",
+      "aliases": [
+        "Juno"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jupiter",
+      "body": "The Roman king of the gods, also called Jove.",
+      "aliases": [
+        "Jove",
+        "Jupiter"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ganymede-myth",
+      "name": "Ganymede in mythology",
+      "body": "The Trojan youth who serves as Jupiter’s cupbearer.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam-bible",
+      "name": "Adam in the Bible",
+      "body": "The first man in the biblical creation story, invoked in Duke Senior’s reflection on exile.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "body": "The classical goddess of hunting and chastity, also invoked as the moon.",
+      "aliases": [
+        "Diana",
+        "Queen of Night"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen of Troy",
+      "body": "The woman celebrated for beauty in Trojan legend, invoked in the poem about Rosalind.",
+      "aliases": [
+        "Helen"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "atalanta",
+      "name": "Atalanta",
+      "body": "The swift runner and huntress of Greek myth, invoked in comparisons with Rosalind and Orlando.",
+      "aliases": [
+        "Atalanta"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gargantua",
+      "name": "Gargantua",
+      "body": "The giant in Rabelais’s stories, invoked for the size of his mouth.",
+      "aliases": [
+        "Gargantua"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "judas",
+      "name": "Judas Iscariot",
+      "body": "The biblical betrayer of Jesus, invoked in Celia’s jokes about hair and kisses.",
+      "aliases": [
+        "Judas"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "troilus",
+      "name": "Troilus",
+      "body": "The Trojan lover invoked in Rosalind’s argument about dying for love.",
+      "aliases": [
+        "Troilus"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leander",
+      "name": "Leander",
+      "body": "The mythological lover who swims the Hellespont to visit Hero.",
+      "aliases": [
+        "Leander"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "body": "The priestess at Sestos loved by Leander in classical legend.",
+      "aliases": [
+        "Hero of Sestos",
+        "Hero"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "body": "The Roman goddess of love.",
+      "aliases": [
+        "Venus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phoenix",
+      "name": "The phoenix",
+      "body": "The legendary bird evoked as an emblem of rarity in Rosalind’s teasing.",
+      "aliases": [
+        "Phoenix"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "body": "The Christian deity invoked in prayers and oaths.",
+      "aliases": [
+        "God",
+        "Goddild"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wrestlers-father",
+      "name": "The wrestlers’ father",
+      "body": "The elderly father of the three young men who wrestle Charles.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "three-wrestlers",
+      "name": "The three brothers",
+      "body": "The three brothers who take on Charles in the wrestling match.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "song-oliver",
+      "name": "Oliver in the song",
+      "body": "The Oliver addressed in the song fragment Touchstone quotes to the vicar.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}
