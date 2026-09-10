@@ -24,4 +24,22 @@ speaker, both Cawdor owners in the same speech, and both doctors. Each asserts
 correct card content, unchanged reader position and no persisted highlight.
 Test API requests are intercepted; no model or account writes.
 
-Release verification pending.
+## Live verification
+
+Content commit `88f519e8`, app commit `e32f107e`. Node 24 approved deploy command
+passed build and bundle verification; direct deploy succeeded (no Actions run).
+Worker: `1a6b54bb-0da9-40a4-abb0-d29816a45856`.
+Bundle: `assets/index-BjPCOKB7.js`.
+SHA256: `b48297108065f88a579a1e205611f427b47ddfaecaa6a89e0f6423bc5336ca6c`.
+
+All 24 cases passed locally and on tinct.app; all 15 production smoke checks
+passed. Live `/lab/phone` opened at 390×844; its bundle and Macbeth asset bytes
+match the build. Settled phone/desktop popup screenshots inspected. The harness
+now checks viewport containment: DOM visibility alone allowed an off-page word
+to receive a synthetic press in one initial case. This was a test correction,
+not a reader change. Original/modern Cawdor references use different text spans.
+
+Artifacts: `/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-macbeth/`
+contains production/results.json, 24 case screenshots, lab-phone-production.png,
+and bundle.json. Tempest and Crito are queued content packages, not part of this
+release. Broader library rollout remains in progress.
