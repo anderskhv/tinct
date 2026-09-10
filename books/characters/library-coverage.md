@@ -69,7 +69,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Faust, Part One (`faust-part-1`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Oresteia (`oresteia`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Bacchae (`bacchae`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Medea (`medea`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Medea (`medea`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Confessions (`confessions`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Notes from Underground (`notes-from-underground`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Magna Carta (`magna-carta`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

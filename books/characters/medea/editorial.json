@@ -1,0 +1,457 @@
+{
+  "bookId": "medea",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete play in both English editions: named cast, individual and collective speaker roles, the unnamed princess, mythic references and identifiable attendants. No invented names for the sons or princess.",
+  "entities": [
+    {
+      "id": "medea",
+      "name": "Medea",
+      "category": "central",
+      "body": "The woman from Colchis, wife of Jason and mother of their two sons.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Medea"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jason",
+      "name": "Jason",
+      "category": "major",
+      "body": "The Greek hero of the Argo’s quest, husband of Medea and father of their sons.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jason"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "creon",
+      "name": "Creon",
+      "category": "major",
+      "body": "King of Corinth and father of Jason’s new bride.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Creon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bride",
+      "name": "Creon’s daughter",
+      "category": "supporting",
+      "body": "The princess of Corinth, Jason’s new bride. She is not named in this text.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "nurse",
+      "name": "The nurse",
+      "category": "supporting",
+      "body": "Medea’s elderly servant and confidante.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Nurse"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "attendant",
+      "name": "The children’s attendant",
+      "category": "supporting",
+      "body": "The elderly servant who looks after Medea and Jason’s sons.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Attendant"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "children",
+      "name": "Medea and Jason’s sons",
+      "category": "major",
+      "body": "The two young sons of Medea and Jason. Their personal names are not given.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Children"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "first-child",
+      "name": "The first child",
+      "category": "supporting",
+      "body": "One of Medea and Jason’s two sons, distinguished by his speaker label.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "A CHILD WITHIN",
+        "A CHILD"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "second-child",
+      "name": "The other child",
+      "category": "supporting",
+      "body": "The other of Medea and Jason’s two sons, distinguished by his speaker label.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "THE OTHER CHILD"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chorus",
+      "name": "The women of Corinth",
+      "category": "major",
+      "body": "The local women who speak and sing as the chorus.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Chorus",
+        "OTHER WOMEN",
+        "OTHERS",
+        "SOME WOMEN",
+        "THE OTHER WOMEN",
+        "WOMEN AT THE DOOR"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leader",
+      "name": "The chorus leader",
+      "category": "supporting",
+      "body": "The spokeswoman for the women of Corinth.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Leader"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "woman",
+      "name": "A woman of the chorus",
+      "category": "supporting",
+      "body": "An individual woman speaking from the chorus.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "A WOMAN"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "another-woman",
+      "name": "Another woman of the chorus",
+      "category": "supporting",
+      "body": "A second woman speaking from the chorus.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "ANOTHER"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aegeus",
+      "name": "Aegeus",
+      "category": "supporting",
+      "body": "King of Athens and an old friend of Medea.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aegeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "messenger",
+      "name": "The messenger",
+      "category": "supporting",
+      "body": "A servant from the royal household who brings news to Medea.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Messenger"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pelias",
+      "name": "Pelias",
+      "category": "reference",
+      "body": "The king of Iolcus who sent Jason in search of the Golden Fleece.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pelias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peliads",
+      "name": "The daughters of Pelias",
+      "category": "reference",
+      "body": "The daughters of King Pelias, also called the Peliads.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Peliad maids"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pittheus",
+      "name": "Pittheus",
+      "category": "reference",
+      "body": "The king of Troezen, son of Pelops, whom Aegeus plans to consult.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pittheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pelops",
+      "name": "Pelops",
+      "category": "reference",
+      "body": "Pittheus’s father, a king of Greek legend.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pelops"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pandion",
+      "name": "Pandion",
+      "category": "reference",
+      "body": "Aegeus’s father in the Athenian royal line.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pandion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "erechtheus",
+      "name": "Erechtheus",
+      "category": "reference",
+      "body": "A legendary king and ancestor associated with Athens.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Erechtheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "category": "reference",
+      "body": "The chief god of the Greek pantheon.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Zeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "themis",
+      "name": "Themis",
+      "category": "reference",
+      "body": "The goddess associated with divine order, justice and sacred obligations.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Themis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hecate",
+      "name": "Hecate",
+      "category": "reference",
+      "body": "The goddess of magic whom Medea invokes as her special protector.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hecate"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aphrodite",
+      "name": "Aphrodite",
+      "category": "reference",
+      "body": "The goddess of love, here called the Cyprian.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Cyprian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "category": "reference",
+      "body": "The legendary Greek singer and musician.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Orpheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "category": "reference",
+      "body": "The god whose oracle Aegeus consults at Delphi, also called Phoebus.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Apollo",
+        "Phoebus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "maia",
+      "name": "Maia",
+      "category": "reference",
+      "body": "The mother of Hermes in Greek mythology.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Maia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "category": "reference",
+      "body": "The divine messenger and protector of travelers, son of Maia.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "guiding Son",
+        "guiding son"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "muses",
+      "name": "The Muses",
+      "category": "reference",
+      "body": "The nine goddesses of poetry, music and the arts.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Muses",
+        "Nine"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ino",
+      "name": "Ino",
+      "category": "reference",
+      "body": "A woman of Greek legend whom the chorus recalls as a mother driven mad by Hera.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Ino"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hera",
+      "name": "Hera",
+      "category": "reference",
+      "body": "The queen of the gods and goddess of marriage.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hera",
+        "Queen of Heaven"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "skylla",
+      "name": "Skylla",
+      "category": "reference",
+      "body": "The sea monster of Greek legend, also called Scylla.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Skylla"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "athena",
+      "name": "Athena",
+      "category": "reference",
+      "body": "The goddess of wisdom and protector of Athens, here called Pallas.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Pallas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "category": "reference",
+      "body": "The rustic god whose influence was associated with sudden terror and frenzy.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Pan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helios",
+      "name": "Helios",
+      "category": "reference",
+      "body": "The sun god, Medea’s divine grandfather.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Sun"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "old-handmaid",
+      "name": "The old handmaid",
+      "category": "reference",
+      "body": "The elderly woman among the princess’s attendants in the messenger’s account.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    }
+  ]
+}
