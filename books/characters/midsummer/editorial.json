@@ -1,0 +1,915 @@
+{
+  "bookId": "midsummer",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete play in both English editions: named cast, speaker roles, dramatic roles, identifiable unnamed figures and named cultural references.",
+  "entities": [
+    {
+      "id": "hermia",
+      "name": "Hermia",
+      "category": "central",
+      "body": "Egeus’s daughter, in love with Lysander.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hermia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lysander",
+      "name": "Lysander",
+      "category": "central",
+      "body": "The young Athenian whom Hermia loves.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lysander"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helena",
+      "name": "Helena",
+      "category": "central",
+      "body": "Hermia’s friend, in love with Demetrius.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Helena",
+        "Helen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "demetrius",
+      "name": "Demetrius",
+      "category": "central",
+      "body": "The suitor Egeus wants Hermia to marry.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Demetrius"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            7,
+            54
+          ],
+          "body": "The young Athenian who now declares his love for Helena."
+        }
+      ]
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "category": "supporting",
+      "body": "Duke of Athens, engaged to Hippolyta.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Theseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hippolyta",
+      "name": "Hippolyta",
+      "category": "supporting",
+      "body": "Queen of the Amazons, engaged to Theseus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hippolyta"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "egeus",
+      "name": "Egeus",
+      "category": "supporting",
+      "body": "Hermia’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Egeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "philostrate",
+      "name": "Philostrate",
+      "category": "supporting",
+      "body": "Theseus’s master of revels, responsible for entertainments.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Philostrate"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bottom",
+      "name": "Nick Bottom",
+      "category": "major",
+      "body": "The weaver in Peter Quince’s amateur acting company.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nick Bottom",
+        "Bottom"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            5,
+            40
+          ],
+          "body": "The weaver and amateur actor, now wearing an ass’s head through Puck’s magic."
+        },
+        {
+          "after": [
+            7,
+            29
+          ],
+          "body": "The weaver and amateur actor, restored to his human appearance."
+        }
+      ]
+    },
+    {
+      "id": "quince",
+      "name": "Peter Quince",
+      "category": "supporting",
+      "body": "The carpenter who organizes the amateur players.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Peter Quince",
+        "Quince"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "flute",
+      "name": "Francis Flute",
+      "category": "supporting",
+      "body": "The bellows-mender in Quince’s acting company.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Francis Flute",
+        "Flute"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "snout",
+      "name": "Tom Snout",
+      "category": "supporting",
+      "body": "The tinker in Quince’s acting company.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Tom Snout",
+        "Snout"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "snug",
+      "name": "Snug",
+      "category": "supporting",
+      "body": "The joiner in Quince’s acting company.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Snug"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "starveling",
+      "name": "Robin Starveling",
+      "category": "supporting",
+      "body": "The tailor in Quince’s acting company.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Robin Starveling",
+        "Starveling"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "oberon",
+      "name": "Oberon",
+      "category": "major",
+      "body": "King of the fairies and husband of Titania.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Oberon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "titania",
+      "name": "Titania",
+      "category": "major",
+      "body": "Queen of the fairies and wife of Oberon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Titania",
+        "Queen of Fairies",
+        "Fairy Queen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "puck",
+      "name": "Puck",
+      "category": "major",
+      "body": "Oberon’s mischievous fairy servant, also called Robin Goodfellow.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Robin Goodfellow",
+        "Puck",
+        "Hobgoblin",
+        "Robin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fairy",
+      "name": "The fairy",
+      "category": "supporting",
+      "body": "A fairy serving Titania who meets Puck in the wood.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "FAIRY"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "first-fairy",
+      "name": "The first singing fairy",
+      "category": "supporting",
+      "body": "One of the fairies singing Titania to sleep.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "FIRST FAIRY"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "second-fairy",
+      "name": "The second fairy",
+      "category": "supporting",
+      "body": "Another fairy attending Titania as she sleeps.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "SECOND FAIRY"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peaseblossom",
+      "name": "Peaseblossom",
+      "category": "supporting",
+      "body": "One of Titania’s attendant fairies.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Peaseblossom"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cobweb",
+      "name": "Cobweb",
+      "category": "supporting",
+      "body": "One of Titania’s attendant fairies.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Cobweb"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "moth",
+      "name": "Moth",
+      "category": "supporting",
+      "body": "One of Titania’s attendant fairies.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Moth"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mustardseed",
+      "name": "Mustardseed",
+      "category": "supporting",
+      "body": "One of Titania’s attendant fairies.",
+      "subtitle": "",
+      "kind": "spirit",
+      "aliases": [
+        "Mustardseed"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fairies",
+      "name": "Titania’s fairies",
+      "category": "supporting",
+      "body": "The fairy attendants who sing and serve Titania.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "CHORUS"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "players",
+      "name": "The amateur players",
+      "category": "supporting",
+      "body": "Quince’s company of Athenian craftsmen.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "boy",
+      "name": "The Indian boy",
+      "category": "supporting",
+      "body": "The young child in Titania’s care, whom Oberon wants as his attendant.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "mother",
+      "name": "The boy’s mother",
+      "category": "reference",
+      "body": "The mortal woman from India who was Titania’s friend and follower.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "indian-king",
+      "name": "The Indian king",
+      "category": "reference",
+      "body": "The unnamed king from whom Puck says the boy was taken.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pyramus",
+      "name": "Pyramus",
+      "category": "supporting",
+      "body": "The male lover in the amateur players’ story of Pyramus and Thisbe.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Pyramus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "thisbe",
+      "name": "Thisbe",
+      "category": "supporting",
+      "body": "The female lover in the amateur players’ story of Pyramus and Thisbe.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Thisbe",
+        "Thisne"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "wall",
+      "name": "Wall",
+      "category": "supporting",
+      "body": "The wall personified as a speaking part in the amateur play.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Wall",
+        "WALL"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lion",
+      "name": "Lion",
+      "category": "supporting",
+      "body": "The lion portrayed in the amateur play.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Lion",
+        "LION"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "moonshine",
+      "name": "Moonshine",
+      "category": "supporting",
+      "body": "Moonlight personified as a part in the amateur play.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "Moonshine",
+        "MOONSHINE",
+        "MOON"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prologue",
+      "name": "Prologue",
+      "category": "supporting",
+      "body": "The speaker who introduces the amateur play.",
+      "subtitle": "",
+      "kind": "dramatic-role",
+      "aliases": [
+        "PROLOGUE"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nedar",
+      "name": "Nedar",
+      "category": "reference",
+      "body": "Helena’s father.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Nedar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "category": "reference",
+      "body": "The god of love, represented with a bow and arrows.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Cupid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "category": "reference",
+      "body": "The goddess of love.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Venus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "category": "reference",
+      "body": "The goddess of the hunt and chastity, associated with the moon.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Diana",
+        "Dian",
+        "Phoebe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "category": "reference",
+      "body": "The queen of Carthage in the story of Aeneas.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Dido",
+        "Carthage queen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeneas",
+      "name": "Aeneas",
+      "category": "reference",
+      "body": "The Trojan hero loved by Dido.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Aeneas",
+        "false Trojan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "category": "reference",
+      "body": "The legendary hero famed for his strength; Bottom calls him Ercles.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hercules",
+        "Ercles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "category": "reference",
+      "body": "The god associated with music and the sun; Bottom calls him Phibbus.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Apollo",
+        "Phibbus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fates",
+      "name": "The Fates",
+      "category": "reference",
+      "body": "The mythological powers who govern mortal destiny.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Fates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "corin",
+      "name": "Corin",
+      "category": "reference",
+      "body": "The shepherd identity Titania says Oberon has assumed.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Corin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phillida",
+      "name": "Phillida",
+      "category": "reference",
+      "body": "The woman Titania says Oberon courted as Corin.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Phillida"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "perigenia",
+      "name": "Perigenia",
+      "category": "reference",
+      "body": "A woman associated with Theseus in Greek legend.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Perigenia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aegles",
+      "name": "Aegles",
+      "category": "reference",
+      "body": "One of the women Oberon names among Theseus’s former loves.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Aegles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ariadne",
+      "name": "Ariadne",
+      "category": "reference",
+      "body": "The Cretan princess associated with Theseus.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Ariadne"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antiopa",
+      "name": "Antiopa",
+      "category": "reference",
+      "body": "An Amazon associated with Theseus in Greek legend.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Antiopa"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hiems",
+      "name": "Hiems",
+      "category": "reference",
+      "body": "Winter imagined as an aged person.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hiems"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "category": "reference",
+      "body": "The Roman god of the sea.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Neptune"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "daphne",
+      "name": "Daphne",
+      "category": "reference",
+      "body": "The nymph pursued by Apollo in Greek mythology.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Daphne"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "philomel",
+      "name": "Philomel",
+      "category": "reference",
+      "body": "A poetic name for the nightingale, recalling the myth of Philomela.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Philomel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ninus",
+      "name": "Ninus",
+      "category": "reference",
+      "body": "The legendary Assyrian king whose tomb is the lovers’ meeting place in the amateur play.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Ninus",
+        "Ninny"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "squash",
+      "name": "Mistress Squash",
+      "category": "reference",
+      "body": "The mother Bottom jokingly gives Peaseblossom, playing on the fairy’s name.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Mistress Squash",
+        "Mrs. Squash"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peascod",
+      "name": "Master Peascod",
+      "category": "reference",
+      "body": "The father Bottom jokingly gives Peaseblossom; Peascod means a pea pod.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Master Peascod",
+        "Mr. Peapod"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "category": "reference",
+      "body": "The Roman goddess of dawn.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Aurora"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cadmus",
+      "name": "Cadmus",
+      "category": "reference",
+      "body": "The legendary founder of Thebes, recalled as a hunting companion.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Cadmus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "valentine",
+      "name": "Saint Valentine",
+      "category": "reference",
+      "body": "The saint whose feast day was associated with birds pairing and lovers.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Saint Valentine",
+        "Valentine"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "centaurs",
+      "name": "The Centaurs",
+      "category": "reference",
+      "body": "The half-human, half-horse creatures of Greek myth.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Centaurs"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bacchanals",
+      "name": "The Bacchanals",
+      "category": "reference",
+      "body": "The frenzied followers of the wine god, mentioned in a proposed entertainment.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Bacchanals",
+        "Drunken Revelers"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "orpheus",
+      "name": "Orpheus",
+      "category": "reference",
+      "body": "The legendary musician meant by the Thracian singer in the proposed entertainment.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Thracian singer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "muses",
+      "name": "The Muses",
+      "category": "reference",
+      "body": "The nine goddesses of poetry, music and the arts.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Muses"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "learning",
+      "name": "Learning",
+      "category": "reference",
+      "body": "Learning personified in one of the proposed entertainments.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Learning",
+        "learning"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "category": "reference",
+      "body": "Another name for Jupiter, king of the Roman gods.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Jove"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "leander",
+      "name": "Leander",
+      "category": "reference",
+      "body": "The mythic lover of Hero, called Limander in the amateur play.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Limander",
+        "Leander"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "category": "reference",
+      "body": "The woman loved by Leander in Greek legend, mistakenly called Helen by Thisbe.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hero"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cephalus",
+      "name": "Cephalus",
+      "category": "reference",
+      "body": "The husband of Procris in Greek legend, called Shafalus by the players.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Shafalus",
+        "Cephalus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "procris",
+      "name": "Procris",
+      "category": "reference",
+      "body": "The wife of Cephalus in Greek legend, called Procrus by the players.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Procrus",
+        "Procris"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hecate",
+      "name": "Hecate",
+      "category": "reference",
+      "body": "The goddess associated with night and magic.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Hecate"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "helen-troy",
+      "name": "Helen of Troy",
+      "category": "reference",
+      "body": "The legendary beauty invoked by Theseus.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [],
+      "snapshots": []
+    }
+  ]
+}

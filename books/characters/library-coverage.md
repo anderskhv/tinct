@@ -13,7 +13,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Epic of Gilgamesh (`gilgamesh`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Hamlet (`hamlet`) | validated-package | Maintain source fingerprint checks on future edition changes |
 | Macbeth (`macbeth`) | validated-package | Maintain source fingerprint checks on future edition changes |
-| A Midsummer Night's Dream (`midsummer`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| A Midsummer Night's Dream (`midsummer`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Romeo and Juliet (`romeo-and-juliet`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Tempest (`the-tempest`) | validated-package | Release owner: review documented inherited song-speaker defects; integrate versioned asset and verify production |
 | The Art of War (`the-art-of-war`) | validated-package | Release owner: integrate versioned asset and verify production |
