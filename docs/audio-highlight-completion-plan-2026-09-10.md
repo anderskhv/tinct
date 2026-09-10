@@ -241,3 +241,40 @@ sequence of further recovery requests and pilot-only handoffs. The
 [diagnostic pilot](word-timing-diagnostic-pilot-2026-09-10.md) remain evidence and
 technical references. Their historical counts and approval status are preserved;
 this recommendation does not retroactively authorize work.
+
+## First execution milestone — September 10
+
+Local pinned small.en/int8 canary completed in 168.8 seconds. AUTO arm itself
+used 108.92 seconds for approximately 192 seconds of unique narration. This tiny
+short-scene/prose sample implies about 26 continuous CPU days for the newly
+measured 1,094.67 missing-timing audio hours, before repair/review. It is not a
+finish-date promise. GPU access is pending a separate sign-in request; no paid
+machine has been started and new compute spend remains $0.
+
+Macbeth original chapter 1 is now published and verified. Bias off failed two
+5-token paragraphs; AUTO corrected Where and Graymalkin and passed all 12.
+An independent unprompted cached base-model comparison passed all 30 sampled
+start/end word anchors within 0.24 seconds; the Social Contract control passed
+30/30 within 0.18 seconds. These are automated cross-model timing checks, not
+human listening or every-word certification.
+
+Conditional no-overwrite upload and served byte verification passed. SHA256:
+`18cd10f6a816d2a86ce4c448982e740dbf0dd549414f2472dadac901bd451751`.
+Desktop Chromium and phone WebKit real playback advanced one highlighted word
+at a time and paused correctly. Artifact:
+`/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-audio-canary/`.
+No app deployment or audio replacement was needed.
+
+Current fresh inventory is 201 English editions / 100 books / 13,019 chapters:
+4,823 missing sidecars with manifests and 24 absent Ivan Ilyich manifests before
+this new Macbeth publication. Presence is not validation. See
+`output/audio-highlight-execution-2026-09-10/README.md` for the parallel read-only
+owner's complete listings, reference audit, duration measurement and 195 existing
+Manual/Social Contract file validations. These supersede historical baseline
+counts for current execution accounting.
+
+Next local run: Manual original52; Social Contract original23/46, modern22/46.
+Manual's failed p0 is accurately heard as 'everything' but printed 'every thing'.
+Retained raw evidence permits a narrow, explicitly documented group mapping
+without rerunning speech recognition or lowering the global gate. Social Contract
+proceeds independently. Hash/config paragraph checkpoints are now tested.
