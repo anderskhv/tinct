@@ -1,0 +1,800 @@
+{
+  "bookId": "much-ado-about-nothing",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All seventeen scenes in both English editions: named cast, servants, civic officers, framing messengers, religious and literary references. Masked and assumed names are scoped; accusations and reported deaths do not become facts. Formal final marriages remain pending.",
+  "entities": [
+    {
+      "id": "beatrice",
+      "name": "Beatrice",
+      "body": "Leonato’s niece and Hero’s cousin, known for her sharp exchanges with Benedick.",
+      "aliases": [
+        "Beatrice",
+        "BEATRICE",
+        "Lady Disdain"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            63
+          ],
+          "body": "Benedick’s intended wife, Hero’s cousin and Leonato’s niece."
+        }
+      ]
+    },
+    {
+      "id": "benedick",
+      "name": "Benedick",
+      "body": "A gentleman and soldier from Padua, and Beatrice’s sparring partner.",
+      "aliases": [
+        "Signior Mountanto",
+        "Benedick",
+        "BENEDICK"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            17,
+            63
+          ],
+          "body": "Beatrice’s intended husband, a gentleman and soldier from Padua."
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "name": "Hero",
+      "body": "Leonato’s daughter and Beatrice’s cousin.",
+      "aliases": [
+        "Hero",
+        "HERO"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            123
+          ],
+          "body": "Claudio’s intended bride, Leonato’s daughter and Beatrice’s cousin."
+        },
+        {
+          "after": [
+            12,
+            74
+          ],
+          "body": "Leonato’s daughter and Beatrice’s cousin, secretly alive while her death is announced."
+        },
+        {
+          "after": [
+            17,
+            40
+          ],
+          "body": "Claudio’s intended bride, reunited with him after her innocence is established."
+        }
+      ]
+    },
+    {
+      "id": "claudio",
+      "name": "Count Claudio",
+      "body": "The young Florentine soldier returning from war with Don Pedro.",
+      "aliases": [
+        "Count Claudio",
+        "Claudio",
+        "CLAUDIO",
+        "Count Comfect",
+        "Count"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            123
+          ],
+          "body": "Hero’s intended husband, a young Florentine count and soldier."
+        },
+        {
+          "after": [
+            12,
+            48
+          ],
+          "body": "The Florentine count who has broken off his wedding to Hero."
+        },
+        {
+          "after": [
+            17,
+            40
+          ],
+          "body": "Hero’s intended husband, now reconciled with her."
+        }
+      ]
+    },
+    {
+      "id": "leonato",
+      "name": "Leonato",
+      "body": "The governor of Messina, Hero’s father and Beatrice’s uncle.",
+      "aliases": [
+        "Leonato",
+        "LEONATO"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pedro",
+      "name": "Don Pedro",
+      "body": "The Prince of Aragon and Don John’s brother, returning from war with Claudio and Benedick.",
+      "aliases": [
+        "Don Pedro",
+        "DON PEDRO",
+        "Prince"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "john",
+      "name": "Don John",
+      "body": "Don Pedro’s illegitimate half-brother.",
+      "aliases": [
+        "Don John",
+        "DON JOHN"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antonio",
+      "name": "Antonio",
+      "body": "Leonato’s brother and uncle to Hero and Beatrice.",
+      "aliases": [
+        "Antonio",
+        "ANTONIO",
+        "Anthony"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "borachio",
+      "name": "Borachio",
+      "body": "A follower of Don John.",
+      "aliases": [
+        "Borachio",
+        "BORACHIO"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "conrade",
+      "name": "Conrade",
+      "body": "A companion and follower of Don John.",
+      "aliases": [
+        "Conrade",
+        "CONRADE"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "margaret",
+      "name": "Margaret",
+      "body": "Hero’s waiting gentlewoman, also called Meg.",
+      "aliases": [
+        "Margaret",
+        "MARGARET",
+        "Meg"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ursula",
+      "name": "Ursula",
+      "body": "An attendant and companion of Hero.",
+      "aliases": [
+        "Ursula",
+        "Ursala",
+        "URSULA"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "balthasar",
+      "name": "Balthasar",
+      "body": "Don Pedro’s attendant and a singer.",
+      "aliases": [
+        "Balthasar",
+        "BALTHASAR"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dogberry",
+      "name": "Dogberry",
+      "body": "The constable in charge of Messina’s watch.",
+      "aliases": [
+        "Dogberry",
+        "DOGBERRY",
+        "Constable"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "verges",
+      "name": "Verges",
+      "body": "The elderly officer who assists Dogberry.",
+      "aliases": [
+        "Verges",
+        "VERGES"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "george",
+      "name": "George Seacoal",
+      "body": "The watchman whom Dogberry chooses to lead the night patrol.",
+      "aliases": [
+        "George Seacoal",
+        "Seacoal",
+        "SECOND WATCH"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hugh",
+      "name": "Hugh Oatcake",
+      "body": "One of the men proposed to lead the watch because he can read and write.",
+      "aliases": [
+        "Hugh Oatcake"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francis-seacoal",
+      "name": "Francis Seacoal, the sexton",
+      "body": "The parish clerk whom Dogberry summons to record the examination of the prisoners.",
+      "aliases": [
+        "Francis Seacoal",
+        "Sexton",
+        "SEXTON",
+        "sexton"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "friar",
+      "name": "Friar Francis",
+      "body": "The priest who attends Hero and Claudio’s wedding ceremony.",
+      "aliases": [
+        "Friar Francis",
+        "Friar",
+        "FRIAR",
+        "friar"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "army-messenger",
+      "name": "Don Pedro’s messenger",
+      "body": "The messenger who brings Leonato news of Don Pedro’s returning army.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wedding-messenger",
+      "name": "The wedding messenger",
+      "body": "The messenger who calls Leonato to the wedding.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "capture-messenger",
+      "name": "The final messenger",
+      "body": "The messenger who brings Don Pedro news of his brother.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "claudio-uncle",
+      "name": "Claudio’s uncle",
+      "body": "Claudio’s uncle in Messina, to whom news of his military success is sent.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hero-mother",
+      "name": "Hero’s mother",
+      "body": "Leonato’s wife and Hero’s mother, mentioned in the opening exchange.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fool",
+      "name": "Leonato’s fool",
+      "body": "The household fool whom Beatrice recalls answering Benedick’s archery challenge.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antonio-son",
+      "name": "Antonio’s son",
+      "body": "Leonato’s nephew, who is arranging music for the festivities.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antonio-servant",
+      "name": "Antonio’s servant",
+      "body": "The servant who overhears Don Pedro and Claudio in the orchard.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boy",
+      "name": "Benedick’s boy",
+      "body": "The young servant whom Benedick sends to fetch a book.",
+      "aliases": [
+        "BOY",
+        "Boy"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "first-watch",
+      "name": "The first watchman",
+      "body": "One of the members of Messina’s night watch.",
+      "aliases": [
+        "FIRST WATCH"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "watch",
+      "name": "The watch",
+      "body": "Messina’s night watch, supervised by Dogberry and Verges.",
+      "aliases": [
+        "WATCH",
+        "Watch"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lord",
+      "name": "The lord at the tomb",
+      "body": "A lord attending Don Pedro and Claudio at the tomb.",
+      "aliases": [
+        "A LORD"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pedro-father",
+      "name": "Don Pedro’s father",
+      "body": "The father of Don Pedro and Don John, mentioned in Beatrice’s banter.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam-bell",
+      "name": "Adam Bell",
+      "body": "The legendary English archer invoked in Benedick’s joke about being shot at.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "body": "The first man in the biblical creation story, invoked in Beatrice and Benedick’s banter.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "body": "The god of love, frequently invoked in the jokes about courtship.",
+      "aliases": [
+        "Cupid"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vulcan",
+      "name": "Vulcan",
+      "body": "The Roman smith god, contrasted with Cupid in Benedick’s joke.",
+      "aliases": [
+        "Vulcan"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter",
+      "name": "Saint Peter",
+      "body": "The apostle imagined by Beatrice as admitting her to heaven.",
+      "aliases": [
+        "Saint Peter"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philemon",
+      "name": "Philemon",
+      "body": "The humble host who welcomes Jupiter in classical myth.",
+      "aliases": [
+        "Philemon"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jupiter",
+      "body": "The Roman king of the gods, called Jove.",
+      "aliases": [
+        "Jove"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "body": "The mythological hero famed for strength and his twelve labors.",
+      "aliases": [
+        "Hercules"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ate",
+      "name": "Ate",
+      "body": "The classical spirit of ruin and discord, invoked in Benedick’s complaint about Beatrice.",
+      "aliases": [
+        "Ate"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "prester",
+      "name": "Prester John",
+      "body": "The legendary Christian priest-king of a distant eastern kingdom.",
+      "aliases": [
+        "Prester John"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hector",
+      "name": "Hector",
+      "body": "The Trojan warrior invoked as a model of courage.",
+      "aliases": [
+        "Hector"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pharaoh",
+      "name": "Pharaoh",
+      "body": "The biblical Egyptian ruler evoked through a painting of his soldiers.",
+      "aliases": [
+        "Pharaoh"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bel",
+      "name": "Bel",
+      "body": "The Babylonian deity invoked through an image of his priests.",
+      "aliases": [
+        "Bel"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "body": "The Roman goddess associated with chastity, called Dian in the original edition.",
+      "aliases": [
+        "Dian",
+        "Diana"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "body": "The Roman goddess of love.",
+      "aliases": [
+        "Venus"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leander",
+      "name": "Leander",
+      "body": "The legendary lover who swims across the Hellespont.",
+      "aliases": [
+        "Leander"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "troilus",
+      "name": "Troilus",
+      "body": "The Trojan lover from the story of Troilus and Cressida.",
+      "aliases": [
+        "Troilus"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phoebus",
+      "name": "Phoebus",
+      "body": "Apollo as the sun god, invoked at daybreak.",
+      "aliases": [
+        "Phoebus"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hymen",
+      "name": "Hymen",
+      "body": "The classical god of marriage, invoked by Claudio.",
+      "aliases": [
+        "Hymen"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "europa",
+      "name": "Europa",
+      "body": "The mythological woman carried away by Jupiter in the form of a bull.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "body": "The Christian deity invoked in the characters’ prayers and oaths.",
+      "aliases": [
+        "God"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "devil",
+      "name": "The Devil",
+      "body": "The infernal figure in Beatrice’s imagined account of the afterlife.",
+      "aliases": [
+        "Devil"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cham",
+      "name": "The Great Cham",
+      "body": "The title of a powerful Asian ruler invoked in Benedick’s extravagant offer to travel to distant lands.",
+      "aliases": [
+        "Great Cham",
+        "Great Khan"
+      ],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pygmies",
+      "name": "The Pygmies",
+      "body": "The legendary people of small stature named in Benedick’s fanciful catalogue of distant journeys.",
+      "aliases": [
+        "Pygmies"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "duchess",
+      "name": "The Duchess of Milan",
+      "body": "The duchess whose fashionable gown Margaret recalls seeing.",
+      "aliases": [
+        "Duchess of Milan"
+      ],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "duke",
+      "name": "The duke",
+      "body": "The unnamed ruler invoked as the authority behind Messina’s officers.",
+      "aliases": [
+        "Duke"
+      ],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "deformed",
+      "name": "Deformed",
+      "body": "The imaginary thief whom the watch thinks Borachio has named, misunderstanding his complaint about fashion.",
+      "aliases": [
+        "Deformed"
+      ],
+      "category": "supporting",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "prisoners",
+      "name": "Borachio and Conrade",
+      "body": "Don John’s two followers, answering together during the examination.",
+      "aliases": [
+        "BOTH"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

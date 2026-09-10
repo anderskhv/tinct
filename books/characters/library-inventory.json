@@ -2412,9 +2412,12 @@
     {
       "bookId": "much-ado-about-nothing",
       "title": "Much Ado About Nothing",
-      "contentStatus": "not-started",
-      "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "contentStatus": "validated-package",
+      "appStatus": "awaiting-integration",
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -2432,7 +2435,7 @@
         }
       ],
       "existingThreadCandidates": 10,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Consolidated release queue: integrate versioned asset and verify production"
     },
     {
       "bookId": "taming-of-the-shrew",
