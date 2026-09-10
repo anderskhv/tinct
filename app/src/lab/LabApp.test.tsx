@@ -15,6 +15,9 @@ import { appendLabChatTurn } from './labChatHistory'
 import { readLabPositionLocal } from './labPositionStore'
 import { READING_MEMORY_DEVICE_KEY } from '../readingMemory'
 
+// Synthetic timing fixtures test playback independently from temporary discovery holds.
+vi.mock('../data/audioAvailability', async importOriginal => ({ ...await importOriginal<typeof import('../data/audioAvailability')>(), isAudioHeld: () => false }))
+
 afterEach(() => {
   cleanup()
   vi.useRealTimers()

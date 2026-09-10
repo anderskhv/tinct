@@ -1,3 +1,4 @@
+import { isAudioHeld, isBookDiscoverable, isEditionDiscoverable } from '../data/audioAvailability'
 import { BOOKS } from '../data/bookRegistry'
 import {
   LIBRARY_BOOK_META_BY_ID,
@@ -99,6 +100,8 @@ export interface PreReaderAvailability {
 }
 
 export interface PreReaderEditionViewModel {
+  discoveryAvailable?: boolean
+  audioHeld?: boolean
   key: EditionKey
   language: Language
   style: Style
@@ -113,6 +116,7 @@ export interface PreReaderEditionViewModel {
 }
 
 export interface PreReaderBookViewModel {
+  discoveryAvailable?: boolean
   id: string
   title: string
   author: string
@@ -287,7 +291,7 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
     .map(house => house.id)
   if (!houseIds.length) throw new Error(`Published book ${book.id} is not classified into a library house`)
 
-  const editions = editionViewModels(book.editions)
+  const editions = editionViewModels(book.editions).map(edition => ({ ...edition, discoveryAvailable: isEditionDiscoverable(book.id, edition), audioHeld: isAudioHeld(book.id, edition.key) }))
   const summary = book.description?.trim() || meta.blurb?.trim() || `${book.title} by ${book.author}.`
   const blurb = meta.blurb?.trim() || firstSentence(summary)
   const cover = {
@@ -328,6 +332,7 @@ function bookViewModel(book: Book, catalogueIndex: number): PreReaderBookViewMod
       // the exhaustive asset test below guards that publication contract.
       optionalPreface: true,
     },
+    discoveryAvailable: isBookDiscoverable(book.id),
     catalogueIndex,
   }
 }

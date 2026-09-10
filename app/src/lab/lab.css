@@ -1,3 +1,6 @@
+.lab-audio-unavailable { position:fixed; z-index:200; left:50%; bottom:90px; transform:translateX(-50%); width:min(440px,calc(100% - 32px)); box-sizing:border-box; display:flex; align-items:center; gap:12px; padding:16px; border:1px solid var(--lab-border); border-radius:18px; background:var(--lab-paper); color:var(--lab-ink); box-shadow:0 8px 30px #0002; font-size:16px; }
+.lab-audio-unavailable button { flex:none; width:32px; height:32px; border:0; background:transparent; color:inherit; font-size:24px; }
+
 .lab {
   --lab-paper: #ece7db;
   --lab-ink: #0b0b0b;
