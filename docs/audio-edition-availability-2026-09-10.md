@@ -36,3 +36,23 @@ To restore editions, update the reviewed policy after the audio owner validates
 repaired recordings, rerun partition and discovery regressions and deploy. No
 saved-state rewrite or book re-registration is required. The audit manifest was
 reconfirmed unchanged by the audio owner immediately before deployment.
+
+## Confirmed Apology modern audio hold — September 10 follow-up
+
+Code 903986b0 adds only apology/modern-en to wrong_text_audio holds.
+147 eligible / 54 held English editions; 90 discoverable books unchanged.
+Original Apology remains selectable; saved modern text and place remain valid.
+Two independent unprompted recognizers returned materially shorter text for
+chapter 1 paragraphs 61 and 63. Evidence in main
+output/word-timing-diagnostic-pilot-2026-09-10/apology-wrong-text-probe.json.
+This is transcript comparison, not human listening or a timing-quality approval.
+
+1,664 app tests pass; build and verify-bundle pass. Clean direct npm deploy
+succeeded (no GitHub Actions run used). Worker
+97fd1b40-b380-4516-8501-024b79f977b2; bundle index-DCPRz8m_.js; SHA256
+2da7dca57524436b02d42d45a3f19408edd2184f3a6c90c94aefe35c0b13330c.
+Live /lab/phone bundle matches local bytes. Mobile WebKit and desktop Chromium
+verified original default, 90 books, saved modern paragraph 61, blocked playback,
+and unchanged reader place. All 15 production smoke checks pass.
+Artifacts: /Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-apology-audio-hold/
+No audio files regenerated or changed. Nine new character packages remain included.
