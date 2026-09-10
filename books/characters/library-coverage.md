@@ -73,7 +73,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Confessions (`confessions`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Notes from Underground (`notes-from-underground`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Magna Carta (`magna-carta`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| The US Founding Documents (`us-founding-documents`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The US Founding Documents (`us-founding-documents`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Federalist Papers (`federalist-papers`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Narrative of the Life of Frederick Douglass (`frederick-douglass`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | A Little Princess (`a-little-princess`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
