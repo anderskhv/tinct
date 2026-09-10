@@ -92,7 +92,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Julius Caesar (`julius-caesar`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Twelfth Night (`twelfth-night`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Measure for Measure (`measure-for-measure`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Henry IV, Part 2 (`henry-iv-part-2`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Henry IV, Part 2 (`henry-iv-part-2`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Merry Wives of Windsor (`merry-wives-of-windsor`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Othello (`othello`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | King Lear (`king-lear`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
