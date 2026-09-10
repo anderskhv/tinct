@@ -224,7 +224,7 @@ handoff to the release owner; queued, not production verified.
 | Antony and Cleopatra | c0dc063c | 102 / 101 | build_antony_and_cleopatra.py |
 | Richard III | a1b54fd2 | 94 / 94 | build_richard_iii.py |
 | Henry IV Part 2 | 80517680 | 121 / 121 | build_henry_iv_part_2.py |
-| The Merry Wives of Windsor | PENDING | 47 / 47 | build_merry_wives_of_windsor.py |
+| The Merry Wives of Windsor | 12f7c982 | 47 / 47 | build_merry_wives_of_windsor.py |
 
 Supported editions and source fingerprints (sha256 of the raw JSON bytes at authoring):
 
