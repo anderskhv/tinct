@@ -78,7 +78,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Narrative of the Life of Frederick Douglass (`frederick-douglass`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | A Little Princess (`a-little-princess`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Jungle Book (`jungle-book`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Around the World in Eighty Days (`around-the-world-80-days`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Around the World in Eighty Days (`around-the-world-80-days`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Heart of Darkness (`heart-of-darkness`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Discourse on the Origin of Inequality (`discourse-on-inequality`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Strange Case of Dr Jekyll and Mr Hyde (`jekyll-and-hyde`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
