@@ -98,6 +98,7 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | The Taming of the Shrew | 5478a791 | 72 / 72 | build_taming_of_the_shrew.py |
 | Much Ado About Nothing | 89ff4bad | 60 / 60 | build_much_ado_about_nothing.py |
 | As You Like It | f5525c42 | 64 / 64 | build_as_you_like_it.py |
+| King Lear | 2cdd2388 | 67 / 67 | build_king_lear.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
@@ -127,12 +128,14 @@ Much Ado About Nothing is validated and included in the grouped handoff with The
 
 As You Like It is validated and included in that grouped handoff. Both source files match Tinct-reader-title; all six source files in this batch are byte-matched. Full suite: 353 tests. Review missing Act 1 Scene 1, combined scene units, incorrect later scene titles, and publishing footers documented in its README. Restoring source text requires review and rebuilding. Two Jaques, three Oliver uses and Adam namesakes are distinguished; marriages and the dukes’ changed circumstances are gated. These three packages are queued, not production verified.
 
+King Lear is validated for the next grouped handoff; both source files match Tinct-reader-title. Full suite: 362 tests. Review father/son Gloucester title succession, stock Tom o’ Bedlam versus Edgar, country/ruler France, separate messengers and officers, and Dolphin/Dauphin song spelling. All twenty-six scenes; no source edits.
+
 ## Held separately
 
 The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source song-speaker labels around Ariel's songs are wrong in both editions. Release owner requested source repair review before enablement. See the-tempest/README.md. Regenerate bindings if any source bytes change.
 
 ## Verification and tracking
 
-Current complete content suite: 353 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 362 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
