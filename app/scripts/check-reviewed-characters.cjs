@@ -19,7 +19,7 @@ const p=await b.newPage({viewport:device==='phone'?{width:390,height:844}:{width
 await p.addInitScript(({book,edition,ch,paragraphIndex})=>sessionStorage.setItem('tinct:lab-reader-handoff',JSON.stringify({kind:'open-reader',bookId:book,primaryEditionKey:edition,compareEditionKey:edition==='original-en'?'modern-en':'original-en',savedPlace:{bookId:book,chapterNumber:ch,paragraphIndex,page:0}})),{book,edition,ch,paragraphIndex:mention.paragraphIndex})
 await p.goto(origin+'/reader');await p.waitForFunction(()=>document.querySelector('.lab')?.dataset.readerReady==='true');await p.waitForTimeout(1200)
 const word=p.locator(`.lab-page-wrap [data-paragraph-index="${mention.paragraphIndex}"][data-word-index="${wordIndex}"]`).first()
-const onPage=async()=>{const r=await word.boundingBox(),v=p.viewportSize();return r&&r.x>=0&&r.y>=0&&r.x+r.width<=v.width&&r.y+r.height<=v.height};
+const onPage=async()=>{if(!await word.count())return false;const r=await word.boundingBox(),v=p.viewportSize();return r&&r.x>=0&&r.y>=0&&r.x+r.width<=v.width&&r.y+r.height<=v.height};
 for(let i=0;i<20&&!await onPage();i++){await p.keyboard.press('ArrowRight');await p.waitForTimeout(200)}
 assert.ok(await onPage(),`${device}-${edition}-${label}: target must be on the current page`);const before=await p.getByTestId('lab-root').getAttribute('data-place')
 if(device==='desktop')await word.click();else{const r=await word.boundingBox();await word.dispatchEvent('pointerdown',{pointerType:'touch',pointerId:1,clientX:r.x+3,clientY:r.y+3});await p.waitForTimeout(400);await word.dispatchEvent('pointerup',{pointerType:'touch',pointerId:1,clientX:r.x+3,clientY:r.y+3})}
