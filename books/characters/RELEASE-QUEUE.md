@@ -130,12 +130,93 @@ As You Like It is validated and included in that grouped handoff. Both source fi
 
 King Lear is validated for the next grouped handoff; both source files match Tinct-reader-title. Full suite: 362 tests. Review father/son Gloucester title succession, stock Tom o’ Bedlam versus Edgar, country/ruler France, separate messengers and officers, and Dolphin/Dauphin song spelling. All twenty-six scenes; no source edits.
 
+## Opus batch 1: Measure for Measure, Henry V, The Winter's Tale
+
+Authored after the September 10 handoff, on branch `claude/tinct-character-content-1n5iqq`
+(based on handoff commit `607ab9b1`). Grouped handoff to the release owner; queued,
+not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| Measure for Measure | 9a912f16 | 65 / 65 | build_measure_for_measure.py |
+| Henry V | 17991485 | 129 / 127 | build_henry_v.py |
+| The Winter's Tale | 1a071be8 | 59 / 60 | build_winters_tale.py |
+
+Supported editions and source fingerprints (sha256 of the raw JSON bytes at authoring):
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Measure for Measure | b99ee3fc8f98dca8ec96d44d1f88d3851a67c34b575ea3818d1616e32d22b343 | d0e5a5ae2cf437bb6abaa4002d938224ec977e5d6f17360d7482d7e7a12f8331 |
+| Henry V | c66a930a2d877fc78b00c4a793a4c63d550f2042609b51c922ec3d9a18da081b | f2b9cab47fef45f65a6bb9b53aec30aaaaa33e9944de3e62ee482df133b9bb42 |
+| The Winter's Tale | e725492b2ca705fc0dc46687b555a88e106100dff1b76a2cc0900473ea0b4295 | b85a81abca26b0a3d5ba2afe80e39afc13618c44b1de3addff024be57d53c346 |
+
+Each package's `validation-report.json` carries the authoritative hashes for both of
+its editions; treat that file as the source of truth and re-verify before enabling.
+
+Commands: `python3 books/characters/build_<id>.py --check` for each, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Full content suite
+passes **386 tests** at commit `1a071be8` (362 at the handoff baseline, plus 9 for
+Measure for Measure, 8 for Henry V and 7 for The Winter's Tale).
+
+Shared dependencies: `build_reviewed.py` for all three; `reviewed_aliases.py` for
+Henry V and The Winter's Tale. Measure for Measure does **not** use
+`reviewed_aliases.py` — see its source defect note below. No shared file was changed.
+
+### Release review points
+
+- **Measure for Measure** — the original is a Gutenberg-style setting whose italic
+  underscores make `reviewed_aliases` blind to both ends of a speech cue, so this book
+  binds with letter/digit boundaries in its own builder and adds 21 abbreviated cues as
+  original-only aliases. Review the three senses of "Justice" (the magistrate, the
+  morality figure at 5:70, Angelo at 10:86), "Thomas tapster" as Pompey, and the
+  deliberate non-binding of Mariana at the Duke's "poor wronged lady" (9:65).
+- **Henry V** — review the repeated given names (four Edwards, four Johns, three
+  Richards, two Thomases, two Queen Isabels, two Dauphins), Alexander Court versus
+  Alexander the Great, "Bar" as verb and duke in one paragraph, and the split between
+  Montjoy and King Henry's own herald at 20:14.
+- **The Winter's Tale** — review the four scene-local SERVANT roles and the two
+  gates that carry the play's reveals: Hermione's survival at 15:33 and Perdita's
+  acknowledgement at 14:7.
+
+### Source defects, none blocking enablement
+
+| Book | Defect | Effect |
+|---|---|---|
+| Measure for Measure | `Clandio` (12:29) and `Angclo` (12:64) compositor errors in `original-en` | Bound to the right person with resolution `reviewed-source-typo`; modern spells both correctly |
+| Measure for Measure | Speech cues merged into the previous paragraph at 8:13 and 17:20, both editions | Both speakers bound; any paragraph-level speaker attribution downstream is wrong at these two places |
+| Measure for Measure | Printed line numbers inside the prose of `original-en` | Splits "the constable's 150 wife" at 5:64, so that phrase is bound in neither edition. Numbers deliberately not stripped: stripping them moves every UTF-16 offset in the file |
+| Henry V | Barbason (3:19) and Parca (22:6) replaced by common nouns in `modern-en` | Recorded as `omittedEntities` for that edition — entity absent, not an unresolved binding |
+| Henry V | `modern-en` renders the interjection "Marry" as "By Mary" in six places | Deliberately unbound in both editions rather than putting a saint's card on an oath |
+| The Winter's Tale | Judas named only in `modern-en` (2:118) | Recorded as `omittedEntities` for `original-en`, with the reason |
+| The Winter's Tale | Cleomenes's seven cues printed without their stopping period in `original-en` | Cosmetic; binding unaffected |
+
+Any repair to these source bytes invalidates the recorded hashes and requires a
+restored-text review and a rebuild of the affected package.
+
+### Required production checks
+
+Register both English editions per book, version the immutable asset URL (character
+assets carry immutable cache headers — bump the content revision in the request URL,
+do not reuse it), run the normal app gates and deploy, then open the production reader
+and confirm on the fetched asset, not the uploaded file:
+
+1. A first-encounter card in each edition (Measure for Measure 1:3 Angelo; Henry V
+   2:0 King Henry; The Winter's Tale 2:0 Hermione).
+2. A gated later card on each side of its boundary — most importantly The Winter's
+   Tale 15:33, where returning to any earlier passage must restore the card that does
+   not mention Hermione's survival.
+3. One namesake span per book (Measure for Measure 5:70 "Justice"; Henry V 14:45
+   "Alexander Court"; The Winter's Tale 12:30 "Doricles").
+
+Report live evidence back to the per-book `status.json` and the generated inventory
+only after those checks pass. Validated is not deployed.
+
 ## Held separately
 
 The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source song-speaker labels around Ariel's songs are wrong in both editions. Release owner requested source repair review before enablement. See the-tempest/README.md. Regenerate bindings if any source bytes change.
 
 ## Verification and tracking
 
-Current complete content suite: 362 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 386 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
