@@ -1,0 +1,910 @@
+{
+  "bookId": "king-lear",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All twenty-six scenes in both original-en and modern-en: named cast, speaking roles, contextual unnamed relatives, and named mythical, religious and song references.",
+  "entities": [
+    {
+      "id": "lear",
+      "name": "King Lear",
+      "body": "The aging king of Britain and father of Goneril, Regan and Cordelia; the play’s central character.",
+      "aliases": [
+        "LEAR",
+        "Lear"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            4,
+            0
+          ],
+          "body": "The aging king and father of Goneril, Regan and Cordelia."
+        }
+      ]
+    },
+    {
+      "id": "kent",
+      "name": "The Earl of Kent",
+      "body": "A nobleman in Lear’s service.",
+      "aliases": [
+        "KENT",
+        "Kent",
+        "Caius"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            1,
+            58
+          ],
+          "body": "Lear’s loyal nobleman, banished for defending Cordelia."
+        },
+        {
+          "after": [
+            4,
+            0
+          ],
+          "body": "The banished earl serving Lear in disguise."
+        },
+        {
+          "after": [
+            26,
+            128
+          ],
+          "body": "The Earl of Kent, who served Lear in disguise as Caius."
+        }
+      ]
+    },
+    {
+      "id": "gloucester",
+      "name": "The Earl of Gloucester",
+      "body": "A nobleman at Lear’s court, father of Edgar and Edmund.",
+      "aliases": [
+        "GLOUCESTER",
+        "Gloucester"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            16,
+            61
+          ],
+          "body": "Edgar and Edmund’s father, now blinded."
+        }
+      ]
+    },
+    {
+      "id": "edmund",
+      "name": "Edmund",
+      "body": "Gloucester’s younger son, born outside marriage, and Edgar’s half-brother.",
+      "aliases": [
+        "EDMUND",
+        "Edmund"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            14,
+            7
+          ],
+          "body": "Gloucester’s younger son, now given his father’s earldom by Cornwall."
+        }
+      ]
+    },
+    {
+      "id": "edgar",
+      "name": "Edgar",
+      "body": "Gloucester’s elder son and heir, Edmund’s half-brother.",
+      "aliases": [
+        "EDGAR",
+        "Edgar",
+        "Turlygod"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            8,
+            1
+          ],
+          "body": "Gloucester’s elder son, hiding as the beggar Poor Tom."
+        },
+        {
+          "after": [
+            22,
+            0
+          ],
+          "body": "Gloucester’s elder son, now dressed as a peasant after his disguise as Poor Tom."
+        },
+        {
+          "after": [
+            26,
+            75
+          ],
+          "body": "Gloucester’s elder son, who has revealed himself after fighting Edmund."
+        }
+      ]
+    },
+    {
+      "id": "goneril",
+      "name": "Goneril",
+      "body": "Lear’s eldest daughter and the Duke of Albany’s wife.",
+      "aliases": [
+        "GONERIL",
+        "Goneril"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "regan",
+      "name": "Regan",
+      "body": "Lear’s second daughter and the Duke of Cornwall’s wife.",
+      "aliases": [
+        "REGAN",
+        "Regan"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            18,
+            23
+          ],
+          "body": "Lear’s second daughter and Cornwall’s widow."
+        }
+      ]
+    },
+    {
+      "id": "cordelia",
+      "name": "Cordelia",
+      "body": "Lear’s youngest daughter, sister to Goneril and Regan.",
+      "aliases": [
+        "CORDELIA",
+        "Cordelia"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            1,
+            82
+          ],
+          "body": "Lear’s youngest daughter, chosen as wife by the King of France."
+        },
+        {
+          "after": [
+            19,
+            0
+          ],
+          "body": "Lear’s youngest daughter and the Queen of France."
+        }
+      ]
+    },
+    {
+      "id": "albany",
+      "name": "The Duke of Albany",
+      "body": "Goneril’s husband and Lear’s son-in-law.",
+      "aliases": [
+        "ALBANY",
+        "Albany"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cornwall",
+      "name": "The Duke of Cornwall",
+      "body": "Regan’s husband and Lear’s son-in-law.",
+      "aliases": [
+        "CORNWALL",
+        "Cornwall"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "france",
+      "name": "The King of France",
+      "body": "The French king, one of Cordelia’s two suitors.",
+      "aliases": [
+        "FRANCE"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            1,
+            82
+          ],
+          "body": "The French king, who chooses Cordelia despite the loss of her dowry."
+        },
+        {
+          "after": [
+            19,
+            0
+          ],
+          "body": "Cordelia’s husband, the King of France."
+        }
+      ]
+    },
+    {
+      "id": "burgundy",
+      "name": "The Duke of Burgundy",
+      "body": "One of Cordelia’s two suitors at Lear’s court.",
+      "aliases": [
+        "BURGUNDY"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fool",
+      "name": "Lear’s Fool",
+      "body": "Lear’s court jester and companion.",
+      "aliases": [
+        "FOOL",
+        "Fool"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oswald",
+      "name": "Oswald",
+      "body": "Goneril’s steward.",
+      "aliases": [
+        "OSWALD",
+        "Oswald"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "curan",
+      "name": "Curan",
+      "body": "A gentleman of Gloucester’s household.",
+      "aliases": [
+        "CURAN",
+        "Curan"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "la-far",
+      "name": "Monsieur La Far",
+      "body": "The marshal left in command of the French army.",
+      "aliases": [
+        "Monsieur La Far",
+        "La Far"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "edmund-mother",
+      "name": "Edmund’s mother",
+      "body": "The unnamed woman with whom Gloucester had Edmund.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "edgar-mother",
+      "name": "Edgar’s mother",
+      "body": "Gloucester’s wife, contrasted with Edmund’s mother in Edmund’s speech.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "knight",
+      "name": "Lear’s knight",
+      "body": "A knight in Lear’s service.",
+      "aliases": [
+        "KNIGHT",
+        "Knight"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lear-gentleman",
+      "name": "The gentleman attending Lear",
+      "body": "A gentleman in Lear’s company.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heath-gentleman",
+      "name": "The gentleman on the heath",
+      "body": "The gentleman whom Kent meets while searching for Lear.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cordelia-gentleman",
+      "name": "Cordelia’s gentleman",
+      "body": "The gentleman attending Cordelia in the French camp.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "final-gentleman",
+      "name": "The gentleman with the knife",
+      "body": "The messenger who arrives at the British camp carrying a bloody knife.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "old-man",
+      "name": "The old man",
+      "body": "An elderly tenant who has long served Gloucester and his father.",
+      "aliases": [
+        "OLD MAN",
+        "Old Man"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "first-servant",
+      "name": "Cornwall’s first servant",
+      "body": "A servant who has attended Cornwall since childhood.",
+      "aliases": [
+        "FIRST SERVANT"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "second-servant",
+      "name": "Cornwall’s second servant",
+      "body": "One of the servants attending Cornwall and Regan.",
+      "aliases": [
+        "SECOND SERVANT"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "third-servant",
+      "name": "Cornwall’s third servant",
+      "body": "One of the servants attending Cornwall and Regan.",
+      "aliases": [
+        "THIRD SERVANT"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "physician",
+      "name": "The physician",
+      "body": "The doctor attending Cordelia and caring for Lear.",
+      "aliases": [
+        "PHYSICIAN",
+        "Physician"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cornwall-messenger",
+      "name": "The messenger from Cornwall’s household",
+      "body": "The messenger bringing Albany news from Cornwall’s household.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "army-messenger",
+      "name": "The messenger to Cordelia",
+      "body": "The messenger bringing Cordelia news of the British army.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "captain",
+      "name": "Edmund’s captain",
+      "body": "The officer whom Edmund entrusts with a written order concerning his prisoners.",
+      "aliases": [
+        "CAPTAIN"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "herald",
+      "name": "The herald",
+      "body": "The herald summoned to announce the challenge at the British camp.",
+      "aliases": [
+        "HERALD",
+        "Herald"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "french-officer",
+      "name": "Cordelia’s officer",
+      "body": "The officer sent out with Cordelia’s orders to search for Lear.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "british-officer",
+      "name": "The British officer",
+      "body": "An officer serving the British commanders.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "attendants",
+      "name": "Lear’s attendants",
+      "body": "The attendants sent on errands while Lear stays in Goneril’s household.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hecate",
+      "name": "Hecate",
+      "body": "The classical goddess associated with night and magic.",
+      "aliases": [
+        "Hecate"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "body": "The classical god associated with light and the sun, also called Phoebus.",
+      "aliases": [
+        "Apollo",
+        "Phoebus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jupiter",
+      "name": "Jupiter",
+      "body": "The Roman king of the gods, also called Jove.",
+      "aliases": [
+        "Jupiter",
+        "Jove"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "juno",
+      "name": "Juno",
+      "body": "The Roman queen of the gods.",
+      "aliases": [
+        "Juno"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ajax",
+      "name": "Ajax",
+      "body": "The warrior of Trojan legend invoked in Kent’s insult.",
+      "aliases": [
+        "Ajax"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "merlin",
+      "name": "Merlin",
+      "body": "The magician and prophet of Arthurian legend.",
+      "aliases": [
+        "Merlin"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "body": "The classical god of love.",
+      "aliases": [
+        "Cupid"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nature",
+      "name": "Nature",
+      "body": "Nature personified as the goddess whom Edmund chooses to serve.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "body": "Fortune personified as a power that raises and lowers people’s circumstances.",
+      "aliases": [
+        "Fortune"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gods",
+      "name": "The gods",
+      "body": "The divine powers invoked by the characters in this ancient British setting.",
+      "aliases": [
+        "gods",
+        "Gods"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "body": "The deity invoked in conventional expressions and oaths.",
+      "aliases": [
+        "God"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tom-bedlam",
+      "name": "Tom o’ Bedlam",
+      "body": "The stock figure of a wandering mad beggar whom Edmund invokes.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jug",
+      "name": "Jug",
+      "body": "The woman addressed in the Fool’s song fragment.",
+      "aliases": [
+        "Jug"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pillicock",
+      "name": "Pillicock",
+      "body": "The figure named in Poor Tom’s bawdy rhyme.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dolphin",
+      "name": "Dolphin",
+      "body": "The boy addressed in Poor Tom’s song fragment.",
+      "aliases": [
+        "Dolphin",
+        "Dauphin"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "withold",
+      "name": "Saint Withold",
+      "body": "The saint in Poor Tom’s charm against nightmares.",
+      "aliases": [
+        "Swithold",
+        "Saint Withold"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nightmare",
+      "name": "The nightmare in the charm",
+      "body": "The night spirit confronted by Saint Withold in Poor Tom’s charm.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rowland",
+      "name": "Child Rowland",
+      "body": "The young knight in the tale fragment recited by Poor Tom.",
+      "aliases": [
+        "Child Rowland"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nero",
+      "name": "Nero",
+      "body": "The Roman emperor whom Poor Tom imagines fishing in darkness.",
+      "aliases": [
+        "Nero"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bessy",
+      "name": "Bessy",
+      "body": "The woman addressed in Poor Tom’s song about crossing the stream.",
+      "aliases": [
+        "Bessy"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "turk",
+      "name": "The Turk",
+      "body": "The stereotyped Turkish ruler invoked in Poor Tom’s boast about women.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "flibbertigibbet",
+      "name": "Flibbertigibbet",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Flibbertigibbet"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "smulkin",
+      "name": "Smulkin",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Smulkin"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "modo",
+      "name": "Modo",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Modo"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mahu",
+      "name": "Mahu",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Mahu"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "frateretto",
+      "name": "Frateretto",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Frateretto"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hoppedance",
+      "name": "Hoppedance",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Hoppedance"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "obidicut",
+      "name": "Obidicut",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Obidicut"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hobbididence",
+      "name": "Hobbididence",
+      "body": "One of the fiends named by Edgar while playing Poor Tom.",
+      "aliases": [
+        "Hobbididence"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "trey",
+      "name": "Trey",
+      "body": "One of the little dogs Lear imagines barking at him.",
+      "aliases": [
+        "Trey"
+      ],
+      "category": "supporting",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "blanch",
+      "name": "Blanch",
+      "body": "One of the little dogs Lear imagines barking at him.",
+      "aliases": [
+        "Blanch"
+      ],
+      "category": "supporting",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sweetheart",
+      "name": "Sweetheart",
+      "body": "One of the little dogs Lear imagines barking at him.",
+      "aliases": [
+        "Sweetheart"
+      ],
+      "category": "supporting",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

@@ -95,7 +95,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Henry IV, Part 2 (`henry-iv-part-2`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Merry Wives of Windsor (`merry-wives-of-windsor`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Othello (`othello`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| King Lear (`king-lear`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| King Lear (`king-lear`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Much Ado About Nothing (`much-ado-about-nothing`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Taming of the Shrew (`taming-of-the-shrew`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Antony and Cleopatra (`antony-and-cleopatra`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
