@@ -98,7 +98,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | King Lear (`king-lear`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Much Ado About Nothing (`much-ado-about-nothing`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | The Taming of the Shrew (`taming-of-the-shrew`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Antony and Cleopatra (`antony-and-cleopatra`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Antony and Cleopatra (`antony-and-cleopatra`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Richard III (`richard-iii`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Coriolanus (`coriolanus`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Cymbeline (`cymbeline`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
