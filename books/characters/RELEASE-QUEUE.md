@@ -93,6 +93,7 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | The Sorrows of Young Werther | 584b863a | 139 / 139 | build_werther.py |
 | Discourse on Inequality | 18361ffc | 45 / 45 | build_discourse_on_inequality.py |
 | The Social Contract | e666213e | 96 / 96 | build_social_contract.py |
+| Frederick Douglass | 7964bb77 | 134 / 134 | build_frederick_douglass.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
@@ -111,6 +112,8 @@ Hume’s Enquiry is validated and included in the grouped handoff. Review its tw
 Werther is validated and included in the grouped handoff with Discourse on Inequality and The Social Contract. Both sources match Tinct-reader-title. Review the README’s inherited Count C/O, N/R, I/J and W./Seldstadt differences, marriage and secretary gates, and embedded Ossian family bindings.
 
 Discourse on Inequality separates Pliny the Elder/Younger and identifies Montesquieu and Mandeville at implicit first references. The Social Contract distinguishes all three Catos and Borgia/Caesar. Its inherited footnotes have missing openings in both editions (examples: 16:13, 25:8, 27:16–17, 47:38–41); source review is required before enabling. Card offsets cover surviving text only. All six English source files in this grouped batch match Tinct-reader-title.
+
+Frederick Douglass is validated for the next grouped handoff. All eleven chapters and appendix; both source files match Tinct-reader-title. Review Hopkins/Isaac/Thomas/Henry namesakes, Frederick Johnson versus Nathan Johnson, ships excluded from people, and ten separate parody figures. The full content suite passes 316 tests. Queued, not production verified.
 
 ## Held separately
 
