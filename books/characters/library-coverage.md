@@ -46,7 +46,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Prince (`the-prince`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Beyond Good and Evil (`beyond-good-and-evil`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Groundwork of the Metaphysics of Morals (`kant-groundwork`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Beowulf (`beowulf`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Beowulf (`beowulf`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Candide (`candide`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Democracy in America (`democracy-in-america`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Oedipus Rex (`oedipus-rex`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
