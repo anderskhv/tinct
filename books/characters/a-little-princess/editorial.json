@@ -1,0 +1,1100 @@
+{
+  "bookId": "a-little-princess",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All nineteen chapters in both local English editions: named cast and references, reviewed unnamed roles, pets, dolls, and imagined-name aliases; concealed business connection gated to reader knowledge.",
+  "entities": [
+    {
+      "id": "sara",
+      "name": "Sara Crewe",
+      "category": "central",
+      "body": "The story’s main character, Captain Crewe’s daughter.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sara Crewe",
+        "Princess Sara",
+        "Miss Sara",
+        "Miss Crewe",
+        "Sara",
+        "Missee Sahib"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "captain-crewe",
+      "name": "Captain Crewe",
+      "category": "major",
+      "body": "Sara’s father, a British army officer serving in India.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Captain Crewe",
+        "Ralph Crewe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "miss-minchin",
+      "name": "Miss Minchin",
+      "category": "major",
+      "body": "The headmistress of Sara’s London boarding school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Miss Minchin",
+        "Maria Minchin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "amelia",
+      "name": "Miss Amelia",
+      "category": "supporting",
+      "body": "Miss Minchin’s younger sister, who helps her run the school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Miss Amelia",
+        "Amelia",
+        "Miss Meliar",
+        "Miss 'Meliar",
+        "Meliar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ermengarde",
+      "name": "Ermengarde St. John",
+      "category": "major",
+      "body": "The good-natured pupil at Miss Minchin’s school who struggles with her lessons.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ermengarde St. John",
+        "Miss St. John",
+        "Ermengarde",
+        "Ermie"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            3,
+            67
+          ],
+          "body": "Sara’s loyal school friend, who struggles with her lessons."
+        }
+      ]
+    },
+    {
+      "id": "becky",
+      "name": "Becky",
+      "category": "major",
+      "body": "The young scullery maid at Miss Minchin’s school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Becky",
+        "Rebecca"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            6,
+            58
+          ],
+          "body": "Sara’s friend, the young scullery maid at Miss Minchin’s school."
+        },
+        {
+          "after": [
+            19,
+            23
+          ],
+          "body": "Sara’s maid and friend, formerly the scullery maid at Miss Minchin’s school."
+        }
+      ]
+    },
+    {
+      "id": "lottie",
+      "name": "Lottie Legh",
+      "category": "supporting",
+      "body": "One of the youngest pupils at Miss Minchin’s school, whose mother has died.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lottie Legh",
+        "Miss Legh",
+        "Lottie"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            4,
+            55
+          ],
+          "body": "The little schoolgirl who treats Sara as an adoptive mother."
+        }
+      ]
+    },
+    {
+      "id": "lavinia",
+      "name": "Lavinia Herbert",
+      "category": "supporting",
+      "body": "The older pupil at Miss Minchin’s school who resents Sara’s special treatment.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lavinia Herbert",
+        "Lavinia",
+        "Lavvie",
+        "Lavvy"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jessie",
+      "name": "Jessie",
+      "category": "supporting",
+      "body": "Lavinia’s school friend and frequent companion.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jessie"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gertrude",
+      "name": "Gertrude",
+      "category": "supporting",
+      "body": "One of the girls at Miss Minchin’s school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gertrude"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mariette",
+      "name": "Mariette",
+      "category": "supporting",
+      "body": "The French maid hired to look after Sara at school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mariette"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dufarge",
+      "name": "Monsieur Dufarge",
+      "category": "supporting",
+      "body": "The French teacher at Miss Minchin’s school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Monsieur Dufarge",
+        "Dufarge",
+        "Frenchman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "barrow",
+      "name": "Mr. Barrow",
+      "category": "supporting",
+      "body": "One of the London solicitors handling Captain Crewe’s affairs.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mr. Barrow",
+        "Barrow"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "skipworth",
+      "name": "Mr. Skipworth",
+      "category": "reference",
+      "body": "Barrow’s partner in the firm handling Captain Crewe’s affairs.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Skipworth"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "carrisford",
+      "name": "Mr. Carrisford",
+      "category": "major",
+      "body": "The unwell English gentleman who moves into the house next to Sara’s school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mr. Carrisford",
+        "Carrisford",
+        "Carrrisford",
+        "Indian gentleman",
+        "Nindian gentleman"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            12,
+            26
+          ],
+          "body": "Captain Crewe’s old school friend and business partner, the unwell gentleman living next door to Sara’s school."
+        },
+        {
+          "after": [
+            18,
+            55
+          ],
+          "body": "Sara’s guardian, formerly her father’s school friend and business partner."
+        }
+      ]
+    },
+    {
+      "id": "secretary",
+      "name": "Mr. Carrisford’s secretary",
+      "category": "supporting",
+      "body": "The young man who works as Mr. Carrisford’s secretary.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "secretary"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ram-dass",
+      "name": "Ram Dass",
+      "category": "major",
+      "body": "The Indian servant in the house next door to Miss Minchin’s school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ram Dass",
+        "Lascar"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "carmichael",
+      "name": "Mr. Carmichael",
+      "category": "supporting",
+      "body": "The solicitor who is the father of the Large Family, Sara’s neighbors.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mr. Carmichael",
+        "Carmichael",
+        "Mr. Montmorency"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mrs-carmichael",
+      "name": "Mrs. Carmichael",
+      "category": "supporting",
+      "body": "The mother of the Large Family, whom Sara imagines as Mrs. Montmorency.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mrs. Carmichael",
+        "Mrs. Montmorency"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "large-family",
+      "name": "The Large Family",
+      "category": "supporting",
+      "body": "The lively neighboring family whom Sara calls the Montmorencys.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Large Family",
+        "Montmorencys"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "janet",
+      "name": "Janet Carmichael",
+      "category": "supporting",
+      "body": "The eldest of the Large Family’s children, whom Sara calls Veronica Eustacia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Janet",
+        "Veronica Eustacia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nora",
+      "name": "Nora Carmichael",
+      "category": "supporting",
+      "body": "One of the Large Family’s daughters, whom Sara calls Rosalind Gladys.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nora",
+        "Rosalind Gladys"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "donald",
+      "name": "Donald Carmichael",
+      "category": "supporting",
+      "body": "One of the Large Family’s sons, whom Sara calls Guy Clarence.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Donald",
+        "Guy Clarence"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ethelberta",
+      "name": "Ethelberta Beauchamp Montmorency",
+      "category": "supporting",
+      "body": "Sara’s imagined name for the youngest baby in the Large Family.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ethelberta Beauchamp Montmorency"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "violet",
+      "name": "Violet Cholmondeley Montmorency",
+      "category": "supporting",
+      "body": "Sara’s imagined name for the next-youngest baby in the Large Family.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Violet Cholmondeley Montmorency"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sydney",
+      "name": "Sydney Cecil Vivian Montmorency",
+      "category": "supporting",
+      "body": "Sara’s imagined name for the little boy in the Large Family who is just learning to walk.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sydney Cecil Vivian Montmorency"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lilian",
+      "name": "Lilian Evangeline Maud Marion",
+      "category": "supporting",
+      "body": "Sara’s imagined name for one of the Large Family’s children.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lilian Evangeline Maud Marion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "claude",
+      "name": "Claude Harold Hector",
+      "category": "supporting",
+      "body": "Sara’s imagined name for one of the Large Family’s children.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Claude Harold Hector"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "emily-doll",
+      "name": "Emily",
+      "category": "supporting",
+      "body": "Sara’s much-loved doll and imaginary confidante.",
+      "subtitle": "",
+      "kind": "object",
+      "aliases": [
+        "Emily"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "last-doll",
+      "name": "The Last Doll",
+      "category": "supporting",
+      "body": "The new doll Captain Crewe gives Sara for her eleventh birthday, distinct from Emily.",
+      "subtitle": "",
+      "kind": "object",
+      "aliases": [
+        "Last Doll",
+        "last doll"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "melchisedec",
+      "name": "Melchisedec",
+      "category": "supporting",
+      "body": "The rat whom Sara befriends in the attic.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Melchisedec",
+        "Melchy"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mrs-melchisedec",
+      "name": "Mrs. Melchisedec",
+      "category": "supporting",
+      "body": "The female rat Sara regards as Melchisedec’s wife.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Mrs. Melchisedec"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "monkey",
+      "name": "The monkey",
+      "category": "supporting",
+      "body": "The pet monkey in the house next door, cared for by Ram Dass.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "monkey",
+        "Monkey"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "boris",
+      "name": "Boris",
+      "category": "supporting",
+      "body": "Sara’s Russian boarhound, a gift from Mr. Carrisford.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Boris"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "baker",
+      "name": "Mrs. Brown",
+      "category": "supporting",
+      "body": "The woman who runs the bakery where Sara buys buns.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mrs. Brown"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anne",
+      "name": "The hungry girl",
+      "category": "supporting",
+      "body": "The hungry child Sara encounters outside the bakery.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            19,
+            40
+          ],
+          "body": "The girl Sara met outside the bakery, now living and helping in Mrs. Brown’s shop.",
+          "name": "Anne"
+        }
+      ]
+    },
+    {
+      "id": "pascal",
+      "name": "Madame Pascal",
+      "category": "reference",
+      "body": "The headmistress of the Paris school Mr. Carmichael investigates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Madame Pascal",
+        "Pascal"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "emily-carew",
+      "name": "The girl at the Paris school",
+      "category": "reference",
+      "body": "The pupil from Madame Pascal’s school whom Mr. Carmichael is investigating.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            17,
+            33
+          ],
+          "body": "The girl adopted by a Russian family, whom Mr. Carmichael confirms is not Sara.",
+          "name": "Emily Carew"
+        }
+      ]
+    },
+    {
+      "id": "st-john",
+      "name": "Mr. St. John",
+      "category": "reference",
+      "body": "Ermengarde’s scholarly and demanding father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mr. St. John"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eliza",
+      "name": "Aunt Eliza",
+      "category": "reference",
+      "body": "Ermengarde’s aunt, whom her father considers slow at learning.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aunt Eliza"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "meredith",
+      "name": "Lady Meredith",
+      "category": "reference",
+      "body": "Captain Crewe’s acquaintance whose daughters attended Miss Minchin’s school.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lady Meredith"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "colonel-grange",
+      "name": "Colonel Grange",
+      "category": "reference",
+      "body": "The army officer whose daughter Isobel is admired for her beauty.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Colonel Grange"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "isobel",
+      "name": "Isobel Grange",
+      "category": "reference",
+      "body": "Colonel Grange’s daughter, the girl Sara thinks of as conventionally beautiful.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Isobel Grange",
+        "Isobel"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "musgrave",
+      "name": "Mrs. Musgrave",
+      "category": "reference",
+      "body": "An acquaintance whom Sara has heard speaking French in India.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mrs. Musgrave"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pitkin",
+      "name": "Lady Pitkin",
+      "category": "reference",
+      "body": "An acquaintance whom Sara has heard speaking French.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Lady Pitkin"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "james",
+      "name": "James",
+      "category": "supporting",
+      "body": "One of the school’s servants, helping carry Sara’s birthday presents.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "James"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "emma",
+      "name": "Emma",
+      "category": "supporting",
+      "body": "One of the school’s servants, helping carry Sara’s birthday presents.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Emma"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cook",
+      "name": "The cook",
+      "category": "supporting",
+      "body": "The school’s harsh-tempered cook, who supervises Becky’s kitchen work.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "cook",
+        "Cook"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sara-mother",
+      "name": "Sara’s mother",
+      "category": "reference",
+      "body": "Captain Crewe’s French wife and Sara’s mother.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "ayah",
+      "name": "Sara’s ayah",
+      "category": "reference",
+      "body": "The nurse who cared for Sara in India.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "meredith-daughters",
+      "name": "Lady Meredith’s daughters",
+      "category": "reference",
+      "body": "The two girls whose experience led Captain Crewe to choose Miss Minchin’s school.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "lottie-father",
+      "name": "Lottie’s father",
+      "category": "reference",
+      "body": "The young widower who sends Lottie to Miss Minchin’s school.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "lottie-mother",
+      "name": "Lottie’s mother",
+      "category": "reference",
+      "body": "Lottie’s mother, who died when her daughter was very young.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "ermengarde-aunts",
+      "name": "Ermengarde’s two aunts",
+      "category": "reference",
+      "body": "The relatives who criticize Ermengarde’s weight.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "ermengarde-uncle",
+      "name": "Ermengarde’s uncle",
+      "category": "reference",
+      "body": "The relative who quizzes Ermengarde on English history.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "kind-aunt",
+      "name": "Ermengarde’s kind aunt",
+      "category": "reference",
+      "body": "The aunt who sends Ermengarde a hamper of treats.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "amelia-aunt",
+      "name": "Miss Amelia’s aunt",
+      "category": "reference",
+      "body": "The elderly aunt with whom Miss Amelia spends a night.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "grandmother",
+      "name": "The Large Family’s grandmother",
+      "category": "supporting",
+      "body": "The grandmother in the lively neighboring family Sara watches.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "doctor",
+      "name": "Mr. Carrisford’s doctor",
+      "category": "supporting",
+      "body": "The physician attending the unwell gentleman next door.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "nurse",
+      "name": "Mr. Carrisford’s nurse",
+      "category": "supporting",
+      "body": "The nurse accompanying Mr. Carrisford on his arrival at the house.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "men-servants",
+      "name": "Mr. Carrisford’s attendants",
+      "category": "supporting",
+      "body": "The two male servants helping the unwell gentleman into his new home.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "footman",
+      "name": "The footman",
+      "category": "supporting",
+      "body": "The carriage attendant at the unwell gentleman’s arrival.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "russian-couple",
+      "name": "The Russian couple",
+      "category": "reference",
+      "body": "The wealthy couple who adopt the girl from Madame Pascal’s school.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "russian-daughter",
+      "name": "The Russian couple’s daughter",
+      "category": "reference",
+      "body": "The couple’s late daughter, whose school friend they adopt.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "carew-father",
+      "name": "The officer in the Paris school’s account",
+      "category": "reference",
+      "body": "The English officer whose daughter was placed at Madame Pascal’s school.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "rat-family",
+      "name": "Melchisedec’s children",
+      "category": "supporting",
+      "body": "The young rats in the attic whom Sara regards as Melchisedec’s family.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "sparrows",
+      "name": "The sparrows",
+      "category": "supporting",
+      "body": "The birds Sara feeds outside her attic window.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "pony",
+      "name": "Sara’s pony",
+      "category": "supporting",
+      "body": "The pony Captain Crewe provides for Sara while she is at school.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "watts",
+      "name": "Isaac Watts",
+      "category": "reference",
+      "body": "The English hymn writer and poet, known for verses for children.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Watts"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "coleridge",
+      "name": "Samuel Taylor Coleridge",
+      "category": "reference",
+      "body": "The English poet whom Sara uses as a standard for poetry.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Coleridge"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "shakespeare",
+      "name": "William Shakespeare",
+      "category": "reference",
+      "body": "The English playwright and poet.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Shakespeare"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "henry8",
+      "name": "Henry VIII",
+      "category": "reference",
+      "body": "The Tudor king of England in Sara’s history lesson.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Henry the Eighth"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "monte-cristo",
+      "name": "The Count of Monte Cristo",
+      "category": "reference",
+      "body": "The imprisoned hero of Alexandre Dumas’s novel whom Sara uses in her imaginings.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Count of Monte Cristo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sleeping-beauty",
+      "name": "Sleeping Beauty",
+      "category": "reference",
+      "body": "The fairy-tale princess who sleeps under an enchantment.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Sleeping Beauty"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "buddha",
+      "name": "The Buddha",
+      "category": "reference",
+      "body": "The Buddhist spiritual teacher represented by the statue in the furniture van.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [
+        "Buddha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "marie",
+      "name": "Marie Antoinette",
+      "category": "reference",
+      "body": "The French queen, called the Widow Capet during the Revolution.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Marie Antoinette",
+        "Widow Capet"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "alfred",
+      "name": "Alfred the Great",
+      "category": "reference",
+      "body": "The Anglo-Saxon king in the story about burning cakes while in disguise.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Alfred the Great",
+        "King Alfred",
+        "Alfred"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "neatherd-wife",
+      "name": "The cowherd’s wife",
+      "category": "reference",
+      "body": "The woman in the story who scolds the disguised King Alfred for burning her cakes.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "edward3",
+      "name": "Edward III",
+      "category": "reference",
+      "body": "The medieval English king in Ermengarde’s uncle’s history question.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Edward the Third"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "carlyle",
+      "name": "Thomas Carlyle",
+      "category": "reference",
+      "body": "The Scottish author of The French Revolution, one of Ermengarde’s books.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Carlyle"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "robespierre",
+      "name": "Maximilien Robespierre",
+      "category": "reference",
+      "body": "The French Revolutionary leader in Sara’s account of the period.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Robespierre"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lamballe",
+      "name": "The Princesse de Lamballe",
+      "category": "reference",
+      "body": "The French princess and companion of Marie Antoinette in Sara’s historical reading.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Princesse de Lamballe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The divine being invoked in prayers and expressions of hope.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "merman",
+      "name": "Prince Merman",
+      "category": "reference",
+      "body": "The underwater prince in a story Sara tells the other girls.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Prince Merman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "story-princess",
+      "name": "The princess in Sara’s story",
+      "category": "reference",
+      "body": "The princess loved by Prince Merman in Sara’s invented tale.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "mermaids",
+      "name": "The mermaids",
+      "category": "reference",
+      "body": "The underwater beings in Sara’s invented stories.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Mermaids",
+        "Mer-babies"
+      ],
+      "snapshots": []
+    }
+  ]
+}
