@@ -97,6 +97,7 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | The Prince | 1abbe67a | 145 / 145 | build_the_prince.py |
 | The Taming of the Shrew | 5478a791 | 72 / 72 | build_taming_of_the_shrew.py |
 | Much Ado About Nothing | 89ff4bad | 60 / 60 | build_much_ado_about_nothing.py |
+| As You Like It | f5525c42 | 64 / 64 | build_as_you_like_it.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
@@ -120,9 +121,11 @@ Frederick Douglass is validated and included in the grouped handoff with The Pri
 
 The Prince is validated and included in the grouped handoff. Both sources match Tinct-reader-title. Namesakes include three Alexanders, two Philips, two Dariuses and multiple French kings. Release review: inherited notes 13:9 misidentify Joanna II as Ladislaus’s widow; 27:4 uses Giuliano for Giulio/Clement VII; 13:12 gives Colleoni’s death as 1457. Cards avoid repeating these errors. Rebuild if source bytes are repaired. All four source files in this batch match; full suite passes 326 tests.
 
-The Taming of the Shrew is validated for the next grouped handoff; both source files match Tinct-reader-title. Full suite: 335 tests. Review inherited omission of the opening Induction: twelve scenes begin at Act 1, but Sly’s framing interruption survives at 1:74–78. Cards cover those surviving speakers; absent Induction cast is not silently imported. Source restoration needs a rebuild. Lucentio/Tranio and Vincentio/Pedant are scoped, the scene-4 insult pedant is Lucentio, and Troilus is a dog.
+The Taming of the Shrew is validated and included in the grouped handoff with Much Ado About Nothing and As You Like It; both source files match Tinct-reader-title. Full suite: 335 tests. Review inherited omission of the opening Induction: twelve scenes begin at Act 1, but Sly’s framing interruption survives at 1:74–78. Cards cover those surviving speakers; absent Induction cast is not silently imported. Source restoration needs a rebuild. Lucentio/Tranio and Vincentio/Pedant are scoped, the scene-4 insult pedant is Lucentio, and Troilus is a dog.
 
-Much Ado About Nothing is validated for the next grouped handoff. Both source files match Tinct-reader-title; full suite passes 344 tests. Review the two Adams, three Seacoal/Francis roles, assumed names at 1:120 / 4:72 / 5:14 / 9:63, and the pending final weddings. Hero’s reported death is not presented as fact.
+Much Ado About Nothing is validated and included in the grouped handoff with The Taming of the Shrew and As You Like It. Both source files match Tinct-reader-title; full suite passes 344 tests. Review the two Adams, three Seacoal/Francis roles, assumed names at 1:120 / 4:72 / 5:14 / 9:63, and the pending final weddings. Hero’s reported death is not presented as fact.
+
+As You Like It is validated and included in that grouped handoff. Both source files match Tinct-reader-title; all six source files in this batch are byte-matched. Full suite: 353 tests. Review missing Act 1 Scene 1, combined scene units, incorrect later scene titles, and publishing footers documented in its README. Restoring source text requires review and rebuilding. Two Jaques, three Oliver uses and Adam namesakes are distinguished; marriages and the dukes’ changed circumstances are gated. These three packages are queued, not production verified.
 
 ## Held separately
 
@@ -130,6 +133,6 @@ The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source 
 
 ## Verification and tracking
 
-Current complete content suite: 307 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 353 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
