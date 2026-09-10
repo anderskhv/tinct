@@ -1,0 +1,1630 @@
+{
+  "bookId": "werther",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete 84-unit book in both English editions, including the editor’s final narrative and the embedded Ossian poems. Named cast, local roles and named literary/religious references; no invented names for abbreviated identities or generic imagined figures.",
+  "entities": [
+    {
+      "id": "werther",
+      "name": "Werther",
+      "body": "The main character, whose letters tell the story.",
+      "aliases": [
+        "Werther"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charlotte",
+      "name": "Charlotte",
+      "body": "The district judge’s eldest daughter, who cares for her younger siblings and is engaged to Albert.",
+      "aliases": [
+        "Charlotte"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            14,
+            5
+          ],
+          "body": "The woman Werther loves; she is engaged to Albert."
+        },
+        {
+          "after": [
+            47,
+            1
+          ],
+          "body": "The woman Werther loves; she is married to Albert."
+        }
+      ]
+    },
+    {
+      "id": "albert",
+      "name": "Albert",
+      "body": "Charlotte’s fiancé.",
+      "aliases": [
+        "Albert"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            47,
+            1
+          ],
+          "body": "Charlotte’s husband."
+        }
+      ]
+    },
+    {
+      "id": "wilhelm",
+      "name": "Wilhelm",
+      "body": "Werther’s close friend and the principal recipient of his letters.",
+      "aliases": [
+        "Wilhelm"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "editor",
+      "name": "The editor",
+      "body": "The fictional editor who introduces and arranges Werther’s story.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mother",
+      "name": "Werther’s mother",
+      "body": "Werther’s mother, whose concerns about his affairs reach him through Wilhelm.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aunt",
+      "name": "Werther’s aunt",
+      "body": "The relative Werther visits concerning his mother’s disputed inheritance.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leonora",
+      "name": "Leonora",
+      "body": "The young woman who became attached to Werther while he was drawn to her sister.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leonora-sister",
+      "name": "Leonora’s sister",
+      "body": "The woman whose charms attracted Werther during his acquaintance with Leonora.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "count-m",
+      "name": "Count M",
+      "body": "The late owner of the garden Werther enjoys.",
+      "aliases": [
+        "Count M"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gardener",
+      "name": "The gardener",
+      "body": "The man who tends the late Count M’s garden.",
+      "aliases": [
+        "gardener"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "early-friend",
+      "name": "Werther’s earlier friend",
+      "body": "The older woman whose friendship Werther remembers with affection.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "v",
+      "name": "V—",
+      "body": "The young university graduate who displays his learning to Werther.",
+      "aliases": [
+        "V—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "judge",
+      "name": "Charlotte’s father",
+      "body": "The district judge, a widower and father of Charlotte and her eight younger siblings.",
+      "aliases": [
+        "district judge"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charlotte-mother",
+      "name": "Charlotte’s mother",
+      "body": "Charlotte’s late mother, whose place she tries to fill for the younger children.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "innkeeper",
+      "name": "The innkeeper at Walheim",
+      "body": "The older woman who runs the small inn beneath the linden trees.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip",
+      "name": "Philip",
+      "body": "One of the schoolmaster’s daughter’s three sons; the boy Werther sketches holding his younger brother.",
+      "aliases": [
+        "Philip"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hans",
+      "name": "Hans",
+      "body": "The youngest of the schoolmaster’s daughter’s three sons.",
+      "aliases": [
+        "Hans",
+        "John"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eldest-boy",
+      "name": "The eldest of the three boys",
+      "body": "The schoolmaster’s daughter’s eldest son, brother of Philip and Hans.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boys-mother",
+      "name": "The boys’ mother",
+      "body": "The schoolmaster’s daughter, whose three boys befriend Werther at Walheim.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boys-father",
+      "name": "The boys’ father",
+      "body": "The husband of the schoolmaster’s daughter, away in Switzerland on inheritance business.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "schoolmaster-father",
+      "name": "The schoolmaster",
+      "body": "The father of the woman whose three boys Werther befriends.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peasant",
+      "name": "The peasant lad",
+      "body": "The young farm servant who is in love with the widow he works for.",
+      "aliases": [
+        "peasant-lad",
+        "peasant lad",
+        "peasant boy"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            61,
+            2
+          ],
+          "body": "The widow’s former servant, still in love with her."
+        }
+      ]
+    },
+    {
+      "id": "widow",
+      "name": "The widow",
+      "body": "The woman who employs the peasant lad and is the object of his love.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "widow-husband",
+      "name": "The widow’s first husband",
+      "body": "The late husband whose mistreatment is described in the peasant lad’s account.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "widow-brother",
+      "name": "The widow’s brother",
+      "body": "The brother concerned about his children’s inheritance if the widow remarries.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "replacement",
+      "name": "The replacement servant",
+      "body": "The servant hired by the widow after the peasant lad’s dismissal.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "partner",
+      "name": "Werther’s dance partner",
+      "body": "The young woman Werther escorts to the country ball.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "partner-aunt",
+      "name": "The dance partner’s aunt",
+      "body": "The woman who accompanies Werther’s partner and warns him that Charlotte is engaged.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maid",
+      "name": "The hunting-lodge maid",
+      "body": "The maid who admits the visitors at Charlotte’s family home.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "louis",
+      "name": "Louis",
+      "body": "Charlotte’s youngest brother.",
+      "aliases": [
+        "Louis"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sophy",
+      "name": "Sophy",
+      "body": "Charlotte’s younger sister, entrusted with the children when Charlotte goes out.",
+      "aliases": [
+        "Sophy"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jane",
+      "name": "Jane",
+      "body": "One of Charlotte’s younger sisters.",
+      "aliases": [
+        "Jane"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marianne",
+      "name": "Marianne",
+      "body": "Charlotte’s younger sister, present with Jane at the fountain.",
+      "aliases": [
+        "Marianne"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "andrans",
+      "name": "The Messrs. Andran",
+      "body": "The gentlemen named Andran among the dancing company.",
+      "aliases": [
+        "Messrs. Andran",
+        "Andran",
+        "Audran"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nn",
+      "name": "N. N.",
+      "body": "The gentleman identified only by initials among the party’s dance partners.",
+      "aliases": [
+        "N. N.",
+        "N.N."
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "warning-lady",
+      "name": "The lady at the ball",
+      "body": "The woman who pointedly reminds Charlotte of Albert during the dance.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "old-vicar",
+      "name": "The old vicar",
+      "body": "The clergyman Charlotte and Werther visit; Frederica’s father.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "frederica",
+      "name": "Frederica",
+      "body": "The old vicar’s daughter, whose companion is Herr Schmidt.",
+      "aliases": [
+        "Frederica"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "schmidt",
+      "name": "Herr Schmidt",
+      "body": "Frederica’s reserved, jealous suitor.",
+      "aliases": [
+        "Herr Schmidt",
+        "Schmidt"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vicar-predecessor",
+      "name": "The vicar’s predecessor",
+      "body": "The earlier clergyman whose daughter married the old vicar.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vicar-wife",
+      "name": "The old vicar’s wife",
+      "body": "The daughter of his predecessor and mother of Frederica.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "madame-m",
+      "name": "Madame M—",
+      "body": "The ailing woman Charlotte visits, married to the miserly old M—.",
+      "aliases": [
+        "Madame M—",
+        "Frau M—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "old-m",
+      "name": "Old M—",
+      "body": "Madame M—’s husband, who keeps a tight limit on the household allowance.",
+      "aliases": [
+        "Old M—",
+        "old M—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "m-doctor",
+      "name": "Madame M—’s physician",
+      "body": "The doctor attending Madame M—.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ambassador",
+      "name": "The ambassador",
+      "body": "The diplomat with whom Werther is offered employment.",
+      "aliases": [
+        "ambassador"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minister",
+      "name": "The minister",
+      "body": "The government official who takes an interest in Werther’s career.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "count-c",
+      "name": "Count C—",
+      "body": "The sympathetic nobleman Werther befriends while working at the embassy.",
+      "aliases": [
+        "Count C—",
+        "Count of O—",
+        "Count O—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "miss-b",
+      "name": "Miss B—",
+      "body": "The young noblewoman Werther befriends during his time at the embassy.",
+      "aliases": [
+        "Miss B—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "b-aunt",
+      "name": "Miss B—’s aunt",
+      "body": "The aristocratic aunt with whom Miss B— lives.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colonel",
+      "name": "Colonel B—",
+      "body": "The officer talking with Werther and the count before the aristocratic gathering.",
+      "aliases": [
+        "Colonel B—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lady-s",
+      "name": "Lady S—",
+      "body": "The aristocratic woman attending the count’s gathering with her family.",
+      "aliases": [
+        "Madame S—",
+        "Lady von S—",
+        "Frau von S—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lady-s-husband",
+      "name": "Lady S—’s husband",
+      "body": "The nobleman who accompanies his wife and daughter to the count’s gathering.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lady-s-daughter",
+      "name": "Lady S—’s daughter",
+      "body": "The young woman attending the gathering with her parents.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "baron-f",
+      "name": "Baron F—",
+      "body": "An aristocratic guest at the count’s gathering.",
+      "aliases": [
+        "Baron F—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chancellor",
+      "name": "The court official",
+      "body": "The guest who attends the count’s gathering with his deaf wife.",
+      "aliases": [
+        "Chancellor N—",
+        "court councillor R—"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chancellor-wife",
+      "name": "The court official’s wife",
+      "body": "The court official’s wife, described as deaf.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "i-guest",
+      "name": "The guest in the patched coat",
+      "body": "The guest whose old coat Werther notices at the count’s gathering.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adelin",
+      "name": "Adelin",
+      "body": "The acquaintance who tells Werther about the reaction to his presence at the gathering.",
+      "aliases": [
+        "Adelin"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "s-family",
+      "name": "The S——s",
+      "body": "Members of the aristocratic circle discussed after the count’s gathering.",
+      "aliases": [
+        "S——s",
+        "von S—s"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "t-family",
+      "name": "The T——s",
+      "body": "Members of the aristocratic circle discussed alongside the S——s.",
+      "aliases": [
+        "T——s",
+        "von T—s"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "prince",
+      "name": "The prince",
+      "body": "The nobleman who invites Werther to stay at his country house.",
+      "aliases": [
+        "Prince of ——"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "crown-prince",
+      "name": "The crown prince",
+      "body": "The royal patron who sends Werther money when he leaves his post.",
+      "aliases": [
+        "crown prince"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "new-vicar",
+      "name": "The new vicar",
+      "body": "The clergyman who succeeds Frederica’s father.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "new-vicar-wife",
+      "name": "The new vicar’s wife",
+      "body": "The new clergyman’s wife, whose decisions anger Werther and the villagers.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tree-steward",
+      "name": "The steward in the tree dispute",
+      "body": "The local official involved with the new vicar in disposing of the walnut trees.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tree-schoolmaster",
+      "name": "The schoolmaster in the tree dispute",
+      "body": "The man who tells Werther what happened to the walnut trees.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ill-n",
+      "name": "N—, the sick acquaintance",
+      "body": "The man whose illness Charlotte mentions in conversation.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "visitor",
+      "name": "Charlotte’s visiting friend",
+      "body": "The woman who exchanges local news with Charlotte.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "henry",
+      "name": "Henry (Heinrich)",
+      "body": "The distressed man Werther encounters looking for flowers.",
+      "aliases": [
+        "Henry",
+        "Heinrich"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            81,
+            0
+          ],
+          "body": "Charlotte’s father’s former secretary, whose attachment to Charlotte is explained to Werther."
+        }
+      ]
+    },
+    {
+      "id": "henry-mother",
+      "name": "Henry’s mother",
+      "body": "The woman caring for Henry, who explains his condition to Werther.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "servant",
+      "name": "Werther’s servant",
+      "body": "The servant who attends to Werther’s household and errands.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charlotte-servant",
+      "name": "Charlotte’s household servant",
+      "body": "The servant present at Charlotte’s house during Werther’s visit.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "albert-host",
+      "name": "Albert’s host",
+      "body": "The friend whose country house appears in Albert’s pistol anecdote.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pistol-servant",
+      "name": "The servant in Albert’s anecdote",
+      "body": "The servant asked to clean and load the pistols in Albert’s story.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pistol-maid",
+      "name": "The maid in Albert’s anecdote",
+      "body": "The maid frightened by the servant in Albert’s story about the pistols.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pistol-surgeon",
+      "name": "The surgeon in Albert’s anecdote",
+      "body": "The surgeon whose bill Albert mentions in his pistol story.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "albert-official",
+      "name": "Albert’s business contact",
+      "body": "The neighboring official with whom Albert has business.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "surgeon",
+      "name": "The surgeon attending Werther",
+      "body": "The surgeon called to Werther’s room.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "neighbor",
+      "name": "Werther’s neighbor",
+      "body": "The neighbor who notices a disturbance at Werther’s lodging.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "body": "The ancient Greek poet whose works Werther reads.",
+      "aliases": [
+        "Homer"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "batteux",
+      "name": "Charles Batteux",
+      "body": "The French writer on literature and the arts named by V—.",
+      "aliases": [
+        "Batteaux",
+        "Batteux"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wood",
+      "name": "Robert Wood",
+      "body": "The antiquarian and writer on Homer named in the discussion of learning.",
+      "aliases": [
+        "Wood"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "piles",
+      "name": "Roger de Piles",
+      "body": "The French art critic cited among V—’s reading.",
+      "aliases": [
+        "De Piles"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "winckelmann",
+      "name": "Johann Joachim Winckelmann",
+      "body": "The scholar of ancient art named in V—’s display of learning.",
+      "aliases": [
+        "Winkelmann",
+        "Winckelmann"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sulzer",
+      "name": "Johann Georg Sulzer",
+      "body": "The writer on the fine arts whose theory V— says he has read.",
+      "aliases": [
+        "Sultzer",
+        "Sulzer"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "heyne",
+      "name": "Christian Gottlob Heyne",
+      "body": "The classical scholar whose work V— says he possesses in manuscript.",
+      "aliases": [
+        "Heyne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "klopstock",
+      "name": "Friedrich Gottlieb Klopstock",
+      "body": "The German poet whose ode Charlotte and Werther recall during the storm.",
+      "aliases": [
+        "Klopstock"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ernesti",
+      "name": "Johann August Ernesti",
+      "body": "The classical scholar associated with Werther’s larger edition of Homer.",
+      "aliases": [
+        "Ernestine",
+        "Ernesti"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francis",
+      "name": "Francis I",
+      "body": "The Holy Roman emperor whose coronation dates Baron F—’s old-fashioned suit.",
+      "aliases": [
+        "Francis I"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lavater",
+      "name": "Johann Caspar Lavater",
+      "body": "The Swiss religious writer mentioned in the account of the new vicar’s wife.",
+      "aliases": [
+        "Lavater"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "kennicott",
+      "name": "Benjamin Kennicott",
+      "body": "The biblical scholar named among the new vicar’s wife’s intellectual interests.",
+      "aliases": [
+        "Kennicot",
+        "Kennicott"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "semler",
+      "name": "Johann Salomo Semler",
+      "body": "The German theologian and biblical critic mentioned alongside Kennicott.",
+      "aliases": [
+        "Semler"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "michaelis",
+      "name": "Johann David Michaelis",
+      "body": "The German biblical scholar named in the same discussion.",
+      "aliases": [
+        "Michaelis"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melusina",
+      "name": "Melusina",
+      "body": "The water spirit of European legend, invoked beside the fountain.",
+      "aliases": [
+        "Melusina"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "penelope",
+      "name": "Penelope",
+      "body": "Odysseus’s wife in Homer’s Odyssey.",
+      "aliases": [
+        "Penelope"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ulysses",
+      "name": "Ulysses",
+      "body": "Odysseus, the wandering hero of Homer’s Odyssey.",
+      "aliases": [
+        "Ulysses"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fictitious-leonora",
+      "name": "The fictional Leonora",
+      "body": "A heroine in Charlotte’s example of the stories she enjoyed as a girl.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "elijah",
+      "name": "The prophet in the oil story",
+      "body": "The biblical prophet invoked through the story of the unfailing supply of oil.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jesus",
+      "name": "Jesus Christ",
+      "body": "The Christian teacher whose words Werther recalls.",
+      "aliases": [
+        "Great Teacher of mankind",
+        "Teacher of mankind",
+        "Son of God"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "levite",
+      "name": "The Levite",
+      "body": "The passerby from the Good Samaritan parable, used as a comparison.",
+      "aliases": [
+        "Levite"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pharisee",
+      "name": "The Pharisee",
+      "body": "The self-satisfied worshipper from Jesus’s parable, used in Werther’s argument.",
+      "aliases": [
+        "Pharisee"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "samaritan",
+      "name": "The Good Samaritan",
+      "body": "The compassionate traveler of Jesus’s parable.",
+      "aliases": [
+        "Samaritan"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "priest",
+      "name": "The priest in the parable",
+      "body": "The other passerby in the Good Samaritan story, invoked in Werther’s letter.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "body": "The divine being Werther and others address in prayer and reflection.",
+      "aliases": [
+        "God",
+        "Almighty",
+        "Creator",
+        "Godhead",
+        "Maker",
+        "Father",
+        "Lord",
+        "Eternal"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ossian",
+      "name": "Ossian",
+      "body": "The legendary bard in the poems Werther reads and translates.",
+      "aliases": [
+        "Ossian"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fingal",
+      "name": "Fingal",
+      "body": "The heroic king in the Ossian poems.",
+      "aliases": [
+        "Fingal"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ullin",
+      "name": "Ullin",
+      "body": "The bard who sings of Alpin and Ryno in the quoted Ossian poems.",
+      "aliases": [
+        "Ullin"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ryno",
+      "name": "Ryno",
+      "body": "The singer who addresses Alpin in the Ossian passage.",
+      "aliases": [
+        "Ryno"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alpin",
+      "name": "Alpin",
+      "body": "The singer who mourns Morar in the Ossian passage.",
+      "aliases": [
+        "Alpin"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minona",
+      "name": "Minona",
+      "body": "The singer of Colma’s lament; Torman’s daughter and Morar’s sister.",
+      "aliases": [
+        "Minona"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colma",
+      "name": "Colma",
+      "body": "The woman waiting for her lover Salgar in Minona’s song.",
+      "aliases": [
+        "Colma"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salgar",
+      "name": "Salgar",
+      "body": "Colma’s lover in the Ossian song.",
+      "aliases": [
+        "Salgar"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colma-brother",
+      "name": "Colma’s brother",
+      "body": "The brother opposed to Colma’s love for Salgar.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colma-father",
+      "name": "Colma’s father",
+      "body": "The father Colma would leave to be with Salgar.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "torman",
+      "name": "Torman",
+      "body": "The father of Minona and Morar in the Ossian poems.",
+      "aliases": [
+        "Torman"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "morar",
+      "name": "Morar",
+      "body": "The warrior mourned in Alpin’s song; Minona’s brother.",
+      "aliases": [
+        "Morar"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "oscar",
+      "name": "Oscar",
+      "body": "The Ossianic warrior used as a comparison for Morar’s swordsmanship.",
+      "aliases": [
+        "Oscar"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "morar-mother",
+      "name": "Morar’s mother",
+      "body": "The mother mentioned in the lament for Morar.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "morglan",
+      "name": "Morglan",
+      "body": "The father of the woman mourned as Morar’s beloved.",
+      "aliases": [
+        "Morglan"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "morglan-daughter",
+      "name": "Morglan’s daughter",
+      "body": "Morar’s beloved, mentioned in the song mourning him.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "armin",
+      "name": "Armin",
+      "body": "The chief of Gorma and father of Daura and Arindal in the Ossian song.",
+      "aliases": [
+        "Armin"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "carmor",
+      "name": "Carmor",
+      "body": "The chief of Galmal who asks Armin the reason for his grief.",
+      "aliases": [
+        "Carmor"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "colgar",
+      "name": "Colgar",
+      "body": "Carmor’s son in the Ossian song.",
+      "aliases": [
+        "Colgar"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "annira",
+      "name": "Annira",
+      "body": "Carmor’s daughter in the Ossian song.",
+      "aliases": [
+        "Annira"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "daura",
+      "name": "Daura",
+      "body": "Armin’s daughter and Arindal’s sister, loved by Armar.",
+      "aliases": [
+        "Daura"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arindal",
+      "name": "Arindal",
+      "body": "Armin’s son and Daura’s brother.",
+      "aliases": [
+        "Arindal"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "armar",
+      "name": "Armar",
+      "body": "Daura’s lover, the son of Arnart.",
+      "aliases": [
+        "Armar"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erath",
+      "name": "Erath",
+      "body": "The son of Odgal whose grievance against Armar enters the song of Daura.",
+      "aliases": [
+        "Erath"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "odgal",
+      "name": "Odgal",
+      "body": "Erath’s father in the Ossian song.",
+      "aliases": [
+        "Odgal"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arnart",
+      "name": "Arnart",
+      "body": "Armar’s father in the Ossian song.",
+      "aliases": [
+        "Arnart"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erath-brother",
+      "name": "Erath’s brother",
+      "body": "The brother whose death underlies Erath’s grievance against Armar.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "werther-father",
+      "name": "Werther’s father",
+      "body": "Werther’s late father, remembered in the account of leaving his childhood home.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "albert-father",
+      "name": "Albert’s father",
+      "body": "Albert’s late father, whose affairs Albert has gone to settle.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "henry-father",
+      "name": "Henry’s father",
+      "body": "The father Henry mentions while talking about flowers.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "well-girl",
+      "name": "The girl at the fountain",
+      "body": "The servant girl whose pitcher Werther helps lift.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wetstein",
+      "name": "Wetstein",
+      "body": "The publishing name on the small edition of Homer given to Werther.",
+      "aliases": [
+        "Wetstein"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "w",
+      "name": "W.",
+      "body": "The young man standing with the company as Charlotte’s carriage departs.",
+      "aliases": [
+        "W."
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "seldstadt",
+      "name": "Seldstadt",
+      "body": "One of the company standing beside Charlotte’s departing carriage.",
+      "aliases": [
+        "Seldstadt",
+        "Selstadt"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}
