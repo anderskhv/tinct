@@ -29,7 +29,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Manual (`the-manual`) | validated-package | Release owner: integrate versioned asset and verify production |
 | Apology (`apology`) | validated-package | Release owner: integrate versioned asset and verify production |
 | Symposium (`symposium`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Phaedo (`phaedo`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Phaedo (`phaedo`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Crito (`crito`) | validated-package | Release owner: integrate versioned asset and verify production |
 | Phaedrus (`phaedrus`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Poetics (`poetics`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |

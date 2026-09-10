@@ -1,0 +1,638 @@
+{
+  "bookId": "phaedo",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete dialogue in both English editions: framing and prison speakers, named visitors and references, reviewed family/official roles and the weaver analogy; stable recognition copy.",
+  "entities": [
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "category": "central",
+      "body": "The Athenian philosopher whose final conversation in prison Phaedo recounts.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SOCRATES",
+        "Socrates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phaedo",
+      "name": "Phaedo",
+      "category": "central",
+      "body": "Socrates’ companion who narrates his final day to Echecrates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "PHAEDO",
+        "Phaedo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "echecrates",
+      "name": "Echecrates",
+      "category": "supporting",
+      "body": "The man in Phlius asking Phaedo to recount Socrates’ final hours.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ECHECRATES",
+        "Echecrates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "simmias",
+      "name": "Simmias",
+      "category": "major",
+      "body": "The Theban friend of Socrates who, with Cebes, questions him about the soul.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "SIMMIAS",
+        "Simmias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cebes",
+      "name": "Cebes",
+      "category": "major",
+      "body": "The Theban friend of Socrates who, with Simmias, examines his arguments about the soul.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CEBES",
+        "Cebes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "crito",
+      "name": "Crito",
+      "category": "major",
+      "body": "Socrates’ longtime friend, attending to his practical needs in prison; father of Critobulus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CRITO",
+        "Crito"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollodorus",
+      "name": "Apollodorus",
+      "category": "supporting",
+      "body": "The intensely emotional friend of Socrates present in the prison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Apollodorus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "xanthippe",
+      "name": "Xanthippe",
+      "category": "supporting",
+      "body": "Socrates’ wife, visiting him in prison with their young child.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Xanthippe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "critobulus",
+      "name": "Critobulus",
+      "category": "supporting",
+      "body": "Crito’s son, one of the friends present with Socrates.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Critobulus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hermogenes",
+      "name": "Hermogenes",
+      "category": "supporting",
+      "body": "One of Socrates’ Athenian companions present in the prison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hermogenes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "epigenes",
+      "name": "Epigenes",
+      "category": "supporting",
+      "body": "One of Socrates’ Athenian companions present in the prison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Epigenes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeschines",
+      "name": "Aeschines",
+      "category": "supporting",
+      "body": "The follower of Socrates present in the prison, distinct from the later Athenian orator.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aeschines"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antisthenes",
+      "name": "Antisthenes",
+      "category": "supporting",
+      "body": "The philosopher and follower of Socrates present in the prison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Antisthenes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ctesippus",
+      "name": "Ctesippus",
+      "category": "supporting",
+      "body": "The Athenian from Paeania listed among Socrates’ companions in prison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ctesippus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "menexenus",
+      "name": "Menexenus",
+      "category": "supporting",
+      "body": "One of Socrates’ companions present in the prison.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Menexenus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "phaedondes",
+      "name": "Phaedondes",
+      "category": "supporting",
+      "body": "The Theban visitor listed with Simmias and Cebes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Phaedondes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "euclid",
+      "name": "Euclid of Megara",
+      "category": "supporting",
+      "body": "The philosopher visiting Socrates from Megara, distinct from the later mathematician.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Euclid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "terpison",
+      "name": "Terpison",
+      "category": "supporting",
+      "body": "Euclid’s fellow visitor from Megara, also known as Terpsion.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Terpison",
+        "Terpsion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "plato",
+      "name": "Plato",
+      "category": "reference",
+      "body": "The philosopher who wrote this dialogue, mentioned among Socrates’ absent friends.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Plato"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aristippus",
+      "name": "Aristippus",
+      "category": "reference",
+      "body": "The follower of Socrates whom Echecrates asks about, reported to be in Aegina.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aristippus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cleombrotus",
+      "name": "Cleombrotus",
+      "category": "reference",
+      "body": "The acquaintance of Socrates reported to be in Aegina with Aristippus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cleombrotus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aesop",
+      "name": "Aesop",
+      "category": "reference",
+      "body": "The traditional Greek storyteller whose fables Socrates turns into verse.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aesop"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "evenus",
+      "name": "Evenus",
+      "category": "reference",
+      "body": "The poet and philosopher who asks about Socrates’ new verses.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Evenus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "philolaus",
+      "name": "Philolaus",
+      "category": "reference",
+      "body": "The Pythagorean thinker whom Simmias and Cebes have heard teaching in Thebes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Philolaus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "anaxagoras",
+      "name": "Anaxagoras",
+      "category": "reference",
+      "body": "The Greek philosopher whose account of mind and nature Socrates discusses.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Anaxagoras"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "milton",
+      "name": "John Milton",
+      "category": "reference",
+      "body": "The English poet cited in a translator’s comparison with Comus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Milton"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "homer",
+      "name": "Homer",
+      "category": "reference",
+      "body": "The ancient Greek epic poet whose Odyssey is quoted.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Homer"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aeschylus",
+      "name": "Aeschylus",
+      "category": "reference",
+      "body": "The Greek tragic poet whose play Telephus is cited.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aeschylus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "glaucus",
+      "name": "Glaucus",
+      "category": "reference",
+      "body": "The craftsman whose art is invoked as proverbial for extraordinary skill.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Glaucus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "category": "reference",
+      "body": "The Athenian hero whose voyage to Crete is commemorated by the sacred ship.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Theseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "category": "reference",
+      "body": "The Greek god honored by the mission to Delos and by Socrates’ hymn.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Apollo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "endymion",
+      "name": "Endymion",
+      "category": "reference",
+      "body": "The figure of Greek myth famous for his unending sleep.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Endymion"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "penelope",
+      "name": "Penelope",
+      "category": "reference",
+      "body": "Odysseus’ wife in the Odyssey, recalled for weaving and unweaving her web.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Penelope"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "heracles",
+      "name": "Heracles",
+      "category": "reference",
+      "body": "The Greek hero invoked in the comparison about needing help against two opponents.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Heracles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "iolaus",
+      "name": "Iolaus",
+      "category": "reference",
+      "body": "Heracles’ companion and helper, invoked in the exchange between Socrates and Phaedo.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Iolaus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "odysseus",
+      "name": "Odysseus",
+      "category": "reference",
+      "body": "The hero of Homer’s Odyssey, quoted speaking sternly to his own heart.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Odysseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "harmonia",
+      "name": "Harmonia",
+      "category": "reference",
+      "body": "The Theban goddess and wife of Cadmus; her name supplies a joke about Simmias’s harmony argument.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Harmonia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cadmus",
+      "name": "Cadmus",
+      "category": "reference",
+      "body": "The legendary founder of Thebes and husband of Harmonia, used as a playful name for Cebes’s argument.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Cadmus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "atlas",
+      "name": "Atlas",
+      "category": "reference",
+      "body": "The mythological bearer of the heavens, used in Socrates’ discussion of what supports the world.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Atlas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "asclepius",
+      "name": "Asclepius",
+      "category": "reference",
+      "body": "The Greek god of healing to whom Socrates says a cock is owed.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Asclepius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "category": "reference",
+      "body": "The divine power invoked by Socrates and his companions in their discussion of the soul.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "God"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eleven",
+      "name": "The Eleven",
+      "category": "supporting",
+      "body": "The Athenian officials responsible for prisoners and executions.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Eleven"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "doorkeeper",
+      "name": "The prison doorkeeper",
+      "category": "supporting",
+      "body": "The prison official who admits Socrates’ friends on the final morning.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "prison-officer",
+      "name": "The prison officer",
+      "category": "supporting",
+      "body": "The servant of the Eleven who comes to announce that it is time for Socrates to drink the poison.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "poison-attendant",
+      "name": "The poison attendant",
+      "category": "supporting",
+      "body": "The prison attendant who prepares and administers the poison.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "crito-servant",
+      "name": "Crito’s servant",
+      "category": "supporting",
+      "body": "The servant whom Crito sends to fetch the poison attendant.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "crito-people",
+      "name": "Crito’s attendants",
+      "category": "supporting",
+      "body": "The members of Crito’s household who escort Xanthippe home.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "young-child",
+      "name": "Socrates’ young child",
+      "category": "supporting",
+      "body": "The child whom Xanthippe holds during her prison visit.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "sons",
+      "name": "Socrates’ sons",
+      "category": "supporting",
+      "body": "The three sons of Socrates, two young and one older.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "women",
+      "name": "The women of Socrates’ family",
+      "category": "supporting",
+      "body": "The female relatives who visit Socrates after his bath.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "apollo-priest",
+      "name": "The priest of Apollo",
+      "category": "reference",
+      "body": "The priest who crowns the sacred ship before its voyage to Delos.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "fourteen",
+      "name": "The fourteen young Athenians",
+      "category": "reference",
+      "body": "The young people whom Theseus brings safely back from Crete in the recalled tradition.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "guiding-spirit",
+      "name": "The guiding spirit",
+      "category": "reference",
+      "body": "The personal guardian who leads a soul after death in Socrates’ account.",
+      "subtitle": "",
+      "kind": "religious-figure",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "weaver",
+      "name": "The weaver in Cebes’s comparison",
+      "category": "reference",
+      "body": "The imagined weaver used to compare the soul’s endurance with the body’s.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    }
+  ]
+}
