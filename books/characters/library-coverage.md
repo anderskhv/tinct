@@ -27,7 +27,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Paradise Lost (`paradise-lost`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Frankenstein (`frankenstein`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Manual (`the-manual`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Apology (`apology`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Apology (`apology`) | validated-package | Release owner: integrate versioned asset and verify production |
 | Symposium (`symposium`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Phaedo (`phaedo`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Crito (`crito`) | validated-package | Release owner: integrate versioned asset and verify production |
