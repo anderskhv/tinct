@@ -77,7 +77,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | The Federalist Papers (`federalist-papers`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Narrative of the Life of Frederick Douglass (`frederick-douglass`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | A Little Princess (`a-little-princess`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| The Jungle Book (`jungle-book`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| The Jungle Book (`jungle-book`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Around the World in Eighty Days (`around-the-world-80-days`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Heart of Darkness (`heart-of-darkness`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Discourse on the Origin of Inequality (`discourse-on-inequality`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

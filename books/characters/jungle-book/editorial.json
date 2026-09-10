@@ -1,0 +1,1234 @@
+{
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All seven stories and accompanying verse: human and animal protagonists, family ties, named herds and packs, local participants, reported figures and allusions.",
+  "entities": [
+    {
+      "id": "mowgli",
+      "name": "Mowgli",
+      "category": "central",
+      "body": "The human raised by wolves, at the center of the first three jungle stories.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mowgli"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kotick",
+      "name": "Kotick",
+      "category": "central",
+      "body": "The white fur seal, son of Sea Catch and Matkah.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Kotick",
+        "White Seal"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rikki",
+      "name": "Rikki-tikki-tavi",
+      "category": "central",
+      "body": "The mongoose living with Teddy’s family, the main character of the bungalow story.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Rikki-tikki-tavi",
+        "Rikki-tikki",
+        "Rikki-Tikki-Tavi",
+        "Rikki"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "little-toomai",
+      "name": "Little Toomai",
+      "category": "central",
+      "body": "The young son of the elephant driver Big Toomai.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Little Toomai"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            6,
+            81
+          ],
+          "name": "Toomai of the Elephants",
+          "body": "Big Toomai’s young son, honored as Toomai of the Elephants."
+        }
+      ]
+    },
+    {
+      "id": "father-wolf",
+      "name": "Father Wolf",
+      "category": "major",
+      "body": "The wolf who raises Mowgli with Mother Wolf.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Father Wolf"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mother-wolf",
+      "name": "Mother Wolf",
+      "category": "major",
+      "body": "Mowgli’s wolf mother, also called Raksha.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Mother Wolf",
+        "Raksha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bagheera",
+      "name": "Bagheera",
+      "category": "major",
+      "body": "The black panther, Mowgli’s friend and protector.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Bagheera",
+        "Black Panther"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "baloo",
+      "name": "Baloo",
+      "category": "major",
+      "body": "The bear who teaches Mowgli the Law of the Jungle.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Baloo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "shere-khan",
+      "name": "Shere Khan",
+      "category": "major",
+      "body": "The lame tiger, the chief enemy of Mowgli and his wolf family.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Shere Khan",
+        "Lungri"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kaa",
+      "name": "Kaa",
+      "category": "major",
+      "body": "The great rock python of the jungle.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Kaa"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gray-brother",
+      "name": "Gray Brother",
+      "category": "major",
+      "body": "Mother Wolf’s eldest cub and Mowgli’s wolf brother.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Gray Brother"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sea-catch",
+      "name": "Sea Catch",
+      "category": "major",
+      "body": "Kotick’s father, a large fighting fur seal.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Sea Catch"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "matkah",
+      "name": "Matkah",
+      "category": "major",
+      "body": "Kotick’s mother and Sea Catch’s mate.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Matkah"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nag",
+      "name": "Nag",
+      "category": "major",
+      "body": "The cobra in Teddy’s garden, Nagaina’s mate.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Nag"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nagaina",
+      "name": "Nagaina",
+      "category": "major",
+      "body": "The female cobra, Nag’s mate.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Nagaina"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "darzee",
+      "name": "Darzee",
+      "category": "major",
+      "body": "The tailorbird living in the garden with his mate.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Darzee"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "darzee-wife",
+      "name": "Darzee’s wife",
+      "category": "major",
+      "body": "The female tailorbird, Darzee’s mate.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "kala-nag",
+      "name": "Kala Nag",
+      "category": "major",
+      "body": "The experienced elephant cared for by the Toomai family.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Kala Nag",
+        "Black Snake"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "billy",
+      "name": "Billy",
+      "category": "major",
+      "body": "The experienced mule carrying the breech-piece for a mountain gun.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Billy"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "troop-horse",
+      "name": "The troop horse",
+      "category": "major",
+      "body": "Dick Cunliffe’s Australian cavalry horse, Number Fifteen of the Ninth Lancers.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Number Fifteen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "two-tails",
+      "name": "Two Tails",
+      "category": "major",
+      "body": "The elephant working with the siege-gun teams.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Two Tails"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "camp-camel",
+      "name": "The baggage camel",
+      "category": "major",
+      "body": "The camel from the 39th Native Infantry talking with the other camp animals.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "akela",
+      "name": "Akela",
+      "category": "major",
+      "body": "The lone wolf who leads the Seeonee pack.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Akela",
+        "Lone Wolf"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            1,
+            112
+          ],
+          "body": "The former leader of the Seeonee wolf pack, an ally of Mowgli."
+        }
+      ]
+    },
+    {
+      "id": "bandar-log",
+      "name": "The Bandar-log",
+      "category": "major",
+      "body": "The monkey people of the jungle.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Bandar-log",
+        "Bandar-Log",
+        "Monkey-People",
+        "Monkey People",
+        "Monkey-Folk"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gun-bullocks",
+      "name": "The gun bullocks",
+      "category": "major",
+      "body": "The pair of oxen from Hapur who pull the heavy siege guns.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "tabaqui",
+      "name": "Tabaqui",
+      "category": "supporting",
+      "body": "The jackal who scavenges near the wolves and carries news.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Tabaqui"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rann",
+      "name": "Rann",
+      "category": "supporting",
+      "body": "The kite who flies over the jungle.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Rann"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mang",
+      "name": "Mang",
+      "category": "supporting",
+      "body": "The bat named among the jungle animals.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Mang"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ikki",
+      "name": "Ikki",
+      "category": "supporting",
+      "body": "The porcupine who brings jungle gossip.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Ikki"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "mao",
+      "name": "Mao",
+      "category": "supporting",
+      "body": "The peacock named among the jungle creatures.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Mao"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hathi",
+      "name": "Hathi",
+      "category": "supporting",
+      "body": "The wild elephant whose authority is recognized in the jungle.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Hathi"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "wolf-pack",
+      "name": "The Seeonee wolf pack",
+      "category": "supporting",
+      "body": "The wolves who meet at Council Rock and follow the Law of the Jungle.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Seeonee Wolf Pack",
+        "Seeonee Pack",
+        "Free People"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "wolf-cubs",
+      "name": "Mother Wolf’s cubs",
+      "category": "supporting",
+      "body": "The four wolf cubs raised alongside Mowgli.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "messua",
+      "name": "Messua",
+      "category": "supporting",
+      "body": "The village woman whose son Nathoo was taken by a tiger.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Messua"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "buldeo",
+      "name": "Buldeo",
+      "category": "supporting",
+      "body": "The village hunter who tells stories about the jungle.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Buldeo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kamya",
+      "name": "Kamya",
+      "category": "supporting",
+      "body": "One of the village boys tending cattle with Mowgli.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Kamya"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rama",
+      "name": "Rama",
+      "category": "supporting",
+      "body": "The great buffalo bull at the head of Mowgli’s herd.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Rama"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "village-priest",
+      "name": "The village priest",
+      "category": "supporting",
+      "body": "The priest who speaks with Messua when Mowgli arrives.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "village-headman",
+      "name": "The village headman",
+      "category": "supporting",
+      "body": "One of the elders gathered beneath the village tree.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "village-watchman",
+      "name": "The village watchman",
+      "category": "supporting",
+      "body": "The watchman among the men telling stories beneath the tree.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "village-barber",
+      "name": "The village barber",
+      "category": "supporting",
+      "body": "The barber who shares the village gossip.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "messua-husband",
+      "name": "Messua’s husband",
+      "category": "supporting",
+      "body": "The wealthy villager married to Messua.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "potter",
+      "name": "The village potter",
+      "category": "supporting",
+      "body": "The maker of pots whose donkey Mowgli helps.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "potter-donkey",
+      "name": "The potter’s donkey",
+      "category": "supporting",
+      "body": "The animal Mowgli helps out of the clay pit.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "limmershin",
+      "name": "Limmershin",
+      "category": "supporting",
+      "body": "The winter wren who tells the narrator Kotick’s story.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Limmershin",
+        "Winter Wren"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "narrator",
+      "name": "The narrator",
+      "category": "supporting",
+      "body": "The human storyteller who recounts the animals’ experiences.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "kerick",
+      "name": "Kerick Booterin",
+      "category": "supporting",
+      "body": "The chief of the seal hunters on Saint Paul Island, Patalamon’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Kerick Booterin",
+        "Kerick"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "patalamon",
+      "name": "Patalamon",
+      "category": "supporting",
+      "body": "Kerick Booterin’s son, helping with the seal hunt.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Patalamon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sea-lion",
+      "name": "Sea Lion",
+      "category": "supporting",
+      "body": "The sea lion Kotick consults near the seal grounds.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "sea-vitch",
+      "name": "Sea Vitch",
+      "category": "supporting",
+      "body": "The large walrus whom Kotick consults.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Sea Vitch",
+        "Stareek"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sea-cows",
+      "name": "The sea cows",
+      "category": "supporting",
+      "body": "The silent sea mammals that graze on underwater plants.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Sea Cow"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sea-pig",
+      "name": "Sea Pig",
+      "category": "supporting",
+      "body": "The porpoise leading the school that Kotick follows.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Sea Pig"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "albatross",
+      "name": "The albatross",
+      "category": "supporting",
+      "body": "The old bird who suggests an island for Kotick to visit.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "old-seal",
+      "name": "The old seal of Masafuera",
+      "category": "supporting",
+      "body": "The elderly survivor of a lost seal rookery whom Kotick meets.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "kotick-mate",
+      "name": "Kotick’s companion",
+      "category": "supporting",
+      "body": "The female seal who dances with Kotick and waits for him.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "rival-seal",
+      "name": "The challenging seal",
+      "category": "supporting",
+      "body": "The young seal who questions Kotick’s right to direct the others.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "holluschickie",
+      "name": "The holluschickie",
+      "category": "supporting",
+      "body": "The young bachelor seals on the breeding beaches.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "holluschickie",
+        "holluschick"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "burgomaster-gull",
+      "name": "The Burgomaster gull",
+      "category": "supporting",
+      "body": "The gull who mocks Sea Vitch and answers Kotick.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chuchundra",
+      "name": "Chuchundra",
+      "category": "supporting",
+      "body": "The timid muskrat who gives Rikki advice and keeps close to the walls.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Chuchundra"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "karait",
+      "name": "Karait",
+      "category": "supporting",
+      "body": "The small, venomous snake in Teddy’s garden.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Karait"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "teddy",
+      "name": "Teddy",
+      "category": "supporting",
+      "body": "The English boy whose family takes in Rikki.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Teddy"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "alice",
+      "name": "Alice",
+      "category": "supporting",
+      "body": "Teddy’s mother.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Alice"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "teddy-father",
+      "name": "Teddy’s father",
+      "category": "supporting",
+      "body": "The Englishman living with Alice and Teddy in the bungalow.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "coppersmith",
+      "name": "The Coppersmith",
+      "category": "supporting",
+      "body": "The bird whose ringing call carries news through the garden.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Coppersmith"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "big-toomai",
+      "name": "Big Toomai",
+      "category": "supporting",
+      "body": "Little Toomai’s father and Kala Nag’s driver.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Big Toomai"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "petersen",
+      "name": "Petersen Sahib",
+      "category": "supporting",
+      "body": "The official in charge of the government’s elephant-catching operations.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Petersen Sahib"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "machua",
+      "name": "Machua Appa",
+      "category": "supporting",
+      "body": "The chief elephant tracker in Petersen Sahib’s force.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Machua Appa"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pudmini",
+      "name": "Pudmini",
+      "category": "supporting",
+      "body": "Petersen Sahib’s female elephant.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Pudmini"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "gunga",
+      "name": "Gunga Pershad",
+      "category": "supporting",
+      "body": "One of the elephants addressed at the camp salute.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Gunga Pershad"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hira",
+      "name": "Hira Guj",
+      "category": "supporting",
+      "body": "One of the elephants named at the camp salute.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Hira Guj"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "birchi",
+      "name": "Birchi Guj",
+      "category": "supporting",
+      "body": "One of the elephants named at the camp salute.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Birchi Guj"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kuttar",
+      "name": "Kuttar Guj",
+      "category": "supporting",
+      "body": "One of the elephants named at the camp salute.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Kuttar Guj"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "toomai-mother",
+      "name": "Little Toomai’s mother",
+      "category": "supporting",
+      "body": "The mother singing to Little Toomai’s younger brother in the camp.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "toomai-brother",
+      "name": "Little Toomai’s brother",
+      "category": "supporting",
+      "body": "The small child being soothed by his mother’s lullaby.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "clerk",
+      "name": "The pay clerk",
+      "category": "supporting",
+      "body": "The official paying the elephant drivers at the camp.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "vixen",
+      "name": "Vixen",
+      "category": "supporting",
+      "body": "The narrator’s fox terrier.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Vixen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "young-mule",
+      "name": "The young mule",
+      "category": "supporting",
+      "body": "The frightened recruit in Billy’s mountain-gun battery.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "amir",
+      "name": "The Amir of Afghanistan",
+      "category": "supporting",
+      "body": "The Afghan ruler visiting the military review.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Amir"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "viceroy",
+      "name": "The Viceroy of India",
+      "category": "supporting",
+      "body": "The British imperial official hosting the military review.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Viceroy"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "asian-chief",
+      "name": "The Central Asian chief",
+      "category": "supporting",
+      "body": "The visitor accompanying the Amir who asks how the military animals are controlled.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "indian-officer",
+      "name": "The Indian officer",
+      "category": "supporting",
+      "body": "The officer explaining the chain of command to the visiting chief.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "shiva",
+      "name": "Shiva",
+      "category": "supporting",
+      "body": "The god called Shiv and Mahadeo in the lullaby about feeding all creatures.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Shiva",
+        "Shiv",
+        "Mahadeo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "parbati",
+      "name": "Parbati",
+      "category": "supporting",
+      "body": "Shiva’s wife in the lullaby, also known as Parvati.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Parbati"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "grasshopper",
+      "name": "The grasshopper",
+      "category": "supporting",
+      "body": "The small creature hidden by Parbati in the lullaby.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "nathoo",
+      "name": "Nathoo",
+      "category": "reference",
+      "body": "Messua’s missing son; she sees a resemblance between him and Mowgli.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Nathoo"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "purun-dass",
+      "name": "Purun Dass",
+      "category": "reference",
+      "body": "The deceased moneylender in Buldeo’s story about the tiger.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Purun Dass"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bagheera-mother",
+      "name": "Bagheera’s mother",
+      "category": "reference",
+      "body": "The panther who died in captivity, recalled by Bagheera.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "rikki-mother",
+      "name": "Rikki’s mother",
+      "category": "reference",
+      "body": "The mongoose mother whose advice Rikki remembers.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "rikki-father",
+      "name": "Rikki’s father",
+      "category": "reference",
+      "body": "Rikki’s mongoose father, mentioned with his mother.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "chua",
+      "name": "Chua",
+      "category": "reference",
+      "body": "Chuchundra’s cousin, a rat.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Chua"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "radha",
+      "name": "Radha Pyari",
+      "category": "reference",
+      "body": "Kala Nag’s mother, the elephant whose advice he remembers.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Radha Pyari",
+        "Radha"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "black-toomai",
+      "name": "Black Toomai",
+      "category": "reference",
+      "body": "Big Toomai’s father, who took Kala Nag to Abyssinia.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Black Toomai"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "old-toomai",
+      "name": "The earlier Toomai of the Elephants",
+      "category": "reference",
+      "body": "Big Toomai’s grandfather, who saw Kala Nag captured.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "theodore",
+      "name": "Emperor Theodore",
+      "category": "reference",
+      "body": "The Ethiopian ruler recalled in the account of Kala Nag’s military service.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Emperor Theodore"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dick",
+      "name": "Dick Cunliffe",
+      "category": "reference",
+      "body": "The cavalry trooper who rides the Australian troop horse.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dick Cunliffe"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sunol",
+      "name": "Sunol",
+      "category": "reference",
+      "body": "The celebrated trotting horse used as a comparison for the cavalry horse’s pride in breeding.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Sunol"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "carbine",
+      "name": "Carbine",
+      "category": "reference",
+      "body": "The Melbourne Cup winner whom the cavalry horse claims as a relative.",
+      "subtitle": "",
+      "kind": "animal",
+      "aliases": [
+        "Carbine"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "empress",
+      "name": "The Empress",
+      "category": "reference",
+      "body": "Queen Victoria, the imperial sovereign at the top of the chain of command described in the story.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Empress"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "alexander",
+      "name": "Alexander",
+      "category": "reference",
+      "body": "Alexander the Great, invoked in the elephants’ marching song.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Alexander"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "category": "reference",
+      "body": "The classical hero invoked as an image of strength in the elephants’ song.",
+      "subtitle": "",
+      "kind": "mythological-figure",
+      "aliases": [
+        "Hercules"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "category": "reference",
+      "body": "The god of love, mentioned in the monkeys’ song.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Cupid"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "frog-footman",
+      "name": "The Frog Footman",
+      "category": "reference",
+      "body": "The frog servant from Alice’s Adventures in Wonderland, evoked by the sea cows’ bowing.",
+      "subtitle": "",
+      "kind": "literary-figure",
+      "aliases": [
+        "Frog Footman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "brahm",
+      "name": "Brahm",
+      "category": "reference",
+      "body": "Brahma, the god in Nag’s story about the cobra’s hood-mark.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Brahm"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tweedles",
+      "name": "Tweedle-dum and Tweedle-dee",
+      "category": "reference",
+      "body": "The paired comic names invoked in the heading’s contrast between two ways of doing things.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Tweedle-dum",
+        "Tweedle-dee"
+      ],
+      "snapshots": []
+    }
+  ]
+}
