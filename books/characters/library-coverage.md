@@ -81,7 +81,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Around the World in Eighty Days (`around-the-world-80-days`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Heart of Darkness (`heart-of-darkness`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Discourse on the Origin of Inequality (`discourse-on-inequality`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Strange Case of Dr Jekyll and Mr Hyde (`jekyll-and-hyde`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Strange Case of Dr Jekyll and Mr Hyde (`jekyll-and-hyde`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Walden (`walden`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | A Vindication of the Rights of Woman (`vindication-rights-of-woman`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Comedy of Errors (`comedy-of-errors`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

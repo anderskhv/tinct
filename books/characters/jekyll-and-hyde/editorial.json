@@ -1,0 +1,400 @@
+{
+  "bookId": "jekyll-and-hyde",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Complete novella in both English editions: named people, identifiable household and incident roles, and named personal allusions. Central identity revelation released only after Lanyon explicitly identifies Hyde.",
+  "entities": [
+    {
+      "id": "utterson",
+      "name": "Gabriel John Utterson",
+      "category": "central",
+      "body": "The London lawyer whose friends include Dr. Jekyll and Dr. Lanyon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Gabriel John Utterson",
+        "Mr. Utterson",
+        "Utterson"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "jekyll",
+      "name": "Dr. Henry Jekyll",
+      "category": "central",
+      "body": "A London doctor and longtime friend of Utterson and Lanyon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dr. Henry Jekyll",
+        "Henry Jekyll",
+        "Harry Jekyll",
+        "Dr. Jekyll",
+        "Jekyll",
+        "Harry",
+        "H.J.",
+        "Dr. J."
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            32
+          ],
+          "body": "Utterson’s doctor friend, who transforms into Edward Hyde."
+        }
+      ]
+    },
+    {
+      "id": "hyde",
+      "name": "Edward Hyde",
+      "category": "major",
+      "body": "The man Enfield identifies as having trampled a young girl in the street.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Edward Hyde",
+        "Mr. Hyde",
+        "Master Hyde",
+        "Hyde"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            2,
+            0
+          ],
+          "body": "The man named as Jekyll’s beneficiary in his will, whose background troubles Utterson."
+        },
+        {
+          "after": [
+            9,
+            32
+          ],
+          "body": "The identity and altered physical form assumed by Henry Jekyll."
+        }
+      ]
+    },
+    {
+      "id": "enfield",
+      "name": "Richard Enfield",
+      "category": "supporting",
+      "body": "Utterson’s distant relative and companion on his Sunday walks.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Richard Enfield",
+        "Mr. Enfield",
+        "Enfield",
+        "Richard"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "lanyon",
+      "name": "Dr. Hastie Lanyon",
+      "category": "major",
+      "body": "A London doctor and old friend of Utterson and Jekyll.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "HASTIE LANYON",
+        "Hastie Lanyon",
+        "Dr. Lanyon",
+        "Lanyon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "poole",
+      "name": "Poole",
+      "category": "major",
+      "body": "Dr. Jekyll’s butler.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Poole"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "carew",
+      "name": "Sir Danvers Carew",
+      "category": "supporting",
+      "body": "An elderly Member of Parliament and a client of Utterson.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Sir Danvers Carew",
+        "Danvers Carew",
+        "Carew"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "guest",
+      "name": "Mr. Guest",
+      "category": "supporting",
+      "body": "Utterson’s head clerk, skilled at examining handwriting.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Mr. Guest",
+        "Guest"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "newcomen",
+      "name": "Inspector Newcomen",
+      "category": "supporting",
+      "body": "The Scotland Yard inspector working with Utterson on the Carew case.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Inspector Newcomen",
+        "Newcomen"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bradshaw",
+      "name": "Bradshaw",
+      "category": "supporting",
+      "body": "A footman in Dr. Jekyll’s household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Bradshaw"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "denman",
+      "name": "Dr. Denman",
+      "category": "reference",
+      "body": "The surgeon who previously owned the premises now used by Jekyll.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Dr. Denman",
+        "Denman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "girl",
+      "name": "The girl in Enfield’s account",
+      "category": "supporting",
+      "body": "The young girl in Enfield’s account of his late-night walk.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        1
+      ]
+    },
+    {
+      "id": "girl-doctor",
+      "name": "The doctor in Enfield’s account",
+      "category": "supporting",
+      "body": "The doctor with an Edinburgh accent who attends the injured girl.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Sawbones"
+      ],
+      "snapshots": [],
+      "chapters": [
+        1
+      ]
+    },
+    {
+      "id": "girl-father",
+      "name": "The girl’s father",
+      "category": "reference",
+      "body": "The father of the injured girl in Enfield’s account.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        1
+      ]
+    },
+    {
+      "id": "lanyon-butler",
+      "name": "Lanyon’s butler",
+      "category": "reference",
+      "body": "The servant who admits Utterson to Dr. Lanyon’s house.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        2
+      ]
+    },
+    {
+      "id": "witness-maid",
+      "name": "The maid at the window",
+      "category": "supporting",
+      "body": "The young maid watching the street from an upstairs window.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "id": "hyde-housekeeper",
+      "name": "Hyde’s housekeeper",
+      "category": "supporting",
+      "body": "The woman who keeps Hyde’s rooms in Soho.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [],
+      "chapters": [
+        4
+      ]
+    },
+    {
+      "id": "jekyll-housemaid",
+      "name": "Jekyll’s housemaid",
+      "category": "supporting",
+      "body": "The maid among the frightened servants in Dr. Jekyll’s house.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "housemaid"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "jekyll-cook",
+      "name": "Jekyll’s cook",
+      "category": "supporting",
+      "body": "The cook in Dr. Jekyll’s household.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "cook"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "knife-boy",
+      "name": "The knife-boy",
+      "category": "supporting",
+      "body": "The young servant in Jekyll’s household whose duties include cleaning cutlery.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "knife-boy"
+      ],
+      "snapshots": [],
+      "chapters": [
+        8
+      ]
+    },
+    {
+      "id": "locksmith",
+      "name": "The locksmith",
+      "category": "reference",
+      "body": "The tradesman called to open the locked door to Jekyll’s cabinet.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "locksmith"
+      ],
+      "snapshots": [],
+      "chapters": [
+        9
+      ]
+    },
+    {
+      "id": "carpenter",
+      "name": "The carpenter",
+      "category": "reference",
+      "body": "The tradesman assisting with the locked door to Jekyll’s cabinet.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "carpenter"
+      ],
+      "snapshots": [],
+      "chapters": [
+        9
+      ]
+    },
+    {
+      "id": "cain",
+      "name": "Cain",
+      "category": "reference",
+      "body": "The biblical brother of Abel, invoked in Utterson’s remark about leaving others to their own choices.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Cain"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "satan",
+      "name": "Satan",
+      "category": "reference",
+      "body": "The devil of Christian tradition, used in comparisons with Hyde.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Satan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "damon",
+      "name": "Damon",
+      "category": "reference",
+      "body": "One of a legendary pair of devoted friends, alongside Pythias.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Damon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pythias",
+      "name": "Pythias",
+      "category": "reference",
+      "body": "One of a legendary pair of devoted friends, alongside Damon.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Pythias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fell",
+      "name": "Dr. Fell",
+      "category": "reference",
+      "body": "The figure in a familiar rhyme about disliking someone without knowing why.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Dr. Fell"
+      ],
+      "snapshots": []
+    }
+  ]
+}
