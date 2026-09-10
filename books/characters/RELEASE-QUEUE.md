@@ -89,6 +89,7 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | The Merchant of Venice | 0e22523c | 90 / 90 | build_merchant_of_venice.py |
 | Twelfth Night | d576b613 | 65 / 65 | build_twelfth_night.py |
 | The Jungle Book | 648da045 | 104 / 104 | build_jungle_book.py |
+| Hume’s Enquiry | 8c860012 | 89 / 89 | build_hume_enquiry.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
@@ -98,9 +99,11 @@ Romeo and Juliet requires review of an inherited doubled FIRST WATCH / THIRD WAT
 
 Around the World in Eighty Days separates both Forsters and both priest groups, identifies Fix immediately, and gates the actual robber and marriage. Its two source hashes matched the current Tinct-reader-title release checkout. Grouped handoff with Julius Caesar and The Merchant of Venice. Julius Caesar separates namesakes, Octavius/Julius and Lucilius’s assumed identity. Merchant gates marriages and courtroom disguise identities; its inherited court stage direction names Salerio while cue 18:22 says SALARINO, documented for release review. All six source files matched Tinct-reader-title at authoring.
 
-Twelfth Night is validated and awaiting the next grouped handoff; both source hashes matched Tinct-reader-title. Review literal addressee versus reported-assailant twin bindings and marriage versus intended-marriage gates.
+Twelfth Night is validated and included in the grouped handoff with The Jungle Book and Hume’s Enquiry; both source hashes matched Tinct-reader-title. Review literal addressee versus reported-assailant twin bindings and marriage versus intended-marriage gates.
 
-The Jungle Book is validated and awaiting the next grouped handoff. Its seven stories and verse distinguish Nathoo from Mowgli, all four Toomai generations, the two Alice references and individual versus collective animal roles. Both source files match Tinct-reader-title.
+The Jungle Book is validated and included in that grouped handoff. Its seven stories and verse distinguish Nathoo from Mowgli, all four Toomai generations, the two Alice references and individual versus collective animal roles. Both source files match Tinct-reader-title.
+
+Hume’s Enquiry is validated and included in the grouped handoff. Review its two Alexanders, two Catos, Paris/Pâris and staged Epicurean speech. Both source files match Tinct-reader-title; all six source files in this batch are byte-matched. Inherited last section heading “Part 0” is documented; no source edits.
 
 ## Held separately
 
@@ -108,6 +111,6 @@ The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source 
 
 ## Verification and tracking
 
-Current complete content suite: 278 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 285 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
