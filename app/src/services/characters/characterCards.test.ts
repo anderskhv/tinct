@@ -155,7 +155,7 @@ describe.each(['original-en', 'modern-en'])('Macbeth runtime %s', key => {
   })
 })
 
-describe.each(['crito', 'apology', 'the-manual', 'the-art-of-war'])('complete reviewed package %s', bookId => {
+describe.each(['crito', 'apology', 'the-manual', 'the-art-of-war', 'measure-for-measure', 'henry-v', 'winters-tale', 'cymbeline', 'coriolanus', 'antony-and-cleopatra', 'richard-iii', 'henry-iv-part-2', 'merry-wives-of-windsor'])('complete reviewed package %s', bookId => {
   it.each(['original-en', 'modern-en'])('validates every paragraph and mention in %s, with release boundaries', async editionKey => {
     const asset: CharacterAsset = JSON.parse(readFileSync(`public/data/characters/${bookId}.v1.json`, 'utf8'))
     const raw = Uint8Array.from(readFileSync(`public/data/editions/${bookId}-${editionKey}.json`)).buffer
@@ -168,9 +168,21 @@ describe.each(['crito', 'apology', 'the-manual', 'the-art-of-war'])('complete re
     }
     for (const character of data.edition.characters) {
       expect(releasedCard(data.edition, character.id, { ...character.firstMention, offset: character.firstMention.offset - 1 })).toBeNull()
+      for (const snapshot of character.snapshots) {
+        const at = snapshot.availableAt
+        expect(releasedCard(data.edition, character.id, at)?.body).toBe(snapshot.body)
+        const earlier = character.snapshots.filter(s => comparePoint(s.availableAt, at) < 0).at(-1)
+        expect(releasedCard(data.edition, character.id, {...at, offset: at.offset - 1})?.body).toBe(earlier?.body)
+      }
       const first = releasedCard(data.edition, character.id, character.firstMention)
       releasedCard(data.edition, character.id, { chapterNumber: 9999, paragraphIndex: 9999, offset: 9999 })
       expect(releasedCard(data.edition, character.id, character.firstMention)).toEqual(first)
     }
   })
+})
+
+it('trims edge italic markup and punctuation without shifting internal names', () => {
+  expect(wordSelectionOffsets('[_Exit Hermione._]', 1, 2)).toEqual([7, 15])
+  expect(wordSelectionOffsets('_Duke._', 0, 1)).toEqual([1, 5])
+  expect(wordSelectionOffsets('Anne 40 Page', 0, 1)).toEqual([0, 4])
 })
