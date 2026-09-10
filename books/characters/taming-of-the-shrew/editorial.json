@@ -1,0 +1,988 @@
+{
+  "bookId": "taming-of-the-shrew",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All twelve available scenes in both English editions, including the surviving Sly-frame interruption, named household servants and references. The source editions omit the opening Induction; its absent cast is not claimed as covered. Disguises and marriage changes are source-gated.",
+  "entities": [
+    {
+      "id": "katherina",
+      "name": "Katherina Minola",
+      "body": "Baptista’s elder daughter and Bianca’s sister; one of the play’s two central characters.",
+      "aliases": [
+        "Katherina Minola",
+        "Katherina",
+        "Katherine",
+        "Kate",
+        "KATHERINA"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            0
+          ],
+          "body": "Baptista’s elder daughter and Bianca’s sister."
+        },
+        {
+          "after": [
+            5,
+            61
+          ],
+          "body": "Petruchio’s wife, Baptista’s elder daughter and Bianca’s sister."
+        }
+      ]
+    },
+    {
+      "id": "petruchio",
+      "name": "Petruchio",
+      "body": "A gentleman from Verona seeking a wealthy wife; one of the play’s two central characters.",
+      "aliases": [
+        "Petruchio",
+        "PETRUCHIO"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            5,
+            61
+          ],
+          "body": "Katherina’s husband, a gentleman from Verona."
+        }
+      ]
+    },
+    {
+      "id": "bianca",
+      "name": "Bianca Minola",
+      "body": "Baptista’s younger daughter and Katherina’s sister, courted by several men.",
+      "aliases": [
+        "Bianca",
+        "BIANCA"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            11,
+            75
+          ],
+          "body": "Lucentio’s wife, Baptista’s younger daughter and Katherina’s sister."
+        }
+      ]
+    },
+    {
+      "id": "lucentio",
+      "name": "Lucentio",
+      "body": "Vincentio’s son, a young gentleman who comes to Padua to study.",
+      "aliases": [
+        "Lucentio",
+        "LUCENTIO",
+        "Cambio"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            37
+          ],
+          "body": "Vincentio’s son, courting Bianca while disguised as the tutor Cambio."
+        },
+        {
+          "after": [
+            11,
+            75
+          ],
+          "body": "Bianca’s husband and Vincentio’s son; formerly disguised as Cambio."
+        }
+      ]
+    },
+    {
+      "id": "tranio",
+      "name": "Tranio",
+      "body": "Lucentio’s resourceful servant and companion.",
+      "aliases": [
+        "Tranio",
+        "TRANIO"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            1,
+            62
+          ],
+          "body": "Lucentio’s servant, posing as his master."
+        },
+        {
+          "after": [
+            11,
+            80
+          ],
+          "body": "Lucentio’s servant, who impersonated him during the courtship."
+        }
+      ]
+    },
+    {
+      "id": "baptista",
+      "name": "Baptista Minola",
+      "body": "The wealthy Paduan father of Katherina and Bianca.",
+      "aliases": [
+        "Baptista Minola",
+        "Baptista",
+        "Minola",
+        "BAPTISTA"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gremio",
+      "name": "Gremio",
+      "body": "An elderly, wealthy suitor of Bianca.",
+      "aliases": [
+        "Gremio",
+        "GREMIO"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hortensio",
+      "name": "Hortensio",
+      "body": "A suitor of Bianca and a friend of Petruchio.",
+      "aliases": [
+        "Hortensio",
+        "HORTENSIO",
+        "Licio",
+        "Litio"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            27
+          ],
+          "body": "Bianca’s suitor, disguised as the music teacher Licio."
+        },
+        {
+          "after": [
+            7,
+            17
+          ],
+          "body": "Petruchio’s friend, formerly Bianca’s suitor and the disguised tutor Licio."
+        },
+        {
+          "after": [
+            12,
+            1
+          ],
+          "body": "The widow’s husband and Petruchio’s friend; formerly disguised as Licio."
+        }
+      ]
+    },
+    {
+      "id": "grumio",
+      "name": "Grumio",
+      "body": "Petruchio’s servant, who accompanies him from Verona.",
+      "aliases": [
+        "Grumio",
+        "GRUMIO"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "biondello",
+      "name": "Biondello",
+      "body": "One of Lucentio’s servants.",
+      "aliases": [
+        "Biondello",
+        "BIONDELLO"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vincentio",
+      "name": "Vincentio",
+      "body": "Lucentio’s father, a wealthy merchant from Pisa.",
+      "aliases": [
+        "Vincentio",
+        "VINCENTIO"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "antonio",
+      "name": "Antonio",
+      "body": "Petruchio’s late father.",
+      "aliases": [
+        "Antonio"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "curtis",
+      "name": "Curtis",
+      "body": "A servant at Petruchio’s country house.",
+      "aliases": [
+        "Curtis",
+        "CURTIS"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pedant",
+      "name": "The Pedant",
+      "body": "The elderly traveler from Mantua whom Biondello spots; called the Pedant.",
+      "aliases": [
+        "Pedant",
+        "PEDANT",
+        "pedant"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            7,
+            55
+          ],
+          "body": "The traveler from Mantua whom Tranio recruits to impersonate Vincentio."
+        }
+      ]
+    },
+    {
+      "id": "widow",
+      "name": "The widow",
+      "body": "The wealthy widow who is fond of Hortensio.",
+      "aliases": [
+        "Widow",
+        "WIDOW",
+        "widow"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            12,
+            1
+          ],
+          "body": "Hortensio’s wealthy new wife."
+        }
+      ]
+    },
+    {
+      "id": "sly",
+      "name": "Christopher Sly",
+      "body": "The tinker watching the play in its framing scene.",
+      "aliases": [
+        "Sly",
+        "SLY"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "page",
+      "name": "Bartholomew, the page",
+      "body": "The page playing Sly’s wife in the framing scene.",
+      "aliases": [
+        "PAGE"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ferdinand",
+      "name": "Ferdinand",
+      "body": "Petruchio’s cousin, whom he summons at his country house.",
+      "aliases": [
+        "Ferdinand"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nathaniel",
+      "name": "Nathaniel",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Nathaniel",
+        "NATHANIEL"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "joseph",
+      "name": "Joseph",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Joseph",
+        "JOSEPH"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nicholas",
+      "name": "Nicholas",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Nicholas",
+        "NICHOLAS"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip",
+      "name": "Philip",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Philip",
+        "PHILIP"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "walter",
+      "name": "Walter",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Walter",
+        "WALTER"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sugarsop",
+      "name": "Sugarsop",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Sugarsop",
+        "SUGARSOP"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gregory",
+      "name": "Gregory",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Gregory",
+        "GREGORY"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gabriel",
+      "name": "Gabriel",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Gabriel",
+        "GABRIEL"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter",
+      "name": "Peter",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Peter",
+        "PETER"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Adam",
+        "ADAM"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ralph",
+      "name": "Ralph",
+      "body": "One of the servants in Petruchio’s household.",
+      "aliases": [
+        "Ralph",
+        "RALPH"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "frame-servant",
+      "name": "The servant attending Sly",
+      "body": "The servant who reminds Sly to watch the play.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "baptista-servant",
+      "name": "Baptista’s servant",
+      "body": "A servant in Baptista’s household.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "petruchio-servant",
+      "name": "Petruchio’s unnamed servant",
+      "body": "One of Petruchio’s household servants.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tailor",
+      "name": "The tailor",
+      "body": "The craftsman hired to make Katherina’s gown.",
+      "aliases": [
+        "Tailor",
+        "TAILOR",
+        "tailor"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "haberdasher",
+      "name": "The haberdasher",
+      "body": "The craftsman who brings a cap for Katherina.",
+      "aliases": [
+        "Haberdasher",
+        "HABERDASHER",
+        "haberdasher"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "wedding-priest",
+      "name": "The wedding priest",
+      "body": "The priest who conducts Katherina and Petruchio’s wedding.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sexton",
+      "name": "The sexton",
+      "body": "The church attendant at Katherina and Petruchio’s wedding.",
+      "aliases": [
+        "sexton"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "luke-priest",
+      "name": "The priest at Saint Luke’s",
+      "body": "The priest whom Biondello arranges to be ready for Lucentio and Bianca.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "officer",
+      "name": "The officer",
+      "body": "The officer brought into the dispute outside Lucentio’s house.",
+      "aliases": [
+        "Officer",
+        "OFFICER"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "troilus",
+      "name": "Troilus",
+      "body": "Petruchio’s spaniel.",
+      "aliases": [
+        "Troilus"
+      ],
+      "category": "supporting",
+      "kind": "animal",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "servants",
+      "name": "Petruchio’s servants",
+      "body": "The household servants at Petruchio’s country house.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aristotle",
+      "name": "Aristotle",
+      "body": "The Greek philosopher whom Tranio mentions when discussing Lucentio’s studies.",
+      "aliases": [
+        "Aristotle"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ovid",
+      "name": "Ovid",
+      "body": "The Roman poet of love and mythology, contrasted with Aristotle in Tranio’s advice.",
+      "aliases": [
+        "Ovid"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "socrates",
+      "name": "Socrates",
+      "body": "The Greek philosopher mentioned through his marriage to Xanthippe.",
+      "aliases": [
+        "Socrates"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "xanthippe",
+      "name": "Xanthippe",
+      "body": "Socrates’s wife, traditionally portrayed as sharp-tempered.",
+      "aliases": [
+        "Xanthippe"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucrece",
+      "name": "Lucretia",
+      "body": "The Roman woman traditionally celebrated for chastity, invoked in Petruchio’s comparison.",
+      "aliases": [
+        "Lucrece"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "minerva",
+      "name": "Minerva",
+      "body": "The Roman goddess of wisdom and the arts, invoked in praise of Bianca.",
+      "aliases": [
+        "Minerva"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anna",
+      "name": "Anna",
+      "body": "Dido’s sister and confidante in Virgil’s Aeneid.",
+      "aliases": [
+        "Anna"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dido",
+      "name": "Dido",
+      "body": "The queen of Carthage in Virgil’s Aeneid; Anna’s sister.",
+      "aliases": [
+        "Queen of Carthage"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agenor",
+      "name": "Agenor",
+      "body": "The mythological king who is Europa’s father.",
+      "aliases": [
+        "Agenor"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "europa",
+      "name": "Europa",
+      "body": "Agenor’s daughter, whom Jupiter carries to Crete in Greek myth.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jupiter",
+      "body": "The Roman king of the gods, called Jove.",
+      "aliases": [
+        "Jove"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "florentius",
+      "name": "Florentius",
+      "body": "The knight in the medieval tale who promises to marry an apparently ugly old woman.",
+      "aliases": [
+        "Florentius"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "florentius-wife",
+      "name": "Florentius’s bride",
+      "body": "The apparently ugly woman whom Florentius agrees to marry in the medieval tale.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sibyl",
+      "name": "The Sibyl",
+      "body": "The ancient prophetess invoked as an example of extreme age.",
+      "aliases": [
+        "Sibyl"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leda",
+      "name": "Leda",
+      "body": "The mythological mother of Helen of Troy.",
+      "aliases": [
+        "Leda"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "helen",
+      "name": "Helen of Troy",
+      "body": "Leda’s daughter, famed for her beauty and many suitors.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "paris",
+      "name": "Paris",
+      "body": "The Trojan prince associated with Helen of Troy.",
+      "aliases": [
+        "Paris"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hercules",
+      "name": "Hercules",
+      "body": "The mythological hero famed for his twelve labors; also called Alcides.",
+      "aliases": [
+        "Hercules",
+        "Alcides"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "body": "The Roman goddess of the hunt and chastity, called Dian in the original edition.",
+      "aliases": [
+        "Dian",
+        "Diana"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "griselda",
+      "name": "Griselda",
+      "body": "The patient wife of medieval storytelling, called Grissel in Petruchio’s comparison.",
+      "aliases": [
+        "Grissel",
+        "Griselda"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "priam",
+      "name": "Priam",
+      "body": "The king of Troy named in the Latin lesson.",
+      "aliases": [
+        "Priami"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ajax",
+      "name": "Ajax",
+      "body": "The Greek warrior at Troy whom Lucentio identifies by the epithet Æacides.",
+      "aliases": [
+        "Æacides",
+        "Ajax"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "aeacus",
+      "name": "Aeacus",
+      "body": "Ajax’s grandfather in Greek myth, the ancestor referred to in the Latin lesson.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "song-jack",
+      "name": "Jack in the song",
+      "body": "The boy addressed in the song fragment quoted by Grumio.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "god",
+      "name": "God",
+      "body": "The Christian deity invoked in the characters’ prayers and oaths.",
+      "aliases": [
+        "God",
+        "Lord"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anne",
+      "name": "Saint Anne",
+      "body": "The saint traditionally identified as the Virgin Mary’s mother, invoked by Sly.",
+      "aliases": [
+        "Saint Anne"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "george",
+      "name": "Saint George",
+      "body": "The saint invoked in Petruchio’s oath.",
+      "aliases": [
+        "Saint George"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "james",
+      "name": "Saint James",
+      "body": "The saint invoked as Saint Jamy in Biondello’s oath.",
+      "aliases": [
+        "Saint Jamy"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bentivolii",
+      "name": "The Bentivoglio family",
+      "body": "The family from which Lucentio says his father Vincentio descends.",
+      "aliases": [
+        "Bentivolii"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "venice-duke",
+      "name": "The Duke of Venice",
+      "body": "The Venetian ruler named in Tranio’s invented story about a quarrel with Mantua.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mantua-duke",
+      "name": "The Duke of Mantua",
+      "body": "The Mantuan ruler named in Tranio’s invented story about a quarrel with Venice.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "padua-duke",
+      "name": "The Duke of Padua",
+      "body": "The ruler in whose name Vincentio demands an arrest.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}
