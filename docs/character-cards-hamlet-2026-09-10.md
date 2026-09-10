@@ -30,4 +30,21 @@ request is introduced. Source review and omissions are in `books/characters/haml
   150 ms opening fade; a 350 ms screenshot wait confirms readable opaque cards.
   No speculative CSS change made.
 
-Deployment and production verification pending below.
+## Live release
+
+Published from app commit `2646d1ee` (content commit `321b807b`) using Node 24
+`CI=1 npm run deploy`; build and bundle verification passed again. Direct deploy
+succeeded; no GitHub Actions run was used.
+Worker version: `68846e4f-a299-47a8-9691-7ad49406ade3`.
+Bundle: `assets/index-CfVbJ712.js`.
+SHA256: `dfad4aed7a849bd3b0ee005869036d07d8228cbb5e4a5893f2b5109cc54147cb`.
+
+All 20 reader scenarios passed on tinct.app, and all 15 production smoke checks
+passed. `/lab/phone` was opened at 390×844. Its served bundle bytes and the Hamlet
+sidecar match the local release exactly. Phone and desktop screenshots were
+saved after the opening animation; the inspected cards are readable. These are
+browser-engine checks, not a physical-device guarantee.
+
+Artifacts: `/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-hamlet/`
+(`production/results.json`, 20 case screenshots, `lab-phone-production.png`,
+`bundle.json`).
