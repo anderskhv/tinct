@@ -45,7 +45,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Nicomachean Ethics (`nicomachean-ethics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Prince (`the-prince`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Beyond Good and Evil (`beyond-good-and-evil`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Groundwork of the Metaphysics of Morals (`kant-groundwork`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Groundwork of the Metaphysics of Morals (`kant-groundwork`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Beowulf (`beowulf`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Candide (`candide`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Democracy in America (`democracy-in-america`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
@@ -53,7 +53,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Oedipus at Colonus (`oedipus-at-colonus`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Antigone (`antigone`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | On the Genealogy of Morals (`genealogy-of-morals`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Meditations on First Philosophy (`descartes-meditations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Meditations on First Philosophy (`descartes-meditations`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | On Liberty (`on-liberty`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Utilitarianism (`utilitarianism`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | History of the Peloponnesian War (`peloponnesian-war`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
