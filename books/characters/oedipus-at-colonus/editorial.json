@@ -1,0 +1,646 @@
+{
+  "bookId": "oedipus-at-colonus",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All eleven local sections and both English editions: complete named cast and references, speaking roles, scoped groups and divine titles. No generic pronoun or place-name inference.",
+  "entities": [
+    {
+      "id": "oedipus",
+      "name": "Oedipus",
+      "category": "central",
+      "body": "The blind former king of Thebes, now an exile traveling with his daughter Antigone.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "OEDIPUS",
+        "Oedipus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antigone",
+      "name": "Antigone",
+      "category": "major",
+      "body": "Oedipus’s daughter and guide during his exile.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ANTIGONE",
+        "Antigone"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ismene",
+      "name": "Ismene",
+      "category": "major",
+      "body": "Oedipus’s daughter and Antigone’s sister.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "ISMENE",
+        "Ismene"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "theseus",
+      "name": "Theseus",
+      "category": "major",
+      "body": "The king of Athens, son of Aegeus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "THESEUS",
+        "Theseus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "creon",
+      "name": "Creon",
+      "category": "major",
+      "body": "The Theban statesman, Jocasta’s brother and uncle of Oedipus’s children.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "CREON",
+        "Creon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "polyneices",
+      "name": "Polyneices",
+      "category": "major",
+      "body": "Oedipus’s elder son and brother of Eteocles, Antigone and Ismene.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "POLYNEICES",
+        "Polyneices"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chorus",
+      "name": "The elders of Colonus",
+      "category": "major",
+      "body": "The local elders who speak for the community at Colonus.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "CHORUS"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "stranger",
+      "name": "The local stranger",
+      "category": "supporting",
+      "body": "The resident of Colonus who first explains the sacred ground to Oedipus.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "STRANGER"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "messenger",
+      "name": "The messenger",
+      "category": "supporting",
+      "body": "An attendant of Theseus who reports what happens away from the stage.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "MESSENGER"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "furies",
+      "name": "The Eumenides",
+      "category": "supporting",
+      "body": "The avenging goddesses whose sacred grove is at Colonus, respectfully called the Gracious Ones.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Gracious Ones"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "creon-men",
+      "name": "Creon’s men",
+      "category": "supporting",
+      "body": "The attendants who accompany Creon from Thebes.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "theseus-men",
+      "name": "Theseus’s men",
+      "category": "supporting",
+      "body": "The Athenian attendants and fighters serving Theseus.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "jocasta",
+      "name": "Jocasta",
+      "category": "reference",
+      "body": "Oedipus’s mother and wife, the mother of his children and sister of Creon.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "laius",
+      "name": "Laius",
+      "category": "reference",
+      "body": "Oedipus’s father, an earlier king of Thebes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Laius"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "labdacus",
+      "name": "Labdacus",
+      "category": "reference",
+      "body": "Laius’s father and Oedipus’s grandfather.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Labdacus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eteocles",
+      "name": "Eteocles",
+      "category": "reference",
+      "body": "Oedipus’s younger son, Polyneices’s rival for the throne of Thebes. Printed Etocles in the original.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Eteocles",
+        "Etocles"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "adrastus",
+      "name": "Adrastus",
+      "category": "reference",
+      "body": "The king of Argos and father-in-law of Polyneices.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Adrastus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "polyneices-wife",
+      "name": "Polyneices’s wife",
+      "category": "reference",
+      "body": "The daughter of Adrastus whom Polyneices marries in Argos.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "amphiaraus",
+      "name": "Amphiaraus",
+      "category": "reference",
+      "body": "The warrior and seer among the champions marching with Polyneices. Printed Amphiaraiis in the original.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Amphiaraus",
+        "Amphiaraiis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "tydeus",
+      "name": "Tydeus",
+      "category": "reference",
+      "body": "The Aetolian champion, son of Oeneus, allied with Polyneices.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Tydeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "oeneus",
+      "name": "Oeneus",
+      "category": "reference",
+      "body": "Tydeus’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Oeneus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eteoclus",
+      "name": "Eteoclus",
+      "category": "reference",
+      "body": "The Argive champion allied with Polyneices; distinct from Oedipus’s son Eteocles.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Eteoclus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hippomedon",
+      "name": "Hippomedon",
+      "category": "reference",
+      "body": "One of the Argive champions marching with Polyneices.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Hippomedon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "talaos",
+      "name": "Talaos",
+      "category": "reference",
+      "body": "The father of Hippomedon in the genealogy given here.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Talaos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "capaneus",
+      "name": "Capaneus",
+      "category": "reference",
+      "body": "The champion who boasts of burning Thebes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Capaneus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "parthenopaeus",
+      "name": "Parthenopaeus",
+      "category": "reference",
+      "body": "The Arcadian champion, son of Atalanta, allied with Polyneices.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Parthenopaeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "atalanta",
+      "name": "Atalanta",
+      "category": "reference",
+      "body": "The legendary huntress and mother of Parthenopaeus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Atalanta"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aegeus",
+      "name": "Aegeus",
+      "category": "reference",
+      "body": "Theseus’s father and former king of Athens.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Aegeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pelops",
+      "name": "Pelops",
+      "category": "reference",
+      "body": "The legendary hero whose name is associated with the Peloponnese.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Pelops"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "peirithous",
+      "name": "Peirithous",
+      "category": "reference",
+      "body": "The hero and companion of Theseus, recalled through their pact.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Peirithous"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "colonus",
+      "name": "Colonus",
+      "category": "reference",
+      "body": "The local hero and patron from whom the district takes its name.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "poseidon",
+      "name": "Poseidon",
+      "category": "reference",
+      "body": "The god of the sea and horses, worshipped at Colonus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Poseidon",
+        "Ocean-king"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "category": "reference",
+      "body": "The fire-bearing Titan honored near the sacred grove.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Prometheus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "category": "reference",
+      "body": "The god of prophecy, also called Phoebus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Apollo",
+        "Phoebus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "athena",
+      "name": "Athena",
+      "category": "reference",
+      "body": "The patron goddess of Athens, also called Pallas and Athene.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Pallas",
+        "Athene"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "category": "reference",
+      "body": "The chief Olympian god, associated with thunder and the protection of suppliants.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Zeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "dionysus",
+      "name": "Dionysus",
+      "category": "reference",
+      "body": "The god of wine and ecstatic worship, celebrated here as the Bacchic god.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Bacchic god"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nymphs",
+      "name": "The nymphs",
+      "category": "reference",
+      "body": "The nature spirits who cared for the young Dionysus.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "nymphs"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "muses",
+      "name": "The Muses",
+      "category": "reference",
+      "body": "The goddesses of song and the arts.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Muses"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "aphrodite",
+      "name": "Aphrodite",
+      "category": "reference",
+      "body": "The goddess of love, called the Cyprian here.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Cyprian"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "kronos",
+      "name": "Kronos",
+      "category": "reference",
+      "body": "The Titan who is father of Poseidon and Zeus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Kronos"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "nereids",
+      "name": "The Nereids",
+      "category": "reference",
+      "body": "The sea nymphs whose dancing feet appear in the chorus’s image of swift oars.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Nereids"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ares",
+      "name": "Ares",
+      "category": "reference",
+      "body": "The god of war, associated with the Athenian hill called the Areopagus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Ares"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "rhea",
+      "name": "Rhea",
+      "category": "reference",
+      "body": "The mother of Poseidon and other Olympian gods.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Rhea"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "artemis",
+      "name": "Artemis",
+      "category": "reference",
+      "body": "The hunting goddess and sister of Apollo.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Huntress"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "demeter",
+      "name": "Demeter",
+      "category": "reference",
+      "body": "The mother goddess worshipped with her daughter Persephone in the Eleusinian mysteries.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "persephone",
+      "name": "Persephone",
+      "category": "reference",
+      "body": "The queen of the underworld and daughter of Demeter, also called Persephassa.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Persephassa"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "eumolpidae",
+      "name": "The Eumolpidae",
+      "category": "reference",
+      "body": "The priestly family associated with the secret rites at Eleusis.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Eumolpidae"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "category": "reference",
+      "body": "The god who guides the souls of the dead.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Hermes"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hades",
+      "name": "Hades",
+      "category": "reference",
+      "body": "The ruler of the underworld, addressed as Aidoneus.",
+      "subtitle": "",
+      "kind": "deity",
+      "aliases": [
+        "Aidoneus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cerberus",
+      "name": "Cerberus",
+      "category": "reference",
+      "body": "The watchdog guarding the entrance to the underworld.",
+      "subtitle": "",
+      "kind": "mythical-being",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "category": "reference",
+      "body": "The divine power of death addressed as the giver of eternal sleep.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "category": "reference",
+      "body": "The primordial divine Earth, named in the genealogy of the sacred powers.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [],
+      "snapshots": []
+    },
+    {
+      "id": "night",
+      "name": "Night",
+      "category": "reference",
+      "body": "The primordial power of darkness associated with the avenging goddesses.",
+      "subtitle": "",
+      "kind": "personification",
+      "aliases": [],
+      "snapshots": []
+    }
+  ]
+}

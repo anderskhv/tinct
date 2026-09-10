@@ -50,7 +50,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Candide (`candide`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Democracy in America (`democracy-in-america`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Oedipus Rex (`oedipus-rex`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| Oedipus at Colonus (`oedipus-at-colonus`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Oedipus at Colonus (`oedipus-at-colonus`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Antigone (`antigone`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | On the Genealogy of Morals (`genealogy-of-morals`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Meditations on First Philosophy (`descartes-meditations`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
