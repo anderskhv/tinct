@@ -49,7 +49,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Beowulf (`beowulf`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Candide (`candide`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Democracy in America (`democracy-in-america`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Oedipus Rex (`oedipus-rex`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Oedipus Rex (`oedipus-rex`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Oedipus at Colonus (`oedipus-at-colonus`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Antigone (`antigone`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | On the Genealogy of Morals (`genealogy-of-morals`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

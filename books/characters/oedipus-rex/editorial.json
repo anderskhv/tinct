@@ -1,0 +1,460 @@
+{
+  "bookId": "oedipus-rex",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "Both complete English editions: named cast including final silent daughters, all speaker roles, named ancestors and divine references. Parentage is not explained before the play establishes it.",
+  "entities": [
+    {
+      "id": "oedipus",
+      "name": "Oedipus",
+      "category": "central",
+      "body": "King of Thebes and husband of Jocasta.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Oedipus"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            145
+          ],
+          "body": "The king of Thebes, now revealed as the son of Laius and of his own wife, Jocasta."
+        }
+      ]
+    },
+    {
+      "id": "jocasta",
+      "name": "Jocasta",
+      "category": "major",
+      "body": "Queen of Thebes, wife of Oedipus and sister of Creon. Formerly married to Laius.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Jocasta"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            145
+          ],
+          "body": "Oedipus’s wife and mother, formerly married to Laius; Creon’s sister."
+        }
+      ]
+    },
+    {
+      "id": "creon",
+      "name": "Creon",
+      "category": "major",
+      "body": "Jocasta’s brother and an influential member of the Theban royal household.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Creon"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "teiresias",
+      "name": "Teiresias",
+      "category": "major",
+      "body": "The blind prophet consulted by Thebes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Teiresias"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "laius",
+      "name": "Laius",
+      "category": "major",
+      "body": "The former king of Thebes and Jocasta’s previous husband.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Laius"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            145
+          ],
+          "body": "The former king of Thebes, husband of Jocasta and father of Oedipus."
+        }
+      ]
+    },
+    {
+      "id": "polybus",
+      "name": "Polybus",
+      "category": "reference",
+      "body": "King of Corinth and Oedipus’s father.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Polybus"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            46
+          ],
+          "body": "The king of Corinth who raised Oedipus as his son, though they were not related by blood."
+        }
+      ]
+    },
+    {
+      "id": "merope",
+      "name": "Merope",
+      "category": "reference",
+      "body": "Queen of Corinth, wife of Polybus and mother of Oedipus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Merope"
+      ],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            145
+          ],
+          "body": "Polybus’s wife, who raised Oedipus in Corinth as her son."
+        }
+      ]
+    },
+    {
+      "id": "priest",
+      "name": "The priest of Zeus",
+      "category": "supporting",
+      "body": "The elderly priest speaking for the people gathered outside Oedipus’s palace.",
+      "subtitle": "",
+      "kind": "unnamed-role",
+      "aliases": [
+        "Priest of Zeus",
+        "Priest"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "chorus",
+      "name": "The Theban elders",
+      "category": "major",
+      "body": "The elders of Thebes who speak and sing as the chorus.",
+      "subtitle": "",
+      "kind": "group",
+      "aliases": [
+        "Chorus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "messenger",
+      "name": "The Corinthian messenger",
+      "category": "supporting",
+      "body": "The messenger bringing news from Corinth.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [],
+      "snapshots": [
+        {
+          "after": [
+            9,
+            54
+          ],
+          "body": "The messenger from Corinth, a former shepherd who brought the infant Oedipus to Polybus."
+        }
+      ]
+    },
+    {
+      "id": "herdsman",
+      "name": "Laius’s herdsman",
+      "category": "supporting",
+      "body": "The old shepherd who served King Laius.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Herdsman"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "second-messenger",
+      "name": "The palace messenger",
+      "category": "supporting",
+      "body": "The servant reporting events inside the Theban palace.",
+      "subtitle": "",
+      "kind": "unnamed-person",
+      "aliases": [
+        "Second Messenger"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "antigone",
+      "name": "Antigone",
+      "category": "supporting",
+      "body": "A daughter of Oedipus and Jocasta, and Ismene’s sister.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Antigone"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ismene",
+      "name": "Ismene",
+      "category": "supporting",
+      "body": "A daughter of Oedipus and Jocasta, and Antigone’s sister.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Ismene"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "menoeceus",
+      "name": "Menoeceus",
+      "category": "reference",
+      "body": "The father of Creon and Jocasta.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Menoeceus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "labdacus",
+      "name": "Labdacus",
+      "category": "reference",
+      "body": "Laius’s father, an ancestor of the Theban royal line.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Labdacus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "polydorus",
+      "name": "Polydorus",
+      "category": "reference",
+      "body": "Cadmus’s son and Labdacus’s father in the Theban royal ancestry.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Polydore",
+        "Polydorus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "cadmus",
+      "name": "Cadmus",
+      "category": "reference",
+      "body": "The legendary founder of Thebes.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Cadmus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "agenor",
+      "name": "Agenor",
+      "category": "reference",
+      "body": "Cadmus’s father in the royal ancestry recited by Oedipus.",
+      "subtitle": "",
+      "kind": "person",
+      "aliases": [
+        "Agenor"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "sphinx",
+      "name": "The Sphinx",
+      "category": "reference",
+      "body": "The riddling monster that once threatened Thebes.",
+      "subtitle": "",
+      "kind": "mythical-creature",
+      "aliases": [
+        "Sphinx",
+        "fell songstress",
+        "winged songstress"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "zeus",
+      "name": "Zeus",
+      "category": "reference",
+      "body": "The chief god of the Greek pantheon.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Zeus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "athena",
+      "name": "Athena",
+      "category": "reference",
+      "body": "The Greek goddess of wisdom and protector of cities, also called Pallas.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Athene",
+        "Athena",
+        "Pallas"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "apollo",
+      "name": "Apollo",
+      "category": "reference",
+      "body": "The god of prophecy whose oracle at Delphi guides the inquiry. Also called Phoebus and Loxias.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Apollo",
+        "Phoebus",
+        "Loxias",
+        "Lycean King",
+        "Lord Lycean"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "artemis",
+      "name": "Artemis",
+      "category": "reference",
+      "body": "The Greek goddess of the hunt, Apollo’s sister.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Artemis"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "ares",
+      "name": "Ares",
+      "category": "reference",
+      "body": "The Greek god of war, invoked here as a destructive power afflicting the city.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Ares"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "amphitrite",
+      "name": "Amphitrite",
+      "category": "reference",
+      "body": "The sea goddess, whose domain is invoked as a distant place of banishment.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Amphitrite"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pluto",
+      "name": "Pluto",
+      "category": "reference",
+      "body": "The ruler of the underworld, also known as Hades.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Pluto"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "bacchus",
+      "name": "Bacchus",
+      "category": "reference",
+      "body": "Dionysus, the god of wine and ecstatic worship, closely associated with Thebes.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Bacchus"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pan",
+      "name": "Pan",
+      "category": "reference",
+      "body": "The rustic god of shepherds and wild mountain places.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Pan"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "category": "reference",
+      "body": "The messenger god associated with Mount Cyllene.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Cyllene’s lord",
+        "lord of Cyllene"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "pythia",
+      "name": "The Pythia",
+      "category": "reference",
+      "body": "The priestess who speaks Apollo’s oracle at Delphi.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Pythia"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "fates",
+      "name": "The Fates",
+      "category": "reference",
+      "body": "The divine powers governing destiny in Greek tradition.",
+      "subtitle": "",
+      "kind": "cultural-figure",
+      "aliases": [
+        "Fates"
+      ],
+      "snapshots": []
+    },
+    {
+      "id": "maenads",
+      "name": "The Maenads",
+      "category": "reference",
+      "body": "The ecstatic female followers of Bacchus.",
+      "subtitle": "",
+      "kind": "mythical-group",
+      "aliases": [
+        "Maenads"
+      ],
+      "snapshots": []
+    }
+  ]
+}
