@@ -32,7 +32,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Phaedo (`phaedo`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Crito (`crito`) | validated-package | Release owner: integrate versioned asset and verify production |
 | Phaedrus (`phaedrus`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Poetics (`poetics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| Poetics (`poetics`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Moby Dick (`moby-dick`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Great Expectations (`great-expectations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Histories (`the-histories`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
