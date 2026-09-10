@@ -54,7 +54,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Antigone (`antigone`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | On the Genealogy of Morals (`genealogy-of-morals`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Meditations on First Philosophy (`descartes-meditations`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| On Liberty (`on-liberty`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
+| On Liberty (`on-liberty`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Utilitarianism (`utilitarianism`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | History of the Peloponnesian War (`peloponnesian-war`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Politics (`aristotle-politics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
