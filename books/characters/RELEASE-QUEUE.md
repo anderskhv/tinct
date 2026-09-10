@@ -94,6 +94,7 @@ All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia a
 | Discourse on Inequality | 18361ffc | 45 / 45 | build_discourse_on_inequality.py |
 | The Social Contract | e666213e | 96 / 96 | build_social_contract.py |
 | Frederick Douglass | 7964bb77 | 134 / 134 | build_frederick_douglass.py |
+| The Prince | 1abbe67a | 145 / 145 | build_the_prince.py |
 
 All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
 
@@ -113,7 +114,9 @@ Werther is validated and included in the grouped handoff with Discourse on Inequ
 
 Discourse on Inequality separates Pliny the Elder/Younger and identifies Montesquieu and Mandeville at implicit first references. The Social Contract distinguishes all three Catos and Borgia/Caesar. Its inherited footnotes have missing openings in both editions (examples: 16:13, 25:8, 27:16–17, 47:38–41); source review is required before enabling. Card offsets cover surviving text only. All six English source files in this grouped batch match Tinct-reader-title.
 
-Frederick Douglass is validated for the next grouped handoff. All eleven chapters and appendix; both source files match Tinct-reader-title. Review Hopkins/Isaac/Thomas/Henry namesakes, Frederick Johnson versus Nathan Johnson, ships excluded from people, and ten separate parody figures. The full content suite passes 316 tests. Queued, not production verified.
+Frederick Douglass is validated and included in the grouped handoff with The Prince. All eleven chapters and appendix; both source files match Tinct-reader-title. Review Hopkins/Isaac/Thomas/Henry namesakes, Frederick Johnson versus Nathan Johnson, ships excluded from people, and ten separate parody figures. The full content suite passes 316 tests. Queued, not production verified.
+
+The Prince is validated and included in the grouped handoff. Both sources match Tinct-reader-title. Namesakes include three Alexanders, two Philips, two Dariuses and multiple French kings. Release review: inherited notes 13:9 misidentify Joanna II as Ladislaus’s widow; 27:4 uses Giuliano for Giulio/Clement VII; 13:12 gives Colleoni’s death as 1457. Cards avoid repeating these errors. Rebuild if source bytes are repaired. All four source files in this batch match; full suite passes 326 tests.
 
 ## Held separately
 
