@@ -42,6 +42,16 @@ class Tests(unittest.TestCase):
    with patch.dict('sys.modules',{'faster_whisper':NS(WhisperModel=lambda *a,**k:Model(['one']))}):trial.worker(args)
    for mode in ['off','auto']:
     chapter=json.loads((d/'out/test/original-en/ch1'/mode/'chapter.json').read_text());self.assertEqual(chapter['status'],'rejected');self.assertTrue((d/'out/test/original-en/ch1'/mode/'words.candidate.json').exists())
+ def test_checkpoint_reuse_requires_exact_audio_and_text(self):
+  with tempfile.TemporaryDirectory() as d:
+   audio=Path(d)/'audio';audio.write_bytes(b'test');out=Path(d)/'diag.json';model=Model(['one'])
+   trial.paragraph(model,audio,'one','off',out,configuration={'model':'a'})
+   self.assertEqual(len(model.calls),1)
+   trial.paragraph(model,audio,'one','off',out,configuration={'model':'a'});self.assertEqual(len(model.calls),1)
+   audio.write_bytes(b'changed')
+   trial.paragraph(model,audio,'one','off',out,configuration={'model':'a'});self.assertEqual(len(model.calls),2)
+   trial.paragraph(model,audio,'two','off',out,configuration={'model':'a'});self.assertEqual(len(model.calls),3)
+   trial.paragraph(model,audio,'two','off',out,configuration={'model':'b'});self.assertEqual(len(model.calls),4)
  def test_exact_helper_pin(self):
   import hashlib,subprocess
   original=subprocess.check_output(['git','show','f5b23de7795e73983edf55d922d0801d57d61287:app/tts/words_sidecar_lib.py'])

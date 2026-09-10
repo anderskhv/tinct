@@ -38,7 +38,12 @@ def attempt(model,audio,text,mode):
  if not aligned and expected:reasons.append('no_timed_words')
  return dict(asr_seconds=asr_seconds,alignment_seconds=time.monotonic()-alignment_start,request=kwargs,mode=mode,raw_segments=raw,heard_words=[dataclasses.asdict(w) for w in heard],expected_tokens=expected,opcodes=opcodes,provenance=provenance,unresolved_gaps=[o for o in opcodes if o[0]!='equal'],candidate_words=aligned,stats=dataclasses.asdict(stats),match_ratio=stats.match_ratio,rejection_reasons=reasons,seconds=time.monotonic()-started)
 
-def paragraph(model,audio,text,mode,out):
+def paragraph(model,audio,text,mode,out,configuration=None):
+ signature=hashlib.sha256(json.dumps(dict(audio=sha(audio),text=text,mode=mode,configuration=configuration,helper=sha(lib.__file__),runner=sha(__file__)),sort_keys=True).encode()).hexdigest()
+ if Path(out).exists():
+  cached=json.loads(Path(out).read_text())
+  if cached.get('complete') and cached.get('signature')==signature:
+   return next(a for a in cached['attempts'] if a['mode']==cached['selected_mode'])
  attempts=[];best=None
  for request_mode in (*lib.bias_cascade(mode),'off'):
   try:record=attempt(model,audio,text,request_mode)
@@ -48,6 +53,7 @@ def paragraph(model,audio,text,mode,out):
   if best is None or stats.matched_words>best['stats']['matched_words']:best=record
   write(out,dict(attempts=attempts,selected_mode=best['mode'],audio_sha256=sha(audio),selected_reasons=best['rejection_reasons']))
   if request_mode!='off' and not lib.should_retry_without_bias(stats):break
+ write(out,dict(complete=True,signature=signature,attempts=attempts,selected_mode=best['mode'],audio_sha256=sha(audio),selected_reasons=best['rejection_reasons']))
  return best
 
 def worker(args):
@@ -58,12 +64,13 @@ def worker(args):
  cohort=json.loads(args.input.read_text())
  for e in cohort:
   result=dict(key=e['key'],group=e['group'],status='pending',reasons=[],paragraphs=[])
-  for mode in ['off','auto']:
+  for mode in getattr(args,'arms',['off','auto']):
    directory=args.output/e['key']/mode;passed=[];expected=[];result=dict(key=e['key'],group=e['group'],mode=mode,status='running',reasons=[],paragraphs=[])
+   write(directory/'chapter.json',result)
    for r in e['paragraphs']:
     audio=args.input.parent/r['path']
     if sha(audio)!=r['sha256']:raise ValueError('audio changed: '+str(audio))
-    selected=paragraph(model,audio,r['text'],mode,directory/f"p{r['index']}.diagnostic.json")
+    selected=paragraph(model,audio,r['text'],mode,directory/f"p{r['index']}.diagnostic.json",configuration=dict(model=getattr(args,'model_sha256',None),device=getattr(args,'device','cuda'),compute=getattr(args,'compute_type','float16')))
     words=selected['candidate_words'];stats=selected['stats'];expected.append(selected['expected_tokens']);passed.append((r['index'],r['file'],words))
     reasons=list(selected['rejection_reasons'])
     if any(w['end']>r['duration']+.1 for w in words):reasons.append('timing_exceeds_decoded_audio')
@@ -72,15 +79,22 @@ def worker(args):
     write(directory/'chapter.json',result)
    book,edition,ch=e['key'].split('/')
    candidate=lib.build_sidecar(book,edition,int(ch[2:]),e['title'],passed)
-   valid,errors=lib.validate_sidecar(candidate,expected)
+   totals=dict(expectedWords=0,heardWords=0,matchedWords=0)
+   for entry in candidate['paragraphs']:
+    diagnostic=json.loads((directory/f"p{entry['paragraph']}.diagnostic.json").read_text())
+    selected=next(a for a in diagnostic['attempts'] if a['mode']==diagnostic['selected_mode']);stats=selected['stats']
+    entry['alignment']=dict(expectedWords=stats['expected_words'],heardWords=stats['heard_words'],matchedWords=stats['matched_words'],matchRatio=selected['match_ratio'],bias=selected['mode'])
+    for field in totals:totals[field]+=entry['alignment'][field]
+   candidate.update(model='small.en',language='en',alignment=dict(**totals,matchRatio=totals['matchedWords']/max(1,totals['expectedWords']),minimumParagraphRatio=GATE,bias=mode))
+   valid,errors=lib.validate_sidecar(candidate,expected,{r['index']:dict(file=r['file'],duration=r['duration']) for r in e['paragraphs']})
    result['validation_errors']=errors;result['status']='candidate_requires_acoustic_review' if valid and not result['reasons'] else 'rejected'
    write(directory/'words.candidate.json',candidate);write(directory/'chapter.json',result)
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--input',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--model-path',type=Path,required=True);p.add_argument('--model-sha256',required=True);p.add_argument('--max-seconds',type=int,default=3300);p.add_argument('--device',choices=['cpu','cuda'],default='cuda');p.add_argument('--compute-type',choices=['int8','float16'],default='float16');p.add_argument('--run',action='store_true');p.add_argument('--worker',action='store_true',help=argparse.SUPPRESS);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--input',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--model-path',type=Path,required=True);p.add_argument('--model-sha256',required=True);p.add_argument('--max-seconds',type=int,default=3300);p.add_argument('--arms',nargs='+',choices=['off','auto'],default=['off','auto']);p.add_argument('--device',choices=['cpu','cuda'],default='cuda');p.add_argument('--compute-type',choices=['int8','float16'],default='float16');p.add_argument('--run',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--worker',action='store_true',help=argparse.SUPPRESS);a=p.parse_args()
  if not 1<=a.max_seconds<=3300:p.error('process cap must be 1–3300 seconds')
  if not a.model_path.is_dir() or tree_hash(a.model_path)!=a.model_sha256:p.error('Pinned local model missing or hash mismatch')
- if a.output.exists() and any(a.output.iterdir()) and not a.worker:p.error('Use a fresh isolated output directory')
+ if a.output.exists() and any(a.output.iterdir()) and not a.worker and not a.resume:p.error('Use a fresh output directory or explicit --resume')
  entries=json.loads(a.input.read_text())
  for e in entries:
   if [r['index'] for r in e['paragraphs']]!=list(range(e['text_paragraph_count'])):p.error('Incomplete chapter map: '+e['key'])
