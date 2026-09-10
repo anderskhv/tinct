@@ -15,6 +15,10 @@
 .vscode/
 .idea/
 
+# Python bytecode from the books/characters builders and tests
+__pycache__/
+*.py[cod]
+
 # Dependencies
 node_modules/
 app/dist-*/
