@@ -211,12 +211,109 @@ and confirm on the fetched asset, not the uploaded file:
 Report live evidence back to the per-book `status.json` and the generated inventory
 only after those checks pass. Validated is not deployed.
 
+## Opus batch 2: the remaining Shakespeare
+
+Authored after the September 10 handoff, on branch `claude/tinct-character-content-1n5iqq`.
+With batch 1 this completes every Shakespeare play in the published registry. Grouped
+handoff to the release owner; queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| Coriolanus | 720ae6bc | 90 / 90 | build_coriolanus.py |
+| Cymbeline | ff47fcb8 | 81 / 80 | build_cymbeline.py |
+| Antony and Cleopatra | c0dc063c | 102 / 101 | build_antony_and_cleopatra.py |
+| Richard III | a1b54fd2 | 94 / 94 | build_richard_iii.py |
+| Henry IV Part 2 | 80517680 | 121 / 121 | build_henry_iv_part_2.py |
+| The Merry Wives of Windsor | PENDING | 47 / 47 | build_merry_wives_of_windsor.py |
+
+Supported editions and source fingerprints (sha256 of the raw JSON bytes at authoring):
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Coriolanus | d0381f3053901dbbf81876e9ef4ce8a4dd2829d40c50c3b199a959c5da8468da | cb7175962445184e3d28082130a5eee53b66dee497c1f92d9d516f512de8b488 |
+| Cymbeline | 5f25167f50db13c867e42eaa594a989b52651e122034987181c5065cfd919749 | 9fbacf6307e227a64ec6ccb4624a1afc4b41b890f045904eb2ca1276040580b0 |
+| Antony and Cleopatra | 1e768f7514f9746ced869799b520c0592a96165101c6a8be4f1f5347093a8a8b | 6cd4739c60b8cda93545514560503eca9bfeef36355dff9896a6a087bf4c2654 |
+| Richard III | 891ead74f6cbcfa6acd05afc92b3e7798c4aa2105a1e7011086e8b2853e3a449 | 30204ef16006235b5dfad0a5281469da176f220f6b89e97f071efb523ce56b6f |
+| Henry IV Part 2 | 5312386825366dc9945e915fa5474a680d89fcc2dbceb740f84288a4f5e2f38c | 5488605e212b451b6693e21690babd7690cb5f295a62ffac479519cb394cd203 |
+| The Merry Wives of Windsor | 4ee59167c634e42eb81ede9d58ec481aedf55931bfd5fd953b9c0713a2c6b280 | 9c5531e4d3ff43f4604e08517a3059460d3aee6f9f59fde3282fa61203f61010 |
+
+Each package's `validation-report.json` is the authoritative record; re-verify before enabling.
+
+Commands: `python3 books/characters/build_<id>.py --check` for each, then
+`python3 -m unittest discover -s books/characters -p 'test_*.py'`. Full content suite
+passes **434 tests** at the Merry Wives commit.
+
+Shared dependencies: `build_reviewed.py` for all six; `reviewed_aliases.py` for all but
+The Merry Wives of Windsor, which needs its own boundary rules (see below). No shared
+file was changed by this batch.
+
+### Release review points
+
+- **Coriolanus** — the central figure changes speech cue from MARTIUS to CORIOLANUS when
+  the army gives him the name. Review the three senses of the family name: Ancus Martius
+  the king, young Martius the son, and the house of the Martians, all in the Senate's
+  praise at 13:97, plus the Volscian's dead cousin Marcus at 29:45.
+- **Cymbeline** — review the single gate at 15:11 that releases Belarius, Guiderius and
+  Arviragus all at once, and the two Caesars of scene 13, where the bare name means
+  Julius in one line and Augustus in the next. Cloten's 13:8 is the one genuinely
+  uncertain case and is flagged in that README as a judgment.
+- **Antony and Cleopatra** — review the exact set of thirteen Julius Caesar mentions and
+  the four Pompey the Great mentions; everything else called Caesar or Pompey is the
+  living Octavius or Sextus.
+- **Richard III** — the heaviest namesake load in the canon. Five Edwards, four Richards,
+  four Yorks, three Georges, Plantagenet across five people. A test walks both source
+  files and fails if any occurrence of the five names is unbound.
+- **Henry IV Part 2** — two Bardolphs split by scene, two Harrys, five Johns, and one
+  KING cue in the original serving two reigns.
+- **The Merry Wives of Windsor** — four Pages, two Fords, and the deliberately unbound
+  surnames at 5:17.
+
+### Source defects, none blocking enablement
+
+| Book | Defect | Effect |
+|---|---|---|
+| Coriolanus | Italic underscores round "young Martius" at 26:28 and 26:32 in `original-en` | Bound with letter/digit boundaries so both editions cover the same three occurrences |
+| Coriolanus | Cue spelled `VOLSCE.` in the original and `VOLSCIAN.` in the modern; `Dian` vs `Diana` at 26:24 | Both forms carried as aliases |
+| Cymbeline | Truncated stage direction at 9:0, the bare fragment `in one corner.` in both editions | Loses the trunk from Imogen's bedchamber. Cosmetic; no binding affected |
+| Cymbeline | "Titan" (16:32) replaced by "the sun" in `modern-en` | Recorded as an `omittedEntities` entry for that edition |
+| Cymbeline | `Cæsar` / `Æneas` ligatures in the original only | Both forms carried as aliases |
+| Antony and Cleopatra | "Ladies" (1:2) absent from `modern-en` | Recorded as an `omittedEntities` entry |
+| Antony and Cleopatra | `Phœbus` ligature in the original only | Both forms carried as aliases |
+| Richard III | Modern uppercases stage-direction names, which would shift every occurrence index | Builder matches both cases; per-paragraph counts verified identical across the two files |
+| Richard III | Modern names the ghost twice at 23:51, and prints "Henry" where the original prints "Harry" | Tables allow for both |
+| Henry IV Part 2 | One `KING.` cue for two reigns in `original-en`; modern splits into `HENRY IV.` / `HENRY V.` | Builder assigns the original's cue by scene; a test checks both editions reach the two men equally often |
+| Henry IV Part 2 | `Rumour` / `Rumor` and `John a Gaunt` / `John of Gaunt` | Both forms carried as aliases |
+| The Merry Wives of Windsor | Gutenberg-style italic underscores and 23 abbreviated cues in `original-en` | Needs letter/digit boundaries, so this book does not use `reviewed_aliases.py` |
+| The Merry Wives of Windsor | Printed line numbers split "Anne Page" (1:18, 23:63) and "Mistress Page" (13:48) in `original-en` | Numbers deliberately not stripped — stripping moves every UTF-16 offset. The orphaned surnames are bound to the right person |
+| The Merry Wives of Windsor | `Actæon` ligature in the original only | Both forms carried as aliases |
+
+Any repair to these source bytes invalidates the recorded hashes and requires a
+restored-text review and a rebuild of the affected package.
+
+### Required production checks
+
+Register both English editions per book, version the immutable asset URL (bump the
+content revision in the request URL; do not reuse it), run the normal app gates and
+deploy, then open the production reader and confirm on the fetched asset:
+
+1. A first-encounter card in each edition per book.
+2. The gated later cards on each side of their boundary. Most important: Cymbeline 15:11,
+   where returning to any earlier passage must restore cards that do not mention the
+   stolen princes; and Coriolanus 9:11, where the earlier card must not use the name
+   Coriolanus.
+3. One namesake span per book — Coriolanus 13:97 "Ancus Martius"; Cymbeline 13:11
+   "Caesar"; Antony and Cleopatra 5:26 "Caesar"; Richard III 8:0's three "York" spans;
+   Henry IV Part 2 3:7 "Lord Bardolph"; Merry Wives 5:17, which must show no card.
+
+Report live evidence back to the per-book `status.json` and the generated inventory only
+after those checks pass. Validated is not deployed.
+
 ## Held separately
 
 The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source song-speaker labels around Ariel's songs are wrong in both editions. Release owner requested source repair review before enablement. See the-tempest/README.md. Regenerate bindings if any source bytes change.
 
 ## Verification and tracking
 
-Current complete content suite: 386 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 434 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
