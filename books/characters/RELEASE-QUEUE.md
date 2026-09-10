@@ -11,7 +11,7 @@ Updated September 10, 2026. This is a content-lane handoff to the existing relea
 
 These bundle names identify the verification releases, not necessarily the currently served bundle after later deployments.
 
-## Next approved batch: awaiting release-owner availability
+## Next approved batch: integration in progress
 
 | Book | Content commit | Original / modern entries | Builder |
 |---|---|---:|---|
@@ -71,12 +71,25 @@ All use build_reviewed.py; most also use reviewed_aliases.py. These are Referenc
 
 All use build_reviewed.py. Gilgamesh, Bacchae, Oedipus at Colonus and Oresteia also use reviewed_aliases.py. Review Gilgamesh's inherited Imini/Irnini and mother Ninazu wording issues before enablement; the source is unchanged. Heart of Darkness separates the two accountants, Company officials and Kurtz's visitors. Bacchae distinguishes the two messengers and the two groups of worshippers. Candide gates returned identities and excludes the false Cunegonde; A Little Princess separates the Paris-school lead from Sara and the doll, and gates Carrisford’s business connection to reader knowledge. This queue does not expand the active release owner's current batch.
 
+## Newly validated full-book packages
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| Beowulf | e98abb4c | 121 / 121 | build_beowulf.py |
+| Phaedo | 650626ed | 54 / 54 | build_phaedo.py |
+| Phaedrus | 27e825aa | 89 / 88 | build_phaedrus.py |
+| Symposium | 9a088916 | 93 / 91 | build_symposium.py |
+
+All use existing build_reviewed.py and reviewed_aliases.py; no new shared dependency changes. Beowulf distinguishes Scyld’s son from the central hero and documents inherited Hall genealogy/wording without editing sources. Phaedo distinguishes framing and prison participants and contextual staff roles. Phaedrus scopes Here/Hera and mythical versus Eleatic Palamedes. Symposium retains the local unnamed listener and identifies Glaucon solely as Charmides’s father. Read package READMEs for precise exclusions and production checks. Both edition hashes matched the shipping checkout at authoring.
+
+The release owner confirmed active integration of Crito, Apology, Manual and Art of War on September 10 and will drain the remaining validated queue without new approval requests. Authoring continues independently; this is not production verification.
+
 ## Held separately
 
 The Tempest, commit 523f30e3: 52 / 50 entries. Content is validated, but source song-speaker labels around Ariel's songs are wrong in both editions. Release owner requested source repair review before enablement. See the-tempest/README.md. Regenerate bindings if any source bytes change.
 
 ## Verification and tracking
 
-Current complete content suite: 180 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
+Current complete content suite: 211 passing tests via `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Each builder's `--check` verifies saved sidecar/report freshness. No paid generation APIs; source editions unchanged by these packages.
 
 Integrate only approved packages, register supported edition pairs explicitly, version the immutable asset URL, run normal app gates/deploy/production checks, then report live evidence back to update the authoritative per-book status.json and generated library inventory. Asset presence alone is not live coverage. Do not import the unreviewed candidate worksheets into runtime.
