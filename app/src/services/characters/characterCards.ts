@@ -13,7 +13,7 @@ export async function sha256(data: string | ArrayBuffer): Promise<string> {
   const bytes = typeof data === 'string' ? new TextEncoder().encode(data) : data
   return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), byte => byte.toString(16).padStart(2, '0')).join('')
 }
-const supportedEditions: Record<string, string[]> = { 'the-awakening': ['original-en', 'modern-en'], bible: ['kjv-en', 'web-en', 'modern-en'], hamlet: ['original-en', 'modern-en'] }
+const supportedEditions: Record<string, string[]> = { 'the-awakening': ['original-en', 'modern-en'], bible: ['kjv-en', 'web-en', 'modern-en'], hamlet: ['original-en', 'modern-en'], macbeth: ['original-en', 'modern-en'] }
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
   if (!supportedEditions[bookId]?.includes(editionKey) || asset.bookId !== bookId || asset.schemaVersion !== 1 || asset.language !== 'en' || asset.normalization !== 'prose-reader-v1' || asset.offsetUnit !== 'utf16') return null
   const edition = asset.editions?.[editionKey]
@@ -44,7 +44,7 @@ export function loadCharacters(bookId?: string, editionKey?: string): Promise<Ve
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${bookId === 'hamlet' ? '2026-09-10.1' : '2026-09-09.2'}`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
+      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${['hamlet', 'macbeth'].includes(bookId) ? '2026-09-10.1' : '2026-09-09.2'}`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
       if (!asset.ok || !source.ok) return null
       return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
     } catch { return null }

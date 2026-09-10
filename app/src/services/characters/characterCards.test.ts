@@ -132,3 +132,25 @@ describe.each(['original-en', 'modern-en'])('Hamlet runtime %s', key => {
     expect(father.every(m => m.characterId === 'king-hamlet')).toBe(true)
   })
 })
+
+describe.each(['original-en', 'modern-en'])('Macbeth runtime %s', key => {
+  it('verifies every mention and releases only passage-appropriate identity', async () => {
+    const asset = JSON.parse(readFileSync('public/data/characters/macbeth.v1.json', 'utf8'))
+    const raw = readFileSync(`public/data/editions/macbeth-${key}.json`)
+    const data = (await verifyCharacters(asset, 'macbeth', key, Uint8Array.from(raw).buffer))!
+    expect(data).not.toBeNull()
+    for (const m of data.edition.mentions) {
+      const text = data.paragraphs[m.chapterNumber][m.paragraphIndex]
+      expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, text)?.card.id).toBe(m.characterId)
+      expect(resolveCharacter(data, m.chapterNumber, m.paragraphIndex, m.startOffset, m.endOffset, text, true)).toBeNull()
+    }
+    for (const character of data.edition.characters) {
+      for (const snapshot of character.snapshots) {
+        const at = snapshot.availableAt
+        expect(releasedCard(data.edition, character.id, at)?.body).toBe(snapshot.body)
+        const earlier = character.snapshots.filter(s => comparePoint(s.availableAt, at) < 0).at(-1)
+        expect(releasedCard(data.edition, character.id, { ...at, offset: at.offset - 1 })?.body).toBe(earlier?.body)
+      }
+    }
+  })
+})
