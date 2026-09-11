@@ -40,7 +40,7 @@ Status key: `[ ]` not started · `[~]` in progress · `[x]` done and spot-checke
 - [ ] B12 — the-art-of-war, the-histories, peloponnesian-war
 - [ ] B13 — pride-and-prejudice, jane-eyre, frankenstein, great-expectations, moby-dick
 - [ ] B14 — the-awakening, heart-of-darkness, jekyll-and-hyde, a-little-princess, jungle-book, around-the-world-80-days
-- [ ] B15 — divine-comedy, paradise-lost, beowulf, faust-part-1
+- [x] B15 — divine-comedy, paradise-lost, beowulf, faust-part-1 — DONE. divine-comedy strongest (LIGHT EDIT, evenly modernized across all 100 cantos). **paradise-lost and beowulf both show a split-quality pattern: part of the book genuinely modernized, the rest barely touched** (PL Books 1-7 near-verbatim de-lineated Milton vs Books 8-12 real rewrite; Beowulf Fitts I-XXXII good vs XXXIII-XLIII archaic) — RETRANSLATE / LIGHT EDIT (partial re-run) respectively. **faust-part-1 BLOCKED: original-en is not the credited Bayard Taylor translation — it's a corrupt OCR prose crib missing the opening monologue, with untranslated German in 49/895 paragraphs; modern-en inherits all of it.** See per-book-notes/.
 - [ ] B16 — the-prince, beyond-good-and-evil, genealogy-of-morals, kant-groundwork, descartes-meditations
 - [ ] B17 — on-liberty, utilitarianism, social-contract, second-treatise, hume-enquiry, discourse-on-inequality, democracy-in-america
 - [ ] B18 — leviathan, wealth-of-nations, communist-manifesto, fear-and-trembling, confessions
