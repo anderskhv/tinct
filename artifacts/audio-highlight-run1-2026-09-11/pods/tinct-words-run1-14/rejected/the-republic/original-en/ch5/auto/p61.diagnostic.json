@@ -1,0 +1,4060 @@
+{
+  "complete": true,
+  "signature": "df61542b881ca4608529843134f3d108a18440219bc537402fdd91505ae5bc29",
+  "attempts": [
+    {
+      "asr_seconds": 0.34159937500953674,
+      "alignment_seconds": 0.0004057362675666809,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Well then, let us see if any way of escape can be found. We acknowledged—did we not? that different natures ought to have different pursuits, and that men's and women's natures are different. And now what are we saying?—that different natures ought to have the same pursuits,—this is the inconsistency which is charged upon us.",
+        "hotwords": "Well"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well then, let us see if any way of escape can be found. We acknowledged—did we not?—that different natures ought to have different pursuits, and that men's and women's natures are different.",
+          "start": 0.05,
+          "end": 10.77,
+          "words": [
+            {
+              "text": " Well",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " then,",
+              "start": 0.59,
+              "end": 0.87,
+              "probability": 0.286865234375
+            },
+            {
+              "text": " let",
+              "start": 0.97,
+              "end": 1.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " us",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " see",
+              "start": 1.27,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " if",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " any",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " way",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " escape",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.9921875
+            },
+            {
+              "text": " can",
+              "start": 2.51,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found.",
+              "start": 2.89,
+              "end": 3.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " We",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " acknowledged—did",
+              "start": 3.97,
+              "end": 4.97,
+              "probability": 0.6787312825520834
+            },
+            {
+              "text": " we",
+              "start": 4.97,
+              "end": 5.13,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 5.13,
+              "end": 5.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "?—that",
+              "start": 5.41,
+              "end": 6.07,
+              "probability": 0.765380859375
+            },
+            {
+              "text": " different",
+              "start": 6.07,
+              "end": 6.37,
+              "probability": 0.99609375
+            },
+            {
+              "text": " natures",
+              "start": 6.37,
+              "end": 6.75,
+              "probability": 0.916748046875
+            },
+            {
+              "text": " ought",
+              "start": 6.75,
+              "end": 7.03,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 7.03,
+              "end": 7.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 7.19,
+              "end": 7.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " different",
+              "start": 7.37,
+              "end": 7.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " pursuits,",
+              "start": 7.67,
+              "end": 8.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 8.49,
+              "end": 8.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 8.71,
+              "end": 8.85,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " men's",
+              "start": 8.85,
+              "end": 9.35,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " and",
+              "start": 9.35,
+              "end": 9.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " women's",
+              "start": 9.43,
+              "end": 9.85,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " natures",
+              "start": 9.85,
+              "end": 10.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 10.17,
+              "end": 10.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " different.",
+              "start": 10.45,
+              "end": 10.77,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " And now what are we saying?—that different natures ought to have the same pursuits—this is the inconsistency which is charged upon us.",
+          "start": 11.33,
+          "end": 19.15,
+          "words": [
+            {
+              "text": " And",
+              "start": 11.33,
+              "end": 11.55,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " now",
+              "start": 11.55,
+              "end": 11.75,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " what",
+              "start": 11.75,
+              "end": 11.93,
+              "probability": 0.78759765625
+            },
+            {
+              "text": " are",
+              "start": 11.93,
+              "end": 12.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " we",
+              "start": 12.03,
+              "end": 12.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " saying",
+              "start": 12.21,
+              "end": 12.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": "?—that",
+              "start": 12.51,
+              "end": 13.37,
+              "probability": 0.658050537109375
+            },
+            {
+              "text": " different",
+              "start": 13.37,
+              "end": 13.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " natures",
+              "start": 13.67,
+              "end": 14.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ought",
+              "start": 14.05,
+              "end": 14.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 14.29,
+              "end": 14.47,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 14.47,
+              "end": 14.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.63,
+              "end": 14.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 14.81,
+              "end": 15.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pursuits—this",
+              "start": 15.05,
+              "end": 16.35,
+              "probability": 0.67364501953125
+            },
+            {
+              "text": " is",
+              "start": 16.35,
+              "end": 16.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 16.55,
+              "end": 16.73,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " inconsistency",
+              "start": 16.73,
+              "end": 17.29,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " which",
+              "start": 17.29,
+              "end": 17.91,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " is",
+              "start": 17.91,
+              "end": 18.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " charged",
+              "start": 18.11,
+              "end": 18.47,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " upon",
+              "start": 18.47,
+              "end": 18.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us.",
+              "start": 18.83,
+              "end": 19.15,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "then,",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "raw": "let",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "raw": "us",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "see",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "raw": "if",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "any",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "way",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "escape",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "can",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "raw": "be",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "found.",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "raw": "We",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "acknowledged—did",
+          "start": 3.97,
+          "end": 4.97
+        },
+        {
+          "raw": "we",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "raw": "not",
+          "start": 5.13,
+          "end": 5.41
+        },
+        {
+          "raw": "?—that",
+          "start": 5.41,
+          "end": 6.07
+        },
+        {
+          "raw": "different",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "raw": "natures",
+          "start": 6.37,
+          "end": 6.75
+        },
+        {
+          "raw": "ought",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "raw": "to",
+          "start": 7.03,
+          "end": 7.19
+        },
+        {
+          "raw": "have",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "raw": "different",
+          "start": 7.37,
+          "end": 7.67
+        },
+        {
+          "raw": "pursuits,",
+          "start": 7.67,
+          "end": 8.09
+        },
+        {
+          "raw": "and",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "raw": "that",
+          "start": 8.71,
+          "end": 8.85
+        },
+        {
+          "raw": "men's",
+          "start": 8.85,
+          "end": 9.35
+        },
+        {
+          "raw": "and",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "raw": "women's",
+          "start": 9.43,
+          "end": 9.85
+        },
+        {
+          "raw": "natures",
+          "start": 9.85,
+          "end": 10.17
+        },
+        {
+          "raw": "are",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "raw": "different.",
+          "start": 10.45,
+          "end": 10.77
+        },
+        {
+          "raw": "And",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "raw": "now",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "raw": "what",
+          "start": 11.75,
+          "end": 11.93
+        },
+        {
+          "raw": "are",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "raw": "we",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "raw": "saying",
+          "start": 12.21,
+          "end": 12.51
+        },
+        {
+          "raw": "?—that",
+          "start": 12.51,
+          "end": 13.37
+        },
+        {
+          "raw": "different",
+          "start": 13.37,
+          "end": 13.67
+        },
+        {
+          "raw": "natures",
+          "start": 13.67,
+          "end": 14.05
+        },
+        {
+          "raw": "ought",
+          "start": 14.05,
+          "end": 14.29
+        },
+        {
+          "raw": "to",
+          "start": 14.29,
+          "end": 14.47
+        },
+        {
+          "raw": "have",
+          "start": 14.47,
+          "end": 14.63
+        },
+        {
+          "raw": "the",
+          "start": 14.63,
+          "end": 14.81
+        },
+        {
+          "raw": "same",
+          "start": 14.81,
+          "end": 15.05
+        },
+        {
+          "raw": "pursuits—this",
+          "start": 15.05,
+          "end": 16.35
+        },
+        {
+          "raw": "is",
+          "start": 16.35,
+          "end": 16.55
+        },
+        {
+          "raw": "the",
+          "start": 16.55,
+          "end": 16.73
+        },
+        {
+          "raw": "inconsistency",
+          "start": 16.73,
+          "end": 17.29
+        },
+        {
+          "raw": "which",
+          "start": 17.29,
+          "end": 17.91
+        },
+        {
+          "raw": "is",
+          "start": 17.91,
+          "end": 18.11
+        },
+        {
+          "raw": "charged",
+          "start": 18.11,
+          "end": 18.47
+        },
+        {
+          "raw": "upon",
+          "start": 18.47,
+          "end": 18.83
+        },
+        {
+          "raw": "us.",
+          "start": 18.83,
+          "end": 19.15
+        }
+      ],
+      "expected_tokens": [
+        "Well",
+        "then,",
+        "let",
+        "us",
+        "see",
+        "if",
+        "any",
+        "way",
+        "of",
+        "escape",
+        "can",
+        "be",
+        "found.",
+        "We",
+        "acknowledged—did",
+        "we",
+        "not?",
+        "that",
+        "different",
+        "natures",
+        "ought",
+        "to",
+        "have",
+        "different",
+        "pursuits,",
+        "and",
+        "that",
+        "men's",
+        "and",
+        "women's",
+        "natures",
+        "are",
+        "different.",
+        "And",
+        "now",
+        "what",
+        "are",
+        "we",
+        "saying?—that",
+        "different",
+        "natures",
+        "ought",
+        "to",
+        "have",
+        "the",
+        "same",
+        "pursuits,—this",
+        "is",
+        "the",
+        "inconsistency",
+        "which",
+        "is",
+        "charged",
+        "upon",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ],
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ],
+        [
+          "equal",
+          39,
+          55,
+          40,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          38,
+          39,
+          38,
+          40
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Well",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "then,",
+          "start": 0.59,
+          "end": 0.87
+        },
+        {
+          "text": "let",
+          "start": 0.97,
+          "end": 1.11
+        },
+        {
+          "text": "us",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "see",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "text": "if",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "any",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "way",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "escape",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "can",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "text": "be",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "found.",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "text": "We",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "acknowledged—did",
+          "start": 3.97,
+          "end": 4.97
+        },
+        {
+          "text": "we",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "text": "not?",
+          "start": 5.13,
+          "end": 5.41
+        },
+        {
+          "text": "that",
+          "start": 5.41,
+          "end": 6.07
+        },
+        {
+          "text": "different",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "text": "natures",
+          "start": 6.37,
+          "end": 6.75
+        },
+        {
+          "text": "ought",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "text": "to",
+          "start": 7.03,
+          "end": 7.19
+        },
+        {
+          "text": "have",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "text": "different",
+          "start": 7.37,
+          "end": 7.67
+        },
+        {
+          "text": "pursuits,",
+          "start": 7.67,
+          "end": 8.09
+        },
+        {
+          "text": "and",
+          "start": 8.49,
+          "end": 8.71
+        },
+        {
+          "text": "that",
+          "start": 8.71,
+          "end": 8.85
+        },
+        {
+          "text": "men's",
+          "start": 8.85,
+          "end": 9.35
+        },
+        {
+          "text": "and",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "text": "women's",
+          "start": 9.43,
+          "end": 9.85
+        },
+        {
+          "text": "natures",
+          "start": 9.85,
+          "end": 10.17
+        },
+        {
+          "text": "are",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "text": "different.",
+          "start": 10.45,
+          "end": 10.77
+        },
+        {
+          "text": "And",
+          "start": 11.33,
+          "end": 11.55
+        },
+        {
+          "text": "now",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "text": "what",
+          "start": 11.75,
+          "end": 11.93
+        },
+        {
+          "text": "are",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "text": "we",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "text": "saying?—that",
+          "start": 12.21,
+          "end": 12.79
+        },
+        {
+          "text": "different",
+          "start": 13.37,
+          "end": 13.67
+        },
+        {
+          "text": "natures",
+          "start": 13.67,
+          "end": 14.05
+        },
+        {
+          "text": "ought",
+          "start": 14.05,
+          "end": 14.29
+        },
+        {
+          "text": "to",
+          "start": 14.29,
+          "end": 14.47
+        },
+        {
+          "text": "have",
+          "start": 14.47,
+          "end": 14.63
+        },
+        {
+          "text": "the",
+          "start": 14.63,
+          "end": 14.81
+        },
+        {
+          "text": "same",
+          "start": 14.81,
+          "end": 15.05
+        },
+        {
+          "text": "pursuits,—this",
+          "start": 15.05,
+          "end": 16.35
+        },
+        {
+          "text": "is",
+          "start": 16.35,
+          "end": 16.55
+        },
+        {
+          "text": "the",
+          "start": 16.55,
+          "end": 16.73
+        },
+        {
+          "text": "inconsistency",
+          "start": 16.73,
+          "end": 17.29
+        },
+        {
+          "text": "which",
+          "start": 17.29,
+          "end": 17.91
+        },
+        {
+          "text": "is",
+          "start": 17.91,
+          "end": 18.11
+        },
+        {
+          "text": "charged",
+          "start": 18.11,
+          "end": 18.47
+        },
+        {
+          "text": "upon",
+          "start": 18.47,
+          "end": 18.83
+        },
+        {
+          "text": "us.",
+          "start": 18.83,
+          "end": 19.15
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 56,
+        "matched_words": 54
+      },
+      "match_ratio": 0.9818181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.34222543984651566
+    },
+    {
+      "asr_seconds": 0.3818478435277939,
+      "alignment_seconds": 0.0004071742296218872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Well"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Well, then let us see if any way of escape can be found",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " then",
+              "start": 0.75,
+              "end": 0.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " let",
+              "start": 0.87,
+              "end": 1.11,
+              "probability": 0.49267578125
+            },
+            {
+              "text": " us",
+              "start": 1.11,
+              "end": 1.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " see",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " if",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " any",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " way",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " escape",
+              "start": 2.17,
+              "end": 2.49,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " can",
+              "start": 2.49,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found",
+              "start": 2.89,
+              "end": 3.21,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " We acknowledged did we not that different natures ought to have different pursuits and that men's and women's natures are different",
+          "start": 3.21,
+          "end": 10.81,
+          "words": [
+            {
+              "text": " We",
+              "start": 3.21,
+              "end": 3.95,
+              "probability": 0.10858154296875
+            },
+            {
+              "text": " acknowledged",
+              "start": 3.95,
+              "end": 4.45,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " did",
+              "start": 4.45,
+              "end": 4.97,
+              "probability": 0.73583984375
+            },
+            {
+              "text": " we",
+              "start": 4.97,
+              "end": 5.13,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " not",
+              "start": 5.13,
+              "end": 5.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 5.43,
+              "end": 6.05,
+              "probability": 0.849609375
+            },
+            {
+              "text": " different",
+              "start": 6.05,
+              "end": 6.35,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " natures",
+              "start": 6.35,
+              "end": 6.75,
+              "probability": 0.956787109375
+            },
+            {
+              "text": " ought",
+              "start": 6.75,
+              "end": 7.03,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 7.03,
+              "end": 7.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 7.19,
+              "end": 7.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " different",
+              "start": 7.37,
+              "end": 7.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " pursuits",
+              "start": 7.69,
+              "end": 8.13,
+              "probability": 0.990234375
+            },
+            {
+              "text": " and",
+              "start": 8.13,
+              "end": 8.69,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " that",
+              "start": 8.69,
+              "end": 8.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " men's",
+              "start": 8.83,
+              "end": 9.35,
+              "probability": 0.900146484375
+            },
+            {
+              "text": " and",
+              "start": 9.35,
+              "end": 9.43,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " women's",
+              "start": 9.43,
+              "end": 9.87,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " natures",
+              "start": 9.87,
+              "end": 10.17,
+              "probability": 0.89453125
+            },
+            {
+              "text": " are",
+              "start": 10.17,
+              "end": 10.43,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " different",
+              "start": 10.43,
+              "end": 10.81,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " And now what are we saying that different natures ought to have the same pursuits? This is the inconsistency which is charged upon us",
+          "start": 10.81,
+          "end": 19.17,
+          "words": [
+            {
+              "text": " And",
+              "start": 10.81,
+              "end": 11.53,
+              "probability": 0.5478515625
+            },
+            {
+              "text": " now",
+              "start": 11.53,
+              "end": 11.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 11.77,
+              "end": 11.93,
+              "probability": 0.970703125
+            },
+            {
+              "text": " are",
+              "start": 11.93,
+              "end": 12.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " we",
+              "start": 12.03,
+              "end": 12.19,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " saying",
+              "start": 12.19,
+              "end": 12.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 12.57,
+              "end": 13.37,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " different",
+              "start": 13.37,
+              "end": 13.65,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " natures",
+              "start": 13.65,
+              "end": 14.03,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " ought",
+              "start": 14.03,
+              "end": 14.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 14.31,
+              "end": 14.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " have",
+              "start": 14.45,
+              "end": 14.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.63,
+              "end": 14.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " same",
+              "start": 14.79,
+              "end": 15.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pursuits?",
+              "start": 15.07,
+              "end": 15.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " This",
+              "start": 15.93,
+              "end": 16.37,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " is",
+              "start": 16.37,
+              "end": 16.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 16.53,
+              "end": 16.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " inconsistency",
+              "start": 16.73,
+              "end": 17.29,
+              "probability": 0.984375
+            },
+            {
+              "text": " which",
+              "start": 17.29,
+              "end": 17.91,
+              "probability": 0.50927734375
+            },
+            {
+              "text": " is",
+              "start": 17.91,
+              "end": 18.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " charged",
+              "start": 18.11,
+              "end": 18.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " upon",
+              "start": 18.47,
+              "end": 18.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " us",
+              "start": 18.83,
+              "end": 19.17,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "then",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "raw": "let",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "raw": "us",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "raw": "see",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "if",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "any",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "way",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "escape",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "raw": "can",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "raw": "be",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "found",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "raw": "We",
+          "start": 3.21,
+          "end": 3.95
+        },
+        {
+          "raw": "acknowledged",
+          "start": 3.95,
+          "end": 4.45
+        },
+        {
+          "raw": "did",
+          "start": 4.45,
+          "end": 4.97
+        },
+        {
+          "raw": "we",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "raw": "not",
+          "start": 5.13,
+          "end": 5.43
+        },
+        {
+          "raw": "that",
+          "start": 5.43,
+          "end": 6.05
+        },
+        {
+          "raw": "different",
+          "start": 6.05,
+          "end": 6.35
+        },
+        {
+          "raw": "natures",
+          "start": 6.35,
+          "end": 6.75
+        },
+        {
+          "raw": "ought",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "raw": "to",
+          "start": 7.03,
+          "end": 7.19
+        },
+        {
+          "raw": "have",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "raw": "different",
+          "start": 7.37,
+          "end": 7.69
+        },
+        {
+          "raw": "pursuits",
+          "start": 7.69,
+          "end": 8.13
+        },
+        {
+          "raw": "and",
+          "start": 8.13,
+          "end": 8.69
+        },
+        {
+          "raw": "that",
+          "start": 8.69,
+          "end": 8.83
+        },
+        {
+          "raw": "men's",
+          "start": 8.83,
+          "end": 9.35
+        },
+        {
+          "raw": "and",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "raw": "women's",
+          "start": 9.43,
+          "end": 9.87
+        },
+        {
+          "raw": "natures",
+          "start": 9.87,
+          "end": 10.17
+        },
+        {
+          "raw": "are",
+          "start": 10.17,
+          "end": 10.43
+        },
+        {
+          "raw": "different",
+          "start": 10.43,
+          "end": 10.81
+        },
+        {
+          "raw": "And",
+          "start": 10.81,
+          "end": 11.53
+        },
+        {
+          "raw": "now",
+          "start": 11.53,
+          "end": 11.77
+        },
+        {
+          "raw": "what",
+          "start": 11.77,
+          "end": 11.93
+        },
+        {
+          "raw": "are",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "raw": "we",
+          "start": 12.03,
+          "end": 12.19
+        },
+        {
+          "raw": "saying",
+          "start": 12.19,
+          "end": 12.57
+        },
+        {
+          "raw": "that",
+          "start": 12.57,
+          "end": 13.37
+        },
+        {
+          "raw": "different",
+          "start": 13.37,
+          "end": 13.65
+        },
+        {
+          "raw": "natures",
+          "start": 13.65,
+          "end": 14.03
+        },
+        {
+          "raw": "ought",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "raw": "to",
+          "start": 14.31,
+          "end": 14.45
+        },
+        {
+          "raw": "have",
+          "start": 14.45,
+          "end": 14.63
+        },
+        {
+          "raw": "the",
+          "start": 14.63,
+          "end": 14.79
+        },
+        {
+          "raw": "same",
+          "start": 14.79,
+          "end": 15.07
+        },
+        {
+          "raw": "pursuits?",
+          "start": 15.07,
+          "end": 15.59
+        },
+        {
+          "raw": "This",
+          "start": 15.93,
+          "end": 16.37
+        },
+        {
+          "raw": "is",
+          "start": 16.37,
+          "end": 16.53
+        },
+        {
+          "raw": "the",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "raw": "inconsistency",
+          "start": 16.73,
+          "end": 17.29
+        },
+        {
+          "raw": "which",
+          "start": 17.29,
+          "end": 17.91
+        },
+        {
+          "raw": "is",
+          "start": 17.91,
+          "end": 18.11
+        },
+        {
+          "raw": "charged",
+          "start": 18.11,
+          "end": 18.47
+        },
+        {
+          "raw": "upon",
+          "start": 18.47,
+          "end": 18.83
+        },
+        {
+          "raw": "us",
+          "start": 18.83,
+          "end": 19.17
+        }
+      ],
+      "expected_tokens": [
+        "Well",
+        "then,",
+        "let",
+        "us",
+        "see",
+        "if",
+        "any",
+        "way",
+        "of",
+        "escape",
+        "can",
+        "be",
+        "found.",
+        "We",
+        "acknowledged—did",
+        "we",
+        "not?",
+        "that",
+        "different",
+        "natures",
+        "ought",
+        "to",
+        "have",
+        "different",
+        "pursuits,",
+        "and",
+        "that",
+        "men's",
+        "and",
+        "women's",
+        "natures",
+        "are",
+        "different.",
+        "And",
+        "now",
+        "what",
+        "are",
+        "we",
+        "saying?—that",
+        "different",
+        "natures",
+        "ought",
+        "to",
+        "have",
+        "the",
+        "same",
+        "pursuits,—this",
+        "is",
+        "the",
+        "inconsistency",
+        "which",
+        "is",
+        "charged",
+        "upon",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          38,
+          16,
+          39
+        ],
+        [
+          "replace",
+          38,
+          39,
+          39,
+          41
+        ],
+        [
+          "equal",
+          39,
+          46,
+          41,
+          48
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          50
+        ],
+        [
+          "equal",
+          47,
+          55,
+          50,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "replace",
+          38,
+          39,
+          39,
+          41
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          50
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Well",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "then,",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "text": "let",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "text": "us",
+          "start": 1.11,
+          "end": 1.29
+        },
+        {
+          "text": "see",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "if",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "any",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "way",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "escape",
+          "start": 2.17,
+          "end": 2.49
+        },
+        {
+          "text": "can",
+          "start": 2.49,
+          "end": 2.75
+        },
+        {
+          "text": "be",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "found.",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "text": "We",
+          "start": 3.21,
+          "end": 3.95
+        },
+        {
+          "text": "acknowledged—did",
+          "start": 3.95,
+          "end": 4.46
+        },
+        {
+          "text": "we",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "text": "not?",
+          "start": 5.13,
+          "end": 5.43
+        },
+        {
+          "text": "that",
+          "start": 5.43,
+          "end": 6.05
+        },
+        {
+          "text": "different",
+          "start": 6.05,
+          "end": 6.35
+        },
+        {
+          "text": "natures",
+          "start": 6.35,
+          "end": 6.75
+        },
+        {
+          "text": "ought",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "text": "to",
+          "start": 7.03,
+          "end": 7.19
+        },
+        {
+          "text": "have",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "text": "different",
+          "start": 7.37,
+          "end": 7.69
+        },
+        {
+          "text": "pursuits,",
+          "start": 7.69,
+          "end": 8.13
+        },
+        {
+          "text": "and",
+          "start": 8.13,
+          "end": 8.69
+        },
+        {
+          "text": "that",
+          "start": 8.69,
+          "end": 8.83
+        },
+        {
+          "text": "men's",
+          "start": 8.83,
+          "end": 9.35
+        },
+        {
+          "text": "and",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "text": "women's",
+          "start": 9.43,
+          "end": 9.87
+        },
+        {
+          "text": "natures",
+          "start": 9.87,
+          "end": 10.17
+        },
+        {
+          "text": "are",
+          "start": 10.17,
+          "end": 10.43
+        },
+        {
+          "text": "different.",
+          "start": 10.43,
+          "end": 10.81
+        },
+        {
+          "text": "And",
+          "start": 10.81,
+          "end": 11.53
+        },
+        {
+          "text": "now",
+          "start": 11.53,
+          "end": 11.77
+        },
+        {
+          "text": "what",
+          "start": 11.77,
+          "end": 11.93
+        },
+        {
+          "text": "are",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "text": "we",
+          "start": 12.03,
+          "end": 12.19
+        },
+        {
+          "text": "saying?—that",
+          "start": 12.19,
+          "end": 12.78
+        },
+        {
+          "text": "different",
+          "start": 13.37,
+          "end": 13.65
+        },
+        {
+          "text": "natures",
+          "start": 13.65,
+          "end": 14.03
+        },
+        {
+          "text": "ought",
+          "start": 14.03,
+          "end": 14.31
+        },
+        {
+          "text": "to",
+          "start": 14.31,
+          "end": 14.45
+        },
+        {
+          "text": "have",
+          "start": 14.45,
+          "end": 14.63
+        },
+        {
+          "text": "the",
+          "start": 14.63,
+          "end": 14.79
+        },
+        {
+          "text": "same",
+          "start": 14.79,
+          "end": 15.07
+        },
+        {
+          "text": "pursuits,—this",
+          "start": 15.07,
+          "end": 15.72
+        },
+        {
+          "text": "is",
+          "start": 16.37,
+          "end": 16.53
+        },
+        {
+          "text": "the",
+          "start": 16.53,
+          "end": 16.73
+        },
+        {
+          "text": "inconsistency",
+          "start": 16.73,
+          "end": 17.29
+        },
+        {
+          "text": "which",
+          "start": 17.29,
+          "end": 17.91
+        },
+        {
+          "text": "is",
+          "start": 17.91,
+          "end": 18.11
+        },
+        {
+          "text": "charged",
+          "start": 18.11,
+          "end": 18.47
+        },
+        {
+          "text": "upon",
+          "start": 18.47,
+          "end": 18.83
+        },
+        {
+          "text": "us.",
+          "start": 18.83,
+          "end": 19.17
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 58,
+        "matched_words": 52
+      },
+      "match_ratio": 0.9454545454545454,
+      "rejection_reasons": [],
+      "seconds": 0.3824828192591667
+    },
+    {
+      "asr_seconds": 0.5292804315686226,
+      "alignment_seconds": 0.00036282092332839966,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Well, then, let us see if any way of escape can be found.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.7431640625
+            },
+            {
+              "text": " then,",
+              "start": 0.75,
+              "end": 0.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " let",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us",
+              "start": 1.11,
+              "end": 1.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " see",
+              "start": 1.27,
+              "end": 1.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " if",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " any",
+              "start": 1.65,
+              "end": 1.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " way",
+              "start": 1.85,
+              "end": 2.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 2.03,
+              "end": 2.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " escape",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " can",
+              "start": 2.51,
+              "end": 2.75,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 2.75,
+              "end": 2.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " found.",
+              "start": 2.89,
+              "end": 3.21,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " We acknowledged, did we not, that different natures ought to have different pursuits,",
+          "start": 3.79,
+          "end": 8.09,
+          "words": [
+            {
+              "text": " We",
+              "start": 3.79,
+              "end": 3.97,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " acknowledged,",
+              "start": 3.97,
+              "end": 4.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " did",
+              "start": 4.81,
+              "end": 4.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " we",
+              "start": 4.97,
+              "end": 5.13,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not,",
+              "start": 5.13,
+              "end": 5.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " that",
+              "start": 5.85,
+              "end": 6.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " different",
+              "start": 6.07,
+              "end": 6.37,
+              "probability": 0.994140625
+            },
+            {
+              "text": " natures",
+              "start": 6.37,
+              "end": 6.75,
+              "probability": 0.93359375
+            },
+            {
+              "text": " ought",
+              "start": 6.75,
+              "end": 7.03,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 7.03,
+              "end": 7.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 7.19,
+              "end": 7.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " different",
+              "start": 7.37,
+              "end": 7.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " pursuits,",
+              "start": 7.67,
+              "end": 8.09,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " and that men's and women's natures are different.",
+          "start": 8.55,
+          "end": 10.77,
+          "words": [
+            {
+              "text": " and",
+              "start": 8.55,
+              "end": 8.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 8.71,
+              "end": 8.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " men's",
+              "start": 8.83,
+              "end": 9.35,
+              "probability": 0.862060546875
+            },
+            {
+              "text": " and",
+              "start": 9.35,
+              "end": 9.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " women's",
+              "start": 9.43,
+              "end": 9.85,
+              "probability": 0.982666015625
+            },
+            {
+              "text": " natures",
+              "start": 9.85,
+              "end": 10.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " are",
+              "start": 10.17,
+              "end": 10.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " different.",
+              "start": 10.45,
+              "end": 10.77,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " And now what are we saying?",
+          "start": 11.35,
+          "end": 12.53,
+          "words": [
+            {
+              "text": " And",
+              "start": 11.35,
+              "end": 11.55,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " now",
+              "start": 11.55,
+              "end": 11.75,
+              "probability": 0.970703125
+            },
+            {
+              "text": " what",
+              "start": 11.75,
+              "end": 11.93,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " are",
+              "start": 11.93,
+              "end": 12.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " we",
+              "start": 12.03,
+              "end": 12.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " saying?",
+              "start": 12.21,
+              "end": 12.53,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " That different natures ought to have the same pursuits.",
+          "start": 13.19,
+          "end": 15.57,
+          "words": [
+            {
+              "text": " That",
+              "start": 13.19,
+              "end": 13.39,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " different",
+              "start": 13.39,
+              "end": 13.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " natures",
+              "start": 13.67,
+              "end": 14.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ought",
+              "start": 14.05,
+              "end": 14.31,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 14.31,
+              "end": 14.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 14.47,
+              "end": 14.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.63,
+              "end": 14.81,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 14.81,
+              "end": 15.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " pursuits.",
+              "start": 15.05,
+              "end": 15.57,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " This is the inconsistency which is charged upon us.",
+          "start": 15.57,
+          "end": 19.13,
+          "words": [
+            {
+              "text": " This",
+              "start": 15.57,
+              "end": 16.31,
+              "probability": 0.71826171875
+            },
+            {
+              "text": " is",
+              "start": 16.31,
+              "end": 16.55,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 16.55,
+              "end": 16.73,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " inconsistency",
+              "start": 16.73,
+              "end": 17.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " which",
+              "start": 17.29,
+              "end": 17.91,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " is",
+              "start": 17.91,
+              "end": 18.09,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " charged",
+              "start": 18.09,
+              "end": 18.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " upon",
+              "start": 18.47,
+              "end": 18.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " us.",
+              "start": 18.83,
+              "end": 19.13,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "then,",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "raw": "let",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "us",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "raw": "see",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "raw": "if",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "any",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "raw": "way",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "raw": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "raw": "escape",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "can",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "raw": "be",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "raw": "found.",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "raw": "We",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "raw": "acknowledged,",
+          "start": 3.97,
+          "end": 4.43
+        },
+        {
+          "raw": "did",
+          "start": 4.81,
+          "end": 4.97
+        },
+        {
+          "raw": "we",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "raw": "not,",
+          "start": 5.13,
+          "end": 5.41
+        },
+        {
+          "raw": "that",
+          "start": 5.85,
+          "end": 6.07
+        },
+        {
+          "raw": "different",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "raw": "natures",
+          "start": 6.37,
+          "end": 6.75
+        },
+        {
+          "raw": "ought",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "raw": "to",
+          "start": 7.03,
+          "end": 7.19
+        },
+        {
+          "raw": "have",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "raw": "different",
+          "start": 7.37,
+          "end": 7.67
+        },
+        {
+          "raw": "pursuits,",
+          "start": 7.67,
+          "end": 8.09
+        },
+        {
+          "raw": "and",
+          "start": 8.55,
+          "end": 8.71
+        },
+        {
+          "raw": "that",
+          "start": 8.71,
+          "end": 8.83
+        },
+        {
+          "raw": "men's",
+          "start": 8.83,
+          "end": 9.35
+        },
+        {
+          "raw": "and",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "raw": "women's",
+          "start": 9.43,
+          "end": 9.85
+        },
+        {
+          "raw": "natures",
+          "start": 9.85,
+          "end": 10.17
+        },
+        {
+          "raw": "are",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "raw": "different.",
+          "start": 10.45,
+          "end": 10.77
+        },
+        {
+          "raw": "And",
+          "start": 11.35,
+          "end": 11.55
+        },
+        {
+          "raw": "now",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "raw": "what",
+          "start": 11.75,
+          "end": 11.93
+        },
+        {
+          "raw": "are",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "raw": "we",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "raw": "saying?",
+          "start": 12.21,
+          "end": 12.53
+        },
+        {
+          "raw": "That",
+          "start": 13.19,
+          "end": 13.39
+        },
+        {
+          "raw": "different",
+          "start": 13.39,
+          "end": 13.67
+        },
+        {
+          "raw": "natures",
+          "start": 13.67,
+          "end": 14.05
+        },
+        {
+          "raw": "ought",
+          "start": 14.05,
+          "end": 14.31
+        },
+        {
+          "raw": "to",
+          "start": 14.31,
+          "end": 14.47
+        },
+        {
+          "raw": "have",
+          "start": 14.47,
+          "end": 14.63
+        },
+        {
+          "raw": "the",
+          "start": 14.63,
+          "end": 14.81
+        },
+        {
+          "raw": "same",
+          "start": 14.81,
+          "end": 15.05
+        },
+        {
+          "raw": "pursuits.",
+          "start": 15.05,
+          "end": 15.57
+        },
+        {
+          "raw": "This",
+          "start": 15.57,
+          "end": 16.31
+        },
+        {
+          "raw": "is",
+          "start": 16.31,
+          "end": 16.55
+        },
+        {
+          "raw": "the",
+          "start": 16.55,
+          "end": 16.73
+        },
+        {
+          "raw": "inconsistency",
+          "start": 16.73,
+          "end": 17.29
+        },
+        {
+          "raw": "which",
+          "start": 17.29,
+          "end": 17.91
+        },
+        {
+          "raw": "is",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "raw": "charged",
+          "start": 18.09,
+          "end": 18.47
+        },
+        {
+          "raw": "upon",
+          "start": 18.47,
+          "end": 18.83
+        },
+        {
+          "raw": "us.",
+          "start": 18.83,
+          "end": 19.13
+        }
+      ],
+      "expected_tokens": [
+        "Well",
+        "then,",
+        "let",
+        "us",
+        "see",
+        "if",
+        "any",
+        "way",
+        "of",
+        "escape",
+        "can",
+        "be",
+        "found.",
+        "We",
+        "acknowledged—did",
+        "we",
+        "not?",
+        "that",
+        "different",
+        "natures",
+        "ought",
+        "to",
+        "have",
+        "different",
+        "pursuits,",
+        "and",
+        "that",
+        "men's",
+        "and",
+        "women's",
+        "natures",
+        "are",
+        "different.",
+        "And",
+        "now",
+        "what",
+        "are",
+        "we",
+        "saying?—that",
+        "different",
+        "natures",
+        "ought",
+        "to",
+        "have",
+        "the",
+        "same",
+        "pursuits,—this",
+        "is",
+        "the",
+        "inconsistency",
+        "which",
+        "is",
+        "charged",
+        "upon",
+        "us."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          38,
+          16,
+          39
+        ],
+        [
+          "replace",
+          38,
+          39,
+          39,
+          41
+        ],
+        [
+          "equal",
+          39,
+          46,
+          41,
+          48
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          50
+        ],
+        [
+          "equal",
+          47,
+          55,
+          50,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "replace",
+          38,
+          39,
+          39,
+          41
+        ],
+        [
+          "replace",
+          46,
+          47,
+          48,
+          50
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Well",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "then,",
+          "start": 0.75,
+          "end": 0.87
+        },
+        {
+          "text": "let",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "us",
+          "start": 1.11,
+          "end": 1.27
+        },
+        {
+          "text": "see",
+          "start": 1.27,
+          "end": 1.47
+        },
+        {
+          "text": "if",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "any",
+          "start": 1.65,
+          "end": 1.85
+        },
+        {
+          "text": "way",
+          "start": 1.85,
+          "end": 2.03
+        },
+        {
+          "text": "of",
+          "start": 2.03,
+          "end": 2.17
+        },
+        {
+          "text": "escape",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "can",
+          "start": 2.51,
+          "end": 2.75
+        },
+        {
+          "text": "be",
+          "start": 2.75,
+          "end": 2.89
+        },
+        {
+          "text": "found.",
+          "start": 2.89,
+          "end": 3.21
+        },
+        {
+          "text": "We",
+          "start": 3.79,
+          "end": 3.97
+        },
+        {
+          "text": "acknowledged—did",
+          "start": 3.97,
+          "end": 4.47
+        },
+        {
+          "text": "we",
+          "start": 4.97,
+          "end": 5.13
+        },
+        {
+          "text": "not?",
+          "start": 5.13,
+          "end": 5.41
+        },
+        {
+          "text": "that",
+          "start": 5.85,
+          "end": 6.07
+        },
+        {
+          "text": "different",
+          "start": 6.07,
+          "end": 6.37
+        },
+        {
+          "text": "natures",
+          "start": 6.37,
+          "end": 6.75
+        },
+        {
+          "text": "ought",
+          "start": 6.75,
+          "end": 7.03
+        },
+        {
+          "text": "to",
+          "start": 7.03,
+          "end": 7.19
+        },
+        {
+          "text": "have",
+          "start": 7.19,
+          "end": 7.37
+        },
+        {
+          "text": "different",
+          "start": 7.37,
+          "end": 7.67
+        },
+        {
+          "text": "pursuits,",
+          "start": 7.67,
+          "end": 8.09
+        },
+        {
+          "text": "and",
+          "start": 8.55,
+          "end": 8.71
+        },
+        {
+          "text": "that",
+          "start": 8.71,
+          "end": 8.83
+        },
+        {
+          "text": "men's",
+          "start": 8.83,
+          "end": 9.35
+        },
+        {
+          "text": "and",
+          "start": 9.35,
+          "end": 9.43
+        },
+        {
+          "text": "women's",
+          "start": 9.43,
+          "end": 9.85
+        },
+        {
+          "text": "natures",
+          "start": 9.85,
+          "end": 10.17
+        },
+        {
+          "text": "are",
+          "start": 10.17,
+          "end": 10.45
+        },
+        {
+          "text": "different.",
+          "start": 10.45,
+          "end": 10.77
+        },
+        {
+          "text": "And",
+          "start": 11.35,
+          "end": 11.55
+        },
+        {
+          "text": "now",
+          "start": 11.55,
+          "end": 11.75
+        },
+        {
+          "text": "what",
+          "start": 11.75,
+          "end": 11.93
+        },
+        {
+          "text": "are",
+          "start": 11.93,
+          "end": 12.03
+        },
+        {
+          "text": "we",
+          "start": 12.03,
+          "end": 12.21
+        },
+        {
+          "text": "saying?—that",
+          "start": 12.21,
+          "end": 12.8
+        },
+        {
+          "text": "different",
+          "start": 13.39,
+          "end": 13.67
+        },
+        {
+          "text": "natures",
+          "start": 13.67,
+          "end": 14.05
+        },
+        {
+          "text": "ought",
+          "start": 14.05,
+          "end": 14.31
+        },
+        {
+          "text": "to",
+          "start": 14.31,
+          "end": 14.47
+        },
+        {
+          "text": "have",
+          "start": 14.47,
+          "end": 14.63
+        },
+        {
+          "text": "the",
+          "start": 14.63,
+          "end": 14.81
+        },
+        {
+          "text": "same",
+          "start": 14.81,
+          "end": 15.05
+        },
+        {
+          "text": "pursuits,—this",
+          "start": 15.05,
+          "end": 15.68
+        },
+        {
+          "text": "is",
+          "start": 16.31,
+          "end": 16.55
+        },
+        {
+          "text": "the",
+          "start": 16.55,
+          "end": 16.73
+        },
+        {
+          "text": "inconsistency",
+          "start": 16.73,
+          "end": 17.29
+        },
+        {
+          "text": "which",
+          "start": 17.29,
+          "end": 17.91
+        },
+        {
+          "text": "is",
+          "start": 17.91,
+          "end": 18.09
+        },
+        {
+          "text": "charged",
+          "start": 18.09,
+          "end": 18.47
+        },
+        {
+          "text": "upon",
+          "start": 18.47,
+          "end": 18.83
+        },
+        {
+          "text": "us.",
+          "start": 18.83,
+          "end": 19.13
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 58,
+        "matched_words": 52
+      },
+      "match_ratio": 0.9454545454545454,
+      "rejection_reasons": [],
+      "seconds": 0.5298257321119308
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "042164c2ba100c922ec33e40baf13b27a41e9dce1ab197b1f1476ad035bd8f81",
+  "selected_reasons": []
+}

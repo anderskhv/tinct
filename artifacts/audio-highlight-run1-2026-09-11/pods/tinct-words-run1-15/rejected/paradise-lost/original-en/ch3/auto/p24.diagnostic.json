@@ -1,0 +1,2623 @@
+{
+  "complete": true,
+  "signature": "3858ac99e1b81838ae9ec81d292e25f8faef4c9780d8924e5d3a0daf394874f5",
+  "attempts": [
+    {
+      "asr_seconds": 0.38821641355752945,
+      "alignment_seconds": 0.0002930834889411926,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "This my long sufferance, and my day of grace, They who neglect and scorn, shall never taste; But hard be harden'd, blind be blinded more, That they may stumble on, and deeper fall; And none but such from mercy I exclude.",
+        "hotwords": "This, That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " This, That, I This my long sufferance, and my day of grace,",
+          "start": 0.02,
+          "end": 14.6,
+          "words": [
+            {
+              "text": " This,",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " That,",
+              "start": 1.52,
+              "end": 1.54,
+              "probability": 5.960464477539062e-07
+            },
+            {
+              "text": " I",
+              "start": 1.56,
+              "end": 9.52,
+              "probability": 0.0067138671875
+            },
+            {
+              "text": " This",
+              "start": 9.52,
+              "end": 14.6,
+              "probability": 3.844499588012695e-05
+            },
+            {
+              "text": " my",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.29833984375
+            },
+            {
+              "text": " long",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " sufferance,",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.6767578125
+            },
+            {
+              "text": " and",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.4755859375
+            },
+            {
+              "text": " my",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " day",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " of",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " grace,",
+              "start": 14.6,
+              "end": 14.6,
+              "probability": 0.9111328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This,",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "That,",
+          "start": 1.52,
+          "end": 1.54
+        },
+        {
+          "raw": "I",
+          "start": 1.56,
+          "end": 9.52
+        },
+        {
+          "raw": "This",
+          "start": 9.52,
+          "end": 14.6
+        },
+        {
+          "raw": "my",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "raw": "long",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "raw": "sufferance,",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "raw": "and",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "raw": "my",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "raw": "day",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "raw": "of",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "raw": "grace,",
+          "start": 14.6,
+          "end": 14.6
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "my",
+        "long",
+        "sufferance,",
+        "and",
+        "my",
+        "day",
+        "of",
+        "grace,",
+        "They",
+        "who",
+        "neglect",
+        "and",
+        "scorn,",
+        "shall",
+        "never",
+        "taste;",
+        "But",
+        "hard",
+        "be",
+        "harden'd,",
+        "blind",
+        "be",
+        "blinded",
+        "more,",
+        "That",
+        "they",
+        "may",
+        "stumble",
+        "on,",
+        "and",
+        "deeper",
+        "fall;",
+        "And",
+        "none",
+        "but",
+        "such",
+        "from",
+        "mercy",
+        "I",
+        "exclude."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "equal",
+          0,
+          9,
+          3,
+          12
+        ],
+        [
+          "delete",
+          9,
+          41,
+          12,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          3
+        ],
+        [
+          "delete",
+          9,
+          41,
+          12,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 9.52,
+          "end": 14.6
+        },
+        {
+          "text": "my",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "long",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "sufferance,",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "and",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "my",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "day",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "of",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "grace,",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "They",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "who",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "neglect",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "and",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "scorn,",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "shall",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "never",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "taste;",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "But",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "hard",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "be",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "harden'd,",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "blind",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "be",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "blinded",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "more,",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "That",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "they",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "may",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "stumble",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "on,",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "and",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "deeper",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "fall;",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "And",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "none",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "but",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "such",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "from",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "mercy",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "I",
+          "start": 14.6,
+          "end": 14.6
+        },
+        {
+          "text": "exclude.",
+          "start": 14.6,
+          "end": 14.6
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 12,
+        "matched_words": 9
+      },
+      "match_ratio": 0.21951219512195122,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.3885815814137459
+    },
+    {
+      "asr_seconds": 0.3280967250466347,
+      "alignment_seconds": 0.00025784969329833984,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "This, That, I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " This my long sufferance and my day of grace they who neglect and scorn shall never taste",
+          "start": 0.02,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.87109375
+            },
+            {
+              "text": " my",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " long",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sufferance",
+              "start": 1.04,
+              "end": 1.64,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.60693359375
+            },
+            {
+              "text": " my",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " day",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " of",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " grace",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.9765625
+            },
+            {
+              "text": " they",
+              "start": 2.9,
+              "end": 3.4,
+              "probability": 0.426513671875
+            },
+            {
+              "text": " who",
+              "start": 3.4,
+              "end": 3.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " neglect",
+              "start": 3.58,
+              "end": 3.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 3.98,
+              "end": 4.3,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " scorn",
+              "start": 4.3,
+              "end": 4.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " shall",
+              "start": 4.72,
+              "end": 5.0,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " never",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " taste",
+              "start": 5.26,
+              "end": 5.7,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " But hard be hardened blind be blinded more that they may stumble on and deeper fall and none but such from mercy I exclude",
+          "start": 5.7,
+          "end": 13.86,
+          "words": [
+            {
+              "text": " But",
+              "start": 5.7,
+              "end": 6.42,
+              "probability": 0.51171875
+            },
+            {
+              "text": " hard",
+              "start": 6.42,
+              "end": 6.66,
+              "probability": 0.9375
+            },
+            {
+              "text": " be",
+              "start": 6.66,
+              "end": 6.82,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " hardened",
+              "start": 6.82,
+              "end": 7.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " blind",
+              "start": 7.32,
+              "end": 7.86,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " be",
+              "start": 7.86,
+              "end": 8.14,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " blinded",
+              "start": 8.14,
+              "end": 8.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 8.52,
+              "end": 8.9,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 8.9,
+              "end": 9.36,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " they",
+              "start": 9.36,
+              "end": 9.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " may",
+              "start": 9.52,
+              "end": 9.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stumble",
+              "start": 9.7,
+              "end": 10.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 10.04,
+              "end": 10.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 10.44,
+              "end": 10.68,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " deeper",
+              "start": 10.68,
+              "end": 10.96,
+              "probability": 0.984375
+            },
+            {
+              "text": " fall",
+              "start": 10.96,
+              "end": 11.36,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " and",
+              "start": 11.36,
+              "end": 12.04,
+              "probability": 0.798828125
+            },
+            {
+              "text": " none",
+              "start": 12.04,
+              "end": 12.22,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " but",
+              "start": 12.22,
+              "end": 12.38,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " such",
+              "start": 12.38,
+              "end": 12.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 12.58,
+              "end": 12.8,
+              "probability": 0.98046875
+            },
+            {
+              "text": " mercy",
+              "start": 12.8,
+              "end": 13.16,
+              "probability": 0.830078125
+            },
+            {
+              "text": " I",
+              "start": 13.16,
+              "end": 13.4,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " exclude",
+              "start": 13.4,
+              "end": 13.86,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "my",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "long",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "sufferance",
+          "start": 1.04,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "my",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "day",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "grace",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "they",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "raw": "who",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "raw": "neglect",
+          "start": 3.58,
+          "end": 3.98
+        },
+        {
+          "raw": "and",
+          "start": 3.98,
+          "end": 4.3
+        },
+        {
+          "raw": "scorn",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "raw": "shall",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "raw": "never",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "taste",
+          "start": 5.26,
+          "end": 5.7
+        },
+        {
+          "raw": "But",
+          "start": 5.7,
+          "end": 6.42
+        },
+        {
+          "raw": "hard",
+          "start": 6.42,
+          "end": 6.66
+        },
+        {
+          "raw": "be",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "raw": "hardened",
+          "start": 6.82,
+          "end": 7.32
+        },
+        {
+          "raw": "blind",
+          "start": 7.32,
+          "end": 7.86
+        },
+        {
+          "raw": "be",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "raw": "blinded",
+          "start": 8.14,
+          "end": 8.52
+        },
+        {
+          "raw": "more",
+          "start": 8.52,
+          "end": 8.9
+        },
+        {
+          "raw": "that",
+          "start": 8.9,
+          "end": 9.36
+        },
+        {
+          "raw": "they",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "raw": "may",
+          "start": 9.52,
+          "end": 9.7
+        },
+        {
+          "raw": "stumble",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "raw": "on",
+          "start": 10.04,
+          "end": 10.44
+        },
+        {
+          "raw": "and",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "raw": "deeper",
+          "start": 10.68,
+          "end": 10.96
+        },
+        {
+          "raw": "fall",
+          "start": 10.96,
+          "end": 11.36
+        },
+        {
+          "raw": "and",
+          "start": 11.36,
+          "end": 12.04
+        },
+        {
+          "raw": "none",
+          "start": 12.04,
+          "end": 12.22
+        },
+        {
+          "raw": "but",
+          "start": 12.22,
+          "end": 12.38
+        },
+        {
+          "raw": "such",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "raw": "from",
+          "start": 12.58,
+          "end": 12.8
+        },
+        {
+          "raw": "mercy",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "raw": "I",
+          "start": 13.16,
+          "end": 13.4
+        },
+        {
+          "raw": "exclude",
+          "start": 13.4,
+          "end": 13.86
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "my",
+        "long",
+        "sufferance,",
+        "and",
+        "my",
+        "day",
+        "of",
+        "grace,",
+        "They",
+        "who",
+        "neglect",
+        "and",
+        "scorn,",
+        "shall",
+        "never",
+        "taste;",
+        "But",
+        "hard",
+        "be",
+        "harden'd,",
+        "blind",
+        "be",
+        "blinded",
+        "more,",
+        "That",
+        "they",
+        "may",
+        "stumble",
+        "on,",
+        "and",
+        "deeper",
+        "fall;",
+        "And",
+        "none",
+        "but",
+        "such",
+        "from",
+        "mercy",
+        "I",
+        "exclude."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          41,
+          21,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "my",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "long",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "sufferance,",
+          "start": 1.04,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "my",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "day",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "of",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "grace,",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "They",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "text": "who",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "text": "neglect",
+          "start": 3.58,
+          "end": 3.98
+        },
+        {
+          "text": "and",
+          "start": 3.98,
+          "end": 4.3
+        },
+        {
+          "text": "scorn,",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "text": "shall",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "text": "never",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "text": "taste;",
+          "start": 5.26,
+          "end": 5.7
+        },
+        {
+          "text": "But",
+          "start": 5.7,
+          "end": 6.42
+        },
+        {
+          "text": "hard",
+          "start": 6.42,
+          "end": 6.66
+        },
+        {
+          "text": "be",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "text": "harden'd,",
+          "start": 6.82,
+          "end": 7.07
+        },
+        {
+          "text": "blind",
+          "start": 7.32,
+          "end": 7.86
+        },
+        {
+          "text": "be",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "text": "blinded",
+          "start": 8.14,
+          "end": 8.52
+        },
+        {
+          "text": "more,",
+          "start": 8.52,
+          "end": 8.9
+        },
+        {
+          "text": "That",
+          "start": 8.9,
+          "end": 9.36
+        },
+        {
+          "text": "they",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "text": "may",
+          "start": 9.52,
+          "end": 9.7
+        },
+        {
+          "text": "stumble",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "text": "on,",
+          "start": 10.04,
+          "end": 10.44
+        },
+        {
+          "text": "and",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "text": "deeper",
+          "start": 10.68,
+          "end": 10.96
+        },
+        {
+          "text": "fall;",
+          "start": 10.96,
+          "end": 11.36
+        },
+        {
+          "text": "And",
+          "start": 11.36,
+          "end": 12.04
+        },
+        {
+          "text": "none",
+          "start": 12.04,
+          "end": 12.22
+        },
+        {
+          "text": "but",
+          "start": 12.22,
+          "end": 12.38
+        },
+        {
+          "text": "such",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "text": "from",
+          "start": 12.58,
+          "end": 12.8
+        },
+        {
+          "text": "mercy",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "text": "I",
+          "start": 13.16,
+          "end": 13.4
+        },
+        {
+          "text": "exclude.",
+          "start": 13.4,
+          "end": 13.86
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.32847170531749725
+    },
+    {
+      "asr_seconds": 0.297651968896389,
+      "alignment_seconds": 0.00022887438535690308,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " This my long sufferance and my day of grace they who neglect and scorn shall never taste",
+          "start": 0.02,
+          "end": 5.7,
+          "words": [
+            {
+              "text": " This",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.87109375
+            },
+            {
+              "text": " my",
+              "start": 0.52,
+              "end": 0.72,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " long",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " sufferance",
+              "start": 1.04,
+              "end": 1.64,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " and",
+              "start": 1.64,
+              "end": 2.0,
+              "probability": 0.60693359375
+            },
+            {
+              "text": " my",
+              "start": 2.0,
+              "end": 2.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " day",
+              "start": 2.2,
+              "end": 2.38,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " of",
+              "start": 2.38,
+              "end": 2.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " grace",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.9765625
+            },
+            {
+              "text": " they",
+              "start": 2.9,
+              "end": 3.4,
+              "probability": 0.426513671875
+            },
+            {
+              "text": " who",
+              "start": 3.4,
+              "end": 3.58,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " neglect",
+              "start": 3.58,
+              "end": 3.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 3.98,
+              "end": 4.3,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " scorn",
+              "start": 4.3,
+              "end": 4.72,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " shall",
+              "start": 4.72,
+              "end": 5.0,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " never",
+              "start": 5.0,
+              "end": 5.26,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " taste",
+              "start": 5.26,
+              "end": 5.7,
+              "probability": 0.986328125
+            }
+          ]
+        },
+        {
+          "text": " But hard be hardened blind be blinded more that they may stumble on and deeper fall and none but such from mercy I exclude",
+          "start": 5.7,
+          "end": 13.86,
+          "words": [
+            {
+              "text": " But",
+              "start": 5.7,
+              "end": 6.42,
+              "probability": 0.51171875
+            },
+            {
+              "text": " hard",
+              "start": 6.42,
+              "end": 6.66,
+              "probability": 0.9375
+            },
+            {
+              "text": " be",
+              "start": 6.66,
+              "end": 6.82,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " hardened",
+              "start": 6.82,
+              "end": 7.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " blind",
+              "start": 7.32,
+              "end": 7.86,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " be",
+              "start": 7.86,
+              "end": 8.14,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " blinded",
+              "start": 8.14,
+              "end": 8.52,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " more",
+              "start": 8.52,
+              "end": 8.9,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " that",
+              "start": 8.9,
+              "end": 9.36,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " they",
+              "start": 9.36,
+              "end": 9.52,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " may",
+              "start": 9.52,
+              "end": 9.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " stumble",
+              "start": 9.7,
+              "end": 10.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 10.04,
+              "end": 10.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 10.44,
+              "end": 10.68,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " deeper",
+              "start": 10.68,
+              "end": 10.96,
+              "probability": 0.984375
+            },
+            {
+              "text": " fall",
+              "start": 10.96,
+              "end": 11.36,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " and",
+              "start": 11.36,
+              "end": 12.04,
+              "probability": 0.798828125
+            },
+            {
+              "text": " none",
+              "start": 12.04,
+              "end": 12.22,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " but",
+              "start": 12.22,
+              "end": 12.38,
+              "probability": 0.54736328125
+            },
+            {
+              "text": " such",
+              "start": 12.38,
+              "end": 12.58,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 12.58,
+              "end": 12.8,
+              "probability": 0.98046875
+            },
+            {
+              "text": " mercy",
+              "start": 12.8,
+              "end": 13.16,
+              "probability": 0.830078125
+            },
+            {
+              "text": " I",
+              "start": 13.16,
+              "end": 13.4,
+              "probability": 0.79248046875
+            },
+            {
+              "text": " exclude",
+              "start": 13.4,
+              "end": 13.86,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "This",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "my",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "raw": "long",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "sufferance",
+          "start": 1.04,
+          "end": 1.64
+        },
+        {
+          "raw": "and",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "raw": "my",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "raw": "day",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "raw": "of",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "raw": "grace",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "they",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "raw": "who",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "raw": "neglect",
+          "start": 3.58,
+          "end": 3.98
+        },
+        {
+          "raw": "and",
+          "start": 3.98,
+          "end": 4.3
+        },
+        {
+          "raw": "scorn",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "raw": "shall",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "raw": "never",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "raw": "taste",
+          "start": 5.26,
+          "end": 5.7
+        },
+        {
+          "raw": "But",
+          "start": 5.7,
+          "end": 6.42
+        },
+        {
+          "raw": "hard",
+          "start": 6.42,
+          "end": 6.66
+        },
+        {
+          "raw": "be",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "raw": "hardened",
+          "start": 6.82,
+          "end": 7.32
+        },
+        {
+          "raw": "blind",
+          "start": 7.32,
+          "end": 7.86
+        },
+        {
+          "raw": "be",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "raw": "blinded",
+          "start": 8.14,
+          "end": 8.52
+        },
+        {
+          "raw": "more",
+          "start": 8.52,
+          "end": 8.9
+        },
+        {
+          "raw": "that",
+          "start": 8.9,
+          "end": 9.36
+        },
+        {
+          "raw": "they",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "raw": "may",
+          "start": 9.52,
+          "end": 9.7
+        },
+        {
+          "raw": "stumble",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "raw": "on",
+          "start": 10.04,
+          "end": 10.44
+        },
+        {
+          "raw": "and",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "raw": "deeper",
+          "start": 10.68,
+          "end": 10.96
+        },
+        {
+          "raw": "fall",
+          "start": 10.96,
+          "end": 11.36
+        },
+        {
+          "raw": "and",
+          "start": 11.36,
+          "end": 12.04
+        },
+        {
+          "raw": "none",
+          "start": 12.04,
+          "end": 12.22
+        },
+        {
+          "raw": "but",
+          "start": 12.22,
+          "end": 12.38
+        },
+        {
+          "raw": "such",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "raw": "from",
+          "start": 12.58,
+          "end": 12.8
+        },
+        {
+          "raw": "mercy",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "raw": "I",
+          "start": 13.16,
+          "end": 13.4
+        },
+        {
+          "raw": "exclude",
+          "start": 13.4,
+          "end": 13.86
+        }
+      ],
+      "expected_tokens": [
+        "This",
+        "my",
+        "long",
+        "sufferance,",
+        "and",
+        "my",
+        "day",
+        "of",
+        "grace,",
+        "They",
+        "who",
+        "neglect",
+        "and",
+        "scorn,",
+        "shall",
+        "never",
+        "taste;",
+        "But",
+        "hard",
+        "be",
+        "harden'd,",
+        "blind",
+        "be",
+        "blinded",
+        "more,",
+        "That",
+        "they",
+        "may",
+        "stumble",
+        "on,",
+        "and",
+        "deeper",
+        "fall;",
+        "And",
+        "none",
+        "but",
+        "such",
+        "from",
+        "mercy",
+        "I",
+        "exclude."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ],
+        [
+          "equal",
+          21,
+          41,
+          21,
+          41
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          21
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "This",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "my",
+          "start": 0.52,
+          "end": 0.72
+        },
+        {
+          "text": "long",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "sufferance,",
+          "start": 1.04,
+          "end": 1.64
+        },
+        {
+          "text": "and",
+          "start": 1.64,
+          "end": 2.0
+        },
+        {
+          "text": "my",
+          "start": 2.0,
+          "end": 2.2
+        },
+        {
+          "text": "day",
+          "start": 2.2,
+          "end": 2.38
+        },
+        {
+          "text": "of",
+          "start": 2.38,
+          "end": 2.54
+        },
+        {
+          "text": "grace,",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "text": "They",
+          "start": 2.9,
+          "end": 3.4
+        },
+        {
+          "text": "who",
+          "start": 3.4,
+          "end": 3.58
+        },
+        {
+          "text": "neglect",
+          "start": 3.58,
+          "end": 3.98
+        },
+        {
+          "text": "and",
+          "start": 3.98,
+          "end": 4.3
+        },
+        {
+          "text": "scorn,",
+          "start": 4.3,
+          "end": 4.72
+        },
+        {
+          "text": "shall",
+          "start": 4.72,
+          "end": 5.0
+        },
+        {
+          "text": "never",
+          "start": 5.0,
+          "end": 5.26
+        },
+        {
+          "text": "taste;",
+          "start": 5.26,
+          "end": 5.7
+        },
+        {
+          "text": "But",
+          "start": 5.7,
+          "end": 6.42
+        },
+        {
+          "text": "hard",
+          "start": 6.42,
+          "end": 6.66
+        },
+        {
+          "text": "be",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "text": "harden'd,",
+          "start": 6.82,
+          "end": 7.07
+        },
+        {
+          "text": "blind",
+          "start": 7.32,
+          "end": 7.86
+        },
+        {
+          "text": "be",
+          "start": 7.86,
+          "end": 8.14
+        },
+        {
+          "text": "blinded",
+          "start": 8.14,
+          "end": 8.52
+        },
+        {
+          "text": "more,",
+          "start": 8.52,
+          "end": 8.9
+        },
+        {
+          "text": "That",
+          "start": 8.9,
+          "end": 9.36
+        },
+        {
+          "text": "they",
+          "start": 9.36,
+          "end": 9.52
+        },
+        {
+          "text": "may",
+          "start": 9.52,
+          "end": 9.7
+        },
+        {
+          "text": "stumble",
+          "start": 9.7,
+          "end": 10.04
+        },
+        {
+          "text": "on,",
+          "start": 10.04,
+          "end": 10.44
+        },
+        {
+          "text": "and",
+          "start": 10.44,
+          "end": 10.68
+        },
+        {
+          "text": "deeper",
+          "start": 10.68,
+          "end": 10.96
+        },
+        {
+          "text": "fall;",
+          "start": 10.96,
+          "end": 11.36
+        },
+        {
+          "text": "And",
+          "start": 11.36,
+          "end": 12.04
+        },
+        {
+          "text": "none",
+          "start": 12.04,
+          "end": 12.22
+        },
+        {
+          "text": "but",
+          "start": 12.22,
+          "end": 12.38
+        },
+        {
+          "text": "such",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "text": "from",
+          "start": 12.58,
+          "end": 12.8
+        },
+        {
+          "text": "mercy",
+          "start": 12.8,
+          "end": 13.16
+        },
+        {
+          "text": "I",
+          "start": 13.16,
+          "end": 13.4
+        },
+        {
+          "text": "exclude.",
+          "start": 13.4,
+          "end": 13.86
+        }
+      ],
+      "stats": {
+        "expected_words": 41,
+        "heard_words": 41,
+        "matched_words": 40
+      },
+      "match_ratio": 0.975609756097561,
+      "rejection_reasons": [],
+      "seconds": 0.29799479246139526
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "f9c135277e84b3c5692444eb835e512b92c9b3daf26f333a4875797fdec5371e",
+  "selected_reasons": []
+}

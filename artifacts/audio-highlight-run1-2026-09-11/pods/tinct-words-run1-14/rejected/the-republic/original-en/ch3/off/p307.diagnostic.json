@@ -1,0 +1,600 @@
+{
+  "complete": true,
+  "signature": "8a9e6f79c45ed16334547fa1e3a4df436ef82e521674d4ba676beba8d0026c0b",
+  "attempts": [
+    {
+      "asr_seconds": 0.22735437750816345,
+      "alignment_seconds": 0.00016941875219345093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But next, what shall we say of their food?",
+          "start": 0.02,
+          "end": 2.58,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " next,",
+              "start": 0.48,
+              "end": 0.88,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " what",
+              "start": 1.28,
+              "end": 1.44,
+              "probability": 0.951171875
+            },
+            {
+              "text": " shall",
+              "start": 1.44,
+              "end": 1.6,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " we",
+              "start": 1.6,
+              "end": 1.7,
+              "probability": 0.998046875
+            },
+            {
+              "text": " say",
+              "start": 1.7,
+              "end": 1.94,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " their",
+              "start": 2.08,
+              "end": 2.22,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " food?",
+              "start": 2.22,
+              "end": 2.58,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " For the men are in training for the great contest of all, are they not?",
+          "start": 3.16,
+          "end": 6.58,
+          "words": [
+            {
+              "text": " For",
+              "start": 3.16,
+              "end": 3.26,
+              "probability": 0.916015625
+            },
+            {
+              "text": " the",
+              "start": 3.26,
+              "end": 3.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " men",
+              "start": 3.4,
+              "end": 3.6,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " are",
+              "start": 3.6,
+              "end": 3.8,
+              "probability": 0.99609375
+            },
+            {
+              "text": " in",
+              "start": 3.8,
+              "end": 3.98,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " training",
+              "start": 3.98,
+              "end": 4.32,
+              "probability": 0.99609375
+            },
+            {
+              "text": " for",
+              "start": 4.32,
+              "end": 4.58,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 4.58,
+              "end": 4.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " great",
+              "start": 4.7,
+              "end": 4.92,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " contest",
+              "start": 4.92,
+              "end": 5.38,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " of",
+              "start": 5.38,
+              "end": 5.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all,",
+              "start": 5.6,
+              "end": 5.82,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 6.08,
+              "end": 6.16,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 6.16,
+              "end": 6.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not?",
+              "start": 6.32,
+              "end": 6.58,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "next,",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "raw": "what",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "raw": "shall",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "raw": "we",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "raw": "say",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "raw": "of",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "their",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "raw": "food?",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "raw": "For",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "raw": "men",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "raw": "are",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "raw": "in",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "raw": "training",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "raw": "for",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "raw": "the",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "raw": "great",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "raw": "contest",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "raw": "of",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "raw": "all,",
+          "start": 5.6,
+          "end": 5.82
+        },
+        {
+          "raw": "are",
+          "start": 6.08,
+          "end": 6.16
+        },
+        {
+          "raw": "they",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "raw": "not?",
+          "start": 6.32,
+          "end": 6.58
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "next,",
+        "what",
+        "shall",
+        "we",
+        "say",
+        "of",
+        "their",
+        "food;",
+        "for",
+        "the",
+        "men",
+        "are",
+        "in",
+        "training",
+        "for",
+        "the",
+        "great",
+        "contest",
+        "of",
+        "all—are",
+        "they",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          23,
+          22,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "next,",
+          "start": 0.48,
+          "end": 0.88
+        },
+        {
+          "text": "what",
+          "start": 1.28,
+          "end": 1.44
+        },
+        {
+          "text": "shall",
+          "start": 1.44,
+          "end": 1.6
+        },
+        {
+          "text": "we",
+          "start": 1.6,
+          "end": 1.7
+        },
+        {
+          "text": "say",
+          "start": 1.7,
+          "end": 1.94
+        },
+        {
+          "text": "of",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "their",
+          "start": 2.08,
+          "end": 2.22
+        },
+        {
+          "text": "food;",
+          "start": 2.22,
+          "end": 2.58
+        },
+        {
+          "text": "for",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "text": "the",
+          "start": 3.26,
+          "end": 3.4
+        },
+        {
+          "text": "men",
+          "start": 3.4,
+          "end": 3.6
+        },
+        {
+          "text": "are",
+          "start": 3.6,
+          "end": 3.8
+        },
+        {
+          "text": "in",
+          "start": 3.8,
+          "end": 3.98
+        },
+        {
+          "text": "training",
+          "start": 3.98,
+          "end": 4.32
+        },
+        {
+          "text": "for",
+          "start": 4.32,
+          "end": 4.58
+        },
+        {
+          "text": "the",
+          "start": 4.58,
+          "end": 4.7
+        },
+        {
+          "text": "great",
+          "start": 4.7,
+          "end": 4.92
+        },
+        {
+          "text": "contest",
+          "start": 4.92,
+          "end": 5.38
+        },
+        {
+          "text": "of",
+          "start": 5.38,
+          "end": 5.6
+        },
+        {
+          "text": "all—are",
+          "start": 5.6,
+          "end": 5.88
+        },
+        {
+          "text": "they",
+          "start": 6.16,
+          "end": 6.32
+        },
+        {
+          "text": "not?",
+          "start": 6.32,
+          "end": 6.58
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 22
+      },
+      "match_ratio": 0.9565217391304348,
+      "rejection_reasons": [],
+      "seconds": 0.22760840505361557
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ab08a9b01ce67c3377b4f1810a9dad1d7b04a08cffa939fea806f172f0be2be9",
+  "selected_reasons": []
+}

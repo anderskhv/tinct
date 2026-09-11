@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "d70a63d701b7e90c8e04d5418ccb1ca5b9be903f2cd4f57f8a32645d08267f24",
+  "attempts": [
+    {
+      "asr_seconds": 0.1935967430472374,
+      "alignment_seconds": 0.00010664016008377075,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Very true, said Adeimantus; but how does the illustration apply to our enquiry?",
+        "hotwords": "Very, Adeimantus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Very true, said Adeimantus, but how does the illustration apply to our enquiry?",
+          "start": 0.08,
+          "end": 5.4,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.125244140625
+            },
+            {
+              "text": " true,",
+              "start": 0.72,
+              "end": 1.2,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " said",
+              "start": 1.44,
+              "end": 1.68,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " Adeimantus,",
+              "start": 1.68,
+              "end": 2.36,
+              "probability": 0.374981689453125
+            },
+            {
+              "text": " but",
+              "start": 2.68,
+              "end": 3.02,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " how",
+              "start": 3.02,
+              "end": 3.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " does",
+              "start": 3.18,
+              "end": 3.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.48,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " illustration",
+              "start": 3.48,
+              "end": 3.94,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " apply",
+              "start": 3.94,
+              "end": 4.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.48,
+              "end": 4.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 4.74,
+              "end": 4.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " enquiry?",
+              "start": 4.86,
+              "end": 5.4,
+              "probability": 0.5175018310546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "true,",
+          "start": 0.72,
+          "end": 1.2
+        },
+        {
+          "raw": "said",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "raw": "Adeimantus,",
+          "start": 1.68,
+          "end": 2.36
+        },
+        {
+          "raw": "but",
+          "start": 2.68,
+          "end": 3.02
+        },
+        {
+          "raw": "how",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "raw": "does",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "raw": "illustration",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "raw": "apply",
+          "start": 3.94,
+          "end": 4.48
+        },
+        {
+          "raw": "to",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "raw": "our",
+          "start": 4.74,
+          "end": 4.86
+        },
+        {
+          "raw": "enquiry?",
+          "start": 4.86,
+          "end": 5.4
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "true,",
+        "said",
+        "Adeimantus;",
+        "but",
+        "how",
+        "does",
+        "the",
+        "illustration",
+        "apply",
+        "to",
+        "our",
+        "enquiry?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "true,",
+          "start": 0.72,
+          "end": 1.2
+        },
+        {
+          "text": "said",
+          "start": 1.44,
+          "end": 1.68
+        },
+        {
+          "text": "Adeimantus;",
+          "start": 1.68,
+          "end": 2.36
+        },
+        {
+          "text": "but",
+          "start": 2.68,
+          "end": 3.02
+        },
+        {
+          "text": "how",
+          "start": 3.02,
+          "end": 3.18
+        },
+        {
+          "text": "does",
+          "start": 3.18,
+          "end": 3.36
+        },
+        {
+          "text": "the",
+          "start": 3.36,
+          "end": 3.48
+        },
+        {
+          "text": "illustration",
+          "start": 3.48,
+          "end": 3.94
+        },
+        {
+          "text": "apply",
+          "start": 3.94,
+          "end": 4.48
+        },
+        {
+          "text": "to",
+          "start": 4.48,
+          "end": 4.74
+        },
+        {
+          "text": "our",
+          "start": 4.74,
+          "end": 4.86
+        },
+        {
+          "text": "enquiry?",
+          "start": 4.86,
+          "end": 5.4
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19375362992286682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f4b01d2bb342c93c2b6f0a101745dc8cbd805364b5768a7900a90b61f0f945e",
+  "selected_reasons": []
+}

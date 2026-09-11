@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "a6ed2203bf1c31f86d8d4ac11ebddfa2ff730b858ef000a0bb4c6333e9cd9037",
+  "attempts": [
+    {
+      "asr_seconds": 0.149956114590168,
+      "alignment_seconds": 9.621679782867432e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That, he said, is a thing of more than mortal knowledge.",
+          "start": 0.05,
+          "end": 3.19,
+          "words": [
+            {
+              "text": " That,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " he",
+              "start": 0.71,
+              "end": 0.81,
+              "probability": 0.982421875
+            },
+            {
+              "text": " said,",
+              "start": 0.81,
+              "end": 1.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 1.43,
+              "end": 1.59,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " a",
+              "start": 1.59,
+              "end": 1.73,
+              "probability": 0.986328125
+            },
+            {
+              "text": " thing",
+              "start": 1.73,
+              "end": 1.87,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 1.87,
+              "end": 2.01,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " more",
+              "start": 2.01,
+              "end": 2.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " than",
+              "start": 2.19,
+              "end": 2.39,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " mortal",
+              "start": 2.39,
+              "end": 2.71,
+              "probability": 0.974609375
+            },
+            {
+              "text": " knowledge.",
+              "start": 2.71,
+              "end": 3.19,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "he",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "raw": "said,",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "raw": "is",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "raw": "a",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "raw": "thing",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "raw": "of",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "raw": "more",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "raw": "than",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "raw": "mortal",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "raw": "knowledge.",
+          "start": 2.71,
+          "end": 3.19
+        }
+      ],
+      "expected_tokens": [
+        "That,",
+        "he",
+        "said,",
+        "is",
+        "a",
+        "thing",
+        "of",
+        "more",
+        "than",
+        "mortal",
+        "knowledge."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "he",
+          "start": 0.71,
+          "end": 0.81
+        },
+        {
+          "text": "said,",
+          "start": 0.81,
+          "end": 1.09
+        },
+        {
+          "text": "is",
+          "start": 1.43,
+          "end": 1.59
+        },
+        {
+          "text": "a",
+          "start": 1.59,
+          "end": 1.73
+        },
+        {
+          "text": "thing",
+          "start": 1.73,
+          "end": 1.87
+        },
+        {
+          "text": "of",
+          "start": 1.87,
+          "end": 2.01
+        },
+        {
+          "text": "more",
+          "start": 2.01,
+          "end": 2.19
+        },
+        {
+          "text": "than",
+          "start": 2.19,
+          "end": 2.39
+        },
+        {
+          "text": "mortal",
+          "start": 2.39,
+          "end": 2.71
+        },
+        {
+          "text": "knowledge.",
+          "start": 2.71,
+          "end": 3.19
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1500902846455574
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "10bc056dac49cccedd903ee33b0e355c56a9219dc140b836d174ae42628f54c1",
+  "selected_reasons": []
+}

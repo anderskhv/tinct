@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "c635cfd1e48349ce375837c49f0f95d4318324897f95efd6a14739b7cd1fb1b3",
+  "attempts": [
+    {
+      "asr_seconds": 0.08039665222167969,
+      "alignment_seconds": 5.733221769332886e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Right, he replied.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " Right,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.60107421875
+            },
+            {
+              "text": " he",
+              "start": 0.79,
+              "end": 0.85,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " replied.",
+              "start": 0.85,
+              "end": 1.17,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Right,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "he",
+          "start": 0.79,
+          "end": 0.85
+        },
+        {
+          "raw": "replied.",
+          "start": 0.85,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "Right,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Right,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "he",
+          "start": 0.79,
+          "end": 0.85
+        },
+        {
+          "text": "replied.",
+          "start": 0.85,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08047658950090408
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a56410748dd4f086d1605472bf970684988a2ca752dbe0be5c71aceba46562d4",
+  "selected_reasons": []
+}

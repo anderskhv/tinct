@@ -1,0 +1,457 @@
+{
+  "complete": true,
+  "signature": "099d2e0b99d2fdb218e990ff32f713d6f637b429947b7457b6e82bfc7272818b",
+  "attempts": [
+    {
+      "asr_seconds": 0.1923462525010109,
+      "alignment_seconds": 0.00012873858213424683,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And he prayed all the Greeks, but especially the two sons of Atreus, the chiefs of the",
+          "start": 0.08,
+          "end": 5.2,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.5078125
+            },
+            {
+              "text": " he",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " prayed",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " all",
+              "start": 0.9,
+              "end": 1.16,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 1.16,
+              "end": 1.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Greeks,",
+              "start": 1.32,
+              "end": 1.58,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " but",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " especially",
+              "start": 2.24,
+              "end": 2.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 2.68,
+              "end": 2.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " two",
+              "start": 2.98,
+              "end": 3.18,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " sons",
+              "start": 3.18,
+              "end": 3.42,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " of",
+              "start": 3.42,
+              "end": 3.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " Atreus,",
+              "start": 3.66,
+              "end": 4.24,
+              "probability": 0.935546875
+            },
+            {
+              "text": " the",
+              "start": 4.6,
+              "end": 4.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " chiefs",
+              "start": 4.64,
+              "end": 4.88,
+              "probability": 0.87890625
+            },
+            {
+              "text": " of",
+              "start": 4.88,
+              "end": 5.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.1,
+              "end": 5.2,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " people.",
+          "start": 5.2,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " people.",
+              "start": 5.2,
+              "end": 5.48,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "he",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "prayed",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "raw": "all",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "raw": "the",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "raw": "Greeks,",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "raw": "but",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "raw": "especially",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "raw": "the",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "raw": "two",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "raw": "sons",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "raw": "of",
+          "start": 3.42,
+          "end": 3.66
+        },
+        {
+          "raw": "Atreus,",
+          "start": 3.66,
+          "end": 4.24
+        },
+        {
+          "raw": "the",
+          "start": 4.6,
+          "end": 4.64
+        },
+        {
+          "raw": "chiefs",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "raw": "of",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "raw": "the",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "raw": "people.",
+          "start": 5.2,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "'And",
+        "he",
+        "prayed",
+        "all",
+        "the",
+        "Greeks,",
+        "but",
+        "especially",
+        "the",
+        "two",
+        "sons",
+        "of",
+        "Atreus,",
+        "the",
+        "chiefs",
+        "of",
+        "the",
+        "people,'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "he",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "prayed",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "text": "all",
+          "start": 0.9,
+          "end": 1.16
+        },
+        {
+          "text": "the",
+          "start": 1.16,
+          "end": 1.32
+        },
+        {
+          "text": "Greeks,",
+          "start": 1.32,
+          "end": 1.58
+        },
+        {
+          "text": "but",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "text": "especially",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "text": "the",
+          "start": 2.68,
+          "end": 2.98
+        },
+        {
+          "text": "two",
+          "start": 2.98,
+          "end": 3.18
+        },
+        {
+          "text": "sons",
+          "start": 3.18,
+          "end": 3.42
+        },
+        {
+          "text": "of",
+          "start": 3.42,
+          "end": 3.66
+        },
+        {
+          "text": "Atreus,",
+          "start": 3.66,
+          "end": 4.24
+        },
+        {
+          "text": "the",
+          "start": 4.6,
+          "end": 4.64
+        },
+        {
+          "text": "chiefs",
+          "start": 4.64,
+          "end": 4.88
+        },
+        {
+          "text": "of",
+          "start": 4.88,
+          "end": 5.1
+        },
+        {
+          "text": "the",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "text": "people,'",
+          "start": 5.2,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19254188984632492
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "beb86d77fd553388befc0589a0b60b84e96c89f10261291a34cc81982dbbe386",
+  "selected_reasons": []
+}

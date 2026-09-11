@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "1f66cd9217aeb37cb99adb32c0c34515192dc860addae1fb15798f45f4c7adc2",
+  "attempts": [
+    {
+      "asr_seconds": 0.08599717170000076,
+      "alignment_seconds": 6.635487079620361e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There is not he said",
+          "start": 0.02,
+          "end": 1.36,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.351806640625
+            },
+            {
+              "text": " is",
+              "start": 0.5,
+              "end": 0.62,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " not",
+              "start": 0.62,
+              "end": 0.88,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " he",
+              "start": 0.88,
+              "end": 1.08,
+              "probability": 0.2132568359375
+            },
+            {
+              "text": " said",
+              "start": 1.08,
+              "end": 1.36,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "raw": "he",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "raw": "said",
+          "start": 1.08,
+          "end": 1.36
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "is",
+        "not,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "is",
+          "start": 0.5,
+          "end": 0.62
+        },
+        {
+          "text": "not,",
+          "start": 0.62,
+          "end": 0.88
+        },
+        {
+          "text": "he",
+          "start": 0.88,
+          "end": 1.08
+        },
+        {
+          "text": "said.",
+          "start": 1.08,
+          "end": 1.36
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08609165996313095
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d17a7e6413632ab24f7b5352bee9d0688fe9af30da0dd078426f7f5b5ffb9c22",
+  "selected_reasons": []
+}

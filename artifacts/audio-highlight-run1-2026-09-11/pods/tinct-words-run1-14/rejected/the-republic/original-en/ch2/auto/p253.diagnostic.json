@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "aa51563bfcfa79af81d83510d7cc3205b244c6c2375cd82870942f4596b4c831",
+  "attempts": [
+    {
+      "asr_seconds": 0.09398508071899414,
+      "alignment_seconds": 6.88210129737854e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And no good thing is hurtful?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And no good thing is hurtful?",
+          "start": 0.05,
+          "end": 1.71,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.6708984375
+            },
+            {
+              "text": " no",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.982421875
+            },
+            {
+              "text": " good",
+              "start": 0.69,
+              "end": 0.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thing",
+              "start": 0.83,
+              "end": 1.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hurtful?",
+              "start": 1.23,
+              "end": 1.71,
+              "probability": 0.995361328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "no",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "good",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "raw": "thing",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "raw": "is",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "hurtful?",
+          "start": 1.23,
+          "end": 1.71
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "no",
+        "good",
+        "thing",
+        "is",
+        "hurtful?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "no",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "good",
+          "start": 0.69,
+          "end": 0.83
+        },
+        {
+          "text": "thing",
+          "start": 0.83,
+          "end": 1.05
+        },
+        {
+          "text": "is",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "hurtful?",
+          "start": 1.23,
+          "end": 1.71
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09408488869667053
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "497dfaeb17a72c76afa923ef89dcb13626d0eeefebb8398403bab79e75600718",
+  "selected_reasons": []
+}

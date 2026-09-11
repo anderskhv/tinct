@@ -1,0 +1,5587 @@
+{
+  "complete": true,
+  "signature": "2ec29d361f370b368a1583ade1a2128889ff14e73e902cc3bd78578c5d33ffa1",
+  "attempts": [
+    {
+      "asr_seconds": 0.523485541343689,
+      "alignment_seconds": 0.0006751269102096558,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Which ofttimes may succeed so as perhaps Shall grieve him, if I fail not, and disturb His inmost counsels from their destined aim. But see! the angry Victor hath recalled His ministers of vengeance and pursuit Back to the gates of Heaven: the sulphurous hail, Shot after us in storm, o'erblown hath laid The fiery surge that from the precipice Of Heaven received us falling; and the thunder, Winged with red lightning and impetuous rage, Perhaps hath spent his shafts, and ceases now To bellow through the vast and boundless Deep.",
+        "hotwords": "Which, Shall, I, But, Victor, Back, Heaven, Shot, Winged, Deep"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Which, Shall, I, But,",
+          "start": 17.62,
+          "end": 29.9,
+          "words": [
+            {
+              "text": " Which,",
+              "start": 17.62,
+              "end": 19.02,
+              "probability": 0.06292724609375
+            },
+            {
+              "text": " Shall,",
+              "start": 19.06,
+              "end": 19.48,
+              "probability": 1.2516975402832031e-06
+            },
+            {
+              "text": " I,",
+              "start": 21.84,
+              "end": 21.84,
+              "probability": 0.01509857177734375
+            },
+            {
+              "text": " But,",
+              "start": 23.08,
+              "end": 29.9,
+              "probability": 0.006107330322265625
+            }
+          ]
+        },
+        {
+          "text": " Shall, I, But,",
+          "start": 29.9,
+          "end": 32.04,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 29.9,
+              "end": 30.48,
+              "probability": 2.676248550415039e-05
+            },
+            {
+              "text": " I,",
+              "start": 31.66,
+              "end": 31.68,
+              "probability": 0.014892578125
+            },
+            {
+              "text": " But,",
+              "start": 31.7,
+              "end": 32.04,
+              "probability": 0.0003745555877685547
+            }
+          ]
+        },
+        {
+          "text": " Shall, I, But, Shall,",
+          "start": 32.04,
+          "end": 33.54,
+          "words": [
+            {
+              "text": " Shall,",
+              "start": 32.04,
+              "end": 32.26,
+              "probability": 5.364418029785156e-07
+            },
+            {
+              "text": " I,",
+              "start": 32.26,
+              "end": 32.26,
+              "probability": 0.033355712890625
+            },
+            {
+              "text": " But,",
+              "start": 32.26,
+              "end": 32.26,
+              "probability": 0.00011307001113891602
+            },
+            {
+              "text": " Shall,",
+              "start": 32.44,
+              "end": 33.54,
+              "probability": 0.01436614990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Which,",
+          "start": 17.62,
+          "end": 19.02
+        },
+        {
+          "raw": "Shall,",
+          "start": 19.06,
+          "end": 19.48
+        },
+        {
+          "raw": "I,",
+          "start": 21.84,
+          "end": 21.84
+        },
+        {
+          "raw": "But,",
+          "start": 23.08,
+          "end": 29.9
+        },
+        {
+          "raw": "Shall,",
+          "start": 29.9,
+          "end": 30.48
+        },
+        {
+          "raw": "I,",
+          "start": 31.66,
+          "end": 31.68
+        },
+        {
+          "raw": "But,",
+          "start": 31.7,
+          "end": 32.04
+        },
+        {
+          "raw": "Shall,",
+          "start": 32.04,
+          "end": 32.26
+        },
+        {
+          "raw": "I,",
+          "start": 32.26,
+          "end": 32.26
+        },
+        {
+          "raw": "But,",
+          "start": 32.26,
+          "end": 32.26
+        },
+        {
+          "raw": "Shall,",
+          "start": 32.44,
+          "end": 33.54
+        }
+      ],
+      "expected_tokens": [
+        "Which",
+        "ofttimes",
+        "may",
+        "succeed",
+        "so",
+        "as",
+        "perhaps",
+        "Shall",
+        "grieve",
+        "him,",
+        "if",
+        "I",
+        "fail",
+        "not,",
+        "and",
+        "disturb",
+        "His",
+        "inmost",
+        "counsels",
+        "from",
+        "their",
+        "destined",
+        "aim.",
+        "But",
+        "see!",
+        "the",
+        "angry",
+        "Victor",
+        "hath",
+        "recalled",
+        "His",
+        "ministers",
+        "of",
+        "vengeance",
+        "and",
+        "pursuit",
+        "Back",
+        "to",
+        "the",
+        "gates",
+        "of",
+        "Heaven:",
+        "the",
+        "sulphurous",
+        "hail,",
+        "Shot",
+        "after",
+        "us",
+        "in",
+        "storm,",
+        "o'erblown",
+        "hath",
+        "laid",
+        "The",
+        "fiery",
+        "surge",
+        "that",
+        "from",
+        "the",
+        "precipice",
+        "Of",
+        "Heaven",
+        "received",
+        "us",
+        "falling;",
+        "and",
+        "the",
+        "thunder,",
+        "Winged",
+        "with",
+        "red",
+        "lightning",
+        "and",
+        "impetuous",
+        "rage,",
+        "Perhaps",
+        "hath",
+        "spent",
+        "his",
+        "shafts,",
+        "and",
+        "ceases",
+        "now",
+        "To",
+        "bellow",
+        "through",
+        "the",
+        "vast",
+        "and",
+        "boundless",
+        "Deep."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          7,
+          1,
+          1
+        ],
+        [
+          "equal",
+          7,
+          8,
+          1,
+          2
+        ],
+        [
+          "delete",
+          8,
+          11,
+          2,
+          2
+        ],
+        [
+          "equal",
+          11,
+          12,
+          2,
+          3
+        ],
+        [
+          "delete",
+          12,
+          23,
+          3,
+          3
+        ],
+        [
+          "equal",
+          23,
+          24,
+          3,
+          4
+        ],
+        [
+          "replace",
+          24,
+          91,
+          4,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 75,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 76,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 77,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 78,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 79,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 80,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 81,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 82,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 83,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 84,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 85,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 86,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 87,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 88,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 89,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 90,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          7,
+          1,
+          1
+        ],
+        [
+          "delete",
+          8,
+          11,
+          2,
+          2
+        ],
+        [
+          "delete",
+          12,
+          23,
+          3,
+          3
+        ],
+        [
+          "replace",
+          24,
+          91,
+          4,
+          11
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Which",
+          "start": 17.62,
+          "end": 19.02
+        },
+        {
+          "text": "ofttimes",
+          "start": 19.02,
+          "end": 19.04
+        },
+        {
+          "text": "may",
+          "start": 19.04,
+          "end": 19.05
+        },
+        {
+          "text": "succeed",
+          "start": 19.05,
+          "end": 19.055
+        },
+        {
+          "text": "so",
+          "start": 19.055,
+          "end": 19.057
+        },
+        {
+          "text": "as",
+          "start": 19.057,
+          "end": 19.058
+        },
+        {
+          "text": "perhaps",
+          "start": 19.058,
+          "end": 19.059
+        },
+        {
+          "text": "Shall",
+          "start": 19.06,
+          "end": 19.48
+        },
+        {
+          "text": "grieve",
+          "start": 19.48,
+          "end": 20.66
+        },
+        {
+          "text": "him,",
+          "start": 20.66,
+          "end": 21.25
+        },
+        {
+          "text": "if",
+          "start": 21.25,
+          "end": 21.545
+        },
+        {
+          "text": "I",
+          "start": 21.84,
+          "end": 21.84
+        },
+        {
+          "text": "fail",
+          "start": 21.84,
+          "end": 22.46
+        },
+        {
+          "text": "not,",
+          "start": 22.46,
+          "end": 22.77
+        },
+        {
+          "text": "and",
+          "start": 22.77,
+          "end": 22.925
+        },
+        {
+          "text": "disturb",
+          "start": 22.925,
+          "end": 23.002
+        },
+        {
+          "text": "His",
+          "start": 23.002,
+          "end": 23.041
+        },
+        {
+          "text": "inmost",
+          "start": 23.041,
+          "end": 23.06
+        },
+        {
+          "text": "counsels",
+          "start": 23.06,
+          "end": 23.07
+        },
+        {
+          "text": "from",
+          "start": 23.07,
+          "end": 23.075
+        },
+        {
+          "text": "their",
+          "start": 23.075,
+          "end": 23.078
+        },
+        {
+          "text": "destined",
+          "start": 23.078,
+          "end": 23.079
+        },
+        {
+          "text": "aim.",
+          "start": 23.079,
+          "end": 23.079
+        },
+        {
+          "text": "But",
+          "start": 23.08,
+          "end": 29.9
+        },
+        {
+          "text": "see!",
+          "start": 29.9,
+          "end": 31.72
+        },
+        {
+          "text": "the",
+          "start": 31.72,
+          "end": 32.63
+        },
+        {
+          "text": "angry",
+          "start": 32.63,
+          "end": 33.085
+        },
+        {
+          "text": "Victor",
+          "start": 33.085,
+          "end": 33.312
+        },
+        {
+          "text": "hath",
+          "start": 33.312,
+          "end": 33.426
+        },
+        {
+          "text": "recalled",
+          "start": 33.426,
+          "end": 33.483
+        },
+        {
+          "text": "His",
+          "start": 33.483,
+          "end": 33.511
+        },
+        {
+          "text": "ministers",
+          "start": 33.511,
+          "end": 33.526
+        },
+        {
+          "text": "of",
+          "start": 33.526,
+          "end": 33.533
+        },
+        {
+          "text": "vengeance",
+          "start": 33.533,
+          "end": 33.537
+        },
+        {
+          "text": "and",
+          "start": 33.537,
+          "end": 33.538
+        },
+        {
+          "text": "pursuit",
+          "start": 33.538,
+          "end": 33.539
+        },
+        {
+          "text": "Back",
+          "start": 33.539,
+          "end": 33.54
+        },
+        {
+          "text": "to",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "the",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "gates",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "of",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "Heaven:",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "the",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "sulphurous",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "hail,",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "Shot",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "after",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "us",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "in",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "storm,",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "o'erblown",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "hath",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "laid",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "The",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "fiery",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "surge",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "that",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "from",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "the",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "precipice",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "Of",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "Heaven",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "received",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "us",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "falling;",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "and",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "the",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "thunder,",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "Winged",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "with",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "red",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "lightning",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "and",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "impetuous",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "rage,",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "Perhaps",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "hath",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "spent",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "his",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "shafts,",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "and",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "ceases",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "now",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "To",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "bellow",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "through",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "the",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "vast",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "and",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "boundless",
+          "start": 33.54,
+          "end": 33.54
+        },
+        {
+          "text": "Deep.",
+          "start": 33.54,
+          "end": 33.54
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 11,
+        "matched_words": 4
+      },
+      "match_ratio": 0.04395604395604396,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.5242271795868874
+    },
+    {
+      "asr_seconds": 0.7084021791815758,
+      "alignment_seconds": 0.0005646347999572754,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Which, Shall, I, But, Victor, Back, Heaven, Shot, Winged, Deep"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Which oftimes may succeed so as perhaps shall grieve him, if I fail not, and disturb his inmost counsels from their destined aim.",
+          "start": 0.02,
+          "end": 8.2,
+          "words": [
+            {
+              "text": " Which",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.0631103515625
+            },
+            {
+              "text": " oftimes",
+              "start": 0.5,
+              "end": 1.12,
+              "probability": 0.774169921875
+            },
+            {
+              "text": " may",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.98828125
+            },
+            {
+              "text": " succeed",
+              "start": 1.34,
+              "end": 1.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " so",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.69140625
+            },
+            {
+              "text": " as",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " perhaps",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.9453125
+            },
+            {
+              "text": " shall",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.970703125
+            },
+            {
+              "text": " grieve",
+              "start": 2.86,
+              "end": 3.14,
+              "probability": 0.989990234375
+            },
+            {
+              "text": " him,",
+              "start": 3.14,
+              "end": 3.46,
+              "probability": 0.9609375
+            },
+            {
+              "text": " if",
+              "start": 3.72,
+              "end": 3.9,
+              "probability": 0.86962890625
+            },
+            {
+              "text": " I",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " fail",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " not,",
+              "start": 4.3,
+              "end": 4.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 5.1,
+              "end": 5.2,
+              "probability": 0.787109375
+            },
+            {
+              "text": " disturb",
+              "start": 5.2,
+              "end": 5.56,
+              "probability": 0.93896484375
+            },
+            {
+              "text": " his",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " inmost",
+              "start": 5.84,
+              "end": 6.36,
+              "probability": 0.842529296875
+            },
+            {
+              "text": " counsels",
+              "start": 6.36,
+              "end": 7.1,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " from",
+              "start": 7.1,
+              "end": 7.2,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " their",
+              "start": 7.2,
+              "end": 7.36,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " destined",
+              "start": 7.36,
+              "end": 7.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " aim.",
+              "start": 7.72,
+              "end": 8.2,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " But see,",
+          "start": 8.84,
+          "end": 9.36,
+          "words": [
+            {
+              "text": " But",
+              "start": 8.84,
+              "end": 9.02,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " see,",
+              "start": 9.02,
+              "end": 9.36,
+              "probability": 0.9111328125
+            }
+          ]
+        },
+        {
+          "text": " The angry Victor hath recalled his ministers of vengeance and pursuit back to the gates of heaven,",
+          "start": 10.42,
+          "end": 15.04,
+          "words": [
+            {
+              "text": " The",
+              "start": 10.42,
+              "end": 10.54,
+              "probability": 0.402099609375
+            },
+            {
+              "text": " angry",
+              "start": 10.54,
+              "end": 10.9,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " Victor",
+              "start": 10.9,
+              "end": 11.28,
+              "probability": 0.284423828125
+            },
+            {
+              "text": " hath",
+              "start": 11.28,
+              "end": 11.5,
+              "probability": 0.986328125
+            },
+            {
+              "text": " recalled",
+              "start": 11.5,
+              "end": 11.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 11.9,
+              "end": 12.16,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " ministers",
+              "start": 12.16,
+              "end": 12.5,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " of",
+              "start": 12.5,
+              "end": 12.76,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " vengeance",
+              "start": 12.76,
+              "end": 13.06,
+              "probability": 0.978515625
+            },
+            {
+              "text": " and",
+              "start": 13.06,
+              "end": 13.58,
+              "probability": 0.58544921875
+            },
+            {
+              "text": " pursuit",
+              "start": 13.58,
+              "end": 13.88,
+              "probability": 0.6298828125
+            },
+            {
+              "text": " back",
+              "start": 13.88,
+              "end": 14.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 14.16,
+              "end": 14.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 14.34,
+              "end": 14.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gates",
+              "start": 14.44,
+              "end": 14.58,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " of",
+              "start": 14.58,
+              "end": 14.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heaven,",
+              "start": 14.76,
+              "end": 15.04,
+              "probability": 0.76611328125
+            }
+          ]
+        },
+        {
+          "text": " The sulphurous hail, shot after us in storm, or blown hath laid the fiery surge that from the precipice of heaven received us falling,",
+          "start": 15.54,
+          "end": 23.06,
+          "words": [
+            {
+              "text": " The",
+              "start": 15.54,
+              "end": 15.82,
+              "probability": 0.5107421875
+            },
+            {
+              "text": " sulphurous",
+              "start": 15.82,
+              "end": 16.3,
+              "probability": 0.62939453125
+            },
+            {
+              "text": " hail,",
+              "start": 16.3,
+              "end": 16.6,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " shot",
+              "start": 17.04,
+              "end": 17.28,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " after",
+              "start": 17.28,
+              "end": 17.58,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us",
+              "start": 17.58,
+              "end": 17.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " in",
+              "start": 17.78,
+              "end": 17.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " storm,",
+              "start": 17.96,
+              "end": 18.36,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " or",
+              "start": 18.96,
+              "end": 19.06,
+              "probability": 0.10931396484375
+            },
+            {
+              "text": " blown",
+              "start": 19.06,
+              "end": 19.26,
+              "probability": 0.50048828125
+            },
+            {
+              "text": " hath",
+              "start": 19.26,
+              "end": 19.46,
+              "probability": 0.982421875
+            },
+            {
+              "text": " laid",
+              "start": 19.46,
+              "end": 19.66,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 19.66,
+              "end": 19.86,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " fiery",
+              "start": 19.86,
+              "end": 20.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " surge",
+              "start": 20.18,
+              "end": 20.52,
+              "probability": 0.978515625
+            },
+            {
+              "text": " that",
+              "start": 20.52,
+              "end": 20.78,
+              "probability": 0.6435546875
+            },
+            {
+              "text": " from",
+              "start": 20.78,
+              "end": 20.96,
+              "probability": 0.966796875
+            },
+            {
+              "text": " the",
+              "start": 20.96,
+              "end": 21.12,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " precipice",
+              "start": 21.12,
+              "end": 21.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 21.56,
+              "end": 21.72,
+              "probability": 0.978515625
+            },
+            {
+              "text": " heaven",
+              "start": 21.72,
+              "end": 21.98,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " received",
+              "start": 21.98,
+              "end": 22.38,
+              "probability": 0.841796875
+            },
+            {
+              "text": " us",
+              "start": 22.38,
+              "end": 22.66,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " falling,",
+              "start": 22.66,
+              "end": 23.06,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " And the thunder, winged with red lightning and impetuous rage,",
+          "start": 23.66,
+          "end": 27.48,
+          "words": [
+            {
+              "text": " And",
+              "start": 23.66,
+              "end": 23.9,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " the",
+              "start": 23.9,
+              "end": 24.02,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " thunder,",
+              "start": 24.02,
+              "end": 24.36,
+              "probability": 0.90087890625
+            },
+            {
+              "text": " winged",
+              "start": 24.8,
+              "end": 25.3,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " with",
+              "start": 25.3,
+              "end": 25.44,
+              "probability": 0.96875
+            },
+            {
+              "text": " red",
+              "start": 25.44,
+              "end": 25.78,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " lightning",
+              "start": 25.78,
+              "end": 26.22,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " and",
+              "start": 26.22,
+              "end": 26.48,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " impetuous",
+              "start": 26.48,
+              "end": 26.98,
+              "probability": 0.9889322916666666
+            },
+            {
+              "text": " rage,",
+              "start": 26.98,
+              "end": 27.48,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Perhaps hath spent his shafts, and ceases now to bellow through the vast and boundless deep.",
+          "start": 27.48,
+          "end": 32.88,
+          "words": [
+            {
+              "text": " Perhaps",
+              "start": 27.48,
+              "end": 28.22,
+              "probability": 0.430908203125
+            },
+            {
+              "text": " hath",
+              "start": 28.22,
+              "end": 28.44,
+              "probability": 0.955078125
+            },
+            {
+              "text": " spent",
+              "start": 28.44,
+              "end": 28.68,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " his",
+              "start": 28.68,
+              "end": 28.86,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " shafts,",
+              "start": 28.86,
+              "end": 29.76,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 29.76,
+              "end": 29.9,
+              "probability": 0.4091796875
+            },
+            {
+              "text": " ceases",
+              "start": 29.9,
+              "end": 30.14,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " now",
+              "start": 30.14,
+              "end": 30.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 30.54,
+              "end": 30.74,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " bellow",
+              "start": 30.74,
+              "end": 31.08,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " through",
+              "start": 31.08,
+              "end": 31.2,
+              "probability": 0.87158203125
+            },
+            {
+              "text": " the",
+              "start": 31.2,
+              "end": 31.38,
+              "probability": 0.9609375
+            },
+            {
+              "text": " vast",
+              "start": 31.38,
+              "end": 31.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 31.78,
+              "end": 32.02,
+              "probability": 0.98828125
+            },
+            {
+              "text": " boundless",
+              "start": 32.02,
+              "end": 32.58,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " deep.",
+              "start": 32.58,
+              "end": 32.88,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Which",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "oftimes",
+          "start": 0.5,
+          "end": 1.12
+        },
+        {
+          "raw": "may",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "succeed",
+          "start": 1.34,
+          "end": 1.78
+        },
+        {
+          "raw": "so",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "as",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "perhaps",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "shall",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "grieve",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "raw": "him,",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "raw": "if",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "raw": "I",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "fail",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "not,",
+          "start": 4.3,
+          "end": 4.62
+        },
+        {
+          "raw": "and",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "raw": "disturb",
+          "start": 5.2,
+          "end": 5.56
+        },
+        {
+          "raw": "his",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "inmost",
+          "start": 5.84,
+          "end": 6.36
+        },
+        {
+          "raw": "counsels",
+          "start": 6.36,
+          "end": 7.1
+        },
+        {
+          "raw": "from",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "raw": "their",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "raw": "destined",
+          "start": 7.36,
+          "end": 7.72
+        },
+        {
+          "raw": "aim.",
+          "start": 7.72,
+          "end": 8.2
+        },
+        {
+          "raw": "But",
+          "start": 8.84,
+          "end": 9.02
+        },
+        {
+          "raw": "see,",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "raw": "The",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "raw": "angry",
+          "start": 10.54,
+          "end": 10.9
+        },
+        {
+          "raw": "Victor",
+          "start": 10.9,
+          "end": 11.28
+        },
+        {
+          "raw": "hath",
+          "start": 11.28,
+          "end": 11.5
+        },
+        {
+          "raw": "recalled",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "raw": "his",
+          "start": 11.9,
+          "end": 12.16
+        },
+        {
+          "raw": "ministers",
+          "start": 12.16,
+          "end": 12.5
+        },
+        {
+          "raw": "of",
+          "start": 12.5,
+          "end": 12.76
+        },
+        {
+          "raw": "vengeance",
+          "start": 12.76,
+          "end": 13.06
+        },
+        {
+          "raw": "and",
+          "start": 13.06,
+          "end": 13.58
+        },
+        {
+          "raw": "pursuit",
+          "start": 13.58,
+          "end": 13.88
+        },
+        {
+          "raw": "back",
+          "start": 13.88,
+          "end": 14.16
+        },
+        {
+          "raw": "to",
+          "start": 14.16,
+          "end": 14.34
+        },
+        {
+          "raw": "the",
+          "start": 14.34,
+          "end": 14.44
+        },
+        {
+          "raw": "gates",
+          "start": 14.44,
+          "end": 14.58
+        },
+        {
+          "raw": "of",
+          "start": 14.58,
+          "end": 14.76
+        },
+        {
+          "raw": "heaven,",
+          "start": 14.76,
+          "end": 15.04
+        },
+        {
+          "raw": "The",
+          "start": 15.54,
+          "end": 15.82
+        },
+        {
+          "raw": "sulphurous",
+          "start": 15.82,
+          "end": 16.3
+        },
+        {
+          "raw": "hail,",
+          "start": 16.3,
+          "end": 16.6
+        },
+        {
+          "raw": "shot",
+          "start": 17.04,
+          "end": 17.28
+        },
+        {
+          "raw": "after",
+          "start": 17.28,
+          "end": 17.58
+        },
+        {
+          "raw": "us",
+          "start": 17.58,
+          "end": 17.78
+        },
+        {
+          "raw": "in",
+          "start": 17.78,
+          "end": 17.96
+        },
+        {
+          "raw": "storm,",
+          "start": 17.96,
+          "end": 18.36
+        },
+        {
+          "raw": "or",
+          "start": 18.96,
+          "end": 19.06
+        },
+        {
+          "raw": "blown",
+          "start": 19.06,
+          "end": 19.26
+        },
+        {
+          "raw": "hath",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "raw": "laid",
+          "start": 19.46,
+          "end": 19.66
+        },
+        {
+          "raw": "the",
+          "start": 19.66,
+          "end": 19.86
+        },
+        {
+          "raw": "fiery",
+          "start": 19.86,
+          "end": 20.18
+        },
+        {
+          "raw": "surge",
+          "start": 20.18,
+          "end": 20.52
+        },
+        {
+          "raw": "that",
+          "start": 20.52,
+          "end": 20.78
+        },
+        {
+          "raw": "from",
+          "start": 20.78,
+          "end": 20.96
+        },
+        {
+          "raw": "the",
+          "start": 20.96,
+          "end": 21.12
+        },
+        {
+          "raw": "precipice",
+          "start": 21.12,
+          "end": 21.56
+        },
+        {
+          "raw": "of",
+          "start": 21.56,
+          "end": 21.72
+        },
+        {
+          "raw": "heaven",
+          "start": 21.72,
+          "end": 21.98
+        },
+        {
+          "raw": "received",
+          "start": 21.98,
+          "end": 22.38
+        },
+        {
+          "raw": "us",
+          "start": 22.38,
+          "end": 22.66
+        },
+        {
+          "raw": "falling,",
+          "start": 22.66,
+          "end": 23.06
+        },
+        {
+          "raw": "And",
+          "start": 23.66,
+          "end": 23.9
+        },
+        {
+          "raw": "the",
+          "start": 23.9,
+          "end": 24.02
+        },
+        {
+          "raw": "thunder,",
+          "start": 24.02,
+          "end": 24.36
+        },
+        {
+          "raw": "winged",
+          "start": 24.8,
+          "end": 25.3
+        },
+        {
+          "raw": "with",
+          "start": 25.3,
+          "end": 25.44
+        },
+        {
+          "raw": "red",
+          "start": 25.44,
+          "end": 25.78
+        },
+        {
+          "raw": "lightning",
+          "start": 25.78,
+          "end": 26.22
+        },
+        {
+          "raw": "and",
+          "start": 26.22,
+          "end": 26.48
+        },
+        {
+          "raw": "impetuous",
+          "start": 26.48,
+          "end": 26.98
+        },
+        {
+          "raw": "rage,",
+          "start": 26.98,
+          "end": 27.48
+        },
+        {
+          "raw": "Perhaps",
+          "start": 27.48,
+          "end": 28.22
+        },
+        {
+          "raw": "hath",
+          "start": 28.22,
+          "end": 28.44
+        },
+        {
+          "raw": "spent",
+          "start": 28.44,
+          "end": 28.68
+        },
+        {
+          "raw": "his",
+          "start": 28.68,
+          "end": 28.86
+        },
+        {
+          "raw": "shafts,",
+          "start": 28.86,
+          "end": 29.76
+        },
+        {
+          "raw": "and",
+          "start": 29.76,
+          "end": 29.9
+        },
+        {
+          "raw": "ceases",
+          "start": 29.9,
+          "end": 30.14
+        },
+        {
+          "raw": "now",
+          "start": 30.14,
+          "end": 30.54
+        },
+        {
+          "raw": "to",
+          "start": 30.54,
+          "end": 30.74
+        },
+        {
+          "raw": "bellow",
+          "start": 30.74,
+          "end": 31.08
+        },
+        {
+          "raw": "through",
+          "start": 31.08,
+          "end": 31.2
+        },
+        {
+          "raw": "the",
+          "start": 31.2,
+          "end": 31.38
+        },
+        {
+          "raw": "vast",
+          "start": 31.38,
+          "end": 31.78
+        },
+        {
+          "raw": "and",
+          "start": 31.78,
+          "end": 32.02
+        },
+        {
+          "raw": "boundless",
+          "start": 32.02,
+          "end": 32.58
+        },
+        {
+          "raw": "deep.",
+          "start": 32.58,
+          "end": 32.88
+        }
+      ],
+      "expected_tokens": [
+        "Which",
+        "ofttimes",
+        "may",
+        "succeed",
+        "so",
+        "as",
+        "perhaps",
+        "Shall",
+        "grieve",
+        "him,",
+        "if",
+        "I",
+        "fail",
+        "not,",
+        "and",
+        "disturb",
+        "His",
+        "inmost",
+        "counsels",
+        "from",
+        "their",
+        "destined",
+        "aim.",
+        "But",
+        "see!",
+        "the",
+        "angry",
+        "Victor",
+        "hath",
+        "recalled",
+        "His",
+        "ministers",
+        "of",
+        "vengeance",
+        "and",
+        "pursuit",
+        "Back",
+        "to",
+        "the",
+        "gates",
+        "of",
+        "Heaven:",
+        "the",
+        "sulphurous",
+        "hail,",
+        "Shot",
+        "after",
+        "us",
+        "in",
+        "storm,",
+        "o'erblown",
+        "hath",
+        "laid",
+        "The",
+        "fiery",
+        "surge",
+        "that",
+        "from",
+        "the",
+        "precipice",
+        "Of",
+        "Heaven",
+        "received",
+        "us",
+        "falling;",
+        "and",
+        "the",
+        "thunder,",
+        "Winged",
+        "with",
+        "red",
+        "lightning",
+        "and",
+        "impetuous",
+        "rage,",
+        "Perhaps",
+        "hath",
+        "spent",
+        "his",
+        "shafts,",
+        "and",
+        "ceases",
+        "now",
+        "To",
+        "bellow",
+        "through",
+        "the",
+        "vast",
+        "and",
+        "boundless",
+        "Deep."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          50,
+          2,
+          50
+        ],
+        [
+          "replace",
+          50,
+          51,
+          50,
+          52
+        ],
+        [
+          "equal",
+          51,
+          91,
+          52,
+          92
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          50,
+          51,
+          50,
+          52
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Which",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "ofttimes",
+          "start": 0.5,
+          "end": 0.81
+        },
+        {
+          "text": "may",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "succeed",
+          "start": 1.34,
+          "end": 1.78
+        },
+        {
+          "text": "so",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "as",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "perhaps",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "Shall",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "grieve",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "text": "him,",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "if",
+          "start": 3.72,
+          "end": 3.9
+        },
+        {
+          "text": "I",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "fail",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "text": "not,",
+          "start": 4.3,
+          "end": 4.62
+        },
+        {
+          "text": "and",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "text": "disturb",
+          "start": 5.2,
+          "end": 5.56
+        },
+        {
+          "text": "His",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "inmost",
+          "start": 5.84,
+          "end": 6.36
+        },
+        {
+          "text": "counsels",
+          "start": 6.36,
+          "end": 7.1
+        },
+        {
+          "text": "from",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "text": "their",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "text": "destined",
+          "start": 7.36,
+          "end": 7.72
+        },
+        {
+          "text": "aim.",
+          "start": 7.72,
+          "end": 8.2
+        },
+        {
+          "text": "But",
+          "start": 8.84,
+          "end": 9.02
+        },
+        {
+          "text": "see!",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "text": "the",
+          "start": 10.42,
+          "end": 10.54
+        },
+        {
+          "text": "angry",
+          "start": 10.54,
+          "end": 10.9
+        },
+        {
+          "text": "Victor",
+          "start": 10.9,
+          "end": 11.28
+        },
+        {
+          "text": "hath",
+          "start": 11.28,
+          "end": 11.5
+        },
+        {
+          "text": "recalled",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "text": "His",
+          "start": 11.9,
+          "end": 12.16
+        },
+        {
+          "text": "ministers",
+          "start": 12.16,
+          "end": 12.5
+        },
+        {
+          "text": "of",
+          "start": 12.5,
+          "end": 12.76
+        },
+        {
+          "text": "vengeance",
+          "start": 12.76,
+          "end": 13.06
+        },
+        {
+          "text": "and",
+          "start": 13.06,
+          "end": 13.58
+        },
+        {
+          "text": "pursuit",
+          "start": 13.58,
+          "end": 13.88
+        },
+        {
+          "text": "Back",
+          "start": 13.88,
+          "end": 14.16
+        },
+        {
+          "text": "to",
+          "start": 14.16,
+          "end": 14.34
+        },
+        {
+          "text": "the",
+          "start": 14.34,
+          "end": 14.44
+        },
+        {
+          "text": "gates",
+          "start": 14.44,
+          "end": 14.58
+        },
+        {
+          "text": "of",
+          "start": 14.58,
+          "end": 14.76
+        },
+        {
+          "text": "Heaven:",
+          "start": 14.76,
+          "end": 15.04
+        },
+        {
+          "text": "the",
+          "start": 15.54,
+          "end": 15.82
+        },
+        {
+          "text": "sulphurous",
+          "start": 15.82,
+          "end": 16.3
+        },
+        {
+          "text": "hail,",
+          "start": 16.3,
+          "end": 16.6
+        },
+        {
+          "text": "Shot",
+          "start": 17.04,
+          "end": 17.28
+        },
+        {
+          "text": "after",
+          "start": 17.28,
+          "end": 17.58
+        },
+        {
+          "text": "us",
+          "start": 17.58,
+          "end": 17.78
+        },
+        {
+          "text": "in",
+          "start": 17.78,
+          "end": 17.96
+        },
+        {
+          "text": "storm,",
+          "start": 17.96,
+          "end": 18.36
+        },
+        {
+          "text": "o'erblown",
+          "start": 18.36,
+          "end": 18.81
+        },
+        {
+          "text": "hath",
+          "start": 19.26,
+          "end": 19.46
+        },
+        {
+          "text": "laid",
+          "start": 19.46,
+          "end": 19.66
+        },
+        {
+          "text": "The",
+          "start": 19.66,
+          "end": 19.86
+        },
+        {
+          "text": "fiery",
+          "start": 19.86,
+          "end": 20.18
+        },
+        {
+          "text": "surge",
+          "start": 20.18,
+          "end": 20.52
+        },
+        {
+          "text": "that",
+          "start": 20.52,
+          "end": 20.78
+        },
+        {
+          "text": "from",
+          "start": 20.78,
+          "end": 20.96
+        },
+        {
+          "text": "the",
+          "start": 20.96,
+          "end": 21.12
+        },
+        {
+          "text": "precipice",
+          "start": 21.12,
+          "end": 21.56
+        },
+        {
+          "text": "Of",
+          "start": 21.56,
+          "end": 21.72
+        },
+        {
+          "text": "Heaven",
+          "start": 21.72,
+          "end": 21.98
+        },
+        {
+          "text": "received",
+          "start": 21.98,
+          "end": 22.38
+        },
+        {
+          "text": "us",
+          "start": 22.38,
+          "end": 22.66
+        },
+        {
+          "text": "falling;",
+          "start": 22.66,
+          "end": 23.06
+        },
+        {
+          "text": "and",
+          "start": 23.66,
+          "end": 23.9
+        },
+        {
+          "text": "the",
+          "start": 23.9,
+          "end": 24.02
+        },
+        {
+          "text": "thunder,",
+          "start": 24.02,
+          "end": 24.36
+        },
+        {
+          "text": "Winged",
+          "start": 24.8,
+          "end": 25.3
+        },
+        {
+          "text": "with",
+          "start": 25.3,
+          "end": 25.44
+        },
+        {
+          "text": "red",
+          "start": 25.44,
+          "end": 25.78
+        },
+        {
+          "text": "lightning",
+          "start": 25.78,
+          "end": 26.22
+        },
+        {
+          "text": "and",
+          "start": 26.22,
+          "end": 26.48
+        },
+        {
+          "text": "impetuous",
+          "start": 26.48,
+          "end": 26.98
+        },
+        {
+          "text": "rage,",
+          "start": 26.98,
+          "end": 27.48
+        },
+        {
+          "text": "Perhaps",
+          "start": 27.48,
+          "end": 28.22
+        },
+        {
+          "text": "hath",
+          "start": 28.22,
+          "end": 28.44
+        },
+        {
+          "text": "spent",
+          "start": 28.44,
+          "end": 28.68
+        },
+        {
+          "text": "his",
+          "start": 28.68,
+          "end": 28.86
+        },
+        {
+          "text": "shafts,",
+          "start": 28.86,
+          "end": 29.76
+        },
+        {
+          "text": "and",
+          "start": 29.76,
+          "end": 29.9
+        },
+        {
+          "text": "ceases",
+          "start": 29.9,
+          "end": 30.14
+        },
+        {
+          "text": "now",
+          "start": 30.14,
+          "end": 30.54
+        },
+        {
+          "text": "To",
+          "start": 30.54,
+          "end": 30.74
+        },
+        {
+          "text": "bellow",
+          "start": 30.74,
+          "end": 31.08
+        },
+        {
+          "text": "through",
+          "start": 31.08,
+          "end": 31.2
+        },
+        {
+          "text": "the",
+          "start": 31.2,
+          "end": 31.38
+        },
+        {
+          "text": "vast",
+          "start": 31.38,
+          "end": 31.78
+        },
+        {
+          "text": "and",
+          "start": 31.78,
+          "end": 32.02
+        },
+        {
+          "text": "boundless",
+          "start": 32.02,
+          "end": 32.58
+        },
+        {
+          "text": "Deep.",
+          "start": 32.58,
+          "end": 32.88
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 92,
+        "matched_words": 89
+      },
+      "match_ratio": 0.978021978021978,
+      "rejection_reasons": [],
+      "seconds": 0.7092617228627205
+    },
+    {
+      "asr_seconds": 0.7663789391517639,
+      "alignment_seconds": 0.0007759183645248413,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " which oft times may succeed so as perhaps shall grieve him, if I fail not, and disturb",
+          "start": 0.02,
+          "end": 5.56,
+          "words": [
+            {
+              "text": " which",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.0947265625
+            },
+            {
+              "text": " oft",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " times",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.2509765625
+            },
+            {
+              "text": " may",
+              "start": 1.08,
+              "end": 1.34,
+              "probability": 0.9921875
+            },
+            {
+              "text": " succeed",
+              "start": 1.34,
+              "end": 1.78,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " so",
+              "start": 1.78,
+              "end": 2.08,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " as",
+              "start": 2.08,
+              "end": 2.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " perhaps",
+              "start": 2.28,
+              "end": 2.6,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " shall",
+              "start": 2.6,
+              "end": 2.86,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " grieve",
+              "start": 2.86,
+              "end": 3.14,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " him,",
+              "start": 3.14,
+              "end": 3.46,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " if",
+              "start": 3.78,
+              "end": 3.9,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " I",
+              "start": 3.9,
+              "end": 4.04,
+              "probability": 0.98046875
+            },
+            {
+              "text": " fail",
+              "start": 4.04,
+              "end": 4.3,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " not,",
+              "start": 4.3,
+              "end": 4.62,
+              "probability": 0.984375
+            },
+            {
+              "text": " and",
+              "start": 5.1,
+              "end": 5.2,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " disturb",
+              "start": 5.2,
+              "end": 5.56,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " his inmost counsels from their destined aim.",
+          "start": 5.56,
+          "end": 8.2,
+          "words": [
+            {
+              "text": " his",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.974609375
+            },
+            {
+              "text": " inmost",
+              "start": 5.84,
+              "end": 6.36,
+              "probability": 0.82177734375
+            },
+            {
+              "text": " counsels",
+              "start": 6.36,
+              "end": 7.1,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " from",
+              "start": 7.1,
+              "end": 7.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " their",
+              "start": 7.2,
+              "end": 7.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " destined",
+              "start": 7.36,
+              "end": 7.72,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " aim.",
+              "start": 7.72,
+              "end": 8.2,
+              "probability": 0.9912109375
+            }
+          ]
+        },
+        {
+          "text": " But see.",
+          "start": 8.82,
+          "end": 9.36,
+          "words": [
+            {
+              "text": " But",
+              "start": 8.82,
+              "end": 9.02,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " see.",
+              "start": 9.02,
+              "end": 9.36,
+              "probability": 0.8818359375
+            }
+          ]
+        },
+        {
+          "text": " The angry victor hath recalled his ministers of vengeance and pursued back to the gates",
+          "start": 10.44,
+          "end": 14.58,
+          "words": [
+            {
+              "text": " The",
+              "start": 10.44,
+              "end": 10.56,
+              "probability": 0.81640625
+            },
+            {
+              "text": " angry",
+              "start": 10.56,
+              "end": 10.9,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " victor",
+              "start": 10.9,
+              "end": 11.32,
+              "probability": 0.814453125
+            },
+            {
+              "text": " hath",
+              "start": 11.32,
+              "end": 11.5,
+              "probability": 0.98828125
+            },
+            {
+              "text": " recalled",
+              "start": 11.5,
+              "end": 11.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 11.9,
+              "end": 12.16,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ministers",
+              "start": 12.16,
+              "end": 12.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " of",
+              "start": 12.5,
+              "end": 12.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " vengeance",
+              "start": 12.76,
+              "end": 13.08,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 13.08,
+              "end": 13.58,
+              "probability": 0.712890625
+            },
+            {
+              "text": " pursued",
+              "start": 13.58,
+              "end": 13.86,
+              "probability": 0.57861328125
+            },
+            {
+              "text": " back",
+              "start": 13.86,
+              "end": 14.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 14.16,
+              "end": 14.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 14.34,
+              "end": 14.44,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gates",
+              "start": 14.44,
+              "end": 14.58,
+              "probability": 0.947265625
+            }
+          ]
+        },
+        {
+          "text": " of heaven.",
+          "start": 14.58,
+          "end": 15.02,
+          "words": [
+            {
+              "text": " of",
+              "start": 14.58,
+              "end": 14.76,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heaven.",
+              "start": 14.76,
+              "end": 15.02,
+              "probability": 0.7822265625
+            }
+          ]
+        },
+        {
+          "text": " The sulphurous hail, shot after us in storm, orblown hath laid the fiery surge that from",
+          "start": 15.56,
+          "end": 20.96,
+          "words": [
+            {
+              "text": " The",
+              "start": 15.56,
+              "end": 15.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " sulphurous",
+              "start": 15.82,
+              "end": 16.3,
+              "probability": 0.754150390625
+            },
+            {
+              "text": " hail,",
+              "start": 16.3,
+              "end": 16.6,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " shot",
+              "start": 17.04,
+              "end": 17.28,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " after",
+              "start": 17.28,
+              "end": 17.58,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " us",
+              "start": 17.58,
+              "end": 17.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 17.78,
+              "end": 17.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " storm,",
+              "start": 17.96,
+              "end": 18.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " orblown",
+              "start": 18.96,
+              "end": 19.28,
+              "probability": 0.571044921875
+            },
+            {
+              "text": " hath",
+              "start": 19.28,
+              "end": 19.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " laid",
+              "start": 19.46,
+              "end": 19.66,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 19.66,
+              "end": 19.86,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " fiery",
+              "start": 19.86,
+              "end": 20.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " surge",
+              "start": 20.2,
+              "end": 20.52,
+              "probability": 0.994140625
+            },
+            {
+              "text": " that",
+              "start": 20.52,
+              "end": 20.8,
+              "probability": 0.97265625
+            },
+            {
+              "text": " from",
+              "start": 20.8,
+              "end": 20.96,
+              "probability": 0.974609375
+            }
+          ]
+        },
+        {
+          "text": " the precipice of heaven received us falling, and the thunder, winged with red lightning",
+          "start": 20.96,
+          "end": 26.22,
+          "words": [
+            {
+              "text": " the",
+              "start": 20.96,
+              "end": 21.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " precipice",
+              "start": 21.12,
+              "end": 21.56,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " of",
+              "start": 21.56,
+              "end": 21.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " heaven",
+              "start": 21.72,
+              "end": 21.98,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " received",
+              "start": 21.98,
+              "end": 22.38,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " us",
+              "start": 22.38,
+              "end": 22.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " falling,",
+              "start": 22.66,
+              "end": 23.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 23.5,
+              "end": 23.9,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " the",
+              "start": 23.9,
+              "end": 24.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " thunder,",
+              "start": 24.02,
+              "end": 24.36,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " winged",
+              "start": 24.8,
+              "end": 25.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " with",
+              "start": 25.3,
+              "end": 25.44,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " red",
+              "start": 25.44,
+              "end": 25.78,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " lightning",
+              "start": 25.78,
+              "end": 26.22,
+              "probability": 0.91162109375
+            }
+          ]
+        },
+        {
+          "text": " and impetuous rage, perhaps hath spent his shafts, and ceases now to bellow through",
+          "start": 26.22,
+          "end": 31.2,
+          "words": [
+            {
+              "text": " and",
+              "start": 26.22,
+              "end": 26.46,
+              "probability": 0.962890625
+            },
+            {
+              "text": " impetuous",
+              "start": 26.46,
+              "end": 27.02,
+              "probability": 0.9881184895833334
+            },
+            {
+              "text": " rage,",
+              "start": 27.02,
+              "end": 27.42,
+              "probability": 0.98828125
+            },
+            {
+              "text": " perhaps",
+              "start": 27.94,
+              "end": 28.22,
+              "probability": 0.896484375
+            },
+            {
+              "text": " hath",
+              "start": 28.22,
+              "end": 28.46,
+              "probability": 0.9921875
+            },
+            {
+              "text": " spent",
+              "start": 28.46,
+              "end": 28.68,
+              "probability": 0.953125
+            },
+            {
+              "text": " his",
+              "start": 28.68,
+              "end": 28.86,
+              "probability": 0.98046875
+            },
+            {
+              "text": " shafts,",
+              "start": 28.86,
+              "end": 29.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 29.76,
+              "end": 29.92,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " ceases",
+              "start": 29.92,
+              "end": 30.14,
+              "probability": 0.888671875
+            },
+            {
+              "text": " now",
+              "start": 30.14,
+              "end": 30.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 30.54,
+              "end": 30.74,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bellow",
+              "start": 30.74,
+              "end": 31.04,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " through",
+              "start": 31.04,
+              "end": 31.2,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " the vast and boundless deep.",
+          "start": 31.2,
+          "end": 32.88,
+          "words": [
+            {
+              "text": " the",
+              "start": 31.2,
+              "end": 31.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " vast",
+              "start": 31.4,
+              "end": 31.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 31.78,
+              "end": 32.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " boundless",
+              "start": 32.02,
+              "end": 32.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deep.",
+              "start": 32.58,
+              "end": 32.88,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "which",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "oft",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "times",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "may",
+          "start": 1.08,
+          "end": 1.34
+        },
+        {
+          "raw": "succeed",
+          "start": 1.34,
+          "end": 1.78
+        },
+        {
+          "raw": "so",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "raw": "as",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "raw": "perhaps",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "raw": "shall",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "raw": "grieve",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "raw": "him,",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "raw": "if",
+          "start": 3.78,
+          "end": 3.9
+        },
+        {
+          "raw": "I",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "raw": "fail",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "raw": "not,",
+          "start": 4.3,
+          "end": 4.62
+        },
+        {
+          "raw": "and",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "raw": "disturb",
+          "start": 5.2,
+          "end": 5.56
+        },
+        {
+          "raw": "his",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "inmost",
+          "start": 5.84,
+          "end": 6.36
+        },
+        {
+          "raw": "counsels",
+          "start": 6.36,
+          "end": 7.1
+        },
+        {
+          "raw": "from",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "raw": "their",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "raw": "destined",
+          "start": 7.36,
+          "end": 7.72
+        },
+        {
+          "raw": "aim.",
+          "start": 7.72,
+          "end": 8.2
+        },
+        {
+          "raw": "But",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "raw": "see.",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "raw": "The",
+          "start": 10.44,
+          "end": 10.56
+        },
+        {
+          "raw": "angry",
+          "start": 10.56,
+          "end": 10.9
+        },
+        {
+          "raw": "victor",
+          "start": 10.9,
+          "end": 11.32
+        },
+        {
+          "raw": "hath",
+          "start": 11.32,
+          "end": 11.5
+        },
+        {
+          "raw": "recalled",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "raw": "his",
+          "start": 11.9,
+          "end": 12.16
+        },
+        {
+          "raw": "ministers",
+          "start": 12.16,
+          "end": 12.5
+        },
+        {
+          "raw": "of",
+          "start": 12.5,
+          "end": 12.76
+        },
+        {
+          "raw": "vengeance",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "raw": "and",
+          "start": 13.08,
+          "end": 13.58
+        },
+        {
+          "raw": "pursued",
+          "start": 13.58,
+          "end": 13.86
+        },
+        {
+          "raw": "back",
+          "start": 13.86,
+          "end": 14.16
+        },
+        {
+          "raw": "to",
+          "start": 14.16,
+          "end": 14.34
+        },
+        {
+          "raw": "the",
+          "start": 14.34,
+          "end": 14.44
+        },
+        {
+          "raw": "gates",
+          "start": 14.44,
+          "end": 14.58
+        },
+        {
+          "raw": "of",
+          "start": 14.58,
+          "end": 14.76
+        },
+        {
+          "raw": "heaven.",
+          "start": 14.76,
+          "end": 15.02
+        },
+        {
+          "raw": "The",
+          "start": 15.56,
+          "end": 15.82
+        },
+        {
+          "raw": "sulphurous",
+          "start": 15.82,
+          "end": 16.3
+        },
+        {
+          "raw": "hail,",
+          "start": 16.3,
+          "end": 16.6
+        },
+        {
+          "raw": "shot",
+          "start": 17.04,
+          "end": 17.28
+        },
+        {
+          "raw": "after",
+          "start": 17.28,
+          "end": 17.58
+        },
+        {
+          "raw": "us",
+          "start": 17.58,
+          "end": 17.78
+        },
+        {
+          "raw": "in",
+          "start": 17.78,
+          "end": 17.96
+        },
+        {
+          "raw": "storm,",
+          "start": 17.96,
+          "end": 18.36
+        },
+        {
+          "raw": "orblown",
+          "start": 18.96,
+          "end": 19.28
+        },
+        {
+          "raw": "hath",
+          "start": 19.28,
+          "end": 19.46
+        },
+        {
+          "raw": "laid",
+          "start": 19.46,
+          "end": 19.66
+        },
+        {
+          "raw": "the",
+          "start": 19.66,
+          "end": 19.86
+        },
+        {
+          "raw": "fiery",
+          "start": 19.86,
+          "end": 20.2
+        },
+        {
+          "raw": "surge",
+          "start": 20.2,
+          "end": 20.52
+        },
+        {
+          "raw": "that",
+          "start": 20.52,
+          "end": 20.8
+        },
+        {
+          "raw": "from",
+          "start": 20.8,
+          "end": 20.96
+        },
+        {
+          "raw": "the",
+          "start": 20.96,
+          "end": 21.12
+        },
+        {
+          "raw": "precipice",
+          "start": 21.12,
+          "end": 21.56
+        },
+        {
+          "raw": "of",
+          "start": 21.56,
+          "end": 21.72
+        },
+        {
+          "raw": "heaven",
+          "start": 21.72,
+          "end": 21.98
+        },
+        {
+          "raw": "received",
+          "start": 21.98,
+          "end": 22.38
+        },
+        {
+          "raw": "us",
+          "start": 22.38,
+          "end": 22.66
+        },
+        {
+          "raw": "falling,",
+          "start": 22.66,
+          "end": 23.06
+        },
+        {
+          "raw": "and",
+          "start": 23.5,
+          "end": 23.9
+        },
+        {
+          "raw": "the",
+          "start": 23.9,
+          "end": 24.02
+        },
+        {
+          "raw": "thunder,",
+          "start": 24.02,
+          "end": 24.36
+        },
+        {
+          "raw": "winged",
+          "start": 24.8,
+          "end": 25.3
+        },
+        {
+          "raw": "with",
+          "start": 25.3,
+          "end": 25.44
+        },
+        {
+          "raw": "red",
+          "start": 25.44,
+          "end": 25.78
+        },
+        {
+          "raw": "lightning",
+          "start": 25.78,
+          "end": 26.22
+        },
+        {
+          "raw": "and",
+          "start": 26.22,
+          "end": 26.46
+        },
+        {
+          "raw": "impetuous",
+          "start": 26.46,
+          "end": 27.02
+        },
+        {
+          "raw": "rage,",
+          "start": 27.02,
+          "end": 27.42
+        },
+        {
+          "raw": "perhaps",
+          "start": 27.94,
+          "end": 28.22
+        },
+        {
+          "raw": "hath",
+          "start": 28.22,
+          "end": 28.46
+        },
+        {
+          "raw": "spent",
+          "start": 28.46,
+          "end": 28.68
+        },
+        {
+          "raw": "his",
+          "start": 28.68,
+          "end": 28.86
+        },
+        {
+          "raw": "shafts,",
+          "start": 28.86,
+          "end": 29.68
+        },
+        {
+          "raw": "and",
+          "start": 29.76,
+          "end": 29.92
+        },
+        {
+          "raw": "ceases",
+          "start": 29.92,
+          "end": 30.14
+        },
+        {
+          "raw": "now",
+          "start": 30.14,
+          "end": 30.54
+        },
+        {
+          "raw": "to",
+          "start": 30.54,
+          "end": 30.74
+        },
+        {
+          "raw": "bellow",
+          "start": 30.74,
+          "end": 31.04
+        },
+        {
+          "raw": "through",
+          "start": 31.04,
+          "end": 31.2
+        },
+        {
+          "raw": "the",
+          "start": 31.2,
+          "end": 31.4
+        },
+        {
+          "raw": "vast",
+          "start": 31.4,
+          "end": 31.78
+        },
+        {
+          "raw": "and",
+          "start": 31.78,
+          "end": 32.02
+        },
+        {
+          "raw": "boundless",
+          "start": 32.02,
+          "end": 32.58
+        },
+        {
+          "raw": "deep.",
+          "start": 32.58,
+          "end": 32.88
+        }
+      ],
+      "expected_tokens": [
+        "Which",
+        "ofttimes",
+        "may",
+        "succeed",
+        "so",
+        "as",
+        "perhaps",
+        "Shall",
+        "grieve",
+        "him,",
+        "if",
+        "I",
+        "fail",
+        "not,",
+        "and",
+        "disturb",
+        "His",
+        "inmost",
+        "counsels",
+        "from",
+        "their",
+        "destined",
+        "aim.",
+        "But",
+        "see!",
+        "the",
+        "angry",
+        "Victor",
+        "hath",
+        "recalled",
+        "His",
+        "ministers",
+        "of",
+        "vengeance",
+        "and",
+        "pursuit",
+        "Back",
+        "to",
+        "the",
+        "gates",
+        "of",
+        "Heaven:",
+        "the",
+        "sulphurous",
+        "hail,",
+        "Shot",
+        "after",
+        "us",
+        "in",
+        "storm,",
+        "o'erblown",
+        "hath",
+        "laid",
+        "The",
+        "fiery",
+        "surge",
+        "that",
+        "from",
+        "the",
+        "precipice",
+        "Of",
+        "Heaven",
+        "received",
+        "us",
+        "falling;",
+        "and",
+        "the",
+        "thunder,",
+        "Winged",
+        "with",
+        "red",
+        "lightning",
+        "and",
+        "impetuous",
+        "rage,",
+        "Perhaps",
+        "hath",
+        "spent",
+        "his",
+        "shafts,",
+        "and",
+        "ceases",
+        "now",
+        "To",
+        "bellow",
+        "through",
+        "the",
+        "vast",
+        "and",
+        "boundless",
+        "Deep."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          35,
+          3,
+          36
+        ],
+        [
+          "replace",
+          35,
+          36,
+          36,
+          37
+        ],
+        [
+          "equal",
+          36,
+          50,
+          37,
+          51
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          52
+        ],
+        [
+          "equal",
+          51,
+          91,
+          52,
+          92
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "replace",
+          35,
+          36,
+          36,
+          37
+        ],
+        [
+          "replace",
+          50,
+          51,
+          51,
+          52
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Which",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "ofttimes",
+          "start": 0.5,
+          "end": 0.79
+        },
+        {
+          "text": "may",
+          "start": 1.08,
+          "end": 1.34
+        },
+        {
+          "text": "succeed",
+          "start": 1.34,
+          "end": 1.78
+        },
+        {
+          "text": "so",
+          "start": 1.78,
+          "end": 2.08
+        },
+        {
+          "text": "as",
+          "start": 2.08,
+          "end": 2.28
+        },
+        {
+          "text": "perhaps",
+          "start": 2.28,
+          "end": 2.6
+        },
+        {
+          "text": "Shall",
+          "start": 2.6,
+          "end": 2.86
+        },
+        {
+          "text": "grieve",
+          "start": 2.86,
+          "end": 3.14
+        },
+        {
+          "text": "him,",
+          "start": 3.14,
+          "end": 3.46
+        },
+        {
+          "text": "if",
+          "start": 3.78,
+          "end": 3.9
+        },
+        {
+          "text": "I",
+          "start": 3.9,
+          "end": 4.04
+        },
+        {
+          "text": "fail",
+          "start": 4.04,
+          "end": 4.3
+        },
+        {
+          "text": "not,",
+          "start": 4.3,
+          "end": 4.62
+        },
+        {
+          "text": "and",
+          "start": 5.1,
+          "end": 5.2
+        },
+        {
+          "text": "disturb",
+          "start": 5.2,
+          "end": 5.56
+        },
+        {
+          "text": "His",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "inmost",
+          "start": 5.84,
+          "end": 6.36
+        },
+        {
+          "text": "counsels",
+          "start": 6.36,
+          "end": 7.1
+        },
+        {
+          "text": "from",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "text": "their",
+          "start": 7.2,
+          "end": 7.36
+        },
+        {
+          "text": "destined",
+          "start": 7.36,
+          "end": 7.72
+        },
+        {
+          "text": "aim.",
+          "start": 7.72,
+          "end": 8.2
+        },
+        {
+          "text": "But",
+          "start": 8.82,
+          "end": 9.02
+        },
+        {
+          "text": "see!",
+          "start": 9.02,
+          "end": 9.36
+        },
+        {
+          "text": "the",
+          "start": 10.44,
+          "end": 10.56
+        },
+        {
+          "text": "angry",
+          "start": 10.56,
+          "end": 10.9
+        },
+        {
+          "text": "Victor",
+          "start": 10.9,
+          "end": 11.32
+        },
+        {
+          "text": "hath",
+          "start": 11.32,
+          "end": 11.5
+        },
+        {
+          "text": "recalled",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "text": "His",
+          "start": 11.9,
+          "end": 12.16
+        },
+        {
+          "text": "ministers",
+          "start": 12.16,
+          "end": 12.5
+        },
+        {
+          "text": "of",
+          "start": 12.5,
+          "end": 12.76
+        },
+        {
+          "text": "vengeance",
+          "start": 12.76,
+          "end": 13.08
+        },
+        {
+          "text": "and",
+          "start": 13.08,
+          "end": 13.58
+        },
+        {
+          "text": "pursuit",
+          "start": 13.58,
+          "end": 13.72
+        },
+        {
+          "text": "Back",
+          "start": 13.86,
+          "end": 14.16
+        },
+        {
+          "text": "to",
+          "start": 14.16,
+          "end": 14.34
+        },
+        {
+          "text": "the",
+          "start": 14.34,
+          "end": 14.44
+        },
+        {
+          "text": "gates",
+          "start": 14.44,
+          "end": 14.58
+        },
+        {
+          "text": "of",
+          "start": 14.58,
+          "end": 14.76
+        },
+        {
+          "text": "Heaven:",
+          "start": 14.76,
+          "end": 15.02
+        },
+        {
+          "text": "the",
+          "start": 15.56,
+          "end": 15.82
+        },
+        {
+          "text": "sulphurous",
+          "start": 15.82,
+          "end": 16.3
+        },
+        {
+          "text": "hail,",
+          "start": 16.3,
+          "end": 16.6
+        },
+        {
+          "text": "Shot",
+          "start": 17.04,
+          "end": 17.28
+        },
+        {
+          "text": "after",
+          "start": 17.28,
+          "end": 17.58
+        },
+        {
+          "text": "us",
+          "start": 17.58,
+          "end": 17.78
+        },
+        {
+          "text": "in",
+          "start": 17.78,
+          "end": 17.96
+        },
+        {
+          "text": "storm,",
+          "start": 17.96,
+          "end": 18.36
+        },
+        {
+          "text": "o'erblown",
+          "start": 18.36,
+          "end": 18.82
+        },
+        {
+          "text": "hath",
+          "start": 19.28,
+          "end": 19.46
+        },
+        {
+          "text": "laid",
+          "start": 19.46,
+          "end": 19.66
+        },
+        {
+          "text": "The",
+          "start": 19.66,
+          "end": 19.86
+        },
+        {
+          "text": "fiery",
+          "start": 19.86,
+          "end": 20.2
+        },
+        {
+          "text": "surge",
+          "start": 20.2,
+          "end": 20.52
+        },
+        {
+          "text": "that",
+          "start": 20.52,
+          "end": 20.8
+        },
+        {
+          "text": "from",
+          "start": 20.8,
+          "end": 20.96
+        },
+        {
+          "text": "the",
+          "start": 20.96,
+          "end": 21.12
+        },
+        {
+          "text": "precipice",
+          "start": 21.12,
+          "end": 21.56
+        },
+        {
+          "text": "Of",
+          "start": 21.56,
+          "end": 21.72
+        },
+        {
+          "text": "Heaven",
+          "start": 21.72,
+          "end": 21.98
+        },
+        {
+          "text": "received",
+          "start": 21.98,
+          "end": 22.38
+        },
+        {
+          "text": "us",
+          "start": 22.38,
+          "end": 22.66
+        },
+        {
+          "text": "falling;",
+          "start": 22.66,
+          "end": 23.06
+        },
+        {
+          "text": "and",
+          "start": 23.5,
+          "end": 23.9
+        },
+        {
+          "text": "the",
+          "start": 23.9,
+          "end": 24.02
+        },
+        {
+          "text": "thunder,",
+          "start": 24.02,
+          "end": 24.36
+        },
+        {
+          "text": "Winged",
+          "start": 24.8,
+          "end": 25.3
+        },
+        {
+          "text": "with",
+          "start": 25.3,
+          "end": 25.44
+        },
+        {
+          "text": "red",
+          "start": 25.44,
+          "end": 25.78
+        },
+        {
+          "text": "lightning",
+          "start": 25.78,
+          "end": 26.22
+        },
+        {
+          "text": "and",
+          "start": 26.22,
+          "end": 26.46
+        },
+        {
+          "text": "impetuous",
+          "start": 26.46,
+          "end": 27.02
+        },
+        {
+          "text": "rage,",
+          "start": 27.02,
+          "end": 27.42
+        },
+        {
+          "text": "Perhaps",
+          "start": 27.94,
+          "end": 28.22
+        },
+        {
+          "text": "hath",
+          "start": 28.22,
+          "end": 28.46
+        },
+        {
+          "text": "spent",
+          "start": 28.46,
+          "end": 28.68
+        },
+        {
+          "text": "his",
+          "start": 28.68,
+          "end": 28.86
+        },
+        {
+          "text": "shafts,",
+          "start": 28.86,
+          "end": 29.68
+        },
+        {
+          "text": "and",
+          "start": 29.76,
+          "end": 29.92
+        },
+        {
+          "text": "ceases",
+          "start": 29.92,
+          "end": 30.14
+        },
+        {
+          "text": "now",
+          "start": 30.14,
+          "end": 30.54
+        },
+        {
+          "text": "To",
+          "start": 30.54,
+          "end": 30.74
+        },
+        {
+          "text": "bellow",
+          "start": 30.74,
+          "end": 31.04
+        },
+        {
+          "text": "through",
+          "start": 31.04,
+          "end": 31.2
+        },
+        {
+          "text": "the",
+          "start": 31.2,
+          "end": 31.4
+        },
+        {
+          "text": "vast",
+          "start": 31.4,
+          "end": 31.78
+        },
+        {
+          "text": "and",
+          "start": 31.78,
+          "end": 32.02
+        },
+        {
+          "text": "boundless",
+          "start": 32.02,
+          "end": 32.58
+        },
+        {
+          "text": "Deep.",
+          "start": 32.58,
+          "end": 32.88
+        }
+      ],
+      "stats": {
+        "expected_words": 91,
+        "heard_words": 92,
+        "matched_words": 88
+      },
+      "match_ratio": 0.967032967032967,
+      "rejection_reasons": [],
+      "seconds": 0.7675682008266449
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "205d8db31eb43dcb1d33e13c29afad87ce411bb2af7b578675893b99b4c0927a",
+  "selected_reasons": []
+}

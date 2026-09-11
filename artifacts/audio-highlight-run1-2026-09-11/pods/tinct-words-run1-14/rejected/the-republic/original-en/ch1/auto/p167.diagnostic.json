@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "fb1d567d05ed5f015f0135a1a11ea9af26f419b44f95c68b0f77264da8cc98a1",
+  "attempts": [
+    {
+      "asr_seconds": 0.07274673879146576,
+      "alignment_seconds": 4.2222440242767334e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Impossible.",
+        "hotwords": "Impossible"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Impossible.",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " Impossible.",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.4404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Impossible.",
+          "start": 0.02,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "Impossible."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Impossible.",
+          "start": 0.02,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07280473411083221
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ec9d18b2ef206c43529a1f39429354c512c1c3f8fd5ffb7a68b96e3131d0bf1a",
+  "selected_reasons": []
+}

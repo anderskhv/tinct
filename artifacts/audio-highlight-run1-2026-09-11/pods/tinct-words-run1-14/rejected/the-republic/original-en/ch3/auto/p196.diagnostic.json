@@ -1,0 +1,236 @@
+{
+  "complete": true,
+  "signature": "a828d074bde2d429a69a9357f0b914058cc0572fb9e9bf9f3bc00aff6a30e168",
+  "attempts": [
+    {
+      "asr_seconds": 0.12267646938562393,
+      "alignment_seconds": 8.17328691482544e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is also perfectly true, he replied.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That That is also perfectly true, he replied.",
+          "start": 0.11,
+          "end": 2.59,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.11,
+              "end": 0.53,
+              "probability": 0.63818359375
+            },
+            {
+              "text": " That",
+              "start": 0.53,
+              "end": 0.59,
+              "probability": 2.980232238769531e-07
+            },
+            {
+              "text": " is",
+              "start": 0.59,
+              "end": 0.63,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " also",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.978515625
+            },
+            {
+              "text": " perfectly",
+              "start": 0.85,
+              "end": 1.31,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " true,",
+              "start": 1.31,
+              "end": 1.73,
+              "probability": 0.978515625
+            },
+            {
+              "text": " he",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.96484375
+            },
+            {
+              "text": " replied.",
+              "start": 2.21,
+              "end": 2.59,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.11,
+          "end": 0.53
+        },
+        {
+          "raw": "That",
+          "start": 0.53,
+          "end": 0.59
+        },
+        {
+          "raw": "is",
+          "start": 0.59,
+          "end": 0.63
+        },
+        {
+          "raw": "also",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "perfectly",
+          "start": 0.85,
+          "end": 1.31
+        },
+        {
+          "raw": "true,",
+          "start": 1.31,
+          "end": 1.73
+        },
+        {
+          "raw": "he",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "replied.",
+          "start": 2.21,
+          "end": 2.59
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "also",
+        "perfectly",
+        "true,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.53,
+          "end": 0.59
+        },
+        {
+          "text": "is",
+          "start": 0.59,
+          "end": 0.63
+        },
+        {
+          "text": "also",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "perfectly",
+          "start": 0.85,
+          "end": 1.31
+        },
+        {
+          "text": "true,",
+          "start": 1.31,
+          "end": 1.73
+        },
+        {
+          "text": "he",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "replied.",
+          "start": 2.21,
+          "end": 2.59
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1227962076663971
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "cdf1656e5d9936098d5cd9f01d2318e2e9d393f2b4fc7904ff02a2f3a87c4b00",
+  "selected_reasons": []
+}

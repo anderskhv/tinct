@@ -1,0 +1,679 @@
+{
+  "complete": true,
+  "signature": "22761e4b9f484a055191b255ee3b0c749829ca413a41338f4a9d5147587db928",
+  "attempts": [
+    {
+      "asr_seconds": 0.2405938133597374,
+      "alignment_seconds": 0.00014897435903549194,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nor may they imitate the neighing of horses, the bellowing of bulls, the murmur of rivers and roll of the ocean, thunder, and all that sort of thing?",
+        "hotwords": "Nor"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nor may they imitate the neighing of horses, the bellowing of bulls, the murmur of rivers",
+          "start": 0.05,
+          "end": 5.45,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " may",
+              "start": 0.57,
+              "end": 0.77,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " they",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " imitate",
+              "start": 0.95,
+              "end": 1.35,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.35,
+              "end": 1.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " neighing",
+              "start": 1.57,
+              "end": 1.89,
+              "probability": 0.921875
+            },
+            {
+              "text": " of",
+              "start": 1.89,
+              "end": 1.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " horses,",
+              "start": 1.99,
+              "end": 2.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 2.85,
+              "end": 3.05,
+              "probability": 0.978515625
+            },
+            {
+              "text": " bellowing",
+              "start": 3.05,
+              "end": 3.43,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " of",
+              "start": 3.43,
+              "end": 3.63,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " bulls,",
+              "start": 3.63,
+              "end": 3.95,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 4.51,
+              "end": 4.61,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " murmur",
+              "start": 4.61,
+              "end": 4.95,
+              "probability": 0.992431640625
+            },
+            {
+              "text": " of",
+              "start": 4.95,
+              "end": 5.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rivers",
+              "start": 5.11,
+              "end": 5.45,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " and roll of the ocean, thunder, and all that sort of thing?",
+          "start": 5.45,
+          "end": 8.95,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.45,
+              "end": 5.75,
+              "probability": 0.9765625
+            },
+            {
+              "text": " roll",
+              "start": 5.75,
+              "end": 6.03,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " of",
+              "start": 6.03,
+              "end": 6.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 6.19,
+              "end": 6.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ocean,",
+              "start": 6.31,
+              "end": 6.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " thunder,",
+              "start": 7.23,
+              "end": 7.45,
+              "probability": 0.72119140625
+            },
+            {
+              "text": " and",
+              "start": 7.95,
+              "end": 8.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " all",
+              "start": 8.05,
+              "end": 8.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 8.19,
+              "end": 8.41,
+              "probability": 0.9921875
+            },
+            {
+              "text": " sort",
+              "start": 8.41,
+              "end": 8.61,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 8.61,
+              "end": 8.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thing?",
+              "start": 8.75,
+              "end": 8.95,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nor",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "may",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "raw": "they",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "imitate",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "raw": "the",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "raw": "neighing",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "raw": "of",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "raw": "horses,",
+          "start": 1.99,
+          "end": 2.37
+        },
+        {
+          "raw": "the",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "raw": "bellowing",
+          "start": 3.05,
+          "end": 3.43
+        },
+        {
+          "raw": "of",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "raw": "bulls,",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "raw": "the",
+          "start": 4.51,
+          "end": 4.61
+        },
+        {
+          "raw": "murmur",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "raw": "of",
+          "start": 4.95,
+          "end": 5.11
+        },
+        {
+          "raw": "rivers",
+          "start": 5.11,
+          "end": 5.45
+        },
+        {
+          "raw": "and",
+          "start": 5.45,
+          "end": 5.75
+        },
+        {
+          "raw": "roll",
+          "start": 5.75,
+          "end": 6.03
+        },
+        {
+          "raw": "of",
+          "start": 6.03,
+          "end": 6.19
+        },
+        {
+          "raw": "the",
+          "start": 6.19,
+          "end": 6.31
+        },
+        {
+          "raw": "ocean,",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "raw": "thunder,",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "raw": "and",
+          "start": 7.95,
+          "end": 8.05
+        },
+        {
+          "raw": "all",
+          "start": 8.05,
+          "end": 8.19
+        },
+        {
+          "raw": "that",
+          "start": 8.19,
+          "end": 8.41
+        },
+        {
+          "raw": "sort",
+          "start": 8.41,
+          "end": 8.61
+        },
+        {
+          "raw": "of",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "raw": "thing?",
+          "start": 8.75,
+          "end": 8.95
+        }
+      ],
+      "expected_tokens": [
+        "Nor",
+        "may",
+        "they",
+        "imitate",
+        "the",
+        "neighing",
+        "of",
+        "horses,",
+        "the",
+        "bellowing",
+        "of",
+        "bulls,",
+        "the",
+        "murmur",
+        "of",
+        "rivers",
+        "and",
+        "roll",
+        "of",
+        "the",
+        "ocean,",
+        "thunder,",
+        "and",
+        "all",
+        "that",
+        "sort",
+        "of",
+        "thing?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Nor",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "may",
+          "start": 0.57,
+          "end": 0.77
+        },
+        {
+          "text": "they",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "imitate",
+          "start": 0.95,
+          "end": 1.35
+        },
+        {
+          "text": "the",
+          "start": 1.35,
+          "end": 1.57
+        },
+        {
+          "text": "neighing",
+          "start": 1.57,
+          "end": 1.89
+        },
+        {
+          "text": "of",
+          "start": 1.89,
+          "end": 1.99
+        },
+        {
+          "text": "horses,",
+          "start": 1.99,
+          "end": 2.37
+        },
+        {
+          "text": "the",
+          "start": 2.85,
+          "end": 3.05
+        },
+        {
+          "text": "bellowing",
+          "start": 3.05,
+          "end": 3.43
+        },
+        {
+          "text": "of",
+          "start": 3.43,
+          "end": 3.63
+        },
+        {
+          "text": "bulls,",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "text": "the",
+          "start": 4.51,
+          "end": 4.61
+        },
+        {
+          "text": "murmur",
+          "start": 4.61,
+          "end": 4.95
+        },
+        {
+          "text": "of",
+          "start": 4.95,
+          "end": 5.11
+        },
+        {
+          "text": "rivers",
+          "start": 5.11,
+          "end": 5.45
+        },
+        {
+          "text": "and",
+          "start": 5.45,
+          "end": 5.75
+        },
+        {
+          "text": "roll",
+          "start": 5.75,
+          "end": 6.03
+        },
+        {
+          "text": "of",
+          "start": 6.03,
+          "end": 6.19
+        },
+        {
+          "text": "the",
+          "start": 6.19,
+          "end": 6.31
+        },
+        {
+          "text": "ocean,",
+          "start": 6.31,
+          "end": 6.71
+        },
+        {
+          "text": "thunder,",
+          "start": 7.23,
+          "end": 7.45
+        },
+        {
+          "text": "and",
+          "start": 7.95,
+          "end": 8.05
+        },
+        {
+          "text": "all",
+          "start": 8.05,
+          "end": 8.19
+        },
+        {
+          "text": "that",
+          "start": 8.19,
+          "end": 8.41
+        },
+        {
+          "text": "sort",
+          "start": 8.41,
+          "end": 8.61
+        },
+        {
+          "text": "of",
+          "start": 8.61,
+          "end": 8.75
+        },
+        {
+          "text": "thing?",
+          "start": 8.75,
+          "end": 8.95
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24082128703594208
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0f3273d2c79578fa5d22259165d00ebe02eaaf92747531d3e8851bd168898417",
+  "selected_reasons": []
+}

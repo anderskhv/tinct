@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "11964bb3d1469d71b7925b082cf95d11492b0e5503b243628f9cad70d6538204",
+  "attempts": [
+    {
+      "asr_seconds": 0.12200993299484253,
+      "alignment_seconds": 8.510053157806396e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I dare say that there will be no difficulty.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I dare say that there will be no difficulty.",
+          "start": 0.08,
+          "end": 2.3,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.91162109375
+            },
+            {
+              "text": " dare",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.85791015625
+            },
+            {
+              "text": " say",
+              "start": 0.74,
+              "end": 1.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " there",
+              "start": 1.34,
+              "end": 1.5,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " will",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 1.6,
+              "end": 1.72,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " no",
+              "start": 1.72,
+              "end": 1.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " difficulty.",
+              "start": 1.92,
+              "end": 2.3,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "dare",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "say",
+          "start": 0.74,
+          "end": 1.1
+        },
+        {
+          "raw": "that",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "raw": "there",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "raw": "will",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "be",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "raw": "no",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "raw": "difficulty.",
+          "start": 1.92,
+          "end": 2.3
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "dare",
+        "say",
+        "that",
+        "there",
+        "will",
+        "be",
+        "no",
+        "difficulty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "dare",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "say",
+          "start": 0.74,
+          "end": 1.1
+        },
+        {
+          "text": "that",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "text": "there",
+          "start": 1.34,
+          "end": 1.5
+        },
+        {
+          "text": "will",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "be",
+          "start": 1.6,
+          "end": 1.72
+        },
+        {
+          "text": "no",
+          "start": 1.72,
+          "end": 1.92
+        },
+        {
+          "text": "difficulty.",
+          "start": 1.92,
+          "end": 2.3
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12213579565286636
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a4970996839c6e18538c18693684014dfb364dec33f18633cb33456f0e702a37",
+  "selected_reasons": []
+}

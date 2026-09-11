@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "b19ca6add0198cef9b3d4f4a27908c227cd719a9204c846088f1941b4bdd2f25",
+  "attempts": [
+    {
+      "asr_seconds": 0.07402455061674118,
+      "alignment_seconds": 4.892796277999878e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No.",
+          "start": 0.02,
+          "end": 0.68,
+          "words": [
+            {
+              "text": " No.",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.64013671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No.",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "expected_tokens": [
+        "No."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "No.",
+          "start": 0.02,
+          "end": 0.68
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07408842444419861
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "89ba8d91e193d7fc939a6f22a69695218cc49ea99077b9b249996be6530755ad",
+  "selected_reasons": []
+}

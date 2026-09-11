@@ -1,0 +1,657 @@
+{
+  "complete": true,
+  "signature": "9348c99fd6ac730b9abcf0e41bea26a15291c5767cc728e29135389dbd246aad",
+  "attempts": [
+    {
+      "asr_seconds": 0.2240295112133026,
+      "alignment_seconds": 0.00017670542001724243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Why, said I, and so they ought. Let us, however, proceed with our scheme. We were saying that the parents should be in the prime of life?",
+        "hotwords": "Why, I, Let, We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why, said I, and so they ought. Let us, however, proceed with our scheme. We were saying that",
+          "start": 0.02,
+          "end": 5.96,
+          "words": [
+            {
+              "text": " Why,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.4033203125
+            },
+            {
+              "text": " said",
+              "start": 0.74,
+              "end": 1.02,
+              "probability": 0.982421875
+            },
+            {
+              "text": " I,",
+              "start": 1.02,
+              "end": 1.3,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " so",
+              "start": 1.62,
+              "end": 1.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " they",
+              "start": 1.8,
+              "end": 2.0,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ought.",
+              "start": 2.0,
+              "end": 2.26,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " Let",
+              "start": 2.84,
+              "end": 2.98,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " us,",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " however,",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " proceed",
+              "start": 3.72,
+              "end": 3.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " with",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " our",
+              "start": 4.2,
+              "end": 4.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " scheme.",
+              "start": 4.36,
+              "end": 4.68,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " We",
+              "start": 5.3,
+              "end": 5.42,
+              "probability": 0.984375
+            },
+            {
+              "text": " were",
+              "start": 5.42,
+              "end": 5.54,
+              "probability": 0.99609375
+            },
+            {
+              "text": " saying",
+              "start": 5.54,
+              "end": 5.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 5.78,
+              "end": 5.96,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " the parents should be in the prime of life?",
+          "start": 5.96,
+          "end": 7.64,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.96,
+              "end": 6.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " parents",
+              "start": 6.08,
+              "end": 6.38,
+              "probability": 0.947265625
+            },
+            {
+              "text": " should",
+              "start": 6.38,
+              "end": 6.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 6.6,
+              "end": 6.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 6.78,
+              "end": 6.9,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.0,
+              "probability": 0.99609375
+            },
+            {
+              "text": " prime",
+              "start": 7.0,
+              "end": 7.2,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " of",
+              "start": 7.2,
+              "end": 7.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " life?",
+              "start": 7.38,
+              "end": 7.64,
+              "probability": 0.96240234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "said",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "raw": "I,",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "raw": "and",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "so",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "raw": "they",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "raw": "ought.",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "raw": "Let",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "raw": "us,",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "however,",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "proceed",
+          "start": 3.72,
+          "end": 3.98
+        },
+        {
+          "raw": "with",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "our",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "raw": "scheme.",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "raw": "We",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "raw": "were",
+          "start": 5.42,
+          "end": 5.54
+        },
+        {
+          "raw": "saying",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "raw": "that",
+          "start": 5.78,
+          "end": 5.96
+        },
+        {
+          "raw": "the",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "raw": "parents",
+          "start": 6.08,
+          "end": 6.38
+        },
+        {
+          "raw": "should",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "raw": "be",
+          "start": 6.6,
+          "end": 6.78
+        },
+        {
+          "raw": "in",
+          "start": 6.78,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.0
+        },
+        {
+          "raw": "prime",
+          "start": 7.0,
+          "end": 7.2
+        },
+        {
+          "raw": "of",
+          "start": 7.2,
+          "end": 7.38
+        },
+        {
+          "raw": "life?",
+          "start": 7.38,
+          "end": 7.64
+        }
+      ],
+      "expected_tokens": [
+        "Why,",
+        "said",
+        "I,",
+        "and",
+        "so",
+        "they",
+        "ought.",
+        "Let",
+        "us,",
+        "however,",
+        "proceed",
+        "with",
+        "our",
+        "scheme.",
+        "We",
+        "were",
+        "saying",
+        "that",
+        "the",
+        "parents",
+        "should",
+        "be",
+        "in",
+        "the",
+        "prime",
+        "of",
+        "life?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Why,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "said",
+          "start": 0.74,
+          "end": 1.02
+        },
+        {
+          "text": "I,",
+          "start": 1.02,
+          "end": 1.3
+        },
+        {
+          "text": "and",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "so",
+          "start": 1.62,
+          "end": 1.8
+        },
+        {
+          "text": "they",
+          "start": 1.8,
+          "end": 2.0
+        },
+        {
+          "text": "ought.",
+          "start": 2.0,
+          "end": 2.26
+        },
+        {
+          "text": "Let",
+          "start": 2.84,
+          "end": 2.98
+        },
+        {
+          "text": "us,",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "however,",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "proceed",
+          "start": 3.72,
+          "end": 3.98
+        },
+        {
+          "text": "with",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "our",
+          "start": 4.2,
+          "end": 4.36
+        },
+        {
+          "text": "scheme.",
+          "start": 4.36,
+          "end": 4.68
+        },
+        {
+          "text": "We",
+          "start": 5.3,
+          "end": 5.42
+        },
+        {
+          "text": "were",
+          "start": 5.42,
+          "end": 5.54
+        },
+        {
+          "text": "saying",
+          "start": 5.54,
+          "end": 5.78
+        },
+        {
+          "text": "that",
+          "start": 5.78,
+          "end": 5.96
+        },
+        {
+          "text": "the",
+          "start": 5.96,
+          "end": 6.08
+        },
+        {
+          "text": "parents",
+          "start": 6.08,
+          "end": 6.38
+        },
+        {
+          "text": "should",
+          "start": 6.38,
+          "end": 6.6
+        },
+        {
+          "text": "be",
+          "start": 6.6,
+          "end": 6.78
+        },
+        {
+          "text": "in",
+          "start": 6.78,
+          "end": 6.9
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.0
+        },
+        {
+          "text": "prime",
+          "start": 7.0,
+          "end": 7.2
+        },
+        {
+          "text": "of",
+          "start": 7.2,
+          "end": 7.38
+        },
+        {
+          "text": "life?",
+          "start": 7.38,
+          "end": 7.64
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2243005633354187
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ef26aa1ebec2a663b6d148d37c5d9d8d673197134ed8edd8052e87edcde6a66b",
+  "selected_reasons": []
+}

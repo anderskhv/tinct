@@ -1,0 +1,496 @@
+{
+  "complete": true,
+  "signature": "7aa896956a85b520cdd0b8d3ca344f081bd72d88ada5884f5d4f0acdb1351900",
+  "attempts": [
+    {
+      "asr_seconds": 0.23991941660642624,
+      "alignment_seconds": 0.00013849139213562012,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then, again, there is the situation of the city—to find a place where nothing need be imported is wellnigh impossible.",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then, again, there is the situation of the city—to find a place where nothing need be imported is wellnigh impossible.",
+          "start": 0.02,
+          "end": 7.16,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " again,",
+              "start": 0.74,
+              "end": 1.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " there",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 1.78,
+              "end": 1.94,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 1.94,
+              "end": 2.1,
+              "probability": 0.994140625
+            },
+            {
+              "text": " situation",
+              "start": 2.1,
+              "end": 2.5,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.82,
+              "end": 2.96,
+              "probability": 0.9921875
+            },
+            {
+              "text": " city—to",
+              "start": 2.96,
+              "end": 3.9,
+              "probability": 0.6065673828125
+            },
+            {
+              "text": " find",
+              "start": 3.9,
+              "end": 4.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 4.12,
+              "end": 4.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " place",
+              "start": 4.28,
+              "end": 4.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " where",
+              "start": 4.46,
+              "end": 4.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " nothing",
+              "start": 4.7,
+              "end": 4.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " need",
+              "start": 4.98,
+              "end": 5.26,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " be",
+              "start": 5.26,
+              "end": 5.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " imported",
+              "start": 5.42,
+              "end": 5.84,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 5.84,
+              "end": 6.18,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " wellnigh",
+              "start": 6.18,
+              "end": 6.7,
+              "probability": 0.6540508270263672
+            },
+            {
+              "text": " impossible.",
+              "start": 6.7,
+              "end": 7.16,
+              "probability": 0.9638671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "again,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "raw": "there",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "is",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "raw": "the",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "raw": "situation",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.82
+        },
+        {
+          "raw": "the",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "raw": "city—to",
+          "start": 2.96,
+          "end": 3.9
+        },
+        {
+          "raw": "find",
+          "start": 3.9,
+          "end": 4.12
+        },
+        {
+          "raw": "a",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "raw": "place",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "raw": "where",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "raw": "nothing",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "raw": "need",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "raw": "be",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "raw": "imported",
+          "start": 5.42,
+          "end": 5.84
+        },
+        {
+          "raw": "is",
+          "start": 5.84,
+          "end": 6.18
+        },
+        {
+          "raw": "wellnigh",
+          "start": 6.18,
+          "end": 6.7
+        },
+        {
+          "raw": "impossible.",
+          "start": 6.7,
+          "end": 7.16
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "again,",
+        "there",
+        "is",
+        "the",
+        "situation",
+        "of",
+        "the",
+        "city—to",
+        "find",
+        "a",
+        "place",
+        "where",
+        "nothing",
+        "need",
+        "be",
+        "imported",
+        "is",
+        "wellnigh",
+        "impossible."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          20,
+          0,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "again,",
+          "start": 0.74,
+          "end": 1.08
+        },
+        {
+          "text": "there",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "is",
+          "start": 1.78,
+          "end": 1.94
+        },
+        {
+          "text": "the",
+          "start": 1.94,
+          "end": 2.1
+        },
+        {
+          "text": "situation",
+          "start": 2.1,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.82
+        },
+        {
+          "text": "the",
+          "start": 2.82,
+          "end": 2.96
+        },
+        {
+          "text": "city—to",
+          "start": 2.96,
+          "end": 3.9
+        },
+        {
+          "text": "find",
+          "start": 3.9,
+          "end": 4.12
+        },
+        {
+          "text": "a",
+          "start": 4.12,
+          "end": 4.28
+        },
+        {
+          "text": "place",
+          "start": 4.28,
+          "end": 4.46
+        },
+        {
+          "text": "where",
+          "start": 4.46,
+          "end": 4.7
+        },
+        {
+          "text": "nothing",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "text": "need",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "text": "be",
+          "start": 5.26,
+          "end": 5.42
+        },
+        {
+          "text": "imported",
+          "start": 5.42,
+          "end": 5.84
+        },
+        {
+          "text": "is",
+          "start": 5.84,
+          "end": 6.18
+        },
+        {
+          "text": "wellnigh",
+          "start": 6.18,
+          "end": 6.7
+        },
+        {
+          "text": "impossible.",
+          "start": 6.7,
+          "end": 7.16
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 20
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24013011902570724
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c5c03db8b8bdffefd83cbe324d819bc7b01c530f161592f5987960f6e345e27c",
+  "selected_reasons": []
+}

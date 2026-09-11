@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "9273fcb80735b0ce2985490ab149e4c79e2082dc026905714fafaad7a7c88344",
+  "attempts": [
+    {
+      "asr_seconds": 0.08763393014669418,
+      "alignment_seconds": 6.04093074798584e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very like a dog, he said.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.2489013671875
+            },
+            {
+              "text": " like",
+              "start": 0.65,
+              "end": 0.83,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " a",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " dog,",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.994140625
+            },
+            {
+              "text": " he",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said.",
+              "start": 1.47,
+              "end": 1.75,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "like",
+          "start": 0.65,
+          "end": 0.83
+        },
+        {
+          "raw": "a",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "raw": "dog,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "he",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "said.",
+          "start": 1.47,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "like",
+        "a",
+        "dog,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "like",
+          "start": 0.65,
+          "end": 0.83
+        },
+        {
+          "text": "a",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "text": "dog,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "he",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "said.",
+          "start": 1.47,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0877254530787468
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bf4e826a1e38db1f09a7cccb5acd03c71476b5faaff7f6e218c760805f895911",
+  "selected_reasons": []
+}

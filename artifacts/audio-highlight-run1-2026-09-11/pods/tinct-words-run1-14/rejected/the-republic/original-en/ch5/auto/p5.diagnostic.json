@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "82e649de336d885998b6cd36ad2e6be7d8ee008642908458701f0117d494f5fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.08229195326566696,
+      "alignment_seconds": 5.829334259033203e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You, he said.",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You, he said.",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " You,",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.26220703125
+            },
+            {
+              "text": " he",
+              "start": 0.66,
+              "end": 0.7,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " said.",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "he",
+          "start": 0.66,
+          "end": 0.7
+        },
+        {
+          "raw": "said.",
+          "start": 0.7,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "You,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You,",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "he",
+          "start": 0.66,
+          "end": 0.7
+        },
+        {
+          "text": "said.",
+          "start": 0.7,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08237197250127792
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1218d0f449b8120fc8a19955f0c90abe7bb19762d8dc7bee897601a65baf2fc0",
+  "selected_reasons": []
+}

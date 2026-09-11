@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "d85eb80a6895397efcb9745cc430edb1baf5919124c48756f297e6d7905ef918",
+  "attempts": [
+    {
+      "asr_seconds": 0.08180359750986099,
+      "alignment_seconds": 5.560368299484253e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And who have.",
+          "start": 0.08,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.48193359375
+            },
+            {
+              "text": " who",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " have.",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "who",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "have.",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "and",
+        "who",
+        "have"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "and",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "who",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "have",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08188134431838989
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2dbfc884c1f04f48944fe3139519c099c640c294c2665c9fc0f6157706715151",
+  "selected_reasons": []
+}

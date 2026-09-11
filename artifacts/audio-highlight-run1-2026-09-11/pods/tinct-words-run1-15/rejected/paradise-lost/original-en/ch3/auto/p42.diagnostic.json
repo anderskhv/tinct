@@ -1,0 +1,1603 @@
+{
+  "complete": true,
+  "signature": "96e8b0de4f524d4679a4be3dd9f1595820e025abcfa9cb22c49f92694f7e4700",
+  "attempts": [
+    {
+      "asr_seconds": 0.49495916813611984,
+      "alignment_seconds": 0.0004305317997932434,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then, all thy saints assembled, thou shalt judge Bad Men and Angels; they, arraigned, shall sink Beneath thy sentence; Hell, her numbers full, Thenceforth shall be for ever shut. Mean while The world shall burn, and from her ashes spring New Heaven and Earth, wherein the just shall dwell, And, after all their tribulations long, See golden days, fruitful of golden deeds, With joy and peace triumphing, and fair truth.",
+        "hotwords": "Then, Bad, Men, Angels, Beneath, Hell, Thenceforth, Mean, New, Heaven, Earth, See, With"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then, all thy saints assembled, thou shalt judge Bad Men and Angels, they, arraigned, shall sink Beneath thy sentence, Hell, her numbers full, Thenceforth shall be for ever shut.",
+          "start": 0.11,
+          "end": 9.77,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.41259765625
+            },
+            {
+              "text": " all",
+              "start": 0.79,
+              "end": 0.79,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " thy",
+              "start": 0.79,
+              "end": 0.97,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " saints",
+              "start": 0.97,
+              "end": 1.21,
+              "probability": 0.884765625
+            },
+            {
+              "text": " assembled,",
+              "start": 1.21,
+              "end": 1.73,
+              "probability": 0.990234375
+            },
+            {
+              "text": " thou",
+              "start": 2.17,
+              "end": 2.21,
+              "probability": 0.8017578125
+            },
+            {
+              "text": " shalt",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " judge",
+              "start": 2.41,
+              "end": 2.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Bad",
+              "start": 2.65,
+              "end": 2.93,
+              "probability": 0.005435943603515625
+            },
+            {
+              "text": " Men",
+              "start": 2.93,
+              "end": 3.21,
+              "probability": 0.33154296875
+            },
+            {
+              "text": " and",
+              "start": 3.21,
+              "end": 3.45,
+              "probability": 0.95703125
+            },
+            {
+              "text": " Angels,",
+              "start": 3.45,
+              "end": 3.81,
+              "probability": 0.55908203125
+            },
+            {
+              "text": " they,",
+              "start": 4.35,
+              "end": 4.55,
+              "probability": 0.7529296875
+            },
+            {
+              "text": " arraigned,",
+              "start": 4.57,
+              "end": 5.05,
+              "probability": 0.66162109375
+            },
+            {
+              "text": " shall",
+              "start": 5.15,
+              "end": 5.23,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " sink",
+              "start": 5.23,
+              "end": 5.55,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " Beneath",
+              "start": 5.55,
+              "end": 5.97,
+              "probability": 0.5170745849609375
+            },
+            {
+              "text": " thy",
+              "start": 5.97,
+              "end": 6.15,
+              "probability": 0.970703125
+            },
+            {
+              "text": " sentence,",
+              "start": 6.15,
+              "end": 6.55,
+              "probability": 0.48681640625
+            },
+            {
+              "text": " Hell,",
+              "start": 7.19,
+              "end": 7.33,
+              "probability": 0.42919921875
+            },
+            {
+              "text": " her",
+              "start": 7.45,
+              "end": 7.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " numbers",
+              "start": 7.53,
+              "end": 7.81,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " full,",
+              "start": 7.81,
+              "end": 8.17,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " Thenceforth",
+              "start": 8.29,
+              "end": 8.65,
+              "probability": 0.5892212986946106
+            },
+            {
+              "text": " shall",
+              "start": 8.65,
+              "end": 8.91,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " be",
+              "start": 8.91,
+              "end": 9.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 9.07,
+              "end": 9.19,
+              "probability": 0.174560546875
+            },
+            {
+              "text": " ever",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " shut.",
+              "start": 9.47,
+              "end": 9.77,
+              "probability": 0.97119140625
+            }
+          ]
+        },
+        {
+          "text": " Mean while The world shall burn, and from her ashes spring New Heaven and Earth, wherein the just shall dwell, And, after all their tribulations long, See golden days, fruitful of golden deeds, With joy and peace triumphing, and fair truth.",
+          "start": 10.55,
+          "end": 23.33,
+          "words": [
+            {
+              "text": " Mean",
+              "start": 10.55,
+              "end": 10.71,
+              "probability": 0.0109710693359375
+            },
+            {
+              "text": " while",
+              "start": 10.71,
+              "end": 10.91,
+              "probability": 0.70703125
+            },
+            {
+              "text": " The",
+              "start": 10.91,
+              "end": 11.05,
+              "probability": 0.01470184326171875
+            },
+            {
+              "text": " world",
+              "start": 11.05,
+              "end": 11.25,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " shall",
+              "start": 11.25,
+              "end": 11.49,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " burn,",
+              "start": 11.49,
+              "end": 11.79,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " and",
+              "start": 12.11,
+              "end": 12.15,
+              "probability": 0.5869140625
+            },
+            {
+              "text": " from",
+              "start": 12.15,
+              "end": 12.29,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " her",
+              "start": 12.29,
+              "end": 12.45,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " ashes",
+              "start": 12.45,
+              "end": 12.77,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " spring",
+              "start": 12.77,
+              "end": 13.17,
+              "probability": 0.3017578125
+            },
+            {
+              "text": " New",
+              "start": 13.17,
+              "end": 13.41,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " Heaven",
+              "start": 13.41,
+              "end": 13.67,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " and",
+              "start": 13.67,
+              "end": 13.93,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Earth,",
+              "start": 13.93,
+              "end": 14.23,
+              "probability": 0.66552734375
+            },
+            {
+              "text": " wherein",
+              "start": 14.61,
+              "end": 14.71,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " the",
+              "start": 14.71,
+              "end": 14.89,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " just",
+              "start": 14.89,
+              "end": 15.07,
+              "probability": 0.8525390625
+            },
+            {
+              "text": " shall",
+              "start": 15.07,
+              "end": 15.27,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " dwell,",
+              "start": 15.27,
+              "end": 15.55,
+              "probability": 0.9072265625
+            },
+            {
+              "text": " And,",
+              "start": 16.11,
+              "end": 16.25,
+              "probability": 0.73828125
+            },
+            {
+              "text": " after",
+              "start": 16.49,
+              "end": 16.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " all",
+              "start": 16.49,
+              "end": 16.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " their",
+              "start": 16.67,
+              "end": 16.83,
+              "probability": 0.9609375
+            },
+            {
+              "text": " tribulations",
+              "start": 16.83,
+              "end": 17.43,
+              "probability": 0.962890625
+            },
+            {
+              "text": " long,",
+              "start": 17.43,
+              "end": 17.83,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " See",
+              "start": 18.17,
+              "end": 18.27,
+              "probability": 0.2193603515625
+            },
+            {
+              "text": " golden",
+              "start": 18.27,
+              "end": 18.63,
+              "probability": 0.70703125
+            },
+            {
+              "text": " days,",
+              "start": 18.63,
+              "end": 19.03,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " fruitful",
+              "start": 19.53,
+              "end": 19.69,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " of",
+              "start": 19.69,
+              "end": 20.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " golden",
+              "start": 20.03,
+              "end": 20.31,
+              "probability": 0.8505859375
+            },
+            {
+              "text": " deeds,",
+              "start": 20.31,
+              "end": 20.69,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " With",
+              "start": 21.09,
+              "end": 21.25,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " joy",
+              "start": 21.25,
+              "end": 21.49,
+              "probability": 0.78466796875
+            },
+            {
+              "text": " and",
+              "start": 21.49,
+              "end": 21.77,
+              "probability": 0.92431640625
+            },
+            {
+              "text": " peace",
+              "start": 21.77,
+              "end": 22.01,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " triumphing,",
+              "start": 22.01,
+              "end": 22.57,
+              "probability": 0.7445475260416666
+            },
+            {
+              "text": " and",
+              "start": 22.73,
+              "end": 22.83,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " fair",
+              "start": 22.83,
+              "end": 23.01,
+              "probability": 0.984375
+            },
+            {
+              "text": " truth.",
+              "start": 23.01,
+              "end": 23.33,
+              "probability": 0.9306640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "all",
+          "start": 0.79,
+          "end": 0.79
+        },
+        {
+          "raw": "thy",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "raw": "saints",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "raw": "assembled,",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "raw": "thou",
+          "start": 2.17,
+          "end": 2.21
+        },
+        {
+          "raw": "shalt",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "judge",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "raw": "Bad",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "raw": "Men",
+          "start": 2.93,
+          "end": 3.21
+        },
+        {
+          "raw": "and",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "raw": "Angels,",
+          "start": 3.45,
+          "end": 3.81
+        },
+        {
+          "raw": "they,",
+          "start": 4.35,
+          "end": 4.55
+        },
+        {
+          "raw": "arraigned,",
+          "start": 4.57,
+          "end": 5.05
+        },
+        {
+          "raw": "shall",
+          "start": 5.15,
+          "end": 5.23
+        },
+        {
+          "raw": "sink",
+          "start": 5.23,
+          "end": 5.55
+        },
+        {
+          "raw": "Beneath",
+          "start": 5.55,
+          "end": 5.97
+        },
+        {
+          "raw": "thy",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "raw": "sentence,",
+          "start": 6.15,
+          "end": 6.55
+        },
+        {
+          "raw": "Hell,",
+          "start": 7.19,
+          "end": 7.33
+        },
+        {
+          "raw": "her",
+          "start": 7.45,
+          "end": 7.53
+        },
+        {
+          "raw": "numbers",
+          "start": 7.53,
+          "end": 7.81
+        },
+        {
+          "raw": "full,",
+          "start": 7.81,
+          "end": 8.17
+        },
+        {
+          "raw": "Thenceforth",
+          "start": 8.29,
+          "end": 8.65
+        },
+        {
+          "raw": "shall",
+          "start": 8.65,
+          "end": 8.91
+        },
+        {
+          "raw": "be",
+          "start": 8.91,
+          "end": 9.07
+        },
+        {
+          "raw": "for",
+          "start": 9.07,
+          "end": 9.19
+        },
+        {
+          "raw": "ever",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "raw": "shut.",
+          "start": 9.47,
+          "end": 9.77
+        },
+        {
+          "raw": "Mean",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "raw": "while",
+          "start": 10.71,
+          "end": 10.91
+        },
+        {
+          "raw": "The",
+          "start": 10.91,
+          "end": 11.05
+        },
+        {
+          "raw": "world",
+          "start": 11.05,
+          "end": 11.25
+        },
+        {
+          "raw": "shall",
+          "start": 11.25,
+          "end": 11.49
+        },
+        {
+          "raw": "burn,",
+          "start": 11.49,
+          "end": 11.79
+        },
+        {
+          "raw": "and",
+          "start": 12.11,
+          "end": 12.15
+        },
+        {
+          "raw": "from",
+          "start": 12.15,
+          "end": 12.29
+        },
+        {
+          "raw": "her",
+          "start": 12.29,
+          "end": 12.45
+        },
+        {
+          "raw": "ashes",
+          "start": 12.45,
+          "end": 12.77
+        },
+        {
+          "raw": "spring",
+          "start": 12.77,
+          "end": 13.17
+        },
+        {
+          "raw": "New",
+          "start": 13.17,
+          "end": 13.41
+        },
+        {
+          "raw": "Heaven",
+          "start": 13.41,
+          "end": 13.67
+        },
+        {
+          "raw": "and",
+          "start": 13.67,
+          "end": 13.93
+        },
+        {
+          "raw": "Earth,",
+          "start": 13.93,
+          "end": 14.23
+        },
+        {
+          "raw": "wherein",
+          "start": 14.61,
+          "end": 14.71
+        },
+        {
+          "raw": "the",
+          "start": 14.71,
+          "end": 14.89
+        },
+        {
+          "raw": "just",
+          "start": 14.89,
+          "end": 15.07
+        },
+        {
+          "raw": "shall",
+          "start": 15.07,
+          "end": 15.27
+        },
+        {
+          "raw": "dwell,",
+          "start": 15.27,
+          "end": 15.55
+        },
+        {
+          "raw": "And,",
+          "start": 16.11,
+          "end": 16.25
+        },
+        {
+          "raw": "after",
+          "start": 16.49,
+          "end": 16.49
+        },
+        {
+          "raw": "all",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "raw": "their",
+          "start": 16.67,
+          "end": 16.83
+        },
+        {
+          "raw": "tribulations",
+          "start": 16.83,
+          "end": 17.43
+        },
+        {
+          "raw": "long,",
+          "start": 17.43,
+          "end": 17.83
+        },
+        {
+          "raw": "See",
+          "start": 18.17,
+          "end": 18.27
+        },
+        {
+          "raw": "golden",
+          "start": 18.27,
+          "end": 18.63
+        },
+        {
+          "raw": "days,",
+          "start": 18.63,
+          "end": 19.03
+        },
+        {
+          "raw": "fruitful",
+          "start": 19.53,
+          "end": 19.69
+        },
+        {
+          "raw": "of",
+          "start": 19.69,
+          "end": 20.03
+        },
+        {
+          "raw": "golden",
+          "start": 20.03,
+          "end": 20.31
+        },
+        {
+          "raw": "deeds,",
+          "start": 20.31,
+          "end": 20.69
+        },
+        {
+          "raw": "With",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "raw": "joy",
+          "start": 21.25,
+          "end": 21.49
+        },
+        {
+          "raw": "and",
+          "start": 21.49,
+          "end": 21.77
+        },
+        {
+          "raw": "peace",
+          "start": 21.77,
+          "end": 22.01
+        },
+        {
+          "raw": "triumphing,",
+          "start": 22.01,
+          "end": 22.57
+        },
+        {
+          "raw": "and",
+          "start": 22.73,
+          "end": 22.83
+        },
+        {
+          "raw": "fair",
+          "start": 22.83,
+          "end": 23.01
+        },
+        {
+          "raw": "truth.",
+          "start": 23.01,
+          "end": 23.33
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "all",
+        "thy",
+        "saints",
+        "assembled,",
+        "thou",
+        "shalt",
+        "judge",
+        "Bad",
+        "Men",
+        "and",
+        "Angels;",
+        "they,",
+        "arraigned,",
+        "shall",
+        "sink",
+        "Beneath",
+        "thy",
+        "sentence;",
+        "Hell,",
+        "her",
+        "numbers",
+        "full,",
+        "Thenceforth",
+        "shall",
+        "be",
+        "for",
+        "ever",
+        "shut.",
+        "Mean",
+        "while",
+        "The",
+        "world",
+        "shall",
+        "burn,",
+        "and",
+        "from",
+        "her",
+        "ashes",
+        "spring",
+        "New",
+        "Heaven",
+        "and",
+        "Earth,",
+        "wherein",
+        "the",
+        "just",
+        "shall",
+        "dwell,",
+        "And,",
+        "after",
+        "all",
+        "their",
+        "tribulations",
+        "long,",
+        "See",
+        "golden",
+        "days,",
+        "fruitful",
+        "of",
+        "golden",
+        "deeds,",
+        "With",
+        "joy",
+        "and",
+        "peace",
+        "triumphing,",
+        "and",
+        "fair",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          70,
+          0,
+          70
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "all",
+          "start": 0.79,
+          "end": 0.79
+        },
+        {
+          "text": "thy",
+          "start": 0.79,
+          "end": 0.97
+        },
+        {
+          "text": "saints",
+          "start": 0.97,
+          "end": 1.21
+        },
+        {
+          "text": "assembled,",
+          "start": 1.21,
+          "end": 1.73
+        },
+        {
+          "text": "thou",
+          "start": 2.17,
+          "end": 2.21
+        },
+        {
+          "text": "shalt",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "judge",
+          "start": 2.41,
+          "end": 2.65
+        },
+        {
+          "text": "Bad",
+          "start": 2.65,
+          "end": 2.93
+        },
+        {
+          "text": "Men",
+          "start": 2.93,
+          "end": 3.21
+        },
+        {
+          "text": "and",
+          "start": 3.21,
+          "end": 3.45
+        },
+        {
+          "text": "Angels;",
+          "start": 3.45,
+          "end": 3.81
+        },
+        {
+          "text": "they,",
+          "start": 4.35,
+          "end": 4.55
+        },
+        {
+          "text": "arraigned,",
+          "start": 4.57,
+          "end": 5.05
+        },
+        {
+          "text": "shall",
+          "start": 5.15,
+          "end": 5.23
+        },
+        {
+          "text": "sink",
+          "start": 5.23,
+          "end": 5.55
+        },
+        {
+          "text": "Beneath",
+          "start": 5.55,
+          "end": 5.97
+        },
+        {
+          "text": "thy",
+          "start": 5.97,
+          "end": 6.15
+        },
+        {
+          "text": "sentence;",
+          "start": 6.15,
+          "end": 6.55
+        },
+        {
+          "text": "Hell,",
+          "start": 7.19,
+          "end": 7.33
+        },
+        {
+          "text": "her",
+          "start": 7.45,
+          "end": 7.53
+        },
+        {
+          "text": "numbers",
+          "start": 7.53,
+          "end": 7.81
+        },
+        {
+          "text": "full,",
+          "start": 7.81,
+          "end": 8.17
+        },
+        {
+          "text": "Thenceforth",
+          "start": 8.29,
+          "end": 8.65
+        },
+        {
+          "text": "shall",
+          "start": 8.65,
+          "end": 8.91
+        },
+        {
+          "text": "be",
+          "start": 8.91,
+          "end": 9.07
+        },
+        {
+          "text": "for",
+          "start": 9.07,
+          "end": 9.19
+        },
+        {
+          "text": "ever",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "text": "shut.",
+          "start": 9.47,
+          "end": 9.77
+        },
+        {
+          "text": "Mean",
+          "start": 10.55,
+          "end": 10.71
+        },
+        {
+          "text": "while",
+          "start": 10.71,
+          "end": 10.91
+        },
+        {
+          "text": "The",
+          "start": 10.91,
+          "end": 11.05
+        },
+        {
+          "text": "world",
+          "start": 11.05,
+          "end": 11.25
+        },
+        {
+          "text": "shall",
+          "start": 11.25,
+          "end": 11.49
+        },
+        {
+          "text": "burn,",
+          "start": 11.49,
+          "end": 11.79
+        },
+        {
+          "text": "and",
+          "start": 12.11,
+          "end": 12.15
+        },
+        {
+          "text": "from",
+          "start": 12.15,
+          "end": 12.29
+        },
+        {
+          "text": "her",
+          "start": 12.29,
+          "end": 12.45
+        },
+        {
+          "text": "ashes",
+          "start": 12.45,
+          "end": 12.77
+        },
+        {
+          "text": "spring",
+          "start": 12.77,
+          "end": 13.17
+        },
+        {
+          "text": "New",
+          "start": 13.17,
+          "end": 13.41
+        },
+        {
+          "text": "Heaven",
+          "start": 13.41,
+          "end": 13.67
+        },
+        {
+          "text": "and",
+          "start": 13.67,
+          "end": 13.93
+        },
+        {
+          "text": "Earth,",
+          "start": 13.93,
+          "end": 14.23
+        },
+        {
+          "text": "wherein",
+          "start": 14.61,
+          "end": 14.71
+        },
+        {
+          "text": "the",
+          "start": 14.71,
+          "end": 14.89
+        },
+        {
+          "text": "just",
+          "start": 14.89,
+          "end": 15.07
+        },
+        {
+          "text": "shall",
+          "start": 15.07,
+          "end": 15.27
+        },
+        {
+          "text": "dwell,",
+          "start": 15.27,
+          "end": 15.55
+        },
+        {
+          "text": "And,",
+          "start": 16.11,
+          "end": 16.25
+        },
+        {
+          "text": "after",
+          "start": 16.49,
+          "end": 16.49
+        },
+        {
+          "text": "all",
+          "start": 16.49,
+          "end": 16.67
+        },
+        {
+          "text": "their",
+          "start": 16.67,
+          "end": 16.83
+        },
+        {
+          "text": "tribulations",
+          "start": 16.83,
+          "end": 17.43
+        },
+        {
+          "text": "long,",
+          "start": 17.43,
+          "end": 17.83
+        },
+        {
+          "text": "See",
+          "start": 18.17,
+          "end": 18.27
+        },
+        {
+          "text": "golden",
+          "start": 18.27,
+          "end": 18.63
+        },
+        {
+          "text": "days,",
+          "start": 18.63,
+          "end": 19.03
+        },
+        {
+          "text": "fruitful",
+          "start": 19.53,
+          "end": 19.69
+        },
+        {
+          "text": "of",
+          "start": 19.69,
+          "end": 20.03
+        },
+        {
+          "text": "golden",
+          "start": 20.03,
+          "end": 20.31
+        },
+        {
+          "text": "deeds,",
+          "start": 20.31,
+          "end": 20.69
+        },
+        {
+          "text": "With",
+          "start": 21.09,
+          "end": 21.25
+        },
+        {
+          "text": "joy",
+          "start": 21.25,
+          "end": 21.49
+        },
+        {
+          "text": "and",
+          "start": 21.49,
+          "end": 21.77
+        },
+        {
+          "text": "peace",
+          "start": 21.77,
+          "end": 22.01
+        },
+        {
+          "text": "triumphing,",
+          "start": 22.01,
+          "end": 22.57
+        },
+        {
+          "text": "and",
+          "start": 22.73,
+          "end": 22.83
+        },
+        {
+          "text": "fair",
+          "start": 22.83,
+          "end": 23.01
+        },
+        {
+          "text": "truth.",
+          "start": 23.01,
+          "end": 23.33
+        }
+      ],
+      "stats": {
+        "expected_words": 70,
+        "heard_words": 70,
+        "matched_words": 70
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4956488609313965
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bef9dacf4487ce6ece8bb83f2709dbfc8e14af3ca9fe5cfca731b6c8f5b2d5f0",
+  "selected_reasons": []
+}

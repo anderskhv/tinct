@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "a96919b4599e297f31aeb48ef80ba2fe6407cf9de3ffaaa49118e31ee2e6dc24",
+  "attempts": [
+    {
+      "asr_seconds": 0.07333718985319138,
+      "alignment_seconds": 5.0827860832214355e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We shall",
+          "start": 0.02,
+          "end": 0.82,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " shall",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.91845703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "shall",
+          "start": 0.56,
+          "end": 0.82
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "shall."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "shall.",
+          "start": 0.56,
+          "end": 0.82
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07340963929891586
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f476c745fab4c4fd86edf1f034beac4c9f509ea0ea23eeaa0f870613b93ec34c",
+  "selected_reasons": []
+}

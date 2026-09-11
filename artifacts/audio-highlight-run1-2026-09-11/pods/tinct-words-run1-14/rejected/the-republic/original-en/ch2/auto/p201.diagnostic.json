@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "e766b826db4064e60dea31474d1f83e5a7f92ff0d4791d5da3b0224e17b89d69",
+  "attempts": [
+    {
+      "asr_seconds": 0.17292948812246323,
+      "alignment_seconds": 0.00010804086923599243,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And is not the love of learning the love of wisdom, which is philosophy?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And is not the love of learning the love of wisdom, which is philosophy?",
+          "start": 0.05,
+          "end": 3.95,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.16259765625
+            },
+            {
+              "text": " is",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " not",
+              "start": 0.65,
+              "end": 0.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " love",
+              "start": 1.03,
+              "end": 1.27,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 1.27,
+              "end": 1.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " learning",
+              "start": 1.43,
+              "end": 1.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 1.67,
+              "end": 1.95,
+              "probability": 0.876953125
+            },
+            {
+              "text": " love",
+              "start": 1.95,
+              "end": 2.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 2.19,
+              "end": 2.33,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wisdom,",
+              "start": 2.33,
+              "end": 2.73,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " which",
+              "start": 3.21,
+              "end": 3.31,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " is",
+              "start": 3.31,
+              "end": 3.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " philosophy?",
+              "start": 3.49,
+              "end": 3.95,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "is",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "not",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "raw": "the",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "love",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "raw": "of",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "raw": "learning",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "raw": "the",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "raw": "love",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "raw": "of",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "raw": "wisdom,",
+          "start": 2.33,
+          "end": 2.73
+        },
+        {
+          "raw": "which",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "raw": "is",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "raw": "philosophy?",
+          "start": 3.49,
+          "end": 3.95
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "is",
+        "not",
+        "the",
+        "love",
+        "of",
+        "learning",
+        "the",
+        "love",
+        "of",
+        "wisdom,",
+        "which",
+        "is",
+        "philosophy?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "is",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "not",
+          "start": 0.65,
+          "end": 0.85
+        },
+        {
+          "text": "the",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "love",
+          "start": 1.03,
+          "end": 1.27
+        },
+        {
+          "text": "of",
+          "start": 1.27,
+          "end": 1.43
+        },
+        {
+          "text": "learning",
+          "start": 1.43,
+          "end": 1.67
+        },
+        {
+          "text": "the",
+          "start": 1.67,
+          "end": 1.95
+        },
+        {
+          "text": "love",
+          "start": 1.95,
+          "end": 2.19
+        },
+        {
+          "text": "of",
+          "start": 2.19,
+          "end": 2.33
+        },
+        {
+          "text": "wisdom,",
+          "start": 2.33,
+          "end": 2.73
+        },
+        {
+          "text": "which",
+          "start": 3.21,
+          "end": 3.31
+        },
+        {
+          "text": "is",
+          "start": 3.31,
+          "end": 3.49
+        },
+        {
+          "text": "philosophy?",
+          "start": 3.49,
+          "end": 3.95
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17309247702360153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6d08fca7401002dc3df7090fd25d04002eff38a830e451e5f189dba77fb379dd",
+  "selected_reasons": []
+}

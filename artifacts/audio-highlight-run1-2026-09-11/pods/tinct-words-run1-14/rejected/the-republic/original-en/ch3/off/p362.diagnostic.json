@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "a97cb0cafcea51732989072f5217ff7af1eb58208cdd3e8242992f27558c3c23",
+  "attempts": [
+    {
+      "asr_seconds": 0.1275370717048645,
+      "alignment_seconds": 9.687244892120361e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then, he said, you regard Asclepius as a statesman.",
+          "start": 0.02,
+          "end": 3.46,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.56689453125
+            },
+            {
+              "text": " he",
+              "start": 0.76,
+              "end": 0.94,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " said,",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.83203125
+            },
+            {
+              "text": " regard",
+              "start": 1.74,
+              "end": 2.06,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Asclepius",
+              "start": 2.06,
+              "end": 2.66,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " as",
+              "start": 2.66,
+              "end": 2.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 2.88,
+              "end": 3.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " statesman.",
+              "start": 3.0,
+              "end": 3.46,
+              "probability": 0.95751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "he",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "raw": "said,",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "you",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "regard",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "raw": "Asclepius",
+          "start": 2.06,
+          "end": 2.66
+        },
+        {
+          "raw": "as",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "raw": "a",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "raw": "statesman.",
+          "start": 3.0,
+          "end": 3.46
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "he",
+        "said,",
+        "you",
+        "regard",
+        "Asclepius",
+        "as",
+        "a",
+        "statesman."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "he",
+          "start": 0.76,
+          "end": 0.94
+        },
+        {
+          "text": "said,",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "text": "you",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "regard",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "text": "Asclepius",
+          "start": 2.06,
+          "end": 2.66
+        },
+        {
+          "text": "as",
+          "start": 2.66,
+          "end": 2.88
+        },
+        {
+          "text": "a",
+          "start": 2.88,
+          "end": 3.0
+        },
+        {
+          "text": "statesman.",
+          "start": 3.0,
+          "end": 3.46
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12767452001571655
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "aea6f4e79b3bf37b64825b9ff044255b6bccc00b391d7dba86feae32d45acc02",
+  "selected_reasons": []
+}

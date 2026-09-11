@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "e9a786b92a1737e36e8fa24069df754bbd46eaff7ea9594732014cc1e30f7145",
+  "attempts": [
+    {
+      "asr_seconds": 0.14662399888038635,
+      "alignment_seconds": 7.703155279159546e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "True, he said, I had forgotten.",
+        "hotwords": "True, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " True, he said, I had forgotten.",
+          "start": 0.08,
+          "end": 2.04,
+          "words": [
+            {
+              "text": " True,",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.481201171875
+            },
+            {
+              "text": " he",
+              "start": 0.88,
+              "end": 0.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " said,",
+              "start": 0.98,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 1.48,
+              "end": 1.64,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " had",
+              "start": 1.64,
+              "end": 1.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " forgotten.",
+              "start": 1.74,
+              "end": 2.04,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "he",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "raw": "said,",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "raw": "I",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "raw": "had",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "raw": "forgotten.",
+          "start": 1.74,
+          "end": 2.04
+        }
+      ],
+      "expected_tokens": [
+        "True,",
+        "he",
+        "said,",
+        "I",
+        "had",
+        "forgotten."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "True,",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "he",
+          "start": 0.88,
+          "end": 0.98
+        },
+        {
+          "text": "said,",
+          "start": 0.98,
+          "end": 1.22
+        },
+        {
+          "text": "I",
+          "start": 1.48,
+          "end": 1.64
+        },
+        {
+          "text": "had",
+          "start": 1.64,
+          "end": 1.74
+        },
+        {
+          "text": "forgotten.",
+          "start": 1.74,
+          "end": 2.04
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14673209935426712
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0941c0ec0978bc1baf8a9d692538a830506341af1f82821d2f39a8b6780d69f5",
+  "selected_reasons": []
+}

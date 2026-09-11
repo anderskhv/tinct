@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "57827bc342c8d4e443cccf0c443124da2220a97a3a38c5bb6fae022975f80864",
+  "attempts": [
+    {
+      "asr_seconds": 0.08903784304857254,
+      "alignment_seconds": 6.51627779006958e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the knowing is wise?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the knowing is wise?",
+          "start": 0.02,
+          "end": 1.3,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.6669921875
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " knowing",
+              "start": 0.6,
+              "end": 0.82,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " is",
+              "start": 0.82,
+              "end": 1.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " wise?",
+              "start": 1.04,
+              "end": 1.3,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "knowing",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "raw": "is",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "raw": "wise?",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "knowing",
+        "is",
+        "wise?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "knowing",
+          "start": 0.6,
+          "end": 0.82
+        },
+        {
+          "text": "is",
+          "start": 0.82,
+          "end": 1.04
+        },
+        {
+          "text": "wise?",
+          "start": 1.04,
+          "end": 1.3
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0891314148902893
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fcfa793f0a3747676c2e911daad65443926a38524d9151361bd6646fd27c72da",
+  "selected_reasons": []
+}

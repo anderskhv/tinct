@@ -1,0 +1,4354 @@
+{
+  "complete": true,
+  "signature": "24245ddb05a97c6f4d863fe9027785081967069aaeb4e34a41aadd034fe2ab3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.45483559370040894,
+      "alignment_seconds": 0.0003031045198440552,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "O thou in Heaven and Earth the only peace Found out for mankind under wrath, O thou My sole complacence! Well thou know'st how dear To me are all my works; nor Man the least, Though last created, that for him I spare Thee from my bosom and right hand, to save, By losing thee a while, the whole race lost.",
+        "hotwords": "O, Heaven, Earth, Found, Well, Man, Though, I, By"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " O, Heaven, Earth, The only peace found out for mankind under wrath, O thou My sole complacence! Well thou know'st how dear to me are all my works,",
+          "start": 0.14,
+          "end": 9.46,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.14,
+              "end": 0.54,
+              "probability": 0.37353515625
+            },
+            {
+              "text": " Heaven,",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 1.1920928955078125e-06
+            },
+            {
+              "text": " Earth,",
+              "start": 1.52,
+              "end": 1.52,
+              "probability": 0.0007877349853515625
+            },
+            {
+              "text": " The",
+              "start": 1.9,
+              "end": 1.96,
+              "probability": 0.089599609375
+            },
+            {
+              "text": " only",
+              "start": 1.96,
+              "end": 2.16,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " peace",
+              "start": 2.16,
+              "end": 2.52,
+              "probability": 0.88134765625
+            },
+            {
+              "text": " found",
+              "start": 2.52,
+              "end": 2.8,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " out",
+              "start": 2.8,
+              "end": 3.04,
+              "probability": 0.96875
+            },
+            {
+              "text": " for",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " mankind",
+              "start": 3.22,
+              "end": 3.7,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " under",
+              "start": 3.7,
+              "end": 4.0,
+              "probability": 0.67236328125
+            },
+            {
+              "text": " wrath,",
+              "start": 4.0,
+              "end": 4.36,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " O",
+              "start": 4.92,
+              "end": 4.98,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " thou",
+              "start": 4.98,
+              "end": 5.14,
+              "probability": 0.1280517578125
+            },
+            {
+              "text": " My",
+              "start": 5.14,
+              "end": 5.36,
+              "probability": 0.0126800537109375
+            },
+            {
+              "text": " sole",
+              "start": 5.36,
+              "end": 5.6,
+              "probability": 0.1690673828125
+            },
+            {
+              "text": " complacence!",
+              "start": 5.6,
+              "end": 6.34,
+              "probability": 0.8606770833333334
+            },
+            {
+              "text": " Well",
+              "start": 7.0,
+              "end": 7.18,
+              "probability": 0.81494140625
+            },
+            {
+              "text": " thou",
+              "start": 7.18,
+              "end": 7.34,
+              "probability": 0.52783203125
+            },
+            {
+              "text": " know'st",
+              "start": 7.34,
+              "end": 7.76,
+              "probability": 0.705078125
+            },
+            {
+              "text": " how",
+              "start": 7.76,
+              "end": 7.94,
+              "probability": 0.00383758544921875
+            },
+            {
+              "text": " dear",
+              "start": 7.94,
+              "end": 8.22,
+              "probability": 0.75927734375
+            },
+            {
+              "text": " to",
+              "start": 8.22,
+              "end": 8.4,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " me",
+              "start": 8.4,
+              "end": 8.52,
+              "probability": 0.2032470703125
+            },
+            {
+              "text": " are",
+              "start": 8.52,
+              "end": 8.66,
+              "probability": 0.8125
+            },
+            {
+              "text": " all",
+              "start": 8.66,
+              "end": 8.86,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " my",
+              "start": 8.86,
+              "end": 9.06,
+              "probability": 0.2373046875
+            },
+            {
+              "text": " works,",
+              "start": 9.06,
+              "end": 9.46,
+              "probability": 0.97509765625
+            }
+          ]
+        },
+        {
+          "text": " Nor Man the least, Though last created, that for him I spare Thee from my bosom and right hand, to save, By losing thee a while, the whole race lost.",
+          "start": 10.0,
+          "end": 18.74,
+          "words": [
+            {
+              "text": " Nor",
+              "start": 10.0,
+              "end": 10.16,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " Man",
+              "start": 10.16,
+              "end": 10.44,
+              "probability": 0.005550384521484375
+            },
+            {
+              "text": " the",
+              "start": 10.44,
+              "end": 10.62,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " least,",
+              "start": 10.62,
+              "end": 10.88,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " Though",
+              "start": 11.08,
+              "end": 11.2,
+              "probability": 0.005496978759765625
+            },
+            {
+              "text": " last",
+              "start": 11.2,
+              "end": 11.5,
+              "probability": 0.873046875
+            },
+            {
+              "text": " created,",
+              "start": 11.5,
+              "end": 11.9,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " that",
+              "start": 12.34,
+              "end": 12.52,
+              "probability": 0.281494140625
+            },
+            {
+              "text": " for",
+              "start": 12.52,
+              "end": 12.68,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " him",
+              "start": 12.68,
+              "end": 12.92,
+              "probability": 0.505859375
+            },
+            {
+              "text": " I",
+              "start": 12.92,
+              "end": 13.18,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " spare",
+              "start": 13.18,
+              "end": 13.5,
+              "probability": 0.912109375
+            },
+            {
+              "text": " Thee",
+              "start": 13.5,
+              "end": 13.7,
+              "probability": 0.5057716369628906
+            },
+            {
+              "text": " from",
+              "start": 13.7,
+              "end": 13.82,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " my",
+              "start": 13.82,
+              "end": 14.0,
+              "probability": 0.60205078125
+            },
+            {
+              "text": " bosom",
+              "start": 14.0,
+              "end": 14.38,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 14.38,
+              "end": 14.56,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " right",
+              "start": 14.56,
+              "end": 14.76,
+              "probability": 0.9375
+            },
+            {
+              "text": " hand,",
+              "start": 14.76,
+              "end": 15.16,
+              "probability": 0.978515625
+            },
+            {
+              "text": " to",
+              "start": 15.34,
+              "end": 15.42,
+              "probability": 0.2052001953125
+            },
+            {
+              "text": " save,",
+              "start": 15.42,
+              "end": 15.76,
+              "probability": 0.98828125
+            },
+            {
+              "text": " By",
+              "start": 16.14,
+              "end": 16.34,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " losing",
+              "start": 16.34,
+              "end": 16.64,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " thee",
+              "start": 16.64,
+              "end": 16.9,
+              "probability": 0.70458984375
+            },
+            {
+              "text": " a",
+              "start": 16.9,
+              "end": 17.04,
+              "probability": 0.6953125
+            },
+            {
+              "text": " while,",
+              "start": 17.04,
+              "end": 17.32,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " the",
+              "start": 17.76,
+              "end": 17.88,
+              "probability": 0.759765625
+            },
+            {
+              "text": " whole",
+              "start": 17.88,
+              "end": 18.08,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " race",
+              "start": 18.08,
+              "end": 18.4,
+              "probability": 0.974609375
+            },
+            {
+              "text": " lost.",
+              "start": 18.4,
+              "end": 18.74,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "raw": "Heaven,",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "Earth,",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "raw": "The",
+          "start": 1.9,
+          "end": 1.96
+        },
+        {
+          "raw": "only",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "raw": "peace",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "raw": "found",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "raw": "out",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "raw": "for",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "mankind",
+          "start": 3.22,
+          "end": 3.7
+        },
+        {
+          "raw": "under",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "raw": "wrath,",
+          "start": 4.0,
+          "end": 4.36
+        },
+        {
+          "raw": "O",
+          "start": 4.92,
+          "end": 4.98
+        },
+        {
+          "raw": "thou",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "raw": "My",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "raw": "sole",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "raw": "complacence!",
+          "start": 5.6,
+          "end": 6.34
+        },
+        {
+          "raw": "Well",
+          "start": 7.0,
+          "end": 7.18
+        },
+        {
+          "raw": "thou",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "raw": "know'st",
+          "start": 7.34,
+          "end": 7.76
+        },
+        {
+          "raw": "how",
+          "start": 7.76,
+          "end": 7.94
+        },
+        {
+          "raw": "dear",
+          "start": 7.94,
+          "end": 8.22
+        },
+        {
+          "raw": "to",
+          "start": 8.22,
+          "end": 8.4
+        },
+        {
+          "raw": "me",
+          "start": 8.4,
+          "end": 8.52
+        },
+        {
+          "raw": "are",
+          "start": 8.52,
+          "end": 8.66
+        },
+        {
+          "raw": "all",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "raw": "my",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "raw": "works,",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "raw": "Nor",
+          "start": 10.0,
+          "end": 10.16
+        },
+        {
+          "raw": "Man",
+          "start": 10.16,
+          "end": 10.44
+        },
+        {
+          "raw": "the",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "raw": "least,",
+          "start": 10.62,
+          "end": 10.88
+        },
+        {
+          "raw": "Though",
+          "start": 11.08,
+          "end": 11.2
+        },
+        {
+          "raw": "last",
+          "start": 11.2,
+          "end": 11.5
+        },
+        {
+          "raw": "created,",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "raw": "that",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "raw": "for",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "raw": "him",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "raw": "I",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "raw": "spare",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "raw": "Thee",
+          "start": 13.5,
+          "end": 13.7
+        },
+        {
+          "raw": "from",
+          "start": 13.7,
+          "end": 13.82
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 14.0
+        },
+        {
+          "raw": "bosom",
+          "start": 14.0,
+          "end": 14.38
+        },
+        {
+          "raw": "and",
+          "start": 14.38,
+          "end": 14.56
+        },
+        {
+          "raw": "right",
+          "start": 14.56,
+          "end": 14.76
+        },
+        {
+          "raw": "hand,",
+          "start": 14.76,
+          "end": 15.16
+        },
+        {
+          "raw": "to",
+          "start": 15.34,
+          "end": 15.42
+        },
+        {
+          "raw": "save,",
+          "start": 15.42,
+          "end": 15.76
+        },
+        {
+          "raw": "By",
+          "start": 16.14,
+          "end": 16.34
+        },
+        {
+          "raw": "losing",
+          "start": 16.34,
+          "end": 16.64
+        },
+        {
+          "raw": "thee",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "raw": "a",
+          "start": 16.9,
+          "end": 17.04
+        },
+        {
+          "raw": "while,",
+          "start": 17.04,
+          "end": 17.32
+        },
+        {
+          "raw": "the",
+          "start": 17.76,
+          "end": 17.88
+        },
+        {
+          "raw": "whole",
+          "start": 17.88,
+          "end": 18.08
+        },
+        {
+          "raw": "race",
+          "start": 18.08,
+          "end": 18.4
+        },
+        {
+          "raw": "lost.",
+          "start": 18.4,
+          "end": 18.74
+        }
+      ],
+      "expected_tokens": [
+        "O",
+        "thou",
+        "in",
+        "Heaven",
+        "and",
+        "Earth",
+        "the",
+        "only",
+        "peace",
+        "Found",
+        "out",
+        "for",
+        "mankind",
+        "under",
+        "wrath,",
+        "O",
+        "thou",
+        "My",
+        "sole",
+        "complacence!",
+        "Well",
+        "thou",
+        "know'st",
+        "how",
+        "dear",
+        "To",
+        "me",
+        "are",
+        "all",
+        "my",
+        "works;",
+        "nor",
+        "Man",
+        "the",
+        "least,",
+        "Though",
+        "last",
+        "created,",
+        "that",
+        "for",
+        "him",
+        "I",
+        "spare",
+        "Thee",
+        "from",
+        "my",
+        "bosom",
+        "and",
+        "right",
+        "hand,",
+        "to",
+        "save,",
+        "By",
+        "losing",
+        "thee",
+        "a",
+        "while,",
+        "the",
+        "whole",
+        "race",
+        "lost."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "equal",
+          3,
+          4,
+          1,
+          2
+        ],
+        [
+          "delete",
+          4,
+          5,
+          2,
+          2
+        ],
+        [
+          "equal",
+          5,
+          61,
+          2,
+          58
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 57
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          "delete",
+          4,
+          5,
+          2,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "O",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "text": "thou",
+          "start": 0.54,
+          "end": 0.54
+        },
+        {
+          "text": "in",
+          "start": 0.54,
+          "end": 0.54
+        },
+        {
+          "text": "Heaven",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "and",
+          "start": 0.7,
+          "end": 1.11
+        },
+        {
+          "text": "Earth",
+          "start": 1.52,
+          "end": 1.52
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 1.96
+        },
+        {
+          "text": "only",
+          "start": 1.96,
+          "end": 2.16
+        },
+        {
+          "text": "peace",
+          "start": 2.16,
+          "end": 2.52
+        },
+        {
+          "text": "Found",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "text": "out",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "text": "for",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "mankind",
+          "start": 3.22,
+          "end": 3.7
+        },
+        {
+          "text": "under",
+          "start": 3.7,
+          "end": 4.0
+        },
+        {
+          "text": "wrath,",
+          "start": 4.0,
+          "end": 4.36
+        },
+        {
+          "text": "O",
+          "start": 4.92,
+          "end": 4.98
+        },
+        {
+          "text": "thou",
+          "start": 4.98,
+          "end": 5.14
+        },
+        {
+          "text": "My",
+          "start": 5.14,
+          "end": 5.36
+        },
+        {
+          "text": "sole",
+          "start": 5.36,
+          "end": 5.6
+        },
+        {
+          "text": "complacence!",
+          "start": 5.6,
+          "end": 6.34
+        },
+        {
+          "text": "Well",
+          "start": 7.0,
+          "end": 7.18
+        },
+        {
+          "text": "thou",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "text": "know'st",
+          "start": 7.34,
+          "end": 7.76
+        },
+        {
+          "text": "how",
+          "start": 7.76,
+          "end": 7.94
+        },
+        {
+          "text": "dear",
+          "start": 7.94,
+          "end": 8.22
+        },
+        {
+          "text": "To",
+          "start": 8.22,
+          "end": 8.4
+        },
+        {
+          "text": "me",
+          "start": 8.4,
+          "end": 8.52
+        },
+        {
+          "text": "are",
+          "start": 8.52,
+          "end": 8.66
+        },
+        {
+          "text": "all",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "text": "my",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "text": "works;",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "text": "nor",
+          "start": 10.0,
+          "end": 10.16
+        },
+        {
+          "text": "Man",
+          "start": 10.16,
+          "end": 10.44
+        },
+        {
+          "text": "the",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "text": "least,",
+          "start": 10.62,
+          "end": 10.88
+        },
+        {
+          "text": "Though",
+          "start": 11.08,
+          "end": 11.2
+        },
+        {
+          "text": "last",
+          "start": 11.2,
+          "end": 11.5
+        },
+        {
+          "text": "created,",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "text": "that",
+          "start": 12.34,
+          "end": 12.52
+        },
+        {
+          "text": "for",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "text": "him",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "text": "I",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "text": "spare",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "text": "Thee",
+          "start": 13.5,
+          "end": 13.7
+        },
+        {
+          "text": "from",
+          "start": 13.7,
+          "end": 13.82
+        },
+        {
+          "text": "my",
+          "start": 13.82,
+          "end": 14.0
+        },
+        {
+          "text": "bosom",
+          "start": 14.0,
+          "end": 14.38
+        },
+        {
+          "text": "and",
+          "start": 14.38,
+          "end": 14.56
+        },
+        {
+          "text": "right",
+          "start": 14.56,
+          "end": 14.76
+        },
+        {
+          "text": "hand,",
+          "start": 14.76,
+          "end": 15.16
+        },
+        {
+          "text": "to",
+          "start": 15.34,
+          "end": 15.42
+        },
+        {
+          "text": "save,",
+          "start": 15.42,
+          "end": 15.76
+        },
+        {
+          "text": "By",
+          "start": 16.14,
+          "end": 16.34
+        },
+        {
+          "text": "losing",
+          "start": 16.34,
+          "end": 16.64
+        },
+        {
+          "text": "thee",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "text": "a",
+          "start": 16.9,
+          "end": 17.04
+        },
+        {
+          "text": "while,",
+          "start": 17.04,
+          "end": 17.32
+        },
+        {
+          "text": "the",
+          "start": 17.76,
+          "end": 17.88
+        },
+        {
+          "text": "whole",
+          "start": 17.88,
+          "end": 18.08
+        },
+        {
+          "text": "race",
+          "start": 18.08,
+          "end": 18.4
+        },
+        {
+          "text": "lost.",
+          "start": 18.4,
+          "end": 18.74
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 58,
+        "matched_words": 58
+      },
+      "match_ratio": 0.9508196721311475,
+      "rejection_reasons": [],
+      "seconds": 0.45529985427856445
+    },
+    {
+      "asr_seconds": 0.4972706586122513,
+      "alignment_seconds": 0.00039830058813095093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "O, Heaven, Earth, Found, Well, Man, Though, I, By"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " O, Thou in Heaven and Earth, The only peace found out for mankind under wrath, O, Thou,",
+          "start": 0.14,
+          "end": 5.12,
+          "words": [
+            {
+              "text": " O,",
+              "start": 0.14,
+              "end": 0.54,
+              "probability": 0.37353515625
+            },
+            {
+              "text": " Thou",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.06488037109375
+            },
+            {
+              "text": " in",
+              "start": 0.68,
+              "end": 0.88,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " Heaven",
+              "start": 0.88,
+              "end": 1.1,
+              "probability": 0.38623046875
+            },
+            {
+              "text": " and",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " Earth,",
+              "start": 1.34,
+              "end": 1.62,
+              "probability": 0.8798828125
+            },
+            {
+              "text": " The",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.243408203125
+            },
+            {
+              "text": " only",
+              "start": 1.96,
+              "end": 2.2,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " peace",
+              "start": 2.2,
+              "end": 2.52,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " found",
+              "start": 2.52,
+              "end": 2.8,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " out",
+              "start": 2.8,
+              "end": 3.04,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " for",
+              "start": 3.04,
+              "end": 3.22,
+              "probability": 0.6181640625
+            },
+            {
+              "text": " mankind",
+              "start": 3.22,
+              "end": 3.68,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " under",
+              "start": 3.68,
+              "end": 4.02,
+              "probability": 0.69580078125
+            },
+            {
+              "text": " wrath,",
+              "start": 4.02,
+              "end": 4.36,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " O,",
+              "start": 4.86,
+              "end": 4.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Thou,",
+              "start": 5.12,
+              "end": 5.12,
+              "probability": 0.87255859375
+            }
+          ]
+        },
+        {
+          "text": " My soul complacence, Well Thou know'st thee how dear to me are",
+          "start": 5.28,
+          "end": 8.66,
+          "words": [
+            {
+              "text": " My",
+              "start": 5.28,
+              "end": 5.36,
+              "probability": 0.036712646484375
+            },
+            {
+              "text": " soul",
+              "start": 5.36,
+              "end": 5.58,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " complacence,",
+              "start": 5.58,
+              "end": 6.32,
+              "probability": 0.6725260416666666
+            },
+            {
+              "text": " Well",
+              "start": 6.96,
+              "end": 7.18,
+              "probability": 0.7060546875
+            },
+            {
+              "text": " Thou",
+              "start": 7.18,
+              "end": 7.34,
+              "probability": 0.5458984375
+            },
+            {
+              "text": " know'st",
+              "start": 7.34,
+              "end": 7.76,
+              "probability": 0.6615397135416666
+            },
+            {
+              "text": " thee",
+              "start": 7.76,
+              "end": 7.84,
+              "probability": 0.446533203125
+            },
+            {
+              "text": " how",
+              "start": 7.84,
+              "end": 8.04,
+              "probability": 0.77734375
+            },
+            {
+              "text": " dear",
+              "start": 8.04,
+              "end": 8.22,
+              "probability": 0.78271484375
+            },
+            {
+              "text": " to",
+              "start": 8.22,
+              "end": 8.4,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me",
+              "start": 8.4,
+              "end": 8.52,
+              "probability": 0.4208984375
+            },
+            {
+              "text": " are",
+              "start": 8.52,
+              "end": 8.66,
+              "probability": 0.76611328125
+            }
+          ]
+        },
+        {
+          "text": " all my works, Nor man the least, though last created,",
+          "start": 8.66,
+          "end": 11.9,
+          "words": [
+            {
+              "text": " all",
+              "start": 8.66,
+              "end": 8.86,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " my",
+              "start": 8.86,
+              "end": 9.06,
+              "probability": 0.439208984375
+            },
+            {
+              "text": " works,",
+              "start": 9.06,
+              "end": 9.46,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " Nor",
+              "start": 9.98,
+              "end": 10.16,
+              "probability": 0.984375
+            },
+            {
+              "text": " man",
+              "start": 10.16,
+              "end": 10.44,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " the",
+              "start": 10.44,
+              "end": 10.62,
+              "probability": 0.966796875
+            },
+            {
+              "text": " least,",
+              "start": 10.62,
+              "end": 10.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " though",
+              "start": 11.1,
+              "end": 11.2,
+              "probability": 0.9296875
+            },
+            {
+              "text": " last",
+              "start": 11.2,
+              "end": 11.5,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " created,",
+              "start": 11.5,
+              "end": 11.9,
+              "probability": 0.98779296875
+            }
+          ]
+        },
+        {
+          "text": " That for him I spare thee from my bosom and right hand to save,",
+          "start": 12.36,
+          "end": 15.78,
+          "words": [
+            {
+              "text": " That",
+              "start": 12.36,
+              "end": 12.52,
+              "probability": 0.9287109375
+            },
+            {
+              "text": " for",
+              "start": 12.52,
+              "end": 12.68,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " him",
+              "start": 12.68,
+              "end": 12.92,
+              "probability": 0.66650390625
+            },
+            {
+              "text": " I",
+              "start": 12.92,
+              "end": 13.18,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " spare",
+              "start": 13.18,
+              "end": 13.5,
+              "probability": 0.98046875
+            },
+            {
+              "text": " thee",
+              "start": 13.5,
+              "end": 13.66,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 13.66,
+              "end": 13.82,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " my",
+              "start": 13.82,
+              "end": 14.0,
+              "probability": 0.7080078125
+            },
+            {
+              "text": " bosom",
+              "start": 14.0,
+              "end": 14.36,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " and",
+              "start": 14.36,
+              "end": 14.54,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " right",
+              "start": 14.54,
+              "end": 14.76,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " hand",
+              "start": 14.76,
+              "end": 15.16,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " to",
+              "start": 15.16,
+              "end": 15.44,
+              "probability": 0.37744140625
+            },
+            {
+              "text": " save,",
+              "start": 15.44,
+              "end": 15.78,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " By losing thee a while, the whole race lost.",
+          "start": 16.12,
+          "end": 18.74,
+          "words": [
+            {
+              "text": " By",
+              "start": 16.12,
+              "end": 16.32,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " losing",
+              "start": 16.32,
+              "end": 16.64,
+              "probability": 0.9326171875
+            },
+            {
+              "text": " thee",
+              "start": 16.64,
+              "end": 16.9,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 16.9,
+              "end": 17.04,
+              "probability": 0.7705078125
+            },
+            {
+              "text": " while,",
+              "start": 17.04,
+              "end": 17.32,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " the",
+              "start": 17.76,
+              "end": 17.86,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " whole",
+              "start": 17.86,
+              "end": 18.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " race",
+              "start": 18.08,
+              "end": 18.4,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " lost.",
+              "start": 18.4,
+              "end": 18.74,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O,",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "raw": "Thou",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "raw": "in",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "raw": "Heaven",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "raw": "Earth,",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "raw": "The",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "only",
+          "start": 1.96,
+          "end": 2.2
+        },
+        {
+          "raw": "peace",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "raw": "found",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "raw": "out",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "raw": "for",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "raw": "mankind",
+          "start": 3.22,
+          "end": 3.68
+        },
+        {
+          "raw": "under",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "raw": "wrath,",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "raw": "O,",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "raw": "Thou,",
+          "start": 5.12,
+          "end": 5.12
+        },
+        {
+          "raw": "My",
+          "start": 5.28,
+          "end": 5.36
+        },
+        {
+          "raw": "soul",
+          "start": 5.36,
+          "end": 5.58
+        },
+        {
+          "raw": "complacence,",
+          "start": 5.58,
+          "end": 6.32
+        },
+        {
+          "raw": "Well",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "raw": "Thou",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "raw": "know'st",
+          "start": 7.34,
+          "end": 7.76
+        },
+        {
+          "raw": "thee",
+          "start": 7.76,
+          "end": 7.84
+        },
+        {
+          "raw": "how",
+          "start": 7.84,
+          "end": 8.04
+        },
+        {
+          "raw": "dear",
+          "start": 8.04,
+          "end": 8.22
+        },
+        {
+          "raw": "to",
+          "start": 8.22,
+          "end": 8.4
+        },
+        {
+          "raw": "me",
+          "start": 8.4,
+          "end": 8.52
+        },
+        {
+          "raw": "are",
+          "start": 8.52,
+          "end": 8.66
+        },
+        {
+          "raw": "all",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "raw": "my",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "raw": "works,",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "raw": "Nor",
+          "start": 9.98,
+          "end": 10.16
+        },
+        {
+          "raw": "man",
+          "start": 10.16,
+          "end": 10.44
+        },
+        {
+          "raw": "the",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "raw": "least,",
+          "start": 10.62,
+          "end": 10.88
+        },
+        {
+          "raw": "though",
+          "start": 11.1,
+          "end": 11.2
+        },
+        {
+          "raw": "last",
+          "start": 11.2,
+          "end": 11.5
+        },
+        {
+          "raw": "created,",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "raw": "That",
+          "start": 12.36,
+          "end": 12.52
+        },
+        {
+          "raw": "for",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "raw": "him",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "raw": "I",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "raw": "spare",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "raw": "thee",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "raw": "from",
+          "start": 13.66,
+          "end": 13.82
+        },
+        {
+          "raw": "my",
+          "start": 13.82,
+          "end": 14.0
+        },
+        {
+          "raw": "bosom",
+          "start": 14.0,
+          "end": 14.36
+        },
+        {
+          "raw": "and",
+          "start": 14.36,
+          "end": 14.54
+        },
+        {
+          "raw": "right",
+          "start": 14.54,
+          "end": 14.76
+        },
+        {
+          "raw": "hand",
+          "start": 14.76,
+          "end": 15.16
+        },
+        {
+          "raw": "to",
+          "start": 15.16,
+          "end": 15.44
+        },
+        {
+          "raw": "save,",
+          "start": 15.44,
+          "end": 15.78
+        },
+        {
+          "raw": "By",
+          "start": 16.12,
+          "end": 16.32
+        },
+        {
+          "raw": "losing",
+          "start": 16.32,
+          "end": 16.64
+        },
+        {
+          "raw": "thee",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "raw": "a",
+          "start": 16.9,
+          "end": 17.04
+        },
+        {
+          "raw": "while,",
+          "start": 17.04,
+          "end": 17.32
+        },
+        {
+          "raw": "the",
+          "start": 17.76,
+          "end": 17.86
+        },
+        {
+          "raw": "whole",
+          "start": 17.86,
+          "end": 18.08
+        },
+        {
+          "raw": "race",
+          "start": 18.08,
+          "end": 18.4
+        },
+        {
+          "raw": "lost.",
+          "start": 18.4,
+          "end": 18.74
+        }
+      ],
+      "expected_tokens": [
+        "O",
+        "thou",
+        "in",
+        "Heaven",
+        "and",
+        "Earth",
+        "the",
+        "only",
+        "peace",
+        "Found",
+        "out",
+        "for",
+        "mankind",
+        "under",
+        "wrath,",
+        "O",
+        "thou",
+        "My",
+        "sole",
+        "complacence!",
+        "Well",
+        "thou",
+        "know'st",
+        "how",
+        "dear",
+        "To",
+        "me",
+        "are",
+        "all",
+        "my",
+        "works;",
+        "nor",
+        "Man",
+        "the",
+        "least,",
+        "Though",
+        "last",
+        "created,",
+        "that",
+        "for",
+        "him",
+        "I",
+        "spare",
+        "Thee",
+        "from",
+        "my",
+        "bosom",
+        "and",
+        "right",
+        "hand,",
+        "to",
+        "save,",
+        "By",
+        "losing",
+        "thee",
+        "a",
+        "while,",
+        "the",
+        "whole",
+        "race",
+        "lost."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          23,
+          19,
+          23
+        ],
+        [
+          "insert",
+          23,
+          23,
+          23,
+          24
+        ],
+        [
+          "equal",
+          23,
+          61,
+          24,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "insert",
+          23,
+          23,
+          23,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "O",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "text": "thou",
+          "start": 0.56,
+          "end": 0.68
+        },
+        {
+          "text": "in",
+          "start": 0.68,
+          "end": 0.88
+        },
+        {
+          "text": "Heaven",
+          "start": 0.88,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "text": "Earth",
+          "start": 1.34,
+          "end": 1.62
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "only",
+          "start": 1.96,
+          "end": 2.2
+        },
+        {
+          "text": "peace",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "text": "Found",
+          "start": 2.52,
+          "end": 2.8
+        },
+        {
+          "text": "out",
+          "start": 2.8,
+          "end": 3.04
+        },
+        {
+          "text": "for",
+          "start": 3.04,
+          "end": 3.22
+        },
+        {
+          "text": "mankind",
+          "start": 3.22,
+          "end": 3.68
+        },
+        {
+          "text": "under",
+          "start": 3.68,
+          "end": 4.02
+        },
+        {
+          "text": "wrath,",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "text": "O",
+          "start": 4.86,
+          "end": 4.98
+        },
+        {
+          "text": "thou",
+          "start": 5.12,
+          "end": 5.12
+        },
+        {
+          "text": "My",
+          "start": 5.28,
+          "end": 5.36
+        },
+        {
+          "text": "sole",
+          "start": 5.36,
+          "end": 5.47
+        },
+        {
+          "text": "complacence!",
+          "start": 5.58,
+          "end": 6.32
+        },
+        {
+          "text": "Well",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "text": "thou",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "text": "know'st",
+          "start": 7.34,
+          "end": 7.76
+        },
+        {
+          "text": "how",
+          "start": 7.84,
+          "end": 8.04
+        },
+        {
+          "text": "dear",
+          "start": 8.04,
+          "end": 8.22
+        },
+        {
+          "text": "To",
+          "start": 8.22,
+          "end": 8.4
+        },
+        {
+          "text": "me",
+          "start": 8.4,
+          "end": 8.52
+        },
+        {
+          "text": "are",
+          "start": 8.52,
+          "end": 8.66
+        },
+        {
+          "text": "all",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "text": "my",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "text": "works;",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "text": "nor",
+          "start": 9.98,
+          "end": 10.16
+        },
+        {
+          "text": "Man",
+          "start": 10.16,
+          "end": 10.44
+        },
+        {
+          "text": "the",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "text": "least,",
+          "start": 10.62,
+          "end": 10.88
+        },
+        {
+          "text": "Though",
+          "start": 11.1,
+          "end": 11.2
+        },
+        {
+          "text": "last",
+          "start": 11.2,
+          "end": 11.5
+        },
+        {
+          "text": "created,",
+          "start": 11.5,
+          "end": 11.9
+        },
+        {
+          "text": "that",
+          "start": 12.36,
+          "end": 12.52
+        },
+        {
+          "text": "for",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "text": "him",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "text": "I",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "text": "spare",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "text": "Thee",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "text": "from",
+          "start": 13.66,
+          "end": 13.82
+        },
+        {
+          "text": "my",
+          "start": 13.82,
+          "end": 14.0
+        },
+        {
+          "text": "bosom",
+          "start": 14.0,
+          "end": 14.36
+        },
+        {
+          "text": "and",
+          "start": 14.36,
+          "end": 14.54
+        },
+        {
+          "text": "right",
+          "start": 14.54,
+          "end": 14.76
+        },
+        {
+          "text": "hand,",
+          "start": 14.76,
+          "end": 15.16
+        },
+        {
+          "text": "to",
+          "start": 15.16,
+          "end": 15.44
+        },
+        {
+          "text": "save,",
+          "start": 15.44,
+          "end": 15.78
+        },
+        {
+          "text": "By",
+          "start": 16.12,
+          "end": 16.32
+        },
+        {
+          "text": "losing",
+          "start": 16.32,
+          "end": 16.64
+        },
+        {
+          "text": "thee",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "text": "a",
+          "start": 16.9,
+          "end": 17.04
+        },
+        {
+          "text": "while,",
+          "start": 17.04,
+          "end": 17.32
+        },
+        {
+          "text": "the",
+          "start": 17.76,
+          "end": 17.86
+        },
+        {
+          "text": "whole",
+          "start": 17.86,
+          "end": 18.08
+        },
+        {
+          "text": "race",
+          "start": 18.08,
+          "end": 18.4
+        },
+        {
+          "text": "lost.",
+          "start": 18.4,
+          "end": 18.74
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 62,
+        "matched_words": 60
+      },
+      "match_ratio": 0.9836065573770492,
+      "rejection_reasons": [],
+      "seconds": 0.49789976328611374
+    },
+    {
+      "asr_seconds": 0.4994698390364647,
+      "alignment_seconds": 0.0003054514527320862,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " O thou in heaven and earth, the only peace found out for mankind under wrath, O thou",
+          "start": 0.14,
+          "end": 5.12,
+          "words": [
+            {
+              "text": " O",
+              "start": 0.14,
+              "end": 0.54,
+              "probability": 0.37353515625
+            },
+            {
+              "text": " thou",
+              "start": 0.54,
+              "end": 0.7,
+              "probability": 0.82666015625
+            },
+            {
+              "text": " in",
+              "start": 0.7,
+              "end": 0.9,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " heaven",
+              "start": 0.9,
+              "end": 1.1,
+              "probability": 0.76708984375
+            },
+            {
+              "text": " and",
+              "start": 1.1,
+              "end": 1.34,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " earth,",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " the",
+              "start": 1.88,
+              "end": 1.96,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " only",
+              "start": 1.96,
+              "end": 2.2,
+              "probability": 0.994140625
+            },
+            {
+              "text": " peace",
+              "start": 2.2,
+              "end": 2.54,
+              "probability": 0.9541015625
+            },
+            {
+              "text": " found",
+              "start": 2.54,
+              "end": 2.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " out",
+              "start": 2.82,
+              "end": 3.06,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " for",
+              "start": 3.06,
+              "end": 3.22,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " mankind",
+              "start": 3.22,
+              "end": 3.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " under",
+              "start": 3.7,
+              "end": 4.02,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " wrath,",
+              "start": 4.02,
+              "end": 4.36,
+              "probability": 0.98828125
+            },
+            {
+              "text": " O",
+              "start": 4.88,
+              "end": 4.98,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " thou",
+              "start": 4.98,
+              "end": 5.12,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " my soul complacence!",
+          "start": 5.12,
+          "end": 6.34,
+          "words": [
+            {
+              "text": " my",
+              "start": 5.12,
+              "end": 5.34,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " soul",
+              "start": 5.34,
+              "end": 5.6,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " complacence!",
+              "start": 5.6,
+              "end": 6.34,
+              "probability": 0.76953125
+            }
+          ]
+        },
+        {
+          "text": " Well thou knows thee how dear to me are all my works, nor man the least, though last created,",
+          "start": 6.96,
+          "end": 11.92,
+          "words": [
+            {
+              "text": " Well",
+              "start": 6.96,
+              "end": 7.18,
+              "probability": 0.81005859375
+            },
+            {
+              "text": " thou",
+              "start": 7.18,
+              "end": 7.34,
+              "probability": 0.83154296875
+            },
+            {
+              "text": " knows",
+              "start": 7.34,
+              "end": 7.66,
+              "probability": 0.4296875
+            },
+            {
+              "text": " thee",
+              "start": 7.66,
+              "end": 7.84,
+              "probability": 0.31640625
+            },
+            {
+              "text": " how",
+              "start": 7.84,
+              "end": 8.04,
+              "probability": 0.90185546875
+            },
+            {
+              "text": " dear",
+              "start": 8.04,
+              "end": 8.22,
+              "probability": 0.890625
+            },
+            {
+              "text": " to",
+              "start": 8.22,
+              "end": 8.4,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " me",
+              "start": 8.4,
+              "end": 8.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 8.52,
+              "end": 8.66,
+              "probability": 0.966796875
+            },
+            {
+              "text": " all",
+              "start": 8.66,
+              "end": 8.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 8.86,
+              "end": 9.06,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " works,",
+              "start": 9.06,
+              "end": 9.46,
+              "probability": 0.994140625
+            },
+            {
+              "text": " nor",
+              "start": 10.0,
+              "end": 10.14,
+              "probability": 0.2978515625
+            },
+            {
+              "text": " man",
+              "start": 10.14,
+              "end": 10.44,
+              "probability": 0.9765625
+            },
+            {
+              "text": " the",
+              "start": 10.44,
+              "end": 10.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " least,",
+              "start": 10.62,
+              "end": 10.88,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " though",
+              "start": 11.12,
+              "end": 11.2,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " last",
+              "start": 11.2,
+              "end": 11.5,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " created,",
+              "start": 11.5,
+              "end": 11.92,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " that for him I spare thee from my bosom and right hand to save, by losing thee a while,",
+          "start": 12.36,
+          "end": 17.32,
+          "words": [
+            {
+              "text": " that",
+              "start": 12.36,
+              "end": 12.52,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " for",
+              "start": 12.52,
+              "end": 12.68,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " him",
+              "start": 12.68,
+              "end": 12.92,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " I",
+              "start": 12.92,
+              "end": 13.18,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " spare",
+              "start": 13.18,
+              "end": 13.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " thee",
+              "start": 13.5,
+              "end": 13.66,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " from",
+              "start": 13.66,
+              "end": 13.84,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " my",
+              "start": 13.84,
+              "end": 14.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " bosom",
+              "start": 14.0,
+              "end": 14.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 14.36,
+              "end": 14.54,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " right",
+              "start": 14.54,
+              "end": 14.76,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " hand",
+              "start": 14.76,
+              "end": 15.16,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 15.16,
+              "end": 15.44,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " save,",
+              "start": 15.44,
+              "end": 15.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " by",
+              "start": 16.12,
+              "end": 16.32,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " losing",
+              "start": 16.32,
+              "end": 16.64,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " thee",
+              "start": 16.64,
+              "end": 16.9,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 16.9,
+              "end": 17.04,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " while,",
+              "start": 17.04,
+              "end": 17.32,
+              "probability": 0.94775390625
+            }
+          ]
+        },
+        {
+          "text": " the whole race lost.",
+          "start": 17.78,
+          "end": 18.74,
+          "words": [
+            {
+              "text": " the",
+              "start": 17.78,
+              "end": 17.86,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " whole",
+              "start": 17.86,
+              "end": 18.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " race",
+              "start": 18.08,
+              "end": 18.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " lost.",
+              "start": 18.4,
+              "end": 18.74,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "O",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "raw": "thou",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "raw": "in",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "raw": "heaven",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "raw": "and",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "raw": "earth,",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "the",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "raw": "only",
+          "start": 1.96,
+          "end": 2.2
+        },
+        {
+          "raw": "peace",
+          "start": 2.2,
+          "end": 2.54
+        },
+        {
+          "raw": "found",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "raw": "out",
+          "start": 2.82,
+          "end": 3.06
+        },
+        {
+          "raw": "for",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "raw": "mankind",
+          "start": 3.22,
+          "end": 3.7
+        },
+        {
+          "raw": "under",
+          "start": 3.7,
+          "end": 4.02
+        },
+        {
+          "raw": "wrath,",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "raw": "O",
+          "start": 4.88,
+          "end": 4.98
+        },
+        {
+          "raw": "thou",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "raw": "my",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "raw": "soul",
+          "start": 5.34,
+          "end": 5.6
+        },
+        {
+          "raw": "complacence!",
+          "start": 5.6,
+          "end": 6.34
+        },
+        {
+          "raw": "Well",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "raw": "thou",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "raw": "knows",
+          "start": 7.34,
+          "end": 7.66
+        },
+        {
+          "raw": "thee",
+          "start": 7.66,
+          "end": 7.84
+        },
+        {
+          "raw": "how",
+          "start": 7.84,
+          "end": 8.04
+        },
+        {
+          "raw": "dear",
+          "start": 8.04,
+          "end": 8.22
+        },
+        {
+          "raw": "to",
+          "start": 8.22,
+          "end": 8.4
+        },
+        {
+          "raw": "me",
+          "start": 8.4,
+          "end": 8.52
+        },
+        {
+          "raw": "are",
+          "start": 8.52,
+          "end": 8.66
+        },
+        {
+          "raw": "all",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "raw": "my",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "raw": "works,",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "raw": "nor",
+          "start": 10.0,
+          "end": 10.14
+        },
+        {
+          "raw": "man",
+          "start": 10.14,
+          "end": 10.44
+        },
+        {
+          "raw": "the",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "raw": "least,",
+          "start": 10.62,
+          "end": 10.88
+        },
+        {
+          "raw": "though",
+          "start": 11.12,
+          "end": 11.2
+        },
+        {
+          "raw": "last",
+          "start": 11.2,
+          "end": 11.5
+        },
+        {
+          "raw": "created,",
+          "start": 11.5,
+          "end": 11.92
+        },
+        {
+          "raw": "that",
+          "start": 12.36,
+          "end": 12.52
+        },
+        {
+          "raw": "for",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "raw": "him",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "raw": "I",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "raw": "spare",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "raw": "thee",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "raw": "from",
+          "start": 13.66,
+          "end": 13.84
+        },
+        {
+          "raw": "my",
+          "start": 13.84,
+          "end": 14.0
+        },
+        {
+          "raw": "bosom",
+          "start": 14.0,
+          "end": 14.36
+        },
+        {
+          "raw": "and",
+          "start": 14.36,
+          "end": 14.54
+        },
+        {
+          "raw": "right",
+          "start": 14.54,
+          "end": 14.76
+        },
+        {
+          "raw": "hand",
+          "start": 14.76,
+          "end": 15.16
+        },
+        {
+          "raw": "to",
+          "start": 15.16,
+          "end": 15.44
+        },
+        {
+          "raw": "save,",
+          "start": 15.44,
+          "end": 15.8
+        },
+        {
+          "raw": "by",
+          "start": 16.12,
+          "end": 16.32
+        },
+        {
+          "raw": "losing",
+          "start": 16.32,
+          "end": 16.64
+        },
+        {
+          "raw": "thee",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "raw": "a",
+          "start": 16.9,
+          "end": 17.04
+        },
+        {
+          "raw": "while,",
+          "start": 17.04,
+          "end": 17.32
+        },
+        {
+          "raw": "the",
+          "start": 17.78,
+          "end": 17.86
+        },
+        {
+          "raw": "whole",
+          "start": 17.86,
+          "end": 18.08
+        },
+        {
+          "raw": "race",
+          "start": 18.08,
+          "end": 18.4
+        },
+        {
+          "raw": "lost.",
+          "start": 18.4,
+          "end": 18.74
+        }
+      ],
+      "expected_tokens": [
+        "O",
+        "thou",
+        "in",
+        "Heaven",
+        "and",
+        "Earth",
+        "the",
+        "only",
+        "peace",
+        "Found",
+        "out",
+        "for",
+        "mankind",
+        "under",
+        "wrath,",
+        "O",
+        "thou",
+        "My",
+        "sole",
+        "complacence!",
+        "Well",
+        "thou",
+        "know'st",
+        "how",
+        "dear",
+        "To",
+        "me",
+        "are",
+        "all",
+        "my",
+        "works;",
+        "nor",
+        "Man",
+        "the",
+        "least,",
+        "Though",
+        "last",
+        "created,",
+        "that",
+        "for",
+        "him",
+        "I",
+        "spare",
+        "Thee",
+        "from",
+        "my",
+        "bosom",
+        "and",
+        "right",
+        "hand,",
+        "to",
+        "save,",
+        "By",
+        "losing",
+        "thee",
+        "a",
+        "while,",
+        "the",
+        "whole",
+        "race",
+        "lost."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "equal",
+          19,
+          22,
+          19,
+          22
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ],
+        [
+          "equal",
+          23,
+          61,
+          24,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ],
+        [
+          "replace",
+          22,
+          23,
+          22,
+          24
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "O",
+          "start": 0.14,
+          "end": 0.54
+        },
+        {
+          "text": "thou",
+          "start": 0.54,
+          "end": 0.7
+        },
+        {
+          "text": "in",
+          "start": 0.7,
+          "end": 0.9
+        },
+        {
+          "text": "Heaven",
+          "start": 0.9,
+          "end": 1.1
+        },
+        {
+          "text": "and",
+          "start": 1.1,
+          "end": 1.34
+        },
+        {
+          "text": "Earth",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "the",
+          "start": 1.88,
+          "end": 1.96
+        },
+        {
+          "text": "only",
+          "start": 1.96,
+          "end": 2.2
+        },
+        {
+          "text": "peace",
+          "start": 2.2,
+          "end": 2.54
+        },
+        {
+          "text": "Found",
+          "start": 2.54,
+          "end": 2.82
+        },
+        {
+          "text": "out",
+          "start": 2.82,
+          "end": 3.06
+        },
+        {
+          "text": "for",
+          "start": 3.06,
+          "end": 3.22
+        },
+        {
+          "text": "mankind",
+          "start": 3.22,
+          "end": 3.7
+        },
+        {
+          "text": "under",
+          "start": 3.7,
+          "end": 4.02
+        },
+        {
+          "text": "wrath,",
+          "start": 4.02,
+          "end": 4.36
+        },
+        {
+          "text": "O",
+          "start": 4.88,
+          "end": 4.98
+        },
+        {
+          "text": "thou",
+          "start": 4.98,
+          "end": 5.12
+        },
+        {
+          "text": "My",
+          "start": 5.12,
+          "end": 5.34
+        },
+        {
+          "text": "sole",
+          "start": 5.34,
+          "end": 5.47
+        },
+        {
+          "text": "complacence!",
+          "start": 5.6,
+          "end": 6.34
+        },
+        {
+          "text": "Well",
+          "start": 6.96,
+          "end": 7.18
+        },
+        {
+          "text": "thou",
+          "start": 7.18,
+          "end": 7.34
+        },
+        {
+          "text": "know'st",
+          "start": 7.34,
+          "end": 7.59
+        },
+        {
+          "text": "how",
+          "start": 7.84,
+          "end": 8.04
+        },
+        {
+          "text": "dear",
+          "start": 8.04,
+          "end": 8.22
+        },
+        {
+          "text": "To",
+          "start": 8.22,
+          "end": 8.4
+        },
+        {
+          "text": "me",
+          "start": 8.4,
+          "end": 8.52
+        },
+        {
+          "text": "are",
+          "start": 8.52,
+          "end": 8.66
+        },
+        {
+          "text": "all",
+          "start": 8.66,
+          "end": 8.86
+        },
+        {
+          "text": "my",
+          "start": 8.86,
+          "end": 9.06
+        },
+        {
+          "text": "works;",
+          "start": 9.06,
+          "end": 9.46
+        },
+        {
+          "text": "nor",
+          "start": 10.0,
+          "end": 10.14
+        },
+        {
+          "text": "Man",
+          "start": 10.14,
+          "end": 10.44
+        },
+        {
+          "text": "the",
+          "start": 10.44,
+          "end": 10.62
+        },
+        {
+          "text": "least,",
+          "start": 10.62,
+          "end": 10.88
+        },
+        {
+          "text": "Though",
+          "start": 11.12,
+          "end": 11.2
+        },
+        {
+          "text": "last",
+          "start": 11.2,
+          "end": 11.5
+        },
+        {
+          "text": "created,",
+          "start": 11.5,
+          "end": 11.92
+        },
+        {
+          "text": "that",
+          "start": 12.36,
+          "end": 12.52
+        },
+        {
+          "text": "for",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "text": "him",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "text": "I",
+          "start": 12.92,
+          "end": 13.18
+        },
+        {
+          "text": "spare",
+          "start": 13.18,
+          "end": 13.5
+        },
+        {
+          "text": "Thee",
+          "start": 13.5,
+          "end": 13.66
+        },
+        {
+          "text": "from",
+          "start": 13.66,
+          "end": 13.84
+        },
+        {
+          "text": "my",
+          "start": 13.84,
+          "end": 14.0
+        },
+        {
+          "text": "bosom",
+          "start": 14.0,
+          "end": 14.36
+        },
+        {
+          "text": "and",
+          "start": 14.36,
+          "end": 14.54
+        },
+        {
+          "text": "right",
+          "start": 14.54,
+          "end": 14.76
+        },
+        {
+          "text": "hand,",
+          "start": 14.76,
+          "end": 15.16
+        },
+        {
+          "text": "to",
+          "start": 15.16,
+          "end": 15.44
+        },
+        {
+          "text": "save,",
+          "start": 15.44,
+          "end": 15.8
+        },
+        {
+          "text": "By",
+          "start": 16.12,
+          "end": 16.32
+        },
+        {
+          "text": "losing",
+          "start": 16.32,
+          "end": 16.64
+        },
+        {
+          "text": "thee",
+          "start": 16.64,
+          "end": 16.9
+        },
+        {
+          "text": "a",
+          "start": 16.9,
+          "end": 17.04
+        },
+        {
+          "text": "while,",
+          "start": 17.04,
+          "end": 17.32
+        },
+        {
+          "text": "the",
+          "start": 17.78,
+          "end": 17.86
+        },
+        {
+          "text": "whole",
+          "start": 17.86,
+          "end": 18.08
+        },
+        {
+          "text": "race",
+          "start": 18.08,
+          "end": 18.4
+        },
+        {
+          "text": "lost.",
+          "start": 18.4,
+          "end": 18.74
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 62,
+        "matched_words": 59
+      },
+      "match_ratio": 0.9672131147540983,
+      "rejection_reasons": [],
+      "seconds": 0.49994419515132904
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "d6e135193d8a15d8409aa29c698bfbecdfe91f1ef28854f0b0a51df7881049a7",
+  "selected_reasons": []
+}

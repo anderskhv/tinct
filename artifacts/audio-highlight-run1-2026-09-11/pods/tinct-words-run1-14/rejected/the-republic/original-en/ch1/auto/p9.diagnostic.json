@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "d9a2cc8cd1bed8db9c281612b5d5dfa464428f63f4351bdf7f567fec72468486",
+  "attempts": [
+    {
+      "asr_seconds": 0.19600486010313034,
+      "alignment_seconds": 0.00010062754154205322,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "May there not be the alternative, I said, that we may persuade you to let us go?",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " May there not be the alternative, I said, that we may persuade you to let us go?",
+          "start": 0.05,
+          "end": 4.89,
+          "words": [
+            {
+              "text": " May",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.73486328125
+            },
+            {
+              "text": " there",
+              "start": 0.57,
+              "end": 0.75,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " not",
+              "start": 0.75,
+              "end": 0.97,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " be",
+              "start": 0.97,
+              "end": 1.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 1.17,
+              "end": 1.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " alternative,",
+              "start": 1.33,
+              "end": 1.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 2.19,
+              "end": 2.37,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " said,",
+              "start": 2.37,
+              "end": 2.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " that",
+              "start": 3.03,
+              "end": 3.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " we",
+              "start": 3.23,
+              "end": 3.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " may",
+              "start": 3.37,
+              "end": 3.53,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " persuade",
+              "start": 3.53,
+              "end": 3.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " you",
+              "start": 3.91,
+              "end": 4.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 4.17,
+              "end": 4.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " let",
+              "start": 4.33,
+              "end": 4.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us",
+              "start": 4.45,
+              "end": 4.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " go?",
+              "start": 4.61,
+              "end": 4.89,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "May",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "there",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "raw": "not",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "raw": "be",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "raw": "the",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "raw": "alternative,",
+          "start": 1.33,
+          "end": 1.81
+        },
+        {
+          "raw": "I",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "raw": "said,",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "raw": "that",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "raw": "we",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "raw": "may",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "raw": "persuade",
+          "start": 3.53,
+          "end": 3.91
+        },
+        {
+          "raw": "you",
+          "start": 3.91,
+          "end": 4.17
+        },
+        {
+          "raw": "to",
+          "start": 4.17,
+          "end": 4.33
+        },
+        {
+          "raw": "let",
+          "start": 4.33,
+          "end": 4.45
+        },
+        {
+          "raw": "us",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "raw": "go?",
+          "start": 4.61,
+          "end": 4.89
+        }
+      ],
+      "expected_tokens": [
+        "May",
+        "there",
+        "not",
+        "be",
+        "the",
+        "alternative,",
+        "I",
+        "said,",
+        "that",
+        "we",
+        "may",
+        "persuade",
+        "you",
+        "to",
+        "let",
+        "us",
+        "go?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "May",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "there",
+          "start": 0.57,
+          "end": 0.75
+        },
+        {
+          "text": "not",
+          "start": 0.75,
+          "end": 0.97
+        },
+        {
+          "text": "be",
+          "start": 0.97,
+          "end": 1.17
+        },
+        {
+          "text": "the",
+          "start": 1.17,
+          "end": 1.33
+        },
+        {
+          "text": "alternative,",
+          "start": 1.33,
+          "end": 1.81
+        },
+        {
+          "text": "I",
+          "start": 2.19,
+          "end": 2.37
+        },
+        {
+          "text": "said,",
+          "start": 2.37,
+          "end": 2.69
+        },
+        {
+          "text": "that",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "text": "we",
+          "start": 3.23,
+          "end": 3.37
+        },
+        {
+          "text": "may",
+          "start": 3.37,
+          "end": 3.53
+        },
+        {
+          "text": "persuade",
+          "start": 3.53,
+          "end": 3.91
+        },
+        {
+          "text": "you",
+          "start": 3.91,
+          "end": 4.17
+        },
+        {
+          "text": "to",
+          "start": 4.17,
+          "end": 4.33
+        },
+        {
+          "text": "let",
+          "start": 4.33,
+          "end": 4.45
+        },
+        {
+          "text": "us",
+          "start": 4.45,
+          "end": 4.61
+        },
+        {
+          "text": "go?",
+          "start": 4.61,
+          "end": 4.89
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1961570307612419
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71501f835c45762392eb09e35c0ad5681242c4bb635549383b029323096617da",
+  "selected_reasons": []
+}

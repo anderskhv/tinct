@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "91e8256a2285c48506219aeaa49bebe4083cfde565bb8632327b3c56a9157781",
+  "attempts": [
+    {
+      "asr_seconds": 0.20088982582092285,
+      "alignment_seconds": 0.00012401491403579712,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then I suppose that opinion appears to you to be darker than knowledge, but lighter than ignorance.",
+          "start": 0.05,
+          "end": 5.91,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.8515625
+            },
+            {
+              "text": " I",
+              "start": 0.59,
+              "end": 0.81,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " suppose",
+              "start": 0.81,
+              "end": 1.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 1.19,
+              "end": 1.51,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " opinion",
+              "start": 1.51,
+              "end": 1.85,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " appears",
+              "start": 1.85,
+              "end": 2.29,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.29,
+              "end": 2.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you",
+              "start": 2.55,
+              "end": 2.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 2.73,
+              "end": 2.97,
+              "probability": 0.98828125
+            },
+            {
+              "text": " be",
+              "start": 2.97,
+              "end": 3.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " darker",
+              "start": 3.15,
+              "end": 3.43,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " than",
+              "start": 3.43,
+              "end": 3.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " knowledge,",
+              "start": 3.75,
+              "end": 4.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " but",
+              "start": 4.59,
+              "end": 4.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " lighter",
+              "start": 4.87,
+              "end": 5.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 5.17,
+              "end": 5.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ignorance.",
+              "start": 5.45,
+              "end": 5.91,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "I",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "raw": "suppose",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "raw": "that",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "raw": "opinion",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "raw": "appears",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "raw": "to",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "raw": "you",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.97
+        },
+        {
+          "raw": "be",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "raw": "darker",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "raw": "than",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "raw": "knowledge,",
+          "start": 3.75,
+          "end": 4.19
+        },
+        {
+          "raw": "but",
+          "start": 4.59,
+          "end": 4.87
+        },
+        {
+          "raw": "lighter",
+          "start": 4.87,
+          "end": 5.17
+        },
+        {
+          "raw": "than",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "raw": "ignorance.",
+          "start": 5.45,
+          "end": 5.91
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "I",
+        "suppose",
+        "that",
+        "opinion",
+        "appears",
+        "to",
+        "you",
+        "to",
+        "be",
+        "darker",
+        "than",
+        "knowledge,",
+        "but",
+        "lighter",
+        "than",
+        "ignorance?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "I",
+          "start": 0.59,
+          "end": 0.81
+        },
+        {
+          "text": "suppose",
+          "start": 0.81,
+          "end": 1.19
+        },
+        {
+          "text": "that",
+          "start": 1.19,
+          "end": 1.51
+        },
+        {
+          "text": "opinion",
+          "start": 1.51,
+          "end": 1.85
+        },
+        {
+          "text": "appears",
+          "start": 1.85,
+          "end": 2.29
+        },
+        {
+          "text": "to",
+          "start": 2.29,
+          "end": 2.55
+        },
+        {
+          "text": "you",
+          "start": 2.55,
+          "end": 2.73
+        },
+        {
+          "text": "to",
+          "start": 2.73,
+          "end": 2.97
+        },
+        {
+          "text": "be",
+          "start": 2.97,
+          "end": 3.15
+        },
+        {
+          "text": "darker",
+          "start": 3.15,
+          "end": 3.43
+        },
+        {
+          "text": "than",
+          "start": 3.43,
+          "end": 3.75
+        },
+        {
+          "text": "knowledge,",
+          "start": 3.75,
+          "end": 4.19
+        },
+        {
+          "text": "but",
+          "start": 4.59,
+          "end": 4.87
+        },
+        {
+          "text": "lighter",
+          "start": 4.87,
+          "end": 5.17
+        },
+        {
+          "text": "than",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "text": "ignorance?",
+          "start": 5.45,
+          "end": 5.91
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20107997953891754
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "36616e8bd8ddf31ab88f1b5d7b1f88710545d0a72ce7ca20d6362eb0ed93cc98",
+  "selected_reasons": []
+}

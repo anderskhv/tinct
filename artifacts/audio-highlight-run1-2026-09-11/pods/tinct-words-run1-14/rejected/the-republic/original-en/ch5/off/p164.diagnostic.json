@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "bec40b8ada106f71a7aa96e5d545cec69e62bd35f9351270bfb780e67bc2bf69",
+  "attempts": [
+    {
+      "asr_seconds": 0.07591715455055237,
+      "alignment_seconds": 5.7503581047058105e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " From the best",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " From",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " the",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " best",
+              "start": 0.65,
+              "end": 0.99,
+              "probability": 0.9189453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "From",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "best",
+          "start": 0.65,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "From",
+        "the",
+        "best."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "From",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "the",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "best.",
+          "start": 0.65,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07599646598100662
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "d52fc3593952345b93cda58d9662ca0256855a54b7aed9db5c6608ce48654231",
+  "selected_reasons": []
+}

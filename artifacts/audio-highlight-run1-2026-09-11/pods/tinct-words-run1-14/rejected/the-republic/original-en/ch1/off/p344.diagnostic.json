@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "af8217b3d7691590e19bd534b7d0e9721d0ea2ac99715eba44399a0a1b1b0dc4",
+  "attempts": [
+    {
+      "asr_seconds": 0.1907396912574768,
+      "alignment_seconds": 0.00010479241609573364,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Far otherwise if he did he would not be the simple amusing creature which he is",
+          "start": 0.05,
+          "end": 4.91,
+          "words": [
+            {
+              "text": " Far",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " otherwise",
+              "start": 0.61,
+              "end": 1.11,
+              "probability": 0.740234375
+            },
+            {
+              "text": " if",
+              "start": 1.11,
+              "end": 1.81,
+              "probability": 0.29150390625
+            },
+            {
+              "text": " he",
+              "start": 1.81,
+              "end": 1.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " did",
+              "start": 1.93,
+              "end": 2.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 2.11,
+              "end": 2.29,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " would",
+              "start": 2.29,
+              "end": 2.41,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " not",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.79,
+              "end": 2.91,
+              "probability": 0.998046875
+            },
+            {
+              "text": " simple",
+              "start": 2.91,
+              "end": 3.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " amusing",
+              "start": 3.31,
+              "end": 3.71,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " creature",
+              "start": 3.71,
+              "end": 4.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " which",
+              "start": 4.19,
+              "end": 4.43,
+              "probability": 0.62744140625
+            },
+            {
+              "text": " he",
+              "start": 4.43,
+              "end": 4.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 4.65,
+              "end": 4.91,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Far",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "otherwise",
+          "start": 0.61,
+          "end": 1.11
+        },
+        {
+          "raw": "if",
+          "start": 1.11,
+          "end": 1.81
+        },
+        {
+          "raw": "he",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "raw": "did",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "raw": "he",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "raw": "would",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "raw": "not",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "be",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "the",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "raw": "simple",
+          "start": 2.91,
+          "end": 3.31
+        },
+        {
+          "raw": "amusing",
+          "start": 3.31,
+          "end": 3.71
+        },
+        {
+          "raw": "creature",
+          "start": 3.71,
+          "end": 4.19
+        },
+        {
+          "raw": "which",
+          "start": 4.19,
+          "end": 4.43
+        },
+        {
+          "raw": "he",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "raw": "is",
+          "start": 4.65,
+          "end": 4.91
+        }
+      ],
+      "expected_tokens": [
+        "Far",
+        "otherwise;",
+        "if",
+        "he",
+        "did",
+        "he",
+        "would",
+        "not",
+        "be",
+        "the",
+        "simple",
+        "amusing",
+        "creature",
+        "which",
+        "he",
+        "is."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Far",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "otherwise;",
+          "start": 0.61,
+          "end": 1.11
+        },
+        {
+          "text": "if",
+          "start": 1.11,
+          "end": 1.81
+        },
+        {
+          "text": "he",
+          "start": 1.81,
+          "end": 1.93
+        },
+        {
+          "text": "did",
+          "start": 1.93,
+          "end": 2.11
+        },
+        {
+          "text": "he",
+          "start": 2.11,
+          "end": 2.29
+        },
+        {
+          "text": "would",
+          "start": 2.29,
+          "end": 2.41
+        },
+        {
+          "text": "not",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "be",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "the",
+          "start": 2.79,
+          "end": 2.91
+        },
+        {
+          "text": "simple",
+          "start": 2.91,
+          "end": 3.31
+        },
+        {
+          "text": "amusing",
+          "start": 3.31,
+          "end": 3.71
+        },
+        {
+          "text": "creature",
+          "start": 3.71,
+          "end": 4.19
+        },
+        {
+          "text": "which",
+          "start": 4.19,
+          "end": 4.43
+        },
+        {
+          "text": "he",
+          "start": 4.43,
+          "end": 4.65
+        },
+        {
+          "text": "is.",
+          "start": 4.65,
+          "end": 4.91
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19089527428150177
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9f82a963883af09e2bba7819709791995b8e206824384523f5b93e1afa27e897",
+  "selected_reasons": []
+}

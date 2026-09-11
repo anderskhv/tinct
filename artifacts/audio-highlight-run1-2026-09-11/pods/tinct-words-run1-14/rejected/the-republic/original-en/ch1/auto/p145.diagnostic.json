@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "f65e0188c49b53d56e908faf4a15633405573a757212c9fd3bac59e9b61473ef",
+  "attempts": [
+    {
+      "asr_seconds": 0.07519058138132095,
+      "alignment_seconds": 5.067884922027588e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The latter.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The latter.",
+          "start": 0.05,
+          "end": 0.81,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " latter.",
+              "start": 0.53,
+              "end": 0.81,
+              "probability": 0.417724609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "latter.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "latter."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "latter.",
+          "start": 0.53,
+          "end": 0.81
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07526164501905441
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2776aa08b117568f63271d763085d4b036ed6af01b1e0e20922e69fd578ded49",
+  "selected_reasons": []
+}

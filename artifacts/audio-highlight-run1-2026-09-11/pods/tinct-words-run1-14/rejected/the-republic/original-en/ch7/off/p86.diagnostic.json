@@ -1,0 +1,366 @@
+{
+  "complete": true,
+  "signature": "26fcec3ba3a33890352cdfb957aae0795dac192080bd5cc410aeebad1911062d",
+  "attempts": [
+    {
+      "asr_seconds": 0.15459734201431274,
+      "alignment_seconds": 0.00011945515871047974,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There were two parts in our former scheme of education, where they're not.",
+          "start": 0.08,
+          "end": 3.78,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " were",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " two",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " parts",
+              "start": 0.84,
+              "end": 1.12,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 1.12,
+              "end": 1.32,
+              "probability": 0.984375
+            },
+            {
+              "text": " our",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " former",
+              "start": 1.46,
+              "end": 1.74,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " scheme",
+              "start": 1.74,
+              "end": 2.06,
+              "probability": 0.796875
+            },
+            {
+              "text": " of",
+              "start": 2.06,
+              "end": 2.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " education,",
+              "start": 2.22,
+              "end": 2.78,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " where",
+              "start": 3.26,
+              "end": 3.36,
+              "probability": 0.42626953125
+            },
+            {
+              "text": " they're",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.910888671875
+            },
+            {
+              "text": " not.",
+              "start": 3.54,
+              "end": 3.78,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "were",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "two",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "parts",
+          "start": 0.84,
+          "end": 1.12
+        },
+        {
+          "raw": "in",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "raw": "our",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "former",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "raw": "scheme",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "raw": "of",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "raw": "education,",
+          "start": 2.22,
+          "end": 2.78
+        },
+        {
+          "raw": "where",
+          "start": 3.26,
+          "end": 3.36
+        },
+        {
+          "raw": "they're",
+          "start": 3.36,
+          "end": 3.54
+        },
+        {
+          "raw": "not.",
+          "start": 3.54,
+          "end": 3.78
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "were",
+        "two",
+        "parts",
+        "in",
+        "our",
+        "former",
+        "scheme",
+        "of",
+        "education,",
+        "were",
+        "there",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          12,
+          10,
+          12
+        ],
+        [
+          "equal",
+          12,
+          13,
+          12,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          12,
+          10,
+          12
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "were",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "two",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "parts",
+          "start": 0.84,
+          "end": 1.12
+        },
+        {
+          "text": "in",
+          "start": 1.12,
+          "end": 1.32
+        },
+        {
+          "text": "our",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "former",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "text": "scheme",
+          "start": 1.74,
+          "end": 2.06
+        },
+        {
+          "text": "of",
+          "start": 2.06,
+          "end": 2.22
+        },
+        {
+          "text": "education,",
+          "start": 2.22,
+          "end": 2.78
+        },
+        {
+          "text": "were",
+          "start": 2.78,
+          "end": 3.16
+        },
+        {
+          "text": "there",
+          "start": 3.16,
+          "end": 3.35
+        },
+        {
+          "text": "not?",
+          "start": 3.54,
+          "end": 3.78
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 11
+      },
+      "match_ratio": 0.8461538461538461,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.1547694280743599
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "25364de4a3ff476c11c6b4fc3655035e50d5dba4d30356cf84aed81ea838c2f6",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

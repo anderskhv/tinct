@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "bfc1db630dc3580fe81671698c1301fb445b812bb188e68b584dd2837caf3207",
+  "attempts": [
+    {
+      "asr_seconds": 0.09977903962135315,
+      "alignment_seconds": 6.611645221710205e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And we were very right.",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And we were very right.",
+          "start": 0.05,
+          "end": 1.29,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.72998046875
+            },
+            {
+              "text": " we",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " were",
+              "start": 0.61,
+              "end": 0.71,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " very",
+              "start": 0.71,
+              "end": 0.95,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " right.",
+              "start": 0.95,
+              "end": 1.29,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "we",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "were",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "raw": "very",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "raw": "right.",
+          "start": 0.95,
+          "end": 1.29
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "we",
+        "were",
+        "very",
+        "right."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "we",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "were",
+          "start": 0.61,
+          "end": 0.71
+        },
+        {
+          "text": "very",
+          "start": 0.71,
+          "end": 0.95
+        },
+        {
+          "text": "right.",
+          "start": 0.95,
+          "end": 1.29
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09987330436706543
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ce30e07fe0cd95d24a6accdaa9fe591568ada98f317c96734c66fd179cc9e401",
+  "selected_reasons": []
+}

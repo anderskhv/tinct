@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "e0435c497e8b553d63d0edd52162a4ec5c59853109fb90141c4aa0adaa9ab25b",
+  "attempts": [
+    {
+      "asr_seconds": 0.17599856853485107,
+      "alignment_seconds": 8.842349052429199e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then more husbandmen and more artisans will be required?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then more husbandmen and more artisans will be required?",
+          "start": 0.08,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.43701171875
+            },
+            {
+              "text": " more",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.955078125
+            },
+            {
+              "text": " husbandmen",
+              "start": 0.76,
+              "end": 1.4,
+              "probability": 0.5751953125
+            },
+            {
+              "text": " and",
+              "start": 1.4,
+              "end": 1.9,
+              "probability": 0.76220703125
+            },
+            {
+              "text": " more",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " artisans",
+              "start": 2.08,
+              "end": 2.54,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " will",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " required?",
+              "start": 2.92,
+              "end": 3.42,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "more",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "husbandmen",
+          "start": 0.76,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.4,
+          "end": 1.9
+        },
+        {
+          "raw": "more",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "artisans",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "raw": "will",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "be",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "required?",
+          "start": 2.92,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "more",
+        "husbandmen",
+        "and",
+        "more",
+        "artisans",
+        "will",
+        "be",
+        "required?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "more",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "husbandmen",
+          "start": 0.76,
+          "end": 1.4
+        },
+        {
+          "text": "and",
+          "start": 1.4,
+          "end": 1.9
+        },
+        {
+          "text": "more",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "artisans",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "text": "will",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "text": "be",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "required?",
+          "start": 2.92,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.176128089427948
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "db971394fdfe785c235126fbd9aad93461a3ba3a785818b5c087f7925f4949a2",
+  "selected_reasons": []
+}

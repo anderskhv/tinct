@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "b4bd3acec764441d077e9f5cae1a8f4ebca3d8850b26dc941b338e91878d1dc7",
+  "attempts": [
+    {
+      "asr_seconds": 0.08229313045740128,
+      "alignment_seconds": 6.166845560073853e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly, he replied.",
+          "start": 0.08,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Certainly,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.75830078125
+            },
+            {
+              "text": " he",
+              "start": 1.06,
+              "end": 1.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " replied.",
+              "start": 1.08,
+              "end": 1.4,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "raw": "replied.",
+          "start": 1.08,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Certainly,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "he",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "text": "replied.",
+          "start": 1.08,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08237958699464798
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "194686d5cf4e655bd956dc7675089ca5014a4d104bcbd52e3c7864963b058a72",
+  "selected_reasons": []
+}

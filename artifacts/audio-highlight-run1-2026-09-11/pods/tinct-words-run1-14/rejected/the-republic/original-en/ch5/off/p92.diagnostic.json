@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "12c36d02b373efa133be872fc69709af73fccdbb3f3ad45908da627ab72f4683",
+  "attempts": [
+    {
+      "asr_seconds": 0.07528752088546753,
+      "alignment_seconds": 5.099177360534668e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That will never do.",
+          "start": 0.05,
+          "end": 1.23,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " will",
+              "start": 0.55,
+              "end": 0.69,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " never",
+              "start": 0.69,
+              "end": 0.89,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " do.",
+              "start": 0.89,
+              "end": 1.23,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "will",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "raw": "never",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "raw": "do.",
+          "start": 0.89,
+          "end": 1.23
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "will",
+        "never",
+        "do."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "will",
+          "start": 0.55,
+          "end": 0.69
+        },
+        {
+          "text": "never",
+          "start": 0.69,
+          "end": 0.89
+        },
+        {
+          "text": "do.",
+          "start": 0.89,
+          "end": 1.23
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07535909861326218
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c84f0285e94adc2c83265d2ebd34b7d68d7d9215b31bbb9fd5ad1120a9b4b13f",
+  "selected_reasons": []
+}

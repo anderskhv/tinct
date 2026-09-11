@@ -1,0 +1,128 @@
+{
+  "complete": true,
+  "signature": "f77cc2cb1814cbc98d124a236d2a38fdafda5af85d8dd2fe70fdac558976eed4",
+  "attempts": [
+    {
+      "asr_seconds": 0.08378563821315765,
+      "alignment_seconds": 5.719810724258423e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Utterly I'm becoming.",
+          "start": 0.11,
+          "end": 1.13,
+          "words": [
+            {
+              "text": " Utterly",
+              "start": 0.11,
+              "end": 0.71,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " I'm",
+              "start": 0.71,
+              "end": 0.83,
+              "probability": 0.74853515625
+            },
+            {
+              "text": " becoming.",
+              "start": 0.83,
+              "end": 1.13,
+              "probability": 0.9755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Utterly",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "raw": "I'm",
+          "start": 0.71,
+          "end": 0.83
+        },
+        {
+          "raw": "becoming.",
+          "start": 0.83,
+          "end": 1.13
+        }
+      ],
+      "expected_tokens": [
+        "Utterly",
+        "unbecoming."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Utterly",
+          "start": 0.11,
+          "end": 0.71
+        },
+        {
+          "text": "unbecoming.",
+          "start": 0.71,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 3,
+        "matched_words": 1
+      },
+      "match_ratio": 0.5,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.08386518806219101
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c651d55add775ba4c5d459c8a8cf1585ad4067aa5a182e494ead9a346cc6c0d4",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

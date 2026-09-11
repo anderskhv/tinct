@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "a268cc7fef38a4495a119e109969b59d4eef70035d095e011816157c0027fe6a",
+  "attempts": [
+    {
+      "asr_seconds": 0.09347476810216904,
+      "alignment_seconds": 7.171183824539185e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Certainly I do so class them.",
+        "hotwords": "Certainly, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Certainly, I do so class them.",
+          "start": 0.08,
+          "end": 1.86,
+          "words": [
+            {
+              "text": " Certainly,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.837890625
+            },
+            {
+              "text": " I",
+              "start": 1.02,
+              "end": 1.08,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " do",
+              "start": 1.08,
+              "end": 1.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " so",
+              "start": 1.18,
+              "end": 1.34,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " class",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.978515625
+            },
+            {
+              "text": " them.",
+              "start": 1.6,
+              "end": 1.86,
+              "probability": 0.9814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "raw": "do",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "raw": "so",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "raw": "class",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "them.",
+          "start": 1.6,
+          "end": 1.86
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "I",
+        "do",
+        "so",
+        "class",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 1.02,
+          "end": 1.08
+        },
+        {
+          "text": "do",
+          "start": 1.08,
+          "end": 1.18
+        },
+        {
+          "text": "so",
+          "start": 1.18,
+          "end": 1.34
+        },
+        {
+          "text": "class",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "them.",
+          "start": 1.6,
+          "end": 1.86
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09357727319002151
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "26acb550012415b14807bc86762a8db43a6b525d4e06a7d12dee052105feec4d",
+  "selected_reasons": []
+}

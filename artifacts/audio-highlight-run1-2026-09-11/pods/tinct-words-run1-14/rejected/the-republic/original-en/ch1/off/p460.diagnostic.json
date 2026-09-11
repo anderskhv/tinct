@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "a80a21721fdca0d52ba944eb739233c7dca47a1506c9ae71aeda668460e5a155",
+  "attempts": [
+    {
+      "asr_seconds": 0.08190473169088364,
+      "alignment_seconds": 5.870312452316284e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is so.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " is",
+              "start": 0.56,
+              "end": 0.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " so.",
+              "start": 0.72,
+              "end": 1.0,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "is",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "raw": "so.",
+          "start": 0.72,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "so."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "is",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "text": "so.",
+          "start": 0.72,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08198735862970352
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ed1290c0e201af55f8d6340834b9fd95fd4eac851e661f048588a38d9d148489",
+  "selected_reasons": []
+}

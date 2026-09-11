@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "64b719a404551fbad087fba1336272b71027bd421036094bd3c5841fbe24ec02",
+  "attempts": [
+    {
+      "asr_seconds": 0.2427540272474289,
+      "alignment_seconds": 0.00013094395399093628,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, Polemarchus. Thrasimachus said that for subjects to do what was commanded by their",
+          "start": 0.05,
+          "end": 5.57,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.69775390625
+            },
+            {
+              "text": " Polemarchus.",
+              "start": 1.07,
+              "end": 1.69,
+              "probability": 0.694366455078125
+            },
+            {
+              "text": " Thrasimachus",
+              "start": 2.29,
+              "end": 2.93,
+              "probability": 0.712841796875
+            },
+            {
+              "text": " said",
+              "start": 2.93,
+              "end": 3.09,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " that",
+              "start": 3.09,
+              "end": 3.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 3.27,
+              "end": 3.49,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " subjects",
+              "start": 3.49,
+              "end": 3.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 3.89,
+              "end": 4.19,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " do",
+              "start": 4.19,
+              "end": 4.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " what",
+              "start": 4.37,
+              "end": 4.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " was",
+              "start": 4.51,
+              "end": 4.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " commanded",
+              "start": 4.63,
+              "end": 5.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " by",
+              "start": 5.05,
+              "end": 5.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 5.37,
+              "end": 5.57,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " rulers is just.",
+          "start": 5.57,
+          "end": 6.53,
+          "words": [
+            {
+              "text": " rulers",
+              "start": 5.57,
+              "end": 5.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 5.93,
+              "end": 6.25,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " just.",
+              "start": 6.25,
+              "end": 6.53,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "Polemarchus.",
+          "start": 1.07,
+          "end": 1.69
+        },
+        {
+          "raw": "Thrasimachus",
+          "start": 2.29,
+          "end": 2.93
+        },
+        {
+          "raw": "said",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "raw": "that",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "raw": "for",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "raw": "subjects",
+          "start": 3.49,
+          "end": 3.89
+        },
+        {
+          "raw": "to",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "raw": "do",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "raw": "what",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "raw": "was",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "raw": "commanded",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "raw": "by",
+          "start": 5.05,
+          "end": 5.37
+        },
+        {
+          "raw": "their",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "raw": "rulers",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "raw": "is",
+          "start": 5.93,
+          "end": 6.25
+        },
+        {
+          "raw": "just.",
+          "start": 6.25,
+          "end": 6.53
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "Polemarchus,—Thrasymachus",
+        "said",
+        "that",
+        "for",
+        "subjects",
+        "to",
+        "do",
+        "what",
+        "was",
+        "commanded",
+        "by",
+        "their",
+        "rulers",
+        "is",
+        "just."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ],
+        [
+          "equal",
+          2,
+          16,
+          3,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          3
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "Polemarchus,—Thrasymachus",
+          "start": 0.69,
+          "end": 1.81
+        },
+        {
+          "text": "said",
+          "start": 2.93,
+          "end": 3.09
+        },
+        {
+          "text": "that",
+          "start": 3.09,
+          "end": 3.27
+        },
+        {
+          "text": "for",
+          "start": 3.27,
+          "end": 3.49
+        },
+        {
+          "text": "subjects",
+          "start": 3.49,
+          "end": 3.89
+        },
+        {
+          "text": "to",
+          "start": 3.89,
+          "end": 4.19
+        },
+        {
+          "text": "do",
+          "start": 4.19,
+          "end": 4.37
+        },
+        {
+          "text": "what",
+          "start": 4.37,
+          "end": 4.51
+        },
+        {
+          "text": "was",
+          "start": 4.51,
+          "end": 4.63
+        },
+        {
+          "text": "commanded",
+          "start": 4.63,
+          "end": 5.05
+        },
+        {
+          "text": "by",
+          "start": 5.05,
+          "end": 5.37
+        },
+        {
+          "text": "their",
+          "start": 5.37,
+          "end": 5.57
+        },
+        {
+          "text": "rulers",
+          "start": 5.57,
+          "end": 5.93
+        },
+        {
+          "text": "is",
+          "start": 5.93,
+          "end": 6.25
+        },
+        {
+          "text": "just.",
+          "start": 6.25,
+          "end": 6.53
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 17,
+        "matched_words": 15
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.2429470419883728
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e752a328ab2568035f69b370e8cf25010ca6e2adf59e23d1175e6fc2b3f2172",
+  "selected_reasons": []
+}

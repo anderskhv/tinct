@@ -1,0 +1,1925 @@
+{
+  "complete": true,
+  "signature": "88a7bf4180044d42f83460176257aabb4c79e2d9b870e832d22e094b92aac3fa",
+  "attempts": [
+    {
+      "asr_seconds": 1.3296943381428719,
+      "alignment_seconds": 0.00036010146141052246,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In saying this, I intended to imply that we must come to an understanding about the mimetic art,—whether the poets, in narrating their stories, are to be allowed by us to imitate, and if so, whether in whole or in part, and if the latter, in what parts; or should all imitation be prohibited?",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I In saying this, I intended to imply that we must come to an understanding about the mimetic art,—whether the poets, in narrating their stories, are to be allowed by us to imitate, and if so, whether in whole or in part, and if the latter, in what parts, or should all imitation be prohibited?",
+          "start": 0.05,
+          "end": 18.01,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.0045318603515625
+            },
+            {
+              "text": " In",
+              "start": 0.57,
+              "end": 0.57,
+              "probability": 9.894371032714844e-05
+            },
+            {
+              "text": " saying",
+              "start": 0.57,
+              "end": 0.81,
+              "probability": 0.94140625
+            },
+            {
+              "text": " this,",
+              "start": 0.81,
+              "end": 1.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 1.57,
+              "end": 1.67,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " intended",
+              "start": 1.67,
+              "end": 1.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " imply",
+              "start": 2.27,
+              "end": 2.65,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.65,
+              "end": 2.91,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " we",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " must",
+              "start": 3.07,
+              "end": 3.25,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " come",
+              "start": 3.25,
+              "end": 3.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.55,
+              "end": 3.71,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 3.71,
+              "end": 3.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " understanding",
+              "start": 3.83,
+              "end": 4.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " about",
+              "start": 4.39,
+              "end": 4.77,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 4.77,
+              "end": 4.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mimetic",
+              "start": 4.93,
+              "end": 5.27,
+              "probability": 0.7459716796875
+            },
+            {
+              "text": " art,—whether",
+              "start": 5.27,
+              "end": 6.43,
+              "probability": 0.5945655306180319
+            },
+            {
+              "text": " the",
+              "start": 6.43,
+              "end": 6.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " poets,",
+              "start": 6.61,
+              "end": 6.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " in",
+              "start": 7.21,
+              "end": 7.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " narrating",
+              "start": 7.37,
+              "end": 7.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " their",
+              "start": 7.89,
+              "end": 8.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " stories,",
+              "start": 8.07,
+              "end": 8.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " are",
+              "start": 8.81,
+              "end": 8.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 8.99,
+              "end": 9.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 9.09,
+              "end": 9.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " allowed",
+              "start": 9.19,
+              "end": 9.47,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " by",
+              "start": 9.47,
+              "end": 9.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " us",
+              "start": 9.75,
+              "end": 9.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 9.95,
+              "end": 10.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " imitate,",
+              "start": 10.15,
+              "end": 10.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 10.89,
+              "end": 11.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " if",
+              "start": 11.23,
+              "end": 11.33,
+              "probability": 0.7861328125
+            },
+            {
+              "text": " so,",
+              "start": 11.33,
+              "end": 11.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " whether",
+              "start": 12.11,
+              "end": 12.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " in",
+              "start": 12.23,
+              "end": 12.49,
+              "probability": 0.99609375
+            },
+            {
+              "text": " whole",
+              "start": 12.49,
+              "end": 12.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 12.85,
+              "end": 13.17,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in",
+              "start": 13.17,
+              "end": 13.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " part,",
+              "start": 13.35,
+              "end": 13.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 14.11,
+              "end": 14.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " if",
+              "start": 14.21,
+              "end": 14.33,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " the",
+              "start": 14.33,
+              "end": 14.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " latter,",
+              "start": 14.49,
+              "end": 14.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 14.97,
+              "end": 15.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " what",
+              "start": 15.03,
+              "end": 15.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " parts,",
+              "start": 15.25,
+              "end": 15.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " or",
+              "start": 16.11,
+              "end": 16.35,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " should",
+              "start": 16.35,
+              "end": 16.51,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " all",
+              "start": 16.51,
+              "end": 16.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " imitation",
+              "start": 16.75,
+              "end": 17.21,
+              "probability": 0.986328125
+            },
+            {
+              "text": " be",
+              "start": 17.21,
+              "end": 17.59,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " prohibited?",
+              "start": 17.59,
+              "end": 18.01,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " I In saying this, I intended to imply that we must come to an understanding about the mimetic art,—whether the poets, in what parts, or should all imitation be prohibited?",
+          "start": 18.01,
+          "end": 18.17,
+          "words": [
+            {
+              "text": " I",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.00356292724609375
+            },
+            {
+              "text": " In",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 2.3543834686279297e-05
+            },
+            {
+              "text": " saying",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 4.70280647277832e-05
+            },
+            {
+              "text": " this,",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.043365478515625
+            },
+            {
+              "text": " I",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.345947265625
+            },
+            {
+              "text": " intended",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.0009813308715820312
+            },
+            {
+              "text": " to",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.05487060546875
+            },
+            {
+              "text": " imply",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 1.1801719665527344e-05
+            },
+            {
+              "text": " that",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.53076171875
+            },
+            {
+              "text": " we",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.0526123046875
+            },
+            {
+              "text": " must",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.0033512115478515625
+            },
+            {
+              "text": " come",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.0022830963134765625
+            },
+            {
+              "text": " to",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.135986328125
+            },
+            {
+              "text": " an",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.2137451171875
+            },
+            {
+              "text": " understanding",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.0012693405151367188
+            },
+            {
+              "text": " about",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.00982666015625
+            },
+            {
+              "text": " the",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.260986328125
+            },
+            {
+              "text": " mimetic",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.004899561405181885
+            },
+            {
+              "text": " art,—whether",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.00032414992650349933
+            },
+            {
+              "text": " the",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.0924072265625
+            },
+            {
+              "text": " poets,",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 2.771615982055664e-05
+            },
+            {
+              "text": " in",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.0018358230590820312
+            },
+            {
+              "text": " what",
+              "start": 18.01,
+              "end": 18.01,
+              "probability": 0.00153350830078125
+            },
+            {
+              "text": " parts,",
+              "start": 18.01,
+              "end": 18.03,
+              "probability": 0.00013065338134765625
+            },
+            {
+              "text": " or",
+              "start": 18.03,
+              "end": 18.03,
+              "probability": 0.09478759765625
+            },
+            {
+              "text": " should",
+              "start": 18.03,
+              "end": 18.03,
+              "probability": 0.0015249252319335938
+            },
+            {
+              "text": " all",
+              "start": 18.03,
+              "end": 18.17,
+              "probability": 0.0005941390991210938
+            },
+            {
+              "text": " imitation",
+              "start": 18.17,
+              "end": 18.17,
+              "probability": 1.1920928955078125e-06
+            },
+            {
+              "text": " be",
+              "start": 18.17,
+              "end": 18.17,
+              "probability": 0.046844482421875
+            },
+            {
+              "text": " prohibited?",
+              "start": 18.17,
+              "end": 18.17,
+              "probability": 0.0005865097045898438
+            }
+          ]
+        },
+        {
+          "text": " I In saying this, I intended to imply that we must come to an understanding about the mimetic art,—whether the poets, or should all imitation be prohibited?",
+          "start": 18.17,
+          "end": 18.43,
+          "words": [
+            {
+              "text": " I",
+              "start": 18.17,
+              "end": 18.29,
+              "probability": 0.0018596649169921875
+            },
+            {
+              "text": " In",
+              "start": 18.29,
+              "end": 18.29,
+              "probability": 1.8656253814697266e-05
+            },
+            {
+              "text": " saying",
+              "start": 18.29,
+              "end": 18.29,
+              "probability": 7.05718994140625e-05
+            },
+            {
+              "text": " this,",
+              "start": 18.29,
+              "end": 18.29,
+              "probability": 0.06427001953125
+            },
+            {
+              "text": " I",
+              "start": 18.29,
+              "end": 18.29,
+              "probability": 0.23828125
+            },
+            {
+              "text": " intended",
+              "start": 18.29,
+              "end": 18.29,
+              "probability": 4.839897155761719e-05
+            },
+            {
+              "text": " to",
+              "start": 18.29,
+              "end": 18.43,
+              "probability": 0.58203125
+            },
+            {
+              "text": " imply",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 6.9141387939453125e-06
+            },
+            {
+              "text": " that",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.494384765625
+            },
+            {
+              "text": " we",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.06304931640625
+            },
+            {
+              "text": " must",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.004093170166015625
+            },
+            {
+              "text": " come",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.002712249755859375
+            },
+            {
+              "text": " to",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.1343994140625
+            },
+            {
+              "text": " an",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.2410888671875
+            },
+            {
+              "text": " understanding",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.0009479522705078125
+            },
+            {
+              "text": " about",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.01015472412109375
+            },
+            {
+              "text": " the",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.30224609375
+            },
+            {
+              "text": " mimetic",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.0031450092792510986
+            },
+            {
+              "text": " art,—whether",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.000310818354288737
+            },
+            {
+              "text": " the",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.09393310546875
+            },
+            {
+              "text": " poets,",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 2.6166439056396484e-05
+            },
+            {
+              "text": " or",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.08184814453125
+            },
+            {
+              "text": " should",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 9.959936141967773e-05
+            },
+            {
+              "text": " all",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.0014400482177734375
+            },
+            {
+              "text": " imitation",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 1.2516975402832031e-06
+            },
+            {
+              "text": " be",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 0.007537841796875
+            },
+            {
+              "text": " prohibited?",
+              "start": 18.43,
+              "end": 18.43,
+              "probability": 8.279085159301758e-05
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "In",
+          "start": 0.57,
+          "end": 0.57
+        },
+        {
+          "raw": "saying",
+          "start": 0.57,
+          "end": 0.81
+        },
+        {
+          "raw": "this,",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "raw": "intended",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "raw": "to",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "raw": "imply",
+          "start": 2.27,
+          "end": 2.65
+        },
+        {
+          "raw": "that",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "raw": "we",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "must",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "raw": "come",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "raw": "to",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "raw": "an",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "raw": "understanding",
+          "start": 3.83,
+          "end": 4.39
+        },
+        {
+          "raw": "about",
+          "start": 4.39,
+          "end": 4.77
+        },
+        {
+          "raw": "the",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "raw": "mimetic",
+          "start": 4.93,
+          "end": 5.27
+        },
+        {
+          "raw": "art,—whether",
+          "start": 5.27,
+          "end": 6.43
+        },
+        {
+          "raw": "the",
+          "start": 6.43,
+          "end": 6.61
+        },
+        {
+          "raw": "poets,",
+          "start": 6.61,
+          "end": 6.97
+        },
+        {
+          "raw": "in",
+          "start": 7.21,
+          "end": 7.37
+        },
+        {
+          "raw": "narrating",
+          "start": 7.37,
+          "end": 7.89
+        },
+        {
+          "raw": "their",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "raw": "stories,",
+          "start": 8.07,
+          "end": 8.51
+        },
+        {
+          "raw": "are",
+          "start": 8.81,
+          "end": 8.99
+        },
+        {
+          "raw": "to",
+          "start": 8.99,
+          "end": 9.09
+        },
+        {
+          "raw": "be",
+          "start": 9.09,
+          "end": 9.19
+        },
+        {
+          "raw": "allowed",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "raw": "by",
+          "start": 9.47,
+          "end": 9.75
+        },
+        {
+          "raw": "us",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "raw": "to",
+          "start": 9.95,
+          "end": 10.15
+        },
+        {
+          "raw": "imitate,",
+          "start": 10.15,
+          "end": 10.51
+        },
+        {
+          "raw": "and",
+          "start": 10.89,
+          "end": 11.23
+        },
+        {
+          "raw": "if",
+          "start": 11.23,
+          "end": 11.33
+        },
+        {
+          "raw": "so,",
+          "start": 11.33,
+          "end": 11.67
+        },
+        {
+          "raw": "whether",
+          "start": 12.11,
+          "end": 12.23
+        },
+        {
+          "raw": "in",
+          "start": 12.23,
+          "end": 12.49
+        },
+        {
+          "raw": "whole",
+          "start": 12.49,
+          "end": 12.85
+        },
+        {
+          "raw": "or",
+          "start": 12.85,
+          "end": 13.17
+        },
+        {
+          "raw": "in",
+          "start": 13.17,
+          "end": 13.35
+        },
+        {
+          "raw": "part,",
+          "start": 13.35,
+          "end": 13.65
+        },
+        {
+          "raw": "and",
+          "start": 14.11,
+          "end": 14.21
+        },
+        {
+          "raw": "if",
+          "start": 14.21,
+          "end": 14.33
+        },
+        {
+          "raw": "the",
+          "start": 14.33,
+          "end": 14.49
+        },
+        {
+          "raw": "latter,",
+          "start": 14.49,
+          "end": 14.77
+        },
+        {
+          "raw": "in",
+          "start": 14.97,
+          "end": 15.03
+        },
+        {
+          "raw": "what",
+          "start": 15.03,
+          "end": 15.25
+        },
+        {
+          "raw": "parts,",
+          "start": 15.25,
+          "end": 15.69
+        },
+        {
+          "raw": "or",
+          "start": 16.11,
+          "end": 16.35
+        },
+        {
+          "raw": "should",
+          "start": 16.35,
+          "end": 16.51
+        },
+        {
+          "raw": "all",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "raw": "imitation",
+          "start": 16.75,
+          "end": 17.21
+        },
+        {
+          "raw": "be",
+          "start": 17.21,
+          "end": 17.59
+        },
+        {
+          "raw": "prohibited?",
+          "start": 17.59,
+          "end": 18.01
+        },
+        {
+          "raw": "I",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "In",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "saying",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "this,",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "I",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "intended",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "to",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "imply",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "that",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "we",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "must",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "come",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "to",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "an",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "understanding",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "about",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "the",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "mimetic",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "art,—whether",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "the",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "poets,",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "in",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "what",
+          "start": 18.01,
+          "end": 18.01
+        },
+        {
+          "raw": "parts,",
+          "start": 18.01,
+          "end": 18.03
+        },
+        {
+          "raw": "or",
+          "start": 18.03,
+          "end": 18.03
+        },
+        {
+          "raw": "should",
+          "start": 18.03,
+          "end": 18.03
+        },
+        {
+          "raw": "all",
+          "start": 18.03,
+          "end": 18.17
+        },
+        {
+          "raw": "imitation",
+          "start": 18.17,
+          "end": 18.17
+        },
+        {
+          "raw": "be",
+          "start": 18.17,
+          "end": 18.17
+        },
+        {
+          "raw": "prohibited?",
+          "start": 18.17,
+          "end": 18.17
+        },
+        {
+          "raw": "I",
+          "start": 18.17,
+          "end": 18.29
+        },
+        {
+          "raw": "In",
+          "start": 18.29,
+          "end": 18.29
+        },
+        {
+          "raw": "saying",
+          "start": 18.29,
+          "end": 18.29
+        },
+        {
+          "raw": "this,",
+          "start": 18.29,
+          "end": 18.29
+        },
+        {
+          "raw": "I",
+          "start": 18.29,
+          "end": 18.29
+        },
+        {
+          "raw": "intended",
+          "start": 18.29,
+          "end": 18.29
+        },
+        {
+          "raw": "to",
+          "start": 18.29,
+          "end": 18.43
+        },
+        {
+          "raw": "imply",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "that",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "we",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "must",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "come",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "to",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "an",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "understanding",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "about",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "the",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "mimetic",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "art,—whether",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "the",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "poets,",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "or",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "should",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "all",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "imitation",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "be",
+          "start": 18.43,
+          "end": 18.43
+        },
+        {
+          "raw": "prohibited?",
+          "start": 18.43,
+          "end": 18.43
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "saying",
+        "this,",
+        "I",
+        "intended",
+        "to",
+        "imply",
+        "that",
+        "we",
+        "must",
+        "come",
+        "to",
+        "an",
+        "understanding",
+        "about",
+        "the",
+        "mimetic",
+        "art,—whether",
+        "the",
+        "poets,",
+        "in",
+        "narrating",
+        "their",
+        "stories,",
+        "are",
+        "to",
+        "be",
+        "allowed",
+        "by",
+        "us",
+        "to",
+        "imitate,",
+        "and",
+        "if",
+        "so,",
+        "whether",
+        "in",
+        "whole",
+        "or",
+        "in",
+        "part,",
+        "and",
+        "if",
+        "the",
+        "latter,",
+        "in",
+        "what",
+        "parts;",
+        "or",
+        "should",
+        "all",
+        "imitation",
+        "be",
+        "prohibited?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          54,
+          1,
+          55
+        ],
+        [
+          "insert",
+          54,
+          54,
+          55,
+          112
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "insert",
+          54,
+          54,
+          55,
+          112
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.57,
+          "end": 0.57
+        },
+        {
+          "text": "saying",
+          "start": 0.57,
+          "end": 0.81
+        },
+        {
+          "text": "this,",
+          "start": 0.81,
+          "end": 1.15
+        },
+        {
+          "text": "I",
+          "start": 1.57,
+          "end": 1.67
+        },
+        {
+          "text": "intended",
+          "start": 1.67,
+          "end": 1.99
+        },
+        {
+          "text": "to",
+          "start": 1.99,
+          "end": 2.27
+        },
+        {
+          "text": "imply",
+          "start": 2.27,
+          "end": 2.65
+        },
+        {
+          "text": "that",
+          "start": 2.65,
+          "end": 2.91
+        },
+        {
+          "text": "we",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "must",
+          "start": 3.07,
+          "end": 3.25
+        },
+        {
+          "text": "come",
+          "start": 3.25,
+          "end": 3.55
+        },
+        {
+          "text": "to",
+          "start": 3.55,
+          "end": 3.71
+        },
+        {
+          "text": "an",
+          "start": 3.71,
+          "end": 3.83
+        },
+        {
+          "text": "understanding",
+          "start": 3.83,
+          "end": 4.39
+        },
+        {
+          "text": "about",
+          "start": 4.39,
+          "end": 4.77
+        },
+        {
+          "text": "the",
+          "start": 4.77,
+          "end": 4.93
+        },
+        {
+          "text": "mimetic",
+          "start": 4.93,
+          "end": 5.27
+        },
+        {
+          "text": "art,—whether",
+          "start": 5.27,
+          "end": 6.43
+        },
+        {
+          "text": "the",
+          "start": 6.43,
+          "end": 6.61
+        },
+        {
+          "text": "poets,",
+          "start": 6.61,
+          "end": 6.97
+        },
+        {
+          "text": "in",
+          "start": 7.21,
+          "end": 7.37
+        },
+        {
+          "text": "narrating",
+          "start": 7.37,
+          "end": 7.89
+        },
+        {
+          "text": "their",
+          "start": 7.89,
+          "end": 8.07
+        },
+        {
+          "text": "stories,",
+          "start": 8.07,
+          "end": 8.51
+        },
+        {
+          "text": "are",
+          "start": 8.81,
+          "end": 8.99
+        },
+        {
+          "text": "to",
+          "start": 8.99,
+          "end": 9.09
+        },
+        {
+          "text": "be",
+          "start": 9.09,
+          "end": 9.19
+        },
+        {
+          "text": "allowed",
+          "start": 9.19,
+          "end": 9.47
+        },
+        {
+          "text": "by",
+          "start": 9.47,
+          "end": 9.75
+        },
+        {
+          "text": "us",
+          "start": 9.75,
+          "end": 9.95
+        },
+        {
+          "text": "to",
+          "start": 9.95,
+          "end": 10.15
+        },
+        {
+          "text": "imitate,",
+          "start": 10.15,
+          "end": 10.51
+        },
+        {
+          "text": "and",
+          "start": 10.89,
+          "end": 11.23
+        },
+        {
+          "text": "if",
+          "start": 11.23,
+          "end": 11.33
+        },
+        {
+          "text": "so,",
+          "start": 11.33,
+          "end": 11.67
+        },
+        {
+          "text": "whether",
+          "start": 12.11,
+          "end": 12.23
+        },
+        {
+          "text": "in",
+          "start": 12.23,
+          "end": 12.49
+        },
+        {
+          "text": "whole",
+          "start": 12.49,
+          "end": 12.85
+        },
+        {
+          "text": "or",
+          "start": 12.85,
+          "end": 13.17
+        },
+        {
+          "text": "in",
+          "start": 13.17,
+          "end": 13.35
+        },
+        {
+          "text": "part,",
+          "start": 13.35,
+          "end": 13.65
+        },
+        {
+          "text": "and",
+          "start": 14.11,
+          "end": 14.21
+        },
+        {
+          "text": "if",
+          "start": 14.21,
+          "end": 14.33
+        },
+        {
+          "text": "the",
+          "start": 14.33,
+          "end": 14.49
+        },
+        {
+          "text": "latter,",
+          "start": 14.49,
+          "end": 14.77
+        },
+        {
+          "text": "in",
+          "start": 14.97,
+          "end": 15.03
+        },
+        {
+          "text": "what",
+          "start": 15.03,
+          "end": 15.25
+        },
+        {
+          "text": "parts;",
+          "start": 15.25,
+          "end": 15.69
+        },
+        {
+          "text": "or",
+          "start": 16.11,
+          "end": 16.35
+        },
+        {
+          "text": "should",
+          "start": 16.35,
+          "end": 16.51
+        },
+        {
+          "text": "all",
+          "start": 16.51,
+          "end": 16.75
+        },
+        {
+          "text": "imitation",
+          "start": 16.75,
+          "end": 17.21
+        },
+        {
+          "text": "be",
+          "start": 17.21,
+          "end": 17.59
+        },
+        {
+          "text": "prohibited?",
+          "start": 17.59,
+          "end": 18.01
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 112,
+        "matched_words": 54
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.330336518585682
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d8cdbd91e6c79b668e922bcf97f99131936016cde9d6d34d659603cf9d34419",
+  "selected_reasons": []
+}

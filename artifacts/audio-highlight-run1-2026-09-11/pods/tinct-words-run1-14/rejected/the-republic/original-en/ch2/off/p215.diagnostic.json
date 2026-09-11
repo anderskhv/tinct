@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "583feb45d97096cff5e87b0ddbd53b99c3bbf6a672a59ff9074b93f7b1f8cfd0",
+  "attempts": [
+    {
+      "asr_seconds": 0.15188433229923248,
+      "alignment_seconds": 9.838491678237915e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Shall we begin education with music and go on to gymnastic afterwards?",
+          "start": 0.05,
+          "end": 4.63,
+          "words": [
+            {
+              "text": " Shall",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.96435546875
+            },
+            {
+              "text": " we",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " begin",
+              "start": 0.71,
+              "end": 1.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " education",
+              "start": 1.01,
+              "end": 1.51,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " with",
+              "start": 1.51,
+              "end": 1.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " music",
+              "start": 1.89,
+              "end": 2.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 2.29,
+              "end": 2.87,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " go",
+              "start": 2.87,
+              "end": 3.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 3.07,
+              "end": 3.29,
+              "probability": 0.990234375
+            },
+            {
+              "text": " to",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gymnastic",
+              "start": 3.45,
+              "end": 4.07,
+              "probability": 0.8427734375
+            },
+            {
+              "text": " afterwards?",
+              "start": 4.07,
+              "end": 4.63,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Shall",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "we",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "begin",
+          "start": 0.71,
+          "end": 1.01
+        },
+        {
+          "raw": "education",
+          "start": 1.01,
+          "end": 1.51
+        },
+        {
+          "raw": "with",
+          "start": 1.51,
+          "end": 1.89
+        },
+        {
+          "raw": "music",
+          "start": 1.89,
+          "end": 2.29
+        },
+        {
+          "raw": "and",
+          "start": 2.29,
+          "end": 2.87
+        },
+        {
+          "raw": "go",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "raw": "on",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "raw": "to",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "gymnastic",
+          "start": 3.45,
+          "end": 4.07
+        },
+        {
+          "raw": "afterwards?",
+          "start": 4.07,
+          "end": 4.63
+        }
+      ],
+      "expected_tokens": [
+        "Shall",
+        "we",
+        "begin",
+        "education",
+        "with",
+        "music,",
+        "and",
+        "go",
+        "on",
+        "to",
+        "gymnastic",
+        "afterwards?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Shall",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "we",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "begin",
+          "start": 0.71,
+          "end": 1.01
+        },
+        {
+          "text": "education",
+          "start": 1.01,
+          "end": 1.51
+        },
+        {
+          "text": "with",
+          "start": 1.51,
+          "end": 1.89
+        },
+        {
+          "text": "music,",
+          "start": 1.89,
+          "end": 2.29
+        },
+        {
+          "text": "and",
+          "start": 2.29,
+          "end": 2.87
+        },
+        {
+          "text": "go",
+          "start": 2.87,
+          "end": 3.07
+        },
+        {
+          "text": "on",
+          "start": 3.07,
+          "end": 3.29
+        },
+        {
+          "text": "to",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "gymnastic",
+          "start": 3.45,
+          "end": 4.07
+        },
+        {
+          "text": "afterwards?",
+          "start": 4.07,
+          "end": 4.63
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15203215181827545
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5068986223bc049174b057c0ff73906c0b5b2acd0e94c5046756ea021c3df23",
+  "selected_reasons": []
+}

@@ -1,0 +1,385 @@
+{
+  "complete": true,
+  "signature": "a9acc5b042f0375ead9823264b0a70a8d881d41e703a2e79c0216c411c5a2525",
+  "attempts": [
+    {
+      "asr_seconds": 0.14733178913593292,
+      "alignment_seconds": 0.00011064857244491577,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the young should be trained in both kinds, and we begin with the false?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the young should be trained in both kinds, and we begin with the false?",
+          "start": 0.05,
+          "end": 3.99,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.474609375
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " young",
+              "start": 0.63,
+              "end": 0.83,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " should",
+              "start": 0.83,
+              "end": 1.07,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " be",
+              "start": 1.07,
+              "end": 1.25,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " trained",
+              "start": 1.25,
+              "end": 1.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 1.57,
+              "end": 1.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " both",
+              "start": 1.79,
+              "end": 1.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " kinds,",
+              "start": 1.97,
+              "end": 2.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 2.91,
+              "end": 3.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " we",
+              "start": 3.07,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " begin",
+              "start": 3.17,
+              "end": 3.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 3.45,
+              "end": 3.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 3.61,
+              "end": 3.75,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " false?",
+              "start": 3.75,
+              "end": 3.99,
+              "probability": 0.47021484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "young",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "raw": "should",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "raw": "be",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "raw": "trained",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "raw": "in",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "raw": "both",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "raw": "kinds,",
+          "start": 1.97,
+          "end": 2.47
+        },
+        {
+          "raw": "and",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "raw": "we",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "raw": "begin",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "raw": "with",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "raw": "the",
+          "start": 3.61,
+          "end": 3.75
+        },
+        {
+          "raw": "false?",
+          "start": 3.75,
+          "end": 3.99
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "young",
+        "should",
+        "be",
+        "trained",
+        "in",
+        "both",
+        "kinds,",
+        "and",
+        "we",
+        "begin",
+        "with",
+        "the",
+        "false?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "young",
+          "start": 0.63,
+          "end": 0.83
+        },
+        {
+          "text": "should",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "text": "be",
+          "start": 1.07,
+          "end": 1.25
+        },
+        {
+          "text": "trained",
+          "start": 1.25,
+          "end": 1.57
+        },
+        {
+          "text": "in",
+          "start": 1.57,
+          "end": 1.79
+        },
+        {
+          "text": "both",
+          "start": 1.79,
+          "end": 1.97
+        },
+        {
+          "text": "kinds,",
+          "start": 1.97,
+          "end": 2.47
+        },
+        {
+          "text": "and",
+          "start": 2.91,
+          "end": 3.07
+        },
+        {
+          "text": "we",
+          "start": 3.07,
+          "end": 3.17
+        },
+        {
+          "text": "begin",
+          "start": 3.17,
+          "end": 3.45
+        },
+        {
+          "text": "with",
+          "start": 3.45,
+          "end": 3.61
+        },
+        {
+          "text": "the",
+          "start": 3.61,
+          "end": 3.75
+        },
+        {
+          "text": "false?",
+          "start": 3.75,
+          "end": 3.99
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14750002324581146
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9cb2770cc21683ab457dcd20e7609b59c9d8584866d317a9ded4142699395ec1",
+  "selected_reasons": []
+}

@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "99007fcd2dafcab165a70986778e1fb27b5c95d83e4f8bcb525acde6276dbd3d",
+  "attempts": [
+    {
+      "asr_seconds": 0.07808130234479904,
+      "alignment_seconds": 5.254894495010376e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "How so?",
+        "hotwords": "How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How so",
+          "start": 0.05,
+          "end": 0.85,
+          "words": [
+            {
+              "text": " How",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.8359375
+            },
+            {
+              "text": " so",
+              "start": 0.55,
+              "end": 0.85,
+              "probability": 0.97412109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "so",
+          "start": 0.55,
+          "end": 0.85
+        }
+      ],
+      "expected_tokens": [
+        "How",
+        "so?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "How",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "so?",
+          "start": 0.55,
+          "end": 0.85
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07815331220626831
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d02b80066c8c125a1c86a386c7e3cf3891214009bb506df80b4a55751e9c71ae",
+  "selected_reasons": []
+}

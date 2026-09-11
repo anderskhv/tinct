@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "11d22bfba9a319974ddd1759419bab348a48954f733879e3a26b6a0f11adf781",
+  "attempts": [
+    {
+      "asr_seconds": 0.08430946618318558,
+      "alignment_seconds": 6.11618161201477e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why great caution",
+          "start": 0.02,
+          "end": 1.22,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.89404296875
+            },
+            {
+              "text": " great",
+              "start": 0.58,
+              "end": 0.82,
+              "probability": 0.953125
+            },
+            {
+              "text": " caution",
+              "start": 0.82,
+              "end": 1.22,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "great",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "raw": "caution",
+          "start": 0.82,
+          "end": 1.22
+        }
+      ],
+      "expected_tokens": [
+        "Why",
+        "great",
+        "caution?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Why",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "great",
+          "start": 0.58,
+          "end": 0.82
+        },
+        {
+          "text": "caution?",
+          "start": 0.82,
+          "end": 1.22
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08439476042985916
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "0c8892249230f005e78d3e23be18fe4102b2b9d9a8b5ff4a9a967537aa458670",
+  "selected_reasons": []
+}

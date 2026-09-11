@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "38fc45c98b538888ca19dbc9482ca9f26765219b3169f4c0063429fbfe646d37",
+  "attempts": [
+    {
+      "asr_seconds": 0.0847371444106102,
+      "alignment_seconds": 5.161762237548828e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " No question, he replied.",
+          "start": 0.02,
+          "end": 1.58,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.54931640625
+            },
+            {
+              "text": " question,",
+              "start": 0.58,
+              "end": 0.96,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " he",
+              "start": 1.14,
+              "end": 1.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " replied.",
+              "start": 1.24,
+              "end": 1.58,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "question,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "raw": "he",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "raw": "replied.",
+          "start": 1.24,
+          "end": 1.58
+        }
+      ],
+      "expected_tokens": [
+        "No",
+        "question,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "question,",
+          "start": 0.58,
+          "end": 0.96
+        },
+        {
+          "text": "he",
+          "start": 1.14,
+          "end": 1.24
+        },
+        {
+          "text": "replied.",
+          "start": 1.24,
+          "end": 1.58
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08480975031852722
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6959a77e927cfc758371f35be3aaa2b2093eaab962c3d85233dcc34ece3d3cb0",
+  "selected_reasons": []
+}

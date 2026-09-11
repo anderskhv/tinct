@@ -1,0 +1,547 @@
+{
+  "complete": true,
+  "signature": "7cef9f69cfac153c520a21bdf1032baa4cb906003758181e5034e42bdc2d118c",
+  "attempts": [
+    {
+      "asr_seconds": 0.25606298446655273,
+      "alignment_seconds": 0.00014781206846237183,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And will they not be lovers of Hellas, and think of Hellas as their own land, and share in the common temples?",
+        "hotwords": "Hellas"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And will they not be lovers of Hellas, and think of Hellas as their own land, and share",
+          "start": 0.11,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.11,
+              "end": 0.57,
+              "probability": 0.65478515625
+            },
+            {
+              "text": " will",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " they",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " not",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " lovers",
+              "start": 1.31,
+              "end": 1.55,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " of",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Hellas,",
+              "start": 1.83,
+              "end": 2.19,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " and",
+              "start": 2.53,
+              "end": 2.77,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " think",
+              "start": 2.77,
+              "end": 2.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Hellas",
+              "start": 3.03,
+              "end": 3.41,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " as",
+              "start": 3.41,
+              "end": 3.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " their",
+              "start": 3.55,
+              "end": 3.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " own",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " land,",
+              "start": 3.99,
+              "end": 4.37,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 4.83,
+              "end": 4.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " share",
+              "start": 4.95,
+              "end": 5.27,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " in the common temples?",
+          "start": 5.27,
+          "end": 6.21,
+          "words": [
+            {
+              "text": " in",
+              "start": 5.27,
+              "end": 5.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 5.43,
+              "end": 5.53,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " common",
+              "start": 5.53,
+              "end": 5.79,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " temples?",
+              "start": 5.79,
+              "end": 6.21,
+              "probability": 0.98974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.11,
+          "end": 0.57
+        },
+        {
+          "raw": "will",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "they",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "not",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "raw": "be",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "raw": "lovers",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "raw": "of",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "Hellas,",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "raw": "and",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "raw": "think",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "raw": "of",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "Hellas",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "raw": "as",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "raw": "their",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "raw": "own",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "land,",
+          "start": 3.99,
+          "end": 4.37
+        },
+        {
+          "raw": "and",
+          "start": 4.83,
+          "end": 4.95
+        },
+        {
+          "raw": "share",
+          "start": 4.95,
+          "end": 5.27
+        },
+        {
+          "raw": "in",
+          "start": 5.27,
+          "end": 5.43
+        },
+        {
+          "raw": "the",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "raw": "common",
+          "start": 5.53,
+          "end": 5.79
+        },
+        {
+          "raw": "temples?",
+          "start": 5.79,
+          "end": 6.21
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "will",
+        "they",
+        "not",
+        "be",
+        "lovers",
+        "of",
+        "Hellas,",
+        "and",
+        "think",
+        "of",
+        "Hellas",
+        "as",
+        "their",
+        "own",
+        "land,",
+        "and",
+        "share",
+        "in",
+        "the",
+        "common",
+        "temples?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.11,
+          "end": 0.57
+        },
+        {
+          "text": "will",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "they",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "not",
+          "start": 0.85,
+          "end": 1.05
+        },
+        {
+          "text": "be",
+          "start": 1.05,
+          "end": 1.31
+        },
+        {
+          "text": "lovers",
+          "start": 1.31,
+          "end": 1.55
+        },
+        {
+          "text": "of",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "Hellas,",
+          "start": 1.83,
+          "end": 2.19
+        },
+        {
+          "text": "and",
+          "start": 2.53,
+          "end": 2.77
+        },
+        {
+          "text": "think",
+          "start": 2.77,
+          "end": 2.89
+        },
+        {
+          "text": "of",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "Hellas",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "text": "as",
+          "start": 3.41,
+          "end": 3.55
+        },
+        {
+          "text": "their",
+          "start": 3.55,
+          "end": 3.73
+        },
+        {
+          "text": "own",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "land,",
+          "start": 3.99,
+          "end": 4.37
+        },
+        {
+          "text": "and",
+          "start": 4.83,
+          "end": 4.95
+        },
+        {
+          "text": "share",
+          "start": 4.95,
+          "end": 5.27
+        },
+        {
+          "text": "in",
+          "start": 5.27,
+          "end": 5.43
+        },
+        {
+          "text": "the",
+          "start": 5.43,
+          "end": 5.53
+        },
+        {
+          "text": "common",
+          "start": 5.53,
+          "end": 5.79
+        },
+        {
+          "text": "temples?",
+          "start": 5.79,
+          "end": 6.21
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2562890648841858
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3d0a2f86431e32c51201f23fab84fae0b77e2835daddc5eb5b02f285cb8e3e9e",
+  "selected_reasons": []
+}

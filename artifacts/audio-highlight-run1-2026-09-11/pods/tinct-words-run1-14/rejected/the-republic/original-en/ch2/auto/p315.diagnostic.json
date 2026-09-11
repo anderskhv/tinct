@@ -1,0 +1,606 @@
+{
+  "complete": true,
+  "signature": "1d95022a7f84a01b1b330de38b1a33f04e9615f596ddfde0896fe836882e511c",
+  "attempts": [
+    {
+      "asr_seconds": 0.2247648537158966,
+      "alignment_seconds": 0.00012993812561035156,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Well, but can you imagine that God will be willing to lie, whether in word or deed, or to put forth a phantom of himself?",
+        "hotwords": "Well, God"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Well, but can you imagine that God will be willing to lie, whether in word or deed, or to put forth a phantom of himself?",
+          "start": 0.05,
+          "end": 7.25,
+          "words": [
+            {
+              "text": " Well,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " but",
+              "start": 0.83,
+              "end": 0.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " can",
+              "start": 0.93,
+              "end": 1.11,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " you",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " imagine",
+              "start": 1.25,
+              "end": 1.67,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 1.67,
+              "end": 1.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " God",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 2.25,
+              "end": 2.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 2.45,
+              "end": 2.57,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " willing",
+              "start": 2.57,
+              "end": 2.83,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.83,
+              "end": 3.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " lie,",
+              "start": 3.07,
+              "end": 3.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whether",
+              "start": 3.93,
+              "end": 4.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 4.03,
+              "end": 4.27,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " word",
+              "start": 4.27,
+              "end": 4.65,
+              "probability": 0.982421875
+            },
+            {
+              "text": " or",
+              "start": 4.65,
+              "end": 4.93,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " deed,",
+              "start": 4.93,
+              "end": 5.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 5.71,
+              "end": 5.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.81,
+              "end": 5.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " put",
+              "start": 5.93,
+              "end": 6.11,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " forth",
+              "start": 6.11,
+              "end": 6.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 6.31,
+              "end": 6.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " phantom",
+              "start": 6.47,
+              "end": 6.75,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " of",
+              "start": 6.75,
+              "end": 6.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " himself?",
+              "start": 6.95,
+              "end": 7.25,
+              "probability": 0.456787109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Well,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "but",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "raw": "can",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "raw": "you",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "imagine",
+          "start": 1.25,
+          "end": 1.67
+        },
+        {
+          "raw": "that",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "raw": "God",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "raw": "will",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "raw": "be",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "raw": "willing",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "raw": "to",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "raw": "lie,",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "raw": "whether",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "raw": "in",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "raw": "word",
+          "start": 4.27,
+          "end": 4.65
+        },
+        {
+          "raw": "or",
+          "start": 4.65,
+          "end": 4.93
+        },
+        {
+          "raw": "deed,",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "raw": "or",
+          "start": 5.71,
+          "end": 5.81
+        },
+        {
+          "raw": "to",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "raw": "put",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "raw": "forth",
+          "start": 6.11,
+          "end": 6.31
+        },
+        {
+          "raw": "a",
+          "start": 6.31,
+          "end": 6.47
+        },
+        {
+          "raw": "phantom",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "raw": "of",
+          "start": 6.75,
+          "end": 6.95
+        },
+        {
+          "raw": "himself?",
+          "start": 6.95,
+          "end": 7.25
+        }
+      ],
+      "expected_tokens": [
+        "Well,",
+        "but",
+        "can",
+        "you",
+        "imagine",
+        "that",
+        "God",
+        "will",
+        "be",
+        "willing",
+        "to",
+        "lie,",
+        "whether",
+        "in",
+        "word",
+        "or",
+        "deed,",
+        "or",
+        "to",
+        "put",
+        "forth",
+        "a",
+        "phantom",
+        "of",
+        "himself?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          25,
+          0,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Well,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "but",
+          "start": 0.83,
+          "end": 0.93
+        },
+        {
+          "text": "can",
+          "start": 0.93,
+          "end": 1.11
+        },
+        {
+          "text": "you",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "imagine",
+          "start": 1.25,
+          "end": 1.67
+        },
+        {
+          "text": "that",
+          "start": 1.67,
+          "end": 1.97
+        },
+        {
+          "text": "God",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "text": "will",
+          "start": 2.25,
+          "end": 2.45
+        },
+        {
+          "text": "be",
+          "start": 2.45,
+          "end": 2.57
+        },
+        {
+          "text": "willing",
+          "start": 2.57,
+          "end": 2.83
+        },
+        {
+          "text": "to",
+          "start": 2.83,
+          "end": 3.07
+        },
+        {
+          "text": "lie,",
+          "start": 3.07,
+          "end": 3.35
+        },
+        {
+          "text": "whether",
+          "start": 3.93,
+          "end": 4.03
+        },
+        {
+          "text": "in",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "text": "word",
+          "start": 4.27,
+          "end": 4.65
+        },
+        {
+          "text": "or",
+          "start": 4.65,
+          "end": 4.93
+        },
+        {
+          "text": "deed,",
+          "start": 4.93,
+          "end": 5.21
+        },
+        {
+          "text": "or",
+          "start": 5.71,
+          "end": 5.81
+        },
+        {
+          "text": "to",
+          "start": 5.81,
+          "end": 5.93
+        },
+        {
+          "text": "put",
+          "start": 5.93,
+          "end": 6.11
+        },
+        {
+          "text": "forth",
+          "start": 6.11,
+          "end": 6.31
+        },
+        {
+          "text": "a",
+          "start": 6.31,
+          "end": 6.47
+        },
+        {
+          "text": "phantom",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "text": "of",
+          "start": 6.75,
+          "end": 6.95
+        },
+        {
+          "text": "himself?",
+          "start": 6.95,
+          "end": 7.25
+        }
+      ],
+      "stats": {
+        "expected_words": 25,
+        "heard_words": 25,
+        "matched_words": 25
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22497429698705673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6ce2db40ad376cbfd8cff2670f21aae5f040a7ed749abc851e13f12febc55dd1",
+  "selected_reasons": []
+}

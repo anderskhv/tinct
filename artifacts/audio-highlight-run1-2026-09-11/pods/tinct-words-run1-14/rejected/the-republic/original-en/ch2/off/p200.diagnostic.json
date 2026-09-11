@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "f8807e531a11c1dae49edb70d3baa2ff75695813ea256ded15c0d6bcc492946d",
+  "attempts": [
+    {
+      "asr_seconds": 0.08230483531951904,
+      "alignment_seconds": 5.399435758590698e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " most assuredly.",
+          "start": 0.02,
+          "end": 1.24,
+          "words": [
+            {
+              "text": " most",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.66015625
+            },
+            {
+              "text": " assuredly.",
+              "start": 0.62,
+              "end": 1.24,
+              "probability": 0.999267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "most",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "assuredly.",
+          "start": 0.62,
+          "end": 1.24
+        }
+      ],
+      "expected_tokens": [
+        "Most",
+        "assuredly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Most",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "assuredly.",
+          "start": 0.62,
+          "end": 1.24
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08237919211387634
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8be1e3800c058227bfde1ed110f35ed48fa99f506bc67a63b2df98bf91fc7ba9",
+  "selected_reasons": []
+}

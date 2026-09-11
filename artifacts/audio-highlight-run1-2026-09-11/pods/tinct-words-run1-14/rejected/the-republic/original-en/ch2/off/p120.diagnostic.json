@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "b75c76f4ed6e1996ef2608122fe28de20d0891c9214e3643f6fae015218b601c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13663175702095032,
+      "alignment_seconds": 9.740889072418213e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And now, a Day Mantis is our state matured and perfected.",
+          "start": 0.14,
+          "end": 3.36,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " now,",
+              "start": 0.52,
+              "end": 0.84,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " a",
+              "start": 1.16,
+              "end": 1.24,
+              "probability": 0.74609375
+            },
+            {
+              "text": " Day",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.334716796875
+            },
+            {
+              "text": " Mantis",
+              "start": 1.38,
+              "end": 1.7,
+              "probability": 0.848388671875
+            },
+            {
+              "text": " is",
+              "start": 1.7,
+              "end": 2.04,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " our",
+              "start": 2.04,
+              "end": 2.16,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " state",
+              "start": 2.16,
+              "end": 2.4,
+              "probability": 0.97265625
+            },
+            {
+              "text": " matured",
+              "start": 2.4,
+              "end": 2.7,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " and",
+              "start": 2.7,
+              "end": 2.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " perfected.",
+              "start": 2.96,
+              "end": 3.36,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "now,",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "raw": "a",
+          "start": 1.16,
+          "end": 1.24
+        },
+        {
+          "raw": "Day",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "Mantis",
+          "start": 1.38,
+          "end": 1.7
+        },
+        {
+          "raw": "is",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "raw": "our",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "raw": "state",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "raw": "matured",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "raw": "and",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "raw": "perfected.",
+          "start": 2.96,
+          "end": 3.36
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "now,",
+        "Adeimantus,",
+        "is",
+        "our",
+        "State",
+        "matured",
+        "and",
+        "perfected?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "equal",
+          3,
+          9,
+          5,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "now,",
+          "start": 0.52,
+          "end": 0.84
+        },
+        {
+          "text": "Adeimantus,",
+          "start": 0.84,
+          "end": 1.27
+        },
+        {
+          "text": "is",
+          "start": 1.7,
+          "end": 2.04
+        },
+        {
+          "text": "our",
+          "start": 2.04,
+          "end": 2.16
+        },
+        {
+          "text": "State",
+          "start": 2.16,
+          "end": 2.4
+        },
+        {
+          "text": "matured",
+          "start": 2.4,
+          "end": 2.7
+        },
+        {
+          "text": "and",
+          "start": 2.7,
+          "end": 2.96
+        },
+        {
+          "text": "perfected?",
+          "start": 2.96,
+          "end": 3.36
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 11,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.13676723837852478
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "67b432ba34c355667f682c7d29015de4736c03bbb6dff971796c6581409dfa05",
+  "selected_reasons": []
+}

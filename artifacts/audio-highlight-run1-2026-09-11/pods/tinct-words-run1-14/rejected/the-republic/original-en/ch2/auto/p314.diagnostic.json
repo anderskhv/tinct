@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "7e500842b2d11bda10559ee7ee366bd24b0ffa7509ea0094edbcb1f2d956e5e3",
+  "attempts": [
+    {
+      "asr_seconds": 0.080838143825531,
+      "alignment_seconds": 5.9664249420166016e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Perhaps, he replied.",
+        "hotwords": "Perhaps"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Perhaps he replied.",
+          "start": 0.02,
+          "end": 1.2,
+          "words": [
+            {
+              "text": " Perhaps",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9150390625
+            },
+            {
+              "text": " he",
+              "start": 0.68,
+              "end": 0.86,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " replied.",
+              "start": 0.86,
+              "end": 1.2,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Perhaps",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "he",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "raw": "replied.",
+          "start": 0.86,
+          "end": 1.2
+        }
+      ],
+      "expected_tokens": [
+        "Perhaps,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Perhaps,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "he",
+          "start": 0.68,
+          "end": 0.86
+        },
+        {
+          "text": "replied.",
+          "start": 0.86,
+          "end": 1.2
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0809190422296524
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c26c531ba5a530169cb1546ded13af50aac89c86f53594c191717108fb5dc4eb",
+  "selected_reasons": []
+}

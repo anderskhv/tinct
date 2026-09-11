@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "8ef6b945cf8823fdb9fb008792af11f393dbea8a624c874627824d3bf0c708fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.08584947884082794,
+      "alignment_seconds": 6.711483001708984e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I do not deny it.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I do not deny it.",
+          "start": 0.05,
+          "end": 1.31,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " do",
+              "start": 0.49,
+              "end": 0.59,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " not",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " deny",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it.",
+              "start": 1.05,
+              "end": 1.31,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "do",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "raw": "not",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "deny",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "it.",
+          "start": 1.05,
+          "end": 1.31
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "do",
+        "not",
+        "deny",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "do",
+          "start": 0.49,
+          "end": 0.59
+        },
+        {
+          "text": "not",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "deny",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "it.",
+          "start": 1.05,
+          "end": 1.31
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08594462275505066
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d1935eccb1a5ea900c275419938b4b9730c3b748227557cde48f7e49cd04054d",
+  "selected_reasons": []
+}

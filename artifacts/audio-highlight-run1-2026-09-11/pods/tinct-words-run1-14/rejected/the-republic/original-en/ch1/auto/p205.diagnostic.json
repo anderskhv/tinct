@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "79b0642add20fabfa45b46d834c73af1775e33dbcd63c0f6a6d62bed0c9c707b",
+  "attempts": [
+    {
+      "asr_seconds": 0.08351520448923111,
+      "alignment_seconds": 5.8241188526153564e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I know.",
+        "hotwords": "Yes, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I know.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " I",
+              "start": 0.73,
+              "end": 0.85,
+              "probability": 0.9921875
+            },
+            {
+              "text": " know.",
+              "start": 0.85,
+              "end": 1.05,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "I",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "raw": "know.",
+          "start": 0.85,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "know."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "I",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "text": "know.",
+          "start": 0.85,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08359568566083908
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4e65484dcf9f5be8374ba19e57e907eee86275aec07608c725a8f2ea207f1706",
+  "selected_reasons": []
+}

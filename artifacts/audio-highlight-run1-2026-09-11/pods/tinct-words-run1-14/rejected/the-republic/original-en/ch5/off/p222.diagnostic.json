@@ -1,0 +1,666 @@
+{
+  "complete": true,
+  "signature": "b0a3fb8ea4c53e12e22e91dbb8f39bf664cd9a351cffca6bc1a3c5b410bd92d9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2686038464307785,
+      "alignment_seconds": 0.0001850724220275879,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very true, he replied, and I agree with you that in the best-ordered state there is the",
+          "start": 0.05,
+          "end": 5.69,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.0163116455078125
+            },
+            {
+              "text": " true,",
+              "start": 0.71,
+              "end": 1.11,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " he",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " replied,",
+              "start": 1.51,
+              "end": 1.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 2.63,
+              "end": 2.73,
+              "probability": 0.875
+            },
+            {
+              "text": " I",
+              "start": 2.73,
+              "end": 2.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " agree",
+              "start": 2.85,
+              "end": 3.11,
+              "probability": 0.998046875
+            },
+            {
+              "text": " with",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 3.27,
+              "end": 3.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " in",
+              "start": 3.63,
+              "end": 3.81,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " the",
+              "start": 3.81,
+              "end": 3.91,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " best",
+              "start": 3.91,
+              "end": 4.15,
+              "probability": 0.955078125
+            },
+            {
+              "text": "-ordered",
+              "start": 4.15,
+              "end": 4.41,
+              "probability": 0.715087890625
+            },
+            {
+              "text": " state",
+              "start": 4.41,
+              "end": 4.89,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " there",
+              "start": 4.89,
+              "end": 5.37,
+              "probability": 0.640625
+            },
+            {
+              "text": " is",
+              "start": 5.37,
+              "end": 5.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 5.51,
+              "end": 5.69,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " nearest approach to this common feeling which you describe.",
+          "start": 5.69,
+          "end": 8.45,
+          "words": [
+            {
+              "text": " nearest",
+              "start": 5.69,
+              "end": 5.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " approach",
+              "start": 5.97,
+              "end": 6.39,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 6.39,
+              "end": 6.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " this",
+              "start": 6.69,
+              "end": 6.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " common",
+              "start": 6.83,
+              "end": 7.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " feeling",
+              "start": 7.19,
+              "end": 7.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " which",
+              "start": 7.55,
+              "end": 7.83,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " you",
+              "start": 7.83,
+              "end": 8.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " describe.",
+              "start": 8.01,
+              "end": 8.45,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "true,",
+          "start": 0.71,
+          "end": 1.11
+        },
+        {
+          "raw": "he",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "replied,",
+          "start": 1.51,
+          "end": 1.95
+        },
+        {
+          "raw": "and",
+          "start": 2.63,
+          "end": 2.73
+        },
+        {
+          "raw": "I",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "raw": "agree",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "raw": "with",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "you",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "raw": "that",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "in",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "raw": "the",
+          "start": 3.81,
+          "end": 3.91
+        },
+        {
+          "raw": "best",
+          "start": 3.91,
+          "end": 4.15
+        },
+        {
+          "raw": "-ordered",
+          "start": 4.15,
+          "end": 4.41
+        },
+        {
+          "raw": "state",
+          "start": 4.41,
+          "end": 4.89
+        },
+        {
+          "raw": "there",
+          "start": 4.89,
+          "end": 5.37
+        },
+        {
+          "raw": "is",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "raw": "the",
+          "start": 5.51,
+          "end": 5.69
+        },
+        {
+          "raw": "nearest",
+          "start": 5.69,
+          "end": 5.97
+        },
+        {
+          "raw": "approach",
+          "start": 5.97,
+          "end": 6.39
+        },
+        {
+          "raw": "to",
+          "start": 6.39,
+          "end": 6.69
+        },
+        {
+          "raw": "this",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "raw": "common",
+          "start": 6.83,
+          "end": 7.19
+        },
+        {
+          "raw": "feeling",
+          "start": 7.19,
+          "end": 7.55
+        },
+        {
+          "raw": "which",
+          "start": 7.55,
+          "end": 7.83
+        },
+        {
+          "raw": "you",
+          "start": 7.83,
+          "end": 8.01
+        },
+        {
+          "raw": "describe.",
+          "start": 8.01,
+          "end": 8.45
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "true,",
+        "he",
+        "replied;",
+        "and",
+        "I",
+        "agree",
+        "with",
+        "you",
+        "that",
+        "in",
+        "the",
+        "best-ordered",
+        "State",
+        "there",
+        "is",
+        "the",
+        "nearest",
+        "approach",
+        "to",
+        "this",
+        "common",
+        "feeling",
+        "which",
+        "you",
+        "describe."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          26,
+          14,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "true,",
+          "start": 0.71,
+          "end": 1.11
+        },
+        {
+          "text": "he",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "replied;",
+          "start": 1.51,
+          "end": 1.95
+        },
+        {
+          "text": "and",
+          "start": 2.63,
+          "end": 2.73
+        },
+        {
+          "text": "I",
+          "start": 2.73,
+          "end": 2.85
+        },
+        {
+          "text": "agree",
+          "start": 2.85,
+          "end": 3.11
+        },
+        {
+          "text": "with",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "you",
+          "start": 3.27,
+          "end": 3.47
+        },
+        {
+          "text": "that",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "in",
+          "start": 3.63,
+          "end": 3.81
+        },
+        {
+          "text": "the",
+          "start": 3.81,
+          "end": 3.91
+        },
+        {
+          "text": "best-ordered",
+          "start": 3.91,
+          "end": 4.16
+        },
+        {
+          "text": "State",
+          "start": 4.41,
+          "end": 4.89
+        },
+        {
+          "text": "there",
+          "start": 4.89,
+          "end": 5.37
+        },
+        {
+          "text": "is",
+          "start": 5.37,
+          "end": 5.51
+        },
+        {
+          "text": "the",
+          "start": 5.51,
+          "end": 5.69
+        },
+        {
+          "text": "nearest",
+          "start": 5.69,
+          "end": 5.97
+        },
+        {
+          "text": "approach",
+          "start": 5.97,
+          "end": 6.39
+        },
+        {
+          "text": "to",
+          "start": 6.39,
+          "end": 6.69
+        },
+        {
+          "text": "this",
+          "start": 6.69,
+          "end": 6.83
+        },
+        {
+          "text": "common",
+          "start": 6.83,
+          "end": 7.19
+        },
+        {
+          "text": "feeling",
+          "start": 7.19,
+          "end": 7.55
+        },
+        {
+          "text": "which",
+          "start": 7.55,
+          "end": 7.83
+        },
+        {
+          "text": "you",
+          "start": 7.83,
+          "end": 8.01
+        },
+        {
+          "text": "describe.",
+          "start": 8.01,
+          "end": 8.45
+        }
+      ],
+      "stats": {
+        "expected_words": 26,
+        "heard_words": 27,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9615384615384616,
+      "rejection_reasons": [],
+      "seconds": 0.2689012959599495
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a9e42c1098da2eab68dd0f191ff48de9843d075598535a9325446ac75998dbb6",
+  "selected_reasons": []
+}

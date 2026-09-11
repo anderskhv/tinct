@@ -1,0 +1,899 @@
+{
+  "complete": true,
+  "signature": "f4459198c344fd6a8229153c0d9a0dd4798fc1b10a5f4ee4337256760cb24bf4",
+  "attempts": [
+    {
+      "asr_seconds": 0.47613386809825897,
+      "alignment_seconds": 0.00023908168077468872,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Uriel, for thou of those seven Spirits that stand In sight of God's high throne, gloriously bright, The first art wont his great authentick will Interpreter through highest Heaven to bring, Where all his sons thy embassy attend;",
+        "hotwords": "Uriel, Spirits, In, God's, The, Interpreter, Heaven, Where"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Uriel, for thou of those seven Spirits that stand In sight of God's high throne, gloriously bright,",
+          "start": 0.02,
+          "end": 6.4,
+          "words": [
+            {
+              "text": " Uriel,",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.1793212890625
+            },
+            {
+              "text": " for",
+              "start": 1.04,
+              "end": 1.1,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " thou",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " of",
+              "start": 1.32,
+              "end": 1.48,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " those",
+              "start": 1.48,
+              "end": 1.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " seven",
+              "start": 1.68,
+              "end": 2.06,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " Spirits",
+              "start": 2.06,
+              "end": 2.42,
+              "probability": 0.1141357421875
+            },
+            {
+              "text": " that",
+              "start": 2.42,
+              "end": 2.76,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " stand",
+              "start": 2.76,
+              "end": 3.08,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " In",
+              "start": 3.08,
+              "end": 3.32,
+              "probability": 0.032318115234375
+            },
+            {
+              "text": " sight",
+              "start": 3.32,
+              "end": 3.54,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " of",
+              "start": 3.54,
+              "end": 3.72,
+              "probability": 0.998046875
+            },
+            {
+              "text": " God's",
+              "start": 3.72,
+              "end": 4.28,
+              "probability": 0.980224609375
+            },
+            {
+              "text": " high",
+              "start": 4.28,
+              "end": 4.48,
+              "probability": 0.68896484375
+            },
+            {
+              "text": " throne,",
+              "start": 4.48,
+              "end": 4.86,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " gloriously",
+              "start": 5.58,
+              "end": 6.02,
+              "probability": 0.943359375
+            },
+            {
+              "text": " bright,",
+              "start": 6.02,
+              "end": 6.4,
+              "probability": 0.9365234375
+            }
+          ]
+        },
+        {
+          "text": " The first art wont his great authentick will Interpreter through highest Heaven to bring, Where all his sons thy embassy attend.",
+          "start": 6.4,
+          "end": 14.02,
+          "words": [
+            {
+              "text": " The",
+              "start": 6.4,
+              "end": 7.08,
+              "probability": 0.55859375
+            },
+            {
+              "text": " first",
+              "start": 7.08,
+              "end": 7.36,
+              "probability": 0.837890625
+            },
+            {
+              "text": " art",
+              "start": 7.36,
+              "end": 7.66,
+              "probability": 0.884765625
+            },
+            {
+              "text": " wont",
+              "start": 7.66,
+              "end": 7.94,
+              "probability": 0.01541900634765625
+            },
+            {
+              "text": " his",
+              "start": 7.94,
+              "end": 8.12,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " great",
+              "start": 8.12,
+              "end": 8.42,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " authentick",
+              "start": 8.42,
+              "end": 9.14,
+              "probability": 0.017357587814331055
+            },
+            {
+              "text": " will",
+              "start": 9.14,
+              "end": 9.26,
+              "probability": 0.49560546875
+            },
+            {
+              "text": " Interpreter",
+              "start": 9.26,
+              "end": 9.94,
+              "probability": 0.6556688944498698
+            },
+            {
+              "text": " through",
+              "start": 9.94,
+              "end": 10.2,
+              "probability": 0.8359375
+            },
+            {
+              "text": " highest",
+              "start": 10.2,
+              "end": 10.58,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " Heaven",
+              "start": 10.58,
+              "end": 10.92,
+              "probability": 0.1470947265625
+            },
+            {
+              "text": " to",
+              "start": 10.92,
+              "end": 11.18,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " bring,",
+              "start": 11.18,
+              "end": 11.42,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " Where",
+              "start": 12.1,
+              "end": 12.14,
+              "probability": 0.6865234375
+            },
+            {
+              "text": " all",
+              "start": 12.14,
+              "end": 12.38,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " his",
+              "start": 12.38,
+              "end": 12.6,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " sons",
+              "start": 12.6,
+              "end": 12.88,
+              "probability": 0.71728515625
+            },
+            {
+              "text": " thy",
+              "start": 12.88,
+              "end": 13.18,
+              "probability": 0.88916015625
+            },
+            {
+              "text": " embassy",
+              "start": 13.18,
+              "end": 13.56,
+              "probability": 0.486572265625
+            },
+            {
+              "text": " attend.",
+              "start": 13.56,
+              "end": 14.02,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Uriel,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "raw": "for",
+          "start": 1.04,
+          "end": 1.1
+        },
+        {
+          "raw": "thou",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "of",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "raw": "those",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "raw": "seven",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "raw": "Spirits",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "raw": "that",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "raw": "stand",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "raw": "In",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "raw": "sight",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "raw": "God's",
+          "start": 3.72,
+          "end": 4.28
+        },
+        {
+          "raw": "high",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "raw": "throne,",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "raw": "gloriously",
+          "start": 5.58,
+          "end": 6.02
+        },
+        {
+          "raw": "bright,",
+          "start": 6.02,
+          "end": 6.4
+        },
+        {
+          "raw": "The",
+          "start": 6.4,
+          "end": 7.08
+        },
+        {
+          "raw": "first",
+          "start": 7.08,
+          "end": 7.36
+        },
+        {
+          "raw": "art",
+          "start": 7.36,
+          "end": 7.66
+        },
+        {
+          "raw": "wont",
+          "start": 7.66,
+          "end": 7.94
+        },
+        {
+          "raw": "his",
+          "start": 7.94,
+          "end": 8.12
+        },
+        {
+          "raw": "great",
+          "start": 8.12,
+          "end": 8.42
+        },
+        {
+          "raw": "authentick",
+          "start": 8.42,
+          "end": 9.14
+        },
+        {
+          "raw": "will",
+          "start": 9.14,
+          "end": 9.26
+        },
+        {
+          "raw": "Interpreter",
+          "start": 9.26,
+          "end": 9.94
+        },
+        {
+          "raw": "through",
+          "start": 9.94,
+          "end": 10.2
+        },
+        {
+          "raw": "highest",
+          "start": 10.2,
+          "end": 10.58
+        },
+        {
+          "raw": "Heaven",
+          "start": 10.58,
+          "end": 10.92
+        },
+        {
+          "raw": "to",
+          "start": 10.92,
+          "end": 11.18
+        },
+        {
+          "raw": "bring,",
+          "start": 11.18,
+          "end": 11.42
+        },
+        {
+          "raw": "Where",
+          "start": 12.1,
+          "end": 12.14
+        },
+        {
+          "raw": "all",
+          "start": 12.14,
+          "end": 12.38
+        },
+        {
+          "raw": "his",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "raw": "sons",
+          "start": 12.6,
+          "end": 12.88
+        },
+        {
+          "raw": "thy",
+          "start": 12.88,
+          "end": 13.18
+        },
+        {
+          "raw": "embassy",
+          "start": 13.18,
+          "end": 13.56
+        },
+        {
+          "raw": "attend.",
+          "start": 13.56,
+          "end": 14.02
+        }
+      ],
+      "expected_tokens": [
+        "Uriel,",
+        "for",
+        "thou",
+        "of",
+        "those",
+        "seven",
+        "Spirits",
+        "that",
+        "stand",
+        "In",
+        "sight",
+        "of",
+        "God's",
+        "high",
+        "throne,",
+        "gloriously",
+        "bright,",
+        "The",
+        "first",
+        "art",
+        "wont",
+        "his",
+        "great",
+        "authentick",
+        "will",
+        "Interpreter",
+        "through",
+        "highest",
+        "Heaven",
+        "to",
+        "bring,",
+        "Where",
+        "all",
+        "his",
+        "sons",
+        "thy",
+        "embassy",
+        "attend;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Uriel,",
+          "start": 0.02,
+          "end": 0.8
+        },
+        {
+          "text": "for",
+          "start": 1.04,
+          "end": 1.1
+        },
+        {
+          "text": "thou",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "of",
+          "start": 1.32,
+          "end": 1.48
+        },
+        {
+          "text": "those",
+          "start": 1.48,
+          "end": 1.68
+        },
+        {
+          "text": "seven",
+          "start": 1.68,
+          "end": 2.06
+        },
+        {
+          "text": "Spirits",
+          "start": 2.06,
+          "end": 2.42
+        },
+        {
+          "text": "that",
+          "start": 2.42,
+          "end": 2.76
+        },
+        {
+          "text": "stand",
+          "start": 2.76,
+          "end": 3.08
+        },
+        {
+          "text": "In",
+          "start": 3.08,
+          "end": 3.32
+        },
+        {
+          "text": "sight",
+          "start": 3.32,
+          "end": 3.54
+        },
+        {
+          "text": "of",
+          "start": 3.54,
+          "end": 3.72
+        },
+        {
+          "text": "God's",
+          "start": 3.72,
+          "end": 4.28
+        },
+        {
+          "text": "high",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "text": "throne,",
+          "start": 4.48,
+          "end": 4.86
+        },
+        {
+          "text": "gloriously",
+          "start": 5.58,
+          "end": 6.02
+        },
+        {
+          "text": "bright,",
+          "start": 6.02,
+          "end": 6.4
+        },
+        {
+          "text": "The",
+          "start": 6.4,
+          "end": 7.08
+        },
+        {
+          "text": "first",
+          "start": 7.08,
+          "end": 7.36
+        },
+        {
+          "text": "art",
+          "start": 7.36,
+          "end": 7.66
+        },
+        {
+          "text": "wont",
+          "start": 7.66,
+          "end": 7.94
+        },
+        {
+          "text": "his",
+          "start": 7.94,
+          "end": 8.12
+        },
+        {
+          "text": "great",
+          "start": 8.12,
+          "end": 8.42
+        },
+        {
+          "text": "authentick",
+          "start": 8.42,
+          "end": 9.14
+        },
+        {
+          "text": "will",
+          "start": 9.14,
+          "end": 9.26
+        },
+        {
+          "text": "Interpreter",
+          "start": 9.26,
+          "end": 9.94
+        },
+        {
+          "text": "through",
+          "start": 9.94,
+          "end": 10.2
+        },
+        {
+          "text": "highest",
+          "start": 10.2,
+          "end": 10.58
+        },
+        {
+          "text": "Heaven",
+          "start": 10.58,
+          "end": 10.92
+        },
+        {
+          "text": "to",
+          "start": 10.92,
+          "end": 11.18
+        },
+        {
+          "text": "bring,",
+          "start": 11.18,
+          "end": 11.42
+        },
+        {
+          "text": "Where",
+          "start": 12.1,
+          "end": 12.14
+        },
+        {
+          "text": "all",
+          "start": 12.14,
+          "end": 12.38
+        },
+        {
+          "text": "his",
+          "start": 12.38,
+          "end": 12.6
+        },
+        {
+          "text": "sons",
+          "start": 12.6,
+          "end": 12.88
+        },
+        {
+          "text": "thy",
+          "start": 12.88,
+          "end": 13.18
+        },
+        {
+          "text": "embassy",
+          "start": 13.18,
+          "end": 13.56
+        },
+        {
+          "text": "attend;",
+          "start": 13.56,
+          "end": 14.02
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 38,
+        "matched_words": 38
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.47651640325784683
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a8feb7ee25c03a1b294c6996d8740702ea15712bc04f1244acda45e7d7d341db",
+  "selected_reasons": []
+}

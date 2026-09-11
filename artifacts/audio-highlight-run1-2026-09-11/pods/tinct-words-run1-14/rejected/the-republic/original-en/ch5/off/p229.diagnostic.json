@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "505e09635b927a27ca582baffc1fb52cc0167883b898653de7f41df8e20dd2d3",
+  "attempts": [
+    {
+      "asr_seconds": 0.12614812701940536,
+      "alignment_seconds": 7.867813110351562e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " all of whom will call one another citizens.",
+          "start": 0.05,
+          "end": 2.43,
+          "words": [
+            {
+              "text": " all",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.6171875
+            },
+            {
+              "text": " of",
+              "start": 0.59,
+              "end": 0.69,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " whom",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " will",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " call",
+              "start": 1.17,
+              "end": 1.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " one",
+              "start": 1.41,
+              "end": 1.71,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " another",
+              "start": 1.71,
+              "end": 2.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " citizens.",
+              "start": 2.01,
+              "end": 2.43,
+              "probability": 0.7392578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "all",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "of",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "raw": "whom",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "will",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "raw": "call",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "raw": "one",
+          "start": 1.41,
+          "end": 1.71
+        },
+        {
+          "raw": "another",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "raw": "citizens.",
+          "start": 2.01,
+          "end": 2.43
+        }
+      ],
+      "expected_tokens": [
+        "All",
+        "of",
+        "whom",
+        "will",
+        "call",
+        "one",
+        "another",
+        "citizens?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "All",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "of",
+          "start": 0.59,
+          "end": 0.69
+        },
+        {
+          "text": "whom",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "text": "will",
+          "start": 0.87,
+          "end": 1.17
+        },
+        {
+          "text": "call",
+          "start": 1.17,
+          "end": 1.41
+        },
+        {
+          "text": "one",
+          "start": 1.41,
+          "end": 1.71
+        },
+        {
+          "text": "another",
+          "start": 1.71,
+          "end": 2.01
+        },
+        {
+          "text": "citizens?",
+          "start": 2.01,
+          "end": 2.43
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1262626200914383
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ec61b8ab3c2cf2e2528a01f3a26c349d2d2559e5e61714be6662d040d56464f2",
+  "selected_reasons": []
+}

@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "56c69ec6c4deaace4920b0551f260afa99ae2c2f74edf89e14f60cc1e2fad5cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.09528155624866486,
+      "alignment_seconds": 0.00010757148265838623,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very good. I replied",
+          "start": 0.08,
+          "end": 1.4,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.280517578125
+            },
+            {
+              "text": " good.",
+              "start": 0.66,
+              "end": 0.86,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " I",
+              "start": 0.86,
+              "end": 1.02,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " replied",
+              "start": 1.02,
+              "end": 1.4,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "good.",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "raw": "I",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "raw": "replied",
+          "start": 1.02,
+          "end": 1.4
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "good,",
+        "I",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "good,",
+          "start": 0.66,
+          "end": 0.86
+        },
+        {
+          "text": "I",
+          "start": 0.86,
+          "end": 1.02
+        },
+        {
+          "text": "replied.",
+          "start": 1.02,
+          "end": 1.4
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09543371200561523
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "293bcfe7164032b0aa857ace923469efeb0a6aef53527304a90a748218e1b58f",
+  "selected_reasons": []
+}

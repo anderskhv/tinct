@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "a58f42bf69d1130d8a4e2063216b45cc57ce688c5db71a36bf39bc457f878127",
+  "attempts": [
+    {
+      "asr_seconds": 0.0749889612197876,
+      "alignment_seconds": 4.0024518966674805e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Doubtless.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Doubtless.",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Doubtless.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "Doubtless."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Doubtless.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07504459470510483
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "88c89a9a52ec4d1c607a7681b515f3d10f51e756abbba4b86be43a61cf1476a4",
+  "selected_reasons": []
+}

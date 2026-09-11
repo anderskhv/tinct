@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "a2839db693e913d5a83b36505ee41433e4fa0bdd4a7e772efa103f56672a886a",
+  "attempts": [
+    {
+      "asr_seconds": 0.0956275686621666,
+      "alignment_seconds": 7.186084985733032e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, great care should be taken.",
+          "start": 0.05,
+          "end": 2.11,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " great",
+              "start": 1.09,
+              "end": 1.21,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " care",
+              "start": 1.21,
+              "end": 1.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " should",
+              "start": 1.43,
+              "end": 1.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 1.63,
+              "end": 1.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " taken.",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "great",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "raw": "care",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "raw": "should",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "raw": "be",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "raw": "taken.",
+          "start": 1.77,
+          "end": 2.11
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "great",
+        "care",
+        "should",
+        "be",
+        "taken."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "great",
+          "start": 1.09,
+          "end": 1.21
+        },
+        {
+          "text": "care",
+          "start": 1.21,
+          "end": 1.43
+        },
+        {
+          "text": "should",
+          "start": 1.43,
+          "end": 1.63
+        },
+        {
+          "text": "be",
+          "start": 1.63,
+          "end": 1.77
+        },
+        {
+          "text": "taken.",
+          "start": 1.77,
+          "end": 2.11
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09573126584291458
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7dfb07355c0b14f82ae03e447ecc40aa247042dddee9afff6c4446eb1ca469bd",
+  "selected_reasons": []
+}

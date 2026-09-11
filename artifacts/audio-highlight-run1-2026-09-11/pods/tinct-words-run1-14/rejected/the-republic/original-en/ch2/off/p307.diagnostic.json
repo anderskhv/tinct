@@ -1,0 +1,362 @@
+{
+  "complete": true,
+  "signature": "110ae7e03c1bc73c87a917a2e9a509d41e7f04aa0731959dd4cd025cdcf5017b",
+  "attempts": [
+    {
+      "asr_seconds": 0.12268417328596115,
+      "alignment_seconds": 0.00010475516319274902,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then I said my dear friend let none of the poets tell us that",
+          "start": 0.02,
+          "end": 4.06,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.67529296875
+            },
+            {
+              "text": " I",
+              "start": 0.62,
+              "end": 0.86,
+              "probability": 0.7255859375
+            },
+            {
+              "text": " said",
+              "start": 0.86,
+              "end": 1.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 1.18,
+              "end": 1.66,
+              "probability": 0.1661376953125
+            },
+            {
+              "text": " dear",
+              "start": 1.66,
+              "end": 1.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " friend",
+              "start": 1.86,
+              "end": 2.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " let",
+              "start": 2.3,
+              "end": 2.72,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " none",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 2.86,
+              "end": 2.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.06,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " poets",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " tell",
+              "start": 3.32,
+              "end": 3.62,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " us",
+              "start": 3.62,
+              "end": 3.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 3.82,
+              "end": 4.06,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "I",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "raw": "said",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "raw": "my",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "raw": "dear",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "raw": "friend",
+          "start": 1.86,
+          "end": 2.3
+        },
+        {
+          "raw": "let",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "raw": "none",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "of",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "raw": "poets",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "tell",
+          "start": 3.32,
+          "end": 3.62
+        },
+        {
+          "raw": "us",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "raw": "that",
+          "start": 3.82,
+          "end": 4.06
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "I",
+        "said,",
+        "my",
+        "dear",
+        "friend,",
+        "let",
+        "none",
+        "of",
+        "the",
+        "poets",
+        "tell",
+        "us",
+        "that"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "I",
+          "start": 0.62,
+          "end": 0.86
+        },
+        {
+          "text": "said,",
+          "start": 0.86,
+          "end": 1.18
+        },
+        {
+          "text": "my",
+          "start": 1.18,
+          "end": 1.66
+        },
+        {
+          "text": "dear",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "text": "friend,",
+          "start": 1.86,
+          "end": 2.3
+        },
+        {
+          "text": "let",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "text": "none",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "of",
+          "start": 2.86,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.06
+        },
+        {
+          "text": "poets",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "tell",
+          "start": 3.32,
+          "end": 3.62
+        },
+        {
+          "text": "us",
+          "start": 3.62,
+          "end": 3.82
+        },
+        {
+          "text": "that",
+          "start": 3.82,
+          "end": 4.06
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12284430861473083
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b197e17a141b8b726b2de0d925996ca38ca0d8e3b39d1a5c4ad71201076bc2f4",
+  "selected_reasons": []
+}

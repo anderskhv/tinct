@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "a0abaa4adda5d729565a5ffa21d6838420f09f45e46ba251674c951e90f222f9",
+  "attempts": [
+    {
+      "asr_seconds": 0.07644783705472946,
+      "alignment_seconds": 6.856024265289307e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "No doubt of it.",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No doubt of it.",
+          "start": 0.02,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " doubt",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " of",
+              "start": 0.8,
+              "end": 0.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " it.",
+              "start": 0.94,
+              "end": 1.08,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "doubt",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "raw": "of",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "raw": "it.",
+          "start": 0.94,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "No",
+        "doubt",
+        "of",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "doubt",
+          "start": 0.58,
+          "end": 0.8
+        },
+        {
+          "text": "of",
+          "start": 0.8,
+          "end": 0.94
+        },
+        {
+          "text": "it.",
+          "start": 0.94,
+          "end": 1.08
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07654176652431488
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "014f92bc14731a2e36012814cbf0ab89da33d2533845c68e3d55d291c5512c75",
+  "selected_reasons": []
+}

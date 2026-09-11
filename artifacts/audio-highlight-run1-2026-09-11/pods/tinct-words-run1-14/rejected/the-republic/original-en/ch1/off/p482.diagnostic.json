@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "74a33959ddefd5237fd3d3f61ee7fda14174404d0bd4078563467bd79ffe5e90",
+  "attempts": [
+    {
+      "asr_seconds": 0.08398507535457611,
+      "alignment_seconds": 7.083266973495483e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is what your argument proves.",
+          "start": 0.02,
+          "end": 1.84,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.919921875
+            },
+            {
+              "text": " is",
+              "start": 0.6,
+              "end": 0.76,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " what",
+              "start": 0.76,
+              "end": 0.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 0.88,
+              "end": 1.0,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " argument",
+              "start": 1.0,
+              "end": 1.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " proves.",
+              "start": 1.38,
+              "end": 1.84,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "is",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "raw": "what",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "raw": "your",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "raw": "argument",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "raw": "proves.",
+          "start": 1.38,
+          "end": 1.84
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "what",
+        "your",
+        "argument",
+        "proves."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "is",
+          "start": 0.6,
+          "end": 0.76
+        },
+        {
+          "text": "what",
+          "start": 0.76,
+          "end": 0.88
+        },
+        {
+          "text": "your",
+          "start": 0.88,
+          "end": 1.0
+        },
+        {
+          "text": "argument",
+          "start": 1.0,
+          "end": 1.38
+        },
+        {
+          "text": "proves.",
+          "start": 1.38,
+          "end": 1.84
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08408832550048828
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fce0f5b3669bb21a127dd7eb13eef54761e1da80ba52fc2b26dd5e90350f6398",
+  "selected_reasons": []
+}

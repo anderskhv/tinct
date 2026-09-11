@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "58abd658993bc1ecd4bb14d4d55533e3366822f9bcae3396cb0f3008e80a2ccb",
+  "attempts": [
+    {
+      "asr_seconds": 0.0856633335351944,
+      "alignment_seconds": 7.110089063644409e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And where do you find them?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And where do you find them?",
+          "start": 0.02,
+          "end": 1.34,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " where",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " do",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.78,
+              "end": 0.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " find",
+              "start": 0.86,
+              "end": 1.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them?",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "where",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "do",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "you",
+          "start": 0.78,
+          "end": 0.86
+        },
+        {
+          "raw": "find",
+          "start": 0.86,
+          "end": 1.12
+        },
+        {
+          "raw": "them?",
+          "start": 1.12,
+          "end": 1.34
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "where",
+        "do",
+        "you",
+        "find",
+        "them?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "where",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "do",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "you",
+          "start": 0.78,
+          "end": 0.86
+        },
+        {
+          "text": "find",
+          "start": 0.86,
+          "end": 1.12
+        },
+        {
+          "text": "them?",
+          "start": 1.12,
+          "end": 1.34
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08576542884111404
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d8b2f2fe5c8ae4fd2f753939dd38a54a99653bcddfc501d252e5e1ac07005185",
+  "selected_reasons": []
+}

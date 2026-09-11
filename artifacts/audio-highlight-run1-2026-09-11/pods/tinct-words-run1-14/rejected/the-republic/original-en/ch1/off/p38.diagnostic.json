@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "48eec9ed6093c0815e3dbe36407390de669f61f869a28be6dc3ead176f970e9e",
+  "attempts": [
+    {
+      "asr_seconds": 0.11741910129785538,
+      "alignment_seconds": 7.811933755874634e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To be sure, he answered and went away laughing to the sacrifices.",
+          "start": 0.02,
+          "end": 4.02,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.46,
+              "probability": 0.828125
+            },
+            {
+              "text": " be",
+              "start": 0.46,
+              "end": 0.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sure,",
+              "start": 0.58,
+              "end": 0.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 1.26,
+              "end": 1.42,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " answered",
+              "start": 1.42,
+              "end": 1.78,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 1.78,
+              "end": 2.38,
+              "probability": 0.57666015625
+            },
+            {
+              "text": " went",
+              "start": 2.38,
+              "end": 2.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " away",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " laughing",
+              "start": 2.74,
+              "end": 3.12,
+              "probability": 0.970703125
+            },
+            {
+              "text": " to",
+              "start": 3.12,
+              "end": 3.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 3.36,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sacrifices.",
+              "start": 3.46,
+              "end": 4.02,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "raw": "be",
+          "start": 0.46,
+          "end": 0.58
+        },
+        {
+          "raw": "sure,",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "raw": "he",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "raw": "answered",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "raw": "and",
+          "start": 1.78,
+          "end": 2.38
+        },
+        {
+          "raw": "went",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "raw": "away",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "laughing",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "raw": "to",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "raw": "the",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "raw": "sacrifices.",
+          "start": 3.46,
+          "end": 4.02
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "be",
+        "sure,",
+        "he",
+        "answered,",
+        "and",
+        "went",
+        "away",
+        "laughing",
+        "to",
+        "the",
+        "sacrifices."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.02,
+          "end": 0.46
+        },
+        {
+          "text": "be",
+          "start": 0.46,
+          "end": 0.58
+        },
+        {
+          "text": "sure,",
+          "start": 0.58,
+          "end": 0.9
+        },
+        {
+          "text": "he",
+          "start": 1.26,
+          "end": 1.42
+        },
+        {
+          "text": "answered,",
+          "start": 1.42,
+          "end": 1.78
+        },
+        {
+          "text": "and",
+          "start": 1.78,
+          "end": 2.38
+        },
+        {
+          "text": "went",
+          "start": 2.38,
+          "end": 2.5
+        },
+        {
+          "text": "away",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "laughing",
+          "start": 2.74,
+          "end": 3.12
+        },
+        {
+          "text": "to",
+          "start": 3.12,
+          "end": 3.36
+        },
+        {
+          "text": "the",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "text": "sacrifices.",
+          "start": 3.46,
+          "end": 4.02
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11753557622432709
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b5eb6ccc8e70a4ed9609aac9a4ba77db29881ef1db13b05b63a6cb1dd5ce6d28",
+  "selected_reasons": []
+}

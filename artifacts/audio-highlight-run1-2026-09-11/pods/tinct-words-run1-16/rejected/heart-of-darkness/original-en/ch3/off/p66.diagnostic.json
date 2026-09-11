@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "23c1b4dcaf36cfb4f92fc4440d5a90a1e781069ae1a8e3bd83e23c547b83300b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23043510699062608,
+      "alignment_seconds": 0.000272096018306911,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " We shall always remember him. I said hastily",
+          "start": 0.05,
+          "end": 2.75,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.5947265625
+            },
+            {
+              "text": " shall",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " always",
+              "start": 0.71,
+              "end": 1.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " remember",
+              "start": 1.07,
+              "end": 1.43,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 1.43,
+              "end": 1.79,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " I",
+              "start": 1.93,
+              "end": 2.21,
+              "probability": 0.9765625
+            },
+            {
+              "text": " said",
+              "start": 2.21,
+              "end": 2.41,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " hastily",
+              "start": 2.41,
+              "end": 2.75,
+              "probability": 0.990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "shall",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "always",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "raw": "remember",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "raw": "him.",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "raw": "I",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "raw": "said",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "raw": "hastily",
+          "start": 2.41,
+          "end": 2.75
+        }
+      ],
+      "expected_tokens": [
+        "\"'We",
+        "shall",
+        "always",
+        "remember",
+        "him,'",
+        "I",
+        "said",
+        "hastily."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"'We",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "shall",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "always",
+          "start": 0.71,
+          "end": 1.07
+        },
+        {
+          "text": "remember",
+          "start": 1.07,
+          "end": 1.43
+        },
+        {
+          "text": "him,'",
+          "start": 1.43,
+          "end": 1.79
+        },
+        {
+          "text": "I",
+          "start": 1.93,
+          "end": 2.21
+        },
+        {
+          "text": "said",
+          "start": 2.21,
+          "end": 2.41
+        },
+        {
+          "text": "hastily.",
+          "start": 2.41,
+          "end": 2.75
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23083764899638481
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cc430a8ad2951bdeed56a8ac04310ce856cb06557576176dfe6794ae19511f6d",
+  "selected_reasons": []
+}

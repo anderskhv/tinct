@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "ac1c7069d583b2ca4ed5a4941d364fd88cee259f443ca7b0e28d4ceea2e0a698",
+  "attempts": [
+    {
+      "asr_seconds": 0.08731811493635178,
+      "alignment_seconds": 5.891919136047363e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Go on, let me see.",
+          "start": 0.05,
+          "end": 1.51,
+          "words": [
+            {
+              "text": " Go",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.9033203125
+            },
+            {
+              "text": " on,",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " let",
+              "start": 0.95,
+              "end": 1.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " me",
+              "start": 1.13,
+              "end": 1.27,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " see.",
+              "start": 1.27,
+              "end": 1.51,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Go",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "on,",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "let",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "raw": "me",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "raw": "see.",
+          "start": 1.27,
+          "end": 1.51
+        }
+      ],
+      "expected_tokens": [
+        "Go",
+        "on;",
+        "let",
+        "me",
+        "see."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Go",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "on;",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "let",
+          "start": 0.95,
+          "end": 1.13
+        },
+        {
+          "text": "me",
+          "start": 1.13,
+          "end": 1.27
+        },
+        {
+          "text": "see.",
+          "start": 1.27,
+          "end": 1.51
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0874009057879448
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5b95b8e27649f2efa97ff77115eee297b383b638d4e82a784388211768ac6985",
+  "selected_reasons": []
+}

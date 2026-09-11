@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "ff35aea3ca0ea9e0f742abae16b6f3230cfa433bd68616404b68deda015cb628",
+  "attempts": [
+    {
+      "asr_seconds": 0.08388762921094894,
+      "alignment_seconds": 4.976242780685425e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, clearly.",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " clearly.",
+              "start": 0.8,
+              "end": 0.94,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "clearly.",
+          "start": 0.8,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "clearly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "clearly.",
+          "start": 0.8,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08395572006702423
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8f8be949b11c34e8f945e53017451dea899b2f3604d234f2273647d3b9884849",
+  "selected_reasons": []
+}

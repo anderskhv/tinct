@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "eed6e9c81537eb925694d2b7a5614d22b83967c46220a202776d985ae92c5796",
+  "attempts": [
+    {
+      "asr_seconds": 0.0782076045870781,
+      "alignment_seconds": 5.788356065750122e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I grant that.",
+          "start": 0.05,
+          "end": 1.09,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.90869140625
+            },
+            {
+              "text": " grant",
+              "start": 0.51,
+              "end": 0.79,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " that.",
+              "start": 0.79,
+              "end": 1.09,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "grant",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "raw": "that.",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "grant",
+        "that."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "grant",
+          "start": 0.51,
+          "end": 0.79
+        },
+        {
+          "text": "that.",
+          "start": 0.79,
+          "end": 1.09
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0782889798283577
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "710904e3acc7387e9537575b82f5cece81b9ac65d50364a38fa69468e288685a",
+  "selected_reasons": []
+}

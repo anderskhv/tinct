@@ -1,0 +1,275 @@
+{
+  "complete": true,
+  "signature": "230a719ae80744d45c7c7daddbfe7003bf065da48e0784d852ea196cf8372592",
+  "attempts": [
+    {
+      "asr_seconds": 0.16524440795183182,
+      "alignment_seconds": 9.794533252716064e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We certainly will, he said, if we have the power."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We certainly will, he said, if we have the power.",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.160400390625
+            },
+            {
+              "text": " certainly",
+              "start": 0.53,
+              "end": 0.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " will,",
+              "start": 0.79,
+              "end": 1.23,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " he",
+              "start": 1.35,
+              "end": 1.55,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " said,",
+              "start": 1.55,
+              "end": 1.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " we",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 2.35,
+              "end": 2.51,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.51,
+              "end": 2.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " power.",
+              "start": 2.67,
+              "end": 2.93,
+              "probability": 0.98388671875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "certainly",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "raw": "will,",
+          "start": 0.79,
+          "end": 1.23
+        },
+        {
+          "raw": "he",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "raw": "said,",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "raw": "if",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "we",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "have",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "raw": "the",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "raw": "power.",
+          "start": 2.67,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "certainly",
+        "will,",
+        "he",
+        "said,",
+        "if",
+        "we",
+        "have",
+        "the",
+        "power."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "certainly",
+          "start": 0.53,
+          "end": 0.79
+        },
+        {
+          "text": "will,",
+          "start": 0.79,
+          "end": 1.23
+        },
+        {
+          "text": "he",
+          "start": 1.35,
+          "end": 1.55
+        },
+        {
+          "text": "said,",
+          "start": 1.55,
+          "end": 1.83
+        },
+        {
+          "text": "if",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "we",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "have",
+          "start": 2.35,
+          "end": 2.51
+        },
+        {
+          "text": "the",
+          "start": 2.51,
+          "end": 2.67
+        },
+        {
+          "text": "power.",
+          "start": 2.67,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16538602113723755
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "29c974cc831b1132395e9a779e8359d6f6c6f95d74ccffa2c5c673b62b466ed8",
+  "selected_reasons": []
+}

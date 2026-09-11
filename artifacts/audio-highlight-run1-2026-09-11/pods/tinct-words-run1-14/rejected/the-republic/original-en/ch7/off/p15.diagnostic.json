@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "8f3de91ed976541a6effb01dfe107ff55530402fa43b1fb1f14af2f7c933add8",
+  "attempts": [
+    {
+      "asr_seconds": 0.08256342262029648,
+      "alignment_seconds": 5.368143320083618e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " far truer",
+          "start": 0.08,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " far",
+              "start": 0.08,
+              "end": 0.6,
+              "probability": 0.375732421875
+            },
+            {
+              "text": " truer",
+              "start": 0.6,
+              "end": 1.0,
+              "probability": 0.978759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "far",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "raw": "truer",
+          "start": 0.6,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "Far",
+        "truer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Far",
+          "start": 0.08,
+          "end": 0.6
+        },
+        {
+          "text": "truer.",
+          "start": 0.6,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08263742923736572
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ce6840d133f99cd61105c13a4e032851a6eb1fd234d1b0c31b8a1fce1a713945",
+  "selected_reasons": []
+}

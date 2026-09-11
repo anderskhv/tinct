@@ -1,0 +1,384 @@
+{
+  "complete": true,
+  "signature": "ac75e86d3002bb85ae27490e8fed71a2908aad61fc09226a413fd5843de33291",
+  "attempts": [
+    {
+      "asr_seconds": 0.21194668859243393,
+      "alignment_seconds": 9.826570749282837e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You are a sculptor, Socrates, and have made statues of our governor's faultless in beauty.",
+          "start": 0.02,
+          "end": 5.48,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " are",
+              "start": 0.56,
+              "end": 0.74,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " a",
+              "start": 0.74,
+              "end": 0.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " sculptor,",
+              "start": 0.88,
+              "end": 1.48,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " Socrates,",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " and",
+              "start": 2.92,
+              "end": 2.98,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " have",
+              "start": 2.98,
+              "end": 3.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " made",
+              "start": 3.1,
+              "end": 3.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " statues",
+              "start": 3.28,
+              "end": 3.78,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.78,
+              "end": 4.0,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " our",
+              "start": 4.0,
+              "end": 4.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " governor's",
+              "start": 4.14,
+              "end": 4.6,
+              "probability": 0.6737060546875
+            },
+            {
+              "text": " faultless",
+              "start": 4.6,
+              "end": 5.04,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " in",
+              "start": 5.04,
+              "end": 5.2,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " beauty.",
+              "start": 5.2,
+              "end": 5.48,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "are",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "raw": "a",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "raw": "sculptor,",
+          "start": 0.88,
+          "end": 1.48
+        },
+        {
+          "raw": "Socrates,",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "raw": "and",
+          "start": 2.92,
+          "end": 2.98
+        },
+        {
+          "raw": "have",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "raw": "made",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "raw": "statues",
+          "start": 3.28,
+          "end": 3.78
+        },
+        {
+          "raw": "of",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "raw": "our",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "raw": "governor's",
+          "start": 4.14,
+          "end": 4.6
+        },
+        {
+          "raw": "faultless",
+          "start": 4.6,
+          "end": 5.04
+        },
+        {
+          "raw": "in",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "raw": "beauty.",
+          "start": 5.2,
+          "end": 5.48
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "a",
+        "sculptor,",
+        "Socrates,",
+        "and",
+        "have",
+        "made",
+        "statues",
+        "of",
+        "our",
+        "governors",
+        "faultless",
+        "in",
+        "beauty."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "are",
+          "start": 0.56,
+          "end": 0.74
+        },
+        {
+          "text": "a",
+          "start": 0.74,
+          "end": 0.88
+        },
+        {
+          "text": "sculptor,",
+          "start": 0.88,
+          "end": 1.48
+        },
+        {
+          "text": "Socrates,",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "text": "and",
+          "start": 2.92,
+          "end": 2.98
+        },
+        {
+          "text": "have",
+          "start": 2.98,
+          "end": 3.1
+        },
+        {
+          "text": "made",
+          "start": 3.1,
+          "end": 3.28
+        },
+        {
+          "text": "statues",
+          "start": 3.28,
+          "end": 3.78
+        },
+        {
+          "text": "of",
+          "start": 3.78,
+          "end": 4.0
+        },
+        {
+          "text": "our",
+          "start": 4.0,
+          "end": 4.14
+        },
+        {
+          "text": "governors",
+          "start": 4.14,
+          "end": 4.6
+        },
+        {
+          "text": "faultless",
+          "start": 4.6,
+          "end": 5.04
+        },
+        {
+          "text": "in",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "text": "beauty.",
+          "start": 5.2,
+          "end": 5.48
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2120932936668396
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "da994559ad6aef8246ca9fa7a86a0cd4df6f0b9ec856745e069407bc51412473",
+  "selected_reasons": []
+}

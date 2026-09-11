@@ -1,0 +1,104 @@
+{
+  "complete": true,
+  "signature": "072caa848c4295d215642e9b09ebf997b4a9f90fbb975c802976771c49ff760f",
+  "attempts": [
+    {
+      "asr_seconds": 0.08357439190149307,
+      "alignment_seconds": 4.600733518600464e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "True.",
+        "hotwords": "True"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " True True.",
+          "start": 0.08,
+          "end": 0.66,
+          "words": [
+            {
+              "text": " True",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.79296875
+            },
+            {
+              "text": " True.",
+              "start": 0.62,
+              "end": 0.66,
+              "probability": 0.0009937286376953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "True.",
+          "start": 0.62,
+          "end": 0.66
+        }
+      ],
+      "expected_tokens": [
+        "True."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          1,
+          1,
+          1,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "True.",
+          "start": 0.08,
+          "end": 0.62
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0836390033364296
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5cd7a4582454f328df274a238ba58edc85012e80cc0b090951ee9fd0f663c1fd",
+  "selected_reasons": []
+}

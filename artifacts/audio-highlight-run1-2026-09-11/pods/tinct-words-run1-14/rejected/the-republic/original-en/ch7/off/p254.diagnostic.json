@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "cfa844c139aeb23570ca9bcc392558b85b53aecc160e8761f8ae89526e6643cb",
+  "attempts": [
+    {
+      "asr_seconds": 0.1471623256802559,
+      "alignment_seconds": 8.825212717056274e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then this is the progress which you call dialectic",
+          "start": 0.05,
+          "end": 3.15,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " this",
+              "start": 0.61,
+              "end": 0.85,
+              "probability": 0.904296875
+            },
+            {
+              "text": " is",
+              "start": 0.85,
+              "end": 1.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.03,
+              "end": 1.17,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " progress",
+              "start": 1.17,
+              "end": 1.57,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " which",
+              "start": 1.57,
+              "end": 1.93,
+              "probability": 0.55419921875
+            },
+            {
+              "text": " you",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " call",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " dialectic",
+              "start": 2.33,
+              "end": 3.15,
+              "probability": 0.915771484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "this",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "raw": "is",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "raw": "the",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "raw": "progress",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "raw": "which",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "raw": "you",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "call",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "raw": "dialectic",
+          "start": 2.33,
+          "end": 3.15
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "this",
+        "is",
+        "the",
+        "progress",
+        "which",
+        "you",
+        "call",
+        "dialectic?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "this",
+          "start": 0.61,
+          "end": 0.85
+        },
+        {
+          "text": "is",
+          "start": 0.85,
+          "end": 1.03
+        },
+        {
+          "text": "the",
+          "start": 1.03,
+          "end": 1.17
+        },
+        {
+          "text": "progress",
+          "start": 1.17,
+          "end": 1.57
+        },
+        {
+          "text": "which",
+          "start": 1.57,
+          "end": 1.93
+        },
+        {
+          "text": "you",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "call",
+          "start": 2.09,
+          "end": 2.33
+        },
+        {
+          "text": "dialectic?",
+          "start": 2.33,
+          "end": 3.15
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14729970693588257
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "93cd23bc36b9db2e41a2531966ff78b0c44a2513cabb3faaca1a56692e96d9d0",
+  "selected_reasons": []
+}

@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "ce806c7bc883e6ba86efa9cabd296f6b0707d00156249e70f471a452cd0353b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.08341782540082932,
+      "alignment_seconds": 5.4970383644104004e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is inconceivable.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is inconceivable.",
+          "start": 0.18,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.18,
+              "end": 0.58,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " is",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " inconceivable.",
+              "start": 0.72,
+              "end": 1.42,
+              "probability": 0.994384765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "raw": "is",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "inconceivable.",
+          "start": 0.72,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "inconceivable."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.18,
+          "end": 0.58
+        },
+        {
+          "text": "is",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "inconceivable.",
+          "start": 0.72,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08349475264549255
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0839eb7d76e78e2b16a84fbf8b3ae47264b79033e5e1e0b5bb850a052b1ea143",
+  "selected_reasons": []
+}

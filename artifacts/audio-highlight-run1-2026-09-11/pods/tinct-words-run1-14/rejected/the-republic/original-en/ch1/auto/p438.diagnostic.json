@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "ca6d7f9220ed3f9265d524aff322ebabb174fa92c51be99ccc910daeb224acd4",
+  "attempts": [
+    {
+      "asr_seconds": 0.08841522783041,
+      "alignment_seconds": 7.180124521255493e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I do not understand, he said.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I do not understand, he said.",
+          "start": 0.05,
+          "end": 1.75,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.22021484375
+            },
+            {
+              "text": " do",
+              "start": 0.49,
+              "end": 0.57,
+              "probability": 0.970703125
+            },
+            {
+              "text": " not",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " understand,",
+              "start": 0.71,
+              "end": 1.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " he",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " said.",
+              "start": 1.49,
+              "end": 1.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "do",
+          "start": 0.49,
+          "end": 0.57
+        },
+        {
+          "raw": "not",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "understand,",
+          "start": 0.71,
+          "end": 1.19
+        },
+        {
+          "raw": "he",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "said.",
+          "start": 1.49,
+          "end": 1.75
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "do",
+        "not",
+        "understand,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "do",
+          "start": 0.49,
+          "end": 0.57
+        },
+        {
+          "text": "not",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "understand,",
+          "start": 0.71,
+          "end": 1.19
+        },
+        {
+          "text": "he",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "said.",
+          "start": 1.49,
+          "end": 1.75
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08851934224367142
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bf2d4b282d9ab3e4b9294d68efd94034e3614c155548bec45bcba9e28171d11a",
+  "selected_reasons": []
+}

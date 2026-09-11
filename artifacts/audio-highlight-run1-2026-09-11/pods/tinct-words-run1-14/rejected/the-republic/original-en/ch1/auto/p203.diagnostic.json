@@ -1,0 +1,591 @@
+{
+  "complete": true,
+  "signature": "73200b0908faeb54e85bf137103b74895b82ee427498f250e9b920b47585ea9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.22250410914421082,
+      "alignment_seconds": 0.00015798211097717285,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Not at all, my good sir, I said; I am trying to understand them; and I wish that you would be a little clearer.",
+        "hotwords": "Not, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not at all, my good sir, I said. I am trying to understand them, and I wish that you would",
+          "start": 0.02,
+          "end": 5.26,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.0153045654296875
+            },
+            {
+              "text": " at",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " all,",
+              "start": 0.7,
+              "end": 0.98,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.98828125
+            },
+            {
+              "text": " good",
+              "start": 1.2,
+              "end": 1.4,
+              "probability": 0.990234375
+            },
+            {
+              "text": " sir,",
+              "start": 1.4,
+              "end": 1.66,
+              "probability": 0.908203125
+            },
+            {
+              "text": " I",
+              "start": 1.72,
+              "end": 1.86,
+              "probability": 0.994140625
+            },
+            {
+              "text": " said.",
+              "start": 1.86,
+              "end": 2.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " I",
+              "start": 2.66,
+              "end": 2.78,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " am",
+              "start": 2.78,
+              "end": 2.86,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " trying",
+              "start": 2.86,
+              "end": 3.08,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 3.08,
+              "end": 3.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " understand",
+              "start": 3.22,
+              "end": 3.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " them,",
+              "start": 3.62,
+              "end": 3.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.26,
+              "end": 4.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " I",
+              "start": 4.4,
+              "end": 4.54,
+              "probability": 0.9921875
+            },
+            {
+              "text": " wish",
+              "start": 4.54,
+              "end": 4.72,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 4.72,
+              "end": 4.96,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " you",
+              "start": 4.96,
+              "end": 5.12,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 5.12,
+              "end": 5.26,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " be a little clearer.",
+          "start": 5.26,
+          "end": 6.02,
+          "words": [
+            {
+              "text": " be",
+              "start": 5.26,
+              "end": 5.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 5.4,
+              "end": 5.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " little",
+              "start": 5.5,
+              "end": 5.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " clearer.",
+              "start": 5.64,
+              "end": 6.02,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "at",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "all,",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "raw": "my",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "good",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "raw": "sir,",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "raw": "I",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "raw": "said.",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "raw": "I",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "raw": "am",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "raw": "trying",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "raw": "to",
+          "start": 3.08,
+          "end": 3.22
+        },
+        {
+          "raw": "understand",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "raw": "them,",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "raw": "and",
+          "start": 4.26,
+          "end": 4.4
+        },
+        {
+          "raw": "I",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "raw": "wish",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "raw": "that",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "raw": "you",
+          "start": 4.96,
+          "end": 5.12
+        },
+        {
+          "raw": "would",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "raw": "be",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "raw": "a",
+          "start": 5.4,
+          "end": 5.5
+        },
+        {
+          "raw": "little",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "raw": "clearer.",
+          "start": 5.64,
+          "end": 6.02
+        }
+      ],
+      "expected_tokens": [
+        "Not",
+        "at",
+        "all,",
+        "my",
+        "good",
+        "sir,",
+        "I",
+        "said;",
+        "I",
+        "am",
+        "trying",
+        "to",
+        "understand",
+        "them;",
+        "and",
+        "I",
+        "wish",
+        "that",
+        "you",
+        "would",
+        "be",
+        "a",
+        "little",
+        "clearer."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          24,
+          0,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Not",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "at",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "all,",
+          "start": 0.7,
+          "end": 0.98
+        },
+        {
+          "text": "my",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "good",
+          "start": 1.2,
+          "end": 1.4
+        },
+        {
+          "text": "sir,",
+          "start": 1.4,
+          "end": 1.66
+        },
+        {
+          "text": "I",
+          "start": 1.72,
+          "end": 1.86
+        },
+        {
+          "text": "said;",
+          "start": 1.86,
+          "end": 2.14
+        },
+        {
+          "text": "I",
+          "start": 2.66,
+          "end": 2.78
+        },
+        {
+          "text": "am",
+          "start": 2.78,
+          "end": 2.86
+        },
+        {
+          "text": "trying",
+          "start": 2.86,
+          "end": 3.08
+        },
+        {
+          "text": "to",
+          "start": 3.08,
+          "end": 3.22
+        },
+        {
+          "text": "understand",
+          "start": 3.22,
+          "end": 3.62
+        },
+        {
+          "text": "them;",
+          "start": 3.62,
+          "end": 3.92
+        },
+        {
+          "text": "and",
+          "start": 4.26,
+          "end": 4.4
+        },
+        {
+          "text": "I",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "text": "wish",
+          "start": 4.54,
+          "end": 4.72
+        },
+        {
+          "text": "that",
+          "start": 4.72,
+          "end": 4.96
+        },
+        {
+          "text": "you",
+          "start": 4.96,
+          "end": 5.12
+        },
+        {
+          "text": "would",
+          "start": 5.12,
+          "end": 5.26
+        },
+        {
+          "text": "be",
+          "start": 5.26,
+          "end": 5.4
+        },
+        {
+          "text": "a",
+          "start": 5.4,
+          "end": 5.5
+        },
+        {
+          "text": "little",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "text": "clearer.",
+          "start": 5.64,
+          "end": 6.02
+        }
+      ],
+      "stats": {
+        "expected_words": 24,
+        "heard_words": 24,
+        "matched_words": 24
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22274543344974518
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "3d2002f83f901ec84dc57cd691eface5a37ad242cb85c70f1d2c6244375b2886",
+  "selected_reasons": []
+}

@@ -1,0 +1,384 @@
+{
+  "complete": true,
+  "signature": "7ec509cad1c7d691e29d35fa92d5a9bd911ef2a57741e7b04d71a505e7e813ec",
+  "attempts": [
+    {
+      "asr_seconds": 0.20028607547283173,
+      "alignment_seconds": 9.282678365707397e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Inextinguishable laughter arose among the blessed gods when they saw Hephaestus bustling about the mansion.",
+          "start": 0.02,
+          "end": 6.28,
+          "words": [
+            {
+              "text": " Inextinguishable",
+              "start": 0.02,
+              "end": 1.1,
+              "probability": 0.70068359375
+            },
+            {
+              "text": " laughter",
+              "start": 1.1,
+              "end": 1.64,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " arose",
+              "start": 1.64,
+              "end": 2.12,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " among",
+              "start": 2.12,
+              "end": 2.44,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 2.44,
+              "end": 2.64,
+              "probability": 0.998046875
+            },
+            {
+              "text": " blessed",
+              "start": 2.64,
+              "end": 2.9,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " gods",
+              "start": 2.9,
+              "end": 3.38,
+              "probability": 0.958984375
+            },
+            {
+              "text": " when",
+              "start": 3.38,
+              "end": 4.02,
+              "probability": 0.7568359375
+            },
+            {
+              "text": " they",
+              "start": 4.02,
+              "end": 4.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " saw",
+              "start": 4.16,
+              "end": 4.4,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Hephaestus",
+              "start": 4.4,
+              "end": 5.14,
+              "probability": 0.9552001953125
+            },
+            {
+              "text": " bustling",
+              "start": 5.14,
+              "end": 5.56,
+              "probability": 0.966796875
+            },
+            {
+              "text": " about",
+              "start": 5.56,
+              "end": 5.84,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 5.84,
+              "end": 5.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " mansion.",
+              "start": 5.98,
+              "end": 6.28,
+              "probability": 0.96337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Inextinguishable",
+          "start": 0.02,
+          "end": 1.1
+        },
+        {
+          "raw": "laughter",
+          "start": 1.1,
+          "end": 1.64
+        },
+        {
+          "raw": "arose",
+          "start": 1.64,
+          "end": 2.12
+        },
+        {
+          "raw": "among",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "raw": "the",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "raw": "blessed",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "raw": "gods",
+          "start": 2.9,
+          "end": 3.38
+        },
+        {
+          "raw": "when",
+          "start": 3.38,
+          "end": 4.02
+        },
+        {
+          "raw": "they",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "raw": "saw",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "raw": "Hephaestus",
+          "start": 4.4,
+          "end": 5.14
+        },
+        {
+          "raw": "bustling",
+          "start": 5.14,
+          "end": 5.56
+        },
+        {
+          "raw": "about",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "raw": "the",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "raw": "mansion.",
+          "start": 5.98,
+          "end": 6.28
+        }
+      ],
+      "expected_tokens": [
+        "'Inextinguishable",
+        "laughter",
+        "arose",
+        "among",
+        "the",
+        "blessed",
+        "gods,",
+        "when",
+        "they",
+        "saw",
+        "Hephaestus",
+        "bustling",
+        "about",
+        "the",
+        "mansion.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'Inextinguishable",
+          "start": 0.02,
+          "end": 1.1
+        },
+        {
+          "text": "laughter",
+          "start": 1.1,
+          "end": 1.64
+        },
+        {
+          "text": "arose",
+          "start": 1.64,
+          "end": 2.12
+        },
+        {
+          "text": "among",
+          "start": 2.12,
+          "end": 2.44
+        },
+        {
+          "text": "the",
+          "start": 2.44,
+          "end": 2.64
+        },
+        {
+          "text": "blessed",
+          "start": 2.64,
+          "end": 2.9
+        },
+        {
+          "text": "gods,",
+          "start": 2.9,
+          "end": 3.38
+        },
+        {
+          "text": "when",
+          "start": 3.38,
+          "end": 4.02
+        },
+        {
+          "text": "they",
+          "start": 4.02,
+          "end": 4.16
+        },
+        {
+          "text": "saw",
+          "start": 4.16,
+          "end": 4.4
+        },
+        {
+          "text": "Hephaestus",
+          "start": 4.4,
+          "end": 5.14
+        },
+        {
+          "text": "bustling",
+          "start": 5.14,
+          "end": 5.56
+        },
+        {
+          "text": "about",
+          "start": 5.56,
+          "end": 5.84
+        },
+        {
+          "text": "the",
+          "start": 5.84,
+          "end": 5.98
+        },
+        {
+          "text": "mansion.'",
+          "start": 5.98,
+          "end": 6.28
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20042749494314194
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c52f55943e10a51c480450377a14bb9f5f91b67a524609940641727749042ecd",
+  "selected_reasons": []
+}

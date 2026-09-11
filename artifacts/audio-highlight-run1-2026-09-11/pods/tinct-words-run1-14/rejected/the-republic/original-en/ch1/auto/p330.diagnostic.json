@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "e4a4ee3045f6a3af819608d0a7e51d85ed1ec191083c7d2ca95ec56328776779",
+  "attempts": [
+    {
+      "asr_seconds": 0.09085017442703247,
+      "alignment_seconds": 6.32256269454956e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The opposite, he replied.",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The opposite, he replied.",
+          "start": 0.05,
+          "end": 1.49,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.73974609375
+            },
+            {
+              "text": " opposite,",
+              "start": 0.53,
+              "end": 0.87,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " he",
+              "start": 1.07,
+              "end": 1.15,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " replied.",
+              "start": 1.15,
+              "end": 1.49,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "opposite,",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "raw": "he",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "raw": "replied.",
+          "start": 1.15,
+          "end": 1.49
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "opposite,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "opposite,",
+          "start": 0.53,
+          "end": 0.87
+        },
+        {
+          "text": "he",
+          "start": 1.07,
+          "end": 1.15
+        },
+        {
+          "text": "replied.",
+          "start": 1.15,
+          "end": 1.49
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09093767404556274
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "769a9c17d6cf7c7e4ee64c605057e12dac61eaefb824682d779276054c6dea3e",
+  "selected_reasons": []
+}

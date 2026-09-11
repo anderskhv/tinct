@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "f64a36da7ebd87fd42b419ce6d57232e8235390b7f9a4c3e48a47ffe8d9ac97f",
+  "attempts": [
+    {
+      "asr_seconds": 0.19362889975309372,
+      "alignment_seconds": 0.00011002272367477417,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And do I differ from you, he said, as to the importance of the enquiry?",
+        "hotwords": "And, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And do I differ from you, he said, as to the importance of the enquiry?",
+          "start": 0.08,
+          "end": 4.54,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.14599609375
+            },
+            {
+              "text": " do",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " I",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.99609375
+            },
+            {
+              "text": " differ",
+              "start": 0.82,
+              "end": 1.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " from",
+              "start": 1.02,
+              "end": 1.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " you,",
+              "start": 1.28,
+              "end": 1.62,
+              "probability": 0.9921875
+            },
+            {
+              "text": " he",
+              "start": 1.74,
+              "end": 1.98,
+              "probability": 0.93359375
+            },
+            {
+              "text": " said,",
+              "start": 1.98,
+              "end": 2.28,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 2.7,
+              "end": 2.86,
+              "probability": 0.986328125
+            },
+            {
+              "text": " to",
+              "start": 2.86,
+              "end": 3.02,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.02,
+              "end": 3.14,
+              "probability": 0.998046875
+            },
+            {
+              "text": " importance",
+              "start": 3.14,
+              "end": 3.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 3.54,
+              "end": 3.8,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 3.8,
+              "end": 3.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " enquiry?",
+              "start": 3.92,
+              "end": 4.54,
+              "probability": 0.5063209533691406
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "do",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "differ",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "raw": "from",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "raw": "you,",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "raw": "he",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "raw": "said,",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "raw": "as",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "raw": "to",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "raw": "the",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "raw": "importance",
+          "start": 3.14,
+          "end": 3.54
+        },
+        {
+          "raw": "of",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "raw": "the",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "raw": "enquiry?",
+          "start": 3.92,
+          "end": 4.54
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "do",
+        "I",
+        "differ",
+        "from",
+        "you,",
+        "he",
+        "said,",
+        "as",
+        "to",
+        "the",
+        "importance",
+        "of",
+        "the",
+        "enquiry?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "do",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "differ",
+          "start": 0.82,
+          "end": 1.02
+        },
+        {
+          "text": "from",
+          "start": 1.02,
+          "end": 1.28
+        },
+        {
+          "text": "you,",
+          "start": 1.28,
+          "end": 1.62
+        },
+        {
+          "text": "he",
+          "start": 1.74,
+          "end": 1.98
+        },
+        {
+          "text": "said,",
+          "start": 1.98,
+          "end": 2.28
+        },
+        {
+          "text": "as",
+          "start": 2.7,
+          "end": 2.86
+        },
+        {
+          "text": "to",
+          "start": 2.86,
+          "end": 3.02
+        },
+        {
+          "text": "the",
+          "start": 3.02,
+          "end": 3.14
+        },
+        {
+          "text": "importance",
+          "start": 3.14,
+          "end": 3.54
+        },
+        {
+          "text": "of",
+          "start": 3.54,
+          "end": 3.8
+        },
+        {
+          "text": "the",
+          "start": 3.8,
+          "end": 3.92
+        },
+        {
+          "text": "enquiry?",
+          "start": 3.92,
+          "end": 4.54
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1937881037592888
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "19994da068960bf9f3d83aeeb7c56d8e875754793a3570d9bbf670633d437d8e",
+  "selected_reasons": []
+}

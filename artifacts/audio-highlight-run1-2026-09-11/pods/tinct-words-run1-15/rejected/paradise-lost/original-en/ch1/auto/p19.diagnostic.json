@@ -1,0 +1,3255 @@
+{
+  "complete": true,
+  "signature": "99854d52f41c9327610c7a17527f974be404aaa0872f6172c4f31b3e435e8e7d",
+  "attempts": [
+    {
+      "asr_seconds": 0.42336659133434296,
+      "alignment_seconds": 0.0003035888075828552,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Him, haply slumbering on the Norway foam, The pilot of some small night-foundered skiff, Deeming some island, oft, as seamen tell, With fixed anchor in his scaly rind, Moors by his side under the lee, while night Invests the sea, and wished morn delays.",
+        "hotwords": "Him, Norway, Deeming, With, Moors, Invests"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Him, haply slumbering on the Norway foam, The pilot of some small night-foundered skiff, Deeming some island, oft, as seamen tell, With fixed anchor in his scaly rind, Moors by his side under the lee, while night Invests the sea, and wished morn delays.",
+          "start": 0.08,
+          "end": 16.08,
+          "words": [
+            {
+              "text": " Him,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.69921875
+            },
+            {
+              "text": " haply",
+              "start": 0.92,
+              "end": 1.24,
+              "probability": 0.50506591796875
+            },
+            {
+              "text": " slumbering",
+              "start": 1.24,
+              "end": 1.88,
+              "probability": 0.9944661458333334
+            },
+            {
+              "text": " on",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Norway",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " foam,",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " The",
+              "start": 3.22,
+              "end": 3.34,
+              "probability": 0.050201416015625
+            },
+            {
+              "text": " pilot",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " of",
+              "start": 3.6,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " some",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " small",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " night",
+              "start": 4.34,
+              "end": 4.58,
+              "probability": 0.17529296875
+            },
+            {
+              "text": "-foundered",
+              "start": 4.58,
+              "end": 5.16,
+              "probability": 0.8453776041666666
+            },
+            {
+              "text": " skiff,",
+              "start": 5.16,
+              "end": 5.64,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " Deeming",
+              "start": 6.06,
+              "end": 6.22,
+              "probability": 0.826171875
+            },
+            {
+              "text": " some",
+              "start": 6.22,
+              "end": 6.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " island,",
+              "start": 6.48,
+              "end": 6.9,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " oft,",
+              "start": 7.24,
+              "end": 7.34,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " as",
+              "start": 7.86,
+              "end": 8.0,
+              "probability": 0.152099609375
+            },
+            {
+              "text": " seamen",
+              "start": 8.0,
+              "end": 8.42,
+              "probability": 0.91259765625
+            },
+            {
+              "text": " tell,",
+              "start": 8.42,
+              "end": 8.66,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " With",
+              "start": 9.06,
+              "end": 9.24,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " fixed",
+              "start": 9.24,
+              "end": 9.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " anchor",
+              "start": 9.58,
+              "end": 9.88,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 9.88,
+              "end": 10.08,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 10.08,
+              "end": 10.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " scaly",
+              "start": 10.22,
+              "end": 10.58,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " rind,",
+              "start": 10.58,
+              "end": 11.06,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " Moors",
+              "start": 11.54,
+              "end": 11.7,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " by",
+              "start": 11.7,
+              "end": 11.9,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " his",
+              "start": 11.9,
+              "end": 12.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " side",
+              "start": 12.1,
+              "end": 12.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " under",
+              "start": 12.38,
+              "end": 12.58,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " the",
+              "start": 12.58,
+              "end": 12.74,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " lee,",
+              "start": 12.74,
+              "end": 13.18,
+              "probability": 0.860107421875
+            },
+            {
+              "text": " while",
+              "start": 13.38,
+              "end": 13.56,
+              "probability": 0.01416015625
+            },
+            {
+              "text": " night",
+              "start": 13.56,
+              "end": 13.82,
+              "probability": 0.64892578125
+            },
+            {
+              "text": " Invests",
+              "start": 13.82,
+              "end": 14.3,
+              "probability": 0.529388427734375
+            },
+            {
+              "text": " the",
+              "start": 14.3,
+              "end": 14.54,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sea,",
+              "start": 14.54,
+              "end": 14.8,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 14.98,
+              "end": 15.06,
+              "probability": 0.9765625
+            },
+            {
+              "text": " wished",
+              "start": 15.06,
+              "end": 15.28,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " morn",
+              "start": 15.28,
+              "end": 15.68,
+              "probability": 0.794677734375
+            },
+            {
+              "text": " delays.",
+              "start": 15.68,
+              "end": 16.08,
+              "probability": 0.98583984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Him,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "haply",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "raw": "slumbering",
+          "start": 1.24,
+          "end": 1.88
+        },
+        {
+          "raw": "on",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "Norway",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "foam,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "The",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "raw": "pilot",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "raw": "some",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "small",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "night",
+          "start": 4.34,
+          "end": 4.58
+        },
+        {
+          "raw": "-foundered",
+          "start": 4.58,
+          "end": 5.16
+        },
+        {
+          "raw": "skiff,",
+          "start": 5.16,
+          "end": 5.64
+        },
+        {
+          "raw": "Deeming",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "raw": "some",
+          "start": 6.22,
+          "end": 6.48
+        },
+        {
+          "raw": "island,",
+          "start": 6.48,
+          "end": 6.9
+        },
+        {
+          "raw": "oft,",
+          "start": 7.24,
+          "end": 7.34
+        },
+        {
+          "raw": "as",
+          "start": 7.86,
+          "end": 8.0
+        },
+        {
+          "raw": "seamen",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "raw": "tell,",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "raw": "With",
+          "start": 9.06,
+          "end": 9.24
+        },
+        {
+          "raw": "fixed",
+          "start": 9.24,
+          "end": 9.58
+        },
+        {
+          "raw": "anchor",
+          "start": 9.58,
+          "end": 9.88
+        },
+        {
+          "raw": "in",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "raw": "his",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "raw": "scaly",
+          "start": 10.22,
+          "end": 10.58
+        },
+        {
+          "raw": "rind,",
+          "start": 10.58,
+          "end": 11.06
+        },
+        {
+          "raw": "Moors",
+          "start": 11.54,
+          "end": 11.7
+        },
+        {
+          "raw": "by",
+          "start": 11.7,
+          "end": 11.9
+        },
+        {
+          "raw": "his",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "raw": "side",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "raw": "under",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "raw": "the",
+          "start": 12.58,
+          "end": 12.74
+        },
+        {
+          "raw": "lee,",
+          "start": 12.74,
+          "end": 13.18
+        },
+        {
+          "raw": "while",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "raw": "night",
+          "start": 13.56,
+          "end": 13.82
+        },
+        {
+          "raw": "Invests",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "raw": "the",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "raw": "sea,",
+          "start": 14.54,
+          "end": 14.8
+        },
+        {
+          "raw": "and",
+          "start": 14.98,
+          "end": 15.06
+        },
+        {
+          "raw": "wished",
+          "start": 15.06,
+          "end": 15.28
+        },
+        {
+          "raw": "morn",
+          "start": 15.28,
+          "end": 15.68
+        },
+        {
+          "raw": "delays.",
+          "start": 15.68,
+          "end": 16.08
+        }
+      ],
+      "expected_tokens": [
+        "Him,",
+        "haply",
+        "slumbering",
+        "on",
+        "the",
+        "Norway",
+        "foam,",
+        "The",
+        "pilot",
+        "of",
+        "some",
+        "small",
+        "night-foundered",
+        "skiff,",
+        "Deeming",
+        "some",
+        "island,",
+        "oft,",
+        "as",
+        "seamen",
+        "tell,",
+        "With",
+        "fixed",
+        "anchor",
+        "in",
+        "his",
+        "scaly",
+        "rind,",
+        "Moors",
+        "by",
+        "his",
+        "side",
+        "under",
+        "the",
+        "lee,",
+        "while",
+        "night",
+        "Invests",
+        "the",
+        "sea,",
+        "and",
+        "wished",
+        "morn",
+        "delays."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          44,
+          14,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Him,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "haply",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "text": "slumbering",
+          "start": 1.24,
+          "end": 1.88
+        },
+        {
+          "text": "on",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "Norway",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "foam,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "The",
+          "start": 3.22,
+          "end": 3.34
+        },
+        {
+          "text": "pilot",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "of",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "text": "some",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "small",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "night-foundered",
+          "start": 4.34,
+          "end": 4.75
+        },
+        {
+          "text": "skiff,",
+          "start": 5.16,
+          "end": 5.64
+        },
+        {
+          "text": "Deeming",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "text": "some",
+          "start": 6.22,
+          "end": 6.48
+        },
+        {
+          "text": "island,",
+          "start": 6.48,
+          "end": 6.9
+        },
+        {
+          "text": "oft,",
+          "start": 7.24,
+          "end": 7.34
+        },
+        {
+          "text": "as",
+          "start": 7.86,
+          "end": 8.0
+        },
+        {
+          "text": "seamen",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "text": "tell,",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "text": "With",
+          "start": 9.06,
+          "end": 9.24
+        },
+        {
+          "text": "fixed",
+          "start": 9.24,
+          "end": 9.58
+        },
+        {
+          "text": "anchor",
+          "start": 9.58,
+          "end": 9.88
+        },
+        {
+          "text": "in",
+          "start": 9.88,
+          "end": 10.08
+        },
+        {
+          "text": "his",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "text": "scaly",
+          "start": 10.22,
+          "end": 10.58
+        },
+        {
+          "text": "rind,",
+          "start": 10.58,
+          "end": 11.06
+        },
+        {
+          "text": "Moors",
+          "start": 11.54,
+          "end": 11.7
+        },
+        {
+          "text": "by",
+          "start": 11.7,
+          "end": 11.9
+        },
+        {
+          "text": "his",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "text": "side",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "text": "under",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "text": "the",
+          "start": 12.58,
+          "end": 12.74
+        },
+        {
+          "text": "lee,",
+          "start": 12.74,
+          "end": 13.18
+        },
+        {
+          "text": "while",
+          "start": 13.38,
+          "end": 13.56
+        },
+        {
+          "text": "night",
+          "start": 13.56,
+          "end": 13.82
+        },
+        {
+          "text": "Invests",
+          "start": 13.82,
+          "end": 14.3
+        },
+        {
+          "text": "the",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "text": "sea,",
+          "start": 14.54,
+          "end": 14.8
+        },
+        {
+          "text": "and",
+          "start": 14.98,
+          "end": 15.06
+        },
+        {
+          "text": "wished",
+          "start": 15.06,
+          "end": 15.28
+        },
+        {
+          "text": "morn",
+          "start": 15.28,
+          "end": 15.68
+        },
+        {
+          "text": "delays.",
+          "start": 15.68,
+          "end": 16.08
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 45,
+        "matched_words": 43
+      },
+      "match_ratio": 0.9772727272727273,
+      "rejection_reasons": [],
+      "seconds": 0.4238409027457237
+    },
+    {
+      "asr_seconds": 0.48424702882766724,
+      "alignment_seconds": 0.00031847506761550903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Him, Norway, Deeming, With, Moors, Invests"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Him, happily slumbering on the Norway foam, The pilot of some small night-foundered skiff,",
+          "start": 0.08,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " Him,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.69921875
+            },
+            {
+              "text": " happily",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.982421875
+            },
+            {
+              "text": " slumbering",
+              "start": 1.2,
+              "end": 1.88,
+              "probability": 0.9959309895833334
+            },
+            {
+              "text": " on",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Norway",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " foam,",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " The",
+              "start": 3.26,
+              "end": 3.34,
+              "probability": 0.04730224609375
+            },
+            {
+              "text": " pilot",
+              "start": 3.34,
+              "end": 3.6,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " of",
+              "start": 3.6,
+              "end": 3.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " some",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.998046875
+            },
+            {
+              "text": " small",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " night",
+              "start": 4.34,
+              "end": 4.58,
+              "probability": 0.1827392578125
+            },
+            {
+              "text": "-foundered",
+              "start": 4.58,
+              "end": 5.16,
+              "probability": 0.84521484375
+            },
+            {
+              "text": " skiff,",
+              "start": 5.16,
+              "end": 5.64,
+              "probability": 0.977294921875
+            }
+          ]
+        },
+        {
+          "text": " Deeming some island oft, As seamen tell,",
+          "start": 6.06,
+          "end": 8.66,
+          "words": [
+            {
+              "text": " Deeming",
+              "start": 6.06,
+              "end": 6.22,
+              "probability": 0.801513671875
+            },
+            {
+              "text": " some",
+              "start": 6.22,
+              "end": 6.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " island",
+              "start": 6.48,
+              "end": 6.9,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " oft,",
+              "start": 6.9,
+              "end": 7.34,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " As",
+              "start": 7.86,
+              "end": 8.0,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " seamen",
+              "start": 8.0,
+              "end": 8.42,
+              "probability": 0.845947265625
+            },
+            {
+              "text": " tell,",
+              "start": 8.42,
+              "end": 8.66,
+              "probability": 0.9033203125
+            }
+          ]
+        },
+        {
+          "text": " With fixed anchor in his scaly rind, Moors by his side under the lee,",
+          "start": 9.04,
+          "end": 13.18,
+          "words": [
+            {
+              "text": " With",
+              "start": 9.04,
+              "end": 9.24,
+              "probability": 0.156982421875
+            },
+            {
+              "text": " fixed",
+              "start": 9.24,
+              "end": 9.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " anchor",
+              "start": 9.56,
+              "end": 9.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " in",
+              "start": 9.9,
+              "end": 10.08,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " his",
+              "start": 10.08,
+              "end": 10.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " scaly",
+              "start": 10.22,
+              "end": 10.58,
+              "probability": 0.969482421875
+            },
+            {
+              "text": " rind,",
+              "start": 10.58,
+              "end": 11.06,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " Moors",
+              "start": 11.54,
+              "end": 11.7,
+              "probability": 0.651123046875
+            },
+            {
+              "text": " by",
+              "start": 11.7,
+              "end": 11.9,
+              "probability": 0.986328125
+            },
+            {
+              "text": " his",
+              "start": 11.9,
+              "end": 12.1,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " side",
+              "start": 12.1,
+              "end": 12.38,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " under",
+              "start": 12.38,
+              "end": 12.58,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 12.58,
+              "end": 12.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " lee,",
+              "start": 12.74,
+              "end": 13.18,
+              "probability": 0.85595703125
+            }
+          ]
+        },
+        {
+          "text": " While night invests the sea and wished morn delays.",
+          "start": 13.4,
+          "end": 16.1,
+          "words": [
+            {
+              "text": " While",
+              "start": 13.4,
+              "end": 13.56,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " night",
+              "start": 13.56,
+              "end": 13.82,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " invests",
+              "start": 13.82,
+              "end": 14.26,
+              "probability": 0.9453125
+            },
+            {
+              "text": " the",
+              "start": 14.26,
+              "end": 14.52,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " sea",
+              "start": 14.52,
+              "end": 14.8,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 14.8,
+              "end": 15.04,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " wished",
+              "start": 15.04,
+              "end": 15.3,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " morn",
+              "start": 15.3,
+              "end": 15.68,
+              "probability": 0.7978515625
+            },
+            {
+              "text": " delays.",
+              "start": 15.68,
+              "end": 16.1,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Him,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "happily",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "slumbering",
+          "start": 1.2,
+          "end": 1.88
+        },
+        {
+          "raw": "on",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "Norway",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "foam,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "The",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "raw": "pilot",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "raw": "of",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "raw": "some",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "small",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "night",
+          "start": 4.34,
+          "end": 4.58
+        },
+        {
+          "raw": "-foundered",
+          "start": 4.58,
+          "end": 5.16
+        },
+        {
+          "raw": "skiff,",
+          "start": 5.16,
+          "end": 5.64
+        },
+        {
+          "raw": "Deeming",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "raw": "some",
+          "start": 6.22,
+          "end": 6.48
+        },
+        {
+          "raw": "island",
+          "start": 6.48,
+          "end": 6.9
+        },
+        {
+          "raw": "oft,",
+          "start": 6.9,
+          "end": 7.34
+        },
+        {
+          "raw": "As",
+          "start": 7.86,
+          "end": 8.0
+        },
+        {
+          "raw": "seamen",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "raw": "tell,",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "raw": "With",
+          "start": 9.04,
+          "end": 9.24
+        },
+        {
+          "raw": "fixed",
+          "start": 9.24,
+          "end": 9.56
+        },
+        {
+          "raw": "anchor",
+          "start": 9.56,
+          "end": 9.9
+        },
+        {
+          "raw": "in",
+          "start": 9.9,
+          "end": 10.08
+        },
+        {
+          "raw": "his",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "raw": "scaly",
+          "start": 10.22,
+          "end": 10.58
+        },
+        {
+          "raw": "rind,",
+          "start": 10.58,
+          "end": 11.06
+        },
+        {
+          "raw": "Moors",
+          "start": 11.54,
+          "end": 11.7
+        },
+        {
+          "raw": "by",
+          "start": 11.7,
+          "end": 11.9
+        },
+        {
+          "raw": "his",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "raw": "side",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "raw": "under",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "raw": "the",
+          "start": 12.58,
+          "end": 12.74
+        },
+        {
+          "raw": "lee,",
+          "start": 12.74,
+          "end": 13.18
+        },
+        {
+          "raw": "While",
+          "start": 13.4,
+          "end": 13.56
+        },
+        {
+          "raw": "night",
+          "start": 13.56,
+          "end": 13.82
+        },
+        {
+          "raw": "invests",
+          "start": 13.82,
+          "end": 14.26
+        },
+        {
+          "raw": "the",
+          "start": 14.26,
+          "end": 14.52
+        },
+        {
+          "raw": "sea",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "raw": "and",
+          "start": 14.8,
+          "end": 15.04
+        },
+        {
+          "raw": "wished",
+          "start": 15.04,
+          "end": 15.3
+        },
+        {
+          "raw": "morn",
+          "start": 15.3,
+          "end": 15.68
+        },
+        {
+          "raw": "delays.",
+          "start": 15.68,
+          "end": 16.1
+        }
+      ],
+      "expected_tokens": [
+        "Him,",
+        "haply",
+        "slumbering",
+        "on",
+        "the",
+        "Norway",
+        "foam,",
+        "The",
+        "pilot",
+        "of",
+        "some",
+        "small",
+        "night-foundered",
+        "skiff,",
+        "Deeming",
+        "some",
+        "island,",
+        "oft,",
+        "as",
+        "seamen",
+        "tell,",
+        "With",
+        "fixed",
+        "anchor",
+        "in",
+        "his",
+        "scaly",
+        "rind,",
+        "Moors",
+        "by",
+        "his",
+        "side",
+        "under",
+        "the",
+        "lee,",
+        "while",
+        "night",
+        "Invests",
+        "the",
+        "sea,",
+        "and",
+        "wished",
+        "morn",
+        "delays."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          12,
+          2,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          44,
+          14,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Him,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "haply",
+          "start": 0.66,
+          "end": 0.93
+        },
+        {
+          "text": "slumbering",
+          "start": 1.2,
+          "end": 1.88
+        },
+        {
+          "text": "on",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "Norway",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "foam,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "The",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "text": "pilot",
+          "start": 3.34,
+          "end": 3.6
+        },
+        {
+          "text": "of",
+          "start": 3.6,
+          "end": 3.78
+        },
+        {
+          "text": "some",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "small",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "night-foundered",
+          "start": 4.34,
+          "end": 4.75
+        },
+        {
+          "text": "skiff,",
+          "start": 5.16,
+          "end": 5.64
+        },
+        {
+          "text": "Deeming",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "text": "some",
+          "start": 6.22,
+          "end": 6.48
+        },
+        {
+          "text": "island,",
+          "start": 6.48,
+          "end": 6.9
+        },
+        {
+          "text": "oft,",
+          "start": 6.9,
+          "end": 7.34
+        },
+        {
+          "text": "as",
+          "start": 7.86,
+          "end": 8.0
+        },
+        {
+          "text": "seamen",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "text": "tell,",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "text": "With",
+          "start": 9.04,
+          "end": 9.24
+        },
+        {
+          "text": "fixed",
+          "start": 9.24,
+          "end": 9.56
+        },
+        {
+          "text": "anchor",
+          "start": 9.56,
+          "end": 9.9
+        },
+        {
+          "text": "in",
+          "start": 9.9,
+          "end": 10.08
+        },
+        {
+          "text": "his",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "text": "scaly",
+          "start": 10.22,
+          "end": 10.58
+        },
+        {
+          "text": "rind,",
+          "start": 10.58,
+          "end": 11.06
+        },
+        {
+          "text": "Moors",
+          "start": 11.54,
+          "end": 11.7
+        },
+        {
+          "text": "by",
+          "start": 11.7,
+          "end": 11.9
+        },
+        {
+          "text": "his",
+          "start": 11.9,
+          "end": 12.1
+        },
+        {
+          "text": "side",
+          "start": 12.1,
+          "end": 12.38
+        },
+        {
+          "text": "under",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "text": "the",
+          "start": 12.58,
+          "end": 12.74
+        },
+        {
+          "text": "lee,",
+          "start": 12.74,
+          "end": 13.18
+        },
+        {
+          "text": "while",
+          "start": 13.4,
+          "end": 13.56
+        },
+        {
+          "text": "night",
+          "start": 13.56,
+          "end": 13.82
+        },
+        {
+          "text": "Invests",
+          "start": 13.82,
+          "end": 14.26
+        },
+        {
+          "text": "the",
+          "start": 14.26,
+          "end": 14.52
+        },
+        {
+          "text": "sea,",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "text": "and",
+          "start": 14.8,
+          "end": 15.04
+        },
+        {
+          "text": "wished",
+          "start": 15.04,
+          "end": 15.3
+        },
+        {
+          "text": "morn",
+          "start": 15.3,
+          "end": 15.68
+        },
+        {
+          "text": "delays.",
+          "start": 15.68,
+          "end": 16.1
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 45,
+        "matched_words": 42
+      },
+      "match_ratio": 0.9545454545454546,
+      "rejection_reasons": [],
+      "seconds": 0.48473258316516876
+    },
+    {
+      "asr_seconds": 0.45522327721118927,
+      "alignment_seconds": 0.0002493634819984436,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Him, happily slumbering on the Norway foam, the pilot of some small knight-foundered skiff,",
+          "start": 0.08,
+          "end": 5.64,
+          "words": [
+            {
+              "text": " Him,",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.69921875
+            },
+            {
+              "text": " happily",
+              "start": 0.92,
+              "end": 1.2,
+              "probability": 0.982421875
+            },
+            {
+              "text": " slumbering",
+              "start": 1.2,
+              "end": 1.88,
+              "probability": 0.9959309895833334
+            },
+            {
+              "text": " on",
+              "start": 1.88,
+              "end": 2.0,
+              "probability": 0.9921875
+            },
+            {
+              "text": " the",
+              "start": 2.0,
+              "end": 2.1,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Norway",
+              "start": 2.1,
+              "end": 2.4,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " foam,",
+              "start": 2.4,
+              "end": 2.76,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " the",
+              "start": 3.26,
+              "end": 3.34,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " pilot",
+              "start": 3.34,
+              "end": 3.58,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 3.58,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " some",
+              "start": 3.78,
+              "end": 3.94,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " small",
+              "start": 3.94,
+              "end": 4.34,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " knight",
+              "start": 4.34,
+              "end": 4.58,
+              "probability": 0.67041015625
+            },
+            {
+              "text": "-foundered",
+              "start": 4.58,
+              "end": 5.16,
+              "probability": 0.8361002604166666
+            },
+            {
+              "text": " skiff,",
+              "start": 5.16,
+              "end": 5.64,
+              "probability": 0.966796875
+            }
+          ]
+        },
+        {
+          "text": " deeming some island oft.",
+          "start": 6.04,
+          "end": 7.34,
+          "words": [
+            {
+              "text": " deeming",
+              "start": 6.04,
+              "end": 6.3,
+              "probability": 0.982421875
+            },
+            {
+              "text": " some",
+              "start": 6.3,
+              "end": 6.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " island",
+              "start": 6.46,
+              "end": 6.9,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " oft.",
+              "start": 6.9,
+              "end": 7.34,
+              "probability": 0.703125
+            }
+          ]
+        },
+        {
+          "text": " As seamen tell, with fixed anchor in his scaly rind, moors by his side under the lee, while",
+          "start": 7.88,
+          "end": 13.56,
+          "words": [
+            {
+              "text": " As",
+              "start": 7.88,
+              "end": 8.0,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " seamen",
+              "start": 8.0,
+              "end": 8.42,
+              "probability": 0.831298828125
+            },
+            {
+              "text": " tell,",
+              "start": 8.42,
+              "end": 8.66,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " with",
+              "start": 9.1,
+              "end": 9.24,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fixed",
+              "start": 9.24,
+              "end": 9.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " anchor",
+              "start": 9.58,
+              "end": 9.9,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 9.9,
+              "end": 10.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 10.08,
+              "end": 10.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " scaly",
+              "start": 10.22,
+              "end": 10.56,
+              "probability": 0.976318359375
+            },
+            {
+              "text": " rind,",
+              "start": 10.56,
+              "end": 11.06,
+              "probability": 0.9267578125
+            },
+            {
+              "text": " moors",
+              "start": 11.54,
+              "end": 11.7,
+              "probability": 0.9453125
+            },
+            {
+              "text": " by",
+              "start": 11.7,
+              "end": 11.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 11.9,
+              "end": 12.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " side",
+              "start": 12.08,
+              "end": 12.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " under",
+              "start": 12.38,
+              "end": 12.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 12.58,
+              "end": 12.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lee,",
+              "start": 12.74,
+              "end": 13.18,
+              "probability": 0.816650390625
+            },
+            {
+              "text": " while",
+              "start": 13.36,
+              "end": 13.56,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " knight invests the sea and wished morn delays.",
+          "start": 13.56,
+          "end": 16.08,
+          "words": [
+            {
+              "text": " knight",
+              "start": 13.56,
+              "end": 13.82,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " invests",
+              "start": 13.82,
+              "end": 14.26,
+              "probability": 0.958984375
+            },
+            {
+              "text": " the",
+              "start": 14.26,
+              "end": 14.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sea",
+              "start": 14.52,
+              "end": 14.8,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 14.8,
+              "end": 15.04,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " wished",
+              "start": 15.04,
+              "end": 15.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " morn",
+              "start": 15.3,
+              "end": 15.68,
+              "probability": 0.740234375
+            },
+            {
+              "text": " delays.",
+              "start": 15.68,
+              "end": 16.08,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Him,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "happily",
+          "start": 0.92,
+          "end": 1.2
+        },
+        {
+          "raw": "slumbering",
+          "start": 1.2,
+          "end": 1.88
+        },
+        {
+          "raw": "on",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "raw": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "raw": "Norway",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "raw": "foam,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "raw": "the",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "raw": "pilot",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "raw": "of",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "raw": "some",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "raw": "small",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "raw": "knight",
+          "start": 4.34,
+          "end": 4.58
+        },
+        {
+          "raw": "-foundered",
+          "start": 4.58,
+          "end": 5.16
+        },
+        {
+          "raw": "skiff,",
+          "start": 5.16,
+          "end": 5.64
+        },
+        {
+          "raw": "deeming",
+          "start": 6.04,
+          "end": 6.3
+        },
+        {
+          "raw": "some",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "raw": "island",
+          "start": 6.46,
+          "end": 6.9
+        },
+        {
+          "raw": "oft.",
+          "start": 6.9,
+          "end": 7.34
+        },
+        {
+          "raw": "As",
+          "start": 7.88,
+          "end": 8.0
+        },
+        {
+          "raw": "seamen",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "raw": "tell,",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "raw": "with",
+          "start": 9.1,
+          "end": 9.24
+        },
+        {
+          "raw": "fixed",
+          "start": 9.24,
+          "end": 9.58
+        },
+        {
+          "raw": "anchor",
+          "start": 9.58,
+          "end": 9.9
+        },
+        {
+          "raw": "in",
+          "start": 9.9,
+          "end": 10.08
+        },
+        {
+          "raw": "his",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "raw": "scaly",
+          "start": 10.22,
+          "end": 10.56
+        },
+        {
+          "raw": "rind,",
+          "start": 10.56,
+          "end": 11.06
+        },
+        {
+          "raw": "moors",
+          "start": 11.54,
+          "end": 11.7
+        },
+        {
+          "raw": "by",
+          "start": 11.7,
+          "end": 11.9
+        },
+        {
+          "raw": "his",
+          "start": 11.9,
+          "end": 12.08
+        },
+        {
+          "raw": "side",
+          "start": 12.08,
+          "end": 12.38
+        },
+        {
+          "raw": "under",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "raw": "the",
+          "start": 12.58,
+          "end": 12.74
+        },
+        {
+          "raw": "lee,",
+          "start": 12.74,
+          "end": 13.18
+        },
+        {
+          "raw": "while",
+          "start": 13.36,
+          "end": 13.56
+        },
+        {
+          "raw": "knight",
+          "start": 13.56,
+          "end": 13.82
+        },
+        {
+          "raw": "invests",
+          "start": 13.82,
+          "end": 14.26
+        },
+        {
+          "raw": "the",
+          "start": 14.26,
+          "end": 14.52
+        },
+        {
+          "raw": "sea",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "raw": "and",
+          "start": 14.8,
+          "end": 15.04
+        },
+        {
+          "raw": "wished",
+          "start": 15.04,
+          "end": 15.3
+        },
+        {
+          "raw": "morn",
+          "start": 15.3,
+          "end": 15.68
+        },
+        {
+          "raw": "delays.",
+          "start": 15.68,
+          "end": 16.08
+        }
+      ],
+      "expected_tokens": [
+        "Him,",
+        "haply",
+        "slumbering",
+        "on",
+        "the",
+        "Norway",
+        "foam,",
+        "The",
+        "pilot",
+        "of",
+        "some",
+        "small",
+        "night-foundered",
+        "skiff,",
+        "Deeming",
+        "some",
+        "island,",
+        "oft,",
+        "as",
+        "seamen",
+        "tell,",
+        "With",
+        "fixed",
+        "anchor",
+        "in",
+        "his",
+        "scaly",
+        "rind,",
+        "Moors",
+        "by",
+        "his",
+        "side",
+        "under",
+        "the",
+        "lee,",
+        "while",
+        "night",
+        "Invests",
+        "the",
+        "sea,",
+        "and",
+        "wished",
+        "morn",
+        "delays."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          12,
+          2,
+          12
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "equal",
+          13,
+          36,
+          14,
+          37
+        ],
+        [
+          "replace",
+          36,
+          37,
+          37,
+          38
+        ],
+        [
+          "equal",
+          37,
+          44,
+          38,
+          45
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          12,
+          13,
+          12,
+          14
+        ],
+        [
+          "replace",
+          36,
+          37,
+          37,
+          38
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Him,",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "haply",
+          "start": 0.66,
+          "end": 0.93
+        },
+        {
+          "text": "slumbering",
+          "start": 1.2,
+          "end": 1.88
+        },
+        {
+          "text": "on",
+          "start": 1.88,
+          "end": 2.0
+        },
+        {
+          "text": "the",
+          "start": 2.0,
+          "end": 2.1
+        },
+        {
+          "text": "Norway",
+          "start": 2.1,
+          "end": 2.4
+        },
+        {
+          "text": "foam,",
+          "start": 2.4,
+          "end": 2.76
+        },
+        {
+          "text": "The",
+          "start": 3.26,
+          "end": 3.34
+        },
+        {
+          "text": "pilot",
+          "start": 3.34,
+          "end": 3.58
+        },
+        {
+          "text": "of",
+          "start": 3.58,
+          "end": 3.78
+        },
+        {
+          "text": "some",
+          "start": 3.78,
+          "end": 3.94
+        },
+        {
+          "text": "small",
+          "start": 3.94,
+          "end": 4.34
+        },
+        {
+          "text": "night-foundered",
+          "start": 4.34,
+          "end": 4.75
+        },
+        {
+          "text": "skiff,",
+          "start": 5.16,
+          "end": 5.64
+        },
+        {
+          "text": "Deeming",
+          "start": 6.04,
+          "end": 6.3
+        },
+        {
+          "text": "some",
+          "start": 6.3,
+          "end": 6.46
+        },
+        {
+          "text": "island,",
+          "start": 6.46,
+          "end": 6.9
+        },
+        {
+          "text": "oft,",
+          "start": 6.9,
+          "end": 7.34
+        },
+        {
+          "text": "as",
+          "start": 7.88,
+          "end": 8.0
+        },
+        {
+          "text": "seamen",
+          "start": 8.0,
+          "end": 8.42
+        },
+        {
+          "text": "tell,",
+          "start": 8.42,
+          "end": 8.66
+        },
+        {
+          "text": "With",
+          "start": 9.1,
+          "end": 9.24
+        },
+        {
+          "text": "fixed",
+          "start": 9.24,
+          "end": 9.58
+        },
+        {
+          "text": "anchor",
+          "start": 9.58,
+          "end": 9.9
+        },
+        {
+          "text": "in",
+          "start": 9.9,
+          "end": 10.08
+        },
+        {
+          "text": "his",
+          "start": 10.08,
+          "end": 10.22
+        },
+        {
+          "text": "scaly",
+          "start": 10.22,
+          "end": 10.56
+        },
+        {
+          "text": "rind,",
+          "start": 10.56,
+          "end": 11.06
+        },
+        {
+          "text": "Moors",
+          "start": 11.54,
+          "end": 11.7
+        },
+        {
+          "text": "by",
+          "start": 11.7,
+          "end": 11.9
+        },
+        {
+          "text": "his",
+          "start": 11.9,
+          "end": 12.08
+        },
+        {
+          "text": "side",
+          "start": 12.08,
+          "end": 12.38
+        },
+        {
+          "text": "under",
+          "start": 12.38,
+          "end": 12.58
+        },
+        {
+          "text": "the",
+          "start": 12.58,
+          "end": 12.74
+        },
+        {
+          "text": "lee,",
+          "start": 12.74,
+          "end": 13.18
+        },
+        {
+          "text": "while",
+          "start": 13.36,
+          "end": 13.56
+        },
+        {
+          "text": "night",
+          "start": 13.56,
+          "end": 13.69
+        },
+        {
+          "text": "Invests",
+          "start": 13.82,
+          "end": 14.26
+        },
+        {
+          "text": "the",
+          "start": 14.26,
+          "end": 14.52
+        },
+        {
+          "text": "sea,",
+          "start": 14.52,
+          "end": 14.8
+        },
+        {
+          "text": "and",
+          "start": 14.8,
+          "end": 15.04
+        },
+        {
+          "text": "wished",
+          "start": 15.04,
+          "end": 15.3
+        },
+        {
+          "text": "morn",
+          "start": 15.3,
+          "end": 15.68
+        },
+        {
+          "text": "delays.",
+          "start": 15.68,
+          "end": 16.08
+        }
+      ],
+      "stats": {
+        "expected_words": 44,
+        "heard_words": 45,
+        "matched_words": 41
+      },
+      "match_ratio": 0.9318181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.4555988162755966
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "28b6728749db22d9e5ed735751e6634ae35e2744936ae04e64c52e05b5b2bb50",
+  "selected_reasons": []
+}

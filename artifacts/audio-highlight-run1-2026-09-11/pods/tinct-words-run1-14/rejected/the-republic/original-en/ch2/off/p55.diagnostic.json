@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "a7a067bfc7b6ca980e586b7c21b2918679632b1c3566e358721f8c537b1b0650",
+  "attempts": [
+    {
+      "asr_seconds": 0.08236747235059738,
+      "alignment_seconds": 5.130469799041748e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, far more easily.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " far",
+              "start": 0.97,
+              "end": 1.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " more",
+              "start": 1.07,
+              "end": 1.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " easily.",
+              "start": 1.21,
+              "end": 1.55,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "far",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "raw": "more",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "raw": "easily.",
+          "start": 1.21,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "far",
+        "more",
+        "easily."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "far",
+          "start": 0.97,
+          "end": 1.07
+        },
+        {
+          "text": "more",
+          "start": 1.07,
+          "end": 1.21
+        },
+        {
+          "text": "easily.",
+          "start": 1.21,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08243941515684128
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "259af8c6394441b7f2320bc51d69d13cc3bfbef46dc356bb886f4d65a476736b",
+  "selected_reasons": []
+}

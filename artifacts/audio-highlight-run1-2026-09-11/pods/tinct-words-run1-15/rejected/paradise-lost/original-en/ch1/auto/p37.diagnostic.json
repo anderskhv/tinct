@@ -1,0 +1,1002 @@
+{
+  "complete": true,
+  "signature": "cac5a7d7968784a011a4cf2128f89ffd0878b7d7c44dec3e5deed8388025b10d",
+  "attempts": [
+    {
+      "asr_seconds": 0.28400329500436783,
+      "alignment_seconds": 0.0002053678035736084,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Say, Muse, their names then known, who first, who last, Roused from the slumber on that fiery couch, At their great Emperorr's call, as next in worth Came singly where he stood on the bare strand, While the promiscuous crowd stood yet aloof?",
+        "hotwords": "Say, Muse, Roused, At, Emperorr's, Came, While"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Say, Muse, their names then known, who first, who last, Roused from the slumber on that fiery couch, At their great Emperorr's call, As next in worth came singly where he stood on the bare strand, While the promiscuous crowd stood yet aloof?",
+          "start": 0.05,
+          "end": 14.87,
+          "words": [
+            {
+              "text": " Say,",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.01371002197265625
+            },
+            {
+              "text": " Muse,",
+              "start": 0.91,
+              "end": 0.91,
+              "probability": 0.7021484375
+            },
+            {
+              "text": " their",
+              "start": 1.25,
+              "end": 1.37,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " names",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.6025390625
+            },
+            {
+              "text": " then",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.98046875
+            },
+            {
+              "text": " known,",
+              "start": 1.93,
+              "end": 2.23,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " who",
+              "start": 2.71,
+              "end": 2.83,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " first,",
+              "start": 2.83,
+              "end": 3.19,
+              "probability": 0.86328125
+            },
+            {
+              "text": " who",
+              "start": 3.57,
+              "end": 3.67,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " last,",
+              "start": 3.67,
+              "end": 4.05,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Roused",
+              "start": 4.63,
+              "end": 4.77,
+              "probability": 0.5258941650390625
+            },
+            {
+              "text": " from",
+              "start": 4.77,
+              "end": 4.99,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 4.99,
+              "end": 5.11,
+              "probability": 0.994140625
+            },
+            {
+              "text": " slumber",
+              "start": 5.11,
+              "end": 5.47,
+              "probability": 0.979736328125
+            },
+            {
+              "text": " on",
+              "start": 5.47,
+              "end": 5.65,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " that",
+              "start": 5.65,
+              "end": 5.85,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " fiery",
+              "start": 5.85,
+              "end": 6.25,
+              "probability": 0.984375
+            },
+            {
+              "text": " couch,",
+              "start": 6.25,
+              "end": 6.67,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " At",
+              "start": 6.95,
+              "end": 7.05,
+              "probability": 0.68408203125
+            },
+            {
+              "text": " their",
+              "start": 7.05,
+              "end": 7.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " great",
+              "start": 7.21,
+              "end": 7.49,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Emperorr's",
+              "start": 7.49,
+              "end": 8.11,
+              "probability": 0.45198899507522583
+            },
+            {
+              "text": " call,",
+              "start": 8.11,
+              "end": 8.35,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " As",
+              "start": 8.83,
+              "end": 9.07,
+              "probability": 0.837890625
+            },
+            {
+              "text": " next",
+              "start": 9.07,
+              "end": 9.29,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " in",
+              "start": 9.29,
+              "end": 9.53,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " worth",
+              "start": 9.53,
+              "end": 9.73,
+              "probability": 0.5859375
+            },
+            {
+              "text": " came",
+              "start": 9.73,
+              "end": 10.05,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " singly",
+              "start": 10.05,
+              "end": 10.65,
+              "probability": 0.791748046875
+            },
+            {
+              "text": " where",
+              "start": 10.65,
+              "end": 10.83,
+              "probability": 0.43896484375
+            },
+            {
+              "text": " he",
+              "start": 10.83,
+              "end": 11.01,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " stood",
+              "start": 11.01,
+              "end": 11.21,
+              "probability": 0.99609375
+            },
+            {
+              "text": " on",
+              "start": 11.21,
+              "end": 11.37,
+              "probability": 0.62109375
+            },
+            {
+              "text": " the",
+              "start": 11.37,
+              "end": 11.49,
+              "probability": 0.986328125
+            },
+            {
+              "text": " bare",
+              "start": 11.49,
+              "end": 11.65,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " strand,",
+              "start": 11.65,
+              "end": 12.13,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " While",
+              "start": 12.59,
+              "end": 12.77,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 12.77,
+              "end": 12.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " promiscuous",
+              "start": 12.93,
+              "end": 13.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " crowd",
+              "start": 13.51,
+              "end": 13.87,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " stood",
+              "start": 13.87,
+              "end": 14.25,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " yet",
+              "start": 14.25,
+              "end": 14.49,
+              "probability": 0.9921875
+            },
+            {
+              "text": " aloof?",
+              "start": 14.49,
+              "end": 14.87,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Say,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "Muse,",
+          "start": 0.91,
+          "end": 0.91
+        },
+        {
+          "raw": "their",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "raw": "names",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "then",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "known,",
+          "start": 1.93,
+          "end": 2.23
+        },
+        {
+          "raw": "who",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "raw": "first,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "raw": "who",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "raw": "last,",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "raw": "Roused",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "raw": "from",
+          "start": 4.77,
+          "end": 4.99
+        },
+        {
+          "raw": "the",
+          "start": 4.99,
+          "end": 5.11
+        },
+        {
+          "raw": "slumber",
+          "start": 5.11,
+          "end": 5.47
+        },
+        {
+          "raw": "on",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "raw": "that",
+          "start": 5.65,
+          "end": 5.85
+        },
+        {
+          "raw": "fiery",
+          "start": 5.85,
+          "end": 6.25
+        },
+        {
+          "raw": "couch,",
+          "start": 6.25,
+          "end": 6.67
+        },
+        {
+          "raw": "At",
+          "start": 6.95,
+          "end": 7.05
+        },
+        {
+          "raw": "their",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "raw": "great",
+          "start": 7.21,
+          "end": 7.49
+        },
+        {
+          "raw": "Emperorr's",
+          "start": 7.49,
+          "end": 8.11
+        },
+        {
+          "raw": "call,",
+          "start": 8.11,
+          "end": 8.35
+        },
+        {
+          "raw": "As",
+          "start": 8.83,
+          "end": 9.07
+        },
+        {
+          "raw": "next",
+          "start": 9.07,
+          "end": 9.29
+        },
+        {
+          "raw": "in",
+          "start": 9.29,
+          "end": 9.53
+        },
+        {
+          "raw": "worth",
+          "start": 9.53,
+          "end": 9.73
+        },
+        {
+          "raw": "came",
+          "start": 9.73,
+          "end": 10.05
+        },
+        {
+          "raw": "singly",
+          "start": 10.05,
+          "end": 10.65
+        },
+        {
+          "raw": "where",
+          "start": 10.65,
+          "end": 10.83
+        },
+        {
+          "raw": "he",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "raw": "stood",
+          "start": 11.01,
+          "end": 11.21
+        },
+        {
+          "raw": "on",
+          "start": 11.21,
+          "end": 11.37
+        },
+        {
+          "raw": "the",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "raw": "bare",
+          "start": 11.49,
+          "end": 11.65
+        },
+        {
+          "raw": "strand,",
+          "start": 11.65,
+          "end": 12.13
+        },
+        {
+          "raw": "While",
+          "start": 12.59,
+          "end": 12.77
+        },
+        {
+          "raw": "the",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "raw": "promiscuous",
+          "start": 12.93,
+          "end": 13.51
+        },
+        {
+          "raw": "crowd",
+          "start": 13.51,
+          "end": 13.87
+        },
+        {
+          "raw": "stood",
+          "start": 13.87,
+          "end": 14.25
+        },
+        {
+          "raw": "yet",
+          "start": 14.25,
+          "end": 14.49
+        },
+        {
+          "raw": "aloof?",
+          "start": 14.49,
+          "end": 14.87
+        }
+      ],
+      "expected_tokens": [
+        "Say,",
+        "Muse,",
+        "their",
+        "names",
+        "then",
+        "known,",
+        "who",
+        "first,",
+        "who",
+        "last,",
+        "Roused",
+        "from",
+        "the",
+        "slumber",
+        "on",
+        "that",
+        "fiery",
+        "couch,",
+        "At",
+        "their",
+        "great",
+        "Emperorr's",
+        "call,",
+        "as",
+        "next",
+        "in",
+        "worth",
+        "Came",
+        "singly",
+        "where",
+        "he",
+        "stood",
+        "on",
+        "the",
+        "bare",
+        "strand,",
+        "While",
+        "the",
+        "promiscuous",
+        "crowd",
+        "stood",
+        "yet",
+        "aloof?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          43,
+          0,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Say,",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "Muse,",
+          "start": 0.91,
+          "end": 0.91
+        },
+        {
+          "text": "their",
+          "start": 1.25,
+          "end": 1.37
+        },
+        {
+          "text": "names",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "then",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "known,",
+          "start": 1.93,
+          "end": 2.23
+        },
+        {
+          "text": "who",
+          "start": 2.71,
+          "end": 2.83
+        },
+        {
+          "text": "first,",
+          "start": 2.83,
+          "end": 3.19
+        },
+        {
+          "text": "who",
+          "start": 3.57,
+          "end": 3.67
+        },
+        {
+          "text": "last,",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "text": "Roused",
+          "start": 4.63,
+          "end": 4.77
+        },
+        {
+          "text": "from",
+          "start": 4.77,
+          "end": 4.99
+        },
+        {
+          "text": "the",
+          "start": 4.99,
+          "end": 5.11
+        },
+        {
+          "text": "slumber",
+          "start": 5.11,
+          "end": 5.47
+        },
+        {
+          "text": "on",
+          "start": 5.47,
+          "end": 5.65
+        },
+        {
+          "text": "that",
+          "start": 5.65,
+          "end": 5.85
+        },
+        {
+          "text": "fiery",
+          "start": 5.85,
+          "end": 6.25
+        },
+        {
+          "text": "couch,",
+          "start": 6.25,
+          "end": 6.67
+        },
+        {
+          "text": "At",
+          "start": 6.95,
+          "end": 7.05
+        },
+        {
+          "text": "their",
+          "start": 7.05,
+          "end": 7.21
+        },
+        {
+          "text": "great",
+          "start": 7.21,
+          "end": 7.49
+        },
+        {
+          "text": "Emperorr's",
+          "start": 7.49,
+          "end": 8.11
+        },
+        {
+          "text": "call,",
+          "start": 8.11,
+          "end": 8.35
+        },
+        {
+          "text": "as",
+          "start": 8.83,
+          "end": 9.07
+        },
+        {
+          "text": "next",
+          "start": 9.07,
+          "end": 9.29
+        },
+        {
+          "text": "in",
+          "start": 9.29,
+          "end": 9.53
+        },
+        {
+          "text": "worth",
+          "start": 9.53,
+          "end": 9.73
+        },
+        {
+          "text": "Came",
+          "start": 9.73,
+          "end": 10.05
+        },
+        {
+          "text": "singly",
+          "start": 10.05,
+          "end": 10.65
+        },
+        {
+          "text": "where",
+          "start": 10.65,
+          "end": 10.83
+        },
+        {
+          "text": "he",
+          "start": 10.83,
+          "end": 11.01
+        },
+        {
+          "text": "stood",
+          "start": 11.01,
+          "end": 11.21
+        },
+        {
+          "text": "on",
+          "start": 11.21,
+          "end": 11.37
+        },
+        {
+          "text": "the",
+          "start": 11.37,
+          "end": 11.49
+        },
+        {
+          "text": "bare",
+          "start": 11.49,
+          "end": 11.65
+        },
+        {
+          "text": "strand,",
+          "start": 11.65,
+          "end": 12.13
+        },
+        {
+          "text": "While",
+          "start": 12.59,
+          "end": 12.77
+        },
+        {
+          "text": "the",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "text": "promiscuous",
+          "start": 12.93,
+          "end": 13.51
+        },
+        {
+          "text": "crowd",
+          "start": 13.51,
+          "end": 13.87
+        },
+        {
+          "text": "stood",
+          "start": 13.87,
+          "end": 14.25
+        },
+        {
+          "text": "yet",
+          "start": 14.25,
+          "end": 14.49
+        },
+        {
+          "text": "aloof?",
+          "start": 14.49,
+          "end": 14.87
+        }
+      ],
+      "stats": {
+        "expected_words": 43,
+        "heard_words": 43,
+        "matched_words": 43
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2843267619609833
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7411cf51431867a381ccc23e64c185f026ec9f49eb838e7c06b3aadb31a24d63",
+  "selected_reasons": []
+}

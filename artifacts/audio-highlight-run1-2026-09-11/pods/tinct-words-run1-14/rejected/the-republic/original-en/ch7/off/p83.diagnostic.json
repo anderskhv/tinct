@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "fc4c0208630dc099ff9246b4a308aaf4726580c6c285b76e43fd1e020e630cbe",
+  "attempts": [
+    {
+      "asr_seconds": 0.07328460365533829,
+      "alignment_seconds": 5.003809928894043e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What quality?",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.8115234375
+            },
+            {
+              "text": " quality?",
+              "start": 0.56,
+              "end": 0.94,
+              "probability": 0.8623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "quality?",
+          "start": 0.56,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "quality?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "quality?",
+          "start": 0.56,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07335264980792999
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6aab984d06558259ce2234b68695d32821ad537cbddef6a49bb3ff616ab3e307",
+  "selected_reasons": []
+}

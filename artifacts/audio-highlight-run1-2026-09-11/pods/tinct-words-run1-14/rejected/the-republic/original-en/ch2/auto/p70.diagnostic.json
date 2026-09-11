@@ -1,0 +1,1126 @@
+{
+  "complete": true,
+  "signature": "70a6f16e4ecc604499d39648d62232d220f8a431f2ddc3d5ddb88ff7ec544dfa",
+  "attempts": [
+    {
+      "asr_seconds": 0.35570230334997177,
+      "alignment_seconds": 0.00033799558877944946,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And now let us see how our city will be able to supply this great demand: We may suppose that one man is a husbandman, another a builder, some one else a weaver—shall we add to them a shoemaker, or perhaps some other purveyor to our bodily wants?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And now let us see how our city will be able to supply this great demand. We may suppose",
+          "start": 0.05,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.73291015625
+            },
+            {
+              "text": " now",
+              "start": 0.53,
+              "end": 0.73,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " let",
+              "start": 0.73,
+              "end": 0.91,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " us",
+              "start": 0.91,
+              "end": 1.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " see",
+              "start": 1.05,
+              "end": 1.23,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " how",
+              "start": 1.23,
+              "end": 1.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " our",
+              "start": 1.41,
+              "end": 1.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " city",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " will",
+              "start": 1.81,
+              "end": 2.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " able",
+              "start": 2.17,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.37,
+              "end": 2.53,
+              "probability": 0.998046875
+            },
+            {
+              "text": " supply",
+              "start": 2.53,
+              "end": 2.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " this",
+              "start": 2.91,
+              "end": 3.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " great",
+              "start": 3.17,
+              "end": 3.41,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " demand.",
+              "start": 3.41,
+              "end": 3.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " We",
+              "start": 4.55,
+              "end": 4.61,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " may",
+              "start": 4.61,
+              "end": 4.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " suppose",
+              "start": 4.75,
+              "end": 5.17,
+              "probability": 0.98876953125
+            }
+          ]
+        },
+        {
+          "text": " that one man is a husbandman, another a builder, some one else a weaver—shall we add to them",
+          "start": 5.17,
+          "end": 11.05,
+          "words": [
+            {
+              "text": " that",
+              "start": 5.17,
+              "end": 5.45,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " one",
+              "start": 5.45,
+              "end": 5.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " man",
+              "start": 5.71,
+              "end": 6.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " is",
+              "start": 6.01,
+              "end": 6.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 6.25,
+              "end": 6.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " husbandman,",
+              "start": 6.39,
+              "end": 7.01,
+              "probability": 0.856201171875
+            },
+            {
+              "text": " another",
+              "start": 7.39,
+              "end": 7.69,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 7.69,
+              "end": 7.91,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " builder,",
+              "start": 7.91,
+              "end": 8.19,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " some",
+              "start": 8.65,
+              "end": 8.85,
+              "probability": 0.0079803466796875
+            },
+            {
+              "text": " one",
+              "start": 8.85,
+              "end": 9.03,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " else",
+              "start": 9.03,
+              "end": 9.21,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " a",
+              "start": 9.21,
+              "end": 9.37,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " weaver—shall",
+              "start": 9.37,
+              "end": 10.39,
+              "probability": 0.7283473014831543
+            },
+            {
+              "text": " we",
+              "start": 10.39,
+              "end": 10.53,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " add",
+              "start": 10.53,
+              "end": 10.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 10.77,
+              "end": 10.91,
+              "probability": 0.986328125
+            },
+            {
+              "text": " them",
+              "start": 10.91,
+              "end": 11.05,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " a shoemaker, or perhaps some other purveyor to our bodily wants?",
+          "start": 11.05,
+          "end": 14.45,
+          "words": [
+            {
+              "text": " a",
+              "start": 11.05,
+              "end": 11.17,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " shoemaker,",
+              "start": 11.17,
+              "end": 11.59,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " or",
+              "start": 12.11,
+              "end": 12.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " perhaps",
+              "start": 12.21,
+              "end": 12.53,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " some",
+              "start": 12.53,
+              "end": 12.79,
+              "probability": 0.994140625
+            },
+            {
+              "text": " other",
+              "start": 12.79,
+              "end": 12.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " purveyor",
+              "start": 12.99,
+              "end": 13.49,
+              "probability": 0.9949544270833334
+            },
+            {
+              "text": " to",
+              "start": 13.49,
+              "end": 13.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " our",
+              "start": 13.63,
+              "end": 13.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " bodily",
+              "start": 13.77,
+              "end": 14.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " wants?",
+              "start": 14.11,
+              "end": 14.45,
+              "probability": 0.94287109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "now",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "raw": "let",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "raw": "us",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "raw": "see",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "raw": "how",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "raw": "our",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "raw": "city",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "will",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "raw": "be",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "able",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "raw": "to",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "raw": "supply",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "raw": "this",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "raw": "great",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "raw": "demand.",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "raw": "We",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "raw": "may",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "raw": "suppose",
+          "start": 4.75,
+          "end": 5.17
+        },
+        {
+          "raw": "that",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "raw": "one",
+          "start": 5.45,
+          "end": 5.71
+        },
+        {
+          "raw": "man",
+          "start": 5.71,
+          "end": 6.01
+        },
+        {
+          "raw": "is",
+          "start": 6.01,
+          "end": 6.25
+        },
+        {
+          "raw": "a",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "raw": "husbandman,",
+          "start": 6.39,
+          "end": 7.01
+        },
+        {
+          "raw": "another",
+          "start": 7.39,
+          "end": 7.69
+        },
+        {
+          "raw": "a",
+          "start": 7.69,
+          "end": 7.91
+        },
+        {
+          "raw": "builder,",
+          "start": 7.91,
+          "end": 8.19
+        },
+        {
+          "raw": "some",
+          "start": 8.65,
+          "end": 8.85
+        },
+        {
+          "raw": "one",
+          "start": 8.85,
+          "end": 9.03
+        },
+        {
+          "raw": "else",
+          "start": 9.03,
+          "end": 9.21
+        },
+        {
+          "raw": "a",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "raw": "weaver—shall",
+          "start": 9.37,
+          "end": 10.39
+        },
+        {
+          "raw": "we",
+          "start": 10.39,
+          "end": 10.53
+        },
+        {
+          "raw": "add",
+          "start": 10.53,
+          "end": 10.77
+        },
+        {
+          "raw": "to",
+          "start": 10.77,
+          "end": 10.91
+        },
+        {
+          "raw": "them",
+          "start": 10.91,
+          "end": 11.05
+        },
+        {
+          "raw": "a",
+          "start": 11.05,
+          "end": 11.17
+        },
+        {
+          "raw": "shoemaker,",
+          "start": 11.17,
+          "end": 11.59
+        },
+        {
+          "raw": "or",
+          "start": 12.11,
+          "end": 12.21
+        },
+        {
+          "raw": "perhaps",
+          "start": 12.21,
+          "end": 12.53
+        },
+        {
+          "raw": "some",
+          "start": 12.53,
+          "end": 12.79
+        },
+        {
+          "raw": "other",
+          "start": 12.79,
+          "end": 12.99
+        },
+        {
+          "raw": "purveyor",
+          "start": 12.99,
+          "end": 13.49
+        },
+        {
+          "raw": "to",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "raw": "our",
+          "start": 13.63,
+          "end": 13.77
+        },
+        {
+          "raw": "bodily",
+          "start": 13.77,
+          "end": 14.11
+        },
+        {
+          "raw": "wants?",
+          "start": 14.11,
+          "end": 14.45
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "now",
+        "let",
+        "us",
+        "see",
+        "how",
+        "our",
+        "city",
+        "will",
+        "be",
+        "able",
+        "to",
+        "supply",
+        "this",
+        "great",
+        "demand:",
+        "We",
+        "may",
+        "suppose",
+        "that",
+        "one",
+        "man",
+        "is",
+        "a",
+        "husbandman,",
+        "another",
+        "a",
+        "builder,",
+        "some",
+        "one",
+        "else",
+        "a",
+        "weaver—shall",
+        "we",
+        "add",
+        "to",
+        "them",
+        "a",
+        "shoemaker,",
+        "or",
+        "perhaps",
+        "some",
+        "other",
+        "purveyor",
+        "to",
+        "our",
+        "bodily",
+        "wants?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          48,
+          0,
+          48
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "now",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "text": "let",
+          "start": 0.73,
+          "end": 0.91
+        },
+        {
+          "text": "us",
+          "start": 0.91,
+          "end": 1.05
+        },
+        {
+          "text": "see",
+          "start": 1.05,
+          "end": 1.23
+        },
+        {
+          "text": "how",
+          "start": 1.23,
+          "end": 1.41
+        },
+        {
+          "text": "our",
+          "start": 1.41,
+          "end": 1.57
+        },
+        {
+          "text": "city",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "will",
+          "start": 1.81,
+          "end": 2.05
+        },
+        {
+          "text": "be",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "able",
+          "start": 2.17,
+          "end": 2.37
+        },
+        {
+          "text": "to",
+          "start": 2.37,
+          "end": 2.53
+        },
+        {
+          "text": "supply",
+          "start": 2.53,
+          "end": 2.91
+        },
+        {
+          "text": "this",
+          "start": 2.91,
+          "end": 3.17
+        },
+        {
+          "text": "great",
+          "start": 3.17,
+          "end": 3.41
+        },
+        {
+          "text": "demand:",
+          "start": 3.41,
+          "end": 3.77
+        },
+        {
+          "text": "We",
+          "start": 4.55,
+          "end": 4.61
+        },
+        {
+          "text": "may",
+          "start": 4.61,
+          "end": 4.75
+        },
+        {
+          "text": "suppose",
+          "start": 4.75,
+          "end": 5.17
+        },
+        {
+          "text": "that",
+          "start": 5.17,
+          "end": 5.45
+        },
+        {
+          "text": "one",
+          "start": 5.45,
+          "end": 5.71
+        },
+        {
+          "text": "man",
+          "start": 5.71,
+          "end": 6.01
+        },
+        {
+          "text": "is",
+          "start": 6.01,
+          "end": 6.25
+        },
+        {
+          "text": "a",
+          "start": 6.25,
+          "end": 6.39
+        },
+        {
+          "text": "husbandman,",
+          "start": 6.39,
+          "end": 7.01
+        },
+        {
+          "text": "another",
+          "start": 7.39,
+          "end": 7.69
+        },
+        {
+          "text": "a",
+          "start": 7.69,
+          "end": 7.91
+        },
+        {
+          "text": "builder,",
+          "start": 7.91,
+          "end": 8.19
+        },
+        {
+          "text": "some",
+          "start": 8.65,
+          "end": 8.85
+        },
+        {
+          "text": "one",
+          "start": 8.85,
+          "end": 9.03
+        },
+        {
+          "text": "else",
+          "start": 9.03,
+          "end": 9.21
+        },
+        {
+          "text": "a",
+          "start": 9.21,
+          "end": 9.37
+        },
+        {
+          "text": "weaver—shall",
+          "start": 9.37,
+          "end": 10.39
+        },
+        {
+          "text": "we",
+          "start": 10.39,
+          "end": 10.53
+        },
+        {
+          "text": "add",
+          "start": 10.53,
+          "end": 10.77
+        },
+        {
+          "text": "to",
+          "start": 10.77,
+          "end": 10.91
+        },
+        {
+          "text": "them",
+          "start": 10.91,
+          "end": 11.05
+        },
+        {
+          "text": "a",
+          "start": 11.05,
+          "end": 11.17
+        },
+        {
+          "text": "shoemaker,",
+          "start": 11.17,
+          "end": 11.59
+        },
+        {
+          "text": "or",
+          "start": 12.11,
+          "end": 12.21
+        },
+        {
+          "text": "perhaps",
+          "start": 12.21,
+          "end": 12.53
+        },
+        {
+          "text": "some",
+          "start": 12.53,
+          "end": 12.79
+        },
+        {
+          "text": "other",
+          "start": 12.79,
+          "end": 12.99
+        },
+        {
+          "text": "purveyor",
+          "start": 12.99,
+          "end": 13.49
+        },
+        {
+          "text": "to",
+          "start": 13.49,
+          "end": 13.63
+        },
+        {
+          "text": "our",
+          "start": 13.63,
+          "end": 13.77
+        },
+        {
+          "text": "bodily",
+          "start": 13.77,
+          "end": 14.11
+        },
+        {
+          "text": "wants?",
+          "start": 14.11,
+          "end": 14.45
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 48,
+        "matched_words": 48
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.35622550547122955
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b085800c61b7e4f696dd0a2cb6b19e1d0bfeef77f76b0ef68085e8da164d3bd1",
+  "selected_reasons": []
+}

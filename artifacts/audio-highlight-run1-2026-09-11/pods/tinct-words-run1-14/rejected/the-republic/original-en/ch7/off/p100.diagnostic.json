@@ -1,0 +1,632 @@
+{
+  "complete": true,
+  "signature": "7cfedfc1e14b05156675bb577f23bd3acfbdc1149625679ba440818096bcf554",
+  "attempts": [
+    {
+      "asr_seconds": 0.22405695915222168,
+      "alignment_seconds": 0.00018781423568725586,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The little matter of distinguishing one, two, and three, in a word, number, and calculation.",
+          "start": 0.02,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.64697265625
+            },
+            {
+              "text": " little",
+              "start": 0.48,
+              "end": 0.66,
+              "probability": 0.96484375
+            },
+            {
+              "text": " matter",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " distinguishing",
+              "start": 1.18,
+              "end": 1.68,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " one,",
+              "start": 1.68,
+              "end": 2.16,
+              "probability": 0.64501953125
+            },
+            {
+              "text": " two,",
+              "start": 2.48,
+              "end": 2.72,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 2.94,
+              "end": 3.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " three,",
+              "start": 3.06,
+              "end": 3.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 3.88,
+              "end": 3.96,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " a",
+              "start": 3.96,
+              "end": 4.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " word,",
+              "start": 4.1,
+              "end": 4.44,
+              "probability": 0.9921875
+            },
+            {
+              "text": " number,",
+              "start": 4.92,
+              "end": 5.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 5.3,
+              "end": 5.36,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " calculation.",
+              "start": 5.36,
+              "end": 5.92,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Do not all arts and sciences necessarily partake of them?",
+          "start": 6.76,
+          "end": 9.78,
+          "words": [
+            {
+              "text": " Do",
+              "start": 6.76,
+              "end": 6.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 6.86,
+              "end": 7.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " all",
+              "start": 7.0,
+              "end": 7.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " arts",
+              "start": 7.22,
+              "end": 7.48,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " and",
+              "start": 7.48,
+              "end": 7.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " sciences",
+              "start": 7.7,
+              "end": 8.16,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " necessarily",
+              "start": 8.16,
+              "end": 8.78,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " partake",
+              "start": 8.78,
+              "end": 9.22,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " of",
+              "start": 9.22,
+              "end": 9.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them?",
+              "start": 9.56,
+              "end": 9.78,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "little",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "raw": "matter",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "raw": "of",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "distinguishing",
+          "start": 1.18,
+          "end": 1.68
+        },
+        {
+          "raw": "one,",
+          "start": 1.68,
+          "end": 2.16
+        },
+        {
+          "raw": "two,",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "raw": "and",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "raw": "three,",
+          "start": 3.06,
+          "end": 3.38
+        },
+        {
+          "raw": "in",
+          "start": 3.88,
+          "end": 3.96
+        },
+        {
+          "raw": "a",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "raw": "word,",
+          "start": 4.1,
+          "end": 4.44
+        },
+        {
+          "raw": "number,",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "raw": "and",
+          "start": 5.3,
+          "end": 5.36
+        },
+        {
+          "raw": "calculation.",
+          "start": 5.36,
+          "end": 5.92
+        },
+        {
+          "raw": "Do",
+          "start": 6.76,
+          "end": 6.86
+        },
+        {
+          "raw": "not",
+          "start": 6.86,
+          "end": 7.0
+        },
+        {
+          "raw": "all",
+          "start": 7.0,
+          "end": 7.22
+        },
+        {
+          "raw": "arts",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "raw": "and",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "raw": "sciences",
+          "start": 7.7,
+          "end": 8.16
+        },
+        {
+          "raw": "necessarily",
+          "start": 8.16,
+          "end": 8.78
+        },
+        {
+          "raw": "partake",
+          "start": 8.78,
+          "end": 9.22
+        },
+        {
+          "raw": "of",
+          "start": 9.22,
+          "end": 9.56
+        },
+        {
+          "raw": "them?",
+          "start": 9.56,
+          "end": 9.78
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "little",
+        "matter",
+        "of",
+        "distinguishing",
+        "one,",
+        "two,",
+        "and",
+        "three—in",
+        "a",
+        "word,",
+        "number",
+        "and",
+        "calculation:—do",
+        "not",
+        "all",
+        "arts",
+        "and",
+        "sciences",
+        "necessarily",
+        "partake",
+        "of",
+        "them?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "equal",
+          9,
+          13,
+          10,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ],
+        [
+          "equal",
+          14,
+          23,
+          16,
+          25
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          8,
+          9,
+          8,
+          10
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "little",
+          "start": 0.48,
+          "end": 0.66
+        },
+        {
+          "text": "matter",
+          "start": 0.66,
+          "end": 0.98
+        },
+        {
+          "text": "of",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "distinguishing",
+          "start": 1.18,
+          "end": 1.68
+        },
+        {
+          "text": "one,",
+          "start": 1.68,
+          "end": 2.16
+        },
+        {
+          "text": "two,",
+          "start": 2.48,
+          "end": 2.72
+        },
+        {
+          "text": "and",
+          "start": 2.94,
+          "end": 3.06
+        },
+        {
+          "text": "three—in",
+          "start": 3.06,
+          "end": 3.51
+        },
+        {
+          "text": "a",
+          "start": 3.96,
+          "end": 4.1
+        },
+        {
+          "text": "word,",
+          "start": 4.1,
+          "end": 4.44
+        },
+        {
+          "text": "number",
+          "start": 4.92,
+          "end": 5.08
+        },
+        {
+          "text": "and",
+          "start": 5.3,
+          "end": 5.36
+        },
+        {
+          "text": "calculation:—do",
+          "start": 5.36,
+          "end": 6.11
+        },
+        {
+          "text": "not",
+          "start": 6.86,
+          "end": 7.0
+        },
+        {
+          "text": "all",
+          "start": 7.0,
+          "end": 7.22
+        },
+        {
+          "text": "arts",
+          "start": 7.22,
+          "end": 7.48
+        },
+        {
+          "text": "and",
+          "start": 7.48,
+          "end": 7.7
+        },
+        {
+          "text": "sciences",
+          "start": 7.7,
+          "end": 8.16
+        },
+        {
+          "text": "necessarily",
+          "start": 8.16,
+          "end": 8.78
+        },
+        {
+          "text": "partake",
+          "start": 8.78,
+          "end": 9.22
+        },
+        {
+          "text": "of",
+          "start": 9.22,
+          "end": 9.56
+        },
+        {
+          "text": "them?",
+          "start": 9.56,
+          "end": 9.78
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 25,
+        "matched_words": 21
+      },
+      "match_ratio": 0.9130434782608695,
+      "rejection_reasons": [],
+      "seconds": 0.2243175357580185
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "761af863a93aef1aff99520177a8eaf92a999783565196ce81c09f937ad1921a",
+  "selected_reasons": []
+}

@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "61ebc7828127a9ba1e7272c5a7051f25d573921ea69b0cce3ce8874e47d127ee",
+  "attempts": [
+    {
+      "asr_seconds": 0.17338737100362778,
+      "alignment_seconds": 0.00011878460645675659,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I think that I should prefer to carry on the argument mainly on my own behalf.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I think that I should prefer to carry on the argument mainly on my own behalf.",
+          "start": 0.05,
+          "end": 4.19,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " think",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " that",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " I",
+              "start": 0.93,
+              "end": 1.09,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " should",
+              "start": 1.09,
+              "end": 1.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " prefer",
+              "start": 1.25,
+              "end": 1.59,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.59,
+              "end": 1.79,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " carry",
+              "start": 1.79,
+              "end": 1.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " on",
+              "start": 1.99,
+              "end": 2.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.19,
+              "end": 2.31,
+              "probability": 0.99609375
+            },
+            {
+              "text": " argument",
+              "start": 2.31,
+              "end": 2.71,
+              "probability": 0.96875
+            },
+            {
+              "text": " mainly",
+              "start": 2.71,
+              "end": 3.19,
+              "probability": 0.401123046875
+            },
+            {
+              "text": " on",
+              "start": 3.19,
+              "end": 3.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " my",
+              "start": 3.45,
+              "end": 3.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 3.59,
+              "end": 3.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " behalf.",
+              "start": 3.83,
+              "end": 4.19,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "think",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "that",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "I",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "raw": "should",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "raw": "prefer",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "raw": "to",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "raw": "carry",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "raw": "on",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "raw": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "raw": "argument",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "raw": "mainly",
+          "start": 2.71,
+          "end": 3.19
+        },
+        {
+          "raw": "on",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "raw": "my",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "raw": "own",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "raw": "behalf.",
+          "start": 3.83,
+          "end": 4.19
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "think",
+        "that",
+        "I",
+        "should",
+        "prefer",
+        "to",
+        "carry",
+        "on",
+        "the",
+        "argument",
+        "mainly",
+        "on",
+        "my",
+        "own",
+        "behalf."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "think",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "that",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "text": "I",
+          "start": 0.93,
+          "end": 1.09
+        },
+        {
+          "text": "should",
+          "start": 1.09,
+          "end": 1.25
+        },
+        {
+          "text": "prefer",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "text": "to",
+          "start": 1.59,
+          "end": 1.79
+        },
+        {
+          "text": "carry",
+          "start": 1.79,
+          "end": 1.99
+        },
+        {
+          "text": "on",
+          "start": 1.99,
+          "end": 2.19
+        },
+        {
+          "text": "the",
+          "start": 2.19,
+          "end": 2.31
+        },
+        {
+          "text": "argument",
+          "start": 2.31,
+          "end": 2.71
+        },
+        {
+          "text": "mainly",
+          "start": 2.71,
+          "end": 3.19
+        },
+        {
+          "text": "on",
+          "start": 3.19,
+          "end": 3.45
+        },
+        {
+          "text": "my",
+          "start": 3.45,
+          "end": 3.59
+        },
+        {
+          "text": "own",
+          "start": 3.59,
+          "end": 3.83
+        },
+        {
+          "text": "behalf.",
+          "start": 3.83,
+          "end": 4.19
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17356524616479874
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d40c755a2998bbab6a07be379c926b93fb51b0b7ff70a5e97314a18d1cc9d5bf",
+  "selected_reasons": []
+}

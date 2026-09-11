@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "db26bf8f553373cf5a8765213fef169b28f09b2998349f0f19ca486e7bbd1a70",
+  "attempts": [
+    {
+      "asr_seconds": 0.13746818900108337,
+      "alignment_seconds": 8.685141801834106e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Will he not also require natural aptitude for his calling?",
+        "hotwords": "Will"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Will he not also require natural aptitude for his calling?",
+          "start": 0.05,
+          "end": 3.37,
+          "words": [
+            {
+              "text": " Will",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " he",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.982421875
+            },
+            {
+              "text": " not",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " also",
+              "start": 0.77,
+              "end": 1.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " require",
+              "start": 1.15,
+              "end": 1.61,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " natural",
+              "start": 1.61,
+              "end": 2.09,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " aptitude",
+              "start": 2.09,
+              "end": 2.65,
+              "probability": 0.999755859375
+            },
+            {
+              "text": " for",
+              "start": 2.65,
+              "end": 2.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 2.89,
+              "end": 3.03,
+              "probability": 0.998046875
+            },
+            {
+              "text": " calling?",
+              "start": 3.03,
+              "end": 3.37,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Will",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "he",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "not",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "also",
+          "start": 0.77,
+          "end": 1.15
+        },
+        {
+          "raw": "require",
+          "start": 1.15,
+          "end": 1.61
+        },
+        {
+          "raw": "natural",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "raw": "aptitude",
+          "start": 2.09,
+          "end": 2.65
+        },
+        {
+          "raw": "for",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "raw": "his",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "raw": "calling?",
+          "start": 3.03,
+          "end": 3.37
+        }
+      ],
+      "expected_tokens": [
+        "Will",
+        "he",
+        "not",
+        "also",
+        "require",
+        "natural",
+        "aptitude",
+        "for",
+        "his",
+        "calling?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Will",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "he",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "not",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "also",
+          "start": 0.77,
+          "end": 1.15
+        },
+        {
+          "text": "require",
+          "start": 1.15,
+          "end": 1.61
+        },
+        {
+          "text": "natural",
+          "start": 1.61,
+          "end": 2.09
+        },
+        {
+          "text": "aptitude",
+          "start": 2.09,
+          "end": 2.65
+        },
+        {
+          "text": "for",
+          "start": 2.65,
+          "end": 2.89
+        },
+        {
+          "text": "his",
+          "start": 2.89,
+          "end": 3.03
+        },
+        {
+          "text": "calling?",
+          "start": 3.03,
+          "end": 3.37
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13759691268205643
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e8ebd9fee2dd5d0b5e240d1e54bf7ae4e232303ef2315fd330d9c98733b5a183",
+  "selected_reasons": []
+}

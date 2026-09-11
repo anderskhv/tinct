@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "5968dc1fe64ccff1a1abd964d4da5039f0c1369d2e8c4252fb8118e51736b563",
+  "attempts": [
+    {
+      "asr_seconds": 0.07206273823976517,
+      "alignment_seconds": 4.2416155338287354e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We may.",
+        "hotwords": "We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We may.",
+          "start": 0.02,
+          "end": 0.74,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.81640625
+            },
+            {
+              "text": " may.",
+              "start": 0.54,
+              "end": 0.74,
+              "probability": 0.8759765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "may.",
+          "start": 0.54,
+          "end": 0.74
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "may."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "may.",
+          "start": 0.54,
+          "end": 0.74
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0721203088760376
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b3ebb7729a84da9e64611a29c7d3858ce2be7bdf505ec26faa8b149c2c2f2013",
+  "selected_reasons": []
+}

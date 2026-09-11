@@ -1,0 +1,5958 @@
+{
+  "complete": true,
+  "signature": "f9aea4bc23f57b7ab3f020ff3d6c3c46f1f9291dbe158d2a4cdf2607f39c4ecd",
+  "attempts": [
+    {
+      "asr_seconds": 0.5635730028152466,
+      "alignment_seconds": 0.0005760863423347473,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, I said, and I do not believe that there were any such diseases in the days of Asclepius; and this I infer from the circumstance that the hero Eurypylus, after he has been wounded in Homer, drinks a posset of Pramnian wine well besprinkled with barley-meal and grated cheese, which are certainly inflammatory, and yet the sons of Asclepius who were at the Trojan war do not blame the damsel who gives him the drink, or rebuke Patroclus, who is treating his case.",
+        "hotwords": "Yes, I, Asclepius, Eurypylus, Homer, Pramnian, Trojan, Patroclus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, and I do not believe that there were any such diseases in the days of Asclepius,",
+          "start": 0.05,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.1280517578125
+            },
+            {
+              "text": " I",
+              "start": 0.79,
+              "end": 0.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said,",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " do",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " believe",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " there",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " any",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " diseases",
+              "start": 3.43,
+              "end": 3.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 3.83,
+              "end": 4.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " days",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Asclepius,",
+              "start": 4.59,
+              "end": 5.13,
+              "probability": 0.9552001953125
+            }
+          ]
+        },
+        {
+          "text": " and this I infer from the circumstance that the hero Eurypylus, after he has been wounded",
+          "start": 5.53,
+          "end": 10.41,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.53,
+              "end": 5.95,
+              "probability": 0.986328125
+            },
+            {
+              "text": " this",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 6.15,
+              "end": 6.47,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " infer",
+              "start": 6.47,
+              "end": 6.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 6.75,
+              "end": 6.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.97,
+              "end": 7.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " circumstance",
+              "start": 7.13,
+              "end": 7.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 7.63,
+              "end": 7.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 7.93,
+              "end": 8.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hero",
+              "start": 8.07,
+              "end": 8.39,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Eurypylus,",
+              "start": 8.39,
+              "end": 9.11,
+              "probability": 0.387005615234375
+            },
+            {
+              "text": " after",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 9.75,
+              "end": 9.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " has",
+              "start": 9.91,
+              "end": 9.97,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " been",
+              "start": 9.97,
+              "end": 10.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wounded",
+              "start": 10.11,
+              "end": 10.41,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " in Homer, drinks a posset of Pramnian wine well besprinkled with barley-meal and grated",
+          "start": 10.41,
+          "end": 15.33,
+          "words": [
+            {
+              "text": " in",
+              "start": 10.41,
+              "end": 10.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Homer,",
+              "start": 10.65,
+              "end": 10.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " drinks",
+              "start": 11.55,
+              "end": 11.73,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 11.73,
+              "end": 11.89,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " posset",
+              "start": 11.89,
+              "end": 12.19,
+              "probability": 0.45379638671875
+            },
+            {
+              "text": " of",
+              "start": 12.19,
+              "end": 12.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Pramnian",
+              "start": 12.37,
+              "end": 12.75,
+              "probability": 0.6268310546875
+            },
+            {
+              "text": " wine",
+              "start": 12.75,
+              "end": 13.11,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " well",
+              "start": 13.11,
+              "end": 13.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " besprinkled",
+              "start": 13.47,
+              "end": 14.05,
+              "probability": 0.967529296875
+            },
+            {
+              "text": " with",
+              "start": 14.05,
+              "end": 14.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " barley",
+              "start": 14.23,
+              "end": 14.53,
+              "probability": 0.9921875
+            },
+            {
+              "text": "-meal",
+              "start": 14.53,
+              "end": 14.81,
+              "probability": 0.6690673828125
+            },
+            {
+              "text": " and",
+              "start": 14.81,
+              "end": 15.01,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " grated",
+              "start": 15.01,
+              "end": 15.33,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " cheese, which are certainly inflammatory, and yet the sons of Asclepius who were at the",
+          "start": 15.33,
+          "end": 20.35,
+          "words": [
+            {
+              "text": " cheese,",
+              "start": 15.33,
+              "end": 15.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " which",
+              "start": 16.23,
+              "end": 16.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 16.45,
+              "end": 16.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " certainly",
+              "start": 16.59,
+              "end": 16.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " inflammatory,",
+              "start": 16.97,
+              "end": 17.53,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 18.25,
+              "end": 18.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yet",
+              "start": 18.49,
+              "end": 18.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 18.63,
+              "end": 18.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " sons",
+              "start": 18.83,
+              "end": 19.01,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " of",
+              "start": 19.01,
+              "end": 19.19,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Asclepius",
+              "start": 19.19,
+              "end": 19.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " who",
+              "start": 19.77,
+              "end": 19.97,
+              "probability": 0.8681640625
+            },
+            {
+              "text": " were",
+              "start": 19.97,
+              "end": 20.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 20.07,
+              "end": 20.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 20.19,
+              "end": 20.35,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Trojan war do not blame the damsel who gives him the drink, or rebuke Patroclus, who is",
+          "start": 20.35,
+          "end": 25.53,
+          "words": [
+            {
+              "text": " Trojan",
+              "start": 20.35,
+              "end": 20.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " war",
+              "start": 20.59,
+              "end": 20.91,
+              "probability": 0.118896484375
+            },
+            {
+              "text": " do",
+              "start": 20.91,
+              "end": 21.15,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " not",
+              "start": 21.15,
+              "end": 21.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " blame",
+              "start": 21.37,
+              "end": 21.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 21.61,
+              "end": 21.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " damsel",
+              "start": 21.81,
+              "end": 22.21,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " who",
+              "start": 22.21,
+              "end": 22.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gives",
+              "start": 22.41,
+              "end": 22.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 22.59,
+              "end": 22.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 22.75,
+              "end": 22.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " drink,",
+              "start": 22.91,
+              "end": 23.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 23.59,
+              "end": 23.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rebuke",
+              "start": 23.75,
+              "end": 24.07,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " Patroclus,",
+              "start": 24.07,
+              "end": 24.69,
+              "probability": 0.7620442708333334
+            },
+            {
+              "text": " who",
+              "start": 25.19,
+              "end": 25.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 25.39,
+              "end": 25.53,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " treating his case.",
+          "start": 25.53,
+          "end": 26.39,
+          "words": [
+            {
+              "text": " treating",
+              "start": 25.53,
+              "end": 25.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 25.79,
+              "end": 26.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " case.",
+              "start": 26.03,
+              "end": 26.39,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "raw": "said,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "I",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "do",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "not",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "believe",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "raw": "that",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "there",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "were",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "any",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "such",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "diseases",
+          "start": 3.43,
+          "end": 3.83
+        },
+        {
+          "raw": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "raw": "days",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "Asclepius,",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "raw": "this",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "I",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "raw": "infer",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "raw": "from",
+          "start": 6.75,
+          "end": 6.97
+        },
+        {
+          "raw": "the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "raw": "circumstance",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "raw": "that",
+          "start": 7.63,
+          "end": 7.93
+        },
+        {
+          "raw": "the",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "raw": "hero",
+          "start": 8.07,
+          "end": 8.39
+        },
+        {
+          "raw": "Eurypylus,",
+          "start": 8.39,
+          "end": 9.11
+        },
+        {
+          "raw": "after",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "he",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "raw": "has",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "raw": "been",
+          "start": 9.97,
+          "end": 10.11
+        },
+        {
+          "raw": "wounded",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "raw": "in",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "raw": "Homer,",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "raw": "drinks",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "raw": "a",
+          "start": 11.73,
+          "end": 11.89
+        },
+        {
+          "raw": "posset",
+          "start": 11.89,
+          "end": 12.19
+        },
+        {
+          "raw": "of",
+          "start": 12.19,
+          "end": 12.37
+        },
+        {
+          "raw": "Pramnian",
+          "start": 12.37,
+          "end": 12.75
+        },
+        {
+          "raw": "wine",
+          "start": 12.75,
+          "end": 13.11
+        },
+        {
+          "raw": "well",
+          "start": 13.11,
+          "end": 13.47
+        },
+        {
+          "raw": "besprinkled",
+          "start": 13.47,
+          "end": 14.05
+        },
+        {
+          "raw": "with",
+          "start": 14.05,
+          "end": 14.23
+        },
+        {
+          "raw": "barley",
+          "start": 14.23,
+          "end": 14.53
+        },
+        {
+          "raw": "-meal",
+          "start": 14.53,
+          "end": 14.81
+        },
+        {
+          "raw": "and",
+          "start": 14.81,
+          "end": 15.01
+        },
+        {
+          "raw": "grated",
+          "start": 15.01,
+          "end": 15.33
+        },
+        {
+          "raw": "cheese,",
+          "start": 15.33,
+          "end": 15.65
+        },
+        {
+          "raw": "which",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "raw": "are",
+          "start": 16.45,
+          "end": 16.59
+        },
+        {
+          "raw": "certainly",
+          "start": 16.59,
+          "end": 16.97
+        },
+        {
+          "raw": "inflammatory,",
+          "start": 16.97,
+          "end": 17.53
+        },
+        {
+          "raw": "and",
+          "start": 18.25,
+          "end": 18.49
+        },
+        {
+          "raw": "yet",
+          "start": 18.49,
+          "end": 18.63
+        },
+        {
+          "raw": "the",
+          "start": 18.63,
+          "end": 18.83
+        },
+        {
+          "raw": "sons",
+          "start": 18.83,
+          "end": 19.01
+        },
+        {
+          "raw": "of",
+          "start": 19.01,
+          "end": 19.19
+        },
+        {
+          "raw": "Asclepius",
+          "start": 19.19,
+          "end": 19.77
+        },
+        {
+          "raw": "who",
+          "start": 19.77,
+          "end": 19.97
+        },
+        {
+          "raw": "were",
+          "start": 19.97,
+          "end": 20.07
+        },
+        {
+          "raw": "at",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "raw": "the",
+          "start": 20.19,
+          "end": 20.35
+        },
+        {
+          "raw": "Trojan",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "raw": "war",
+          "start": 20.59,
+          "end": 20.91
+        },
+        {
+          "raw": "do",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "raw": "not",
+          "start": 21.15,
+          "end": 21.37
+        },
+        {
+          "raw": "blame",
+          "start": 21.37,
+          "end": 21.61
+        },
+        {
+          "raw": "the",
+          "start": 21.61,
+          "end": 21.81
+        },
+        {
+          "raw": "damsel",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "raw": "who",
+          "start": 22.21,
+          "end": 22.41
+        },
+        {
+          "raw": "gives",
+          "start": 22.41,
+          "end": 22.59
+        },
+        {
+          "raw": "him",
+          "start": 22.59,
+          "end": 22.75
+        },
+        {
+          "raw": "the",
+          "start": 22.75,
+          "end": 22.91
+        },
+        {
+          "raw": "drink,",
+          "start": 22.91,
+          "end": 23.17
+        },
+        {
+          "raw": "or",
+          "start": 23.59,
+          "end": 23.75
+        },
+        {
+          "raw": "rebuke",
+          "start": 23.75,
+          "end": 24.07
+        },
+        {
+          "raw": "Patroclus,",
+          "start": 24.07,
+          "end": 24.69
+        },
+        {
+          "raw": "who",
+          "start": 25.19,
+          "end": 25.39
+        },
+        {
+          "raw": "is",
+          "start": 25.39,
+          "end": 25.53
+        },
+        {
+          "raw": "treating",
+          "start": 25.53,
+          "end": 25.79
+        },
+        {
+          "raw": "his",
+          "start": 25.79,
+          "end": 26.03
+        },
+        {
+          "raw": "case.",
+          "start": 26.03,
+          "end": 26.39
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said,",
+        "and",
+        "I",
+        "do",
+        "not",
+        "believe",
+        "that",
+        "there",
+        "were",
+        "any",
+        "such",
+        "diseases",
+        "in",
+        "the",
+        "days",
+        "of",
+        "Asclepius;",
+        "and",
+        "this",
+        "I",
+        "infer",
+        "from",
+        "the",
+        "circumstance",
+        "that",
+        "the",
+        "hero",
+        "Eurypylus,",
+        "after",
+        "he",
+        "has",
+        "been",
+        "wounded",
+        "in",
+        "Homer,",
+        "drinks",
+        "a",
+        "posset",
+        "of",
+        "Pramnian",
+        "wine",
+        "well",
+        "besprinkled",
+        "with",
+        "barley-meal",
+        "and",
+        "grated",
+        "cheese,",
+        "which",
+        "are",
+        "certainly",
+        "inflammatory,",
+        "and",
+        "yet",
+        "the",
+        "sons",
+        "of",
+        "Asclepius",
+        "who",
+        "were",
+        "at",
+        "the",
+        "Trojan",
+        "war",
+        "do",
+        "not",
+        "blame",
+        "the",
+        "damsel",
+        "who",
+        "gives",
+        "him",
+        "the",
+        "drink,",
+        "or",
+        "rebuke",
+        "Patroclus,",
+        "who",
+        "is",
+        "treating",
+        "his",
+        "case."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          46,
+          0,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "equal",
+          47,
+          84,
+          48,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "text": "said,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "I",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "do",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "not",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "believe",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "text": "that",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "there",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "were",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "any",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "such",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "diseases",
+          "start": 3.43,
+          "end": 3.83
+        },
+        {
+          "text": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "text": "days",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "Asclepius;",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "text": "and",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "text": "this",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "text": "I",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "text": "infer",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "text": "from",
+          "start": 6.75,
+          "end": 6.97
+        },
+        {
+          "text": "the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "text": "circumstance",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "text": "that",
+          "start": 7.63,
+          "end": 7.93
+        },
+        {
+          "text": "the",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "text": "hero",
+          "start": 8.07,
+          "end": 8.39
+        },
+        {
+          "text": "Eurypylus,",
+          "start": 8.39,
+          "end": 9.11
+        },
+        {
+          "text": "after",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "he",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "text": "has",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "text": "been",
+          "start": 9.97,
+          "end": 10.11
+        },
+        {
+          "text": "wounded",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "text": "in",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "text": "Homer,",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "text": "drinks",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "text": "a",
+          "start": 11.73,
+          "end": 11.89
+        },
+        {
+          "text": "posset",
+          "start": 11.89,
+          "end": 12.19
+        },
+        {
+          "text": "of",
+          "start": 12.19,
+          "end": 12.37
+        },
+        {
+          "text": "Pramnian",
+          "start": 12.37,
+          "end": 12.75
+        },
+        {
+          "text": "wine",
+          "start": 12.75,
+          "end": 13.11
+        },
+        {
+          "text": "well",
+          "start": 13.11,
+          "end": 13.47
+        },
+        {
+          "text": "besprinkled",
+          "start": 13.47,
+          "end": 14.05
+        },
+        {
+          "text": "with",
+          "start": 14.05,
+          "end": 14.23
+        },
+        {
+          "text": "barley-meal",
+          "start": 14.23,
+          "end": 14.52
+        },
+        {
+          "text": "and",
+          "start": 14.81,
+          "end": 15.01
+        },
+        {
+          "text": "grated",
+          "start": 15.01,
+          "end": 15.33
+        },
+        {
+          "text": "cheese,",
+          "start": 15.33,
+          "end": 15.65
+        },
+        {
+          "text": "which",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "text": "are",
+          "start": 16.45,
+          "end": 16.59
+        },
+        {
+          "text": "certainly",
+          "start": 16.59,
+          "end": 16.97
+        },
+        {
+          "text": "inflammatory,",
+          "start": 16.97,
+          "end": 17.53
+        },
+        {
+          "text": "and",
+          "start": 18.25,
+          "end": 18.49
+        },
+        {
+          "text": "yet",
+          "start": 18.49,
+          "end": 18.63
+        },
+        {
+          "text": "the",
+          "start": 18.63,
+          "end": 18.83
+        },
+        {
+          "text": "sons",
+          "start": 18.83,
+          "end": 19.01
+        },
+        {
+          "text": "of",
+          "start": 19.01,
+          "end": 19.19
+        },
+        {
+          "text": "Asclepius",
+          "start": 19.19,
+          "end": 19.77
+        },
+        {
+          "text": "who",
+          "start": 19.77,
+          "end": 19.97
+        },
+        {
+          "text": "were",
+          "start": 19.97,
+          "end": 20.07
+        },
+        {
+          "text": "at",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "text": "the",
+          "start": 20.19,
+          "end": 20.35
+        },
+        {
+          "text": "Trojan",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "text": "war",
+          "start": 20.59,
+          "end": 20.91
+        },
+        {
+          "text": "do",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "text": "not",
+          "start": 21.15,
+          "end": 21.37
+        },
+        {
+          "text": "blame",
+          "start": 21.37,
+          "end": 21.61
+        },
+        {
+          "text": "the",
+          "start": 21.61,
+          "end": 21.81
+        },
+        {
+          "text": "damsel",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "text": "who",
+          "start": 22.21,
+          "end": 22.41
+        },
+        {
+          "text": "gives",
+          "start": 22.41,
+          "end": 22.59
+        },
+        {
+          "text": "him",
+          "start": 22.59,
+          "end": 22.75
+        },
+        {
+          "text": "the",
+          "start": 22.75,
+          "end": 22.91
+        },
+        {
+          "text": "drink,",
+          "start": 22.91,
+          "end": 23.17
+        },
+        {
+          "text": "or",
+          "start": 23.59,
+          "end": 23.75
+        },
+        {
+          "text": "rebuke",
+          "start": 23.75,
+          "end": 24.07
+        },
+        {
+          "text": "Patroclus,",
+          "start": 24.07,
+          "end": 24.69
+        },
+        {
+          "text": "who",
+          "start": 25.19,
+          "end": 25.39
+        },
+        {
+          "text": "is",
+          "start": 25.39,
+          "end": 25.53
+        },
+        {
+          "text": "treating",
+          "start": 25.53,
+          "end": 25.79
+        },
+        {
+          "text": "his",
+          "start": 25.79,
+          "end": 26.03
+        },
+        {
+          "text": "case.",
+          "start": 26.03,
+          "end": 26.39
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 85,
+        "matched_words": 83
+      },
+      "match_ratio": 0.9880952380952381,
+      "rejection_reasons": [],
+      "seconds": 0.5644892528653145
+    },
+    {
+      "asr_seconds": 0.6298356577754021,
+      "alignment_seconds": 0.00048220157623291016,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Yes, I, Asclepius, Eurypylus, Homer, Pramnian, Trojan, Patroclus"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, and I do not believe that there were any such diseases in the days of Asclepius,",
+          "start": 0.05,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.1280517578125
+            },
+            {
+              "text": " I",
+              "start": 0.79,
+              "end": 0.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said,",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " do",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " believe",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " there",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " any",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " diseases",
+              "start": 3.43,
+              "end": 3.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 3.83,
+              "end": 4.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " days",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Asclepius,",
+              "start": 4.59,
+              "end": 5.13,
+              "probability": 0.9552001953125
+            }
+          ]
+        },
+        {
+          "text": " and this I infer from the circumstance that the hero Eurypylus, after he has been wounded",
+          "start": 5.53,
+          "end": 10.41,
+          "words": [
+            {
+              "text": " and",
+              "start": 5.53,
+              "end": 5.95,
+              "probability": 0.986328125
+            },
+            {
+              "text": " this",
+              "start": 5.95,
+              "end": 6.15,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " I",
+              "start": 6.15,
+              "end": 6.47,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " infer",
+              "start": 6.47,
+              "end": 6.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 6.75,
+              "end": 6.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.97,
+              "end": 7.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " circumstance",
+              "start": 7.13,
+              "end": 7.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 7.63,
+              "end": 7.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 7.93,
+              "end": 8.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " hero",
+              "start": 8.07,
+              "end": 8.39,
+              "probability": 0.970703125
+            },
+            {
+              "text": " Eurypylus,",
+              "start": 8.39,
+              "end": 9.11,
+              "probability": 0.387005615234375
+            },
+            {
+              "text": " after",
+              "start": 9.57,
+              "end": 9.75,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 9.75,
+              "end": 9.91,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " has",
+              "start": 9.91,
+              "end": 9.97,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " been",
+              "start": 9.97,
+              "end": 10.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wounded",
+              "start": 10.11,
+              "end": 10.41,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " in Homer, drinks a paucet of Pramnian wine well besprinkled with barley-meal and grated",
+          "start": 10.41,
+          "end": 15.33,
+          "words": [
+            {
+              "text": " in",
+              "start": 10.41,
+              "end": 10.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " Homer,",
+              "start": 10.65,
+              "end": 10.91,
+              "probability": 0.9921875
+            },
+            {
+              "text": " drinks",
+              "start": 11.55,
+              "end": 11.73,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " a",
+              "start": 11.73,
+              "end": 11.89,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " paucet",
+              "start": 11.89,
+              "end": 12.19,
+              "probability": 0.6551106770833334
+            },
+            {
+              "text": " of",
+              "start": 12.19,
+              "end": 12.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Pramnian",
+              "start": 12.45,
+              "end": 12.73,
+              "probability": 0.64453125
+            },
+            {
+              "text": " wine",
+              "start": 12.73,
+              "end": 13.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " well",
+              "start": 13.13,
+              "end": 13.47,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " besprinkled",
+              "start": 13.47,
+              "end": 14.05,
+              "probability": 0.965087890625
+            },
+            {
+              "text": " with",
+              "start": 14.05,
+              "end": 14.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " barley",
+              "start": 14.21,
+              "end": 14.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-meal",
+              "start": 14.53,
+              "end": 14.81,
+              "probability": 0.68359375
+            },
+            {
+              "text": " and",
+              "start": 14.81,
+              "end": 15.01,
+              "probability": 0.982421875
+            },
+            {
+              "text": " grated",
+              "start": 15.01,
+              "end": 15.33,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " cheese, which are certainly inflammatory, and yet the sons of Asclepius who were at the",
+          "start": 15.33,
+          "end": 20.35,
+          "words": [
+            {
+              "text": " cheese,",
+              "start": 15.33,
+              "end": 15.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " which",
+              "start": 16.23,
+              "end": 16.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " are",
+              "start": 16.45,
+              "end": 16.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " certainly",
+              "start": 16.59,
+              "end": 16.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " inflammatory,",
+              "start": 16.97,
+              "end": 17.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 18.25,
+              "end": 18.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " yet",
+              "start": 18.49,
+              "end": 18.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 18.63,
+              "end": 18.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sons",
+              "start": 18.83,
+              "end": 19.01,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " of",
+              "start": 19.01,
+              "end": 19.21,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Asclepius",
+              "start": 19.21,
+              "end": 19.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " who",
+              "start": 19.77,
+              "end": 19.97,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " were",
+              "start": 19.97,
+              "end": 20.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 20.07,
+              "end": 20.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 20.19,
+              "end": 20.35,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " Trojan War do not blame the damsel who gives him the drink, or rebuke Patroclus, who is",
+          "start": 20.35,
+          "end": 25.63,
+          "words": [
+            {
+              "text": " Trojan",
+              "start": 20.35,
+              "end": 20.59,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " War",
+              "start": 20.59,
+              "end": 20.91,
+              "probability": 0.861328125
+            },
+            {
+              "text": " do",
+              "start": 20.91,
+              "end": 21.15,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 21.15,
+              "end": 21.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " blame",
+              "start": 21.37,
+              "end": 21.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 21.61,
+              "end": 21.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " damsel",
+              "start": 21.81,
+              "end": 22.21,
+              "probability": 0.954833984375
+            },
+            {
+              "text": " who",
+              "start": 22.21,
+              "end": 22.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " gives",
+              "start": 22.41,
+              "end": 22.59,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " him",
+              "start": 22.59,
+              "end": 22.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 22.75,
+              "end": 22.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " drink,",
+              "start": 22.91,
+              "end": 23.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 23.57,
+              "end": 23.75,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rebuke",
+              "start": 23.75,
+              "end": 24.07,
+              "probability": 0.515625
+            },
+            {
+              "text": " Patroclus,",
+              "start": 24.07,
+              "end": 24.69,
+              "probability": 0.7645670572916666
+            },
+            {
+              "text": " who",
+              "start": 25.19,
+              "end": 25.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 25.39,
+              "end": 25.63,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " treating his case.",
+          "start": 25.63,
+          "end": 26.31,
+          "words": [
+            {
+              "text": " treating",
+              "start": 25.63,
+              "end": 25.83,
+              "probability": 0.79052734375
+            },
+            {
+              "text": " his",
+              "start": 25.83,
+              "end": 26.03,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " case.",
+              "start": 26.03,
+              "end": 26.31,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "raw": "said,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "I",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "do",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "not",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "believe",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "raw": "that",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "there",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "were",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "any",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "such",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "diseases",
+          "start": 3.43,
+          "end": 3.83
+        },
+        {
+          "raw": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "raw": "days",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "Asclepius,",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "raw": "and",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "raw": "this",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "raw": "I",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "raw": "infer",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "raw": "from",
+          "start": 6.75,
+          "end": 6.97
+        },
+        {
+          "raw": "the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "raw": "circumstance",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "raw": "that",
+          "start": 7.63,
+          "end": 7.93
+        },
+        {
+          "raw": "the",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "raw": "hero",
+          "start": 8.07,
+          "end": 8.39
+        },
+        {
+          "raw": "Eurypylus,",
+          "start": 8.39,
+          "end": 9.11
+        },
+        {
+          "raw": "after",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "raw": "he",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "raw": "has",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "raw": "been",
+          "start": 9.97,
+          "end": 10.11
+        },
+        {
+          "raw": "wounded",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "raw": "in",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "raw": "Homer,",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "raw": "drinks",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "raw": "a",
+          "start": 11.73,
+          "end": 11.89
+        },
+        {
+          "raw": "paucet",
+          "start": 11.89,
+          "end": 12.19
+        },
+        {
+          "raw": "of",
+          "start": 12.19,
+          "end": 12.45
+        },
+        {
+          "raw": "Pramnian",
+          "start": 12.45,
+          "end": 12.73
+        },
+        {
+          "raw": "wine",
+          "start": 12.73,
+          "end": 13.13
+        },
+        {
+          "raw": "well",
+          "start": 13.13,
+          "end": 13.47
+        },
+        {
+          "raw": "besprinkled",
+          "start": 13.47,
+          "end": 14.05
+        },
+        {
+          "raw": "with",
+          "start": 14.05,
+          "end": 14.21
+        },
+        {
+          "raw": "barley",
+          "start": 14.21,
+          "end": 14.53
+        },
+        {
+          "raw": "-meal",
+          "start": 14.53,
+          "end": 14.81
+        },
+        {
+          "raw": "and",
+          "start": 14.81,
+          "end": 15.01
+        },
+        {
+          "raw": "grated",
+          "start": 15.01,
+          "end": 15.33
+        },
+        {
+          "raw": "cheese,",
+          "start": 15.33,
+          "end": 15.65
+        },
+        {
+          "raw": "which",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "raw": "are",
+          "start": 16.45,
+          "end": 16.59
+        },
+        {
+          "raw": "certainly",
+          "start": 16.59,
+          "end": 16.97
+        },
+        {
+          "raw": "inflammatory,",
+          "start": 16.97,
+          "end": 17.51
+        },
+        {
+          "raw": "and",
+          "start": 18.25,
+          "end": 18.49
+        },
+        {
+          "raw": "yet",
+          "start": 18.49,
+          "end": 18.63
+        },
+        {
+          "raw": "the",
+          "start": 18.63,
+          "end": 18.83
+        },
+        {
+          "raw": "sons",
+          "start": 18.83,
+          "end": 19.01
+        },
+        {
+          "raw": "of",
+          "start": 19.01,
+          "end": 19.21
+        },
+        {
+          "raw": "Asclepius",
+          "start": 19.21,
+          "end": 19.77
+        },
+        {
+          "raw": "who",
+          "start": 19.77,
+          "end": 19.97
+        },
+        {
+          "raw": "were",
+          "start": 19.97,
+          "end": 20.07
+        },
+        {
+          "raw": "at",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "raw": "the",
+          "start": 20.19,
+          "end": 20.35
+        },
+        {
+          "raw": "Trojan",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "raw": "War",
+          "start": 20.59,
+          "end": 20.91
+        },
+        {
+          "raw": "do",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "raw": "not",
+          "start": 21.15,
+          "end": 21.37
+        },
+        {
+          "raw": "blame",
+          "start": 21.37,
+          "end": 21.61
+        },
+        {
+          "raw": "the",
+          "start": 21.61,
+          "end": 21.81
+        },
+        {
+          "raw": "damsel",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "raw": "who",
+          "start": 22.21,
+          "end": 22.41
+        },
+        {
+          "raw": "gives",
+          "start": 22.41,
+          "end": 22.59
+        },
+        {
+          "raw": "him",
+          "start": 22.59,
+          "end": 22.75
+        },
+        {
+          "raw": "the",
+          "start": 22.75,
+          "end": 22.91
+        },
+        {
+          "raw": "drink,",
+          "start": 22.91,
+          "end": 23.17
+        },
+        {
+          "raw": "or",
+          "start": 23.57,
+          "end": 23.75
+        },
+        {
+          "raw": "rebuke",
+          "start": 23.75,
+          "end": 24.07
+        },
+        {
+          "raw": "Patroclus,",
+          "start": 24.07,
+          "end": 24.69
+        },
+        {
+          "raw": "who",
+          "start": 25.19,
+          "end": 25.39
+        },
+        {
+          "raw": "is",
+          "start": 25.39,
+          "end": 25.63
+        },
+        {
+          "raw": "treating",
+          "start": 25.63,
+          "end": 25.83
+        },
+        {
+          "raw": "his",
+          "start": 25.83,
+          "end": 26.03
+        },
+        {
+          "raw": "case.",
+          "start": 26.03,
+          "end": 26.31
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said,",
+        "and",
+        "I",
+        "do",
+        "not",
+        "believe",
+        "that",
+        "there",
+        "were",
+        "any",
+        "such",
+        "diseases",
+        "in",
+        "the",
+        "days",
+        "of",
+        "Asclepius;",
+        "and",
+        "this",
+        "I",
+        "infer",
+        "from",
+        "the",
+        "circumstance",
+        "that",
+        "the",
+        "hero",
+        "Eurypylus,",
+        "after",
+        "he",
+        "has",
+        "been",
+        "wounded",
+        "in",
+        "Homer,",
+        "drinks",
+        "a",
+        "posset",
+        "of",
+        "Pramnian",
+        "wine",
+        "well",
+        "besprinkled",
+        "with",
+        "barley-meal",
+        "and",
+        "grated",
+        "cheese,",
+        "which",
+        "are",
+        "certainly",
+        "inflammatory,",
+        "and",
+        "yet",
+        "the",
+        "sons",
+        "of",
+        "Asclepius",
+        "who",
+        "were",
+        "at",
+        "the",
+        "Trojan",
+        "war",
+        "do",
+        "not",
+        "blame",
+        "the",
+        "damsel",
+        "who",
+        "gives",
+        "him",
+        "the",
+        "drink,",
+        "or",
+        "rebuke",
+        "Patroclus,",
+        "who",
+        "is",
+        "treating",
+        "his",
+        "case."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          39,
+          0,
+          39
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "equal",
+          40,
+          46,
+          40,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "equal",
+          47,
+          84,
+          48,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "text": "said,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "I",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "do",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "not",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "believe",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "text": "that",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "there",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "were",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "any",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "such",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "diseases",
+          "start": 3.43,
+          "end": 3.83
+        },
+        {
+          "text": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "text": "days",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "Asclepius;",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "text": "and",
+          "start": 5.53,
+          "end": 5.95
+        },
+        {
+          "text": "this",
+          "start": 5.95,
+          "end": 6.15
+        },
+        {
+          "text": "I",
+          "start": 6.15,
+          "end": 6.47
+        },
+        {
+          "text": "infer",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "text": "from",
+          "start": 6.75,
+          "end": 6.97
+        },
+        {
+          "text": "the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "text": "circumstance",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "text": "that",
+          "start": 7.63,
+          "end": 7.93
+        },
+        {
+          "text": "the",
+          "start": 7.93,
+          "end": 8.07
+        },
+        {
+          "text": "hero",
+          "start": 8.07,
+          "end": 8.39
+        },
+        {
+          "text": "Eurypylus,",
+          "start": 8.39,
+          "end": 9.11
+        },
+        {
+          "text": "after",
+          "start": 9.57,
+          "end": 9.75
+        },
+        {
+          "text": "he",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "text": "has",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "text": "been",
+          "start": 9.97,
+          "end": 10.11
+        },
+        {
+          "text": "wounded",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "text": "in",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "text": "Homer,",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "text": "drinks",
+          "start": 11.55,
+          "end": 11.73
+        },
+        {
+          "text": "a",
+          "start": 11.73,
+          "end": 11.89
+        },
+        {
+          "text": "posset",
+          "start": 11.89,
+          "end": 12.04
+        },
+        {
+          "text": "of",
+          "start": 12.19,
+          "end": 12.45
+        },
+        {
+          "text": "Pramnian",
+          "start": 12.45,
+          "end": 12.73
+        },
+        {
+          "text": "wine",
+          "start": 12.73,
+          "end": 13.13
+        },
+        {
+          "text": "well",
+          "start": 13.13,
+          "end": 13.47
+        },
+        {
+          "text": "besprinkled",
+          "start": 13.47,
+          "end": 14.05
+        },
+        {
+          "text": "with",
+          "start": 14.05,
+          "end": 14.21
+        },
+        {
+          "text": "barley-meal",
+          "start": 14.21,
+          "end": 14.51
+        },
+        {
+          "text": "and",
+          "start": 14.81,
+          "end": 15.01
+        },
+        {
+          "text": "grated",
+          "start": 15.01,
+          "end": 15.33
+        },
+        {
+          "text": "cheese,",
+          "start": 15.33,
+          "end": 15.65
+        },
+        {
+          "text": "which",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "text": "are",
+          "start": 16.45,
+          "end": 16.59
+        },
+        {
+          "text": "certainly",
+          "start": 16.59,
+          "end": 16.97
+        },
+        {
+          "text": "inflammatory,",
+          "start": 16.97,
+          "end": 17.51
+        },
+        {
+          "text": "and",
+          "start": 18.25,
+          "end": 18.49
+        },
+        {
+          "text": "yet",
+          "start": 18.49,
+          "end": 18.63
+        },
+        {
+          "text": "the",
+          "start": 18.63,
+          "end": 18.83
+        },
+        {
+          "text": "sons",
+          "start": 18.83,
+          "end": 19.01
+        },
+        {
+          "text": "of",
+          "start": 19.01,
+          "end": 19.21
+        },
+        {
+          "text": "Asclepius",
+          "start": 19.21,
+          "end": 19.77
+        },
+        {
+          "text": "who",
+          "start": 19.77,
+          "end": 19.97
+        },
+        {
+          "text": "were",
+          "start": 19.97,
+          "end": 20.07
+        },
+        {
+          "text": "at",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "text": "the",
+          "start": 20.19,
+          "end": 20.35
+        },
+        {
+          "text": "Trojan",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "text": "war",
+          "start": 20.59,
+          "end": 20.91
+        },
+        {
+          "text": "do",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "text": "not",
+          "start": 21.15,
+          "end": 21.37
+        },
+        {
+          "text": "blame",
+          "start": 21.37,
+          "end": 21.61
+        },
+        {
+          "text": "the",
+          "start": 21.61,
+          "end": 21.81
+        },
+        {
+          "text": "damsel",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "text": "who",
+          "start": 22.21,
+          "end": 22.41
+        },
+        {
+          "text": "gives",
+          "start": 22.41,
+          "end": 22.59
+        },
+        {
+          "text": "him",
+          "start": 22.59,
+          "end": 22.75
+        },
+        {
+          "text": "the",
+          "start": 22.75,
+          "end": 22.91
+        },
+        {
+          "text": "drink,",
+          "start": 22.91,
+          "end": 23.17
+        },
+        {
+          "text": "or",
+          "start": 23.57,
+          "end": 23.75
+        },
+        {
+          "text": "rebuke",
+          "start": 23.75,
+          "end": 24.07
+        },
+        {
+          "text": "Patroclus,",
+          "start": 24.07,
+          "end": 24.69
+        },
+        {
+          "text": "who",
+          "start": 25.19,
+          "end": 25.39
+        },
+        {
+          "text": "is",
+          "start": 25.39,
+          "end": 25.63
+        },
+        {
+          "text": "treating",
+          "start": 25.63,
+          "end": 25.83
+        },
+        {
+          "text": "his",
+          "start": 25.83,
+          "end": 26.03
+        },
+        {
+          "text": "case.",
+          "start": 26.03,
+          "end": 26.31
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 85,
+        "matched_words": 82
+      },
+      "match_ratio": 0.9761904761904762,
+      "rejection_reasons": [],
+      "seconds": 0.6305846348404884
+    },
+    {
+      "asr_seconds": 0.6106784790754318,
+      "alignment_seconds": 0.0006169751286506653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I said, and I do not believe that there were any such diseases in the days of Asclepius.",
+          "start": 0.05,
+          "end": 5.13,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.1280517578125
+            },
+            {
+              "text": " I",
+              "start": 0.79,
+              "end": 0.95,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " said,",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 1.57,
+              "end": 1.85,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " I",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " do",
+              "start": 1.97,
+              "end": 2.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 2.07,
+              "end": 2.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " believe",
+              "start": 2.27,
+              "end": 2.57,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " that",
+              "start": 2.57,
+              "end": 2.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " there",
+              "start": 2.79,
+              "end": 2.93,
+              "probability": 0.99609375
+            },
+            {
+              "text": " were",
+              "start": 2.93,
+              "end": 3.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " any",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " such",
+              "start": 3.23,
+              "end": 3.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " diseases",
+              "start": 3.43,
+              "end": 3.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " in",
+              "start": 3.83,
+              "end": 4.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " the",
+              "start": 4.15,
+              "end": 4.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " days",
+              "start": 4.23,
+              "end": 4.41,
+              "probability": 0.93115234375
+            },
+            {
+              "text": " of",
+              "start": 4.41,
+              "end": 4.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Asclepius.",
+              "start": 4.59,
+              "end": 5.13,
+              "probability": 0.9552001953125
+            }
+          ]
+        },
+        {
+          "text": " And this I infer from the circumstance that the hero Uropilis, after he has been wounded",
+          "start": 5.73,
+          "end": 10.41,
+          "words": [
+            {
+              "text": " And",
+              "start": 5.73,
+              "end": 5.95,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " this",
+              "start": 5.95,
+              "end": 6.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 6.13,
+              "end": 6.47,
+              "probability": 0.56640625
+            },
+            {
+              "text": " infer",
+              "start": 6.47,
+              "end": 6.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " from",
+              "start": 6.75,
+              "end": 6.97,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 6.97,
+              "end": 7.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " circumstance",
+              "start": 7.13,
+              "end": 7.63,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 7.63,
+              "end": 7.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 7.95,
+              "end": 8.07,
+              "probability": 0.990234375
+            },
+            {
+              "text": " hero",
+              "start": 8.07,
+              "end": 8.39,
+              "probability": 0.97265625
+            },
+            {
+              "text": " Uropilis,",
+              "start": 8.39,
+              "end": 9.13,
+              "probability": 0.56927490234375
+            },
+            {
+              "text": " after",
+              "start": 9.47,
+              "end": 9.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 9.75,
+              "end": 9.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 9.91,
+              "end": 9.97,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " been",
+              "start": 9.97,
+              "end": 10.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " wounded",
+              "start": 10.11,
+              "end": 10.41,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " in Homer, drinks a paucet of Pramnian wine well besprinkled with barley-meal and grated",
+          "start": 10.41,
+          "end": 15.33,
+          "words": [
+            {
+              "text": " in",
+              "start": 10.41,
+              "end": 10.65,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " Homer,",
+              "start": 10.65,
+              "end": 10.91,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " drinks",
+              "start": 11.57,
+              "end": 11.73,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " a",
+              "start": 11.73,
+              "end": 11.89,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " paucet",
+              "start": 11.89,
+              "end": 12.19,
+              "probability": 0.652587890625
+            },
+            {
+              "text": " of",
+              "start": 12.19,
+              "end": 12.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Pramnian",
+              "start": 12.45,
+              "end": 12.73,
+              "probability": 0.6350504557291666
+            },
+            {
+              "text": " wine",
+              "start": 12.73,
+              "end": 13.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " well",
+              "start": 13.13,
+              "end": 13.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " besprinkled",
+              "start": 13.47,
+              "end": 14.05,
+              "probability": 0.9659423828125
+            },
+            {
+              "text": " with",
+              "start": 14.05,
+              "end": 14.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " barley",
+              "start": 14.21,
+              "end": 14.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": "-meal",
+              "start": 14.53,
+              "end": 14.81,
+              "probability": 0.6373291015625
+            },
+            {
+              "text": " and",
+              "start": 14.81,
+              "end": 15.01,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " grated",
+              "start": 15.01,
+              "end": 15.33,
+              "probability": 0.9921875
+            }
+          ]
+        },
+        {
+          "text": " cheese, which are certainly inflammatory.",
+          "start": 15.33,
+          "end": 17.51,
+          "words": [
+            {
+              "text": " cheese,",
+              "start": 15.33,
+              "end": 15.65,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " which",
+              "start": 16.23,
+              "end": 16.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 16.45,
+              "end": 16.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " certainly",
+              "start": 16.59,
+              "end": 16.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " inflammatory.",
+              "start": 16.97,
+              "end": 17.51,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " And yet the sons of Asclepius who were at the Trojan War do not blame the damsel who",
+          "start": 18.35,
+          "end": 22.41,
+          "words": [
+            {
+              "text": " And",
+              "start": 18.35,
+              "end": 18.51,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " yet",
+              "start": 18.51,
+              "end": 18.63,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 18.63,
+              "end": 18.83,
+              "probability": 0.916015625
+            },
+            {
+              "text": " sons",
+              "start": 18.83,
+              "end": 19.01,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " of",
+              "start": 19.01,
+              "end": 19.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Asclepius",
+              "start": 19.19,
+              "end": 19.77,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " who",
+              "start": 19.77,
+              "end": 19.97,
+              "probability": 0.69677734375
+            },
+            {
+              "text": " were",
+              "start": 19.97,
+              "end": 20.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " at",
+              "start": 20.07,
+              "end": 20.19,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 20.19,
+              "end": 20.37,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Trojan",
+              "start": 20.37,
+              "end": 20.59,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " War",
+              "start": 20.59,
+              "end": 20.91,
+              "probability": 0.892578125
+            },
+            {
+              "text": " do",
+              "start": 20.91,
+              "end": 21.15,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " not",
+              "start": 21.15,
+              "end": 21.37,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " blame",
+              "start": 21.37,
+              "end": 21.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 21.61,
+              "end": 21.81,
+              "probability": 0.994140625
+            },
+            {
+              "text": " damsel",
+              "start": 21.81,
+              "end": 22.21,
+              "probability": 0.952392578125
+            },
+            {
+              "text": " who",
+              "start": 22.21,
+              "end": 22.41,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " gives him the drink, or rebuke Patroclus, who is treating his case.\"",
+          "start": 22.41,
+          "end": 26.93,
+          "words": [
+            {
+              "text": " gives",
+              "start": 22.41,
+              "end": 22.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " him",
+              "start": 22.59,
+              "end": 22.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 22.75,
+              "end": 22.91,
+              "probability": 0.99609375
+            },
+            {
+              "text": " drink,",
+              "start": 22.91,
+              "end": 23.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " or",
+              "start": 23.57,
+              "end": 23.75,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " rebuke",
+              "start": 23.75,
+              "end": 24.07,
+              "probability": 0.55126953125
+            },
+            {
+              "text": " Patroclus,",
+              "start": 24.07,
+              "end": 24.69,
+              "probability": 0.7692057291666666
+            },
+            {
+              "text": " who",
+              "start": 25.19,
+              "end": 25.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 25.39,
+              "end": 25.53,
+              "probability": 0.994140625
+            },
+            {
+              "text": " treating",
+              "start": 25.53,
+              "end": 25.79,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 25.79,
+              "end": 26.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " case.\"",
+              "start": 26.03,
+              "end": 26.93,
+              "probability": 0.5784912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "raw": "said,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "and",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "raw": "I",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "do",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "raw": "not",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "raw": "believe",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "raw": "that",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "raw": "there",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "raw": "were",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "raw": "any",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "such",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "raw": "diseases",
+          "start": 3.43,
+          "end": 3.83
+        },
+        {
+          "raw": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "raw": "the",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "raw": "days",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "raw": "of",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "raw": "Asclepius.",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "raw": "And",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "raw": "this",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "raw": "I",
+          "start": 6.13,
+          "end": 6.47
+        },
+        {
+          "raw": "infer",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "raw": "from",
+          "start": 6.75,
+          "end": 6.97
+        },
+        {
+          "raw": "the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "raw": "circumstance",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "raw": "that",
+          "start": 7.63,
+          "end": 7.95
+        },
+        {
+          "raw": "the",
+          "start": 7.95,
+          "end": 8.07
+        },
+        {
+          "raw": "hero",
+          "start": 8.07,
+          "end": 8.39
+        },
+        {
+          "raw": "Uropilis,",
+          "start": 8.39,
+          "end": 9.13
+        },
+        {
+          "raw": "after",
+          "start": 9.47,
+          "end": 9.75
+        },
+        {
+          "raw": "he",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "raw": "has",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "raw": "been",
+          "start": 9.97,
+          "end": 10.11
+        },
+        {
+          "raw": "wounded",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "raw": "in",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "raw": "Homer,",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "raw": "drinks",
+          "start": 11.57,
+          "end": 11.73
+        },
+        {
+          "raw": "a",
+          "start": 11.73,
+          "end": 11.89
+        },
+        {
+          "raw": "paucet",
+          "start": 11.89,
+          "end": 12.19
+        },
+        {
+          "raw": "of",
+          "start": 12.19,
+          "end": 12.45
+        },
+        {
+          "raw": "Pramnian",
+          "start": 12.45,
+          "end": 12.73
+        },
+        {
+          "raw": "wine",
+          "start": 12.73,
+          "end": 13.13
+        },
+        {
+          "raw": "well",
+          "start": 13.13,
+          "end": 13.47
+        },
+        {
+          "raw": "besprinkled",
+          "start": 13.47,
+          "end": 14.05
+        },
+        {
+          "raw": "with",
+          "start": 14.05,
+          "end": 14.21
+        },
+        {
+          "raw": "barley",
+          "start": 14.21,
+          "end": 14.53
+        },
+        {
+          "raw": "-meal",
+          "start": 14.53,
+          "end": 14.81
+        },
+        {
+          "raw": "and",
+          "start": 14.81,
+          "end": 15.01
+        },
+        {
+          "raw": "grated",
+          "start": 15.01,
+          "end": 15.33
+        },
+        {
+          "raw": "cheese,",
+          "start": 15.33,
+          "end": 15.65
+        },
+        {
+          "raw": "which",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "raw": "are",
+          "start": 16.45,
+          "end": 16.59
+        },
+        {
+          "raw": "certainly",
+          "start": 16.59,
+          "end": 16.97
+        },
+        {
+          "raw": "inflammatory.",
+          "start": 16.97,
+          "end": 17.51
+        },
+        {
+          "raw": "And",
+          "start": 18.35,
+          "end": 18.51
+        },
+        {
+          "raw": "yet",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "raw": "the",
+          "start": 18.63,
+          "end": 18.83
+        },
+        {
+          "raw": "sons",
+          "start": 18.83,
+          "end": 19.01
+        },
+        {
+          "raw": "of",
+          "start": 19.01,
+          "end": 19.19
+        },
+        {
+          "raw": "Asclepius",
+          "start": 19.19,
+          "end": 19.77
+        },
+        {
+          "raw": "who",
+          "start": 19.77,
+          "end": 19.97
+        },
+        {
+          "raw": "were",
+          "start": 19.97,
+          "end": 20.07
+        },
+        {
+          "raw": "at",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "raw": "the",
+          "start": 20.19,
+          "end": 20.37
+        },
+        {
+          "raw": "Trojan",
+          "start": 20.37,
+          "end": 20.59
+        },
+        {
+          "raw": "War",
+          "start": 20.59,
+          "end": 20.91
+        },
+        {
+          "raw": "do",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "raw": "not",
+          "start": 21.15,
+          "end": 21.37
+        },
+        {
+          "raw": "blame",
+          "start": 21.37,
+          "end": 21.61
+        },
+        {
+          "raw": "the",
+          "start": 21.61,
+          "end": 21.81
+        },
+        {
+          "raw": "damsel",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "raw": "who",
+          "start": 22.21,
+          "end": 22.41
+        },
+        {
+          "raw": "gives",
+          "start": 22.41,
+          "end": 22.59
+        },
+        {
+          "raw": "him",
+          "start": 22.59,
+          "end": 22.75
+        },
+        {
+          "raw": "the",
+          "start": 22.75,
+          "end": 22.91
+        },
+        {
+          "raw": "drink,",
+          "start": 22.91,
+          "end": 23.17
+        },
+        {
+          "raw": "or",
+          "start": 23.57,
+          "end": 23.75
+        },
+        {
+          "raw": "rebuke",
+          "start": 23.75,
+          "end": 24.07
+        },
+        {
+          "raw": "Patroclus,",
+          "start": 24.07,
+          "end": 24.69
+        },
+        {
+          "raw": "who",
+          "start": 25.19,
+          "end": 25.39
+        },
+        {
+          "raw": "is",
+          "start": 25.39,
+          "end": 25.53
+        },
+        {
+          "raw": "treating",
+          "start": 25.53,
+          "end": 25.79
+        },
+        {
+          "raw": "his",
+          "start": 25.79,
+          "end": 26.03
+        },
+        {
+          "raw": "case.\"",
+          "start": 26.03,
+          "end": 26.93
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "said,",
+        "and",
+        "I",
+        "do",
+        "not",
+        "believe",
+        "that",
+        "there",
+        "were",
+        "any",
+        "such",
+        "diseases",
+        "in",
+        "the",
+        "days",
+        "of",
+        "Asclepius;",
+        "and",
+        "this",
+        "I",
+        "infer",
+        "from",
+        "the",
+        "circumstance",
+        "that",
+        "the",
+        "hero",
+        "Eurypylus,",
+        "after",
+        "he",
+        "has",
+        "been",
+        "wounded",
+        "in",
+        "Homer,",
+        "drinks",
+        "a",
+        "posset",
+        "of",
+        "Pramnian",
+        "wine",
+        "well",
+        "besprinkled",
+        "with",
+        "barley-meal",
+        "and",
+        "grated",
+        "cheese,",
+        "which",
+        "are",
+        "certainly",
+        "inflammatory,",
+        "and",
+        "yet",
+        "the",
+        "sons",
+        "of",
+        "Asclepius",
+        "who",
+        "were",
+        "at",
+        "the",
+        "Trojan",
+        "war",
+        "do",
+        "not",
+        "blame",
+        "the",
+        "damsel",
+        "who",
+        "gives",
+        "him",
+        "the",
+        "drink,",
+        "or",
+        "rebuke",
+        "Patroclus,",
+        "who",
+        "is",
+        "treating",
+        "his",
+        "case."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          30
+        ],
+        [
+          "equal",
+          30,
+          39,
+          30,
+          39
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "equal",
+          40,
+          46,
+          40,
+          46
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ],
+        [
+          "equal",
+          47,
+          84,
+          48,
+          85
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          29,
+          30,
+          29,
+          30
+        ],
+        [
+          "replace",
+          39,
+          40,
+          39,
+          40
+        ],
+        [
+          "replace",
+          46,
+          47,
+          46,
+          48
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 0.79,
+          "end": 0.95
+        },
+        {
+          "text": "said,",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "and",
+          "start": 1.57,
+          "end": 1.85
+        },
+        {
+          "text": "I",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "do",
+          "start": 1.97,
+          "end": 2.07
+        },
+        {
+          "text": "not",
+          "start": 2.07,
+          "end": 2.27
+        },
+        {
+          "text": "believe",
+          "start": 2.27,
+          "end": 2.57
+        },
+        {
+          "text": "that",
+          "start": 2.57,
+          "end": 2.79
+        },
+        {
+          "text": "there",
+          "start": 2.79,
+          "end": 2.93
+        },
+        {
+          "text": "were",
+          "start": 2.93,
+          "end": 3.05
+        },
+        {
+          "text": "any",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "such",
+          "start": 3.23,
+          "end": 3.43
+        },
+        {
+          "text": "diseases",
+          "start": 3.43,
+          "end": 3.83
+        },
+        {
+          "text": "in",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "text": "the",
+          "start": 4.15,
+          "end": 4.23
+        },
+        {
+          "text": "days",
+          "start": 4.23,
+          "end": 4.41
+        },
+        {
+          "text": "of",
+          "start": 4.41,
+          "end": 4.59
+        },
+        {
+          "text": "Asclepius;",
+          "start": 4.59,
+          "end": 5.13
+        },
+        {
+          "text": "and",
+          "start": 5.73,
+          "end": 5.95
+        },
+        {
+          "text": "this",
+          "start": 5.95,
+          "end": 6.13
+        },
+        {
+          "text": "I",
+          "start": 6.13,
+          "end": 6.47
+        },
+        {
+          "text": "infer",
+          "start": 6.47,
+          "end": 6.75
+        },
+        {
+          "text": "from",
+          "start": 6.75,
+          "end": 6.97
+        },
+        {
+          "text": "the",
+          "start": 6.97,
+          "end": 7.13
+        },
+        {
+          "text": "circumstance",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "text": "that",
+          "start": 7.63,
+          "end": 7.95
+        },
+        {
+          "text": "the",
+          "start": 7.95,
+          "end": 8.07
+        },
+        {
+          "text": "hero",
+          "start": 8.07,
+          "end": 8.39
+        },
+        {
+          "text": "Eurypylus,",
+          "start": 8.39,
+          "end": 8.93
+        },
+        {
+          "text": "after",
+          "start": 9.47,
+          "end": 9.75
+        },
+        {
+          "text": "he",
+          "start": 9.75,
+          "end": 9.91
+        },
+        {
+          "text": "has",
+          "start": 9.91,
+          "end": 9.97
+        },
+        {
+          "text": "been",
+          "start": 9.97,
+          "end": 10.11
+        },
+        {
+          "text": "wounded",
+          "start": 10.11,
+          "end": 10.41
+        },
+        {
+          "text": "in",
+          "start": 10.41,
+          "end": 10.65
+        },
+        {
+          "text": "Homer,",
+          "start": 10.65,
+          "end": 10.91
+        },
+        {
+          "text": "drinks",
+          "start": 11.57,
+          "end": 11.73
+        },
+        {
+          "text": "a",
+          "start": 11.73,
+          "end": 11.89
+        },
+        {
+          "text": "posset",
+          "start": 11.89,
+          "end": 12.04
+        },
+        {
+          "text": "of",
+          "start": 12.19,
+          "end": 12.45
+        },
+        {
+          "text": "Pramnian",
+          "start": 12.45,
+          "end": 12.73
+        },
+        {
+          "text": "wine",
+          "start": 12.73,
+          "end": 13.13
+        },
+        {
+          "text": "well",
+          "start": 13.13,
+          "end": 13.47
+        },
+        {
+          "text": "besprinkled",
+          "start": 13.47,
+          "end": 14.05
+        },
+        {
+          "text": "with",
+          "start": 14.05,
+          "end": 14.21
+        },
+        {
+          "text": "barley-meal",
+          "start": 14.21,
+          "end": 14.51
+        },
+        {
+          "text": "and",
+          "start": 14.81,
+          "end": 15.01
+        },
+        {
+          "text": "grated",
+          "start": 15.01,
+          "end": 15.33
+        },
+        {
+          "text": "cheese,",
+          "start": 15.33,
+          "end": 15.65
+        },
+        {
+          "text": "which",
+          "start": 16.23,
+          "end": 16.45
+        },
+        {
+          "text": "are",
+          "start": 16.45,
+          "end": 16.59
+        },
+        {
+          "text": "certainly",
+          "start": 16.59,
+          "end": 16.97
+        },
+        {
+          "text": "inflammatory,",
+          "start": 16.97,
+          "end": 17.51
+        },
+        {
+          "text": "and",
+          "start": 18.35,
+          "end": 18.51
+        },
+        {
+          "text": "yet",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "text": "the",
+          "start": 18.63,
+          "end": 18.83
+        },
+        {
+          "text": "sons",
+          "start": 18.83,
+          "end": 19.01
+        },
+        {
+          "text": "of",
+          "start": 19.01,
+          "end": 19.19
+        },
+        {
+          "text": "Asclepius",
+          "start": 19.19,
+          "end": 19.77
+        },
+        {
+          "text": "who",
+          "start": 19.77,
+          "end": 19.97
+        },
+        {
+          "text": "were",
+          "start": 19.97,
+          "end": 20.07
+        },
+        {
+          "text": "at",
+          "start": 20.07,
+          "end": 20.19
+        },
+        {
+          "text": "the",
+          "start": 20.19,
+          "end": 20.37
+        },
+        {
+          "text": "Trojan",
+          "start": 20.37,
+          "end": 20.59
+        },
+        {
+          "text": "war",
+          "start": 20.59,
+          "end": 20.91
+        },
+        {
+          "text": "do",
+          "start": 20.91,
+          "end": 21.15
+        },
+        {
+          "text": "not",
+          "start": 21.15,
+          "end": 21.37
+        },
+        {
+          "text": "blame",
+          "start": 21.37,
+          "end": 21.61
+        },
+        {
+          "text": "the",
+          "start": 21.61,
+          "end": 21.81
+        },
+        {
+          "text": "damsel",
+          "start": 21.81,
+          "end": 22.21
+        },
+        {
+          "text": "who",
+          "start": 22.21,
+          "end": 22.41
+        },
+        {
+          "text": "gives",
+          "start": 22.41,
+          "end": 22.59
+        },
+        {
+          "text": "him",
+          "start": 22.59,
+          "end": 22.75
+        },
+        {
+          "text": "the",
+          "start": 22.75,
+          "end": 22.91
+        },
+        {
+          "text": "drink,",
+          "start": 22.91,
+          "end": 23.17
+        },
+        {
+          "text": "or",
+          "start": 23.57,
+          "end": 23.75
+        },
+        {
+          "text": "rebuke",
+          "start": 23.75,
+          "end": 24.07
+        },
+        {
+          "text": "Patroclus,",
+          "start": 24.07,
+          "end": 24.69
+        },
+        {
+          "text": "who",
+          "start": 25.19,
+          "end": 25.39
+        },
+        {
+          "text": "is",
+          "start": 25.39,
+          "end": 25.53
+        },
+        {
+          "text": "treating",
+          "start": 25.53,
+          "end": 25.79
+        },
+        {
+          "text": "his",
+          "start": 25.79,
+          "end": 26.03
+        },
+        {
+          "text": "case.",
+          "start": 26.03,
+          "end": 26.93
+        }
+      ],
+      "stats": {
+        "expected_words": 84,
+        "heard_words": 85,
+        "matched_words": 81
+      },
+      "match_ratio": 0.9642857142857143,
+      "rejection_reasons": [],
+      "seconds": 0.6116349175572395
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5fcb938513e8a25ab1d91de01c8e764923c04679c75581440df2dd6807e7c143",
+  "selected_reasons": []
+}

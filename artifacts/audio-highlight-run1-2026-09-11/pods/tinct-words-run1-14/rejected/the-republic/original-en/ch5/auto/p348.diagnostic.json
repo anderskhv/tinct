@@ -1,0 +1,1448 @@
+{
+  "complete": true,
+  "signature": "3079e5dbcaa3a3ec0cdf08e2630651039e6b5824010787b678f77f110f471f5d",
+  "attempts": [
+    {
+      "asr_seconds": 0.2298114150762558,
+      "alignment_seconds": 0.00016762316226959229,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'They are holy angels upon the earth, authors of good, averters of evil, the guardians of speech-gifted men'?",
+        "hotwords": "They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They are holy angels upon the earth, authors of good, averters of evil, the guardians of speech-gifted men.",
+          "start": 0.08,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " are",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " holy",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " angels",
+              "start": 1.04,
+              "end": 1.48,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " upon",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " earth,",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.8125
+            },
+            {
+              "text": " authors",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " of",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good,",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " averters",
+              "start": 3.98,
+              "end": 4.42,
+              "probability": 0.650146484375
+            },
+            {
+              "text": " of",
+              "start": 4.42,
+              "end": 4.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " evil,",
+              "start": 4.56,
+              "end": 4.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.24,
+              "end": 5.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " guardians",
+              "start": 5.3,
+              "end": 5.68,
+              "probability": 0.978515625
+            },
+            {
+              "text": " of",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " speech",
+              "start": 5.94,
+              "end": 6.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "-gifted",
+              "start": 6.22,
+              "end": 6.52,
+              "probability": 0.9596354166666666
+            },
+            {
+              "text": " men.",
+              "start": 6.52,
+              "end": 6.88,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "are",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "holy",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "angels",
+          "start": 1.04,
+          "end": 1.48
+        },
+        {
+          "raw": "upon",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "earth,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "authors",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "of",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "good,",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "raw": "averters",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "raw": "of",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "raw": "evil,",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "raw": "the",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "raw": "guardians",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "raw": "of",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "speech",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "raw": "-gifted",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "raw": "men.",
+          "start": 6.52,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "'They",
+        "are",
+        "holy",
+        "angels",
+        "upon",
+        "the",
+        "earth,",
+        "authors",
+        "of",
+        "good,",
+        "averters",
+        "of",
+        "evil,",
+        "the",
+        "guardians",
+        "of",
+        "speech-gifted",
+        "men'?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "'They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "are",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "holy",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "angels",
+          "start": 1.04,
+          "end": 1.48
+        },
+        {
+          "text": "upon",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "earth,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "authors",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "text": "of",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "good,",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "text": "averters",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "text": "of",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "text": "evil,",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "text": "the",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "text": "guardians",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "text": "of",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "speech-gifted",
+          "start": 5.94,
+          "end": 6.23
+        },
+        {
+          "text": "men'?",
+          "start": 6.52,
+          "end": 6.88
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.23005659878253937
+    },
+    {
+      "asr_seconds": 0.23224136233329773,
+      "alignment_seconds": 0.00013359636068344116,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "They"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " They are holy angels upon the earth, authors of good, averters of evil, the guardians",
+          "start": 0.08,
+          "end": 5.68,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " are",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " holy",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " angels",
+              "start": 1.04,
+              "end": 1.48,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " upon",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " earth,",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.8125
+            },
+            {
+              "text": " authors",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " of",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good,",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " averters",
+              "start": 3.98,
+              "end": 4.42,
+              "probability": 0.650146484375
+            },
+            {
+              "text": " of",
+              "start": 4.42,
+              "end": 4.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " evil,",
+              "start": 4.56,
+              "end": 4.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.24,
+              "end": 5.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " guardians",
+              "start": 5.3,
+              "end": 5.68,
+              "probability": 0.978515625
+            }
+          ]
+        },
+        {
+          "text": " of speech-gifted men.",
+          "start": 5.68,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " of",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " speech",
+              "start": 5.94,
+              "end": 6.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "-gifted",
+              "start": 6.22,
+              "end": 6.52,
+              "probability": 0.9596354166666666
+            },
+            {
+              "text": " men.",
+              "start": 6.52,
+              "end": 6.88,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "are",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "holy",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "angels",
+          "start": 1.04,
+          "end": 1.48
+        },
+        {
+          "raw": "upon",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "earth,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "authors",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "of",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "good,",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "raw": "averters",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "raw": "of",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "raw": "evil,",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "raw": "the",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "raw": "guardians",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "raw": "of",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "speech",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "raw": "-gifted",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "raw": "men.",
+          "start": 6.52,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "'They",
+        "are",
+        "holy",
+        "angels",
+        "upon",
+        "the",
+        "earth,",
+        "authors",
+        "of",
+        "good,",
+        "averters",
+        "of",
+        "evil,",
+        "the",
+        "guardians",
+        "of",
+        "speech-gifted",
+        "men'?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "'They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "are",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "holy",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "angels",
+          "start": 1.04,
+          "end": 1.48
+        },
+        {
+          "text": "upon",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "earth,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "authors",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "text": "of",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "good,",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "text": "averters",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "text": "of",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "text": "evil,",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "text": "the",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "text": "guardians",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "text": "of",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "speech-gifted",
+          "start": 5.94,
+          "end": 6.23
+        },
+        {
+          "text": "men'?",
+          "start": 6.52,
+          "end": 6.88
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.23243259638547897
+    },
+    {
+      "asr_seconds": 0.254011832177639,
+      "alignment_seconds": 0.00015088915824890137,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They are holy angels upon the earth, authors of good,",
+          "start": 0.08,
+          "end": 3.5,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " are",
+              "start": 0.52,
+              "end": 0.7,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " holy",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " angels",
+              "start": 1.04,
+              "end": 1.48,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " upon",
+              "start": 1.48,
+              "end": 1.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 1.8,
+              "end": 1.98,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " earth,",
+              "start": 1.98,
+              "end": 2.24,
+              "probability": 0.8125
+            },
+            {
+              "text": " authors",
+              "start": 2.94,
+              "end": 2.94,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " of",
+              "start": 2.94,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good,",
+              "start": 3.2,
+              "end": 3.5,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " averters of evil, the guardians of speech-gifted men.",
+          "start": 3.98,
+          "end": 6.88,
+          "words": [
+            {
+              "text": " averters",
+              "start": 3.98,
+              "end": 4.42,
+              "probability": 0.650146484375
+            },
+            {
+              "text": " of",
+              "start": 4.42,
+              "end": 4.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " evil,",
+              "start": 4.56,
+              "end": 4.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 5.24,
+              "end": 5.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " guardians",
+              "start": 5.3,
+              "end": 5.68,
+              "probability": 0.978515625
+            },
+            {
+              "text": " of",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " speech",
+              "start": 5.94,
+              "end": 6.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "-gifted",
+              "start": 6.22,
+              "end": 6.52,
+              "probability": 0.9596354166666666
+            },
+            {
+              "text": " men.",
+              "start": 6.52,
+              "end": 6.88,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "are",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "raw": "holy",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "raw": "angels",
+          "start": 1.04,
+          "end": 1.48
+        },
+        {
+          "raw": "upon",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "raw": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "raw": "earth,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "raw": "authors",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "raw": "of",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "raw": "good,",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "raw": "averters",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "raw": "of",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "raw": "evil,",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "raw": "the",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "raw": "guardians",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "raw": "of",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "speech",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "raw": "-gifted",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "raw": "men.",
+          "start": 6.52,
+          "end": 6.88
+        }
+      ],
+      "expected_tokens": [
+        "'They",
+        "are",
+        "holy",
+        "angels",
+        "upon",
+        "the",
+        "earth,",
+        "authors",
+        "of",
+        "good,",
+        "averters",
+        "of",
+        "evil,",
+        "the",
+        "guardians",
+        "of",
+        "speech-gifted",
+        "men'?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ],
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ],
+        [
+          "equal",
+          17,
+          18,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          16,
+          17,
+          16,
+          18
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "'They",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "are",
+          "start": 0.52,
+          "end": 0.7
+        },
+        {
+          "text": "holy",
+          "start": 0.7,
+          "end": 1.04
+        },
+        {
+          "text": "angels",
+          "start": 1.04,
+          "end": 1.48
+        },
+        {
+          "text": "upon",
+          "start": 1.48,
+          "end": 1.8
+        },
+        {
+          "text": "the",
+          "start": 1.8,
+          "end": 1.98
+        },
+        {
+          "text": "earth,",
+          "start": 1.98,
+          "end": 2.24
+        },
+        {
+          "text": "authors",
+          "start": 2.94,
+          "end": 2.94
+        },
+        {
+          "text": "of",
+          "start": 2.94,
+          "end": 3.2
+        },
+        {
+          "text": "good,",
+          "start": 3.2,
+          "end": 3.5
+        },
+        {
+          "text": "averters",
+          "start": 3.98,
+          "end": 4.42
+        },
+        {
+          "text": "of",
+          "start": 4.42,
+          "end": 4.56
+        },
+        {
+          "text": "evil,",
+          "start": 4.56,
+          "end": 4.88
+        },
+        {
+          "text": "the",
+          "start": 5.24,
+          "end": 5.3
+        },
+        {
+          "text": "guardians",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "text": "of",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "speech-gifted",
+          "start": 5.94,
+          "end": 6.23
+        },
+        {
+          "text": "men'?",
+          "start": 6.52,
+          "end": 6.88
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.25423165410757065
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1f04d9433f9aee494c1a358dfc42a83b35fcb137edf3b745dcadc99455a8d16f",
+  "selected_reasons": []
+}

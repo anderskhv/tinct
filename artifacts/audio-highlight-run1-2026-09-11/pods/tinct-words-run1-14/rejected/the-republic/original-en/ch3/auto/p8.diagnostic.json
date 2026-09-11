@@ -1,0 +1,386 @@
+{
+  "complete": true,
+  "signature": "b66cad803172096a3a266e8a0803bc2782df538fa6620255cc86733cea9af8e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.24083196371793747,
+      "alignment_seconds": 0.00011315196752548218,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then, I said, we shall have to obliterate many obnoxious passages, beginning with the verses,",
+        "hotwords": "Then, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then, I said, we shall have to obliterate many obnoxious passages, beginning with the verses,",
+          "start": 0.02,
+          "end": 5.76,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.779296875
+            },
+            {
+              "text": " I",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said,",
+              "start": 0.96,
+              "end": 1.28,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " we",
+              "start": 1.76,
+              "end": 1.94,
+              "probability": 0.603515625
+            },
+            {
+              "text": " shall",
+              "start": 1.94,
+              "end": 2.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " have",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 2.26,
+              "end": 2.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " obliterate",
+              "start": 2.42,
+              "end": 2.98,
+              "probability": 0.998291015625
+            },
+            {
+              "text": " many",
+              "start": 2.98,
+              "end": 3.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " obnoxious",
+              "start": 3.2,
+              "end": 3.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " passages,",
+              "start": 3.72,
+              "end": 4.42,
+              "probability": 1.0
+            },
+            {
+              "text": " beginning",
+              "start": 4.84,
+              "end": 5.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " with",
+              "start": 5.1,
+              "end": 5.38,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 5.38,
+              "end": 5.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " verses,",
+              "start": 5.5,
+              "end": 5.76,
+              "probability": 0.978515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "said,",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "raw": "we",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "raw": "shall",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "raw": "have",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "to",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "raw": "obliterate",
+          "start": 2.42,
+          "end": 2.98
+        },
+        {
+          "raw": "many",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "raw": "obnoxious",
+          "start": 3.2,
+          "end": 3.72
+        },
+        {
+          "raw": "passages,",
+          "start": 3.72,
+          "end": 4.42
+        },
+        {
+          "raw": "beginning",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "raw": "with",
+          "start": 5.1,
+          "end": 5.38
+        },
+        {
+          "raw": "the",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "raw": "verses,",
+          "start": 5.5,
+          "end": 5.76
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "I",
+        "said,",
+        "we",
+        "shall",
+        "have",
+        "to",
+        "obliterate",
+        "many",
+        "obnoxious",
+        "passages,",
+        "beginning",
+        "with",
+        "the",
+        "verses,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "said,",
+          "start": 0.96,
+          "end": 1.28
+        },
+        {
+          "text": "we",
+          "start": 1.76,
+          "end": 1.94
+        },
+        {
+          "text": "shall",
+          "start": 1.94,
+          "end": 2.08
+        },
+        {
+          "text": "have",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "to",
+          "start": 2.26,
+          "end": 2.42
+        },
+        {
+          "text": "obliterate",
+          "start": 2.42,
+          "end": 2.98
+        },
+        {
+          "text": "many",
+          "start": 2.98,
+          "end": 3.2
+        },
+        {
+          "text": "obnoxious",
+          "start": 3.2,
+          "end": 3.72
+        },
+        {
+          "text": "passages,",
+          "start": 3.72,
+          "end": 4.42
+        },
+        {
+          "text": "beginning",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "text": "with",
+          "start": 5.1,
+          "end": 5.38
+        },
+        {
+          "text": "the",
+          "start": 5.38,
+          "end": 5.5
+        },
+        {
+          "text": "verses,",
+          "start": 5.5,
+          "end": 5.76
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.24100210517644882
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5c165b2c1f459990a55227f67e199991e298fb84e0768d16ba817032d9dea5a2",
+  "selected_reasons": []
+}

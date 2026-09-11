@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "87740181e5a4735d2cadd675c358e49b3d2824ac87ba2ccc256c02c96a3b4f83",
+  "attempts": [
+    {
+      "asr_seconds": 0.20050573348999023,
+      "alignment_seconds": 0.00010801851749420166,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then in making their laws they may sometimes make them rightly, and sometimes not?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then in making their laws they may sometimes make them rightly, and sometimes not?",
+          "start": 0.11,
+          "end": 5.03,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.11,
+              "end": 0.55,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " in",
+              "start": 0.55,
+              "end": 0.77,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " making",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " their",
+              "start": 1.05,
+              "end": 1.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " laws",
+              "start": 1.33,
+              "end": 1.67,
+              "probability": 0.986328125
+            },
+            {
+              "text": " they",
+              "start": 1.67,
+              "end": 2.15,
+              "probability": 0.17626953125
+            },
+            {
+              "text": " may",
+              "start": 2.15,
+              "end": 2.31,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sometimes",
+              "start": 2.31,
+              "end": 2.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " make",
+              "start": 2.73,
+              "end": 3.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " them",
+              "start": 3.03,
+              "end": 3.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rightly,",
+              "start": 3.23,
+              "end": 3.55,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " and",
+              "start": 4.05,
+              "end": 4.21,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " sometimes",
+              "start": 4.21,
+              "end": 4.59,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not?",
+              "start": 4.59,
+              "end": 5.03,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "raw": "in",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "raw": "making",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "their",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "raw": "laws",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "raw": "they",
+          "start": 1.67,
+          "end": 2.15
+        },
+        {
+          "raw": "may",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "raw": "sometimes",
+          "start": 2.31,
+          "end": 2.73
+        },
+        {
+          "raw": "make",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "raw": "them",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "raw": "rightly,",
+          "start": 3.23,
+          "end": 3.55
+        },
+        {
+          "raw": "and",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "raw": "sometimes",
+          "start": 4.21,
+          "end": 4.59
+        },
+        {
+          "raw": "not?",
+          "start": 4.59,
+          "end": 5.03
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "in",
+        "making",
+        "their",
+        "laws",
+        "they",
+        "may",
+        "sometimes",
+        "make",
+        "them",
+        "rightly,",
+        "and",
+        "sometimes",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.11,
+          "end": 0.55
+        },
+        {
+          "text": "in",
+          "start": 0.55,
+          "end": 0.77
+        },
+        {
+          "text": "making",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "their",
+          "start": 1.05,
+          "end": 1.33
+        },
+        {
+          "text": "laws",
+          "start": 1.33,
+          "end": 1.67
+        },
+        {
+          "text": "they",
+          "start": 1.67,
+          "end": 2.15
+        },
+        {
+          "text": "may",
+          "start": 2.15,
+          "end": 2.31
+        },
+        {
+          "text": "sometimes",
+          "start": 2.31,
+          "end": 2.73
+        },
+        {
+          "text": "make",
+          "start": 2.73,
+          "end": 3.03
+        },
+        {
+          "text": "them",
+          "start": 3.03,
+          "end": 3.23
+        },
+        {
+          "text": "rightly,",
+          "start": 3.23,
+          "end": 3.55
+        },
+        {
+          "text": "and",
+          "start": 4.05,
+          "end": 4.21
+        },
+        {
+          "text": "sometimes",
+          "start": 4.21,
+          "end": 4.59
+        },
+        {
+          "text": "not?",
+          "start": 4.59,
+          "end": 5.03
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20066939294338226
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "8956eb1fdd423efc4f3e83f0e23f2665214e8f3d2fef87b53cbf1ed867f3f1d6",
+  "selected_reasons": []
+}

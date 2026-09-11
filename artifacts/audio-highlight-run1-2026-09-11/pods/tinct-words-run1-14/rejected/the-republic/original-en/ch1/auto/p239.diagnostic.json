@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "26bd5b0ecb2e35c5102dd524a22bec9adfa9d4b800391096fe3dfde50b36ff11",
+  "attempts": [
+    {
+      "asr_seconds": 0.2061130553483963,
+      "alignment_seconds": 0.00010893493890762329,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Indeed, Thrasymachus, and do I really appear to you to argue like an informer?",
+        "hotwords": "Indeed, Thrasymachus, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Indeed, Thrasymachus, and do I really appear to you to argue like an informer?",
+          "start": 0.05,
+          "end": 5.17,
+          "words": [
+            {
+              "text": " Indeed,",
+              "start": 0.05,
+              "end": 0.87,
+              "probability": 0.83935546875
+            },
+            {
+              "text": " Thrasymachus,",
+              "start": 1.41,
+              "end": 1.97,
+              "probability": 0.274444580078125
+            },
+            {
+              "text": " and",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " do",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " I",
+              "start": 2.75,
+              "end": 2.87,
+              "probability": 0.990234375
+            },
+            {
+              "text": " really",
+              "start": 2.87,
+              "end": 3.09,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " appear",
+              "start": 3.09,
+              "end": 3.37,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 3.37,
+              "end": 3.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 3.55,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 3.69,
+              "end": 3.83,
+              "probability": 0.994140625
+            },
+            {
+              "text": " argue",
+              "start": 3.83,
+              "end": 4.15,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " like",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " an",
+              "start": 4.45,
+              "end": 4.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " informer?",
+              "start": 4.57,
+              "end": 5.17,
+              "probability": 0.871337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Indeed,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "raw": "Thrasymachus,",
+          "start": 1.41,
+          "end": 1.97
+        },
+        {
+          "raw": "and",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "do",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "I",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "raw": "really",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "raw": "appear",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "raw": "to",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "raw": "you",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "raw": "to",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "raw": "argue",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "raw": "like",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "an",
+          "start": 4.45,
+          "end": 4.57
+        },
+        {
+          "raw": "informer?",
+          "start": 4.57,
+          "end": 5.17
+        }
+      ],
+      "expected_tokens": [
+        "Indeed,",
+        "Thrasymachus,",
+        "and",
+        "do",
+        "I",
+        "really",
+        "appear",
+        "to",
+        "you",
+        "to",
+        "argue",
+        "like",
+        "an",
+        "informer?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Indeed,",
+          "start": 0.05,
+          "end": 0.87
+        },
+        {
+          "text": "Thrasymachus,",
+          "start": 1.41,
+          "end": 1.97
+        },
+        {
+          "text": "and",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "do",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "text": "I",
+          "start": 2.75,
+          "end": 2.87
+        },
+        {
+          "text": "really",
+          "start": 2.87,
+          "end": 3.09
+        },
+        {
+          "text": "appear",
+          "start": 3.09,
+          "end": 3.37
+        },
+        {
+          "text": "to",
+          "start": 3.37,
+          "end": 3.55
+        },
+        {
+          "text": "you",
+          "start": 3.55,
+          "end": 3.69
+        },
+        {
+          "text": "to",
+          "start": 3.69,
+          "end": 3.83
+        },
+        {
+          "text": "argue",
+          "start": 3.83,
+          "end": 4.15
+        },
+        {
+          "text": "like",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "text": "an",
+          "start": 4.45,
+          "end": 4.57
+        },
+        {
+          "text": "informer?",
+          "start": 4.57,
+          "end": 5.17
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20627525448799133
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0645ef02b9f2fa1b4bea9dabed520b2d90e1eecfdbbfc110495a0c4e080ab9b1",
+  "selected_reasons": []
+}

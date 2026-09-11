@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "9160e5d616b99a7a350f6cef2a5f5cc7679b9c164920e5f0f43949a9421e2d18",
+  "attempts": [
+    {
+      "asr_seconds": 0.10297352820634842,
+      "alignment_seconds": 7.81714916229248e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You got me into the scrape I said",
+          "start": 0.02,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.26171875
+            },
+            {
+              "text": " got",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me",
+              "start": 0.66,
+              "end": 0.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 0.78,
+              "end": 0.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.94,
+              "end": 1.04,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " scrape",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.66,
+              "probability": 0.241943359375
+            },
+            {
+              "text": " said",
+              "start": 1.66,
+              "end": 1.94,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "got",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "me",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "raw": "into",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "raw": "the",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "raw": "scrape",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "raw": "said",
+          "start": 1.66,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "got",
+        "me",
+        "into",
+        "the",
+        "scrape,",
+        "I",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "got",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "me",
+          "start": 0.66,
+          "end": 0.78
+        },
+        {
+          "text": "into",
+          "start": 0.78,
+          "end": 0.94
+        },
+        {
+          "text": "the",
+          "start": 0.94,
+          "end": 1.04
+        },
+        {
+          "text": "scrape,",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.66
+        },
+        {
+          "text": "said.",
+          "start": 1.66,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10308832675218582
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8af6a3a6a35a74561023379f991001e88c176f986615461fd400a44d1f591852",
+  "selected_reasons": []
+}

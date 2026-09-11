@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "c89846b832992a3845e7e68bc096567a66470ce893d9ba858e6fc3249de5fb42",
+  "attempts": [
+    {
+      "asr_seconds": 0.09751787781715393,
+      "alignment_seconds": 6.737560033798218e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is good, he said.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is good, he said.",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.295654296875
+            },
+            {
+              "text": " is",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " good,",
+              "start": 0.68,
+              "end": 0.92,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 0.98,
+              "end": 1.16,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " said.",
+              "start": 1.16,
+              "end": 1.44,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "good,",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "raw": "he",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "raw": "said.",
+          "start": 1.16,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "good,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "is",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "good,",
+          "start": 0.68,
+          "end": 0.92
+        },
+        {
+          "text": "he",
+          "start": 0.98,
+          "end": 1.16
+        },
+        {
+          "text": "said.",
+          "start": 1.16,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09762068837881088
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2818f968807574e2cbe5b8aee9e4498ef79953dab4ef7a5abcdcc0eaf2b66420",
+  "selected_reasons": []
+}

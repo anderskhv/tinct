@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "5a20fcd16c12140bfcb344b6ca18cbcdd6e4716eef129cce13e0408bd92a5ccf",
+  "attempts": [
+    {
+      "asr_seconds": 0.08762884140014648,
+      "alignment_seconds": 5.1334500312805176e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Certainly not, replied Glaucon.",
+        "hotwords": "Certainly, Glaucon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Certainly not, replied Glaucon.",
+          "start": 0.08,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " Certainly",
+              "start": 0.08,
+              "end": 0.66,
+              "probability": 0.30908203125
+            },
+            {
+              "text": " not,",
+              "start": 0.66,
+              "end": 1.06,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " replied",
+              "start": 1.48,
+              "end": 1.54,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " Glaucon.",
+              "start": 1.54,
+              "end": 2.02,
+              "probability": 0.4932454427083333
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "raw": "not,",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "raw": "replied",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "raw": "Glaucon.",
+          "start": 1.54,
+          "end": 2.02
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "not,",
+        "replied",
+        "Glaucon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.66
+        },
+        {
+          "text": "not,",
+          "start": 0.66,
+          "end": 1.06
+        },
+        {
+          "text": "replied",
+          "start": 1.48,
+          "end": 1.54
+        },
+        {
+          "text": "Glaucon.",
+          "start": 1.54,
+          "end": 2.02
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08770118653774261
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e22e3f4af9659a50482e65d83507cf3f359c2e6a2657cd282c8f1def418ccffe",
+  "selected_reasons": []
+}

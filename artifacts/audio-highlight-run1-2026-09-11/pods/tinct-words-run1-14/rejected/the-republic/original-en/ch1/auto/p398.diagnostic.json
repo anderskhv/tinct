@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "b37fa1b5d8de6d215ba8a01114614d525eba4e1d4ed58bce2214968a71df1b44",
+  "attempts": [
+    {
+      "asr_seconds": 0.08797001093626022,
+      "alignment_seconds": 5.587190389633179e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That was admitted.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That was admitted.",
+          "start": 0.02,
+          "end": 1.0,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " was",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " admitted.",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "was",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "admitted.",
+          "start": 0.7,
+          "end": 1.0
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "was",
+        "admitted."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "was",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "admitted.",
+          "start": 0.7,
+          "end": 1.0
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08804742991924286
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "58052e5dd1f9d530a06b21bca9e01f9628ad9162276b45aa5f3aaa62718f96d4",
+  "selected_reasons": []
+}

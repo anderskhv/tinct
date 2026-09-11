@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "signature": "619206c582e12342bf353a901e03d0057cb5b7f5af4304042d551d2aa2ad8e40",
+  "attempts": [
+    {
+      "asr_seconds": 0.07164136320352554,
+      "alignment_seconds": 4.328042268753052e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Ow.",
+          "start": 0.11,
+          "end": 0.63,
+          "words": [
+            {
+              "text": " Ow.",
+              "start": 0.11,
+              "end": 0.63,
+              "probability": 0.457275390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ow.",
+          "start": 0.11,
+          "end": 0.63
+        }
+      ],
+      "expected_tokens": [
+        "How?"
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "How?",
+          "start": 0.0,
+          "end": 0.315
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.0717005804181099
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7ba4cc4876031ff6a845f65c7d3dc486b256b8d1e34f983f8b1d3da12b3d49bc",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

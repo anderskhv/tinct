@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "60e7b21ef5c87ce205c6a7f3cb75a40fe0125ec928c934083d2ce2b746aa5bd6",
+  "attempts": [
+    {
+      "asr_seconds": 0.08097106963396072,
+      "alignment_seconds": 5.2385032176971436e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "He cannot.",
+        "hotwords": "He"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " He cannot.",
+          "start": 0.08,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " cannot.",
+              "start": 0.56,
+              "end": 0.84,
+              "probability": 0.9462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "cannot.",
+          "start": 0.56,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "cannot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "cannot.",
+          "start": 0.56,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0810423418879509
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6021e5dfba6ec8339441fe88aa68f1cb52c0b0517a9ebe15febf746590a72e5e",
+  "selected_reasons": []
+}

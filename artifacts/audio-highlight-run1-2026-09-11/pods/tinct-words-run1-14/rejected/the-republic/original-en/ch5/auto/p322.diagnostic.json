@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "9c86d37e076981fe7dcd678ca2bba2c609ba9ca30e2ea4e4590c63aac054a87e",
+  "attempts": [
+    {
+      "asr_seconds": 0.08965155482292175,
+      "alignment_seconds": 5.7794153690338135e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What do you mean? he said.",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What do you mean? he said.",
+          "start": 0.02,
+          "end": 1.62,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.224609375
+            },
+            {
+              "text": " do",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " mean?",
+              "start": 0.7,
+              "end": 0.96,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 1.28,
+              "end": 1.36,
+              "probability": 0.52734375
+            },
+            {
+              "text": " said.",
+              "start": 1.36,
+              "end": 1.62,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "you",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "mean?",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "raw": "he",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "raw": "said.",
+          "start": 1.36,
+          "end": 1.62
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "do",
+        "you",
+        "mean?",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "do",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "you",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "mean?",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "he",
+          "start": 1.28,
+          "end": 1.36
+        },
+        {
+          "text": "said.",
+          "start": 1.36,
+          "end": 1.62
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08973574638366699
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "abe9f4995c00fc38a3d2586dbbdbe76eb6a2f1d5fe6fcfd7b7cc6f3be81e683e",
+  "selected_reasons": []
+}

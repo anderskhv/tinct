@@ -1,0 +1,15 @@
+[2026-09-11T14:50:42Z] created tlkk2gwzprb3nm tinct-words-run1-17 gpu=None $0.49/hr
+[2026-09-11T14:50:44Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-11T14:51:01Z] phase cohort at 0.3 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "a3780bee4a0683ed3968478e442bfbd2f861173e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-11T14:51:01Z] 0.3 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-11T14:51:32Z] 0.8 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-11T14:52:03Z] 1.3 min: cohort {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-11T14:52:34Z] phase aligning at 1.8 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "a3780bee4a0683ed3968478e442bfbd2f861173e", "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5", "ld_library_path": "/usr/local/lib/python3.11/dist-packages/nvidia/cublas/l
+[2026-09-11T14:52:34Z] 1.8 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 3}
+[2026-09-11T14:53:05Z] 2.4 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 40}
+[2026-09-11T14:53:36Z] 2.9 min: aligning {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 1, "paragraph_diagnostics": 82}
+[2026-09-11T14:54:08Z] pod is EXITED (Exited by user: Fri Sep 11 2026 14:53:39 GMT+0000 (Coordinated Universal Time)); using last snapshot
+[2026-09-11T14:54:11Z] results fetch failed: HTTP 404
+[2026-09-11T14:54:12Z] stop tlkk2gwzprb3nm: HTTP 200
+[2026-09-11T14:54:13Z] terminate tlkk2gwzprb3nm: HTTP 204
+[2026-09-11T14:54:13Z] pod tlkk2gwzprb3nm done: outcome=pod-exited-externally uptime=3.5m est $0.03

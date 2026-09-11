@@ -1,0 +1,1258 @@
+{
+  "complete": true,
+  "signature": "33c887a5bc3cf46efaab3b71840a432e51eecaf027060e000aa44fce7d7ab8db",
+  "attempts": [
+    {
+      "asr_seconds": 0.4393791928887367,
+      "alignment_seconds": 0.00025485455989837646,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "To prayer, repentance, and obedience due, Though but endeavour'd with sincere intent, Mine ear shall not be slow, mine eye not shut. And I will place within them as a guide, My umpire Conscience; whom if they will hear, Light after light, well us'd, they shall attain, And to the end, persisting, safe arrive.",
+        "hotwords": "Though, I, My, Conscience"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " To prayer, repentance, and obedience due, Though but endeavour'd with sincere intent, Mine ear shall not be slow, mine eye not shut.",
+          "start": 0.0,
+          "end": 8.16,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.0,
+              "end": 0.48,
+              "probability": 0.81787109375
+            },
+            {
+              "text": " prayer,",
+              "start": 0.48,
+              "end": 0.82,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " repentance,",
+              "start": 1.04,
+              "end": 1.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 1.7,
+              "end": 1.78,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " obedience",
+              "start": 1.78,
+              "end": 2.16,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " due,",
+              "start": 2.16,
+              "end": 2.54,
+              "probability": 0.005847930908203125
+            },
+            {
+              "text": " Though",
+              "start": 2.92,
+              "end": 3.02,
+              "probability": 0.2366943359375
+            },
+            {
+              "text": " but",
+              "start": 3.02,
+              "end": 3.2,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " endeavour'd",
+              "start": 3.2,
+              "end": 3.74,
+              "probability": 0.35909175872802734
+            },
+            {
+              "text": " with",
+              "start": 3.74,
+              "end": 3.88,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " sincere",
+              "start": 3.88,
+              "end": 4.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " intent,",
+              "start": 4.4,
+              "end": 4.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Mine",
+              "start": 5.42,
+              "end": 5.52,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " ear",
+              "start": 5.52,
+              "end": 5.82,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " shall",
+              "start": 5.82,
+              "end": 6.02,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " not",
+              "start": 6.02,
+              "end": 6.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " be",
+              "start": 6.22,
+              "end": 6.4,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " slow,",
+              "start": 6.4,
+              "end": 6.74,
+              "probability": 0.986328125
+            },
+            {
+              "text": " mine",
+              "start": 7.22,
+              "end": 7.36,
+              "probability": 0.8173828125
+            },
+            {
+              "text": " eye",
+              "start": 7.36,
+              "end": 7.6,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " not",
+              "start": 7.6,
+              "end": 7.82,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " shut.",
+              "start": 7.82,
+              "end": 8.16,
+              "probability": 0.984375
+            }
+          ]
+        },
+        {
+          "text": " And I will place within them as a guide, My umpire Conscience, whom if they will hear, Light after light, well us'd, they shall attain,",
+          "start": 8.86,
+          "end": 15.82,
+          "words": [
+            {
+              "text": " And",
+              "start": 8.86,
+              "end": 9.02,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " I",
+              "start": 9.02,
+              "end": 9.12,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " will",
+              "start": 9.12,
+              "end": 9.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " place",
+              "start": 9.26,
+              "end": 9.5,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " within",
+              "start": 9.5,
+              "end": 9.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " them",
+              "start": 9.82,
+              "end": 10.04,
+              "probability": 0.994140625
+            },
+            {
+              "text": " as",
+              "start": 10.04,
+              "end": 10.22,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " a",
+              "start": 10.22,
+              "end": 10.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " guide,",
+              "start": 10.34,
+              "end": 10.64,
+              "probability": 0.955078125
+            },
+            {
+              "text": " My",
+              "start": 10.92,
+              "end": 11.02,
+              "probability": 0.75634765625
+            },
+            {
+              "text": " umpire",
+              "start": 11.02,
+              "end": 11.46,
+              "probability": 0.952392578125
+            },
+            {
+              "text": " Conscience,",
+              "start": 11.46,
+              "end": 12.14,
+              "probability": 0.4994354248046875
+            },
+            {
+              "text": " whom",
+              "start": 12.66,
+              "end": 12.78,
+              "probability": 0.238037109375
+            },
+            {
+              "text": " if",
+              "start": 12.78,
+              "end": 12.92,
+              "probability": 0.7958984375
+            },
+            {
+              "text": " they",
+              "start": 12.92,
+              "end": 13.06,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " will",
+              "start": 13.06,
+              "end": 13.24,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " hear,",
+              "start": 13.24,
+              "end": 13.5,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " Light",
+              "start": 13.72,
+              "end": 13.78,
+              "probability": 0.7607421875
+            },
+            {
+              "text": " after",
+              "start": 13.78,
+              "end": 14.06,
+              "probability": 0.990234375
+            },
+            {
+              "text": " light,",
+              "start": 14.06,
+              "end": 14.32,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " well",
+              "start": 14.5,
+              "end": 14.62,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " us'd,",
+              "start": 14.62,
+              "end": 15.08,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " they",
+              "start": 15.22,
+              "end": 15.3,
+              "probability": 0.83544921875
+            },
+            {
+              "text": " shall",
+              "start": 15.3,
+              "end": 15.48,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " attain,",
+              "start": 15.48,
+              "end": 15.82,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " And to the end, persisting, safe arrive.",
+          "start": 16.2,
+          "end": 18.32,
+          "words": [
+            {
+              "text": " And",
+              "start": 16.2,
+              "end": 16.3,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " to",
+              "start": 16.3,
+              "end": 16.4,
+              "probability": 0.93994140625
+            },
+            {
+              "text": " the",
+              "start": 16.4,
+              "end": 16.52,
+              "probability": 0.99609375
+            },
+            {
+              "text": " end,",
+              "start": 16.52,
+              "end": 16.86,
+              "probability": 0.99609375
+            },
+            {
+              "text": " persisting,",
+              "start": 17.06,
+              "end": 17.54,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " safe",
+              "start": 17.76,
+              "end": 17.94,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " arrive.",
+              "start": 17.94,
+              "end": 18.32,
+              "probability": 0.95751953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "raw": "prayer,",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "raw": "repentance,",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "raw": "and",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "raw": "obedience",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "raw": "due,",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "raw": "Though",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "raw": "but",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "raw": "endeavour'd",
+          "start": 3.2,
+          "end": 3.74
+        },
+        {
+          "raw": "with",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "raw": "sincere",
+          "start": 3.88,
+          "end": 4.4
+        },
+        {
+          "raw": "intent,",
+          "start": 4.4,
+          "end": 4.84
+        },
+        {
+          "raw": "Mine",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "raw": "ear",
+          "start": 5.52,
+          "end": 5.82
+        },
+        {
+          "raw": "shall",
+          "start": 5.82,
+          "end": 6.02
+        },
+        {
+          "raw": "not",
+          "start": 6.02,
+          "end": 6.22
+        },
+        {
+          "raw": "be",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "raw": "slow,",
+          "start": 6.4,
+          "end": 6.74
+        },
+        {
+          "raw": "mine",
+          "start": 7.22,
+          "end": 7.36
+        },
+        {
+          "raw": "eye",
+          "start": 7.36,
+          "end": 7.6
+        },
+        {
+          "raw": "not",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "raw": "shut.",
+          "start": 7.82,
+          "end": 8.16
+        },
+        {
+          "raw": "And",
+          "start": 8.86,
+          "end": 9.02
+        },
+        {
+          "raw": "I",
+          "start": 9.02,
+          "end": 9.12
+        },
+        {
+          "raw": "will",
+          "start": 9.12,
+          "end": 9.26
+        },
+        {
+          "raw": "place",
+          "start": 9.26,
+          "end": 9.5
+        },
+        {
+          "raw": "within",
+          "start": 9.5,
+          "end": 9.82
+        },
+        {
+          "raw": "them",
+          "start": 9.82,
+          "end": 10.04
+        },
+        {
+          "raw": "as",
+          "start": 10.04,
+          "end": 10.22
+        },
+        {
+          "raw": "a",
+          "start": 10.22,
+          "end": 10.34
+        },
+        {
+          "raw": "guide,",
+          "start": 10.34,
+          "end": 10.64
+        },
+        {
+          "raw": "My",
+          "start": 10.92,
+          "end": 11.02
+        },
+        {
+          "raw": "umpire",
+          "start": 11.02,
+          "end": 11.46
+        },
+        {
+          "raw": "Conscience,",
+          "start": 11.46,
+          "end": 12.14
+        },
+        {
+          "raw": "whom",
+          "start": 12.66,
+          "end": 12.78
+        },
+        {
+          "raw": "if",
+          "start": 12.78,
+          "end": 12.92
+        },
+        {
+          "raw": "they",
+          "start": 12.92,
+          "end": 13.06
+        },
+        {
+          "raw": "will",
+          "start": 13.06,
+          "end": 13.24
+        },
+        {
+          "raw": "hear,",
+          "start": 13.24,
+          "end": 13.5
+        },
+        {
+          "raw": "Light",
+          "start": 13.72,
+          "end": 13.78
+        },
+        {
+          "raw": "after",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "raw": "light,",
+          "start": 14.06,
+          "end": 14.32
+        },
+        {
+          "raw": "well",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "raw": "us'd,",
+          "start": 14.62,
+          "end": 15.08
+        },
+        {
+          "raw": "they",
+          "start": 15.22,
+          "end": 15.3
+        },
+        {
+          "raw": "shall",
+          "start": 15.3,
+          "end": 15.48
+        },
+        {
+          "raw": "attain,",
+          "start": 15.48,
+          "end": 15.82
+        },
+        {
+          "raw": "And",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "raw": "to",
+          "start": 16.3,
+          "end": 16.4
+        },
+        {
+          "raw": "the",
+          "start": 16.4,
+          "end": 16.52
+        },
+        {
+          "raw": "end,",
+          "start": 16.52,
+          "end": 16.86
+        },
+        {
+          "raw": "persisting,",
+          "start": 17.06,
+          "end": 17.54
+        },
+        {
+          "raw": "safe",
+          "start": 17.76,
+          "end": 17.94
+        },
+        {
+          "raw": "arrive.",
+          "start": 17.94,
+          "end": 18.32
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "prayer,",
+        "repentance,",
+        "and",
+        "obedience",
+        "due,",
+        "Though",
+        "but",
+        "endeavour'd",
+        "with",
+        "sincere",
+        "intent,",
+        "Mine",
+        "ear",
+        "shall",
+        "not",
+        "be",
+        "slow,",
+        "mine",
+        "eye",
+        "not",
+        "shut.",
+        "And",
+        "I",
+        "will",
+        "place",
+        "within",
+        "them",
+        "as",
+        "a",
+        "guide,",
+        "My",
+        "umpire",
+        "Conscience;",
+        "whom",
+        "if",
+        "they",
+        "will",
+        "hear,",
+        "Light",
+        "after",
+        "light,",
+        "well",
+        "us'd,",
+        "they",
+        "shall",
+        "attain,",
+        "And",
+        "to",
+        "the",
+        "end,",
+        "persisting,",
+        "safe",
+        "arrive."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          54,
+          0,
+          54
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.0,
+          "end": 0.48
+        },
+        {
+          "text": "prayer,",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "text": "repentance,",
+          "start": 1.04,
+          "end": 1.4
+        },
+        {
+          "text": "and",
+          "start": 1.7,
+          "end": 1.78
+        },
+        {
+          "text": "obedience",
+          "start": 1.78,
+          "end": 2.16
+        },
+        {
+          "text": "due,",
+          "start": 2.16,
+          "end": 2.54
+        },
+        {
+          "text": "Though",
+          "start": 2.92,
+          "end": 3.02
+        },
+        {
+          "text": "but",
+          "start": 3.02,
+          "end": 3.2
+        },
+        {
+          "text": "endeavour'd",
+          "start": 3.2,
+          "end": 3.74
+        },
+        {
+          "text": "with",
+          "start": 3.74,
+          "end": 3.88
+        },
+        {
+          "text": "sincere",
+          "start": 3.88,
+          "end": 4.4
+        },
+        {
+          "text": "intent,",
+          "start": 4.4,
+          "end": 4.84
+        },
+        {
+          "text": "Mine",
+          "start": 5.42,
+          "end": 5.52
+        },
+        {
+          "text": "ear",
+          "start": 5.52,
+          "end": 5.82
+        },
+        {
+          "text": "shall",
+          "start": 5.82,
+          "end": 6.02
+        },
+        {
+          "text": "not",
+          "start": 6.02,
+          "end": 6.22
+        },
+        {
+          "text": "be",
+          "start": 6.22,
+          "end": 6.4
+        },
+        {
+          "text": "slow,",
+          "start": 6.4,
+          "end": 6.74
+        },
+        {
+          "text": "mine",
+          "start": 7.22,
+          "end": 7.36
+        },
+        {
+          "text": "eye",
+          "start": 7.36,
+          "end": 7.6
+        },
+        {
+          "text": "not",
+          "start": 7.6,
+          "end": 7.82
+        },
+        {
+          "text": "shut.",
+          "start": 7.82,
+          "end": 8.16
+        },
+        {
+          "text": "And",
+          "start": 8.86,
+          "end": 9.02
+        },
+        {
+          "text": "I",
+          "start": 9.02,
+          "end": 9.12
+        },
+        {
+          "text": "will",
+          "start": 9.12,
+          "end": 9.26
+        },
+        {
+          "text": "place",
+          "start": 9.26,
+          "end": 9.5
+        },
+        {
+          "text": "within",
+          "start": 9.5,
+          "end": 9.82
+        },
+        {
+          "text": "them",
+          "start": 9.82,
+          "end": 10.04
+        },
+        {
+          "text": "as",
+          "start": 10.04,
+          "end": 10.22
+        },
+        {
+          "text": "a",
+          "start": 10.22,
+          "end": 10.34
+        },
+        {
+          "text": "guide,",
+          "start": 10.34,
+          "end": 10.64
+        },
+        {
+          "text": "My",
+          "start": 10.92,
+          "end": 11.02
+        },
+        {
+          "text": "umpire",
+          "start": 11.02,
+          "end": 11.46
+        },
+        {
+          "text": "Conscience;",
+          "start": 11.46,
+          "end": 12.14
+        },
+        {
+          "text": "whom",
+          "start": 12.66,
+          "end": 12.78
+        },
+        {
+          "text": "if",
+          "start": 12.78,
+          "end": 12.92
+        },
+        {
+          "text": "they",
+          "start": 12.92,
+          "end": 13.06
+        },
+        {
+          "text": "will",
+          "start": 13.06,
+          "end": 13.24
+        },
+        {
+          "text": "hear,",
+          "start": 13.24,
+          "end": 13.5
+        },
+        {
+          "text": "Light",
+          "start": 13.72,
+          "end": 13.78
+        },
+        {
+          "text": "after",
+          "start": 13.78,
+          "end": 14.06
+        },
+        {
+          "text": "light,",
+          "start": 14.06,
+          "end": 14.32
+        },
+        {
+          "text": "well",
+          "start": 14.5,
+          "end": 14.62
+        },
+        {
+          "text": "us'd,",
+          "start": 14.62,
+          "end": 15.08
+        },
+        {
+          "text": "they",
+          "start": 15.22,
+          "end": 15.3
+        },
+        {
+          "text": "shall",
+          "start": 15.3,
+          "end": 15.48
+        },
+        {
+          "text": "attain,",
+          "start": 15.48,
+          "end": 15.82
+        },
+        {
+          "text": "And",
+          "start": 16.2,
+          "end": 16.3
+        },
+        {
+          "text": "to",
+          "start": 16.3,
+          "end": 16.4
+        },
+        {
+          "text": "the",
+          "start": 16.4,
+          "end": 16.52
+        },
+        {
+          "text": "end,",
+          "start": 16.52,
+          "end": 16.86
+        },
+        {
+          "text": "persisting,",
+          "start": 17.06,
+          "end": 17.54
+        },
+        {
+          "text": "safe",
+          "start": 17.76,
+          "end": 17.94
+        },
+        {
+          "text": "arrive.",
+          "start": 17.94,
+          "end": 18.32
+        }
+      ],
+      "stats": {
+        "expected_words": 54,
+        "heard_words": 54,
+        "matched_words": 54
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4397937282919884
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9010dae6553b6b08b0f4221ff994473cfee7ace123892978149d9ab57561d471",
+  "selected_reasons": []
+}

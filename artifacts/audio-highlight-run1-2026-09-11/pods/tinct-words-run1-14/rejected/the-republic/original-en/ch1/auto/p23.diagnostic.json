@@ -1,0 +1,6636 @@
+{
+  "complete": true,
+  "signature": "1584a52b2fe9f9f90cc63cfca7cff244ad1aac2065e2da31f6b85c7b603768e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.42493125796318054,
+      "alignment_seconds": 0.0006313025951385498,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You are right, he replied; they are not convinced: and there is something in what they say; not, however, so much as they imagine. I might answer them as Themistocles answered the Seriphian who was abusing him and saying that he was famous, not for his own merits but because he was an Athenian: 'If you had been a native of my country or I of yours, neither of us would have been famous.' And to those who are not rich and are impatient of old age, the same reply may be made; for to the good poor man old age cannot be a light burden, nor can a bad rich man ever have peace with himself.",
+        "hotwords": "I, Themistocles, Seriphian, Athenian, If"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And to those who are not rich and are impatient of old age, the same reply may be made.",
+          "start": 21.59,
+          "end": 28.43,
+          "words": [
+            {
+              "text": " And",
+              "start": 21.59,
+              "end": 22.15,
+              "probability": 0.0217437744140625
+            },
+            {
+              "text": " to",
+              "start": 22.15,
+              "end": 22.53,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " those",
+              "start": 22.53,
+              "end": 23.89,
+              "probability": 0.9921875
+            },
+            {
+              "text": " who",
+              "start": 23.89,
+              "end": 24.07,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " are",
+              "start": 24.07,
+              "end": 24.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 24.17,
+              "end": 24.37,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " rich",
+              "start": 24.37,
+              "end": 24.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 24.65,
+              "end": 24.91,
+              "probability": 0.93359375
+            },
+            {
+              "text": " are",
+              "start": 24.91,
+              "end": 25.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " impatient",
+              "start": 25.03,
+              "end": 25.45,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 25.45,
+              "end": 25.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " old",
+              "start": 25.73,
+              "end": 25.97,
+              "probability": 0.99609375
+            },
+            {
+              "text": " age,",
+              "start": 25.97,
+              "end": 26.37,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " the",
+              "start": 26.87,
+              "end": 26.91,
+              "probability": 0.935546875
+            },
+            {
+              "text": " same",
+              "start": 26.91,
+              "end": 27.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reply",
+              "start": 27.23,
+              "end": 27.65,
+              "probability": 0.98828125
+            },
+            {
+              "text": " may",
+              "start": 27.65,
+              "end": 27.93,
+              "probability": 0.994140625
+            },
+            {
+              "text": " be",
+              "start": 27.93,
+              "end": 28.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " made.",
+              "start": 28.09,
+              "end": 28.43,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " For to the good poor man old age cannot be a light burden, nor can a bad rich man ever",
+          "start": 28.43,
+          "end": 34.13,
+          "words": [
+            {
+              "text": " For",
+              "start": 28.43,
+              "end": 29.05,
+              "probability": 0.36767578125
+            },
+            {
+              "text": " to",
+              "start": 29.05,
+              "end": 29.17,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " the",
+              "start": 29.17,
+              "end": 29.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good",
+              "start": 29.29,
+              "end": 29.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " poor",
+              "start": 29.43,
+              "end": 29.73,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " man",
+              "start": 29.73,
+              "end": 30.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " old",
+              "start": 30.01,
+              "end": 30.27,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " age",
+              "start": 30.27,
+              "end": 30.71,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cannot",
+              "start": 30.71,
+              "end": 30.97,
+              "probability": 0.7890625
+            },
+            {
+              "text": " be",
+              "start": 30.97,
+              "end": 31.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 31.31,
+              "end": 31.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " light",
+              "start": 31.45,
+              "end": 31.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " burden,",
+              "start": 31.67,
+              "end": 32.15,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " nor",
+              "start": 32.57,
+              "end": 32.71,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " can",
+              "start": 32.71,
+              "end": 32.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 32.89,
+              "end": 33.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bad",
+              "start": 33.01,
+              "end": 33.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rich",
+              "start": 33.27,
+              "end": 33.53,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " man",
+              "start": 33.53,
+              "end": 33.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ever",
+              "start": 33.87,
+              "end": 34.13,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " have peace with himself.",
+          "start": 34.13,
+          "end": 35.25,
+          "words": [
+            {
+              "text": " have",
+              "start": 34.13,
+              "end": 34.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " peace",
+              "start": 34.41,
+              "end": 34.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " with",
+              "start": 34.67,
+              "end": 34.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself.",
+              "start": 34.87,
+              "end": 35.25,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 21.59,
+          "end": 22.15
+        },
+        {
+          "raw": "to",
+          "start": 22.15,
+          "end": 22.53
+        },
+        {
+          "raw": "those",
+          "start": 22.53,
+          "end": 23.89
+        },
+        {
+          "raw": "who",
+          "start": 23.89,
+          "end": 24.07
+        },
+        {
+          "raw": "are",
+          "start": 24.07,
+          "end": 24.17
+        },
+        {
+          "raw": "not",
+          "start": 24.17,
+          "end": 24.37
+        },
+        {
+          "raw": "rich",
+          "start": 24.37,
+          "end": 24.65
+        },
+        {
+          "raw": "and",
+          "start": 24.65,
+          "end": 24.91
+        },
+        {
+          "raw": "are",
+          "start": 24.91,
+          "end": 25.03
+        },
+        {
+          "raw": "impatient",
+          "start": 25.03,
+          "end": 25.45
+        },
+        {
+          "raw": "of",
+          "start": 25.45,
+          "end": 25.73
+        },
+        {
+          "raw": "old",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "raw": "age,",
+          "start": 25.97,
+          "end": 26.37
+        },
+        {
+          "raw": "the",
+          "start": 26.87,
+          "end": 26.91
+        },
+        {
+          "raw": "same",
+          "start": 26.91,
+          "end": 27.23
+        },
+        {
+          "raw": "reply",
+          "start": 27.23,
+          "end": 27.65
+        },
+        {
+          "raw": "may",
+          "start": 27.65,
+          "end": 27.93
+        },
+        {
+          "raw": "be",
+          "start": 27.93,
+          "end": 28.09
+        },
+        {
+          "raw": "made.",
+          "start": 28.09,
+          "end": 28.43
+        },
+        {
+          "raw": "For",
+          "start": 28.43,
+          "end": 29.05
+        },
+        {
+          "raw": "to",
+          "start": 29.05,
+          "end": 29.17
+        },
+        {
+          "raw": "the",
+          "start": 29.17,
+          "end": 29.29
+        },
+        {
+          "raw": "good",
+          "start": 29.29,
+          "end": 29.43
+        },
+        {
+          "raw": "poor",
+          "start": 29.43,
+          "end": 29.73
+        },
+        {
+          "raw": "man",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "raw": "old",
+          "start": 30.01,
+          "end": 30.27
+        },
+        {
+          "raw": "age",
+          "start": 30.27,
+          "end": 30.71
+        },
+        {
+          "raw": "cannot",
+          "start": 30.71,
+          "end": 30.97
+        },
+        {
+          "raw": "be",
+          "start": 30.97,
+          "end": 31.31
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.45
+        },
+        {
+          "raw": "light",
+          "start": 31.45,
+          "end": 31.67
+        },
+        {
+          "raw": "burden,",
+          "start": 31.67,
+          "end": 32.15
+        },
+        {
+          "raw": "nor",
+          "start": 32.57,
+          "end": 32.71
+        },
+        {
+          "raw": "can",
+          "start": 32.71,
+          "end": 32.89
+        },
+        {
+          "raw": "a",
+          "start": 32.89,
+          "end": 33.01
+        },
+        {
+          "raw": "bad",
+          "start": 33.01,
+          "end": 33.27
+        },
+        {
+          "raw": "rich",
+          "start": 33.27,
+          "end": 33.53
+        },
+        {
+          "raw": "man",
+          "start": 33.53,
+          "end": 33.87
+        },
+        {
+          "raw": "ever",
+          "start": 33.87,
+          "end": 34.13
+        },
+        {
+          "raw": "have",
+          "start": 34.13,
+          "end": 34.41
+        },
+        {
+          "raw": "peace",
+          "start": 34.41,
+          "end": 34.67
+        },
+        {
+          "raw": "with",
+          "start": 34.67,
+          "end": 34.87
+        },
+        {
+          "raw": "himself.",
+          "start": 34.87,
+          "end": 35.25
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "right,",
+        "he",
+        "replied;",
+        "they",
+        "are",
+        "not",
+        "convinced:",
+        "and",
+        "there",
+        "is",
+        "something",
+        "in",
+        "what",
+        "they",
+        "say;",
+        "not,",
+        "however,",
+        "so",
+        "much",
+        "as",
+        "they",
+        "imagine.",
+        "I",
+        "might",
+        "answer",
+        "them",
+        "as",
+        "Themistocles",
+        "answered",
+        "the",
+        "Seriphian",
+        "who",
+        "was",
+        "abusing",
+        "him",
+        "and",
+        "saying",
+        "that",
+        "he",
+        "was",
+        "famous,",
+        "not",
+        "for",
+        "his",
+        "own",
+        "merits",
+        "but",
+        "because",
+        "he",
+        "was",
+        "an",
+        "Athenian:",
+        "'If",
+        "you",
+        "had",
+        "been",
+        "a",
+        "native",
+        "of",
+        "my",
+        "country",
+        "or",
+        "I",
+        "of",
+        "yours,",
+        "neither",
+        "of",
+        "us",
+        "would",
+        "have",
+        "been",
+        "famous.'",
+        "And",
+        "to",
+        "those",
+        "who",
+        "are",
+        "not",
+        "rich",
+        "and",
+        "are",
+        "impatient",
+        "of",
+        "old",
+        "age,",
+        "the",
+        "same",
+        "reply",
+        "may",
+        "be",
+        "made;",
+        "for",
+        "to",
+        "the",
+        "good",
+        "poor",
+        "man",
+        "old",
+        "age",
+        "cannot",
+        "be",
+        "a",
+        "light",
+        "burden,",
+        "nor",
+        "can",
+        "a",
+        "bad",
+        "rich",
+        "man",
+        "ever",
+        "have",
+        "peace",
+        "with",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          74,
+          0,
+          0
+        ],
+        [
+          "equal",
+          74,
+          117,
+          0,
+          43
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 59,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 60,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 61,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 62,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 63,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 64,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 65,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 66,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 67,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 68,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 69,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 70,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 71,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 72,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 73,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 42
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          74,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.0,
+          "end": 10.795
+        },
+        {
+          "text": "are",
+          "start": 10.795,
+          "end": 16.192
+        },
+        {
+          "text": "right,",
+          "start": 16.192,
+          "end": 18.891
+        },
+        {
+          "text": "he",
+          "start": 18.891,
+          "end": 20.24
+        },
+        {
+          "text": "replied;",
+          "start": 20.24,
+          "end": 20.915
+        },
+        {
+          "text": "they",
+          "start": 20.915,
+          "end": 21.252
+        },
+        {
+          "text": "are",
+          "start": 21.252,
+          "end": 21.421
+        },
+        {
+          "text": "not",
+          "start": 21.421,
+          "end": 21.505
+        },
+        {
+          "text": "convinced:",
+          "start": 21.505,
+          "end": 21.547
+        },
+        {
+          "text": "and",
+          "start": 21.547,
+          "end": 21.569
+        },
+        {
+          "text": "there",
+          "start": 21.569,
+          "end": 21.579
+        },
+        {
+          "text": "is",
+          "start": 21.579,
+          "end": 21.584
+        },
+        {
+          "text": "something",
+          "start": 21.584,
+          "end": 21.587
+        },
+        {
+          "text": "in",
+          "start": 21.587,
+          "end": 21.588
+        },
+        {
+          "text": "what",
+          "start": 21.588,
+          "end": 21.589
+        },
+        {
+          "text": "they",
+          "start": 21.589,
+          "end": 21.59
+        },
+        {
+          "text": "say;",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "not,",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "however,",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "so",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "much",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "as",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "they",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "imagine.",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "I",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "might",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "answer",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "them",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "as",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "Themistocles",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "answered",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "the",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "Seriphian",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "who",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "was",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "abusing",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "him",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "and",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "saying",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "that",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "he",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "was",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "famous,",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "not",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "for",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "his",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "own",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "merits",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "but",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "because",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "he",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "was",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "an",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "Athenian:",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "'If",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "you",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "had",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "been",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "a",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "native",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "of",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "my",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "country",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "or",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "I",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "of",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "yours,",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "neither",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "of",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "us",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "would",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "have",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "been",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "famous.'",
+          "start": 21.59,
+          "end": 21.59
+        },
+        {
+          "text": "And",
+          "start": 21.59,
+          "end": 22.15
+        },
+        {
+          "text": "to",
+          "start": 22.15,
+          "end": 22.53
+        },
+        {
+          "text": "those",
+          "start": 22.53,
+          "end": 23.89
+        },
+        {
+          "text": "who",
+          "start": 23.89,
+          "end": 24.07
+        },
+        {
+          "text": "are",
+          "start": 24.07,
+          "end": 24.17
+        },
+        {
+          "text": "not",
+          "start": 24.17,
+          "end": 24.37
+        },
+        {
+          "text": "rich",
+          "start": 24.37,
+          "end": 24.65
+        },
+        {
+          "text": "and",
+          "start": 24.65,
+          "end": 24.91
+        },
+        {
+          "text": "are",
+          "start": 24.91,
+          "end": 25.03
+        },
+        {
+          "text": "impatient",
+          "start": 25.03,
+          "end": 25.45
+        },
+        {
+          "text": "of",
+          "start": 25.45,
+          "end": 25.73
+        },
+        {
+          "text": "old",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "text": "age,",
+          "start": 25.97,
+          "end": 26.37
+        },
+        {
+          "text": "the",
+          "start": 26.87,
+          "end": 26.91
+        },
+        {
+          "text": "same",
+          "start": 26.91,
+          "end": 27.23
+        },
+        {
+          "text": "reply",
+          "start": 27.23,
+          "end": 27.65
+        },
+        {
+          "text": "may",
+          "start": 27.65,
+          "end": 27.93
+        },
+        {
+          "text": "be",
+          "start": 27.93,
+          "end": 28.09
+        },
+        {
+          "text": "made;",
+          "start": 28.09,
+          "end": 28.43
+        },
+        {
+          "text": "for",
+          "start": 28.43,
+          "end": 29.05
+        },
+        {
+          "text": "to",
+          "start": 29.05,
+          "end": 29.17
+        },
+        {
+          "text": "the",
+          "start": 29.17,
+          "end": 29.29
+        },
+        {
+          "text": "good",
+          "start": 29.29,
+          "end": 29.43
+        },
+        {
+          "text": "poor",
+          "start": 29.43,
+          "end": 29.73
+        },
+        {
+          "text": "man",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "text": "old",
+          "start": 30.01,
+          "end": 30.27
+        },
+        {
+          "text": "age",
+          "start": 30.27,
+          "end": 30.71
+        },
+        {
+          "text": "cannot",
+          "start": 30.71,
+          "end": 30.97
+        },
+        {
+          "text": "be",
+          "start": 30.97,
+          "end": 31.31
+        },
+        {
+          "text": "a",
+          "start": 31.31,
+          "end": 31.45
+        },
+        {
+          "text": "light",
+          "start": 31.45,
+          "end": 31.67
+        },
+        {
+          "text": "burden,",
+          "start": 31.67,
+          "end": 32.15
+        },
+        {
+          "text": "nor",
+          "start": 32.57,
+          "end": 32.71
+        },
+        {
+          "text": "can",
+          "start": 32.71,
+          "end": 32.89
+        },
+        {
+          "text": "a",
+          "start": 32.89,
+          "end": 33.01
+        },
+        {
+          "text": "bad",
+          "start": 33.01,
+          "end": 33.27
+        },
+        {
+          "text": "rich",
+          "start": 33.27,
+          "end": 33.53
+        },
+        {
+          "text": "man",
+          "start": 33.53,
+          "end": 33.87
+        },
+        {
+          "text": "ever",
+          "start": 33.87,
+          "end": 34.13
+        },
+        {
+          "text": "have",
+          "start": 34.13,
+          "end": 34.41
+        },
+        {
+          "text": "peace",
+          "start": 34.41,
+          "end": 34.67
+        },
+        {
+          "text": "with",
+          "start": 34.67,
+          "end": 34.87
+        },
+        {
+          "text": "himself.",
+          "start": 34.87,
+          "end": 35.25
+        }
+      ],
+      "stats": {
+        "expected_words": 117,
+        "heard_words": 43,
+        "matched_words": 43
+      },
+      "match_ratio": 0.36752136752136755,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.42582064867019653
+    },
+    {
+      "asr_seconds": 0.44498008489608765,
+      "alignment_seconds": 0.0005376860499382019,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I, Themistocles, Seriphian, Athenian, If"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " you had been a native of my country or I of yours, neither of us would have been famous.",
+          "start": 15.65,
+          "end": 22.29,
+          "words": [
+            {
+              "text": " you",
+              "start": 15.65,
+              "end": 16.15,
+              "probability": 0.135498046875
+            },
+            {
+              "text": " had",
+              "start": 16.15,
+              "end": 16.15,
+              "probability": 0.002651214599609375
+            },
+            {
+              "text": " been",
+              "start": 16.15,
+              "end": 18.39,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " a",
+              "start": 18.39,
+              "end": 18.49,
+              "probability": 0.888671875
+            },
+            {
+              "text": " native",
+              "start": 18.49,
+              "end": 18.75,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " of",
+              "start": 18.75,
+              "end": 18.93,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " my",
+              "start": 18.93,
+              "end": 19.11,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " country",
+              "start": 19.11,
+              "end": 19.55,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " or",
+              "start": 19.55,
+              "end": 19.83,
+              "probability": 0.76416015625
+            },
+            {
+              "text": " I",
+              "start": 19.83,
+              "end": 20.03,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " of",
+              "start": 20.03,
+              "end": 20.17,
+              "probability": 0.85107421875
+            },
+            {
+              "text": " yours,",
+              "start": 20.17,
+              "end": 20.55,
+              "probability": 0.974609375
+            },
+            {
+              "text": " neither",
+              "start": 20.95,
+              "end": 21.03,
+              "probability": 0.96484375
+            },
+            {
+              "text": " of",
+              "start": 21.03,
+              "end": 21.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " us",
+              "start": 21.29,
+              "end": 21.43,
+              "probability": 0.994140625
+            },
+            {
+              "text": " would",
+              "start": 21.43,
+              "end": 21.57,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " have",
+              "start": 21.57,
+              "end": 21.67,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " been",
+              "start": 21.67,
+              "end": 21.83,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " famous.",
+              "start": 21.83,
+              "end": 22.29,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " And to those who are not rich and are impatient of old age, the same reply may be made. For",
+          "start": 23.47,
+          "end": 29.05,
+          "words": [
+            {
+              "text": " And",
+              "start": 23.47,
+              "end": 23.49,
+              "probability": 0.58984375
+            },
+            {
+              "text": " to",
+              "start": 23.49,
+              "end": 23.59,
+              "probability": 0.966796875
+            },
+            {
+              "text": " those",
+              "start": 23.59,
+              "end": 23.87,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " who",
+              "start": 23.87,
+              "end": 24.07,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " are",
+              "start": 24.07,
+              "end": 24.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 24.19,
+              "end": 24.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rich",
+              "start": 24.37,
+              "end": 24.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 24.67,
+              "end": 24.91,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " are",
+              "start": 24.91,
+              "end": 25.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " impatient",
+              "start": 25.05,
+              "end": 25.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 25.47,
+              "end": 25.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " old",
+              "start": 25.73,
+              "end": 25.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " age,",
+              "start": 25.97,
+              "end": 26.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 26.83,
+              "end": 26.93,
+              "probability": 0.978515625
+            },
+            {
+              "text": " same",
+              "start": 26.93,
+              "end": 27.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reply",
+              "start": 27.23,
+              "end": 27.65,
+              "probability": 0.994140625
+            },
+            {
+              "text": " may",
+              "start": 27.65,
+              "end": 27.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 27.93,
+              "end": 28.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " made.",
+              "start": 28.09,
+              "end": 28.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " For",
+              "start": 28.89,
+              "end": 29.05,
+              "probability": 0.828125
+            }
+          ]
+        },
+        {
+          "text": " to the good poor man old age cannot be a light burden, nor can a bad rich man ever have peace",
+          "start": 29.05,
+          "end": 34.65,
+          "words": [
+            {
+              "text": " to",
+              "start": 29.05,
+              "end": 29.15,
+              "probability": 0.59716796875
+            },
+            {
+              "text": " the",
+              "start": 29.15,
+              "end": 29.29,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " good",
+              "start": 29.29,
+              "end": 29.43,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " poor",
+              "start": 29.43,
+              "end": 29.73,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " man",
+              "start": 29.73,
+              "end": 30.01,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " old",
+              "start": 30.01,
+              "end": 30.27,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " age",
+              "start": 30.27,
+              "end": 30.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " cannot",
+              "start": 30.71,
+              "end": 31.01,
+              "probability": 0.69970703125
+            },
+            {
+              "text": " be",
+              "start": 31.01,
+              "end": 31.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 31.31,
+              "end": 31.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " light",
+              "start": 31.45,
+              "end": 31.67,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " burden,",
+              "start": 31.67,
+              "end": 32.13,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " nor",
+              "start": 32.53,
+              "end": 32.71,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " can",
+              "start": 32.71,
+              "end": 32.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 32.89,
+              "end": 33.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bad",
+              "start": 33.01,
+              "end": 33.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " rich",
+              "start": 33.25,
+              "end": 33.53,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " man",
+              "start": 33.53,
+              "end": 33.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ever",
+              "start": 33.87,
+              "end": 34.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " have",
+              "start": 34.15,
+              "end": 34.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " peace",
+              "start": 34.41,
+              "end": 34.65,
+              "probability": 0.98974609375
+            }
+          ]
+        },
+        {
+          "text": " with himself.",
+          "start": 34.65,
+          "end": 35.23,
+          "words": [
+            {
+              "text": " with",
+              "start": 34.65,
+              "end": 34.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself.",
+              "start": 34.87,
+              "end": 35.23,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "you",
+          "start": 15.65,
+          "end": 16.15
+        },
+        {
+          "raw": "had",
+          "start": 16.15,
+          "end": 16.15
+        },
+        {
+          "raw": "been",
+          "start": 16.15,
+          "end": 18.39
+        },
+        {
+          "raw": "a",
+          "start": 18.39,
+          "end": 18.49
+        },
+        {
+          "raw": "native",
+          "start": 18.49,
+          "end": 18.75
+        },
+        {
+          "raw": "of",
+          "start": 18.75,
+          "end": 18.93
+        },
+        {
+          "raw": "my",
+          "start": 18.93,
+          "end": 19.11
+        },
+        {
+          "raw": "country",
+          "start": 19.11,
+          "end": 19.55
+        },
+        {
+          "raw": "or",
+          "start": 19.55,
+          "end": 19.83
+        },
+        {
+          "raw": "I",
+          "start": 19.83,
+          "end": 20.03
+        },
+        {
+          "raw": "of",
+          "start": 20.03,
+          "end": 20.17
+        },
+        {
+          "raw": "yours,",
+          "start": 20.17,
+          "end": 20.55
+        },
+        {
+          "raw": "neither",
+          "start": 20.95,
+          "end": 21.03
+        },
+        {
+          "raw": "of",
+          "start": 21.03,
+          "end": 21.29
+        },
+        {
+          "raw": "us",
+          "start": 21.29,
+          "end": 21.43
+        },
+        {
+          "raw": "would",
+          "start": 21.43,
+          "end": 21.57
+        },
+        {
+          "raw": "have",
+          "start": 21.57,
+          "end": 21.67
+        },
+        {
+          "raw": "been",
+          "start": 21.67,
+          "end": 21.83
+        },
+        {
+          "raw": "famous.",
+          "start": 21.83,
+          "end": 22.29
+        },
+        {
+          "raw": "And",
+          "start": 23.47,
+          "end": 23.49
+        },
+        {
+          "raw": "to",
+          "start": 23.49,
+          "end": 23.59
+        },
+        {
+          "raw": "those",
+          "start": 23.59,
+          "end": 23.87
+        },
+        {
+          "raw": "who",
+          "start": 23.87,
+          "end": 24.07
+        },
+        {
+          "raw": "are",
+          "start": 24.07,
+          "end": 24.19
+        },
+        {
+          "raw": "not",
+          "start": 24.19,
+          "end": 24.37
+        },
+        {
+          "raw": "rich",
+          "start": 24.37,
+          "end": 24.67
+        },
+        {
+          "raw": "and",
+          "start": 24.67,
+          "end": 24.91
+        },
+        {
+          "raw": "are",
+          "start": 24.91,
+          "end": 25.05
+        },
+        {
+          "raw": "impatient",
+          "start": 25.05,
+          "end": 25.47
+        },
+        {
+          "raw": "of",
+          "start": 25.47,
+          "end": 25.73
+        },
+        {
+          "raw": "old",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "raw": "age,",
+          "start": 25.97,
+          "end": 26.35
+        },
+        {
+          "raw": "the",
+          "start": 26.83,
+          "end": 26.93
+        },
+        {
+          "raw": "same",
+          "start": 26.93,
+          "end": 27.23
+        },
+        {
+          "raw": "reply",
+          "start": 27.23,
+          "end": 27.65
+        },
+        {
+          "raw": "may",
+          "start": 27.65,
+          "end": 27.93
+        },
+        {
+          "raw": "be",
+          "start": 27.93,
+          "end": 28.09
+        },
+        {
+          "raw": "made.",
+          "start": 28.09,
+          "end": 28.43
+        },
+        {
+          "raw": "For",
+          "start": 28.89,
+          "end": 29.05
+        },
+        {
+          "raw": "to",
+          "start": 29.05,
+          "end": 29.15
+        },
+        {
+          "raw": "the",
+          "start": 29.15,
+          "end": 29.29
+        },
+        {
+          "raw": "good",
+          "start": 29.29,
+          "end": 29.43
+        },
+        {
+          "raw": "poor",
+          "start": 29.43,
+          "end": 29.73
+        },
+        {
+          "raw": "man",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "raw": "old",
+          "start": 30.01,
+          "end": 30.27
+        },
+        {
+          "raw": "age",
+          "start": 30.27,
+          "end": 30.71
+        },
+        {
+          "raw": "cannot",
+          "start": 30.71,
+          "end": 31.01
+        },
+        {
+          "raw": "be",
+          "start": 31.01,
+          "end": 31.31
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.45
+        },
+        {
+          "raw": "light",
+          "start": 31.45,
+          "end": 31.67
+        },
+        {
+          "raw": "burden,",
+          "start": 31.67,
+          "end": 32.13
+        },
+        {
+          "raw": "nor",
+          "start": 32.53,
+          "end": 32.71
+        },
+        {
+          "raw": "can",
+          "start": 32.71,
+          "end": 32.89
+        },
+        {
+          "raw": "a",
+          "start": 32.89,
+          "end": 33.01
+        },
+        {
+          "raw": "bad",
+          "start": 33.01,
+          "end": 33.25
+        },
+        {
+          "raw": "rich",
+          "start": 33.25,
+          "end": 33.53
+        },
+        {
+          "raw": "man",
+          "start": 33.53,
+          "end": 33.87
+        },
+        {
+          "raw": "ever",
+          "start": 33.87,
+          "end": 34.15
+        },
+        {
+          "raw": "have",
+          "start": 34.15,
+          "end": 34.41
+        },
+        {
+          "raw": "peace",
+          "start": 34.41,
+          "end": 34.65
+        },
+        {
+          "raw": "with",
+          "start": 34.65,
+          "end": 34.87
+        },
+        {
+          "raw": "himself.",
+          "start": 34.87,
+          "end": 35.23
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "right,",
+        "he",
+        "replied;",
+        "they",
+        "are",
+        "not",
+        "convinced:",
+        "and",
+        "there",
+        "is",
+        "something",
+        "in",
+        "what",
+        "they",
+        "say;",
+        "not,",
+        "however,",
+        "so",
+        "much",
+        "as",
+        "they",
+        "imagine.",
+        "I",
+        "might",
+        "answer",
+        "them",
+        "as",
+        "Themistocles",
+        "answered",
+        "the",
+        "Seriphian",
+        "who",
+        "was",
+        "abusing",
+        "him",
+        "and",
+        "saying",
+        "that",
+        "he",
+        "was",
+        "famous,",
+        "not",
+        "for",
+        "his",
+        "own",
+        "merits",
+        "but",
+        "because",
+        "he",
+        "was",
+        "an",
+        "Athenian:",
+        "'If",
+        "you",
+        "had",
+        "been",
+        "a",
+        "native",
+        "of",
+        "my",
+        "country",
+        "or",
+        "I",
+        "of",
+        "yours,",
+        "neither",
+        "of",
+        "us",
+        "would",
+        "have",
+        "been",
+        "famous.'",
+        "And",
+        "to",
+        "those",
+        "who",
+        "are",
+        "not",
+        "rich",
+        "and",
+        "are",
+        "impatient",
+        "of",
+        "old",
+        "age,",
+        "the",
+        "same",
+        "reply",
+        "may",
+        "be",
+        "made;",
+        "for",
+        "to",
+        "the",
+        "good",
+        "poor",
+        "man",
+        "old",
+        "age",
+        "cannot",
+        "be",
+        "a",
+        "light",
+        "burden,",
+        "nor",
+        "can",
+        "a",
+        "bad",
+        "rich",
+        "man",
+        "ever",
+        "have",
+        "peace",
+        "with",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          55,
+          0,
+          0
+        ],
+        [
+          "equal",
+          55,
+          117,
+          0,
+          62
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 38,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 39,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 43,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 46,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 47,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 48,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 49,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 50,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 51,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 61
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          55,
+          0,
+          0
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.0,
+          "end": 7.825
+        },
+        {
+          "text": "are",
+          "start": 7.825,
+          "end": 11.738
+        },
+        {
+          "text": "right,",
+          "start": 11.738,
+          "end": 13.694
+        },
+        {
+          "text": "he",
+          "start": 13.694,
+          "end": 14.672
+        },
+        {
+          "text": "replied;",
+          "start": 14.672,
+          "end": 15.161
+        },
+        {
+          "text": "they",
+          "start": 15.161,
+          "end": 15.405
+        },
+        {
+          "text": "are",
+          "start": 15.405,
+          "end": 15.527
+        },
+        {
+          "text": "not",
+          "start": 15.527,
+          "end": 15.588
+        },
+        {
+          "text": "convinced:",
+          "start": 15.588,
+          "end": 15.619
+        },
+        {
+          "text": "and",
+          "start": 15.619,
+          "end": 15.634
+        },
+        {
+          "text": "there",
+          "start": 15.634,
+          "end": 15.642
+        },
+        {
+          "text": "is",
+          "start": 15.642,
+          "end": 15.646
+        },
+        {
+          "text": "something",
+          "start": 15.646,
+          "end": 15.648
+        },
+        {
+          "text": "in",
+          "start": 15.648,
+          "end": 15.649
+        },
+        {
+          "text": "what",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "they",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "say;",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "not,",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "however,",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "so",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "much",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "as",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "they",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "imagine.",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "I",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "might",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "answer",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "them",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "as",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "Themistocles",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "answered",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "the",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "Seriphian",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "who",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "was",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "abusing",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "him",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "and",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "saying",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "that",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "he",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "was",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "famous,",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "not",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "for",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "his",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "own",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "merits",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "but",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "because",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "he",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "was",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "an",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "Athenian:",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "'If",
+          "start": 15.649,
+          "end": 15.649
+        },
+        {
+          "text": "you",
+          "start": 15.65,
+          "end": 16.15
+        },
+        {
+          "text": "had",
+          "start": 16.15,
+          "end": 16.15
+        },
+        {
+          "text": "been",
+          "start": 16.15,
+          "end": 18.39
+        },
+        {
+          "text": "a",
+          "start": 18.39,
+          "end": 18.49
+        },
+        {
+          "text": "native",
+          "start": 18.49,
+          "end": 18.75
+        },
+        {
+          "text": "of",
+          "start": 18.75,
+          "end": 18.93
+        },
+        {
+          "text": "my",
+          "start": 18.93,
+          "end": 19.11
+        },
+        {
+          "text": "country",
+          "start": 19.11,
+          "end": 19.55
+        },
+        {
+          "text": "or",
+          "start": 19.55,
+          "end": 19.83
+        },
+        {
+          "text": "I",
+          "start": 19.83,
+          "end": 20.03
+        },
+        {
+          "text": "of",
+          "start": 20.03,
+          "end": 20.17
+        },
+        {
+          "text": "yours,",
+          "start": 20.17,
+          "end": 20.55
+        },
+        {
+          "text": "neither",
+          "start": 20.95,
+          "end": 21.03
+        },
+        {
+          "text": "of",
+          "start": 21.03,
+          "end": 21.29
+        },
+        {
+          "text": "us",
+          "start": 21.29,
+          "end": 21.43
+        },
+        {
+          "text": "would",
+          "start": 21.43,
+          "end": 21.57
+        },
+        {
+          "text": "have",
+          "start": 21.57,
+          "end": 21.67
+        },
+        {
+          "text": "been",
+          "start": 21.67,
+          "end": 21.83
+        },
+        {
+          "text": "famous.'",
+          "start": 21.83,
+          "end": 22.29
+        },
+        {
+          "text": "And",
+          "start": 23.47,
+          "end": 23.49
+        },
+        {
+          "text": "to",
+          "start": 23.49,
+          "end": 23.59
+        },
+        {
+          "text": "those",
+          "start": 23.59,
+          "end": 23.87
+        },
+        {
+          "text": "who",
+          "start": 23.87,
+          "end": 24.07
+        },
+        {
+          "text": "are",
+          "start": 24.07,
+          "end": 24.19
+        },
+        {
+          "text": "not",
+          "start": 24.19,
+          "end": 24.37
+        },
+        {
+          "text": "rich",
+          "start": 24.37,
+          "end": 24.67
+        },
+        {
+          "text": "and",
+          "start": 24.67,
+          "end": 24.91
+        },
+        {
+          "text": "are",
+          "start": 24.91,
+          "end": 25.05
+        },
+        {
+          "text": "impatient",
+          "start": 25.05,
+          "end": 25.47
+        },
+        {
+          "text": "of",
+          "start": 25.47,
+          "end": 25.73
+        },
+        {
+          "text": "old",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "text": "age,",
+          "start": 25.97,
+          "end": 26.35
+        },
+        {
+          "text": "the",
+          "start": 26.83,
+          "end": 26.93
+        },
+        {
+          "text": "same",
+          "start": 26.93,
+          "end": 27.23
+        },
+        {
+          "text": "reply",
+          "start": 27.23,
+          "end": 27.65
+        },
+        {
+          "text": "may",
+          "start": 27.65,
+          "end": 27.93
+        },
+        {
+          "text": "be",
+          "start": 27.93,
+          "end": 28.09
+        },
+        {
+          "text": "made;",
+          "start": 28.09,
+          "end": 28.43
+        },
+        {
+          "text": "for",
+          "start": 28.89,
+          "end": 29.05
+        },
+        {
+          "text": "to",
+          "start": 29.05,
+          "end": 29.15
+        },
+        {
+          "text": "the",
+          "start": 29.15,
+          "end": 29.29
+        },
+        {
+          "text": "good",
+          "start": 29.29,
+          "end": 29.43
+        },
+        {
+          "text": "poor",
+          "start": 29.43,
+          "end": 29.73
+        },
+        {
+          "text": "man",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "text": "old",
+          "start": 30.01,
+          "end": 30.27
+        },
+        {
+          "text": "age",
+          "start": 30.27,
+          "end": 30.71
+        },
+        {
+          "text": "cannot",
+          "start": 30.71,
+          "end": 31.01
+        },
+        {
+          "text": "be",
+          "start": 31.01,
+          "end": 31.31
+        },
+        {
+          "text": "a",
+          "start": 31.31,
+          "end": 31.45
+        },
+        {
+          "text": "light",
+          "start": 31.45,
+          "end": 31.67
+        },
+        {
+          "text": "burden,",
+          "start": 31.67,
+          "end": 32.13
+        },
+        {
+          "text": "nor",
+          "start": 32.53,
+          "end": 32.71
+        },
+        {
+          "text": "can",
+          "start": 32.71,
+          "end": 32.89
+        },
+        {
+          "text": "a",
+          "start": 32.89,
+          "end": 33.01
+        },
+        {
+          "text": "bad",
+          "start": 33.01,
+          "end": 33.25
+        },
+        {
+          "text": "rich",
+          "start": 33.25,
+          "end": 33.53
+        },
+        {
+          "text": "man",
+          "start": 33.53,
+          "end": 33.87
+        },
+        {
+          "text": "ever",
+          "start": 33.87,
+          "end": 34.15
+        },
+        {
+          "text": "have",
+          "start": 34.15,
+          "end": 34.41
+        },
+        {
+          "text": "peace",
+          "start": 34.41,
+          "end": 34.65
+        },
+        {
+          "text": "with",
+          "start": 34.65,
+          "end": 34.87
+        },
+        {
+          "text": "himself.",
+          "start": 34.87,
+          "end": 35.23
+        }
+      ],
+      "stats": {
+        "expected_words": 117,
+        "heard_words": 62,
+        "matched_words": 62
+      },
+      "match_ratio": 0.5299145299145299,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4457201883196831
+    },
+    {
+      "asr_seconds": 0.7750770673155785,
+      "alignment_seconds": 0.0006048679351806641,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You are right,\" he replied.",
+          "start": 0.05,
+          "end": 1.69,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.0792236328125
+            },
+            {
+              "text": " are",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " right,\"",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.67138671875
+            },
+            {
+              "text": " he",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " replied.",
+              "start": 1.27,
+              "end": 1.69,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " They are not convinced, and there is something in what they say, not, however, so much as",
+          "start": 2.27,
+          "end": 6.99,
+          "words": [
+            {
+              "text": " They",
+              "start": 2.27,
+              "end": 2.37,
+              "probability": 0.026763916015625
+            },
+            {
+              "text": " are",
+              "start": 2.37,
+              "end": 2.47,
+              "probability": 0.9921875
+            },
+            {
+              "text": " not",
+              "start": 2.47,
+              "end": 2.67,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " convinced,",
+              "start": 2.67,
+              "end": 3.17,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 3.77,
+              "end": 3.85,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " there",
+              "start": 3.85,
+              "end": 3.95,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " is",
+              "start": 3.95,
+              "end": 4.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " something",
+              "start": 4.11,
+              "end": 4.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 4.35,
+              "end": 4.57,
+              "probability": 0.998046875
+            },
+            {
+              "text": " what",
+              "start": 4.57,
+              "end": 4.69,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " they",
+              "start": 4.69,
+              "end": 4.85,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say,",
+              "start": 4.85,
+              "end": 5.15,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not,",
+              "start": 5.67,
+              "end": 5.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " however,",
+              "start": 5.97,
+              "end": 6.23,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " so",
+              "start": 6.49,
+              "end": 6.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " much",
+              "start": 6.61,
+              "end": 6.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " as",
+              "start": 6.79,
+              "end": 6.99,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " they imagine.",
+          "start": 6.99,
+          "end": 7.61,
+          "words": [
+            {
+              "text": " they",
+              "start": 6.99,
+              "end": 7.15,
+              "probability": 0.998046875
+            },
+            {
+              "text": " imagine.",
+              "start": 7.15,
+              "end": 7.61,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " I might answer them as the mysticlies answered the serifian who was abusing him and saying",
+          "start": 8.31,
+          "end": 13.17,
+          "words": [
+            {
+              "text": " I",
+              "start": 8.31,
+              "end": 8.47,
+              "probability": 0.9765625
+            },
+            {
+              "text": " might",
+              "start": 8.47,
+              "end": 8.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " answer",
+              "start": 8.63,
+              "end": 9.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " them",
+              "start": 9.03,
+              "end": 9.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 9.25,
+              "end": 9.43,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " the",
+              "start": 9.43,
+              "end": 9.63,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " mysticlies",
+              "start": 9.63,
+              "end": 10.19,
+              "probability": 0.6964111328125
+            },
+            {
+              "text": " answered",
+              "start": 10.19,
+              "end": 10.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 10.67,
+              "end": 10.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " serifian",
+              "start": 10.87,
+              "end": 11.41,
+              "probability": 0.7229817708333334
+            },
+            {
+              "text": " who",
+              "start": 11.41,
+              "end": 11.57,
+              "probability": 0.98046875
+            },
+            {
+              "text": " was",
+              "start": 11.57,
+              "end": 11.69,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " abusing",
+              "start": 11.69,
+              "end": 12.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him",
+              "start": 12.07,
+              "end": 12.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 12.45,
+              "end": 12.83,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " saying",
+              "start": 12.83,
+              "end": 13.17,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " that he was famous, not for his own merits but because he was an Athenian.",
+          "start": 13.17,
+          "end": 17.33,
+          "words": [
+            {
+              "text": " that",
+              "start": 13.17,
+              "end": 13.39,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " he",
+              "start": 13.39,
+              "end": 13.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 13.55,
+              "end": 13.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " famous,",
+              "start": 13.71,
+              "end": 14.15,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " not",
+              "start": 14.53,
+              "end": 14.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " for",
+              "start": 14.77,
+              "end": 14.95,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 14.95,
+              "end": 15.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " own",
+              "start": 15.07,
+              "end": 15.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " merits",
+              "start": 15.31,
+              "end": 15.67,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 15.67,
+              "end": 16.01,
+              "probability": 0.428466796875
+            },
+            {
+              "text": " because",
+              "start": 16.01,
+              "end": 16.23,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " he",
+              "start": 16.23,
+              "end": 16.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " was",
+              "start": 16.43,
+              "end": 16.61,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 16.61,
+              "end": 16.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Athenian.",
+              "start": 16.75,
+              "end": 17.33,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " If you had been a native of my country or I of yours, neither of us would have been",
+          "start": 17.89,
+          "end": 21.83,
+          "words": [
+            {
+              "text": " If",
+              "start": 17.89,
+              "end": 18.09,
+              "probability": 0.89599609375
+            },
+            {
+              "text": " you",
+              "start": 18.09,
+              "end": 18.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " had",
+              "start": 18.21,
+              "end": 18.29,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " been",
+              "start": 18.29,
+              "end": 18.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 18.39,
+              "end": 18.55,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " native",
+              "start": 18.55,
+              "end": 18.77,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 18.77,
+              "end": 18.93,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 18.93,
+              "end": 19.13,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " country",
+              "start": 19.13,
+              "end": 19.51,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 19.51,
+              "end": 19.83,
+              "probability": 0.939453125
+            },
+            {
+              "text": " I",
+              "start": 19.83,
+              "end": 20.03,
+              "probability": 0.94921875
+            },
+            {
+              "text": " of",
+              "start": 20.03,
+              "end": 20.17,
+              "probability": 0.98046875
+            },
+            {
+              "text": " yours,",
+              "start": 20.17,
+              "end": 20.47,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " neither",
+              "start": 20.93,
+              "end": 21.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 21.05,
+              "end": 21.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " us",
+              "start": 21.29,
+              "end": 21.43,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " would",
+              "start": 21.43,
+              "end": 21.57,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 21.57,
+              "end": 21.67,
+              "probability": 0.974609375
+            },
+            {
+              "text": " been",
+              "start": 21.67,
+              "end": 21.83,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " famous.",
+          "start": 21.83,
+          "end": 22.23,
+          "words": [
+            {
+              "text": " famous.",
+              "start": 21.83,
+              "end": 22.23,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " And to those who are not rich and are impatient of old age, the same reply may be made.",
+          "start": 23.39,
+          "end": 28.43,
+          "words": [
+            {
+              "text": " And",
+              "start": 23.39,
+              "end": 23.49,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " to",
+              "start": 23.49,
+              "end": 23.61,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " those",
+              "start": 23.61,
+              "end": 23.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " who",
+              "start": 23.85,
+              "end": 24.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 24.09,
+              "end": 24.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 24.19,
+              "end": 24.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " rich",
+              "start": 24.39,
+              "end": 24.65,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 24.65,
+              "end": 24.91,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " are",
+              "start": 24.91,
+              "end": 25.05,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " impatient",
+              "start": 25.05,
+              "end": 25.47,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 25.47,
+              "end": 25.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " old",
+              "start": 25.73,
+              "end": 25.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " age,",
+              "start": 25.97,
+              "end": 26.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 26.77,
+              "end": 26.93,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " same",
+              "start": 26.93,
+              "end": 27.23,
+              "probability": 1.0
+            },
+            {
+              "text": " reply",
+              "start": 27.23,
+              "end": 27.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " may",
+              "start": 27.65,
+              "end": 27.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 27.93,
+              "end": 28.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " made.",
+              "start": 28.09,
+              "end": 28.43,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " For to the good poor man old age cannot be a light burden, nor can a bad rich man ever",
+          "start": 28.43,
+          "end": 34.13,
+          "words": [
+            {
+              "text": " For",
+              "start": 28.43,
+              "end": 29.05,
+              "probability": 0.36767578125
+            },
+            {
+              "text": " to",
+              "start": 29.05,
+              "end": 29.17,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " the",
+              "start": 29.17,
+              "end": 29.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " good",
+              "start": 29.29,
+              "end": 29.43,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " poor",
+              "start": 29.43,
+              "end": 29.73,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " man",
+              "start": 29.73,
+              "end": 30.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " old",
+              "start": 30.01,
+              "end": 30.27,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " age",
+              "start": 30.27,
+              "end": 30.71,
+              "probability": 0.98828125
+            },
+            {
+              "text": " cannot",
+              "start": 30.71,
+              "end": 30.97,
+              "probability": 0.7890625
+            },
+            {
+              "text": " be",
+              "start": 30.97,
+              "end": 31.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 31.31,
+              "end": 31.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " light",
+              "start": 31.45,
+              "end": 31.67,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " burden,",
+              "start": 31.67,
+              "end": 32.15,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " nor",
+              "start": 32.57,
+              "end": 32.71,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " can",
+              "start": 32.71,
+              "end": 32.89,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 32.89,
+              "end": 33.01,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bad",
+              "start": 33.01,
+              "end": 33.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " rich",
+              "start": 33.27,
+              "end": 33.53,
+              "probability": 0.8759765625
+            },
+            {
+              "text": " man",
+              "start": 33.53,
+              "end": 33.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " ever",
+              "start": 33.87,
+              "end": 34.13,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " have peace with himself.",
+          "start": 34.13,
+          "end": 35.25,
+          "words": [
+            {
+              "text": " have",
+              "start": 34.13,
+              "end": 34.41,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " peace",
+              "start": 34.41,
+              "end": 34.67,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " with",
+              "start": 34.67,
+              "end": 34.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself.",
+              "start": 34.87,
+              "end": 35.25,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "are",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "right,\"",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "raw": "he",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "replied.",
+          "start": 1.27,
+          "end": 1.69
+        },
+        {
+          "raw": "They",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "raw": "are",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "raw": "not",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "raw": "convinced,",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "raw": "and",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "raw": "there",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "raw": "is",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "raw": "something",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "raw": "in",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "raw": "what",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "raw": "they",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "raw": "say,",
+          "start": 4.85,
+          "end": 5.15
+        },
+        {
+          "raw": "not,",
+          "start": 5.67,
+          "end": 5.87
+        },
+        {
+          "raw": "however,",
+          "start": 5.97,
+          "end": 6.23
+        },
+        {
+          "raw": "so",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "raw": "much",
+          "start": 6.61,
+          "end": 6.79
+        },
+        {
+          "raw": "as",
+          "start": 6.79,
+          "end": 6.99
+        },
+        {
+          "raw": "they",
+          "start": 6.99,
+          "end": 7.15
+        },
+        {
+          "raw": "imagine.",
+          "start": 7.15,
+          "end": 7.61
+        },
+        {
+          "raw": "I",
+          "start": 8.31,
+          "end": 8.47
+        },
+        {
+          "raw": "might",
+          "start": 8.47,
+          "end": 8.63
+        },
+        {
+          "raw": "answer",
+          "start": 8.63,
+          "end": 9.03
+        },
+        {
+          "raw": "them",
+          "start": 9.03,
+          "end": 9.25
+        },
+        {
+          "raw": "as",
+          "start": 9.25,
+          "end": 9.43
+        },
+        {
+          "raw": "the",
+          "start": 9.43,
+          "end": 9.63
+        },
+        {
+          "raw": "mysticlies",
+          "start": 9.63,
+          "end": 10.19
+        },
+        {
+          "raw": "answered",
+          "start": 10.19,
+          "end": 10.67
+        },
+        {
+          "raw": "the",
+          "start": 10.67,
+          "end": 10.87
+        },
+        {
+          "raw": "serifian",
+          "start": 10.87,
+          "end": 11.41
+        },
+        {
+          "raw": "who",
+          "start": 11.41,
+          "end": 11.57
+        },
+        {
+          "raw": "was",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "raw": "abusing",
+          "start": 11.69,
+          "end": 12.07
+        },
+        {
+          "raw": "him",
+          "start": 12.07,
+          "end": 12.45
+        },
+        {
+          "raw": "and",
+          "start": 12.45,
+          "end": 12.83
+        },
+        {
+          "raw": "saying",
+          "start": 12.83,
+          "end": 13.17
+        },
+        {
+          "raw": "that",
+          "start": 13.17,
+          "end": 13.39
+        },
+        {
+          "raw": "he",
+          "start": 13.39,
+          "end": 13.55
+        },
+        {
+          "raw": "was",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "raw": "famous,",
+          "start": 13.71,
+          "end": 14.15
+        },
+        {
+          "raw": "not",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "raw": "for",
+          "start": 14.77,
+          "end": 14.95
+        },
+        {
+          "raw": "his",
+          "start": 14.95,
+          "end": 15.07
+        },
+        {
+          "raw": "own",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "raw": "merits",
+          "start": 15.31,
+          "end": 15.67
+        },
+        {
+          "raw": "but",
+          "start": 15.67,
+          "end": 16.01
+        },
+        {
+          "raw": "because",
+          "start": 16.01,
+          "end": 16.23
+        },
+        {
+          "raw": "he",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "raw": "was",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "raw": "an",
+          "start": 16.61,
+          "end": 16.75
+        },
+        {
+          "raw": "Athenian.",
+          "start": 16.75,
+          "end": 17.33
+        },
+        {
+          "raw": "If",
+          "start": 17.89,
+          "end": 18.09
+        },
+        {
+          "raw": "you",
+          "start": 18.09,
+          "end": 18.21
+        },
+        {
+          "raw": "had",
+          "start": 18.21,
+          "end": 18.29
+        },
+        {
+          "raw": "been",
+          "start": 18.29,
+          "end": 18.39
+        },
+        {
+          "raw": "a",
+          "start": 18.39,
+          "end": 18.55
+        },
+        {
+          "raw": "native",
+          "start": 18.55,
+          "end": 18.77
+        },
+        {
+          "raw": "of",
+          "start": 18.77,
+          "end": 18.93
+        },
+        {
+          "raw": "my",
+          "start": 18.93,
+          "end": 19.13
+        },
+        {
+          "raw": "country",
+          "start": 19.13,
+          "end": 19.51
+        },
+        {
+          "raw": "or",
+          "start": 19.51,
+          "end": 19.83
+        },
+        {
+          "raw": "I",
+          "start": 19.83,
+          "end": 20.03
+        },
+        {
+          "raw": "of",
+          "start": 20.03,
+          "end": 20.17
+        },
+        {
+          "raw": "yours,",
+          "start": 20.17,
+          "end": 20.47
+        },
+        {
+          "raw": "neither",
+          "start": 20.93,
+          "end": 21.05
+        },
+        {
+          "raw": "of",
+          "start": 21.05,
+          "end": 21.29
+        },
+        {
+          "raw": "us",
+          "start": 21.29,
+          "end": 21.43
+        },
+        {
+          "raw": "would",
+          "start": 21.43,
+          "end": 21.57
+        },
+        {
+          "raw": "have",
+          "start": 21.57,
+          "end": 21.67
+        },
+        {
+          "raw": "been",
+          "start": 21.67,
+          "end": 21.83
+        },
+        {
+          "raw": "famous.",
+          "start": 21.83,
+          "end": 22.23
+        },
+        {
+          "raw": "And",
+          "start": 23.39,
+          "end": 23.49
+        },
+        {
+          "raw": "to",
+          "start": 23.49,
+          "end": 23.61
+        },
+        {
+          "raw": "those",
+          "start": 23.61,
+          "end": 23.85
+        },
+        {
+          "raw": "who",
+          "start": 23.85,
+          "end": 24.09
+        },
+        {
+          "raw": "are",
+          "start": 24.09,
+          "end": 24.19
+        },
+        {
+          "raw": "not",
+          "start": 24.19,
+          "end": 24.39
+        },
+        {
+          "raw": "rich",
+          "start": 24.39,
+          "end": 24.65
+        },
+        {
+          "raw": "and",
+          "start": 24.65,
+          "end": 24.91
+        },
+        {
+          "raw": "are",
+          "start": 24.91,
+          "end": 25.05
+        },
+        {
+          "raw": "impatient",
+          "start": 25.05,
+          "end": 25.47
+        },
+        {
+          "raw": "of",
+          "start": 25.47,
+          "end": 25.73
+        },
+        {
+          "raw": "old",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "raw": "age,",
+          "start": 25.97,
+          "end": 26.33
+        },
+        {
+          "raw": "the",
+          "start": 26.77,
+          "end": 26.93
+        },
+        {
+          "raw": "same",
+          "start": 26.93,
+          "end": 27.23
+        },
+        {
+          "raw": "reply",
+          "start": 27.23,
+          "end": 27.65
+        },
+        {
+          "raw": "may",
+          "start": 27.65,
+          "end": 27.93
+        },
+        {
+          "raw": "be",
+          "start": 27.93,
+          "end": 28.09
+        },
+        {
+          "raw": "made.",
+          "start": 28.09,
+          "end": 28.43
+        },
+        {
+          "raw": "For",
+          "start": 28.43,
+          "end": 29.05
+        },
+        {
+          "raw": "to",
+          "start": 29.05,
+          "end": 29.17
+        },
+        {
+          "raw": "the",
+          "start": 29.17,
+          "end": 29.29
+        },
+        {
+          "raw": "good",
+          "start": 29.29,
+          "end": 29.43
+        },
+        {
+          "raw": "poor",
+          "start": 29.43,
+          "end": 29.73
+        },
+        {
+          "raw": "man",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "raw": "old",
+          "start": 30.01,
+          "end": 30.27
+        },
+        {
+          "raw": "age",
+          "start": 30.27,
+          "end": 30.71
+        },
+        {
+          "raw": "cannot",
+          "start": 30.71,
+          "end": 30.97
+        },
+        {
+          "raw": "be",
+          "start": 30.97,
+          "end": 31.31
+        },
+        {
+          "raw": "a",
+          "start": 31.31,
+          "end": 31.45
+        },
+        {
+          "raw": "light",
+          "start": 31.45,
+          "end": 31.67
+        },
+        {
+          "raw": "burden,",
+          "start": 31.67,
+          "end": 32.15
+        },
+        {
+          "raw": "nor",
+          "start": 32.57,
+          "end": 32.71
+        },
+        {
+          "raw": "can",
+          "start": 32.71,
+          "end": 32.89
+        },
+        {
+          "raw": "a",
+          "start": 32.89,
+          "end": 33.01
+        },
+        {
+          "raw": "bad",
+          "start": 33.01,
+          "end": 33.27
+        },
+        {
+          "raw": "rich",
+          "start": 33.27,
+          "end": 33.53
+        },
+        {
+          "raw": "man",
+          "start": 33.53,
+          "end": 33.87
+        },
+        {
+          "raw": "ever",
+          "start": 33.87,
+          "end": 34.13
+        },
+        {
+          "raw": "have",
+          "start": 34.13,
+          "end": 34.41
+        },
+        {
+          "raw": "peace",
+          "start": 34.41,
+          "end": 34.67
+        },
+        {
+          "raw": "with",
+          "start": 34.67,
+          "end": 34.87
+        },
+        {
+          "raw": "himself.",
+          "start": 34.87,
+          "end": 35.25
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "are",
+        "right,",
+        "he",
+        "replied;",
+        "they",
+        "are",
+        "not",
+        "convinced:",
+        "and",
+        "there",
+        "is",
+        "something",
+        "in",
+        "what",
+        "they",
+        "say;",
+        "not,",
+        "however,",
+        "so",
+        "much",
+        "as",
+        "they",
+        "imagine.",
+        "I",
+        "might",
+        "answer",
+        "them",
+        "as",
+        "Themistocles",
+        "answered",
+        "the",
+        "Seriphian",
+        "who",
+        "was",
+        "abusing",
+        "him",
+        "and",
+        "saying",
+        "that",
+        "he",
+        "was",
+        "famous,",
+        "not",
+        "for",
+        "his",
+        "own",
+        "merits",
+        "but",
+        "because",
+        "he",
+        "was",
+        "an",
+        "Athenian:",
+        "'If",
+        "you",
+        "had",
+        "been",
+        "a",
+        "native",
+        "of",
+        "my",
+        "country",
+        "or",
+        "I",
+        "of",
+        "yours,",
+        "neither",
+        "of",
+        "us",
+        "would",
+        "have",
+        "been",
+        "famous.'",
+        "And",
+        "to",
+        "those",
+        "who",
+        "are",
+        "not",
+        "rich",
+        "and",
+        "are",
+        "impatient",
+        "of",
+        "old",
+        "age,",
+        "the",
+        "same",
+        "reply",
+        "may",
+        "be",
+        "made;",
+        "for",
+        "to",
+        "the",
+        "good",
+        "poor",
+        "man",
+        "old",
+        "age",
+        "cannot",
+        "be",
+        "a",
+        "light",
+        "burden,",
+        "nor",
+        "can",
+        "a",
+        "bad",
+        "rich",
+        "man",
+        "ever",
+        "have",
+        "peace",
+        "with",
+        "himself."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          29,
+          0,
+          29
+        ],
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ],
+        [
+          "equal",
+          30,
+          32,
+          31,
+          33
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          34
+        ],
+        [
+          "equal",
+          33,
+          117,
+          34,
+          118
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 85
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 86
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 87
+        },
+        {
+          "index": 87,
+          "source": "observed",
+          "heard_index": 88
+        },
+        {
+          "index": 88,
+          "source": "observed",
+          "heard_index": 89
+        },
+        {
+          "index": 89,
+          "source": "observed",
+          "heard_index": 90
+        },
+        {
+          "index": 90,
+          "source": "observed",
+          "heard_index": 91
+        },
+        {
+          "index": 91,
+          "source": "observed",
+          "heard_index": 92
+        },
+        {
+          "index": 92,
+          "source": "observed",
+          "heard_index": 93
+        },
+        {
+          "index": 93,
+          "source": "observed",
+          "heard_index": 94
+        },
+        {
+          "index": 94,
+          "source": "observed",
+          "heard_index": 95
+        },
+        {
+          "index": 95,
+          "source": "observed",
+          "heard_index": 96
+        },
+        {
+          "index": 96,
+          "source": "observed",
+          "heard_index": 97
+        },
+        {
+          "index": 97,
+          "source": "observed",
+          "heard_index": 98
+        },
+        {
+          "index": 98,
+          "source": "observed",
+          "heard_index": 99
+        },
+        {
+          "index": 99,
+          "source": "observed",
+          "heard_index": 100
+        },
+        {
+          "index": 100,
+          "source": "observed",
+          "heard_index": 101
+        },
+        {
+          "index": 101,
+          "source": "observed",
+          "heard_index": 102
+        },
+        {
+          "index": 102,
+          "source": "observed",
+          "heard_index": 103
+        },
+        {
+          "index": 103,
+          "source": "observed",
+          "heard_index": 104
+        },
+        {
+          "index": 104,
+          "source": "observed",
+          "heard_index": 105
+        },
+        {
+          "index": 105,
+          "source": "observed",
+          "heard_index": 106
+        },
+        {
+          "index": 106,
+          "source": "observed",
+          "heard_index": 107
+        },
+        {
+          "index": 107,
+          "source": "observed",
+          "heard_index": 108
+        },
+        {
+          "index": 108,
+          "source": "observed",
+          "heard_index": 109
+        },
+        {
+          "index": 109,
+          "source": "observed",
+          "heard_index": 110
+        },
+        {
+          "index": 110,
+          "source": "observed",
+          "heard_index": 111
+        },
+        {
+          "index": 111,
+          "source": "observed",
+          "heard_index": 112
+        },
+        {
+          "index": 112,
+          "source": "observed",
+          "heard_index": 113
+        },
+        {
+          "index": 113,
+          "source": "observed",
+          "heard_index": 114
+        },
+        {
+          "index": 114,
+          "source": "observed",
+          "heard_index": 115
+        },
+        {
+          "index": 115,
+          "source": "observed",
+          "heard_index": 116
+        },
+        {
+          "index": 116,
+          "source": "observed",
+          "heard_index": 117
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          29,
+          30,
+          29,
+          31
+        ],
+        [
+          "replace",
+          32,
+          33,
+          33,
+          34
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "are",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "right,",
+          "start": 0.65,
+          "end": 1.05
+        },
+        {
+          "text": "he",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "replied;",
+          "start": 1.27,
+          "end": 1.69
+        },
+        {
+          "text": "they",
+          "start": 2.27,
+          "end": 2.37
+        },
+        {
+          "text": "are",
+          "start": 2.37,
+          "end": 2.47
+        },
+        {
+          "text": "not",
+          "start": 2.47,
+          "end": 2.67
+        },
+        {
+          "text": "convinced:",
+          "start": 2.67,
+          "end": 3.17
+        },
+        {
+          "text": "and",
+          "start": 3.77,
+          "end": 3.85
+        },
+        {
+          "text": "there",
+          "start": 3.85,
+          "end": 3.95
+        },
+        {
+          "text": "is",
+          "start": 3.95,
+          "end": 4.11
+        },
+        {
+          "text": "something",
+          "start": 4.11,
+          "end": 4.35
+        },
+        {
+          "text": "in",
+          "start": 4.35,
+          "end": 4.57
+        },
+        {
+          "text": "what",
+          "start": 4.57,
+          "end": 4.69
+        },
+        {
+          "text": "they",
+          "start": 4.69,
+          "end": 4.85
+        },
+        {
+          "text": "say;",
+          "start": 4.85,
+          "end": 5.15
+        },
+        {
+          "text": "not,",
+          "start": 5.67,
+          "end": 5.87
+        },
+        {
+          "text": "however,",
+          "start": 5.97,
+          "end": 6.23
+        },
+        {
+          "text": "so",
+          "start": 6.49,
+          "end": 6.61
+        },
+        {
+          "text": "much",
+          "start": 6.61,
+          "end": 6.79
+        },
+        {
+          "text": "as",
+          "start": 6.79,
+          "end": 6.99
+        },
+        {
+          "text": "they",
+          "start": 6.99,
+          "end": 7.15
+        },
+        {
+          "text": "imagine.",
+          "start": 7.15,
+          "end": 7.61
+        },
+        {
+          "text": "I",
+          "start": 8.31,
+          "end": 8.47
+        },
+        {
+          "text": "might",
+          "start": 8.47,
+          "end": 8.63
+        },
+        {
+          "text": "answer",
+          "start": 8.63,
+          "end": 9.03
+        },
+        {
+          "text": "them",
+          "start": 9.03,
+          "end": 9.25
+        },
+        {
+          "text": "as",
+          "start": 9.25,
+          "end": 9.43
+        },
+        {
+          "text": "Themistocles",
+          "start": 9.43,
+          "end": 9.81
+        },
+        {
+          "text": "answered",
+          "start": 10.19,
+          "end": 10.67
+        },
+        {
+          "text": "the",
+          "start": 10.67,
+          "end": 10.87
+        },
+        {
+          "text": "Seriphian",
+          "start": 10.87,
+          "end": 11.14
+        },
+        {
+          "text": "who",
+          "start": 11.41,
+          "end": 11.57
+        },
+        {
+          "text": "was",
+          "start": 11.57,
+          "end": 11.69
+        },
+        {
+          "text": "abusing",
+          "start": 11.69,
+          "end": 12.07
+        },
+        {
+          "text": "him",
+          "start": 12.07,
+          "end": 12.45
+        },
+        {
+          "text": "and",
+          "start": 12.45,
+          "end": 12.83
+        },
+        {
+          "text": "saying",
+          "start": 12.83,
+          "end": 13.17
+        },
+        {
+          "text": "that",
+          "start": 13.17,
+          "end": 13.39
+        },
+        {
+          "text": "he",
+          "start": 13.39,
+          "end": 13.55
+        },
+        {
+          "text": "was",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "text": "famous,",
+          "start": 13.71,
+          "end": 14.15
+        },
+        {
+          "text": "not",
+          "start": 14.53,
+          "end": 14.77
+        },
+        {
+          "text": "for",
+          "start": 14.77,
+          "end": 14.95
+        },
+        {
+          "text": "his",
+          "start": 14.95,
+          "end": 15.07
+        },
+        {
+          "text": "own",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "text": "merits",
+          "start": 15.31,
+          "end": 15.67
+        },
+        {
+          "text": "but",
+          "start": 15.67,
+          "end": 16.01
+        },
+        {
+          "text": "because",
+          "start": 16.01,
+          "end": 16.23
+        },
+        {
+          "text": "he",
+          "start": 16.23,
+          "end": 16.43
+        },
+        {
+          "text": "was",
+          "start": 16.43,
+          "end": 16.61
+        },
+        {
+          "text": "an",
+          "start": 16.61,
+          "end": 16.75
+        },
+        {
+          "text": "Athenian:",
+          "start": 16.75,
+          "end": 17.33
+        },
+        {
+          "text": "'If",
+          "start": 17.89,
+          "end": 18.09
+        },
+        {
+          "text": "you",
+          "start": 18.09,
+          "end": 18.21
+        },
+        {
+          "text": "had",
+          "start": 18.21,
+          "end": 18.29
+        },
+        {
+          "text": "been",
+          "start": 18.29,
+          "end": 18.39
+        },
+        {
+          "text": "a",
+          "start": 18.39,
+          "end": 18.55
+        },
+        {
+          "text": "native",
+          "start": 18.55,
+          "end": 18.77
+        },
+        {
+          "text": "of",
+          "start": 18.77,
+          "end": 18.93
+        },
+        {
+          "text": "my",
+          "start": 18.93,
+          "end": 19.13
+        },
+        {
+          "text": "country",
+          "start": 19.13,
+          "end": 19.51
+        },
+        {
+          "text": "or",
+          "start": 19.51,
+          "end": 19.83
+        },
+        {
+          "text": "I",
+          "start": 19.83,
+          "end": 20.03
+        },
+        {
+          "text": "of",
+          "start": 20.03,
+          "end": 20.17
+        },
+        {
+          "text": "yours,",
+          "start": 20.17,
+          "end": 20.47
+        },
+        {
+          "text": "neither",
+          "start": 20.93,
+          "end": 21.05
+        },
+        {
+          "text": "of",
+          "start": 21.05,
+          "end": 21.29
+        },
+        {
+          "text": "us",
+          "start": 21.29,
+          "end": 21.43
+        },
+        {
+          "text": "would",
+          "start": 21.43,
+          "end": 21.57
+        },
+        {
+          "text": "have",
+          "start": 21.57,
+          "end": 21.67
+        },
+        {
+          "text": "been",
+          "start": 21.67,
+          "end": 21.83
+        },
+        {
+          "text": "famous.'",
+          "start": 21.83,
+          "end": 22.23
+        },
+        {
+          "text": "And",
+          "start": 23.39,
+          "end": 23.49
+        },
+        {
+          "text": "to",
+          "start": 23.49,
+          "end": 23.61
+        },
+        {
+          "text": "those",
+          "start": 23.61,
+          "end": 23.85
+        },
+        {
+          "text": "who",
+          "start": 23.85,
+          "end": 24.09
+        },
+        {
+          "text": "are",
+          "start": 24.09,
+          "end": 24.19
+        },
+        {
+          "text": "not",
+          "start": 24.19,
+          "end": 24.39
+        },
+        {
+          "text": "rich",
+          "start": 24.39,
+          "end": 24.65
+        },
+        {
+          "text": "and",
+          "start": 24.65,
+          "end": 24.91
+        },
+        {
+          "text": "are",
+          "start": 24.91,
+          "end": 25.05
+        },
+        {
+          "text": "impatient",
+          "start": 25.05,
+          "end": 25.47
+        },
+        {
+          "text": "of",
+          "start": 25.47,
+          "end": 25.73
+        },
+        {
+          "text": "old",
+          "start": 25.73,
+          "end": 25.97
+        },
+        {
+          "text": "age,",
+          "start": 25.97,
+          "end": 26.33
+        },
+        {
+          "text": "the",
+          "start": 26.77,
+          "end": 26.93
+        },
+        {
+          "text": "same",
+          "start": 26.93,
+          "end": 27.23
+        },
+        {
+          "text": "reply",
+          "start": 27.23,
+          "end": 27.65
+        },
+        {
+          "text": "may",
+          "start": 27.65,
+          "end": 27.93
+        },
+        {
+          "text": "be",
+          "start": 27.93,
+          "end": 28.09
+        },
+        {
+          "text": "made;",
+          "start": 28.09,
+          "end": 28.43
+        },
+        {
+          "text": "for",
+          "start": 28.43,
+          "end": 29.05
+        },
+        {
+          "text": "to",
+          "start": 29.05,
+          "end": 29.17
+        },
+        {
+          "text": "the",
+          "start": 29.17,
+          "end": 29.29
+        },
+        {
+          "text": "good",
+          "start": 29.29,
+          "end": 29.43
+        },
+        {
+          "text": "poor",
+          "start": 29.43,
+          "end": 29.73
+        },
+        {
+          "text": "man",
+          "start": 29.73,
+          "end": 30.01
+        },
+        {
+          "text": "old",
+          "start": 30.01,
+          "end": 30.27
+        },
+        {
+          "text": "age",
+          "start": 30.27,
+          "end": 30.71
+        },
+        {
+          "text": "cannot",
+          "start": 30.71,
+          "end": 30.97
+        },
+        {
+          "text": "be",
+          "start": 30.97,
+          "end": 31.31
+        },
+        {
+          "text": "a",
+          "start": 31.31,
+          "end": 31.45
+        },
+        {
+          "text": "light",
+          "start": 31.45,
+          "end": 31.67
+        },
+        {
+          "text": "burden,",
+          "start": 31.67,
+          "end": 32.15
+        },
+        {
+          "text": "nor",
+          "start": 32.57,
+          "end": 32.71
+        },
+        {
+          "text": "can",
+          "start": 32.71,
+          "end": 32.89
+        },
+        {
+          "text": "a",
+          "start": 32.89,
+          "end": 33.01
+        },
+        {
+          "text": "bad",
+          "start": 33.01,
+          "end": 33.27
+        },
+        {
+          "text": "rich",
+          "start": 33.27,
+          "end": 33.53
+        },
+        {
+          "text": "man",
+          "start": 33.53,
+          "end": 33.87
+        },
+        {
+          "text": "ever",
+          "start": 33.87,
+          "end": 34.13
+        },
+        {
+          "text": "have",
+          "start": 34.13,
+          "end": 34.41
+        },
+        {
+          "text": "peace",
+          "start": 34.41,
+          "end": 34.67
+        },
+        {
+          "text": "with",
+          "start": 34.67,
+          "end": 34.87
+        },
+        {
+          "text": "himself.",
+          "start": 34.87,
+          "end": 35.25
+        }
+      ],
+      "stats": {
+        "expected_words": 117,
+        "heard_words": 118,
+        "matched_words": 115
+      },
+      "match_ratio": 0.9829059829059829,
+      "rejection_reasons": [],
+      "seconds": 0.7762146070599556
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5967521d261d5de99070494a1cf10272eb9d3fd6d9fed0c8edc7b2c5bc17c176",
+  "selected_reasons": []
+}

@@ -1,0 +1,413 @@
+{
+  "complete": true,
+  "signature": "79eda4d752dc04f0bd133a4625760e5b8c703618e810ca3e048b0c123f5448ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.34189402099582367,
+      "alignment_seconds": 0.00048327900003641844,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I felt like a chill grip on my chest.",
+          "start": 0.02,
+          "end": 2.02,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " felt",
+              "start": 0.52,
+              "end": 0.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " like",
+              "start": 0.66,
+              "end": 0.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " a",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " chill",
+              "start": 1.0,
+              "end": 1.16,
+              "probability": 0.990234375
+            },
+            {
+              "text": " grip",
+              "start": 1.16,
+              "end": 1.42,
+              "probability": 0.998046875
+            },
+            {
+              "text": " on",
+              "start": 1.42,
+              "end": 1.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " my",
+              "start": 1.58,
+              "end": 1.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " chest.",
+              "start": 1.7,
+              "end": 2.02,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "text": " Don't, I said, in a muffled voice.",
+          "start": 2.68,
+          "end": 4.8,
+          "words": [
+            {
+              "text": " Don't,",
+              "start": 2.68,
+              "end": 3.1,
+              "probability": 0.55218505859375
+            },
+            {
+              "text": " I",
+              "start": 3.36,
+              "end": 3.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " said,",
+              "start": 3.46,
+              "end": 3.72,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " in",
+              "start": 3.96,
+              "end": 4.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " a",
+              "start": 4.02,
+              "end": 4.14,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " muffled",
+              "start": 4.14,
+              "end": 4.48,
+              "probability": 0.994873046875
+            },
+            {
+              "text": " voice.",
+              "start": 4.48,
+              "end": 4.8,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "felt",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "raw": "like",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "raw": "a",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "chill",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "raw": "grip",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "raw": "on",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "raw": "my",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "raw": "chest.",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "raw": "Don't,",
+          "start": 2.68,
+          "end": 3.1
+        },
+        {
+          "raw": "I",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "raw": "said,",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "raw": "in",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "raw": "a",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "raw": "muffled",
+          "start": 4.14,
+          "end": 4.48
+        },
+        {
+          "raw": "voice.",
+          "start": 4.48,
+          "end": 4.8
+        }
+      ],
+      "expected_tokens": [
+        "\"I",
+        "felt",
+        "like",
+        "a",
+        "chill",
+        "grip",
+        "on",
+        "my",
+        "chest.",
+        "'Don't,'",
+        "I",
+        "said,",
+        "in",
+        "a",
+        "muffled",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"I",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "felt",
+          "start": 0.52,
+          "end": 0.66
+        },
+        {
+          "text": "like",
+          "start": 0.66,
+          "end": 0.82
+        },
+        {
+          "text": "a",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "chill",
+          "start": 1.0,
+          "end": 1.16
+        },
+        {
+          "text": "grip",
+          "start": 1.16,
+          "end": 1.42
+        },
+        {
+          "text": "on",
+          "start": 1.42,
+          "end": 1.58
+        },
+        {
+          "text": "my",
+          "start": 1.58,
+          "end": 1.7
+        },
+        {
+          "text": "chest.",
+          "start": 1.7,
+          "end": 2.02
+        },
+        {
+          "text": "'Don't,'",
+          "start": 2.68,
+          "end": 3.1
+        },
+        {
+          "text": "I",
+          "start": 3.36,
+          "end": 3.46
+        },
+        {
+          "text": "said,",
+          "start": 3.46,
+          "end": 3.72
+        },
+        {
+          "text": "in",
+          "start": 3.96,
+          "end": 4.02
+        },
+        {
+          "text": "a",
+          "start": 4.02,
+          "end": 4.14
+        },
+        {
+          "text": "muffled",
+          "start": 4.14,
+          "end": 4.48
+        },
+        {
+          "text": "voice.",
+          "start": 4.48,
+          "end": 4.8
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.34261806099675596
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7bf38989d1cb9093732791c2742aa2da66ae80f0426eb017cda49725c18c8e48",
+  "selected_reasons": []
+}

@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "ba584ec5b6f5d84db1c0985c01debd18ff4120936c9ce62ad3f2d344a047af62",
+  "attempts": [
+    {
+      "asr_seconds": 0.2027437537908554,
+      "alignment_seconds": 0.00011892616748809814,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And in our State what other name besides that of citizens do the people give the rulers?",
+        "hotwords": "And, State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And in our State what other name besides that of citizens do the people give the rulers?",
+          "start": 0.05,
+          "end": 4.97,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.8046875
+            },
+            {
+              "text": " in",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " our",
+              "start": 0.61,
+              "end": 0.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " State",
+              "start": 0.77,
+              "end": 1.11,
+              "probability": 0.0675048828125
+            },
+            {
+              "text": " what",
+              "start": 1.11,
+              "end": 1.65,
+              "probability": 0.060455322265625
+            },
+            {
+              "text": " other",
+              "start": 1.65,
+              "end": 1.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " name",
+              "start": 1.91,
+              "end": 2.21,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " besides",
+              "start": 2.21,
+              "end": 2.67,
+              "probability": 0.94921875
+            },
+            {
+              "text": " that",
+              "start": 2.67,
+              "end": 3.01,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " of",
+              "start": 3.01,
+              "end": 3.15,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " citizens",
+              "start": 3.15,
+              "end": 3.53,
+              "probability": 0.56005859375
+            },
+            {
+              "text": " do",
+              "start": 3.53,
+              "end": 3.85,
+              "probability": 0.94921875
+            },
+            {
+              "text": " the",
+              "start": 3.85,
+              "end": 3.99,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " people",
+              "start": 3.99,
+              "end": 4.23,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " give",
+              "start": 4.23,
+              "end": 4.51,
+              "probability": 0.994140625
+            },
+            {
+              "text": " the",
+              "start": 4.51,
+              "end": 4.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rulers?",
+              "start": 4.71,
+              "end": 4.97,
+              "probability": 0.9560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "in",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "our",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "raw": "State",
+          "start": 0.77,
+          "end": 1.11
+        },
+        {
+          "raw": "what",
+          "start": 1.11,
+          "end": 1.65
+        },
+        {
+          "raw": "other",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "raw": "name",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "raw": "besides",
+          "start": 2.21,
+          "end": 2.67
+        },
+        {
+          "raw": "that",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "raw": "of",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "raw": "citizens",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "raw": "do",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "raw": "the",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "raw": "people",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "raw": "give",
+          "start": 4.23,
+          "end": 4.51
+        },
+        {
+          "raw": "the",
+          "start": 4.51,
+          "end": 4.71
+        },
+        {
+          "raw": "rulers?",
+          "start": 4.71,
+          "end": 4.97
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "in",
+        "our",
+        "State",
+        "what",
+        "other",
+        "name",
+        "besides",
+        "that",
+        "of",
+        "citizens",
+        "do",
+        "the",
+        "people",
+        "give",
+        "the",
+        "rulers?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "in",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "our",
+          "start": 0.61,
+          "end": 0.77
+        },
+        {
+          "text": "State",
+          "start": 0.77,
+          "end": 1.11
+        },
+        {
+          "text": "what",
+          "start": 1.11,
+          "end": 1.65
+        },
+        {
+          "text": "other",
+          "start": 1.65,
+          "end": 1.91
+        },
+        {
+          "text": "name",
+          "start": 1.91,
+          "end": 2.21
+        },
+        {
+          "text": "besides",
+          "start": 2.21,
+          "end": 2.67
+        },
+        {
+          "text": "that",
+          "start": 2.67,
+          "end": 3.01
+        },
+        {
+          "text": "of",
+          "start": 3.01,
+          "end": 3.15
+        },
+        {
+          "text": "citizens",
+          "start": 3.15,
+          "end": 3.53
+        },
+        {
+          "text": "do",
+          "start": 3.53,
+          "end": 3.85
+        },
+        {
+          "text": "the",
+          "start": 3.85,
+          "end": 3.99
+        },
+        {
+          "text": "people",
+          "start": 3.99,
+          "end": 4.23
+        },
+        {
+          "text": "give",
+          "start": 4.23,
+          "end": 4.51
+        },
+        {
+          "text": "the",
+          "start": 4.51,
+          "end": 4.71
+        },
+        {
+          "text": "rulers?",
+          "start": 4.71,
+          "end": 4.97
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2029261589050293
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d151600a097454b5300434b76c695bd519d7091aa066ab185302b1bbd2be090f",
+  "selected_reasons": []
+}

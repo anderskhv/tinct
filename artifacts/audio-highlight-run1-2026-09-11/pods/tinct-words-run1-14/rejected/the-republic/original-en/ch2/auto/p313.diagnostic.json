@@ -1,0 +1,588 @@
+{
+  "complete": true,
+  "signature": "6a014c98286d4c9dc9ceea65dcec2e7e449e740d9ce04420531f18e6a99921fb",
+  "attempts": [
+    {
+      "asr_seconds": 0.21825160831212997,
+      "alignment_seconds": 0.0001408606767654419,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But although the gods are themselves unchangeable, still by witchcraft and deception they may make us think that they appear in various forms?",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But But although the gods are themselves unchangeable, still by witchcraft and deception they may make us think that they appear in various forms?",
+          "start": 0.02,
+          "end": 8.24,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.796875
+            },
+            {
+              "text": " But",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 1.2516975402832031e-06
+            },
+            {
+              "text": " although",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.8330078125
+            },
+            {
+              "text": " the",
+              "start": 0.74,
+              "end": 0.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " gods",
+              "start": 0.94,
+              "end": 1.26,
+              "probability": 0.88330078125
+            },
+            {
+              "text": " are",
+              "start": 1.26,
+              "end": 1.48,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " themselves",
+              "start": 1.48,
+              "end": 1.92,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " unchangeable,",
+              "start": 1.92,
+              "end": 2.86,
+              "probability": 0.9786783854166666
+            },
+            {
+              "text": " still",
+              "start": 3.32,
+              "end": 3.52,
+              "probability": 0.947265625
+            },
+            {
+              "text": " by",
+              "start": 3.52,
+              "end": 3.78,
+              "probability": 0.7763671875
+            },
+            {
+              "text": " witchcraft",
+              "start": 3.78,
+              "end": 4.28,
+              "probability": 0.98828125
+            },
+            {
+              "text": " and",
+              "start": 4.28,
+              "end": 4.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " deception",
+              "start": 4.6,
+              "end": 5.04,
+              "probability": 0.9921875
+            },
+            {
+              "text": " they",
+              "start": 5.04,
+              "end": 5.7,
+              "probability": 0.26025390625
+            },
+            {
+              "text": " may",
+              "start": 5.7,
+              "end": 5.84,
+              "probability": 0.9765625
+            },
+            {
+              "text": " make",
+              "start": 5.84,
+              "end": 6.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " us",
+              "start": 6.04,
+              "end": 6.2,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " think",
+              "start": 6.2,
+              "end": 6.48,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " that",
+              "start": 6.48,
+              "end": 6.68,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " they",
+              "start": 6.68,
+              "end": 6.82,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " appear",
+              "start": 6.82,
+              "end": 7.14,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 7.14,
+              "end": 7.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " various",
+              "start": 7.4,
+              "end": 7.74,
+              "probability": 0.994140625
+            },
+            {
+              "text": " forms?",
+              "start": 7.74,
+              "end": 8.24,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "But",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "although",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "the",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "raw": "gods",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "raw": "are",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "raw": "themselves",
+          "start": 1.48,
+          "end": 1.92
+        },
+        {
+          "raw": "unchangeable,",
+          "start": 1.92,
+          "end": 2.86
+        },
+        {
+          "raw": "still",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "raw": "by",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "raw": "witchcraft",
+          "start": 3.78,
+          "end": 4.28
+        },
+        {
+          "raw": "and",
+          "start": 4.28,
+          "end": 4.6
+        },
+        {
+          "raw": "deception",
+          "start": 4.6,
+          "end": 5.04
+        },
+        {
+          "raw": "they",
+          "start": 5.04,
+          "end": 5.7
+        },
+        {
+          "raw": "may",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "raw": "make",
+          "start": 5.84,
+          "end": 6.04
+        },
+        {
+          "raw": "us",
+          "start": 6.04,
+          "end": 6.2
+        },
+        {
+          "raw": "think",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "raw": "that",
+          "start": 6.48,
+          "end": 6.68
+        },
+        {
+          "raw": "they",
+          "start": 6.68,
+          "end": 6.82
+        },
+        {
+          "raw": "appear",
+          "start": 6.82,
+          "end": 7.14
+        },
+        {
+          "raw": "in",
+          "start": 7.14,
+          "end": 7.4
+        },
+        {
+          "raw": "various",
+          "start": 7.4,
+          "end": 7.74
+        },
+        {
+          "raw": "forms?",
+          "start": 7.74,
+          "end": 8.24
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "although",
+        "the",
+        "gods",
+        "are",
+        "themselves",
+        "unchangeable,",
+        "still",
+        "by",
+        "witchcraft",
+        "and",
+        "deception",
+        "they",
+        "may",
+        "make",
+        "us",
+        "think",
+        "that",
+        "they",
+        "appear",
+        "in",
+        "various",
+        "forms?"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          23,
+          1,
+          24
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "although",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "the",
+          "start": 0.74,
+          "end": 0.94
+        },
+        {
+          "text": "gods",
+          "start": 0.94,
+          "end": 1.26
+        },
+        {
+          "text": "are",
+          "start": 1.26,
+          "end": 1.48
+        },
+        {
+          "text": "themselves",
+          "start": 1.48,
+          "end": 1.92
+        },
+        {
+          "text": "unchangeable,",
+          "start": 1.92,
+          "end": 2.86
+        },
+        {
+          "text": "still",
+          "start": 3.32,
+          "end": 3.52
+        },
+        {
+          "text": "by",
+          "start": 3.52,
+          "end": 3.78
+        },
+        {
+          "text": "witchcraft",
+          "start": 3.78,
+          "end": 4.28
+        },
+        {
+          "text": "and",
+          "start": 4.28,
+          "end": 4.6
+        },
+        {
+          "text": "deception",
+          "start": 4.6,
+          "end": 5.04
+        },
+        {
+          "text": "they",
+          "start": 5.04,
+          "end": 5.7
+        },
+        {
+          "text": "may",
+          "start": 5.7,
+          "end": 5.84
+        },
+        {
+          "text": "make",
+          "start": 5.84,
+          "end": 6.04
+        },
+        {
+          "text": "us",
+          "start": 6.04,
+          "end": 6.2
+        },
+        {
+          "text": "think",
+          "start": 6.2,
+          "end": 6.48
+        },
+        {
+          "text": "that",
+          "start": 6.48,
+          "end": 6.68
+        },
+        {
+          "text": "they",
+          "start": 6.68,
+          "end": 6.82
+        },
+        {
+          "text": "appear",
+          "start": 6.82,
+          "end": 7.14
+        },
+        {
+          "text": "in",
+          "start": 7.14,
+          "end": 7.4
+        },
+        {
+          "text": "various",
+          "start": 7.4,
+          "end": 7.74
+        },
+        {
+          "text": "forms?",
+          "start": 7.74,
+          "end": 8.24
+        }
+      ],
+      "stats": {
+        "expected_words": 23,
+        "heard_words": 24,
+        "matched_words": 23
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21846282482147217
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "2f3142831de0dda15c18a2a88f59d169cb0f03caea256b8343b274556dd8455a",
+  "selected_reasons": []
+}

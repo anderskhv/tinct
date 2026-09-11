@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "a6424eef68f00258eaecbe3cbaa103005bf3d22baa6d08a0547ed8002a70a54e",
+  "attempts": [
+    {
+      "asr_seconds": 0.1467694416642189,
+      "alignment_seconds": 8.722394704818726e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Our State like every other has rulers and subjects?",
+        "hotwords": "Our, State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Our State like every other has rulers and subjects?",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " Our",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " State",
+              "start": 0.51,
+              "end": 0.77,
+              "probability": 0.0191192626953125
+            },
+            {
+              "text": " like",
+              "start": 0.77,
+              "end": 0.95,
+              "probability": 0.1580810546875
+            },
+            {
+              "text": " every",
+              "start": 0.95,
+              "end": 1.31,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " other",
+              "start": 1.31,
+              "end": 1.51,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " has",
+              "start": 1.51,
+              "end": 1.75,
+              "probability": 0.84375
+            },
+            {
+              "text": " rulers",
+              "start": 1.75,
+              "end": 2.13,
+              "probability": 0.958984375
+            },
+            {
+              "text": " and",
+              "start": 2.13,
+              "end": 2.47,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " subjects?",
+              "start": 2.47,
+              "end": 2.87,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Our",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "State",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "raw": "like",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "raw": "every",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "raw": "other",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "raw": "has",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "raw": "rulers",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "raw": "and",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "raw": "subjects?",
+          "start": 2.47,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "Our",
+        "State",
+        "like",
+        "every",
+        "other",
+        "has",
+        "rulers",
+        "and",
+        "subjects?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Our",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "State",
+          "start": 0.51,
+          "end": 0.77
+        },
+        {
+          "text": "like",
+          "start": 0.77,
+          "end": 0.95
+        },
+        {
+          "text": "every",
+          "start": 0.95,
+          "end": 1.31
+        },
+        {
+          "text": "other",
+          "start": 1.31,
+          "end": 1.51
+        },
+        {
+          "text": "has",
+          "start": 1.51,
+          "end": 1.75
+        },
+        {
+          "text": "rulers",
+          "start": 1.75,
+          "end": 2.13
+        },
+        {
+          "text": "and",
+          "start": 2.13,
+          "end": 2.47
+        },
+        {
+          "text": "subjects?",
+          "start": 2.47,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14689763635396957
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "25b50bd83c1e0d5d71bda9b4dea8171db88b25855e4efee6dee2e721ec3ee190",
+  "selected_reasons": []
+}

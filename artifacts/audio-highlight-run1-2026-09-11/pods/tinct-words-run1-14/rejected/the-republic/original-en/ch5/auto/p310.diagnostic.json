@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "6e00fa048458b1e579bc2149cc6f5ee89fb5d1286f357331afa621cb5fbf1011",
+  "attempts": [
+    {
+      "asr_seconds": 0.09365064650774002,
+      "alignment_seconds": 5.918741226196289e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, very important.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, very important.",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.90625
+            },
+            {
+              "text": " very",
+              "start": 0.99,
+              "end": 1.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " important.",
+              "start": 1.11,
+              "end": 1.55,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "very",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "raw": "important.",
+          "start": 1.11,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "very",
+        "important."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "very",
+          "start": 0.99,
+          "end": 1.11
+        },
+        {
+          "text": "important.",
+          "start": 1.11,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0937410444021225
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "246ff467f413c044b4e8f1b57a21e8946d0123f96cf43fba72714a033e85f4ed",
+  "selected_reasons": []
+}

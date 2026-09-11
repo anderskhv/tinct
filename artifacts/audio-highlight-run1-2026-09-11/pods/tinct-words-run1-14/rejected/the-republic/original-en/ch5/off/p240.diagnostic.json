@@ -1,0 +1,99 @@
+{
+  "complete": true,
+  "signature": "754f822b6654c333bf77e6867d2d510c816a80445d98f19463d308d623ffdbd9",
+  "attempts": [
+    {
+      "asr_seconds": 0.07165234535932541,
+      "alignment_seconds": 5.083531141281128e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " fellow rulers",
+          "start": 0.08,
+          "end": 1.08,
+          "words": [
+            {
+              "text": " fellow",
+              "start": 0.08,
+              "end": 0.64,
+              "probability": 0.1949462890625
+            },
+            {
+              "text": " rulers",
+              "start": 0.64,
+              "end": 1.08,
+              "probability": 0.94775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "fellow",
+          "start": 0.08,
+          "end": 0.64
+        },
+        {
+          "raw": "rulers",
+          "start": 0.64,
+          "end": 1.08
+        }
+      ],
+      "expected_tokens": [
+        "Fellow-rulers."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Fellow-rulers.",
+          "start": 0.0,
+          "end": 0.54
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.07172159850597382
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cacc56545941f853043d4818e2426407c69476ac252669408048fca76418332d",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "complete": true,
+  "signature": "67ef5f00128e21b3353f60dd8c4ae3f2bf4b8a55a3966b646df55ed3f8188e69",
+  "attempts": [
+    {
+      "asr_seconds": 0.13294224441051483,
+      "alignment_seconds": 6.925314664840698e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the inharmonious is cowardly and boorish?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the inharmonious is cowardly and boorish?",
+          "start": 0.08,
+          "end": 2.64,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.411865234375
+            },
+            {
+              "text": " the",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " inharmonious",
+              "start": 0.6,
+              "end": 1.24,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " is",
+              "start": 1.24,
+              "end": 1.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cowardly",
+              "start": 1.46,
+              "end": 1.82,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 1.82,
+              "end": 2.18,
+              "probability": 0.99609375
+            },
+            {
+              "text": " boorish?",
+              "start": 2.18,
+              "end": 2.64,
+              "probability": 0.9484049479166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "inharmonious",
+          "start": 0.6,
+          "end": 1.24
+        },
+        {
+          "raw": "is",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "raw": "cowardly",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "raw": "and",
+          "start": 1.82,
+          "end": 2.18
+        },
+        {
+          "raw": "boorish?",
+          "start": 2.18,
+          "end": 2.64
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "inharmonious",
+        "is",
+        "cowardly",
+        "and",
+        "boorish?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "the",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "inharmonious",
+          "start": 0.6,
+          "end": 1.24
+        },
+        {
+          "text": "is",
+          "start": 1.24,
+          "end": 1.46
+        },
+        {
+          "text": "cowardly",
+          "start": 1.46,
+          "end": 1.82
+        },
+        {
+          "text": "and",
+          "start": 1.82,
+          "end": 2.18
+        },
+        {
+          "text": "boorish?",
+          "start": 2.18,
+          "end": 2.64
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13304084539413452
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f77084fd3e6f61b16670c76d8bb0baf25da6ba3b6c35cee68c05a06751c5a12e",
+  "selected_reasons": []
+}

@@ -1,0 +1,1418 @@
+{
+  "complete": true,
+  "signature": "1ff128be3b51420190688b0e5292ab652de30a8b7df0662b8328f482939cea01",
+  "attempts": [
+    {
+      "asr_seconds": 0.362421877682209,
+      "alignment_seconds": 0.0003834441304206848,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And he who dislikes learning, especially in youth, when he has no power of judging what is good and what is not, such an one we maintain not to be a philosopher or a lover of knowledge, just as he who refuses his food is not hungry, and may be said to have a bad appetite and not a good one?"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And he who dislikes learning, especially in youth, when he has no power of judging what",
+          "start": 0.05,
+          "end": 5.37,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.1514892578125
+            },
+            {
+              "text": " he",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " who",
+              "start": 0.69,
+              "end": 0.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " dislikes",
+              "start": 0.81,
+              "end": 1.25,
+              "probability": 0.996337890625
+            },
+            {
+              "text": " learning,",
+              "start": 1.25,
+              "end": 1.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " especially",
+              "start": 2.15,
+              "end": 2.49,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " in",
+              "start": 2.49,
+              "end": 2.85,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " youth,",
+              "start": 2.85,
+              "end": 3.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " when",
+              "start": 3.65,
+              "end": 3.79,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " he",
+              "start": 3.79,
+              "end": 3.89,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " has",
+              "start": 3.89,
+              "end": 4.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " no",
+              "start": 4.03,
+              "end": 4.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " power",
+              "start": 4.27,
+              "end": 4.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 4.61,
+              "end": 4.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " judging",
+              "start": 4.85,
+              "end": 5.13,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " what",
+              "start": 5.13,
+              "end": 5.37,
+              "probability": 0.9951171875
+            }
+          ]
+        },
+        {
+          "text": " is good and what is not, such an one we maintain not to be a philosopher or a lover of knowledge,",
+          "start": 5.37,
+          "end": 10.87,
+          "words": [
+            {
+              "text": " is",
+              "start": 5.37,
+              "end": 5.55,
+              "probability": 0.998046875
+            },
+            {
+              "text": " good",
+              "start": 5.55,
+              "end": 5.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 5.83,
+              "end": 6.23,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " what",
+              "start": 6.23,
+              "end": 6.35,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " is",
+              "start": 6.35,
+              "end": 6.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " not,",
+              "start": 6.49,
+              "end": 6.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " such",
+              "start": 7.31,
+              "end": 7.55,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " an",
+              "start": 7.55,
+              "end": 7.67,
+              "probability": 0.1466064453125
+            },
+            {
+              "text": " one",
+              "start": 7.67,
+              "end": 7.79,
+              "probability": 0.62060546875
+            },
+            {
+              "text": " we",
+              "start": 7.79,
+              "end": 7.93,
+              "probability": 0.984375
+            },
+            {
+              "text": " maintain",
+              "start": 7.93,
+              "end": 8.33,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 8.33,
+              "end": 8.63,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 8.63,
+              "end": 8.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 8.79,
+              "end": 8.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 8.91,
+              "end": 9.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " philosopher",
+              "start": 9.01,
+              "end": 9.47,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " or",
+              "start": 9.47,
+              "end": 9.91,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " a",
+              "start": 9.91,
+              "end": 10.05,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " lover",
+              "start": 10.05,
+              "end": 10.23,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " of",
+              "start": 10.23,
+              "end": 10.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " knowledge,",
+              "start": 10.49,
+              "end": 10.87,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " just as he who refuses his food is not hungry, and may be said to have a bad appetite and",
+          "start": 11.37,
+          "end": 16.75,
+          "words": [
+            {
+              "text": " just",
+              "start": 11.37,
+              "end": 11.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " as",
+              "start": 11.67,
+              "end": 11.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 11.85,
+              "end": 12.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " who",
+              "start": 12.03,
+              "end": 12.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " refuses",
+              "start": 12.17,
+              "end": 12.67,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " his",
+              "start": 12.67,
+              "end": 12.97,
+              "probability": 0.998046875
+            },
+            {
+              "text": " food",
+              "start": 12.97,
+              "end": 13.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 13.29,
+              "end": 13.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 13.49,
+              "end": 13.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hungry,",
+              "start": 13.73,
+              "end": 14.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 14.69,
+              "end": 14.79,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " may",
+              "start": 14.79,
+              "end": 14.93,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " be",
+              "start": 14.93,
+              "end": 15.11,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " said",
+              "start": 15.11,
+              "end": 15.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 15.31,
+              "end": 15.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " have",
+              "start": 15.45,
+              "end": 15.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 15.59,
+              "end": 15.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " bad",
+              "start": 15.71,
+              "end": 15.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " appetite",
+              "start": 15.95,
+              "end": 16.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 16.47,
+              "end": 16.75,
+              "probability": 0.9599609375
+            }
+          ]
+        },
+        {
+          "text": " not a good one?",
+          "start": 16.75,
+          "end": 17.47,
+          "words": [
+            {
+              "text": " not",
+              "start": 16.75,
+              "end": 16.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " a",
+              "start": 16.95,
+              "end": 17.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " good",
+              "start": 17.09,
+              "end": 17.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " one?",
+              "start": 17.21,
+              "end": 17.47,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "he",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "who",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "raw": "dislikes",
+          "start": 0.81,
+          "end": 1.25
+        },
+        {
+          "raw": "learning,",
+          "start": 1.25,
+          "end": 1.71
+        },
+        {
+          "raw": "especially",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "raw": "in",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "raw": "youth,",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "raw": "when",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "raw": "he",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "raw": "has",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "raw": "no",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "raw": "power",
+          "start": 4.27,
+          "end": 4.61
+        },
+        {
+          "raw": "of",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "raw": "judging",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "raw": "what",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "raw": "is",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "raw": "good",
+          "start": 5.55,
+          "end": 5.83
+        },
+        {
+          "raw": "and",
+          "start": 5.83,
+          "end": 6.23
+        },
+        {
+          "raw": "what",
+          "start": 6.23,
+          "end": 6.35
+        },
+        {
+          "raw": "is",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "raw": "not,",
+          "start": 6.49,
+          "end": 6.89
+        },
+        {
+          "raw": "such",
+          "start": 7.31,
+          "end": 7.55
+        },
+        {
+          "raw": "an",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "raw": "one",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "raw": "we",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "raw": "maintain",
+          "start": 7.93,
+          "end": 8.33
+        },
+        {
+          "raw": "not",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "raw": "to",
+          "start": 8.63,
+          "end": 8.79
+        },
+        {
+          "raw": "be",
+          "start": 8.79,
+          "end": 8.91
+        },
+        {
+          "raw": "a",
+          "start": 8.91,
+          "end": 9.01
+        },
+        {
+          "raw": "philosopher",
+          "start": 9.01,
+          "end": 9.47
+        },
+        {
+          "raw": "or",
+          "start": 9.47,
+          "end": 9.91
+        },
+        {
+          "raw": "a",
+          "start": 9.91,
+          "end": 10.05
+        },
+        {
+          "raw": "lover",
+          "start": 10.05,
+          "end": 10.23
+        },
+        {
+          "raw": "of",
+          "start": 10.23,
+          "end": 10.49
+        },
+        {
+          "raw": "knowledge,",
+          "start": 10.49,
+          "end": 10.87
+        },
+        {
+          "raw": "just",
+          "start": 11.37,
+          "end": 11.67
+        },
+        {
+          "raw": "as",
+          "start": 11.67,
+          "end": 11.85
+        },
+        {
+          "raw": "he",
+          "start": 11.85,
+          "end": 12.03
+        },
+        {
+          "raw": "who",
+          "start": 12.03,
+          "end": 12.17
+        },
+        {
+          "raw": "refuses",
+          "start": 12.17,
+          "end": 12.67
+        },
+        {
+          "raw": "his",
+          "start": 12.67,
+          "end": 12.97
+        },
+        {
+          "raw": "food",
+          "start": 12.97,
+          "end": 13.29
+        },
+        {
+          "raw": "is",
+          "start": 13.29,
+          "end": 13.49
+        },
+        {
+          "raw": "not",
+          "start": 13.49,
+          "end": 13.73
+        },
+        {
+          "raw": "hungry,",
+          "start": 13.73,
+          "end": 14.17
+        },
+        {
+          "raw": "and",
+          "start": 14.69,
+          "end": 14.79
+        },
+        {
+          "raw": "may",
+          "start": 14.79,
+          "end": 14.93
+        },
+        {
+          "raw": "be",
+          "start": 14.93,
+          "end": 15.11
+        },
+        {
+          "raw": "said",
+          "start": 15.11,
+          "end": 15.31
+        },
+        {
+          "raw": "to",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "raw": "have",
+          "start": 15.45,
+          "end": 15.59
+        },
+        {
+          "raw": "a",
+          "start": 15.59,
+          "end": 15.71
+        },
+        {
+          "raw": "bad",
+          "start": 15.71,
+          "end": 15.95
+        },
+        {
+          "raw": "appetite",
+          "start": 15.95,
+          "end": 16.47
+        },
+        {
+          "raw": "and",
+          "start": 16.47,
+          "end": 16.75
+        },
+        {
+          "raw": "not",
+          "start": 16.75,
+          "end": 16.95
+        },
+        {
+          "raw": "a",
+          "start": 16.95,
+          "end": 17.09
+        },
+        {
+          "raw": "good",
+          "start": 17.09,
+          "end": 17.21
+        },
+        {
+          "raw": "one?",
+          "start": 17.21,
+          "end": 17.47
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "he",
+        "who",
+        "dislikes",
+        "learning,",
+        "especially",
+        "in",
+        "youth,",
+        "when",
+        "he",
+        "has",
+        "no",
+        "power",
+        "of",
+        "judging",
+        "what",
+        "is",
+        "good",
+        "and",
+        "what",
+        "is",
+        "not,",
+        "such",
+        "an",
+        "one",
+        "we",
+        "maintain",
+        "not",
+        "to",
+        "be",
+        "a",
+        "philosopher",
+        "or",
+        "a",
+        "lover",
+        "of",
+        "knowledge,",
+        "just",
+        "as",
+        "he",
+        "who",
+        "refuses",
+        "his",
+        "food",
+        "is",
+        "not",
+        "hungry,",
+        "and",
+        "may",
+        "be",
+        "said",
+        "to",
+        "have",
+        "a",
+        "bad",
+        "appetite",
+        "and",
+        "not",
+        "a",
+        "good",
+        "one?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          61,
+          0,
+          61
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "he",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "who",
+          "start": 0.69,
+          "end": 0.81
+        },
+        {
+          "text": "dislikes",
+          "start": 0.81,
+          "end": 1.25
+        },
+        {
+          "text": "learning,",
+          "start": 1.25,
+          "end": 1.71
+        },
+        {
+          "text": "especially",
+          "start": 2.15,
+          "end": 2.49
+        },
+        {
+          "text": "in",
+          "start": 2.49,
+          "end": 2.85
+        },
+        {
+          "text": "youth,",
+          "start": 2.85,
+          "end": 3.23
+        },
+        {
+          "text": "when",
+          "start": 3.65,
+          "end": 3.79
+        },
+        {
+          "text": "he",
+          "start": 3.79,
+          "end": 3.89
+        },
+        {
+          "text": "has",
+          "start": 3.89,
+          "end": 4.03
+        },
+        {
+          "text": "no",
+          "start": 4.03,
+          "end": 4.27
+        },
+        {
+          "text": "power",
+          "start": 4.27,
+          "end": 4.61
+        },
+        {
+          "text": "of",
+          "start": 4.61,
+          "end": 4.85
+        },
+        {
+          "text": "judging",
+          "start": 4.85,
+          "end": 5.13
+        },
+        {
+          "text": "what",
+          "start": 5.13,
+          "end": 5.37
+        },
+        {
+          "text": "is",
+          "start": 5.37,
+          "end": 5.55
+        },
+        {
+          "text": "good",
+          "start": 5.55,
+          "end": 5.83
+        },
+        {
+          "text": "and",
+          "start": 5.83,
+          "end": 6.23
+        },
+        {
+          "text": "what",
+          "start": 6.23,
+          "end": 6.35
+        },
+        {
+          "text": "is",
+          "start": 6.35,
+          "end": 6.49
+        },
+        {
+          "text": "not,",
+          "start": 6.49,
+          "end": 6.89
+        },
+        {
+          "text": "such",
+          "start": 7.31,
+          "end": 7.55
+        },
+        {
+          "text": "an",
+          "start": 7.55,
+          "end": 7.67
+        },
+        {
+          "text": "one",
+          "start": 7.67,
+          "end": 7.79
+        },
+        {
+          "text": "we",
+          "start": 7.79,
+          "end": 7.93
+        },
+        {
+          "text": "maintain",
+          "start": 7.93,
+          "end": 8.33
+        },
+        {
+          "text": "not",
+          "start": 8.33,
+          "end": 8.63
+        },
+        {
+          "text": "to",
+          "start": 8.63,
+          "end": 8.79
+        },
+        {
+          "text": "be",
+          "start": 8.79,
+          "end": 8.91
+        },
+        {
+          "text": "a",
+          "start": 8.91,
+          "end": 9.01
+        },
+        {
+          "text": "philosopher",
+          "start": 9.01,
+          "end": 9.47
+        },
+        {
+          "text": "or",
+          "start": 9.47,
+          "end": 9.91
+        },
+        {
+          "text": "a",
+          "start": 9.91,
+          "end": 10.05
+        },
+        {
+          "text": "lover",
+          "start": 10.05,
+          "end": 10.23
+        },
+        {
+          "text": "of",
+          "start": 10.23,
+          "end": 10.49
+        },
+        {
+          "text": "knowledge,",
+          "start": 10.49,
+          "end": 10.87
+        },
+        {
+          "text": "just",
+          "start": 11.37,
+          "end": 11.67
+        },
+        {
+          "text": "as",
+          "start": 11.67,
+          "end": 11.85
+        },
+        {
+          "text": "he",
+          "start": 11.85,
+          "end": 12.03
+        },
+        {
+          "text": "who",
+          "start": 12.03,
+          "end": 12.17
+        },
+        {
+          "text": "refuses",
+          "start": 12.17,
+          "end": 12.67
+        },
+        {
+          "text": "his",
+          "start": 12.67,
+          "end": 12.97
+        },
+        {
+          "text": "food",
+          "start": 12.97,
+          "end": 13.29
+        },
+        {
+          "text": "is",
+          "start": 13.29,
+          "end": 13.49
+        },
+        {
+          "text": "not",
+          "start": 13.49,
+          "end": 13.73
+        },
+        {
+          "text": "hungry,",
+          "start": 13.73,
+          "end": 14.17
+        },
+        {
+          "text": "and",
+          "start": 14.69,
+          "end": 14.79
+        },
+        {
+          "text": "may",
+          "start": 14.79,
+          "end": 14.93
+        },
+        {
+          "text": "be",
+          "start": 14.93,
+          "end": 15.11
+        },
+        {
+          "text": "said",
+          "start": 15.11,
+          "end": 15.31
+        },
+        {
+          "text": "to",
+          "start": 15.31,
+          "end": 15.45
+        },
+        {
+          "text": "have",
+          "start": 15.45,
+          "end": 15.59
+        },
+        {
+          "text": "a",
+          "start": 15.59,
+          "end": 15.71
+        },
+        {
+          "text": "bad",
+          "start": 15.71,
+          "end": 15.95
+        },
+        {
+          "text": "appetite",
+          "start": 15.95,
+          "end": 16.47
+        },
+        {
+          "text": "and",
+          "start": 16.47,
+          "end": 16.75
+        },
+        {
+          "text": "not",
+          "start": 16.75,
+          "end": 16.95
+        },
+        {
+          "text": "a",
+          "start": 16.95,
+          "end": 17.09
+        },
+        {
+          "text": "good",
+          "start": 17.09,
+          "end": 17.21
+        },
+        {
+          "text": "one?",
+          "start": 17.21,
+          "end": 17.47
+        }
+      ],
+      "stats": {
+        "expected_words": 61,
+        "heard_words": 61,
+        "matched_words": 61
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3630564957857132
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "098bddcfd942da41dc520de781021862fdc82bac6f0be190e906310ff8032d9e",
+  "selected_reasons": []
+}

@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "e89d83342abb3612847ed72889d5ef4e50ff11d63331426b96a7dd5cdbfcacfc",
+  "attempts": [
+    {
+      "asr_seconds": 0.07201117277145386,
+      "alignment_seconds": 5.10290265083313e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The physician.",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.7041015625
+            },
+            {
+              "text": " physician.",
+              "start": 0.48,
+              "end": 0.84,
+              "probability": 0.62060546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "physician.",
+          "start": 0.48,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "physician."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "physician.",
+          "start": 0.48,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07208175957202911
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "332331f26593816bb824a3e27230c19b32a4990a587f2e6b1134b325a1706c66",
+  "selected_reasons": []
+}

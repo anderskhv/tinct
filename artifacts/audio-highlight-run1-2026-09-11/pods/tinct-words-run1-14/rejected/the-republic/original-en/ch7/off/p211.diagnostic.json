@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "deec9d482e79208b754d7bb7dcb647279760e53c0b21159c18b3dc74b64cf7a8",
+  "attempts": [
+    {
+      "asr_seconds": 0.1372453197836876,
+      "alignment_seconds": 0.00010291486978530884,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And you placed astronomy next, and then you made a step backward.",
+          "start": 0.05,
+          "end": 3.67,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " you",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " placed",
+              "start": 0.65,
+              "end": 0.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " astronomy",
+              "start": 0.95,
+              "end": 1.41,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " next,",
+              "start": 1.41,
+              "end": 1.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 2.41,
+              "end": 2.51,
+              "probability": 0.978515625
+            },
+            {
+              "text": " then",
+              "start": 2.51,
+              "end": 2.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " you",
+              "start": 2.61,
+              "end": 2.73,
+              "probability": 0.9921875
+            },
+            {
+              "text": " made",
+              "start": 2.73,
+              "end": 2.87,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 2.87,
+              "end": 3.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " step",
+              "start": 3.03,
+              "end": 3.21,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " backward.",
+              "start": 3.21,
+              "end": 3.67,
+              "probability": 0.97509765625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "placed",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "raw": "astronomy",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "raw": "next,",
+          "start": 1.41,
+          "end": 1.91
+        },
+        {
+          "raw": "and",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "raw": "then",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "raw": "you",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "raw": "made",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "raw": "a",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "raw": "step",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "raw": "backward.",
+          "start": 3.21,
+          "end": 3.67
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "you",
+        "placed",
+        "astronomy",
+        "next,",
+        "and",
+        "then",
+        "you",
+        "made",
+        "a",
+        "step",
+        "backward?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "you",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "placed",
+          "start": 0.65,
+          "end": 0.95
+        },
+        {
+          "text": "astronomy",
+          "start": 0.95,
+          "end": 1.41
+        },
+        {
+          "text": "next,",
+          "start": 1.41,
+          "end": 1.91
+        },
+        {
+          "text": "and",
+          "start": 2.41,
+          "end": 2.51
+        },
+        {
+          "text": "then",
+          "start": 2.51,
+          "end": 2.61
+        },
+        {
+          "text": "you",
+          "start": 2.61,
+          "end": 2.73
+        },
+        {
+          "text": "made",
+          "start": 2.73,
+          "end": 2.87
+        },
+        {
+          "text": "a",
+          "start": 2.87,
+          "end": 3.03
+        },
+        {
+          "text": "step",
+          "start": 3.03,
+          "end": 3.21
+        },
+        {
+          "text": "backward?",
+          "start": 3.21,
+          "end": 3.67
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13739927113056183
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b2cf3d6b88ff3d0979302a241f6b93efd2a81754f2bfa6127af3549b20b079b",
+  "selected_reasons": []
+}

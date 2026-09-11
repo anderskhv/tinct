@@ -1,0 +1,474 @@
+{
+  "complete": true,
+  "signature": "bd0cc042035c55919403593e74bf9454df4aac1606f20f0b4ac17e93d0bd26a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.23769834637641907,
+      "alignment_seconds": 0.00010684877634048462,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then what is that joint use of silver or gold in which the just man is to be preferred?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then what is that joint use of silver or gold in which the just man is to be preferred?",
+          "start": 0.05,
+          "end": 5.27,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.810546875
+            },
+            {
+              "text": " what",
+              "start": 0.59,
+              "end": 0.83,
+              "probability": 0.74365234375
+            },
+            {
+              "text": " is",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 0.97,
+              "end": 1.23,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " joint",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " use",
+              "start": 1.49,
+              "end": 1.79,
+              "probability": 0.982421875
+            },
+            {
+              "text": " of",
+              "start": 1.79,
+              "end": 1.95,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " silver",
+              "start": 1.95,
+              "end": 2.27,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " or",
+              "start": 2.27,
+              "end": 2.63,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " gold",
+              "start": 2.63,
+              "end": 3.01,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 3.01,
+              "end": 3.61,
+              "probability": 0.35205078125
+            },
+            {
+              "text": " which",
+              "start": 3.61,
+              "end": 3.77,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 3.77,
+              "end": 3.91,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " just",
+              "start": 3.91,
+              "end": 4.09,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " man",
+              "start": 4.09,
+              "end": 4.41,
+              "probability": 0.98828125
+            },
+            {
+              "text": " is",
+              "start": 4.41,
+              "end": 4.65,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 4.65,
+              "end": 4.79,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 4.79,
+              "end": 4.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " preferred?",
+              "start": 4.91,
+              "end": 5.27,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "what",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "raw": "is",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "that",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "raw": "joint",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "use",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "raw": "of",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "raw": "silver",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "raw": "or",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "raw": "gold",
+          "start": 2.63,
+          "end": 3.01
+        },
+        {
+          "raw": "in",
+          "start": 3.01,
+          "end": 3.61
+        },
+        {
+          "raw": "which",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "raw": "the",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "raw": "just",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "raw": "man",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "raw": "is",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "raw": "to",
+          "start": 4.65,
+          "end": 4.79
+        },
+        {
+          "raw": "be",
+          "start": 4.79,
+          "end": 4.91
+        },
+        {
+          "raw": "preferred?",
+          "start": 4.91,
+          "end": 5.27
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "what",
+        "is",
+        "that",
+        "joint",
+        "use",
+        "of",
+        "silver",
+        "or",
+        "gold",
+        "in",
+        "which",
+        "the",
+        "just",
+        "man",
+        "is",
+        "to",
+        "be",
+        "preferred?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "what",
+          "start": 0.59,
+          "end": 0.83
+        },
+        {
+          "text": "is",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "that",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "text": "joint",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "use",
+          "start": 1.49,
+          "end": 1.79
+        },
+        {
+          "text": "of",
+          "start": 1.79,
+          "end": 1.95
+        },
+        {
+          "text": "silver",
+          "start": 1.95,
+          "end": 2.27
+        },
+        {
+          "text": "or",
+          "start": 2.27,
+          "end": 2.63
+        },
+        {
+          "text": "gold",
+          "start": 2.63,
+          "end": 3.01
+        },
+        {
+          "text": "in",
+          "start": 3.01,
+          "end": 3.61
+        },
+        {
+          "text": "which",
+          "start": 3.61,
+          "end": 3.77
+        },
+        {
+          "text": "the",
+          "start": 3.77,
+          "end": 3.91
+        },
+        {
+          "text": "just",
+          "start": 3.91,
+          "end": 4.09
+        },
+        {
+          "text": "man",
+          "start": 4.09,
+          "end": 4.41
+        },
+        {
+          "text": "is",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "text": "to",
+          "start": 4.65,
+          "end": 4.79
+        },
+        {
+          "text": "be",
+          "start": 4.79,
+          "end": 4.91
+        },
+        {
+          "text": "preferred?",
+          "start": 4.91,
+          "end": 5.27
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23786084353923798
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ee2c57648f936111f206cd3c0cb429509107491d7eba519b619537a4cef4955",
+  "selected_reasons": []
+}

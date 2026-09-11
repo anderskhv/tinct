@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "afe3ce6698259ec6d6e46d91c794555623d4f855454bb1d3f25ca4fa63c06e76",
+  "attempts": [
+    {
+      "asr_seconds": 0.07808635383844376,
+      "alignment_seconds": 4.5843422412872314e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Exactly.",
+        "hotwords": "Exactly"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Exactly.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " Exactly.",
+              "start": 0.02,
+              "end": 0.8,
+              "probability": 0.775390625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Exactly.",
+          "start": 0.02,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "Exactly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Exactly.",
+          "start": 0.02,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07814840972423553
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c8be0bdb1336e68f7ae9551ee1ead9b6bf0eda9e6c503edf7d0d22ffb93c6e3e",
+  "selected_reasons": []
+}

@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "c889f81add294cad92411d5b3ca51dc0ac105bf54802e0187472f295b825a036",
+  "attempts": [
+    {
+      "asr_seconds": 0.06921183317899704,
+      "alignment_seconds": 5.161762237548828e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why not?",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.83203125
+            },
+            {
+              "text": " not?",
+              "start": 0.58,
+              "end": 0.84,
+              "probability": 0.982421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "not?",
+          "start": 0.58,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "Why",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Why",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "not?",
+          "start": 0.58,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06928186863660812
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "b0a19cee95d449368521a59c7a880a78b21a0b9eb599bc2df90fd19dfd15eea5",
+  "selected_reasons": []
+}

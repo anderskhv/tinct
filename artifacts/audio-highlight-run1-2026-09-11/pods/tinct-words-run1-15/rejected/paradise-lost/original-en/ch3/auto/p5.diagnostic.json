@@ -1,0 +1,4717 @@
+{
+  "complete": true,
+  "signature": "5a532e2fec66636b5ed2bca8b3ded336dea4defceff78669eff708b75ee47a93",
+  "attempts": [
+    {
+      "asr_seconds": 0.4615647420287132,
+      "alignment_seconds": 0.0003683045506477356,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Blind Thamyris, and blind Maeonides, And Tiresias, and Phineus, prophets old: Then feed on thoughts, that voluntary move Harmonious numbers; as the wakeful bird Sings darkling, and in shadiest covert hid Tunes her nocturnal note. Thus with the year Seasons return; but not to me returns Day, or the sweet approach of even or morn, Or sight of vernal bloom, or summer's rose, Or flocks, or herds, or human face divine;",
+        "hotwords": "Thamyris, Maeonides, Tiresias, Phineus, Then, Harmonious, Sings, Tunes, Thus, Seasons, Day"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thus, with the year Seasons return, but not to me returns Day, or the sweet approach of even or morn, Or sight of vernal bloom, or summer's rose, Or flocks, or herds, or human face divine!",
+          "start": 11.17,
+          "end": 26.49,
+          "words": [
+            {
+              "text": " Thus,",
+              "start": 11.17,
+              "end": 11.73,
+              "probability": 3.3974647521972656e-06
+            },
+            {
+              "text": " with",
+              "start": 15.59,
+              "end": 15.61,
+              "probability": 0.91357421875
+            },
+            {
+              "text": " the",
+              "start": 15.61,
+              "end": 15.75,
+              "probability": 0.98828125
+            },
+            {
+              "text": " year",
+              "start": 15.75,
+              "end": 15.93,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " Seasons",
+              "start": 15.93,
+              "end": 16.31,
+              "probability": 0.1180419921875
+            },
+            {
+              "text": " return,",
+              "start": 16.31,
+              "end": 16.91,
+              "probability": 0.640625
+            },
+            {
+              "text": " but",
+              "start": 17.49,
+              "end": 17.55,
+              "probability": 0.3115234375
+            },
+            {
+              "text": " not",
+              "start": 17.55,
+              "end": 17.71,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " to",
+              "start": 17.71,
+              "end": 17.87,
+              "probability": 0.994140625
+            },
+            {
+              "text": " me",
+              "start": 17.87,
+              "end": 17.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " returns",
+              "start": 17.99,
+              "end": 18.37,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " Day,",
+              "start": 18.37,
+              "end": 18.75,
+              "probability": 0.099365234375
+            },
+            {
+              "text": " or",
+              "start": 19.11,
+              "end": 19.17,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " the",
+              "start": 19.17,
+              "end": 19.29,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " sweet",
+              "start": 19.29,
+              "end": 19.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " approach",
+              "start": 19.53,
+              "end": 19.85,
+              "probability": 0.951171875
+            },
+            {
+              "text": " of",
+              "start": 19.85,
+              "end": 20.07,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " even",
+              "start": 20.07,
+              "end": 20.35,
+              "probability": 0.457275390625
+            },
+            {
+              "text": " or",
+              "start": 20.35,
+              "end": 20.59,
+              "probability": 0.921875
+            },
+            {
+              "text": " morn,",
+              "start": 20.59,
+              "end": 20.95,
+              "probability": 0.6798095703125
+            },
+            {
+              "text": " Or",
+              "start": 21.37,
+              "end": 21.49,
+              "probability": 0.650390625
+            },
+            {
+              "text": " sight",
+              "start": 21.49,
+              "end": 21.73,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " of",
+              "start": 21.73,
+              "end": 21.85,
+              "probability": 0.951171875
+            },
+            {
+              "text": " vernal",
+              "start": 21.85,
+              "end": 22.19,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " bloom,",
+              "start": 22.19,
+              "end": 22.47,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " or",
+              "start": 22.83,
+              "end": 22.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " summer's",
+              "start": 22.97,
+              "end": 23.39,
+              "probability": 0.802490234375
+            },
+            {
+              "text": " rose,",
+              "start": 23.39,
+              "end": 23.67,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " Or",
+              "start": 24.01,
+              "end": 24.05,
+              "probability": 0.31884765625
+            },
+            {
+              "text": " flocks,",
+              "start": 24.05,
+              "end": 24.53,
+              "probability": 0.977783203125
+            },
+            {
+              "text": " or",
+              "start": 24.77,
+              "end": 24.87,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " herds,",
+              "start": 24.87,
+              "end": 25.19,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " or",
+              "start": 25.43,
+              "end": 25.49,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " human",
+              "start": 25.49,
+              "end": 25.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " face",
+              "start": 25.79,
+              "end": 26.09,
+              "probability": 0.300048828125
+            },
+            {
+              "text": " divine!",
+              "start": 26.09,
+              "end": 26.49,
+              "probability": 0.97119140625
+            }
+          ]
+        },
+        {
+          "text": " Thanks for watching!",
+          "start": 26.49,
+          "end": 26.61,
+          "words": [
+            {
+              "text": " Thanks",
+              "start": 26.49,
+              "end": 26.49,
+              "probability": 0.003704071044921875
+            },
+            {
+              "text": " for",
+              "start": 26.49,
+              "end": 26.49,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " watching!",
+              "start": 26.49,
+              "end": 26.61,
+              "probability": 0.75244140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thus,",
+          "start": 11.17,
+          "end": 11.73
+        },
+        {
+          "raw": "with",
+          "start": 15.59,
+          "end": 15.61
+        },
+        {
+          "raw": "the",
+          "start": 15.61,
+          "end": 15.75
+        },
+        {
+          "raw": "year",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "raw": "Seasons",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "raw": "return,",
+          "start": 16.31,
+          "end": 16.91
+        },
+        {
+          "raw": "but",
+          "start": 17.49,
+          "end": 17.55
+        },
+        {
+          "raw": "not",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "raw": "to",
+          "start": 17.71,
+          "end": 17.87
+        },
+        {
+          "raw": "me",
+          "start": 17.87,
+          "end": 17.99
+        },
+        {
+          "raw": "returns",
+          "start": 17.99,
+          "end": 18.37
+        },
+        {
+          "raw": "Day,",
+          "start": 18.37,
+          "end": 18.75
+        },
+        {
+          "raw": "or",
+          "start": 19.11,
+          "end": 19.17
+        },
+        {
+          "raw": "the",
+          "start": 19.17,
+          "end": 19.29
+        },
+        {
+          "raw": "sweet",
+          "start": 19.29,
+          "end": 19.53
+        },
+        {
+          "raw": "approach",
+          "start": 19.53,
+          "end": 19.85
+        },
+        {
+          "raw": "of",
+          "start": 19.85,
+          "end": 20.07
+        },
+        {
+          "raw": "even",
+          "start": 20.07,
+          "end": 20.35
+        },
+        {
+          "raw": "or",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "raw": "morn,",
+          "start": 20.59,
+          "end": 20.95
+        },
+        {
+          "raw": "Or",
+          "start": 21.37,
+          "end": 21.49
+        },
+        {
+          "raw": "sight",
+          "start": 21.49,
+          "end": 21.73
+        },
+        {
+          "raw": "of",
+          "start": 21.73,
+          "end": 21.85
+        },
+        {
+          "raw": "vernal",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "raw": "bloom,",
+          "start": 22.19,
+          "end": 22.47
+        },
+        {
+          "raw": "or",
+          "start": 22.83,
+          "end": 22.97
+        },
+        {
+          "raw": "summer's",
+          "start": 22.97,
+          "end": 23.39
+        },
+        {
+          "raw": "rose,",
+          "start": 23.39,
+          "end": 23.67
+        },
+        {
+          "raw": "Or",
+          "start": 24.01,
+          "end": 24.05
+        },
+        {
+          "raw": "flocks,",
+          "start": 24.05,
+          "end": 24.53
+        },
+        {
+          "raw": "or",
+          "start": 24.77,
+          "end": 24.87
+        },
+        {
+          "raw": "herds,",
+          "start": 24.87,
+          "end": 25.19
+        },
+        {
+          "raw": "or",
+          "start": 25.43,
+          "end": 25.49
+        },
+        {
+          "raw": "human",
+          "start": 25.49,
+          "end": 25.79
+        },
+        {
+          "raw": "face",
+          "start": 25.79,
+          "end": 26.09
+        },
+        {
+          "raw": "divine!",
+          "start": 26.09,
+          "end": 26.49
+        },
+        {
+          "raw": "Thanks",
+          "start": 26.49,
+          "end": 26.49
+        },
+        {
+          "raw": "for",
+          "start": 26.49,
+          "end": 26.49
+        },
+        {
+          "raw": "watching!",
+          "start": 26.49,
+          "end": 26.61
+        }
+      ],
+      "expected_tokens": [
+        "Blind",
+        "Thamyris,",
+        "and",
+        "blind",
+        "Maeonides,",
+        "And",
+        "Tiresias,",
+        "and",
+        "Phineus,",
+        "prophets",
+        "old:",
+        "Then",
+        "feed",
+        "on",
+        "thoughts,",
+        "that",
+        "voluntary",
+        "move",
+        "Harmonious",
+        "numbers;",
+        "as",
+        "the",
+        "wakeful",
+        "bird",
+        "Sings",
+        "darkling,",
+        "and",
+        "in",
+        "shadiest",
+        "covert",
+        "hid",
+        "Tunes",
+        "her",
+        "nocturnal",
+        "note.",
+        "Thus",
+        "with",
+        "the",
+        "year",
+        "Seasons",
+        "return;",
+        "but",
+        "not",
+        "to",
+        "me",
+        "returns",
+        "Day,",
+        "or",
+        "the",
+        "sweet",
+        "approach",
+        "of",
+        "even",
+        "or",
+        "morn,",
+        "Or",
+        "sight",
+        "of",
+        "vernal",
+        "bloom,",
+        "or",
+        "summer's",
+        "rose,",
+        "Or",
+        "flocks,",
+        "or",
+        "herds,",
+        "or",
+        "human",
+        "face",
+        "divine;"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          35,
+          0,
+          0
+        ],
+        [
+          "equal",
+          35,
+          71,
+          0,
+          36
+        ],
+        [
+          "insert",
+          71,
+          71,
+          36,
+          39
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 29,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 30,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 35
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          35,
+          0,
+          0
+        ],
+        [
+          "insert",
+          71,
+          71,
+          36,
+          39
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Blind",
+          "start": 0.0,
+          "end": 5.585
+        },
+        {
+          "text": "Thamyris,",
+          "start": 5.585,
+          "end": 8.377
+        },
+        {
+          "text": "and",
+          "start": 8.377,
+          "end": 9.774
+        },
+        {
+          "text": "blind",
+          "start": 9.774,
+          "end": 10.472
+        },
+        {
+          "text": "Maeonides,",
+          "start": 10.472,
+          "end": 10.821
+        },
+        {
+          "text": "And",
+          "start": 10.821,
+          "end": 10.995
+        },
+        {
+          "text": "Tiresias,",
+          "start": 10.995,
+          "end": 11.082
+        },
+        {
+          "text": "and",
+          "start": 11.082,
+          "end": 11.126
+        },
+        {
+          "text": "Phineus,",
+          "start": 11.126,
+          "end": 11.148
+        },
+        {
+          "text": "prophets",
+          "start": 11.148,
+          "end": 11.159
+        },
+        {
+          "text": "old:",
+          "start": 11.159,
+          "end": 11.165
+        },
+        {
+          "text": "Then",
+          "start": 11.165,
+          "end": 11.168
+        },
+        {
+          "text": "feed",
+          "start": 11.168,
+          "end": 11.169
+        },
+        {
+          "text": "on",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "thoughts,",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "that",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "voluntary",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "move",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "Harmonious",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "numbers;",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "as",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "the",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "wakeful",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "bird",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "Sings",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "darkling,",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "and",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "in",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "shadiest",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "covert",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "hid",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "Tunes",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "her",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "nocturnal",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "note.",
+          "start": 11.169,
+          "end": 11.169
+        },
+        {
+          "text": "Thus",
+          "start": 11.17,
+          "end": 11.73
+        },
+        {
+          "text": "with",
+          "start": 15.59,
+          "end": 15.61
+        },
+        {
+          "text": "the",
+          "start": 15.61,
+          "end": 15.75
+        },
+        {
+          "text": "year",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "text": "Seasons",
+          "start": 15.93,
+          "end": 16.31
+        },
+        {
+          "text": "return;",
+          "start": 16.31,
+          "end": 16.91
+        },
+        {
+          "text": "but",
+          "start": 17.49,
+          "end": 17.55
+        },
+        {
+          "text": "not",
+          "start": 17.55,
+          "end": 17.71
+        },
+        {
+          "text": "to",
+          "start": 17.71,
+          "end": 17.87
+        },
+        {
+          "text": "me",
+          "start": 17.87,
+          "end": 17.99
+        },
+        {
+          "text": "returns",
+          "start": 17.99,
+          "end": 18.37
+        },
+        {
+          "text": "Day,",
+          "start": 18.37,
+          "end": 18.75
+        },
+        {
+          "text": "or",
+          "start": 19.11,
+          "end": 19.17
+        },
+        {
+          "text": "the",
+          "start": 19.17,
+          "end": 19.29
+        },
+        {
+          "text": "sweet",
+          "start": 19.29,
+          "end": 19.53
+        },
+        {
+          "text": "approach",
+          "start": 19.53,
+          "end": 19.85
+        },
+        {
+          "text": "of",
+          "start": 19.85,
+          "end": 20.07
+        },
+        {
+          "text": "even",
+          "start": 20.07,
+          "end": 20.35
+        },
+        {
+          "text": "or",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "text": "morn,",
+          "start": 20.59,
+          "end": 20.95
+        },
+        {
+          "text": "Or",
+          "start": 21.37,
+          "end": 21.49
+        },
+        {
+          "text": "sight",
+          "start": 21.49,
+          "end": 21.73
+        },
+        {
+          "text": "of",
+          "start": 21.73,
+          "end": 21.85
+        },
+        {
+          "text": "vernal",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "text": "bloom,",
+          "start": 22.19,
+          "end": 22.47
+        },
+        {
+          "text": "or",
+          "start": 22.83,
+          "end": 22.97
+        },
+        {
+          "text": "summer's",
+          "start": 22.97,
+          "end": 23.39
+        },
+        {
+          "text": "rose,",
+          "start": 23.39,
+          "end": 23.67
+        },
+        {
+          "text": "Or",
+          "start": 24.01,
+          "end": 24.05
+        },
+        {
+          "text": "flocks,",
+          "start": 24.05,
+          "end": 24.53
+        },
+        {
+          "text": "or",
+          "start": 24.77,
+          "end": 24.87
+        },
+        {
+          "text": "herds,",
+          "start": 24.87,
+          "end": 25.19
+        },
+        {
+          "text": "or",
+          "start": 25.43,
+          "end": 25.49
+        },
+        {
+          "text": "human",
+          "start": 25.49,
+          "end": 25.79
+        },
+        {
+          "text": "face",
+          "start": 25.79,
+          "end": 26.09
+        },
+        {
+          "text": "divine;",
+          "start": 26.09,
+          "end": 26.49
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 39,
+        "matched_words": 36
+      },
+      "match_ratio": 0.5070422535211268,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4620697498321533
+    },
+    {
+      "asr_seconds": 0.7364457845687866,
+      "alignment_seconds": 0.00041487812995910645,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Thamyris, Maeonides, Tiresias, Phineus, Then, Harmonious, Sings, Tunes, Thus, Seasons, Day"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Blind Thamyris and Blind Maeonides, And Tiresias and Phineus, Prophets Old,",
+          "start": 0.05,
+          "end": 5.31,
+          "words": [
+            {
+              "text": " Blind",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " Thamyris",
+              "start": 0.73,
+              "end": 1.33,
+              "probability": 0.3889617919921875
+            },
+            {
+              "text": " and",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.94140625
+            },
+            {
+              "text": " Blind",
+              "start": 1.55,
+              "end": 1.87,
+              "probability": 0.31494140625
+            },
+            {
+              "text": " Maeonides,",
+              "start": 1.87,
+              "end": 2.49,
+              "probability": 0.4044990340868632
+            },
+            {
+              "text": " And",
+              "start": 2.93,
+              "end": 2.95,
+              "probability": 0.30224609375
+            },
+            {
+              "text": " Tiresias",
+              "start": 2.95,
+              "end": 3.51,
+              "probability": 0.5208333333333334
+            },
+            {
+              "text": " and",
+              "start": 3.51,
+              "end": 3.75,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " Phineus,",
+              "start": 3.75,
+              "end": 4.29,
+              "probability": 0.43133544921875
+            },
+            {
+              "text": " Prophets",
+              "start": 4.65,
+              "end": 5.03,
+              "probability": 0.6414794921875
+            },
+            {
+              "text": " Old,",
+              "start": 5.03,
+              "end": 5.31,
+              "probability": 0.1983642578125
+            }
+          ]
+        },
+        {
+          "text": " Then feed on thoughts that voluntary move harmonious numbers,",
+          "start": 5.99,
+          "end": 9.15,
+          "words": [
+            {
+              "text": " Then",
+              "start": 5.99,
+              "end": 6.23,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " feed",
+              "start": 6.23,
+              "end": 6.43,
+              "probability": 0.9765625
+            },
+            {
+              "text": " on",
+              "start": 6.43,
+              "end": 6.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " thoughts",
+              "start": 6.65,
+              "end": 6.93,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " that",
+              "start": 6.93,
+              "end": 7.31,
+              "probability": 0.572265625
+            },
+            {
+              "text": " voluntary",
+              "start": 7.31,
+              "end": 7.77,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " move",
+              "start": 7.77,
+              "end": 8.15,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " harmonious",
+              "start": 8.15,
+              "end": 8.81,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " numbers,",
+              "start": 8.81,
+              "end": 9.15,
+              "probability": 0.9072265625
+            }
+          ]
+        },
+        {
+          "text": " As the wakeful bird sings darkling, And in shadiest covert hid tunes her nocturnal note.",
+          "start": 9.59,
+          "end": 14.45,
+          "words": [
+            {
+              "text": " As",
+              "start": 9.59,
+              "end": 9.91,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " the",
+              "start": 9.91,
+              "end": 10.05,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " wakeful",
+              "start": 10.05,
+              "end": 10.39,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " bird",
+              "start": 10.39,
+              "end": 10.61,
+              "probability": 0.912109375
+            },
+            {
+              "text": " sings",
+              "start": 10.61,
+              "end": 10.95,
+              "probability": 0.986328125
+            },
+            {
+              "text": " darkling,",
+              "start": 10.95,
+              "end": 11.55,
+              "probability": 0.951904296875
+            },
+            {
+              "text": " And",
+              "start": 11.69,
+              "end": 11.81,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " in",
+              "start": 11.81,
+              "end": 11.97,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " shadiest",
+              "start": 11.97,
+              "end": 12.43,
+              "probability": 0.9803059895833334
+            },
+            {
+              "text": " covert",
+              "start": 12.43,
+              "end": 12.85,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " hid",
+              "start": 12.85,
+              "end": 13.13,
+              "probability": 0.857421875
+            },
+            {
+              "text": " tunes",
+              "start": 13.13,
+              "end": 13.49,
+              "probability": 0.63134765625
+            },
+            {
+              "text": " her",
+              "start": 13.49,
+              "end": 13.67,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " nocturnal",
+              "start": 13.67,
+              "end": 14.09,
+              "probability": 0.9938151041666666
+            },
+            {
+              "text": " note.",
+              "start": 14.09,
+              "end": 14.45,
+              "probability": 0.99609375
+            }
+          ]
+        },
+        {
+          "text": " Thus with the year Seasons return, But not to me returns day,",
+          "start": 15.17,
+          "end": 18.75,
+          "words": [
+            {
+              "text": " Thus",
+              "start": 15.17,
+              "end": 15.41,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " with",
+              "start": 15.41,
+              "end": 15.63,
+              "probability": 0.80224609375
+            },
+            {
+              "text": " the",
+              "start": 15.63,
+              "end": 15.75,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " year",
+              "start": 15.75,
+              "end": 15.93,
+              "probability": 0.9765625
+            },
+            {
+              "text": " Seasons",
+              "start": 15.93,
+              "end": 16.29,
+              "probability": 0.313720703125
+            },
+            {
+              "text": " return,",
+              "start": 16.29,
+              "end": 16.85,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " But",
+              "start": 17.33,
+              "end": 17.57,
+              "probability": 0.9375
+            },
+            {
+              "text": " not",
+              "start": 17.57,
+              "end": 17.73,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " to",
+              "start": 17.73,
+              "end": 17.87,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " me",
+              "start": 17.87,
+              "end": 17.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " returns",
+              "start": 17.99,
+              "end": 18.35,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " day,",
+              "start": 18.35,
+              "end": 18.75,
+              "probability": 0.90869140625
+            }
+          ]
+        },
+        {
+          "text": " Or the sweet approach of even or mourn, Or sight of vernal bloom, or summer's rose,",
+          "start": 19.05,
+          "end": 23.63,
+          "words": [
+            {
+              "text": " Or",
+              "start": 19.05,
+              "end": 19.17,
+              "probability": 0.86181640625
+            },
+            {
+              "text": " the",
+              "start": 19.17,
+              "end": 19.31,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sweet",
+              "start": 19.31,
+              "end": 19.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " approach",
+              "start": 19.53,
+              "end": 19.85,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 19.85,
+              "end": 20.09,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " even",
+              "start": 20.09,
+              "end": 20.35,
+              "probability": 0.69384765625
+            },
+            {
+              "text": " or",
+              "start": 20.35,
+              "end": 20.59,
+              "probability": 0.958984375
+            },
+            {
+              "text": " mourn,",
+              "start": 20.59,
+              "end": 20.87,
+              "probability": 0.56298828125
+            },
+            {
+              "text": " Or",
+              "start": 21.35,
+              "end": 21.51,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " sight",
+              "start": 21.51,
+              "end": 21.73,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " of",
+              "start": 21.73,
+              "end": 21.85,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " vernal",
+              "start": 21.85,
+              "end": 22.19,
+              "probability": 0.9895833333333334
+            },
+            {
+              "text": " bloom,",
+              "start": 22.19,
+              "end": 22.47,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " or",
+              "start": 22.81,
+              "end": 22.99,
+              "probability": 0.368896484375
+            },
+            {
+              "text": " summer's",
+              "start": 22.99,
+              "end": 23.39,
+              "probability": 0.829345703125
+            },
+            {
+              "text": " rose,",
+              "start": 23.39,
+              "end": 23.63,
+              "probability": 0.96484375
+            }
+          ]
+        },
+        {
+          "text": " Or flocks, or herds, or human face divine.",
+          "start": 23.63,
+          "end": 26.47,
+          "words": [
+            {
+              "text": " Or",
+              "start": 23.63,
+              "end": 24.03,
+              "probability": 0.0029144287109375
+            },
+            {
+              "text": " flocks,",
+              "start": 24.03,
+              "end": 24.57,
+              "probability": 0.930908203125
+            },
+            {
+              "text": " or",
+              "start": 24.81,
+              "end": 24.85,
+              "probability": 0.80419921875
+            },
+            {
+              "text": " herds,",
+              "start": 24.85,
+              "end": 25.21,
+              "probability": 0.982421875
+            },
+            {
+              "text": " or",
+              "start": 25.43,
+              "end": 25.49,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " human",
+              "start": 25.49,
+              "end": 25.79,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " face",
+              "start": 25.79,
+              "end": 26.07,
+              "probability": 0.48583984375
+            },
+            {
+              "text": " divine.",
+              "start": 26.07,
+              "end": 26.47,
+              "probability": 0.9853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Blind",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Thamyris",
+          "start": 0.73,
+          "end": 1.33
+        },
+        {
+          "raw": "and",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "Blind",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "raw": "Maeonides,",
+          "start": 1.87,
+          "end": 2.49
+        },
+        {
+          "raw": "And",
+          "start": 2.93,
+          "end": 2.95
+        },
+        {
+          "raw": "Tiresias",
+          "start": 2.95,
+          "end": 3.51
+        },
+        {
+          "raw": "and",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "raw": "Phineus,",
+          "start": 3.75,
+          "end": 4.29
+        },
+        {
+          "raw": "Prophets",
+          "start": 4.65,
+          "end": 5.03
+        },
+        {
+          "raw": "Old,",
+          "start": 5.03,
+          "end": 5.31
+        },
+        {
+          "raw": "Then",
+          "start": 5.99,
+          "end": 6.23
+        },
+        {
+          "raw": "feed",
+          "start": 6.23,
+          "end": 6.43
+        },
+        {
+          "raw": "on",
+          "start": 6.43,
+          "end": 6.65
+        },
+        {
+          "raw": "thoughts",
+          "start": 6.65,
+          "end": 6.93
+        },
+        {
+          "raw": "that",
+          "start": 6.93,
+          "end": 7.31
+        },
+        {
+          "raw": "voluntary",
+          "start": 7.31,
+          "end": 7.77
+        },
+        {
+          "raw": "move",
+          "start": 7.77,
+          "end": 8.15
+        },
+        {
+          "raw": "harmonious",
+          "start": 8.15,
+          "end": 8.81
+        },
+        {
+          "raw": "numbers,",
+          "start": 8.81,
+          "end": 9.15
+        },
+        {
+          "raw": "As",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "raw": "the",
+          "start": 9.91,
+          "end": 10.05
+        },
+        {
+          "raw": "wakeful",
+          "start": 10.05,
+          "end": 10.39
+        },
+        {
+          "raw": "bird",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "raw": "sings",
+          "start": 10.61,
+          "end": 10.95
+        },
+        {
+          "raw": "darkling,",
+          "start": 10.95,
+          "end": 11.55
+        },
+        {
+          "raw": "And",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "raw": "in",
+          "start": 11.81,
+          "end": 11.97
+        },
+        {
+          "raw": "shadiest",
+          "start": 11.97,
+          "end": 12.43
+        },
+        {
+          "raw": "covert",
+          "start": 12.43,
+          "end": 12.85
+        },
+        {
+          "raw": "hid",
+          "start": 12.85,
+          "end": 13.13
+        },
+        {
+          "raw": "tunes",
+          "start": 13.13,
+          "end": 13.49
+        },
+        {
+          "raw": "her",
+          "start": 13.49,
+          "end": 13.67
+        },
+        {
+          "raw": "nocturnal",
+          "start": 13.67,
+          "end": 14.09
+        },
+        {
+          "raw": "note.",
+          "start": 14.09,
+          "end": 14.45
+        },
+        {
+          "raw": "Thus",
+          "start": 15.17,
+          "end": 15.41
+        },
+        {
+          "raw": "with",
+          "start": 15.41,
+          "end": 15.63
+        },
+        {
+          "raw": "the",
+          "start": 15.63,
+          "end": 15.75
+        },
+        {
+          "raw": "year",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "raw": "Seasons",
+          "start": 15.93,
+          "end": 16.29
+        },
+        {
+          "raw": "return,",
+          "start": 16.29,
+          "end": 16.85
+        },
+        {
+          "raw": "But",
+          "start": 17.33,
+          "end": 17.57
+        },
+        {
+          "raw": "not",
+          "start": 17.57,
+          "end": 17.73
+        },
+        {
+          "raw": "to",
+          "start": 17.73,
+          "end": 17.87
+        },
+        {
+          "raw": "me",
+          "start": 17.87,
+          "end": 17.99
+        },
+        {
+          "raw": "returns",
+          "start": 17.99,
+          "end": 18.35
+        },
+        {
+          "raw": "day,",
+          "start": 18.35,
+          "end": 18.75
+        },
+        {
+          "raw": "Or",
+          "start": 19.05,
+          "end": 19.17
+        },
+        {
+          "raw": "the",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "raw": "sweet",
+          "start": 19.31,
+          "end": 19.53
+        },
+        {
+          "raw": "approach",
+          "start": 19.53,
+          "end": 19.85
+        },
+        {
+          "raw": "of",
+          "start": 19.85,
+          "end": 20.09
+        },
+        {
+          "raw": "even",
+          "start": 20.09,
+          "end": 20.35
+        },
+        {
+          "raw": "or",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "raw": "mourn,",
+          "start": 20.59,
+          "end": 20.87
+        },
+        {
+          "raw": "Or",
+          "start": 21.35,
+          "end": 21.51
+        },
+        {
+          "raw": "sight",
+          "start": 21.51,
+          "end": 21.73
+        },
+        {
+          "raw": "of",
+          "start": 21.73,
+          "end": 21.85
+        },
+        {
+          "raw": "vernal",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "raw": "bloom,",
+          "start": 22.19,
+          "end": 22.47
+        },
+        {
+          "raw": "or",
+          "start": 22.81,
+          "end": 22.99
+        },
+        {
+          "raw": "summer's",
+          "start": 22.99,
+          "end": 23.39
+        },
+        {
+          "raw": "rose,",
+          "start": 23.39,
+          "end": 23.63
+        },
+        {
+          "raw": "Or",
+          "start": 23.63,
+          "end": 24.03
+        },
+        {
+          "raw": "flocks,",
+          "start": 24.03,
+          "end": 24.57
+        },
+        {
+          "raw": "or",
+          "start": 24.81,
+          "end": 24.85
+        },
+        {
+          "raw": "herds,",
+          "start": 24.85,
+          "end": 25.21
+        },
+        {
+          "raw": "or",
+          "start": 25.43,
+          "end": 25.49
+        },
+        {
+          "raw": "human",
+          "start": 25.49,
+          "end": 25.79
+        },
+        {
+          "raw": "face",
+          "start": 25.79,
+          "end": 26.07
+        },
+        {
+          "raw": "divine.",
+          "start": 26.07,
+          "end": 26.47
+        }
+      ],
+      "expected_tokens": [
+        "Blind",
+        "Thamyris,",
+        "and",
+        "blind",
+        "Maeonides,",
+        "And",
+        "Tiresias,",
+        "and",
+        "Phineus,",
+        "prophets",
+        "old:",
+        "Then",
+        "feed",
+        "on",
+        "thoughts,",
+        "that",
+        "voluntary",
+        "move",
+        "Harmonious",
+        "numbers;",
+        "as",
+        "the",
+        "wakeful",
+        "bird",
+        "Sings",
+        "darkling,",
+        "and",
+        "in",
+        "shadiest",
+        "covert",
+        "hid",
+        "Tunes",
+        "her",
+        "nocturnal",
+        "note.",
+        "Thus",
+        "with",
+        "the",
+        "year",
+        "Seasons",
+        "return;",
+        "but",
+        "not",
+        "to",
+        "me",
+        "returns",
+        "Day,",
+        "or",
+        "the",
+        "sweet",
+        "approach",
+        "of",
+        "even",
+        "or",
+        "morn,",
+        "Or",
+        "sight",
+        "of",
+        "vernal",
+        "bloom,",
+        "or",
+        "summer's",
+        "rose,",
+        "Or",
+        "flocks,",
+        "or",
+        "herds,",
+        "or",
+        "human",
+        "face",
+        "divine;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          54,
+          0,
+          54
+        ],
+        [
+          "replace",
+          54,
+          55,
+          54,
+          55
+        ],
+        [
+          "equal",
+          55,
+          71,
+          55,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          54,
+          55,
+          54,
+          55
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Blind",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Thamyris,",
+          "start": 0.73,
+          "end": 1.33
+        },
+        {
+          "text": "and",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "blind",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "Maeonides,",
+          "start": 1.87,
+          "end": 2.49
+        },
+        {
+          "text": "And",
+          "start": 2.93,
+          "end": 2.95
+        },
+        {
+          "text": "Tiresias,",
+          "start": 2.95,
+          "end": 3.51
+        },
+        {
+          "text": "and",
+          "start": 3.51,
+          "end": 3.75
+        },
+        {
+          "text": "Phineus,",
+          "start": 3.75,
+          "end": 4.29
+        },
+        {
+          "text": "prophets",
+          "start": 4.65,
+          "end": 5.03
+        },
+        {
+          "text": "old:",
+          "start": 5.03,
+          "end": 5.31
+        },
+        {
+          "text": "Then",
+          "start": 5.99,
+          "end": 6.23
+        },
+        {
+          "text": "feed",
+          "start": 6.23,
+          "end": 6.43
+        },
+        {
+          "text": "on",
+          "start": 6.43,
+          "end": 6.65
+        },
+        {
+          "text": "thoughts,",
+          "start": 6.65,
+          "end": 6.93
+        },
+        {
+          "text": "that",
+          "start": 6.93,
+          "end": 7.31
+        },
+        {
+          "text": "voluntary",
+          "start": 7.31,
+          "end": 7.77
+        },
+        {
+          "text": "move",
+          "start": 7.77,
+          "end": 8.15
+        },
+        {
+          "text": "Harmonious",
+          "start": 8.15,
+          "end": 8.81
+        },
+        {
+          "text": "numbers;",
+          "start": 8.81,
+          "end": 9.15
+        },
+        {
+          "text": "as",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "text": "the",
+          "start": 9.91,
+          "end": 10.05
+        },
+        {
+          "text": "wakeful",
+          "start": 10.05,
+          "end": 10.39
+        },
+        {
+          "text": "bird",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "text": "Sings",
+          "start": 10.61,
+          "end": 10.95
+        },
+        {
+          "text": "darkling,",
+          "start": 10.95,
+          "end": 11.55
+        },
+        {
+          "text": "and",
+          "start": 11.69,
+          "end": 11.81
+        },
+        {
+          "text": "in",
+          "start": 11.81,
+          "end": 11.97
+        },
+        {
+          "text": "shadiest",
+          "start": 11.97,
+          "end": 12.43
+        },
+        {
+          "text": "covert",
+          "start": 12.43,
+          "end": 12.85
+        },
+        {
+          "text": "hid",
+          "start": 12.85,
+          "end": 13.13
+        },
+        {
+          "text": "Tunes",
+          "start": 13.13,
+          "end": 13.49
+        },
+        {
+          "text": "her",
+          "start": 13.49,
+          "end": 13.67
+        },
+        {
+          "text": "nocturnal",
+          "start": 13.67,
+          "end": 14.09
+        },
+        {
+          "text": "note.",
+          "start": 14.09,
+          "end": 14.45
+        },
+        {
+          "text": "Thus",
+          "start": 15.17,
+          "end": 15.41
+        },
+        {
+          "text": "with",
+          "start": 15.41,
+          "end": 15.63
+        },
+        {
+          "text": "the",
+          "start": 15.63,
+          "end": 15.75
+        },
+        {
+          "text": "year",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "text": "Seasons",
+          "start": 15.93,
+          "end": 16.29
+        },
+        {
+          "text": "return;",
+          "start": 16.29,
+          "end": 16.85
+        },
+        {
+          "text": "but",
+          "start": 17.33,
+          "end": 17.57
+        },
+        {
+          "text": "not",
+          "start": 17.57,
+          "end": 17.73
+        },
+        {
+          "text": "to",
+          "start": 17.73,
+          "end": 17.87
+        },
+        {
+          "text": "me",
+          "start": 17.87,
+          "end": 17.99
+        },
+        {
+          "text": "returns",
+          "start": 17.99,
+          "end": 18.35
+        },
+        {
+          "text": "Day,",
+          "start": 18.35,
+          "end": 18.75
+        },
+        {
+          "text": "or",
+          "start": 19.05,
+          "end": 19.17
+        },
+        {
+          "text": "the",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "text": "sweet",
+          "start": 19.31,
+          "end": 19.53
+        },
+        {
+          "text": "approach",
+          "start": 19.53,
+          "end": 19.85
+        },
+        {
+          "text": "of",
+          "start": 19.85,
+          "end": 20.09
+        },
+        {
+          "text": "even",
+          "start": 20.09,
+          "end": 20.35
+        },
+        {
+          "text": "or",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "text": "morn,",
+          "start": 20.59,
+          "end": 20.97
+        },
+        {
+          "text": "Or",
+          "start": 21.35,
+          "end": 21.51
+        },
+        {
+          "text": "sight",
+          "start": 21.51,
+          "end": 21.73
+        },
+        {
+          "text": "of",
+          "start": 21.73,
+          "end": 21.85
+        },
+        {
+          "text": "vernal",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "text": "bloom,",
+          "start": 22.19,
+          "end": 22.47
+        },
+        {
+          "text": "or",
+          "start": 22.81,
+          "end": 22.99
+        },
+        {
+          "text": "summer's",
+          "start": 22.99,
+          "end": 23.39
+        },
+        {
+          "text": "rose,",
+          "start": 23.39,
+          "end": 23.63
+        },
+        {
+          "text": "Or",
+          "start": 23.63,
+          "end": 24.03
+        },
+        {
+          "text": "flocks,",
+          "start": 24.03,
+          "end": 24.57
+        },
+        {
+          "text": "or",
+          "start": 24.81,
+          "end": 24.85
+        },
+        {
+          "text": "herds,",
+          "start": 24.85,
+          "end": 25.21
+        },
+        {
+          "text": "or",
+          "start": 25.43,
+          "end": 25.49
+        },
+        {
+          "text": "human",
+          "start": 25.49,
+          "end": 25.79
+        },
+        {
+          "text": "face",
+          "start": 25.79,
+          "end": 26.07
+        },
+        {
+          "text": "divine;",
+          "start": 26.07,
+          "end": 26.47
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 71,
+        "matched_words": 70
+      },
+      "match_ratio": 0.9859154929577465,
+      "rejection_reasons": [],
+      "seconds": 0.7370878159999847
+    },
+    {
+      "asr_seconds": 0.6660995632410049,
+      "alignment_seconds": 0.0004571378231048584,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Blind thamorous and blind meonides, and teresius and finius, prophets old.",
+          "start": 0.05,
+          "end": 5.39,
+          "words": [
+            {
+              "text": " Blind",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.6787109375
+            },
+            {
+              "text": " thamorous",
+              "start": 0.73,
+              "end": 1.27,
+              "probability": 0.33856201171875
+            },
+            {
+              "text": " and",
+              "start": 1.27,
+              "end": 1.53,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " blind",
+              "start": 1.53,
+              "end": 1.85,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " meonides,",
+              "start": 1.85,
+              "end": 2.45,
+              "probability": 0.775390625
+            },
+            {
+              "text": " and",
+              "start": 2.93,
+              "end": 2.95,
+              "probability": 0.494140625
+            },
+            {
+              "text": " teresius",
+              "start": 2.95,
+              "end": 3.53,
+              "probability": 0.614501953125
+            },
+            {
+              "text": " and",
+              "start": 3.53,
+              "end": 3.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " finius,",
+              "start": 3.75,
+              "end": 4.27,
+              "probability": 0.759765625
+            },
+            {
+              "text": " prophets",
+              "start": 4.67,
+              "end": 4.91,
+              "probability": 0.71875
+            },
+            {
+              "text": " old.",
+              "start": 4.91,
+              "end": 5.39,
+              "probability": 0.98388671875
+            }
+          ]
+        },
+        {
+          "text": " Then feed on thoughts that voluntary move harmonious numbers, as the wakeful bird sings",
+          "start": 6.01,
+          "end": 10.95,
+          "words": [
+            {
+              "text": " Then",
+              "start": 6.01,
+              "end": 6.23,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " feed",
+              "start": 6.23,
+              "end": 6.43,
+              "probability": 0.96875
+            },
+            {
+              "text": " on",
+              "start": 6.43,
+              "end": 6.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " thoughts",
+              "start": 6.63,
+              "end": 6.97,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " that",
+              "start": 6.97,
+              "end": 7.31,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " voluntary",
+              "start": 7.31,
+              "end": 7.77,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " move",
+              "start": 7.77,
+              "end": 8.15,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " harmonious",
+              "start": 8.15,
+              "end": 8.81,
+              "probability": 0.9921875
+            },
+            {
+              "text": " numbers,",
+              "start": 8.81,
+              "end": 9.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " as",
+              "start": 9.59,
+              "end": 9.91,
+              "probability": 0.8984375
+            },
+            {
+              "text": " the",
+              "start": 9.91,
+              "end": 10.05,
+              "probability": 0.99609375
+            },
+            {
+              "text": " wakeful",
+              "start": 10.05,
+              "end": 10.39,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " bird",
+              "start": 10.39,
+              "end": 10.61,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " sings",
+              "start": 10.61,
+              "end": 10.95,
+              "probability": 0.99267578125
+            }
+          ]
+        },
+        {
+          "text": " darkling and in shadiest covert hid tunes her nocturnal note.",
+          "start": 10.95,
+          "end": 14.47,
+          "words": [
+            {
+              "text": " darkling",
+              "start": 10.95,
+              "end": 11.55,
+              "probability": 0.978271484375
+            },
+            {
+              "text": " and",
+              "start": 11.55,
+              "end": 11.81,
+              "probability": 0.491455078125
+            },
+            {
+              "text": " in",
+              "start": 11.81,
+              "end": 11.97,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " shadiest",
+              "start": 11.97,
+              "end": 12.43,
+              "probability": 0.9763997395833334
+            },
+            {
+              "text": " covert",
+              "start": 12.43,
+              "end": 12.87,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " hid",
+              "start": 12.87,
+              "end": 13.13,
+              "probability": 0.70556640625
+            },
+            {
+              "text": " tunes",
+              "start": 13.13,
+              "end": 13.49,
+              "probability": 0.6357421875
+            },
+            {
+              "text": " her",
+              "start": 13.49,
+              "end": 13.67,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " nocturnal",
+              "start": 13.67,
+              "end": 14.09,
+              "probability": 0.9972330729166666
+            },
+            {
+              "text": " note.",
+              "start": 14.09,
+              "end": 14.47,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Thus with the year season's return, but not to me returns day, or the sweet approach of",
+          "start": 15.15,
+          "end": 20.07,
+          "words": [
+            {
+              "text": " Thus",
+              "start": 15.15,
+              "end": 15.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " with",
+              "start": 15.41,
+              "end": 15.63,
+              "probability": 0.697265625
+            },
+            {
+              "text": " the",
+              "start": 15.63,
+              "end": 15.75,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " year",
+              "start": 15.75,
+              "end": 15.93,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " season's",
+              "start": 15.93,
+              "end": 16.51,
+              "probability": 0.767333984375
+            },
+            {
+              "text": " return,",
+              "start": 16.51,
+              "end": 16.87,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " but",
+              "start": 17.39,
+              "end": 17.57,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " not",
+              "start": 17.57,
+              "end": 17.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 17.71,
+              "end": 17.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " me",
+              "start": 17.85,
+              "end": 17.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " returns",
+              "start": 17.99,
+              "end": 18.37,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " day,",
+              "start": 18.37,
+              "end": 18.75,
+              "probability": 0.984375
+            },
+            {
+              "text": " or",
+              "start": 19.09,
+              "end": 19.17,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 19.17,
+              "end": 19.31,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " sweet",
+              "start": 19.31,
+              "end": 19.53,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " approach",
+              "start": 19.53,
+              "end": 19.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 19.85,
+              "end": 20.07,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " even or mourn, or sight of vernal bloom, or summer's rose, or flocks, or herds, or human-face",
+          "start": 20.07,
+          "end": 26.07,
+          "words": [
+            {
+              "text": " even",
+              "start": 20.07,
+              "end": 20.35,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " or",
+              "start": 20.35,
+              "end": 20.59,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " mourn,",
+              "start": 20.59,
+              "end": 20.87,
+              "probability": 0.78125
+            },
+            {
+              "text": " or",
+              "start": 21.37,
+              "end": 21.49,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " sight",
+              "start": 21.49,
+              "end": 21.73,
+              "probability": 0.88037109375
+            },
+            {
+              "text": " of",
+              "start": 21.73,
+              "end": 21.85,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " vernal",
+              "start": 21.85,
+              "end": 22.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " bloom,",
+              "start": 22.19,
+              "end": 22.49,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " or",
+              "start": 22.83,
+              "end": 22.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " summer's",
+              "start": 22.95,
+              "end": 23.39,
+              "probability": 0.868896484375
+            },
+            {
+              "text": " rose,",
+              "start": 23.39,
+              "end": 23.67,
+              "probability": 0.962890625
+            },
+            {
+              "text": " or",
+              "start": 23.99,
+              "end": 24.05,
+              "probability": 0.998046875
+            },
+            {
+              "text": " flocks,",
+              "start": 24.05,
+              "end": 24.53,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " or",
+              "start": 24.79,
+              "end": 24.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " herds,",
+              "start": 24.85,
+              "end": 25.19,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " or",
+              "start": 25.39,
+              "end": 25.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " human",
+              "start": 25.49,
+              "end": 25.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": "-face",
+              "start": 25.81,
+              "end": 26.07,
+              "probability": 0.557373046875
+            }
+          ]
+        },
+        {
+          "text": " divine.",
+          "start": 26.07,
+          "end": 26.43,
+          "words": [
+            {
+              "text": " divine.",
+              "start": 26.07,
+              "end": 26.43,
+              "probability": 0.309814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Blind",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "thamorous",
+          "start": 0.73,
+          "end": 1.27
+        },
+        {
+          "raw": "and",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "raw": "blind",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "raw": "meonides,",
+          "start": 1.85,
+          "end": 2.45
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 2.95
+        },
+        {
+          "raw": "teresius",
+          "start": 2.95,
+          "end": 3.53
+        },
+        {
+          "raw": "and",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "raw": "finius,",
+          "start": 3.75,
+          "end": 4.27
+        },
+        {
+          "raw": "prophets",
+          "start": 4.67,
+          "end": 4.91
+        },
+        {
+          "raw": "old.",
+          "start": 4.91,
+          "end": 5.39
+        },
+        {
+          "raw": "Then",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "raw": "feed",
+          "start": 6.23,
+          "end": 6.43
+        },
+        {
+          "raw": "on",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "raw": "thoughts",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "raw": "that",
+          "start": 6.97,
+          "end": 7.31
+        },
+        {
+          "raw": "voluntary",
+          "start": 7.31,
+          "end": 7.77
+        },
+        {
+          "raw": "move",
+          "start": 7.77,
+          "end": 8.15
+        },
+        {
+          "raw": "harmonious",
+          "start": 8.15,
+          "end": 8.81
+        },
+        {
+          "raw": "numbers,",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "raw": "as",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "raw": "the",
+          "start": 9.91,
+          "end": 10.05
+        },
+        {
+          "raw": "wakeful",
+          "start": 10.05,
+          "end": 10.39
+        },
+        {
+          "raw": "bird",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "raw": "sings",
+          "start": 10.61,
+          "end": 10.95
+        },
+        {
+          "raw": "darkling",
+          "start": 10.95,
+          "end": 11.55
+        },
+        {
+          "raw": "and",
+          "start": 11.55,
+          "end": 11.81
+        },
+        {
+          "raw": "in",
+          "start": 11.81,
+          "end": 11.97
+        },
+        {
+          "raw": "shadiest",
+          "start": 11.97,
+          "end": 12.43
+        },
+        {
+          "raw": "covert",
+          "start": 12.43,
+          "end": 12.87
+        },
+        {
+          "raw": "hid",
+          "start": 12.87,
+          "end": 13.13
+        },
+        {
+          "raw": "tunes",
+          "start": 13.13,
+          "end": 13.49
+        },
+        {
+          "raw": "her",
+          "start": 13.49,
+          "end": 13.67
+        },
+        {
+          "raw": "nocturnal",
+          "start": 13.67,
+          "end": 14.09
+        },
+        {
+          "raw": "note.",
+          "start": 14.09,
+          "end": 14.47
+        },
+        {
+          "raw": "Thus",
+          "start": 15.15,
+          "end": 15.41
+        },
+        {
+          "raw": "with",
+          "start": 15.41,
+          "end": 15.63
+        },
+        {
+          "raw": "the",
+          "start": 15.63,
+          "end": 15.75
+        },
+        {
+          "raw": "year",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "raw": "season's",
+          "start": 15.93,
+          "end": 16.51
+        },
+        {
+          "raw": "return,",
+          "start": 16.51,
+          "end": 16.87
+        },
+        {
+          "raw": "but",
+          "start": 17.39,
+          "end": 17.57
+        },
+        {
+          "raw": "not",
+          "start": 17.57,
+          "end": 17.71
+        },
+        {
+          "raw": "to",
+          "start": 17.71,
+          "end": 17.85
+        },
+        {
+          "raw": "me",
+          "start": 17.85,
+          "end": 17.99
+        },
+        {
+          "raw": "returns",
+          "start": 17.99,
+          "end": 18.37
+        },
+        {
+          "raw": "day,",
+          "start": 18.37,
+          "end": 18.75
+        },
+        {
+          "raw": "or",
+          "start": 19.09,
+          "end": 19.17
+        },
+        {
+          "raw": "the",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "raw": "sweet",
+          "start": 19.31,
+          "end": 19.53
+        },
+        {
+          "raw": "approach",
+          "start": 19.53,
+          "end": 19.85
+        },
+        {
+          "raw": "of",
+          "start": 19.85,
+          "end": 20.07
+        },
+        {
+          "raw": "even",
+          "start": 20.07,
+          "end": 20.35
+        },
+        {
+          "raw": "or",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "raw": "mourn,",
+          "start": 20.59,
+          "end": 20.87
+        },
+        {
+          "raw": "or",
+          "start": 21.37,
+          "end": 21.49
+        },
+        {
+          "raw": "sight",
+          "start": 21.49,
+          "end": 21.73
+        },
+        {
+          "raw": "of",
+          "start": 21.73,
+          "end": 21.85
+        },
+        {
+          "raw": "vernal",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "raw": "bloom,",
+          "start": 22.19,
+          "end": 22.49
+        },
+        {
+          "raw": "or",
+          "start": 22.83,
+          "end": 22.95
+        },
+        {
+          "raw": "summer's",
+          "start": 22.95,
+          "end": 23.39
+        },
+        {
+          "raw": "rose,",
+          "start": 23.39,
+          "end": 23.67
+        },
+        {
+          "raw": "or",
+          "start": 23.99,
+          "end": 24.05
+        },
+        {
+          "raw": "flocks,",
+          "start": 24.05,
+          "end": 24.53
+        },
+        {
+          "raw": "or",
+          "start": 24.79,
+          "end": 24.85
+        },
+        {
+          "raw": "herds,",
+          "start": 24.85,
+          "end": 25.19
+        },
+        {
+          "raw": "or",
+          "start": 25.39,
+          "end": 25.49
+        },
+        {
+          "raw": "human",
+          "start": 25.49,
+          "end": 25.81
+        },
+        {
+          "raw": "-face",
+          "start": 25.81,
+          "end": 26.07
+        },
+        {
+          "raw": "divine.",
+          "start": 26.07,
+          "end": 26.43
+        }
+      ],
+      "expected_tokens": [
+        "Blind",
+        "Thamyris,",
+        "and",
+        "blind",
+        "Maeonides,",
+        "And",
+        "Tiresias,",
+        "and",
+        "Phineus,",
+        "prophets",
+        "old:",
+        "Then",
+        "feed",
+        "on",
+        "thoughts,",
+        "that",
+        "voluntary",
+        "move",
+        "Harmonious",
+        "numbers;",
+        "as",
+        "the",
+        "wakeful",
+        "bird",
+        "Sings",
+        "darkling,",
+        "and",
+        "in",
+        "shadiest",
+        "covert",
+        "hid",
+        "Tunes",
+        "her",
+        "nocturnal",
+        "note.",
+        "Thus",
+        "with",
+        "the",
+        "year",
+        "Seasons",
+        "return;",
+        "but",
+        "not",
+        "to",
+        "me",
+        "returns",
+        "Day,",
+        "or",
+        "the",
+        "sweet",
+        "approach",
+        "of",
+        "even",
+        "or",
+        "morn,",
+        "Or",
+        "sight",
+        "of",
+        "vernal",
+        "bloom,",
+        "or",
+        "summer's",
+        "rose,",
+        "Or",
+        "flocks,",
+        "or",
+        "herds,",
+        "or",
+        "human",
+        "face",
+        "divine;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "equal",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "equal",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "equal",
+          9,
+          54,
+          9,
+          54
+        ],
+        [
+          "replace",
+          54,
+          55,
+          54,
+          55
+        ],
+        [
+          "equal",
+          55,
+          71,
+          55,
+          71
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 70
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "replace",
+          4,
+          5,
+          4,
+          5
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          7
+        ],
+        [
+          "replace",
+          8,
+          9,
+          8,
+          9
+        ],
+        [
+          "replace",
+          54,
+          55,
+          54,
+          55
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Blind",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Thamyris,",
+          "start": 0.73,
+          "end": 1.0
+        },
+        {
+          "text": "and",
+          "start": 1.27,
+          "end": 1.53
+        },
+        {
+          "text": "blind",
+          "start": 1.53,
+          "end": 1.85
+        },
+        {
+          "text": "Maeonides,",
+          "start": 1.85,
+          "end": 2.39
+        },
+        {
+          "text": "And",
+          "start": 2.93,
+          "end": 2.95
+        },
+        {
+          "text": "Tiresias,",
+          "start": 2.95,
+          "end": 3.24
+        },
+        {
+          "text": "and",
+          "start": 3.53,
+          "end": 3.75
+        },
+        {
+          "text": "Phineus,",
+          "start": 3.75,
+          "end": 4.21
+        },
+        {
+          "text": "prophets",
+          "start": 4.67,
+          "end": 4.91
+        },
+        {
+          "text": "old:",
+          "start": 4.91,
+          "end": 5.39
+        },
+        {
+          "text": "Then",
+          "start": 6.01,
+          "end": 6.23
+        },
+        {
+          "text": "feed",
+          "start": 6.23,
+          "end": 6.43
+        },
+        {
+          "text": "on",
+          "start": 6.43,
+          "end": 6.63
+        },
+        {
+          "text": "thoughts,",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "text": "that",
+          "start": 6.97,
+          "end": 7.31
+        },
+        {
+          "text": "voluntary",
+          "start": 7.31,
+          "end": 7.77
+        },
+        {
+          "text": "move",
+          "start": 7.77,
+          "end": 8.15
+        },
+        {
+          "text": "Harmonious",
+          "start": 8.15,
+          "end": 8.81
+        },
+        {
+          "text": "numbers;",
+          "start": 8.81,
+          "end": 9.17
+        },
+        {
+          "text": "as",
+          "start": 9.59,
+          "end": 9.91
+        },
+        {
+          "text": "the",
+          "start": 9.91,
+          "end": 10.05
+        },
+        {
+          "text": "wakeful",
+          "start": 10.05,
+          "end": 10.39
+        },
+        {
+          "text": "bird",
+          "start": 10.39,
+          "end": 10.61
+        },
+        {
+          "text": "Sings",
+          "start": 10.61,
+          "end": 10.95
+        },
+        {
+          "text": "darkling,",
+          "start": 10.95,
+          "end": 11.55
+        },
+        {
+          "text": "and",
+          "start": 11.55,
+          "end": 11.81
+        },
+        {
+          "text": "in",
+          "start": 11.81,
+          "end": 11.97
+        },
+        {
+          "text": "shadiest",
+          "start": 11.97,
+          "end": 12.43
+        },
+        {
+          "text": "covert",
+          "start": 12.43,
+          "end": 12.87
+        },
+        {
+          "text": "hid",
+          "start": 12.87,
+          "end": 13.13
+        },
+        {
+          "text": "Tunes",
+          "start": 13.13,
+          "end": 13.49
+        },
+        {
+          "text": "her",
+          "start": 13.49,
+          "end": 13.67
+        },
+        {
+          "text": "nocturnal",
+          "start": 13.67,
+          "end": 14.09
+        },
+        {
+          "text": "note.",
+          "start": 14.09,
+          "end": 14.47
+        },
+        {
+          "text": "Thus",
+          "start": 15.15,
+          "end": 15.41
+        },
+        {
+          "text": "with",
+          "start": 15.41,
+          "end": 15.63
+        },
+        {
+          "text": "the",
+          "start": 15.63,
+          "end": 15.75
+        },
+        {
+          "text": "year",
+          "start": 15.75,
+          "end": 15.93
+        },
+        {
+          "text": "Seasons",
+          "start": 15.93,
+          "end": 16.51
+        },
+        {
+          "text": "return;",
+          "start": 16.51,
+          "end": 16.87
+        },
+        {
+          "text": "but",
+          "start": 17.39,
+          "end": 17.57
+        },
+        {
+          "text": "not",
+          "start": 17.57,
+          "end": 17.71
+        },
+        {
+          "text": "to",
+          "start": 17.71,
+          "end": 17.85
+        },
+        {
+          "text": "me",
+          "start": 17.85,
+          "end": 17.99
+        },
+        {
+          "text": "returns",
+          "start": 17.99,
+          "end": 18.37
+        },
+        {
+          "text": "Day,",
+          "start": 18.37,
+          "end": 18.75
+        },
+        {
+          "text": "or",
+          "start": 19.09,
+          "end": 19.17
+        },
+        {
+          "text": "the",
+          "start": 19.17,
+          "end": 19.31
+        },
+        {
+          "text": "sweet",
+          "start": 19.31,
+          "end": 19.53
+        },
+        {
+          "text": "approach",
+          "start": 19.53,
+          "end": 19.85
+        },
+        {
+          "text": "of",
+          "start": 19.85,
+          "end": 20.07
+        },
+        {
+          "text": "even",
+          "start": 20.07,
+          "end": 20.35
+        },
+        {
+          "text": "or",
+          "start": 20.35,
+          "end": 20.59
+        },
+        {
+          "text": "morn,",
+          "start": 20.59,
+          "end": 20.98
+        },
+        {
+          "text": "Or",
+          "start": 21.37,
+          "end": 21.49
+        },
+        {
+          "text": "sight",
+          "start": 21.49,
+          "end": 21.73
+        },
+        {
+          "text": "of",
+          "start": 21.73,
+          "end": 21.85
+        },
+        {
+          "text": "vernal",
+          "start": 21.85,
+          "end": 22.19
+        },
+        {
+          "text": "bloom,",
+          "start": 22.19,
+          "end": 22.49
+        },
+        {
+          "text": "or",
+          "start": 22.83,
+          "end": 22.95
+        },
+        {
+          "text": "summer's",
+          "start": 22.95,
+          "end": 23.39
+        },
+        {
+          "text": "rose,",
+          "start": 23.39,
+          "end": 23.67
+        },
+        {
+          "text": "Or",
+          "start": 23.99,
+          "end": 24.05
+        },
+        {
+          "text": "flocks,",
+          "start": 24.05,
+          "end": 24.53
+        },
+        {
+          "text": "or",
+          "start": 24.79,
+          "end": 24.85
+        },
+        {
+          "text": "herds,",
+          "start": 24.85,
+          "end": 25.19
+        },
+        {
+          "text": "or",
+          "start": 25.39,
+          "end": 25.49
+        },
+        {
+          "text": "human",
+          "start": 25.49,
+          "end": 25.81
+        },
+        {
+          "text": "face",
+          "start": 25.81,
+          "end": 26.07
+        },
+        {
+          "text": "divine;",
+          "start": 26.07,
+          "end": 26.43
+        }
+      ],
+      "stats": {
+        "expected_words": 71,
+        "heard_words": 71,
+        "matched_words": 66
+      },
+      "match_ratio": 0.9295774647887324,
+      "rejection_reasons": [],
+      "seconds": 0.6667818948626518
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "437069a8eb7fb29587203a2d538cd633d08ae48b14ea70d85db98f909e5d1408",
+  "selected_reasons": []
+}

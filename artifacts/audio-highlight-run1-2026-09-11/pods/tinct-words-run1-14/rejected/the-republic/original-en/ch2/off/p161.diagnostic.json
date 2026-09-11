@@ -1,0 +1,472 @@
+{
+  "complete": true,
+  "signature": "d1c04f84bf8cd1e4ba64562946176c26391e3d4ff9ee2c739466d7dd76c97cda",
+  "attempts": [
+    {
+      "asr_seconds": 0.20758266001939774,
+      "alignment_seconds": 0.0001286715269088745,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the selection will be no easy matter, I said, but we must be brave and do our best.",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.31396484375
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " selection",
+              "start": 0.63,
+              "end": 0.97,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " will",
+              "start": 0.97,
+              "end": 1.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 1.23,
+              "end": 1.37,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " no",
+              "start": 1.37,
+              "end": 1.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " easy",
+              "start": 1.61,
+              "end": 1.95,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " matter,",
+              "start": 1.95,
+              "end": 2.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 2.37,
+              "end": 2.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " said,",
+              "start": 2.51,
+              "end": 2.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " but",
+              "start": 3.29,
+              "end": 3.45,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " we",
+              "start": 3.45,
+              "end": 3.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " must",
+              "start": 3.57,
+              "end": 3.73,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 3.73,
+              "end": 3.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " brave",
+              "start": 3.99,
+              "end": 4.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " and",
+              "start": 4.29,
+              "end": 4.61,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " do",
+              "start": 4.61,
+              "end": 4.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " our",
+              "start": 4.73,
+              "end": 4.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " best.",
+              "start": 4.89,
+              "end": 5.23,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "selection",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "raw": "will",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "raw": "be",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "raw": "no",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "raw": "easy",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "raw": "matter,",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "raw": "I",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "raw": "said,",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "raw": "but",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "raw": "we",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "raw": "must",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "raw": "be",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "raw": "brave",
+          "start": 3.99,
+          "end": 4.29
+        },
+        {
+          "raw": "and",
+          "start": 4.29,
+          "end": 4.61
+        },
+        {
+          "raw": "do",
+          "start": 4.61,
+          "end": 4.73
+        },
+        {
+          "raw": "our",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "raw": "best.",
+          "start": 4.89,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "selection",
+        "will",
+        "be",
+        "no",
+        "easy",
+        "matter,",
+        "I",
+        "said;",
+        "but",
+        "we",
+        "must",
+        "be",
+        "brave",
+        "and",
+        "do",
+        "our",
+        "best."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "selection",
+          "start": 0.63,
+          "end": 0.97
+        },
+        {
+          "text": "will",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "text": "be",
+          "start": 1.23,
+          "end": 1.37
+        },
+        {
+          "text": "no",
+          "start": 1.37,
+          "end": 1.61
+        },
+        {
+          "text": "easy",
+          "start": 1.61,
+          "end": 1.95
+        },
+        {
+          "text": "matter,",
+          "start": 1.95,
+          "end": 2.29
+        },
+        {
+          "text": "I",
+          "start": 2.37,
+          "end": 2.51
+        },
+        {
+          "text": "said;",
+          "start": 2.51,
+          "end": 2.83
+        },
+        {
+          "text": "but",
+          "start": 3.29,
+          "end": 3.45
+        },
+        {
+          "text": "we",
+          "start": 3.45,
+          "end": 3.57
+        },
+        {
+          "text": "must",
+          "start": 3.57,
+          "end": 3.73
+        },
+        {
+          "text": "be",
+          "start": 3.73,
+          "end": 3.99
+        },
+        {
+          "text": "brave",
+          "start": 3.99,
+          "end": 4.29
+        },
+        {
+          "text": "and",
+          "start": 4.29,
+          "end": 4.61
+        },
+        {
+          "text": "do",
+          "start": 4.61,
+          "end": 4.73
+        },
+        {
+          "text": "our",
+          "start": 4.73,
+          "end": 4.89
+        },
+        {
+          "text": "best.",
+          "start": 4.89,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20777998119592667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8e98ca71c26695df88fc78ce7ba3fe56b18d7ea519fbaa0b305bcf1e58f8149e",
+  "selected_reasons": []
+}

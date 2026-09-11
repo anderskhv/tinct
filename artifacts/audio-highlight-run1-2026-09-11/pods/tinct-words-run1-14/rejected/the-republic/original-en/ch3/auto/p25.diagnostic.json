@@ -1,0 +1,236 @@
+{
+  "complete": true,
+  "signature": "09a387917c939f557b2d5383debcdfafa82378ec98ddf023a990f8cf1ec5019a",
+  "attempts": [
+    {
+      "asr_seconds": 0.09513646364212036,
+      "alignment_seconds": 7.910281419754028e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "There is a real danger, he said.",
+        "hotwords": "There"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " There There is a real danger, he said.",
+          "start": 0.08,
+          "end": 1.94,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.38427734375
+            },
+            {
+              "text": " There",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 1.7881393432617188e-06
+            },
+            {
+              "text": " is",
+              "start": 0.62,
+              "end": 0.62,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " a",
+              "start": 0.62,
+              "end": 0.72,
+              "probability": 0.984375
+            },
+            {
+              "text": " real",
+              "start": 0.72,
+              "end": 0.9,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " danger,",
+              "start": 0.9,
+              "end": 1.34,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " he",
+              "start": 1.56,
+              "end": 1.68,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " said.",
+              "start": 1.68,
+              "end": 1.94,
+              "probability": 0.99365234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "There",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "is",
+          "start": 0.62,
+          "end": 0.62
+        },
+        {
+          "raw": "a",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "raw": "real",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "raw": "danger,",
+          "start": 0.9,
+          "end": 1.34
+        },
+        {
+          "raw": "he",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "raw": "said.",
+          "start": 1.68,
+          "end": 1.94
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "is",
+        "a",
+        "real",
+        "danger,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          7,
+          1,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "is",
+          "start": 0.62,
+          "end": 0.62
+        },
+        {
+          "text": "a",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "real",
+          "start": 0.72,
+          "end": 0.9
+        },
+        {
+          "text": "danger,",
+          "start": 0.9,
+          "end": 1.34
+        },
+        {
+          "text": "he",
+          "start": 1.56,
+          "end": 1.68
+        },
+        {
+          "text": "said.",
+          "start": 1.68,
+          "end": 1.94
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09525328874588013
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "75c3b2978a8c43522f14efb73f359c7c52c36ea765eced8d2c57b0c57f8dadc8",
+  "selected_reasons": []
+}

@@ -1,0 +1,672 @@
+{
+  "complete": true,
+  "signature": "673ea2fd13a92888f0c1ed83b771d332b8391040a4e0eb59eb2945df24507d1a",
+  "attempts": [
+    {
+      "asr_seconds": 0.22585435956716537,
+      "alignment_seconds": 0.00016929209232330322,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is not an easy question to answer when asked suddenly; and I shall and I do beg of you to draw out the case on our side.",
+        "hotwords": "That, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is not an easy question to answer when asked suddenly. And I shall and I do beg of you to draw out the case on our side.",
+          "start": 0.11,
+          "end": 7.03,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.11,
+              "end": 0.51,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " is",
+              "start": 0.51,
+              "end": 0.63,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " not",
+              "start": 0.63,
+              "end": 0.85,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " an",
+              "start": 0.85,
+              "end": 0.99,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " easy",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " question",
+              "start": 1.25,
+              "end": 1.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.55,
+              "end": 1.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " answer",
+              "start": 1.95,
+              "end": 2.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 2.23,
+              "end": 2.51,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " asked",
+              "start": 2.51,
+              "end": 2.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " suddenly.",
+              "start": 2.93,
+              "end": 3.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " And",
+              "start": 4.03,
+              "end": 4.13,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " I",
+              "start": 4.13,
+              "end": 4.27,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " shall",
+              "start": 4.27,
+              "end": 4.53,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " and",
+              "start": 4.53,
+              "end": 4.71,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " I",
+              "start": 4.71,
+              "end": 4.85,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " do",
+              "start": 4.85,
+              "end": 5.01,
+              "probability": 0.99609375
+            },
+            {
+              "text": " beg",
+              "start": 5.01,
+              "end": 5.21,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 5.21,
+              "end": 5.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " you",
+              "start": 5.33,
+              "end": 5.45,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.45,
+              "end": 5.61,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " draw",
+              "start": 5.61,
+              "end": 5.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " out",
+              "start": 5.85,
+              "end": 6.05,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 6.05,
+              "end": 6.17,
+              "probability": 0.99609375
+            },
+            {
+              "text": " case",
+              "start": 6.17,
+              "end": 6.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " on",
+              "start": 6.39,
+              "end": 6.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " our",
+              "start": 6.59,
+              "end": 6.73,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " side.",
+              "start": 6.73,
+              "end": 7.03,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "raw": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "raw": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "raw": "an",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "raw": "easy",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "question",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "raw": "to",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "raw": "answer",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "raw": "when",
+          "start": 2.23,
+          "end": 2.51
+        },
+        {
+          "raw": "asked",
+          "start": 2.51,
+          "end": 2.93
+        },
+        {
+          "raw": "suddenly.",
+          "start": 2.93,
+          "end": 3.35
+        },
+        {
+          "raw": "And",
+          "start": 4.03,
+          "end": 4.13
+        },
+        {
+          "raw": "I",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "raw": "shall",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "raw": "I",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "raw": "do",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "raw": "beg",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "raw": "of",
+          "start": 5.21,
+          "end": 5.33
+        },
+        {
+          "raw": "you",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "raw": "to",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "raw": "draw",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "raw": "out",
+          "start": 5.85,
+          "end": 6.05
+        },
+        {
+          "raw": "the",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "raw": "case",
+          "start": 6.17,
+          "end": 6.39
+        },
+        {
+          "raw": "on",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "raw": "our",
+          "start": 6.59,
+          "end": 6.73
+        },
+        {
+          "raw": "side.",
+          "start": 6.73,
+          "end": 7.03
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "not",
+        "an",
+        "easy",
+        "question",
+        "to",
+        "answer",
+        "when",
+        "asked",
+        "suddenly;",
+        "and",
+        "I",
+        "shall",
+        "and",
+        "I",
+        "do",
+        "beg",
+        "of",
+        "you",
+        "to",
+        "draw",
+        "out",
+        "the",
+        "case",
+        "on",
+        "our",
+        "side."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          28,
+          0,
+          28
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.11,
+          "end": 0.51
+        },
+        {
+          "text": "is",
+          "start": 0.51,
+          "end": 0.63
+        },
+        {
+          "text": "not",
+          "start": 0.63,
+          "end": 0.85
+        },
+        {
+          "text": "an",
+          "start": 0.85,
+          "end": 0.99
+        },
+        {
+          "text": "easy",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "question",
+          "start": 1.25,
+          "end": 1.55
+        },
+        {
+          "text": "to",
+          "start": 1.55,
+          "end": 1.95
+        },
+        {
+          "text": "answer",
+          "start": 1.95,
+          "end": 2.23
+        },
+        {
+          "text": "when",
+          "start": 2.23,
+          "end": 2.51
+        },
+        {
+          "text": "asked",
+          "start": 2.51,
+          "end": 2.93
+        },
+        {
+          "text": "suddenly;",
+          "start": 2.93,
+          "end": 3.35
+        },
+        {
+          "text": "and",
+          "start": 4.03,
+          "end": 4.13
+        },
+        {
+          "text": "I",
+          "start": 4.13,
+          "end": 4.27
+        },
+        {
+          "text": "shall",
+          "start": 4.27,
+          "end": 4.53
+        },
+        {
+          "text": "and",
+          "start": 4.53,
+          "end": 4.71
+        },
+        {
+          "text": "I",
+          "start": 4.71,
+          "end": 4.85
+        },
+        {
+          "text": "do",
+          "start": 4.85,
+          "end": 5.01
+        },
+        {
+          "text": "beg",
+          "start": 5.01,
+          "end": 5.21
+        },
+        {
+          "text": "of",
+          "start": 5.21,
+          "end": 5.33
+        },
+        {
+          "text": "you",
+          "start": 5.33,
+          "end": 5.45
+        },
+        {
+          "text": "to",
+          "start": 5.45,
+          "end": 5.61
+        },
+        {
+          "text": "draw",
+          "start": 5.61,
+          "end": 5.85
+        },
+        {
+          "text": "out",
+          "start": 5.85,
+          "end": 6.05
+        },
+        {
+          "text": "the",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "text": "case",
+          "start": 6.17,
+          "end": 6.39
+        },
+        {
+          "text": "on",
+          "start": 6.39,
+          "end": 6.59
+        },
+        {
+          "text": "our",
+          "start": 6.59,
+          "end": 6.73
+        },
+        {
+          "text": "side.",
+          "start": 6.73,
+          "end": 7.03
+        }
+      ],
+      "stats": {
+        "expected_words": 28,
+        "heard_words": 28,
+        "matched_words": 28
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2261267900466919
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9225bd198a99aeb20088841be224c3d9edb4a974a468845218ba68c1e4551b81",
+  "selected_reasons": []
+}

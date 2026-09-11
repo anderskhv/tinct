@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "f41522139a6cd471a5ace4e93d497b2e218747e23105f56bed3e9642d045c2b5",
+  "attempts": [
+    {
+      "asr_seconds": 0.22020705044269562,
+      "alignment_seconds": 0.00012492388486862183,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then the just is like the wise and good, and the unjust like the evil and ignorant?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then the just is like the wise and good, and the unjust like the evil and ignorant?",
+          "start": 0.05,
+          "end": 5.05,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " the",
+              "start": 0.61,
+              "end": 0.79,
+              "probability": 0.9443359375
+            },
+            {
+              "text": " just",
+              "start": 0.79,
+              "end": 1.01,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " is",
+              "start": 1.01,
+              "end": 1.23,
+              "probability": 0.99609375
+            },
+            {
+              "text": " like",
+              "start": 1.23,
+              "end": 1.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.43,
+              "end": 1.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wise",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.93,
+              "end": 2.17,
+              "probability": 0.994140625
+            },
+            {
+              "text": " good,",
+              "start": 2.17,
+              "end": 2.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 2.99,
+              "end": 3.11,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " the",
+              "start": 3.11,
+              "end": 3.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " unjust",
+              "start": 3.21,
+              "end": 3.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " like",
+              "start": 3.61,
+              "end": 3.95,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " the",
+              "start": 3.95,
+              "end": 4.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " evil",
+              "start": 4.15,
+              "end": 4.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 4.45,
+              "end": 4.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ignorant?",
+              "start": 4.65,
+              "end": 5.05,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "the",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "raw": "just",
+          "start": 0.79,
+          "end": 1.01
+        },
+        {
+          "raw": "is",
+          "start": 1.01,
+          "end": 1.23
+        },
+        {
+          "raw": "like",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "raw": "the",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "raw": "wise",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "and",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "raw": "good,",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "raw": "and",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "raw": "the",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "raw": "unjust",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "raw": "like",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "raw": "the",
+          "start": 3.95,
+          "end": 4.15
+        },
+        {
+          "raw": "evil",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "raw": "and",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "raw": "ignorant?",
+          "start": 4.65,
+          "end": 5.05
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "the",
+        "just",
+        "is",
+        "like",
+        "the",
+        "wise",
+        "and",
+        "good,",
+        "and",
+        "the",
+        "unjust",
+        "like",
+        "the",
+        "evil",
+        "and",
+        "ignorant?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "the",
+          "start": 0.61,
+          "end": 0.79
+        },
+        {
+          "text": "just",
+          "start": 0.79,
+          "end": 1.01
+        },
+        {
+          "text": "is",
+          "start": 1.01,
+          "end": 1.23
+        },
+        {
+          "text": "like",
+          "start": 1.23,
+          "end": 1.43
+        },
+        {
+          "text": "the",
+          "start": 1.43,
+          "end": 1.61
+        },
+        {
+          "text": "wise",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "and",
+          "start": 1.93,
+          "end": 2.17
+        },
+        {
+          "text": "good,",
+          "start": 2.17,
+          "end": 2.45
+        },
+        {
+          "text": "and",
+          "start": 2.99,
+          "end": 3.11
+        },
+        {
+          "text": "the",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "text": "unjust",
+          "start": 3.21,
+          "end": 3.61
+        },
+        {
+          "text": "like",
+          "start": 3.61,
+          "end": 3.95
+        },
+        {
+          "text": "the",
+          "start": 3.95,
+          "end": 4.15
+        },
+        {
+          "text": "evil",
+          "start": 4.15,
+          "end": 4.45
+        },
+        {
+          "text": "and",
+          "start": 4.45,
+          "end": 4.65
+        },
+        {
+          "text": "ignorant?",
+          "start": 4.65,
+          "end": 5.05
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22039513289928436
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ed8f7addf1e616744441bd138a6f0a2b877ec3bcd1b9ecf25601160085c37992",
+  "selected_reasons": []
+}

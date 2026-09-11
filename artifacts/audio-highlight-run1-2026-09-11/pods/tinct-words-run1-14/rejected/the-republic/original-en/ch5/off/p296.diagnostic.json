@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "c01fd5913dfb5a4dfe41ad37f180c2c11c1c6fec158276cf919be7bb11e0c399",
+  "attempts": [
+    {
+      "asr_seconds": 0.12024908512830734,
+      "alignment_seconds": 7.906556129455566e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " You have anticipated the question which I was about to suggest",
+          "start": 0.05,
+          "end": 3.57,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.875
+            },
+            {
+              "text": " have",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " anticipated",
+              "start": 0.67,
+              "end": 1.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 1.23,
+              "end": 1.51,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " question",
+              "start": 1.51,
+              "end": 1.87,
+              "probability": 0.99609375
+            },
+            {
+              "text": " which",
+              "start": 1.87,
+              "end": 2.45,
+              "probability": 0.27392578125
+            },
+            {
+              "text": " I",
+              "start": 2.45,
+              "end": 2.63,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " was",
+              "start": 2.63,
+              "end": 2.75,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " about",
+              "start": 2.75,
+              "end": 2.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 2.97,
+              "end": 3.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " suggest",
+              "start": 3.17,
+              "end": 3.57,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "have",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "anticipated",
+          "start": 0.67,
+          "end": 1.23
+        },
+        {
+          "raw": "the",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "raw": "question",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "raw": "which",
+          "start": 1.87,
+          "end": 2.45
+        },
+        {
+          "raw": "I",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "raw": "was",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "raw": "about",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "raw": "to",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "raw": "suggest",
+          "start": 3.17,
+          "end": 3.57
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "have",
+        "anticipated",
+        "the",
+        "question",
+        "which",
+        "I",
+        "was",
+        "about",
+        "to",
+        "suggest."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "have",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "anticipated",
+          "start": 0.67,
+          "end": 1.23
+        },
+        {
+          "text": "the",
+          "start": 1.23,
+          "end": 1.51
+        },
+        {
+          "text": "question",
+          "start": 1.51,
+          "end": 1.87
+        },
+        {
+          "text": "which",
+          "start": 1.87,
+          "end": 2.45
+        },
+        {
+          "text": "I",
+          "start": 2.45,
+          "end": 2.63
+        },
+        {
+          "text": "was",
+          "start": 2.63,
+          "end": 2.75
+        },
+        {
+          "text": "about",
+          "start": 2.75,
+          "end": 2.97
+        },
+        {
+          "text": "to",
+          "start": 2.97,
+          "end": 3.17
+        },
+        {
+          "text": "suggest.",
+          "start": 3.17,
+          "end": 3.57
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12037365883588791
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3609a6928e7d710a01cc01610e9b2de49add2cadc8c80ece1631468949c54f06",
+  "selected_reasons": []
+}

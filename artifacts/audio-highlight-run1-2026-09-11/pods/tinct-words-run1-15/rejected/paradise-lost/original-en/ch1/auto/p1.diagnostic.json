@@ -1,0 +1,4211 @@
+{
+  "complete": true,
+  "signature": "f9ccbcdf17ab85ce4cbe885948838ed9e13ab5206eb925f6ec46de1db4058f79",
+  "attempts": [
+    {
+      "asr_seconds": 0.4923972710967064,
+      "alignment_seconds": 0.00037582963705062866,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And chiefly thou, O Spirit, that dost prefer Before all temples th' upright heart and pure, Instruct me, for thou know'st; thou from the first Wast present, and, with mighty wings outspread, Dove-like sat'st brooding on the vast Abyss, And mad'st it pregnant: what in me is dark Illumine, what is low raise and support;",
+        "hotwords": "O, Spirit, Before, Instruct, Wast, Dove-like, Abyss, Illumine"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " and chiefly thou, O Spirit, that dost prefer Before all temples th' upright heart and pure,",
+          "start": 0.05,
+          "end": 5.81,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.1380615234375
+            },
+            {
+              "text": " chiefly",
+              "start": 0.55,
+              "end": 0.81,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " thou,",
+              "start": 0.81,
+              "end": 1.23,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " O",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.796875
+            },
+            {
+              "text": " Spirit,",
+              "start": 1.49,
+              "end": 1.89,
+              "probability": 0.8212890625
+            },
+            {
+              "text": " that",
+              "start": 2.33,
+              "end": 2.45,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " dost",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.951171875
+            },
+            {
+              "text": " prefer",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " Before",
+              "start": 3.05,
+              "end": 3.39,
+              "probability": 0.01187896728515625
+            },
+            {
+              "text": " all",
+              "start": 3.39,
+              "end": 3.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " temples",
+              "start": 3.73,
+              "end": 4.07,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " th'",
+              "start": 4.07,
+              "end": 4.59,
+              "probability": 0.061737060546875
+            },
+            {
+              "text": " upright",
+              "start": 4.59,
+              "end": 5.05,
+              "probability": 0.9453125
+            },
+            {
+              "text": " heart",
+              "start": 5.05,
+              "end": 5.31,
+              "probability": 0.962890625
+            },
+            {
+              "text": " and",
+              "start": 5.31,
+              "end": 5.47,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " pure,",
+              "start": 5.47,
+              "end": 5.81,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " Instruct me, for thou know'st. Thou from the first Wast present, and, with mighty wings outspread,",
+          "start": 5.81,
+          "end": 11.81,
+          "words": [
+            {
+              "text": " Instruct",
+              "start": 5.81,
+              "end": 6.63,
+              "probability": 0.0007953643798828125
+            },
+            {
+              "text": " me,",
+              "start": 6.63,
+              "end": 6.97,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " for",
+              "start": 7.15,
+              "end": 7.17,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " thou",
+              "start": 7.17,
+              "end": 7.35,
+              "probability": 0.9052734375
+            },
+            {
+              "text": " know'st.",
+              "start": 7.35,
+              "end": 7.79,
+              "probability": 0.6370442708333334
+            },
+            {
+              "text": " Thou",
+              "start": 8.07,
+              "end": 8.63,
+              "probability": 0.89990234375
+            },
+            {
+              "text": " from",
+              "start": 8.63,
+              "end": 8.87,
+              "probability": 0.796875
+            },
+            {
+              "text": " the",
+              "start": 8.87,
+              "end": 9.03,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " first",
+              "start": 9.03,
+              "end": 9.27,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " Wast",
+              "start": 9.27,
+              "end": 9.55,
+              "probability": 0.000629425048828125
+            },
+            {
+              "text": " present,",
+              "start": 9.55,
+              "end": 10.01,
+              "probability": 0.57373046875
+            },
+            {
+              "text": " and,",
+              "start": 10.37,
+              "end": 10.47,
+              "probability": 0.767578125
+            },
+            {
+              "text": " with",
+              "start": 10.53,
+              "end": 10.61,
+              "probability": 0.95703125
+            },
+            {
+              "text": " mighty",
+              "start": 10.61,
+              "end": 10.91,
+              "probability": 0.8818359375
+            },
+            {
+              "text": " wings",
+              "start": 10.91,
+              "end": 11.21,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " outspread,",
+              "start": 11.21,
+              "end": 11.81,
+              "probability": 0.91064453125
+            }
+          ]
+        },
+        {
+          "text": " Dove-like sat'st brooding on the vast Abyss, And mad'st it pregnant. What in me is dark Illumine,",
+          "start": 12.37,
+          "end": 18.03,
+          "words": [
+            {
+              "text": " Dove",
+              "start": 12.37,
+              "end": 12.43,
+              "probability": 0.6064453125
+            },
+            {
+              "text": "-like",
+              "start": 12.43,
+              "end": 12.65,
+              "probability": 0.4217681884765625
+            },
+            {
+              "text": " sat'st",
+              "start": 12.65,
+              "end": 13.15,
+              "probability": 0.11578369140625
+            },
+            {
+              "text": " brooding",
+              "start": 13.15,
+              "end": 13.55,
+              "probability": 0.529510498046875
+            },
+            {
+              "text": " on",
+              "start": 13.55,
+              "end": 13.71,
+              "probability": 0.966796875
+            },
+            {
+              "text": " the",
+              "start": 13.71,
+              "end": 13.83,
+              "probability": 0.98828125
+            },
+            {
+              "text": " vast",
+              "start": 13.83,
+              "end": 14.15,
+              "probability": 0.873046875
+            },
+            {
+              "text": " Abyss,",
+              "start": 14.15,
+              "end": 14.45,
+              "probability": 0.051971435546875
+            },
+            {
+              "text": " And",
+              "start": 14.87,
+              "end": 14.97,
+              "probability": 0.16455078125
+            },
+            {
+              "text": " mad'st",
+              "start": 14.97,
+              "end": 15.41,
+              "probability": 0.9065755208333334
+            },
+            {
+              "text": " it",
+              "start": 15.41,
+              "end": 15.57,
+              "probability": 0.31640625
+            },
+            {
+              "text": " pregnant.",
+              "start": 15.57,
+              "end": 15.89,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " What",
+              "start": 16.71,
+              "end": 16.81,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " in",
+              "start": 16.81,
+              "end": 16.91,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " me",
+              "start": 16.91,
+              "end": 17.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " is",
+              "start": 17.07,
+              "end": 17.25,
+              "probability": 0.95703125
+            },
+            {
+              "text": " dark",
+              "start": 17.25,
+              "end": 17.51,
+              "probability": 0.81884765625
+            },
+            {
+              "text": " Illumine,",
+              "start": 17.51,
+              "end": 18.03,
+              "probability": 0.2770538330078125
+            }
+          ]
+        },
+        {
+          "text": " what is low raise and support?",
+          "start": 18.43,
+          "end": 19.95,
+          "words": [
+            {
+              "text": " what",
+              "start": 18.43,
+              "end": 18.51,
+              "probability": 0.533203125
+            },
+            {
+              "text": " is",
+              "start": 18.51,
+              "end": 18.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " low",
+              "start": 18.69,
+              "end": 18.91,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " raise",
+              "start": 18.91,
+              "end": 19.27,
+              "probability": 0.1973876953125
+            },
+            {
+              "text": " and",
+              "start": 19.27,
+              "end": 19.57,
+              "probability": 0.84423828125
+            },
+            {
+              "text": " support?",
+              "start": 19.57,
+              "end": 19.95,
+              "probability": 0.98681640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "chiefly",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "raw": "thou,",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "raw": "O",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "Spirit,",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "raw": "that",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "raw": "dost",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "prefer",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "Before",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "raw": "all",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "raw": "temples",
+          "start": 3.73,
+          "end": 4.07
+        },
+        {
+          "raw": "th'",
+          "start": 4.07,
+          "end": 4.59
+        },
+        {
+          "raw": "upright",
+          "start": 4.59,
+          "end": 5.05
+        },
+        {
+          "raw": "heart",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "raw": "and",
+          "start": 5.31,
+          "end": 5.47
+        },
+        {
+          "raw": "pure,",
+          "start": 5.47,
+          "end": 5.81
+        },
+        {
+          "raw": "Instruct",
+          "start": 5.81,
+          "end": 6.63
+        },
+        {
+          "raw": "me,",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "raw": "for",
+          "start": 7.15,
+          "end": 7.17
+        },
+        {
+          "raw": "thou",
+          "start": 7.17,
+          "end": 7.35
+        },
+        {
+          "raw": "know'st.",
+          "start": 7.35,
+          "end": 7.79
+        },
+        {
+          "raw": "Thou",
+          "start": 8.07,
+          "end": 8.63
+        },
+        {
+          "raw": "from",
+          "start": 8.63,
+          "end": 8.87
+        },
+        {
+          "raw": "the",
+          "start": 8.87,
+          "end": 9.03
+        },
+        {
+          "raw": "first",
+          "start": 9.03,
+          "end": 9.27
+        },
+        {
+          "raw": "Wast",
+          "start": 9.27,
+          "end": 9.55
+        },
+        {
+          "raw": "present,",
+          "start": 9.55,
+          "end": 10.01
+        },
+        {
+          "raw": "and,",
+          "start": 10.37,
+          "end": 10.47
+        },
+        {
+          "raw": "with",
+          "start": 10.53,
+          "end": 10.61
+        },
+        {
+          "raw": "mighty",
+          "start": 10.61,
+          "end": 10.91
+        },
+        {
+          "raw": "wings",
+          "start": 10.91,
+          "end": 11.21
+        },
+        {
+          "raw": "outspread,",
+          "start": 11.21,
+          "end": 11.81
+        },
+        {
+          "raw": "Dove",
+          "start": 12.37,
+          "end": 12.43
+        },
+        {
+          "raw": "-like",
+          "start": 12.43,
+          "end": 12.65
+        },
+        {
+          "raw": "sat'st",
+          "start": 12.65,
+          "end": 13.15
+        },
+        {
+          "raw": "brooding",
+          "start": 13.15,
+          "end": 13.55
+        },
+        {
+          "raw": "on",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "raw": "the",
+          "start": 13.71,
+          "end": 13.83
+        },
+        {
+          "raw": "vast",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "raw": "Abyss,",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "raw": "And",
+          "start": 14.87,
+          "end": 14.97
+        },
+        {
+          "raw": "mad'st",
+          "start": 14.97,
+          "end": 15.41
+        },
+        {
+          "raw": "it",
+          "start": 15.41,
+          "end": 15.57
+        },
+        {
+          "raw": "pregnant.",
+          "start": 15.57,
+          "end": 15.89
+        },
+        {
+          "raw": "What",
+          "start": 16.71,
+          "end": 16.81
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.91
+        },
+        {
+          "raw": "me",
+          "start": 16.91,
+          "end": 17.07
+        },
+        {
+          "raw": "is",
+          "start": 17.07,
+          "end": 17.25
+        },
+        {
+          "raw": "dark",
+          "start": 17.25,
+          "end": 17.51
+        },
+        {
+          "raw": "Illumine,",
+          "start": 17.51,
+          "end": 18.03
+        },
+        {
+          "raw": "what",
+          "start": 18.43,
+          "end": 18.51
+        },
+        {
+          "raw": "is",
+          "start": 18.51,
+          "end": 18.69
+        },
+        {
+          "raw": "low",
+          "start": 18.69,
+          "end": 18.91
+        },
+        {
+          "raw": "raise",
+          "start": 18.91,
+          "end": 19.27
+        },
+        {
+          "raw": "and",
+          "start": 19.27,
+          "end": 19.57
+        },
+        {
+          "raw": "support?",
+          "start": 19.57,
+          "end": 19.95
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "chiefly",
+        "thou,",
+        "O",
+        "Spirit,",
+        "that",
+        "dost",
+        "prefer",
+        "Before",
+        "all",
+        "temples",
+        "th'",
+        "upright",
+        "heart",
+        "and",
+        "pure,",
+        "Instruct",
+        "me,",
+        "for",
+        "thou",
+        "know'st;",
+        "thou",
+        "from",
+        "the",
+        "first",
+        "Wast",
+        "present,",
+        "and,",
+        "with",
+        "mighty",
+        "wings",
+        "outspread,",
+        "Dove-like",
+        "sat'st",
+        "brooding",
+        "on",
+        "the",
+        "vast",
+        "Abyss,",
+        "And",
+        "mad'st",
+        "it",
+        "pregnant:",
+        "what",
+        "in",
+        "me",
+        "is",
+        "dark",
+        "Illumine,",
+        "what",
+        "is",
+        "low",
+        "raise",
+        "and",
+        "support;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          32,
+          0,
+          32
+        ],
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ],
+        [
+          "equal",
+          33,
+          55,
+          34,
+          56
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 55
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          32,
+          33,
+          32,
+          34
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "chiefly",
+          "start": 0.55,
+          "end": 0.81
+        },
+        {
+          "text": "thou,",
+          "start": 0.81,
+          "end": 1.23
+        },
+        {
+          "text": "O",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "Spirit,",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "text": "that",
+          "start": 2.33,
+          "end": 2.45
+        },
+        {
+          "text": "dost",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "prefer",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "Before",
+          "start": 3.05,
+          "end": 3.39
+        },
+        {
+          "text": "all",
+          "start": 3.39,
+          "end": 3.73
+        },
+        {
+          "text": "temples",
+          "start": 3.73,
+          "end": 4.07
+        },
+        {
+          "text": "th'",
+          "start": 4.07,
+          "end": 4.59
+        },
+        {
+          "text": "upright",
+          "start": 4.59,
+          "end": 5.05
+        },
+        {
+          "text": "heart",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "text": "and",
+          "start": 5.31,
+          "end": 5.47
+        },
+        {
+          "text": "pure,",
+          "start": 5.47,
+          "end": 5.81
+        },
+        {
+          "text": "Instruct",
+          "start": 5.81,
+          "end": 6.63
+        },
+        {
+          "text": "me,",
+          "start": 6.63,
+          "end": 6.97
+        },
+        {
+          "text": "for",
+          "start": 7.15,
+          "end": 7.17
+        },
+        {
+          "text": "thou",
+          "start": 7.17,
+          "end": 7.35
+        },
+        {
+          "text": "know'st;",
+          "start": 7.35,
+          "end": 7.79
+        },
+        {
+          "text": "thou",
+          "start": 8.07,
+          "end": 8.63
+        },
+        {
+          "text": "from",
+          "start": 8.63,
+          "end": 8.87
+        },
+        {
+          "text": "the",
+          "start": 8.87,
+          "end": 9.03
+        },
+        {
+          "text": "first",
+          "start": 9.03,
+          "end": 9.27
+        },
+        {
+          "text": "Wast",
+          "start": 9.27,
+          "end": 9.55
+        },
+        {
+          "text": "present,",
+          "start": 9.55,
+          "end": 10.01
+        },
+        {
+          "text": "and,",
+          "start": 10.37,
+          "end": 10.47
+        },
+        {
+          "text": "with",
+          "start": 10.53,
+          "end": 10.61
+        },
+        {
+          "text": "mighty",
+          "start": 10.61,
+          "end": 10.91
+        },
+        {
+          "text": "wings",
+          "start": 10.91,
+          "end": 11.21
+        },
+        {
+          "text": "outspread,",
+          "start": 11.21,
+          "end": 11.81
+        },
+        {
+          "text": "Dove-like",
+          "start": 11.81,
+          "end": 12.23
+        },
+        {
+          "text": "sat'st",
+          "start": 12.65,
+          "end": 13.15
+        },
+        {
+          "text": "brooding",
+          "start": 13.15,
+          "end": 13.55
+        },
+        {
+          "text": "on",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "text": "the",
+          "start": 13.71,
+          "end": 13.83
+        },
+        {
+          "text": "vast",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "text": "Abyss,",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "text": "And",
+          "start": 14.87,
+          "end": 14.97
+        },
+        {
+          "text": "mad'st",
+          "start": 14.97,
+          "end": 15.41
+        },
+        {
+          "text": "it",
+          "start": 15.41,
+          "end": 15.57
+        },
+        {
+          "text": "pregnant:",
+          "start": 15.57,
+          "end": 15.89
+        },
+        {
+          "text": "what",
+          "start": 16.71,
+          "end": 16.81
+        },
+        {
+          "text": "in",
+          "start": 16.81,
+          "end": 16.91
+        },
+        {
+          "text": "me",
+          "start": 16.91,
+          "end": 17.07
+        },
+        {
+          "text": "is",
+          "start": 17.07,
+          "end": 17.25
+        },
+        {
+          "text": "dark",
+          "start": 17.25,
+          "end": 17.51
+        },
+        {
+          "text": "Illumine,",
+          "start": 17.51,
+          "end": 18.03
+        },
+        {
+          "text": "what",
+          "start": 18.43,
+          "end": 18.51
+        },
+        {
+          "text": "is",
+          "start": 18.51,
+          "end": 18.69
+        },
+        {
+          "text": "low",
+          "start": 18.69,
+          "end": 18.91
+        },
+        {
+          "text": "raise",
+          "start": 18.91,
+          "end": 19.27
+        },
+        {
+          "text": "and",
+          "start": 19.27,
+          "end": 19.57
+        },
+        {
+          "text": "support;",
+          "start": 19.57,
+          "end": 19.95
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 56,
+        "matched_words": 54
+      },
+      "match_ratio": 0.9818181818181818,
+      "rejection_reasons": [],
+      "seconds": 0.4930228441953659
+    },
+    {
+      "asr_seconds": 0.5551061257719994,
+      "alignment_seconds": 0.0003506988286972046,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "O, Spirit, Before, Instruct, Wast, Dove-like, Abyss, Illumine"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " And chiefly thou, O, Spirit, That dost prefer before all temples, T.H.,",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.52490234375
+            },
+            {
+              "text": " chiefly",
+              "start": 0.57,
+              "end": 0.83,
+              "probability": 0.962890625
+            },
+            {
+              "text": " thou,",
+              "start": 0.83,
+              "end": 1.25,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " O,",
+              "start": 1.41,
+              "end": 1.51,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " Spirit,",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.6884765625
+            },
+            {
+              "text": " That",
+              "start": 2.35,
+              "end": 2.45,
+              "probability": 0.23388671875
+            },
+            {
+              "text": " dost",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " prefer",
+              "start": 2.69,
+              "end": 3.03,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " before",
+              "start": 3.03,
+              "end": 3.41,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " all",
+              "start": 3.41,
+              "end": 3.75,
+              "probability": 0.9765625
+            },
+            {
+              "text": " temples,",
+              "start": 3.75,
+              "end": 4.07,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " T",
+              "start": 4.41,
+              "end": 4.43,
+              "probability": 0.59521484375
+            },
+            {
+              "text": ".H.,",
+              "start": 4.43,
+              "end": 4.83,
+              "probability": 0.78662109375
+            }
+          ]
+        },
+        {
+          "text": " Upright, Hard, and Pure, Instruct me for thou know'stie.",
+          "start": 4.83,
+          "end": 7.95,
+          "words": [
+            {
+              "text": " Upright,",
+              "start": 4.83,
+              "end": 5.11,
+              "probability": 0.8193359375
+            },
+            {
+              "text": " Hard,",
+              "start": 5.21,
+              "end": 5.29,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " and",
+              "start": 5.41,
+              "end": 5.53,
+              "probability": 0.91455078125
+            },
+            {
+              "text": " Pure,",
+              "start": 5.53,
+              "end": 5.77,
+              "probability": 0.8984375
+            },
+            {
+              "text": " Instruct",
+              "start": 6.37,
+              "end": 6.61,
+              "probability": 0.78125
+            },
+            {
+              "text": " me",
+              "start": 6.61,
+              "end": 6.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " for",
+              "start": 6.99,
+              "end": 7.17,
+              "probability": 0.77099609375
+            },
+            {
+              "text": " thou",
+              "start": 7.17,
+              "end": 7.33,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " know'stie.",
+              "start": 7.33,
+              "end": 7.95,
+              "probability": 0.489898681640625
+            }
+          ]
+        },
+        {
+          "text": " Thou from the first wast present, And with mighty wings outspread,",
+          "start": 8.45,
+          "end": 11.81,
+          "words": [
+            {
+              "text": " Thou",
+              "start": 8.45,
+              "end": 8.65,
+              "probability": 0.953125
+            },
+            {
+              "text": " from",
+              "start": 8.65,
+              "end": 8.87,
+              "probability": 0.7734375
+            },
+            {
+              "text": " the",
+              "start": 8.87,
+              "end": 9.03,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " first",
+              "start": 9.03,
+              "end": 9.29,
+              "probability": 0.94189453125
+            },
+            {
+              "text": " wast",
+              "start": 9.29,
+              "end": 9.73,
+              "probability": 0.732177734375
+            },
+            {
+              "text": " present,",
+              "start": 9.73,
+              "end": 10.03,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " And",
+              "start": 10.35,
+              "end": 10.47,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " with",
+              "start": 10.47,
+              "end": 10.63,
+              "probability": 0.9013671875
+            },
+            {
+              "text": " mighty",
+              "start": 10.63,
+              "end": 10.87,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " wings",
+              "start": 10.87,
+              "end": 11.23,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " outspread,",
+              "start": 11.23,
+              "end": 11.81,
+              "probability": 0.947265625
+            }
+          ]
+        },
+        {
+          "text": " Dove-like satsy brooding on the vast abyss, And madstie it pregnant.",
+          "start": 12.41,
+          "end": 15.91,
+          "words": [
+            {
+              "text": " Dove",
+              "start": 12.41,
+              "end": 12.43,
+              "probability": 0.9130859375
+            },
+            {
+              "text": "-like",
+              "start": 12.43,
+              "end": 12.65,
+              "probability": 0.45416259765625
+            },
+            {
+              "text": " satsy",
+              "start": 12.65,
+              "end": 13.23,
+              "probability": 0.4969075520833333
+            },
+            {
+              "text": " brooding",
+              "start": 13.23,
+              "end": 13.55,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " on",
+              "start": 13.55,
+              "end": 13.71,
+              "probability": 0.9375
+            },
+            {
+              "text": " the",
+              "start": 13.71,
+              "end": 13.83,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " vast",
+              "start": 13.83,
+              "end": 14.15,
+              "probability": 0.9609375
+            },
+            {
+              "text": " abyss,",
+              "start": 14.15,
+              "end": 14.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " And",
+              "start": 14.85,
+              "end": 14.97,
+              "probability": 0.9609375
+            },
+            {
+              "text": " madstie",
+              "start": 14.97,
+              "end": 15.47,
+              "probability": 0.7727864583333334
+            },
+            {
+              "text": " it",
+              "start": 15.47,
+              "end": 15.61,
+              "probability": 0.564453125
+            },
+            {
+              "text": " pregnant.",
+              "start": 15.61,
+              "end": 15.91,
+              "probability": 0.97314453125
+            }
+          ]
+        },
+        {
+          "text": " What in me is dark Illumine?",
+          "start": 16.71,
+          "end": 18.03,
+          "words": [
+            {
+              "text": " What",
+              "start": 16.71,
+              "end": 16.81,
+              "probability": 0.9482421875
+            },
+            {
+              "text": " in",
+              "start": 16.81,
+              "end": 16.93,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " me",
+              "start": 16.93,
+              "end": 17.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 17.07,
+              "end": 17.27,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " dark",
+              "start": 17.27,
+              "end": 17.51,
+              "probability": 0.951171875
+            },
+            {
+              "text": " Illumine?",
+              "start": 17.51,
+              "end": 18.03,
+              "probability": 0.3867206573486328
+            }
+          ]
+        },
+        {
+          "text": " What is low rays and support?",
+          "start": 18.35,
+          "end": 19.95,
+          "words": [
+            {
+              "text": " What",
+              "start": 18.35,
+              "end": 18.51,
+              "probability": 0.91943359375
+            },
+            {
+              "text": " is",
+              "start": 18.51,
+              "end": 18.69,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " low",
+              "start": 18.69,
+              "end": 18.93,
+              "probability": 0.9208984375
+            },
+            {
+              "text": " rays",
+              "start": 18.93,
+              "end": 19.25,
+              "probability": 0.34033203125
+            },
+            {
+              "text": " and",
+              "start": 19.25,
+              "end": 19.57,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " support?",
+              "start": 19.57,
+              "end": 19.95,
+              "probability": 0.95166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "chiefly",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "raw": "thou,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "raw": "O,",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "raw": "Spirit,",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "That",
+          "start": 2.35,
+          "end": 2.45
+        },
+        {
+          "raw": "dost",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "prefer",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "raw": "before",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "raw": "all",
+          "start": 3.41,
+          "end": 3.75
+        },
+        {
+          "raw": "temples,",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "raw": "T",
+          "start": 4.41,
+          "end": 4.43
+        },
+        {
+          "raw": ".H.,",
+          "start": 4.43,
+          "end": 4.83
+        },
+        {
+          "raw": "Upright,",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "raw": "Hard,",
+          "start": 5.21,
+          "end": 5.29
+        },
+        {
+          "raw": "and",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "raw": "Pure,",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "raw": "Instruct",
+          "start": 6.37,
+          "end": 6.61
+        },
+        {
+          "raw": "me",
+          "start": 6.61,
+          "end": 6.99
+        },
+        {
+          "raw": "for",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "raw": "thou",
+          "start": 7.17,
+          "end": 7.33
+        },
+        {
+          "raw": "know'stie.",
+          "start": 7.33,
+          "end": 7.95
+        },
+        {
+          "raw": "Thou",
+          "start": 8.45,
+          "end": 8.65
+        },
+        {
+          "raw": "from",
+          "start": 8.65,
+          "end": 8.87
+        },
+        {
+          "raw": "the",
+          "start": 8.87,
+          "end": 9.03
+        },
+        {
+          "raw": "first",
+          "start": 9.03,
+          "end": 9.29
+        },
+        {
+          "raw": "wast",
+          "start": 9.29,
+          "end": 9.73
+        },
+        {
+          "raw": "present,",
+          "start": 9.73,
+          "end": 10.03
+        },
+        {
+          "raw": "And",
+          "start": 10.35,
+          "end": 10.47
+        },
+        {
+          "raw": "with",
+          "start": 10.47,
+          "end": 10.63
+        },
+        {
+          "raw": "mighty",
+          "start": 10.63,
+          "end": 10.87
+        },
+        {
+          "raw": "wings",
+          "start": 10.87,
+          "end": 11.23
+        },
+        {
+          "raw": "outspread,",
+          "start": 11.23,
+          "end": 11.81
+        },
+        {
+          "raw": "Dove",
+          "start": 12.41,
+          "end": 12.43
+        },
+        {
+          "raw": "-like",
+          "start": 12.43,
+          "end": 12.65
+        },
+        {
+          "raw": "satsy",
+          "start": 12.65,
+          "end": 13.23
+        },
+        {
+          "raw": "brooding",
+          "start": 13.23,
+          "end": 13.55
+        },
+        {
+          "raw": "on",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "raw": "the",
+          "start": 13.71,
+          "end": 13.83
+        },
+        {
+          "raw": "vast",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "raw": "abyss,",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "raw": "And",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "raw": "madstie",
+          "start": 14.97,
+          "end": 15.47
+        },
+        {
+          "raw": "it",
+          "start": 15.47,
+          "end": 15.61
+        },
+        {
+          "raw": "pregnant.",
+          "start": 15.61,
+          "end": 15.91
+        },
+        {
+          "raw": "What",
+          "start": 16.71,
+          "end": 16.81
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.93
+        },
+        {
+          "raw": "me",
+          "start": 16.93,
+          "end": 17.07
+        },
+        {
+          "raw": "is",
+          "start": 17.07,
+          "end": 17.27
+        },
+        {
+          "raw": "dark",
+          "start": 17.27,
+          "end": 17.51
+        },
+        {
+          "raw": "Illumine?",
+          "start": 17.51,
+          "end": 18.03
+        },
+        {
+          "raw": "What",
+          "start": 18.35,
+          "end": 18.51
+        },
+        {
+          "raw": "is",
+          "start": 18.51,
+          "end": 18.69
+        },
+        {
+          "raw": "low",
+          "start": 18.69,
+          "end": 18.93
+        },
+        {
+          "raw": "rays",
+          "start": 18.93,
+          "end": 19.25
+        },
+        {
+          "raw": "and",
+          "start": 19.25,
+          "end": 19.57
+        },
+        {
+          "raw": "support?",
+          "start": 19.57,
+          "end": 19.95
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "chiefly",
+        "thou,",
+        "O",
+        "Spirit,",
+        "that",
+        "dost",
+        "prefer",
+        "Before",
+        "all",
+        "temples",
+        "th'",
+        "upright",
+        "heart",
+        "and",
+        "pure,",
+        "Instruct",
+        "me,",
+        "for",
+        "thou",
+        "know'st;",
+        "thou",
+        "from",
+        "the",
+        "first",
+        "Wast",
+        "present,",
+        "and,",
+        "with",
+        "mighty",
+        "wings",
+        "outspread,",
+        "Dove-like",
+        "sat'st",
+        "brooding",
+        "on",
+        "the",
+        "vast",
+        "Abyss,",
+        "And",
+        "mad'st",
+        "it",
+        "pregnant:",
+        "what",
+        "in",
+        "me",
+        "is",
+        "dark",
+        "Illumine,",
+        "what",
+        "is",
+        "low",
+        "raise",
+        "and",
+        "support;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          13,
+          13,
+          14
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "equal",
+          14,
+          20,
+          15,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ],
+        [
+          "equal",
+          21,
+          32,
+          22,
+          33
+        ],
+        [
+          "replace",
+          32,
+          34,
+          33,
+          36
+        ],
+        [
+          "equal",
+          34,
+          40,
+          36,
+          42
+        ],
+        [
+          "replace",
+          40,
+          41,
+          42,
+          43
+        ],
+        [
+          "equal",
+          41,
+          52,
+          43,
+          54
+        ],
+        [
+          "replace",
+          52,
+          53,
+          54,
+          55
+        ],
+        [
+          "equal",
+          53,
+          55,
+          55,
+          57
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 52,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 56
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "replace",
+          13,
+          14,
+          14,
+          15
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          22
+        ],
+        [
+          "replace",
+          32,
+          34,
+          33,
+          36
+        ],
+        [
+          "replace",
+          40,
+          41,
+          42,
+          43
+        ],
+        [
+          "replace",
+          52,
+          53,
+          54,
+          55
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "chiefly",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "text": "thou,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "text": "O",
+          "start": 1.41,
+          "end": 1.51
+        },
+        {
+          "text": "Spirit,",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "that",
+          "start": 2.35,
+          "end": 2.45
+        },
+        {
+          "text": "dost",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "prefer",
+          "start": 2.69,
+          "end": 3.03
+        },
+        {
+          "text": "Before",
+          "start": 3.03,
+          "end": 3.41
+        },
+        {
+          "text": "all",
+          "start": 3.41,
+          "end": 3.75
+        },
+        {
+          "text": "temples",
+          "start": 3.75,
+          "end": 4.07
+        },
+        {
+          "text": "th'",
+          "start": 4.07,
+          "end": 4.45
+        },
+        {
+          "text": "upright",
+          "start": 4.83,
+          "end": 5.11
+        },
+        {
+          "text": "heart",
+          "start": 5.11,
+          "end": 5.26
+        },
+        {
+          "text": "and",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "text": "pure,",
+          "start": 5.53,
+          "end": 5.77
+        },
+        {
+          "text": "Instruct",
+          "start": 6.37,
+          "end": 6.61
+        },
+        {
+          "text": "me,",
+          "start": 6.61,
+          "end": 6.99
+        },
+        {
+          "text": "for",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "text": "thou",
+          "start": 7.17,
+          "end": 7.33
+        },
+        {
+          "text": "know'st;",
+          "start": 7.33,
+          "end": 7.89
+        },
+        {
+          "text": "thou",
+          "start": 8.45,
+          "end": 8.65
+        },
+        {
+          "text": "from",
+          "start": 8.65,
+          "end": 8.87
+        },
+        {
+          "text": "the",
+          "start": 8.87,
+          "end": 9.03
+        },
+        {
+          "text": "first",
+          "start": 9.03,
+          "end": 9.29
+        },
+        {
+          "text": "Wast",
+          "start": 9.29,
+          "end": 9.73
+        },
+        {
+          "text": "present,",
+          "start": 9.73,
+          "end": 10.03
+        },
+        {
+          "text": "and,",
+          "start": 10.35,
+          "end": 10.47
+        },
+        {
+          "text": "with",
+          "start": 10.47,
+          "end": 10.63
+        },
+        {
+          "text": "mighty",
+          "start": 10.63,
+          "end": 10.87
+        },
+        {
+          "text": "wings",
+          "start": 10.87,
+          "end": 11.23
+        },
+        {
+          "text": "outspread,",
+          "start": 11.23,
+          "end": 11.81
+        },
+        {
+          "text": "Dove-like",
+          "start": 11.81,
+          "end": 12.52
+        },
+        {
+          "text": "sat'st",
+          "start": 12.52,
+          "end": 12.875
+        },
+        {
+          "text": "brooding",
+          "start": 13.23,
+          "end": 13.55
+        },
+        {
+          "text": "on",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "text": "the",
+          "start": 13.71,
+          "end": 13.83
+        },
+        {
+          "text": "vast",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "text": "Abyss,",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "text": "And",
+          "start": 14.85,
+          "end": 14.97
+        },
+        {
+          "text": "mad'st",
+          "start": 14.97,
+          "end": 15.22
+        },
+        {
+          "text": "it",
+          "start": 15.47,
+          "end": 15.61
+        },
+        {
+          "text": "pregnant:",
+          "start": 15.61,
+          "end": 15.91
+        },
+        {
+          "text": "what",
+          "start": 16.71,
+          "end": 16.81
+        },
+        {
+          "text": "in",
+          "start": 16.81,
+          "end": 16.93
+        },
+        {
+          "text": "me",
+          "start": 16.93,
+          "end": 17.07
+        },
+        {
+          "text": "is",
+          "start": 17.07,
+          "end": 17.27
+        },
+        {
+          "text": "dark",
+          "start": 17.27,
+          "end": 17.51
+        },
+        {
+          "text": "Illumine,",
+          "start": 17.51,
+          "end": 18.03
+        },
+        {
+          "text": "what",
+          "start": 18.35,
+          "end": 18.51
+        },
+        {
+          "text": "is",
+          "start": 18.51,
+          "end": 18.69
+        },
+        {
+          "text": "low",
+          "start": 18.69,
+          "end": 18.93
+        },
+        {
+          "text": "raise",
+          "start": 18.93,
+          "end": 19.09
+        },
+        {
+          "text": "and",
+          "start": 19.25,
+          "end": 19.57
+        },
+        {
+          "text": "support;",
+          "start": 19.57,
+          "end": 19.95
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 57,
+        "matched_words": 48
+      },
+      "match_ratio": 0.8727272727272727,
+      "rejection_reasons": [],
+      "seconds": 0.5556159988045692
+    },
+    {
+      "asr_seconds": 0.5401494055986404,
+      "alignment_seconds": 0.0005434826016426086,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And chiefly thou, O Spirit, that dost prefer before all temples T.H. upright heart and",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.52490234375
+            },
+            {
+              "text": " chiefly",
+              "start": 0.57,
+              "end": 0.83,
+              "probability": 0.962890625
+            },
+            {
+              "text": " thou,",
+              "start": 0.83,
+              "end": 1.25,
+              "probability": 0.80126953125
+            },
+            {
+              "text": " O",
+              "start": 1.41,
+              "end": 1.49,
+              "probability": 0.8388671875
+            },
+            {
+              "text": " Spirit,",
+              "start": 1.49,
+              "end": 1.89,
+              "probability": 0.82861328125
+            },
+            {
+              "text": " that",
+              "start": 2.35,
+              "end": 2.45,
+              "probability": 0.79345703125
+            },
+            {
+              "text": " dost",
+              "start": 2.45,
+              "end": 2.69,
+              "probability": 0.951904296875
+            },
+            {
+              "text": " prefer",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " before",
+              "start": 3.05,
+              "end": 3.41,
+              "probability": 0.912109375
+            },
+            {
+              "text": " all",
+              "start": 3.41,
+              "end": 3.73,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " temples",
+              "start": 3.73,
+              "end": 4.07,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " T",
+              "start": 4.07,
+              "end": 4.43,
+              "probability": 0.5126953125
+            },
+            {
+              "text": ".H.",
+              "start": 4.43,
+              "end": 4.69,
+              "probability": 0.786376953125
+            },
+            {
+              "text": " upright",
+              "start": 4.69,
+              "end": 5.05,
+              "probability": 0.80810546875
+            },
+            {
+              "text": " heart",
+              "start": 5.05,
+              "end": 5.31,
+              "probability": 0.78125
+            },
+            {
+              "text": " and",
+              "start": 5.31,
+              "end": 5.49,
+              "probability": 0.9482421875
+            }
+          ]
+        },
+        {
+          "text": " pure, instruct me for thou know'st thee.",
+          "start": 5.49,
+          "end": 7.95,
+          "words": [
+            {
+              "text": " pure,",
+              "start": 5.49,
+              "end": 5.79,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " instruct",
+              "start": 6.37,
+              "end": 6.65,
+              "probability": 0.744140625
+            },
+            {
+              "text": " me",
+              "start": 6.65,
+              "end": 6.99,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " for",
+              "start": 6.99,
+              "end": 7.17,
+              "probability": 0.94921875
+            },
+            {
+              "text": " thou",
+              "start": 7.17,
+              "end": 7.33,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " know'st",
+              "start": 7.33,
+              "end": 7.79,
+              "probability": 0.6131998697916666
+            },
+            {
+              "text": " thee.",
+              "start": 7.79,
+              "end": 7.95,
+              "probability": 0.3876953125
+            }
+          ]
+        },
+        {
+          "text": " Thou from the first wast present, and with mighty wings outspread, dove-glike sats thee",
+          "start": 8.49,
+          "end": 13.23,
+          "words": [
+            {
+              "text": " Thou",
+              "start": 8.49,
+              "end": 8.65,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " from",
+              "start": 8.65,
+              "end": 8.87,
+              "probability": 0.87451171875
+            },
+            {
+              "text": " the",
+              "start": 8.87,
+              "end": 9.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " first",
+              "start": 9.03,
+              "end": 9.29,
+              "probability": 0.970703125
+            },
+            {
+              "text": " wast",
+              "start": 9.29,
+              "end": 9.73,
+              "probability": 0.74560546875
+            },
+            {
+              "text": " present,",
+              "start": 9.73,
+              "end": 10.03,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " and",
+              "start": 10.37,
+              "end": 10.47,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " with",
+              "start": 10.47,
+              "end": 10.61,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " mighty",
+              "start": 10.61,
+              "end": 10.87,
+              "probability": 0.98046875
+            },
+            {
+              "text": " wings",
+              "start": 10.87,
+              "end": 11.25,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " outspread,",
+              "start": 11.25,
+              "end": 11.81,
+              "probability": 0.955078125
+            },
+            {
+              "text": " dove",
+              "start": 12.39,
+              "end": 12.43,
+              "probability": 0.8759765625
+            },
+            {
+              "text": "-glike",
+              "start": 12.43,
+              "end": 12.73,
+              "probability": 0.7191569010416666
+            },
+            {
+              "text": " sats",
+              "start": 12.73,
+              "end": 13.01,
+              "probability": 0.6124267578125
+            },
+            {
+              "text": " thee",
+              "start": 13.01,
+              "end": 13.23,
+              "probability": 0.62060546875
+            }
+          ]
+        },
+        {
+          "text": " brooding on the vast abyss, and mad'st thee at pregnant.",
+          "start": 13.23,
+          "end": 15.97,
+          "words": [
+            {
+              "text": " brooding",
+              "start": 13.23,
+              "end": 13.55,
+              "probability": 0.981201171875
+            },
+            {
+              "text": " on",
+              "start": 13.55,
+              "end": 13.71,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 13.71,
+              "end": 13.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " vast",
+              "start": 13.83,
+              "end": 14.15,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " abyss,",
+              "start": 14.15,
+              "end": 14.45,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " and",
+              "start": 14.87,
+              "end": 14.97,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " mad'st",
+              "start": 14.97,
+              "end": 15.39,
+              "probability": 0.7500813802083334
+            },
+            {
+              "text": " thee",
+              "start": 15.39,
+              "end": 15.49,
+              "probability": 0.974609375
+            },
+            {
+              "text": " at",
+              "start": 15.49,
+              "end": 15.61,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " pregnant.",
+              "start": 15.61,
+              "end": 15.97,
+              "probability": 0.97412109375
+            }
+          ]
+        },
+        {
+          "text": " What in me is dark illumine?",
+          "start": 16.73,
+          "end": 18.05,
+          "words": [
+            {
+              "text": " What",
+              "start": 16.73,
+              "end": 16.81,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " in",
+              "start": 16.81,
+              "end": 16.93,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " me",
+              "start": 16.93,
+              "end": 17.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 17.07,
+              "end": 17.25,
+              "probability": 0.99609375
+            },
+            {
+              "text": " dark",
+              "start": 17.25,
+              "end": 17.51,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " illumine?",
+              "start": 17.51,
+              "end": 18.05,
+              "probability": 0.697265625
+            }
+          ]
+        },
+        {
+          "text": " What is low raise in support?",
+          "start": 18.05,
+          "end": 19.93,
+          "words": [
+            {
+              "text": " What",
+              "start": 18.05,
+              "end": 18.51,
+              "probability": 0.47900390625
+            },
+            {
+              "text": " is",
+              "start": 18.51,
+              "end": 18.63,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " low",
+              "start": 18.63,
+              "end": 18.91,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " raise",
+              "start": 18.91,
+              "end": 19.29,
+              "probability": 0.78173828125
+            },
+            {
+              "text": " in",
+              "start": 19.29,
+              "end": 19.57,
+              "probability": 0.5126953125
+            },
+            {
+              "text": " support?",
+              "start": 19.57,
+              "end": 19.93,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "chiefly",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "raw": "thou,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "raw": "O",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "raw": "Spirit,",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "raw": "that",
+          "start": 2.35,
+          "end": 2.45
+        },
+        {
+          "raw": "dost",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "raw": "prefer",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "before",
+          "start": 3.05,
+          "end": 3.41
+        },
+        {
+          "raw": "all",
+          "start": 3.41,
+          "end": 3.73
+        },
+        {
+          "raw": "temples",
+          "start": 3.73,
+          "end": 4.07
+        },
+        {
+          "raw": "T",
+          "start": 4.07,
+          "end": 4.43
+        },
+        {
+          "raw": ".H.",
+          "start": 4.43,
+          "end": 4.69
+        },
+        {
+          "raw": "upright",
+          "start": 4.69,
+          "end": 5.05
+        },
+        {
+          "raw": "heart",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "raw": "and",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "raw": "pure,",
+          "start": 5.49,
+          "end": 5.79
+        },
+        {
+          "raw": "instruct",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "raw": "me",
+          "start": 6.65,
+          "end": 6.99
+        },
+        {
+          "raw": "for",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "raw": "thou",
+          "start": 7.17,
+          "end": 7.33
+        },
+        {
+          "raw": "know'st",
+          "start": 7.33,
+          "end": 7.79
+        },
+        {
+          "raw": "thee.",
+          "start": 7.79,
+          "end": 7.95
+        },
+        {
+          "raw": "Thou",
+          "start": 8.49,
+          "end": 8.65
+        },
+        {
+          "raw": "from",
+          "start": 8.65,
+          "end": 8.87
+        },
+        {
+          "raw": "the",
+          "start": 8.87,
+          "end": 9.03
+        },
+        {
+          "raw": "first",
+          "start": 9.03,
+          "end": 9.29
+        },
+        {
+          "raw": "wast",
+          "start": 9.29,
+          "end": 9.73
+        },
+        {
+          "raw": "present,",
+          "start": 9.73,
+          "end": 10.03
+        },
+        {
+          "raw": "and",
+          "start": 10.37,
+          "end": 10.47
+        },
+        {
+          "raw": "with",
+          "start": 10.47,
+          "end": 10.61
+        },
+        {
+          "raw": "mighty",
+          "start": 10.61,
+          "end": 10.87
+        },
+        {
+          "raw": "wings",
+          "start": 10.87,
+          "end": 11.25
+        },
+        {
+          "raw": "outspread,",
+          "start": 11.25,
+          "end": 11.81
+        },
+        {
+          "raw": "dove",
+          "start": 12.39,
+          "end": 12.43
+        },
+        {
+          "raw": "-glike",
+          "start": 12.43,
+          "end": 12.73
+        },
+        {
+          "raw": "sats",
+          "start": 12.73,
+          "end": 13.01
+        },
+        {
+          "raw": "thee",
+          "start": 13.01,
+          "end": 13.23
+        },
+        {
+          "raw": "brooding",
+          "start": 13.23,
+          "end": 13.55
+        },
+        {
+          "raw": "on",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "raw": "the",
+          "start": 13.71,
+          "end": 13.83
+        },
+        {
+          "raw": "vast",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "raw": "abyss,",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "raw": "and",
+          "start": 14.87,
+          "end": 14.97
+        },
+        {
+          "raw": "mad'st",
+          "start": 14.97,
+          "end": 15.39
+        },
+        {
+          "raw": "thee",
+          "start": 15.39,
+          "end": 15.49
+        },
+        {
+          "raw": "at",
+          "start": 15.49,
+          "end": 15.61
+        },
+        {
+          "raw": "pregnant.",
+          "start": 15.61,
+          "end": 15.97
+        },
+        {
+          "raw": "What",
+          "start": 16.73,
+          "end": 16.81
+        },
+        {
+          "raw": "in",
+          "start": 16.81,
+          "end": 16.93
+        },
+        {
+          "raw": "me",
+          "start": 16.93,
+          "end": 17.07
+        },
+        {
+          "raw": "is",
+          "start": 17.07,
+          "end": 17.25
+        },
+        {
+          "raw": "dark",
+          "start": 17.25,
+          "end": 17.51
+        },
+        {
+          "raw": "illumine?",
+          "start": 17.51,
+          "end": 18.05
+        },
+        {
+          "raw": "What",
+          "start": 18.05,
+          "end": 18.51
+        },
+        {
+          "raw": "is",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "raw": "low",
+          "start": 18.63,
+          "end": 18.91
+        },
+        {
+          "raw": "raise",
+          "start": 18.91,
+          "end": 19.29
+        },
+        {
+          "raw": "in",
+          "start": 19.29,
+          "end": 19.57
+        },
+        {
+          "raw": "support?",
+          "start": 19.57,
+          "end": 19.93
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "chiefly",
+        "thou,",
+        "O",
+        "Spirit,",
+        "that",
+        "dost",
+        "prefer",
+        "Before",
+        "all",
+        "temples",
+        "th'",
+        "upright",
+        "heart",
+        "and",
+        "pure,",
+        "Instruct",
+        "me,",
+        "for",
+        "thou",
+        "know'st;",
+        "thou",
+        "from",
+        "the",
+        "first",
+        "Wast",
+        "present,",
+        "and,",
+        "with",
+        "mighty",
+        "wings",
+        "outspread,",
+        "Dove-like",
+        "sat'st",
+        "brooding",
+        "on",
+        "the",
+        "vast",
+        "Abyss,",
+        "And",
+        "mad'st",
+        "it",
+        "pregnant:",
+        "what",
+        "in",
+        "me",
+        "is",
+        "dark",
+        "Illumine,",
+        "what",
+        "is",
+        "low",
+        "raise",
+        "and",
+        "support;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ],
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "equal",
+          12,
+          21,
+          13,
+          22
+        ],
+        [
+          "insert",
+          21,
+          21,
+          22,
+          23
+        ],
+        [
+          "equal",
+          21,
+          32,
+          23,
+          34
+        ],
+        [
+          "replace",
+          32,
+          34,
+          34,
+          38
+        ],
+        [
+          "equal",
+          34,
+          41,
+          38,
+          45
+        ],
+        [
+          "replace",
+          41,
+          42,
+          45,
+          47
+        ],
+        [
+          "equal",
+          42,
+          53,
+          47,
+          58
+        ],
+        [
+          "replace",
+          53,
+          54,
+          58,
+          59
+        ],
+        [
+          "equal",
+          54,
+          55,
+          59,
+          60
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 59
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          11,
+          12,
+          11,
+          13
+        ],
+        [
+          "insert",
+          21,
+          21,
+          22,
+          23
+        ],
+        [
+          "replace",
+          32,
+          34,
+          34,
+          38
+        ],
+        [
+          "replace",
+          41,
+          42,
+          45,
+          47
+        ],
+        [
+          "replace",
+          53,
+          54,
+          58,
+          59
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "chiefly",
+          "start": 0.57,
+          "end": 0.83
+        },
+        {
+          "text": "thou,",
+          "start": 0.83,
+          "end": 1.25
+        },
+        {
+          "text": "O",
+          "start": 1.41,
+          "end": 1.49
+        },
+        {
+          "text": "Spirit,",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "text": "that",
+          "start": 2.35,
+          "end": 2.45
+        },
+        {
+          "text": "dost",
+          "start": 2.45,
+          "end": 2.69
+        },
+        {
+          "text": "prefer",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "Before",
+          "start": 3.05,
+          "end": 3.41
+        },
+        {
+          "text": "all",
+          "start": 3.41,
+          "end": 3.73
+        },
+        {
+          "text": "temples",
+          "start": 3.73,
+          "end": 4.07
+        },
+        {
+          "text": "th'",
+          "start": 4.07,
+          "end": 4.38
+        },
+        {
+          "text": "upright",
+          "start": 4.69,
+          "end": 5.05
+        },
+        {
+          "text": "heart",
+          "start": 5.05,
+          "end": 5.31
+        },
+        {
+          "text": "and",
+          "start": 5.31,
+          "end": 5.49
+        },
+        {
+          "text": "pure,",
+          "start": 5.49,
+          "end": 5.79
+        },
+        {
+          "text": "Instruct",
+          "start": 6.37,
+          "end": 6.65
+        },
+        {
+          "text": "me,",
+          "start": 6.65,
+          "end": 6.99
+        },
+        {
+          "text": "for",
+          "start": 6.99,
+          "end": 7.17
+        },
+        {
+          "text": "thou",
+          "start": 7.17,
+          "end": 7.33
+        },
+        {
+          "text": "know'st;",
+          "start": 7.33,
+          "end": 7.79
+        },
+        {
+          "text": "thou",
+          "start": 8.49,
+          "end": 8.65
+        },
+        {
+          "text": "from",
+          "start": 8.65,
+          "end": 8.87
+        },
+        {
+          "text": "the",
+          "start": 8.87,
+          "end": 9.03
+        },
+        {
+          "text": "first",
+          "start": 9.03,
+          "end": 9.29
+        },
+        {
+          "text": "Wast",
+          "start": 9.29,
+          "end": 9.73
+        },
+        {
+          "text": "present,",
+          "start": 9.73,
+          "end": 10.03
+        },
+        {
+          "text": "and,",
+          "start": 10.37,
+          "end": 10.47
+        },
+        {
+          "text": "with",
+          "start": 10.47,
+          "end": 10.61
+        },
+        {
+          "text": "mighty",
+          "start": 10.61,
+          "end": 10.87
+        },
+        {
+          "text": "wings",
+          "start": 10.87,
+          "end": 11.25
+        },
+        {
+          "text": "outspread,",
+          "start": 11.25,
+          "end": 11.81
+        },
+        {
+          "text": "Dove-like",
+          "start": 11.81,
+          "end": 12.52
+        },
+        {
+          "text": "sat'st",
+          "start": 12.52,
+          "end": 12.875
+        },
+        {
+          "text": "brooding",
+          "start": 13.23,
+          "end": 13.55
+        },
+        {
+          "text": "on",
+          "start": 13.55,
+          "end": 13.71
+        },
+        {
+          "text": "the",
+          "start": 13.71,
+          "end": 13.83
+        },
+        {
+          "text": "vast",
+          "start": 13.83,
+          "end": 14.15
+        },
+        {
+          "text": "Abyss,",
+          "start": 14.15,
+          "end": 14.45
+        },
+        {
+          "text": "And",
+          "start": 14.87,
+          "end": 14.97
+        },
+        {
+          "text": "mad'st",
+          "start": 14.97,
+          "end": 15.39
+        },
+        {
+          "text": "it",
+          "start": 15.39,
+          "end": 15.5
+        },
+        {
+          "text": "pregnant:",
+          "start": 15.61,
+          "end": 15.97
+        },
+        {
+          "text": "what",
+          "start": 16.73,
+          "end": 16.81
+        },
+        {
+          "text": "in",
+          "start": 16.81,
+          "end": 16.93
+        },
+        {
+          "text": "me",
+          "start": 16.93,
+          "end": 17.07
+        },
+        {
+          "text": "is",
+          "start": 17.07,
+          "end": 17.25
+        },
+        {
+          "text": "dark",
+          "start": 17.25,
+          "end": 17.51
+        },
+        {
+          "text": "Illumine,",
+          "start": 17.51,
+          "end": 18.05
+        },
+        {
+          "text": "what",
+          "start": 18.05,
+          "end": 18.51
+        },
+        {
+          "text": "is",
+          "start": 18.51,
+          "end": 18.63
+        },
+        {
+          "text": "low",
+          "start": 18.63,
+          "end": 18.91
+        },
+        {
+          "text": "raise",
+          "start": 18.91,
+          "end": 19.29
+        },
+        {
+          "text": "and",
+          "start": 19.29,
+          "end": 19.43
+        },
+        {
+          "text": "support;",
+          "start": 19.57,
+          "end": 19.93
+        }
+      ],
+      "stats": {
+        "expected_words": 55,
+        "heard_words": 60,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.540975347161293
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "64f7d71e8c1bb1c16c72072d8a47bed76170fdd8a8403c07efe4d2ac8ddb4937",
+  "selected_reasons": []
+}

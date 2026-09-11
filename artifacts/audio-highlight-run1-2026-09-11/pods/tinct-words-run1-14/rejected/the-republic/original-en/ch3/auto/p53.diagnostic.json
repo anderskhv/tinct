@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "cc3df02df2ff6ee692f26c6e9c9960791d7e43fa31eae725102b0d755fdb3ff2",
+  "attempts": [
+    {
+      "asr_seconds": 0.11914811283349991,
+      "alignment_seconds": 8.71419906616211e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, he said, that is most true.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, he said, that is most true.",
+          "start": 0.05,
+          "end": 2.07,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.36083984375
+            },
+            {
+              "text": " he",
+              "start": 0.75,
+              "end": 0.83,
+              "probability": 0.97265625
+            },
+            {
+              "text": " said,",
+              "start": 0.83,
+              "end": 1.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 1.37,
+              "end": 1.45,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " is",
+              "start": 1.45,
+              "end": 1.55,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " most",
+              "start": 1.55,
+              "end": 1.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " true.",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "he",
+          "start": 0.75,
+          "end": 0.83
+        },
+        {
+          "raw": "said,",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "raw": "that",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "raw": "is",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "raw": "most",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "raw": "true.",
+          "start": 1.73,
+          "end": 2.07
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "he",
+        "said,",
+        "that",
+        "is",
+        "most",
+        "true."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "he",
+          "start": 0.75,
+          "end": 0.83
+        },
+        {
+          "text": "said,",
+          "start": 0.83,
+          "end": 1.07
+        },
+        {
+          "text": "that",
+          "start": 1.37,
+          "end": 1.45
+        },
+        {
+          "text": "is",
+          "start": 1.45,
+          "end": 1.55
+        },
+        {
+          "text": "most",
+          "start": 1.55,
+          "end": 1.73
+        },
+        {
+          "text": "true.",
+          "start": 1.73,
+          "end": 2.07
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11926963925361633
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a543f29091ba7a3eb9c6734e1bee7d1e77d6c7f9afcf6114d3241674701202d7",
+  "selected_reasons": []
+}

@@ -1,0 +1,870 @@
+{
+  "complete": true,
+  "signature": "837c2e81d1cafa7098de070331f14b018a7cc6e8ecb35db33c612b028cf0933e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2674655243754387,
+      "alignment_seconds": 0.00018277764320373535,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I mean that both of them ought to be quick to see, and swift to overtake the enemy when they see him; and strong too if, when they have caught him, they have to fight with him.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I mean that both of them ought to be quick to see, and swift to overtake the enemy when they see him, and strong too if, when they have caught him, they have to fight with him.",
+          "start": 0.05,
+          "end": 9.53,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.7646484375
+            },
+            {
+              "text": " mean",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " that",
+              "start": 0.71,
+              "end": 0.93,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " both",
+              "start": 0.93,
+              "end": 1.15,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 1.15,
+              "end": 1.33,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " them",
+              "start": 1.33,
+              "end": 1.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ought",
+              "start": 1.47,
+              "end": 1.65,
+              "probability": 0.970703125
+            },
+            {
+              "text": " to",
+              "start": 1.65,
+              "end": 1.81,
+              "probability": 0.99609375
+            },
+            {
+              "text": " be",
+              "start": 1.81,
+              "end": 1.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " quick",
+              "start": 1.95,
+              "end": 2.13,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 2.13,
+              "end": 2.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " see,",
+              "start": 2.35,
+              "end": 2.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 3.11,
+              "end": 3.21,
+              "probability": 0.8603515625
+            },
+            {
+              "text": " swift",
+              "start": 3.21,
+              "end": 3.47,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " to",
+              "start": 3.47,
+              "end": 3.71,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " overtake",
+              "start": 3.71,
+              "end": 4.09,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " the",
+              "start": 4.09,
+              "end": 4.35,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " enemy",
+              "start": 4.35,
+              "end": 4.63,
+              "probability": 0.95947265625
+            },
+            {
+              "text": " when",
+              "start": 4.63,
+              "end": 4.91,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " they",
+              "start": 4.91,
+              "end": 5.07,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " see",
+              "start": 5.07,
+              "end": 5.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him,",
+              "start": 5.29,
+              "end": 5.57,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and",
+              "start": 6.05,
+              "end": 6.17,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " strong",
+              "start": 6.17,
+              "end": 6.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " too",
+              "start": 6.49,
+              "end": 6.87,
+              "probability": 0.740234375
+            },
+            {
+              "text": " if,",
+              "start": 6.87,
+              "end": 7.17,
+              "probability": 0.970703125
+            },
+            {
+              "text": " when",
+              "start": 7.31,
+              "end": 7.43,
+              "probability": 0.998046875
+            },
+            {
+              "text": " they",
+              "start": 7.43,
+              "end": 7.57,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 7.57,
+              "end": 7.71,
+              "probability": 0.994140625
+            },
+            {
+              "text": " caught",
+              "start": 7.71,
+              "end": 7.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " him,",
+              "start": 7.91,
+              "end": 8.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they",
+              "start": 8.53,
+              "end": 8.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 8.63,
+              "end": 8.77,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 8.77,
+              "end": 8.95,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fight",
+              "start": 8.95,
+              "end": 9.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " with",
+              "start": 9.13,
+              "end": 9.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " him.",
+              "start": 9.31,
+              "end": 9.53,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "mean",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "that",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "raw": "both",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "raw": "of",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "raw": "them",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "raw": "ought",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "raw": "to",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "raw": "be",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "raw": "quick",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "raw": "to",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "raw": "see,",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "raw": "and",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "raw": "swift",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "raw": "to",
+          "start": 3.47,
+          "end": 3.71
+        },
+        {
+          "raw": "overtake",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "raw": "the",
+          "start": 4.09,
+          "end": 4.35
+        },
+        {
+          "raw": "enemy",
+          "start": 4.35,
+          "end": 4.63
+        },
+        {
+          "raw": "when",
+          "start": 4.63,
+          "end": 4.91
+        },
+        {
+          "raw": "they",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "raw": "see",
+          "start": 5.07,
+          "end": 5.29
+        },
+        {
+          "raw": "him,",
+          "start": 5.29,
+          "end": 5.57
+        },
+        {
+          "raw": "and",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "raw": "strong",
+          "start": 6.17,
+          "end": 6.49
+        },
+        {
+          "raw": "too",
+          "start": 6.49,
+          "end": 6.87
+        },
+        {
+          "raw": "if,",
+          "start": 6.87,
+          "end": 7.17
+        },
+        {
+          "raw": "when",
+          "start": 7.31,
+          "end": 7.43
+        },
+        {
+          "raw": "they",
+          "start": 7.43,
+          "end": 7.57
+        },
+        {
+          "raw": "have",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "raw": "caught",
+          "start": 7.71,
+          "end": 7.91
+        },
+        {
+          "raw": "him,",
+          "start": 7.91,
+          "end": 8.17
+        },
+        {
+          "raw": "they",
+          "start": 8.53,
+          "end": 8.63
+        },
+        {
+          "raw": "have",
+          "start": 8.63,
+          "end": 8.77
+        },
+        {
+          "raw": "to",
+          "start": 8.77,
+          "end": 8.95
+        },
+        {
+          "raw": "fight",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "raw": "with",
+          "start": 9.13,
+          "end": 9.31
+        },
+        {
+          "raw": "him.",
+          "start": 9.31,
+          "end": 9.53
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "mean",
+        "that",
+        "both",
+        "of",
+        "them",
+        "ought",
+        "to",
+        "be",
+        "quick",
+        "to",
+        "see,",
+        "and",
+        "swift",
+        "to",
+        "overtake",
+        "the",
+        "enemy",
+        "when",
+        "they",
+        "see",
+        "him;",
+        "and",
+        "strong",
+        "too",
+        "if,",
+        "when",
+        "they",
+        "have",
+        "caught",
+        "him,",
+        "they",
+        "have",
+        "to",
+        "fight",
+        "with",
+        "him."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          37,
+          0,
+          37
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "mean",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "that",
+          "start": 0.71,
+          "end": 0.93
+        },
+        {
+          "text": "both",
+          "start": 0.93,
+          "end": 1.15
+        },
+        {
+          "text": "of",
+          "start": 1.15,
+          "end": 1.33
+        },
+        {
+          "text": "them",
+          "start": 1.33,
+          "end": 1.47
+        },
+        {
+          "text": "ought",
+          "start": 1.47,
+          "end": 1.65
+        },
+        {
+          "text": "to",
+          "start": 1.65,
+          "end": 1.81
+        },
+        {
+          "text": "be",
+          "start": 1.81,
+          "end": 1.95
+        },
+        {
+          "text": "quick",
+          "start": 1.95,
+          "end": 2.13
+        },
+        {
+          "text": "to",
+          "start": 2.13,
+          "end": 2.35
+        },
+        {
+          "text": "see,",
+          "start": 2.35,
+          "end": 2.63
+        },
+        {
+          "text": "and",
+          "start": 3.11,
+          "end": 3.21
+        },
+        {
+          "text": "swift",
+          "start": 3.21,
+          "end": 3.47
+        },
+        {
+          "text": "to",
+          "start": 3.47,
+          "end": 3.71
+        },
+        {
+          "text": "overtake",
+          "start": 3.71,
+          "end": 4.09
+        },
+        {
+          "text": "the",
+          "start": 4.09,
+          "end": 4.35
+        },
+        {
+          "text": "enemy",
+          "start": 4.35,
+          "end": 4.63
+        },
+        {
+          "text": "when",
+          "start": 4.63,
+          "end": 4.91
+        },
+        {
+          "text": "they",
+          "start": 4.91,
+          "end": 5.07
+        },
+        {
+          "text": "see",
+          "start": 5.07,
+          "end": 5.29
+        },
+        {
+          "text": "him;",
+          "start": 5.29,
+          "end": 5.57
+        },
+        {
+          "text": "and",
+          "start": 6.05,
+          "end": 6.17
+        },
+        {
+          "text": "strong",
+          "start": 6.17,
+          "end": 6.49
+        },
+        {
+          "text": "too",
+          "start": 6.49,
+          "end": 6.87
+        },
+        {
+          "text": "if,",
+          "start": 6.87,
+          "end": 7.17
+        },
+        {
+          "text": "when",
+          "start": 7.31,
+          "end": 7.43
+        },
+        {
+          "text": "they",
+          "start": 7.43,
+          "end": 7.57
+        },
+        {
+          "text": "have",
+          "start": 7.57,
+          "end": 7.71
+        },
+        {
+          "text": "caught",
+          "start": 7.71,
+          "end": 7.91
+        },
+        {
+          "text": "him,",
+          "start": 7.91,
+          "end": 8.17
+        },
+        {
+          "text": "they",
+          "start": 8.53,
+          "end": 8.63
+        },
+        {
+          "text": "have",
+          "start": 8.63,
+          "end": 8.77
+        },
+        {
+          "text": "to",
+          "start": 8.77,
+          "end": 8.95
+        },
+        {
+          "text": "fight",
+          "start": 8.95,
+          "end": 9.13
+        },
+        {
+          "text": "with",
+          "start": 9.13,
+          "end": 9.31
+        },
+        {
+          "text": "him.",
+          "start": 9.31,
+          "end": 9.53
+        }
+      ],
+      "stats": {
+        "expected_words": 37,
+        "heard_words": 37,
+        "matched_words": 37
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26775240898132324
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "72d2cd60140622cf7d6a8c2aee75566f5c57c85adf707fe90daf3e9c957c7782",
+  "selected_reasons": []
+}

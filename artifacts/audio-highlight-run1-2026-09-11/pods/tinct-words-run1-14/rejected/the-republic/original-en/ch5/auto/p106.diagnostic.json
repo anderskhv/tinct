@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "7e905ad960d1edd3c0c53baa92746506117e13048004c94c5ec191408097ff84",
+  "attempts": [
+    {
+      "asr_seconds": 0.07005435973405838,
+      "alignment_seconds": 4.271417856216431e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "They ought.",
+        "hotwords": "They"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " They ought.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " ought.",
+              "start": 0.56,
+              "end": 0.8,
+              "probability": 0.65576171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "ought.",
+          "start": 0.56,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "ought."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "ought.",
+          "start": 0.56,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07011285424232483
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bc15eddd6d71ea239b2fc03da489b784abf08dd28b956ed9656af49e445bd91e",
+  "selected_reasons": []
+}

@@ -1,0 +1,98 @@
+{
+  "complete": true,
+  "signature": "44cf13af7ab0a13b4bb0faf58e2398a51de0c5952606032ff18d606625b8c59f",
+  "attempts": [
+    {
+      "asr_seconds": 0.07170730084180832,
+      "alignment_seconds": 5.294382572174072e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " very properly.",
+          "start": 0.05,
+          "end": 1.05,
+          "words": [
+            {
+              "text": " very",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.485107421875
+            },
+            {
+              "text": " properly.",
+              "start": 0.65,
+              "end": 1.05,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "properly.",
+          "start": 0.65,
+          "end": 1.05
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "properly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "properly.",
+          "start": 0.65,
+          "end": 1.05
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07178104668855667
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "1a45973388a9cbc926c668b0418493ad8de8fa3316aef42ce8e0ccdeea2de7c6",
+  "selected_reasons": []
+}

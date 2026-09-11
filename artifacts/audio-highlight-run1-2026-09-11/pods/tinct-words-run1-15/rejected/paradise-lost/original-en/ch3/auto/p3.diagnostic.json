@@ -1,0 +1,3575 @@
+{
+  "complete": true,
+  "signature": "4e614c24a32401734e4b389c0eb43ff63687d28707148494e81ffd20965bffb3",
+  "attempts": [
+    {
+      "asr_seconds": 0.3193333223462105,
+      "alignment_seconds": 0.00032836198806762695,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Taught by the heavenly Muse to venture down The dark descent, and up to re-ascend, Though hard and rare: Thee I revisit safe, And feel thy sovran vital lamp; but thou Revisit'st not these eyes, that roll in vain To find thy piercing ray, and find no dawn;",
+        "hotwords": "Taught, Muse, Though, Thee, I, Revisit'st"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Taught by the heavenly Muse to venture down The dark descent, and up to re-ascend, Though hard and rare, Thee I revisit safe, and feel thy sovran vital lamp, but thou Revisit'st not these eyes, that roll in vain To find thy piercing ray, and find no dawn.",
+          "start": 0.0,
+          "end": 16.58,
+          "words": [
+            {
+              "text": " Taught",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.73681640625
+            },
+            {
+              "text": " by",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " heavenly",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " Muse",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.2110595703125
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.89208984375
+            },
+            {
+              "text": " venture",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " down",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " The",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.010955810546875
+            },
+            {
+              "text": " dark",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.193359375
+            },
+            {
+              "text": " descent,",
+              "start": 2.94,
+              "end": 3.3,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " and",
+              "start": 3.86,
+              "end": 3.92,
+              "probability": 0.703125
+            },
+            {
+              "text": " up",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " to",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " re",
+              "start": 4.24,
+              "end": 4.38,
+              "probability": 0.76904296875
+            },
+            {
+              "text": "-ascend,",
+              "start": 4.38,
+              "end": 4.9,
+              "probability": 0.6603190104166666
+            },
+            {
+              "text": " Though",
+              "start": 5.22,
+              "end": 5.3,
+              "probability": 0.4814453125
+            },
+            {
+              "text": " hard",
+              "start": 5.3,
+              "end": 5.66,
+              "probability": 0.982421875
+            },
+            {
+              "text": " and",
+              "start": 5.66,
+              "end": 5.94,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " rare,",
+              "start": 5.94,
+              "end": 6.2,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " Thee",
+              "start": 6.92,
+              "end": 7.14,
+              "probability": 0.34060192108154297
+            },
+            {
+              "text": " I",
+              "start": 7.14,
+              "end": 7.2,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " revisit",
+              "start": 7.2,
+              "end": 7.5,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " safe,",
+              "start": 7.5,
+              "end": 7.92,
+              "probability": 0.87109375
+            },
+            {
+              "text": " and",
+              "start": 8.34,
+              "end": 8.5,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " feel",
+              "start": 8.5,
+              "end": 8.72,
+              "probability": 0.943359375
+            },
+            {
+              "text": " thy",
+              "start": 8.72,
+              "end": 8.96,
+              "probability": 0.07879638671875
+            },
+            {
+              "text": " sovran",
+              "start": 8.96,
+              "end": 9.44,
+              "probability": 0.12935765584309897
+            },
+            {
+              "text": " vital",
+              "start": 9.44,
+              "end": 9.78,
+              "probability": 0.84619140625
+            },
+            {
+              "text": " lamp,",
+              "start": 9.78,
+              "end": 10.16,
+              "probability": 0.87353515625
+            },
+            {
+              "text": " but",
+              "start": 10.78,
+              "end": 10.9,
+              "probability": 0.0162353515625
+            },
+            {
+              "text": " thou",
+              "start": 10.9,
+              "end": 11.08,
+              "probability": 0.285400390625
+            },
+            {
+              "text": " Revisit'st",
+              "start": 11.08,
+              "end": 11.76,
+              "probability": 0.2061309814453125
+            },
+            {
+              "text": " not",
+              "start": 11.76,
+              "end": 11.98,
+              "probability": 0.001708984375
+            },
+            {
+              "text": " these",
+              "start": 11.98,
+              "end": 12.24,
+              "probability": 0.59765625
+            },
+            {
+              "text": " eyes,",
+              "start": 12.24,
+              "end": 12.58,
+              "probability": 0.85009765625
+            },
+            {
+              "text": " that",
+              "start": 13.16,
+              "end": 13.28,
+              "probability": 0.39697265625
+            },
+            {
+              "text": " roll",
+              "start": 13.28,
+              "end": 13.56,
+              "probability": 0.77978515625
+            },
+            {
+              "text": " in",
+              "start": 13.56,
+              "end": 13.78,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " vain",
+              "start": 13.78,
+              "end": 14.02,
+              "probability": 0.82373046875
+            },
+            {
+              "text": " To",
+              "start": 14.02,
+              "end": 14.26,
+              "probability": 0.521484375
+            },
+            {
+              "text": " find",
+              "start": 14.26,
+              "end": 14.46,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " thy",
+              "start": 14.46,
+              "end": 14.68,
+              "probability": 0.986328125
+            },
+            {
+              "text": " piercing",
+              "start": 14.68,
+              "end": 15.08,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " ray,",
+              "start": 15.08,
+              "end": 15.4,
+              "probability": 0.94482421875
+            },
+            {
+              "text": " and",
+              "start": 15.68,
+              "end": 15.8,
+              "probability": 0.984375
+            },
+            {
+              "text": " find",
+              "start": 15.8,
+              "end": 16.02,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " no",
+              "start": 16.02,
+              "end": 16.28,
+              "probability": 0.978515625
+            },
+            {
+              "text": " dawn.",
+              "start": 16.28,
+              "end": 16.58,
+              "probability": 0.98095703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Taught",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "by",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "heavenly",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "Muse",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "venture",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "down",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "The",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "dark",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "descent,",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "raw": "and",
+          "start": 3.86,
+          "end": 3.92
+        },
+        {
+          "raw": "up",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "to",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "re",
+          "start": 4.24,
+          "end": 4.38
+        },
+        {
+          "raw": "-ascend,",
+          "start": 4.38,
+          "end": 4.9
+        },
+        {
+          "raw": "Though",
+          "start": 5.22,
+          "end": 5.3
+        },
+        {
+          "raw": "hard",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "raw": "and",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "raw": "rare,",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "raw": "Thee",
+          "start": 6.92,
+          "end": 7.14
+        },
+        {
+          "raw": "I",
+          "start": 7.14,
+          "end": 7.2
+        },
+        {
+          "raw": "revisit",
+          "start": 7.2,
+          "end": 7.5
+        },
+        {
+          "raw": "safe,",
+          "start": 7.5,
+          "end": 7.92
+        },
+        {
+          "raw": "and",
+          "start": 8.34,
+          "end": 8.5
+        },
+        {
+          "raw": "feel",
+          "start": 8.5,
+          "end": 8.72
+        },
+        {
+          "raw": "thy",
+          "start": 8.72,
+          "end": 8.96
+        },
+        {
+          "raw": "sovran",
+          "start": 8.96,
+          "end": 9.44
+        },
+        {
+          "raw": "vital",
+          "start": 9.44,
+          "end": 9.78
+        },
+        {
+          "raw": "lamp,",
+          "start": 9.78,
+          "end": 10.16
+        },
+        {
+          "raw": "but",
+          "start": 10.78,
+          "end": 10.9
+        },
+        {
+          "raw": "thou",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "raw": "Revisit'st",
+          "start": 11.08,
+          "end": 11.76
+        },
+        {
+          "raw": "not",
+          "start": 11.76,
+          "end": 11.98
+        },
+        {
+          "raw": "these",
+          "start": 11.98,
+          "end": 12.24
+        },
+        {
+          "raw": "eyes,",
+          "start": 12.24,
+          "end": 12.58
+        },
+        {
+          "raw": "that",
+          "start": 13.16,
+          "end": 13.28
+        },
+        {
+          "raw": "roll",
+          "start": 13.28,
+          "end": 13.56
+        },
+        {
+          "raw": "in",
+          "start": 13.56,
+          "end": 13.78
+        },
+        {
+          "raw": "vain",
+          "start": 13.78,
+          "end": 14.02
+        },
+        {
+          "raw": "To",
+          "start": 14.02,
+          "end": 14.26
+        },
+        {
+          "raw": "find",
+          "start": 14.26,
+          "end": 14.46
+        },
+        {
+          "raw": "thy",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "raw": "piercing",
+          "start": 14.68,
+          "end": 15.08
+        },
+        {
+          "raw": "ray,",
+          "start": 15.08,
+          "end": 15.4
+        },
+        {
+          "raw": "and",
+          "start": 15.68,
+          "end": 15.8
+        },
+        {
+          "raw": "find",
+          "start": 15.8,
+          "end": 16.02
+        },
+        {
+          "raw": "no",
+          "start": 16.02,
+          "end": 16.28
+        },
+        {
+          "raw": "dawn.",
+          "start": 16.28,
+          "end": 16.58
+        }
+      ],
+      "expected_tokens": [
+        "Taught",
+        "by",
+        "the",
+        "heavenly",
+        "Muse",
+        "to",
+        "venture",
+        "down",
+        "The",
+        "dark",
+        "descent,",
+        "and",
+        "up",
+        "to",
+        "re-ascend,",
+        "Though",
+        "hard",
+        "and",
+        "rare:",
+        "Thee",
+        "I",
+        "revisit",
+        "safe,",
+        "And",
+        "feel",
+        "thy",
+        "sovran",
+        "vital",
+        "lamp;",
+        "but",
+        "thou",
+        "Revisit'st",
+        "not",
+        "these",
+        "eyes,",
+        "that",
+        "roll",
+        "in",
+        "vain",
+        "To",
+        "find",
+        "thy",
+        "piercing",
+        "ray,",
+        "and",
+        "find",
+        "no",
+        "dawn;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ],
+        [
+          "equal",
+          15,
+          48,
+          16,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          16
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Taught",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "by",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "heavenly",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "Muse",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "venture",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "down",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "The",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "dark",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "descent,",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.86,
+          "end": 3.92
+        },
+        {
+          "text": "up",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "to",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "re-ascend,",
+          "start": 4.24,
+          "end": 4.73
+        },
+        {
+          "text": "Though",
+          "start": 5.22,
+          "end": 5.3
+        },
+        {
+          "text": "hard",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "text": "and",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "text": "rare:",
+          "start": 5.94,
+          "end": 6.2
+        },
+        {
+          "text": "Thee",
+          "start": 6.92,
+          "end": 7.14
+        },
+        {
+          "text": "I",
+          "start": 7.14,
+          "end": 7.2
+        },
+        {
+          "text": "revisit",
+          "start": 7.2,
+          "end": 7.5
+        },
+        {
+          "text": "safe,",
+          "start": 7.5,
+          "end": 7.92
+        },
+        {
+          "text": "And",
+          "start": 8.34,
+          "end": 8.5
+        },
+        {
+          "text": "feel",
+          "start": 8.5,
+          "end": 8.72
+        },
+        {
+          "text": "thy",
+          "start": 8.72,
+          "end": 8.96
+        },
+        {
+          "text": "sovran",
+          "start": 8.96,
+          "end": 9.44
+        },
+        {
+          "text": "vital",
+          "start": 9.44,
+          "end": 9.78
+        },
+        {
+          "text": "lamp;",
+          "start": 9.78,
+          "end": 10.16
+        },
+        {
+          "text": "but",
+          "start": 10.78,
+          "end": 10.9
+        },
+        {
+          "text": "thou",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "text": "Revisit'st",
+          "start": 11.08,
+          "end": 11.76
+        },
+        {
+          "text": "not",
+          "start": 11.76,
+          "end": 11.98
+        },
+        {
+          "text": "these",
+          "start": 11.98,
+          "end": 12.24
+        },
+        {
+          "text": "eyes,",
+          "start": 12.24,
+          "end": 12.58
+        },
+        {
+          "text": "that",
+          "start": 13.16,
+          "end": 13.28
+        },
+        {
+          "text": "roll",
+          "start": 13.28,
+          "end": 13.56
+        },
+        {
+          "text": "in",
+          "start": 13.56,
+          "end": 13.78
+        },
+        {
+          "text": "vain",
+          "start": 13.78,
+          "end": 14.02
+        },
+        {
+          "text": "To",
+          "start": 14.02,
+          "end": 14.26
+        },
+        {
+          "text": "find",
+          "start": 14.26,
+          "end": 14.46
+        },
+        {
+          "text": "thy",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "text": "piercing",
+          "start": 14.68,
+          "end": 15.08
+        },
+        {
+          "text": "ray,",
+          "start": 15.08,
+          "end": 15.4
+        },
+        {
+          "text": "and",
+          "start": 15.68,
+          "end": 15.8
+        },
+        {
+          "text": "find",
+          "start": 15.8,
+          "end": 16.02
+        },
+        {
+          "text": "no",
+          "start": 16.02,
+          "end": 16.28
+        },
+        {
+          "text": "dawn;",
+          "start": 16.28,
+          "end": 16.58
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 49,
+        "matched_words": 47
+      },
+      "match_ratio": 0.9791666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.3198549449443817
+    },
+    {
+      "asr_seconds": 0.4627690240740776,
+      "alignment_seconds": 0.00036650896072387695,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Taught, Muse, Though, Thee, I, Revisit'st"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Taught by the heavenly Muse to venture down the dark descent, and up to reasend, though",
+          "start": 0.0,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " Taught",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.736328125
+            },
+            {
+              "text": " by",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " heavenly",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " Muse",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.212158203125
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.890625
+            },
+            {
+              "text": " venture",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " down",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " the",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " dark",
+              "start": 2.74,
+              "end": 2.94,
+              "probability": 0.52099609375
+            },
+            {
+              "text": " descent,",
+              "start": 2.94,
+              "end": 3.32,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " and",
+              "start": 3.88,
+              "end": 3.92,
+              "probability": 0.5029296875
+            },
+            {
+              "text": " up",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.95556640625
+            },
+            {
+              "text": " to",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " reasend,",
+              "start": 4.24,
+              "end": 4.88,
+              "probability": 0.5389811197916666
+            },
+            {
+              "text": " though",
+              "start": 5.2,
+              "end": 5.3,
+              "probability": 0.94091796875
+            }
+          ]
+        },
+        {
+          "text": " hard and rare.",
+          "start": 5.3,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " hard",
+              "start": 5.3,
+              "end": 5.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 5.66,
+              "end": 5.94,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " rare.",
+              "start": 5.94,
+              "end": 6.22,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " Thee I revisit safe, and feel thy sovereign vital lamp.",
+          "start": 6.96,
+          "end": 10.18,
+          "words": [
+            {
+              "text": " Thee",
+              "start": 6.96,
+              "end": 7.14,
+              "probability": 0.46359050273895264
+            },
+            {
+              "text": " I",
+              "start": 7.14,
+              "end": 7.2,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " revisit",
+              "start": 7.2,
+              "end": 7.52,
+              "probability": 0.9921875
+            },
+            {
+              "text": " safe,",
+              "start": 7.52,
+              "end": 7.92,
+              "probability": 0.90966796875
+            },
+            {
+              "text": " and",
+              "start": 8.36,
+              "end": 8.46,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " feel",
+              "start": 8.46,
+              "end": 8.72,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " thy",
+              "start": 8.72,
+              "end": 8.96,
+              "probability": 0.91796875
+            },
+            {
+              "text": " sovereign",
+              "start": 8.96,
+              "end": 9.4,
+              "probability": 0.9189453125
+            },
+            {
+              "text": " vital",
+              "start": 9.4,
+              "end": 9.74,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " lamp.",
+              "start": 9.74,
+              "end": 10.18,
+              "probability": 0.97607421875
+            }
+          ]
+        },
+        {
+          "text": " But thou revisits thee not these eyes, that roll in vain to find thy piercing ray and",
+          "start": 10.8,
+          "end": 15.76,
+          "words": [
+            {
+              "text": " But",
+              "start": 10.8,
+              "end": 10.9,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " thou",
+              "start": 10.9,
+              "end": 11.08,
+              "probability": 0.9375
+            },
+            {
+              "text": " revisits",
+              "start": 11.08,
+              "end": 11.68,
+              "probability": 0.964599609375
+            },
+            {
+              "text": " thee",
+              "start": 11.68,
+              "end": 11.82,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " not",
+              "start": 11.82,
+              "end": 12.04,
+              "probability": 0.923828125
+            },
+            {
+              "text": " these",
+              "start": 12.04,
+              "end": 12.28,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " eyes,",
+              "start": 12.28,
+              "end": 12.6,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " that",
+              "start": 13.16,
+              "end": 13.28,
+              "probability": 0.87939453125
+            },
+            {
+              "text": " roll",
+              "start": 13.28,
+              "end": 13.56,
+              "probability": 0.80908203125
+            },
+            {
+              "text": " in",
+              "start": 13.56,
+              "end": 13.78,
+              "probability": 0.990234375
+            },
+            {
+              "text": " vain",
+              "start": 13.78,
+              "end": 14.02,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " to",
+              "start": 14.02,
+              "end": 14.26,
+              "probability": 0.95361328125
+            },
+            {
+              "text": " find",
+              "start": 14.26,
+              "end": 14.46,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " thy",
+              "start": 14.46,
+              "end": 14.68,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " piercing",
+              "start": 14.68,
+              "end": 15.1,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " ray",
+              "start": 15.1,
+              "end": 15.4,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " and",
+              "start": 15.4,
+              "end": 15.76,
+              "probability": 0.57275390625
+            }
+          ]
+        },
+        {
+          "text": " find no dawn.",
+          "start": 15.76,
+          "end": 16.58,
+          "words": [
+            {
+              "text": " find",
+              "start": 15.76,
+              "end": 16.04,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " no",
+              "start": 16.04,
+              "end": 16.28,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " dawn.",
+              "start": 16.28,
+              "end": 16.58,
+              "probability": 0.98828125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Taught",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "by",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "heavenly",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "Muse",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "venture",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "down",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "dark",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "raw": "descent,",
+          "start": 2.94,
+          "end": 3.32
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 3.92
+        },
+        {
+          "raw": "up",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "to",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "reasend,",
+          "start": 4.24,
+          "end": 4.88
+        },
+        {
+          "raw": "though",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "raw": "hard",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "raw": "and",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "raw": "rare.",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "raw": "Thee",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "raw": "I",
+          "start": 7.14,
+          "end": 7.2
+        },
+        {
+          "raw": "revisit",
+          "start": 7.2,
+          "end": 7.52
+        },
+        {
+          "raw": "safe,",
+          "start": 7.52,
+          "end": 7.92
+        },
+        {
+          "raw": "and",
+          "start": 8.36,
+          "end": 8.46
+        },
+        {
+          "raw": "feel",
+          "start": 8.46,
+          "end": 8.72
+        },
+        {
+          "raw": "thy",
+          "start": 8.72,
+          "end": 8.96
+        },
+        {
+          "raw": "sovereign",
+          "start": 8.96,
+          "end": 9.4
+        },
+        {
+          "raw": "vital",
+          "start": 9.4,
+          "end": 9.74
+        },
+        {
+          "raw": "lamp.",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "raw": "But",
+          "start": 10.8,
+          "end": 10.9
+        },
+        {
+          "raw": "thou",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "raw": "revisits",
+          "start": 11.08,
+          "end": 11.68
+        },
+        {
+          "raw": "thee",
+          "start": 11.68,
+          "end": 11.82
+        },
+        {
+          "raw": "not",
+          "start": 11.82,
+          "end": 12.04
+        },
+        {
+          "raw": "these",
+          "start": 12.04,
+          "end": 12.28
+        },
+        {
+          "raw": "eyes,",
+          "start": 12.28,
+          "end": 12.6
+        },
+        {
+          "raw": "that",
+          "start": 13.16,
+          "end": 13.28
+        },
+        {
+          "raw": "roll",
+          "start": 13.28,
+          "end": 13.56
+        },
+        {
+          "raw": "in",
+          "start": 13.56,
+          "end": 13.78
+        },
+        {
+          "raw": "vain",
+          "start": 13.78,
+          "end": 14.02
+        },
+        {
+          "raw": "to",
+          "start": 14.02,
+          "end": 14.26
+        },
+        {
+          "raw": "find",
+          "start": 14.26,
+          "end": 14.46
+        },
+        {
+          "raw": "thy",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "raw": "piercing",
+          "start": 14.68,
+          "end": 15.1
+        },
+        {
+          "raw": "ray",
+          "start": 15.1,
+          "end": 15.4
+        },
+        {
+          "raw": "and",
+          "start": 15.4,
+          "end": 15.76
+        },
+        {
+          "raw": "find",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "raw": "no",
+          "start": 16.04,
+          "end": 16.28
+        },
+        {
+          "raw": "dawn.",
+          "start": 16.28,
+          "end": 16.58
+        }
+      ],
+      "expected_tokens": [
+        "Taught",
+        "by",
+        "the",
+        "heavenly",
+        "Muse",
+        "to",
+        "venture",
+        "down",
+        "The",
+        "dark",
+        "descent,",
+        "and",
+        "up",
+        "to",
+        "re-ascend,",
+        "Though",
+        "hard",
+        "and",
+        "rare:",
+        "Thee",
+        "I",
+        "revisit",
+        "safe,",
+        "And",
+        "feel",
+        "thy",
+        "sovran",
+        "vital",
+        "lamp;",
+        "but",
+        "thou",
+        "Revisit'st",
+        "not",
+        "these",
+        "eyes,",
+        "that",
+        "roll",
+        "in",
+        "vain",
+        "To",
+        "find",
+        "thy",
+        "piercing",
+        "ray,",
+        "and",
+        "find",
+        "no",
+        "dawn;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          26,
+          15,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "equal",
+          27,
+          31,
+          27,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          33
+        ],
+        [
+          "equal",
+          32,
+          48,
+          33,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          33
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Taught",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "by",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "heavenly",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "Muse",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "venture",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "down",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "The",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "dark",
+          "start": 2.74,
+          "end": 2.94
+        },
+        {
+          "text": "descent,",
+          "start": 2.94,
+          "end": 3.32
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 3.92
+        },
+        {
+          "text": "up",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "to",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "re-ascend,",
+          "start": 4.24,
+          "end": 4.72
+        },
+        {
+          "text": "Though",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "text": "hard",
+          "start": 5.3,
+          "end": 5.66
+        },
+        {
+          "text": "and",
+          "start": 5.66,
+          "end": 5.94
+        },
+        {
+          "text": "rare:",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "text": "Thee",
+          "start": 6.96,
+          "end": 7.14
+        },
+        {
+          "text": "I",
+          "start": 7.14,
+          "end": 7.2
+        },
+        {
+          "text": "revisit",
+          "start": 7.2,
+          "end": 7.52
+        },
+        {
+          "text": "safe,",
+          "start": 7.52,
+          "end": 7.92
+        },
+        {
+          "text": "And",
+          "start": 8.36,
+          "end": 8.46
+        },
+        {
+          "text": "feel",
+          "start": 8.46,
+          "end": 8.72
+        },
+        {
+          "text": "thy",
+          "start": 8.72,
+          "end": 8.96
+        },
+        {
+          "text": "sovran",
+          "start": 8.96,
+          "end": 9.18
+        },
+        {
+          "text": "vital",
+          "start": 9.4,
+          "end": 9.74
+        },
+        {
+          "text": "lamp;",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "text": "but",
+          "start": 10.8,
+          "end": 10.9
+        },
+        {
+          "text": "thou",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "text": "Revisit'st",
+          "start": 11.08,
+          "end": 11.45
+        },
+        {
+          "text": "not",
+          "start": 11.82,
+          "end": 12.04
+        },
+        {
+          "text": "these",
+          "start": 12.04,
+          "end": 12.28
+        },
+        {
+          "text": "eyes,",
+          "start": 12.28,
+          "end": 12.6
+        },
+        {
+          "text": "that",
+          "start": 13.16,
+          "end": 13.28
+        },
+        {
+          "text": "roll",
+          "start": 13.28,
+          "end": 13.56
+        },
+        {
+          "text": "in",
+          "start": 13.56,
+          "end": 13.78
+        },
+        {
+          "text": "vain",
+          "start": 13.78,
+          "end": 14.02
+        },
+        {
+          "text": "To",
+          "start": 14.02,
+          "end": 14.26
+        },
+        {
+          "text": "find",
+          "start": 14.26,
+          "end": 14.46
+        },
+        {
+          "text": "thy",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "text": "piercing",
+          "start": 14.68,
+          "end": 15.1
+        },
+        {
+          "text": "ray,",
+          "start": 15.1,
+          "end": 15.4
+        },
+        {
+          "text": "and",
+          "start": 15.4,
+          "end": 15.76
+        },
+        {
+          "text": "find",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "text": "no",
+          "start": 16.04,
+          "end": 16.28
+        },
+        {
+          "text": "dawn;",
+          "start": 16.28,
+          "end": 16.58
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 49,
+        "matched_words": 45
+      },
+      "match_ratio": 0.9375,
+      "rejection_reasons": [],
+      "seconds": 0.46331886947155
+    },
+    {
+      "asr_seconds": 0.4194825515151024,
+      "alignment_seconds": 0.0002896934747695923,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Taught by the heavenly muse to venture down the dark descent, and up to reassend, though",
+          "start": 0.0,
+          "end": 5.3,
+          "words": [
+            {
+              "text": " Taught",
+              "start": 0.0,
+              "end": 0.6,
+              "probability": 0.737060546875
+            },
+            {
+              "text": " by",
+              "start": 0.6,
+              "end": 0.78,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " heavenly",
+              "start": 0.96,
+              "end": 1.32,
+              "probability": 0.9345703125
+            },
+            {
+              "text": " muse",
+              "start": 1.32,
+              "end": 1.7,
+              "probability": 0.65966796875
+            },
+            {
+              "text": " to",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " venture",
+              "start": 1.98,
+              "end": 2.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " down",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " the",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.990234375
+            },
+            {
+              "text": " dark",
+              "start": 2.74,
+              "end": 2.92,
+              "probability": 0.8955078125
+            },
+            {
+              "text": " descent,",
+              "start": 2.92,
+              "end": 3.32,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " and",
+              "start": 3.88,
+              "end": 3.92,
+              "probability": 0.445556640625
+            },
+            {
+              "text": " up",
+              "start": 3.92,
+              "end": 4.06,
+              "probability": 0.958984375
+            },
+            {
+              "text": " to",
+              "start": 4.06,
+              "end": 4.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " reassend,",
+              "start": 4.24,
+              "end": 4.88,
+              "probability": 0.41766357421875
+            },
+            {
+              "text": " though",
+              "start": 5.2,
+              "end": 5.3,
+              "probability": 0.947265625
+            }
+          ]
+        },
+        {
+          "text": " hard and rare.",
+          "start": 5.3,
+          "end": 6.22,
+          "words": [
+            {
+              "text": " hard",
+              "start": 5.3,
+              "end": 5.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 5.68,
+              "end": 5.94,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " rare.",
+              "start": 5.94,
+              "end": 6.22,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " The eye revisits safe, and feel thy sovereign vital lamp.",
+          "start": 6.94,
+          "end": 10.18,
+          "words": [
+            {
+              "text": " The",
+              "start": 6.94,
+              "end": 7.04,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " eye",
+              "start": 7.04,
+              "end": 7.18,
+              "probability": 0.80029296875
+            },
+            {
+              "text": " revisits",
+              "start": 7.18,
+              "end": 7.66,
+              "probability": 0.8515625
+            },
+            {
+              "text": " safe,",
+              "start": 7.66,
+              "end": 7.94,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " and",
+              "start": 8.32,
+              "end": 8.46,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " feel",
+              "start": 8.46,
+              "end": 8.74,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " thy",
+              "start": 8.74,
+              "end": 8.96,
+              "probability": 0.96875
+            },
+            {
+              "text": " sovereign",
+              "start": 8.96,
+              "end": 9.4,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " vital",
+              "start": 9.4,
+              "end": 9.74,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " lamp.",
+              "start": 9.74,
+              "end": 10.18,
+              "probability": 0.994140625
+            }
+          ]
+        },
+        {
+          "text": " But thou revisits thee not these eyes, that roll in vain to find thy piercing ray and",
+          "start": 10.78,
+          "end": 15.76,
+          "words": [
+            {
+              "text": " But",
+              "start": 10.78,
+              "end": 10.9,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " thou",
+              "start": 10.9,
+              "end": 11.08,
+              "probability": 0.98828125
+            },
+            {
+              "text": " revisits",
+              "start": 11.08,
+              "end": 11.7,
+              "probability": 0.987060546875
+            },
+            {
+              "text": " thee",
+              "start": 11.7,
+              "end": 11.82,
+              "probability": 0.9306640625
+            },
+            {
+              "text": " not",
+              "start": 11.82,
+              "end": 12.04,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " these",
+              "start": 12.04,
+              "end": 12.26,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " eyes,",
+              "start": 12.26,
+              "end": 12.62,
+              "probability": 0.99609375
+            },
+            {
+              "text": " that",
+              "start": 13.14,
+              "end": 13.28,
+              "probability": 0.923828125
+            },
+            {
+              "text": " roll",
+              "start": 13.28,
+              "end": 13.56,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " in",
+              "start": 13.56,
+              "end": 13.78,
+              "probability": 0.994140625
+            },
+            {
+              "text": " vain",
+              "start": 13.78,
+              "end": 14.02,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " to",
+              "start": 14.02,
+              "end": 14.26,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " find",
+              "start": 14.26,
+              "end": 14.46,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " thy",
+              "start": 14.46,
+              "end": 14.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " piercing",
+              "start": 14.68,
+              "end": 15.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " ray",
+              "start": 15.1,
+              "end": 15.4,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 15.4,
+              "end": 15.76,
+              "probability": 0.56640625
+            }
+          ]
+        },
+        {
+          "text": " find no dawn.",
+          "start": 15.76,
+          "end": 16.58,
+          "words": [
+            {
+              "text": " find",
+              "start": 15.76,
+              "end": 16.04,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " no",
+              "start": 16.04,
+              "end": 16.28,
+              "probability": 0.9921875
+            },
+            {
+              "text": " dawn.",
+              "start": 16.28,
+              "end": 16.58,
+              "probability": 0.994140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Taught",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "raw": "by",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "raw": "the",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "heavenly",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "raw": "muse",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "raw": "to",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "venture",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "raw": "down",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "the",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "dark",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "raw": "descent,",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "raw": "and",
+          "start": 3.88,
+          "end": 3.92
+        },
+        {
+          "raw": "up",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "raw": "to",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "raw": "reassend,",
+          "start": 4.24,
+          "end": 4.88
+        },
+        {
+          "raw": "though",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "raw": "hard",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "raw": "and",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "raw": "rare.",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "raw": "The",
+          "start": 6.94,
+          "end": 7.04
+        },
+        {
+          "raw": "eye",
+          "start": 7.04,
+          "end": 7.18
+        },
+        {
+          "raw": "revisits",
+          "start": 7.18,
+          "end": 7.66
+        },
+        {
+          "raw": "safe,",
+          "start": 7.66,
+          "end": 7.94
+        },
+        {
+          "raw": "and",
+          "start": 8.32,
+          "end": 8.46
+        },
+        {
+          "raw": "feel",
+          "start": 8.46,
+          "end": 8.74
+        },
+        {
+          "raw": "thy",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "raw": "sovereign",
+          "start": 8.96,
+          "end": 9.4
+        },
+        {
+          "raw": "vital",
+          "start": 9.4,
+          "end": 9.74
+        },
+        {
+          "raw": "lamp.",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "raw": "But",
+          "start": 10.78,
+          "end": 10.9
+        },
+        {
+          "raw": "thou",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "raw": "revisits",
+          "start": 11.08,
+          "end": 11.7
+        },
+        {
+          "raw": "thee",
+          "start": 11.7,
+          "end": 11.82
+        },
+        {
+          "raw": "not",
+          "start": 11.82,
+          "end": 12.04
+        },
+        {
+          "raw": "these",
+          "start": 12.04,
+          "end": 12.26
+        },
+        {
+          "raw": "eyes,",
+          "start": 12.26,
+          "end": 12.62
+        },
+        {
+          "raw": "that",
+          "start": 13.14,
+          "end": 13.28
+        },
+        {
+          "raw": "roll",
+          "start": 13.28,
+          "end": 13.56
+        },
+        {
+          "raw": "in",
+          "start": 13.56,
+          "end": 13.78
+        },
+        {
+          "raw": "vain",
+          "start": 13.78,
+          "end": 14.02
+        },
+        {
+          "raw": "to",
+          "start": 14.02,
+          "end": 14.26
+        },
+        {
+          "raw": "find",
+          "start": 14.26,
+          "end": 14.46
+        },
+        {
+          "raw": "thy",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "raw": "piercing",
+          "start": 14.68,
+          "end": 15.1
+        },
+        {
+          "raw": "ray",
+          "start": 15.1,
+          "end": 15.4
+        },
+        {
+          "raw": "and",
+          "start": 15.4,
+          "end": 15.76
+        },
+        {
+          "raw": "find",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "raw": "no",
+          "start": 16.04,
+          "end": 16.28
+        },
+        {
+          "raw": "dawn.",
+          "start": 16.28,
+          "end": 16.58
+        }
+      ],
+      "expected_tokens": [
+        "Taught",
+        "by",
+        "the",
+        "heavenly",
+        "Muse",
+        "to",
+        "venture",
+        "down",
+        "The",
+        "dark",
+        "descent,",
+        "and",
+        "up",
+        "to",
+        "re-ascend,",
+        "Though",
+        "hard",
+        "and",
+        "rare:",
+        "Thee",
+        "I",
+        "revisit",
+        "safe,",
+        "And",
+        "feel",
+        "thy",
+        "sovran",
+        "vital",
+        "lamp;",
+        "but",
+        "thou",
+        "Revisit'st",
+        "not",
+        "these",
+        "eyes,",
+        "that",
+        "roll",
+        "in",
+        "vain",
+        "To",
+        "find",
+        "thy",
+        "piercing",
+        "ray,",
+        "and",
+        "find",
+        "no",
+        "dawn;"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ],
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "equal",
+          15,
+          19,
+          15,
+          19
+        ],
+        [
+          "replace",
+          19,
+          22,
+          19,
+          22
+        ],
+        [
+          "equal",
+          22,
+          26,
+          22,
+          26
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "equal",
+          27,
+          31,
+          27,
+          31
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          33
+        ],
+        [
+          "equal",
+          32,
+          48,
+          33,
+          49
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          14,
+          15,
+          14,
+          15
+        ],
+        [
+          "replace",
+          19,
+          22,
+          19,
+          22
+        ],
+        [
+          "replace",
+          26,
+          27,
+          26,
+          27
+        ],
+        [
+          "replace",
+          31,
+          32,
+          31,
+          33
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Taught",
+          "start": 0.0,
+          "end": 0.6
+        },
+        {
+          "text": "by",
+          "start": 0.6,
+          "end": 0.78
+        },
+        {
+          "text": "the",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "heavenly",
+          "start": 0.96,
+          "end": 1.32
+        },
+        {
+          "text": "Muse",
+          "start": 1.32,
+          "end": 1.7
+        },
+        {
+          "text": "to",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "venture",
+          "start": 1.98,
+          "end": 2.26
+        },
+        {
+          "text": "down",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "The",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "dark",
+          "start": 2.74,
+          "end": 2.92
+        },
+        {
+          "text": "descent,",
+          "start": 2.92,
+          "end": 3.32
+        },
+        {
+          "text": "and",
+          "start": 3.88,
+          "end": 3.92
+        },
+        {
+          "text": "up",
+          "start": 3.92,
+          "end": 4.06
+        },
+        {
+          "text": "to",
+          "start": 4.06,
+          "end": 4.24
+        },
+        {
+          "text": "re-ascend,",
+          "start": 4.24,
+          "end": 4.72
+        },
+        {
+          "text": "Though",
+          "start": 5.2,
+          "end": 5.3
+        },
+        {
+          "text": "hard",
+          "start": 5.3,
+          "end": 5.68
+        },
+        {
+          "text": "and",
+          "start": 5.68,
+          "end": 5.94
+        },
+        {
+          "text": "rare:",
+          "start": 5.94,
+          "end": 6.22
+        },
+        {
+          "text": "Thee",
+          "start": 6.22,
+          "end": 6.94
+        },
+        {
+          "text": "I",
+          "start": 6.94,
+          "end": 7.3
+        },
+        {
+          "text": "revisit",
+          "start": 7.3,
+          "end": 7.48
+        },
+        {
+          "text": "safe,",
+          "start": 7.66,
+          "end": 7.94
+        },
+        {
+          "text": "And",
+          "start": 8.32,
+          "end": 8.46
+        },
+        {
+          "text": "feel",
+          "start": 8.46,
+          "end": 8.74
+        },
+        {
+          "text": "thy",
+          "start": 8.74,
+          "end": 8.96
+        },
+        {
+          "text": "sovran",
+          "start": 8.96,
+          "end": 9.18
+        },
+        {
+          "text": "vital",
+          "start": 9.4,
+          "end": 9.74
+        },
+        {
+          "text": "lamp;",
+          "start": 9.74,
+          "end": 10.18
+        },
+        {
+          "text": "but",
+          "start": 10.78,
+          "end": 10.9
+        },
+        {
+          "text": "thou",
+          "start": 10.9,
+          "end": 11.08
+        },
+        {
+          "text": "Revisit'st",
+          "start": 11.08,
+          "end": 11.45
+        },
+        {
+          "text": "not",
+          "start": 11.82,
+          "end": 12.04
+        },
+        {
+          "text": "these",
+          "start": 12.04,
+          "end": 12.26
+        },
+        {
+          "text": "eyes,",
+          "start": 12.26,
+          "end": 12.62
+        },
+        {
+          "text": "that",
+          "start": 13.14,
+          "end": 13.28
+        },
+        {
+          "text": "roll",
+          "start": 13.28,
+          "end": 13.56
+        },
+        {
+          "text": "in",
+          "start": 13.56,
+          "end": 13.78
+        },
+        {
+          "text": "vain",
+          "start": 13.78,
+          "end": 14.02
+        },
+        {
+          "text": "To",
+          "start": 14.02,
+          "end": 14.26
+        },
+        {
+          "text": "find",
+          "start": 14.26,
+          "end": 14.46
+        },
+        {
+          "text": "thy",
+          "start": 14.46,
+          "end": 14.68
+        },
+        {
+          "text": "piercing",
+          "start": 14.68,
+          "end": 15.1
+        },
+        {
+          "text": "ray,",
+          "start": 15.1,
+          "end": 15.4
+        },
+        {
+          "text": "and",
+          "start": 15.4,
+          "end": 15.76
+        },
+        {
+          "text": "find",
+          "start": 15.76,
+          "end": 16.04
+        },
+        {
+          "text": "no",
+          "start": 16.04,
+          "end": 16.28
+        },
+        {
+          "text": "dawn;",
+          "start": 16.28,
+          "end": 16.58
+        }
+      ],
+      "stats": {
+        "expected_words": 48,
+        "heard_words": 49,
+        "matched_words": 42
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.4199066385626793
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c73e16b17baa387f7ed4a9641f803a2ed3b329b0a99aba758471c5d8d6b66198",
+  "selected_reasons": []
+}

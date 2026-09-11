@@ -1,0 +1,142 @@
+{
+  "complete": true,
+  "signature": "2128a3e04195ba95cf83683417e37400f65ace805214e9c3174333f9aa57f78e",
+  "attempts": [
+    {
+      "asr_seconds": 0.0857478529214859,
+      "alignment_seconds": 6.15343451499939e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What do you mean?",
+          "start": 0.02,
+          "end": 0.94,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " do",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " you",
+              "start": 0.64,
+              "end": 0.72,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " mean?",
+              "start": 0.72,
+              "end": 0.94,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "do",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "you",
+          "start": 0.64,
+          "end": 0.72
+        },
+        {
+          "raw": "mean?",
+          "start": 0.72,
+          "end": 0.94
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "do",
+        "you",
+        "mean?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "do",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "you",
+          "start": 0.64,
+          "end": 0.72
+        },
+        {
+          "text": "mean?",
+          "start": 0.72,
+          "end": 0.94
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08583448827266693
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e3ded5e14a01fd51672af7248dd70e6ac4d6bab0e6af221d18dcd3d62cd14413",
+  "selected_reasons": []
+}

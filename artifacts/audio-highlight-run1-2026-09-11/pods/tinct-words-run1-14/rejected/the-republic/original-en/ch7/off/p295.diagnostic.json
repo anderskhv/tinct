@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "a327fcbb28a9feb5458238ff5d30c2d78c35ea465a1ce3c4093236c6721b6ca1",
+  "attempts": [
+    {
+      "asr_seconds": 0.08899756520986557,
+      "alignment_seconds": 5.7794153690338135e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " to be sure.",
+          "start": 0.02,
+          "end": 0.86,
+          "words": [
+            {
+              "text": " to",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.5
+            },
+            {
+              "text": " be",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sure.",
+              "start": 0.58,
+              "end": 0.86,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "to",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "be",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "sure.",
+          "start": 0.58,
+          "end": 0.86
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "be",
+        "sure."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "be",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "sure.",
+          "start": 0.58,
+          "end": 0.86
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08907703310251236
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "864cd1d04ca22bd5c303727fb9c57613a140546a31dc423fb6ff13517baa0e23",
+  "selected_reasons": []
+}

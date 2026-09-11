@@ -1,0 +1,342 @@
+{
+  "complete": true,
+  "signature": "0d147c4f8bf45b5451ced5ac696d245977d9851a63d4b58e15ba9f43c7a58921",
+  "attempts": [
+    {
+      "asr_seconds": 0.136201910674572,
+      "alignment_seconds": 0.00010037422180175781,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then he can hardly be compelled by external influence to take many shapes?",
+        "hotwords": "Then"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then he can hardly be compelled by external influence to take many shapes?",
+          "start": 0.05,
+          "end": 4.37,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.05,
+              "end": 0.61,
+              "probability": 0.8466796875
+            },
+            {
+              "text": " he",
+              "start": 0.61,
+              "end": 0.83,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " can",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " hardly",
+              "start": 0.97,
+              "end": 1.23,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " be",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " compelled",
+              "start": 1.49,
+              "end": 1.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " by",
+              "start": 1.89,
+              "end": 2.29,
+              "probability": 0.994140625
+            },
+            {
+              "text": " external",
+              "start": 2.29,
+              "end": 2.69,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " influence",
+              "start": 2.69,
+              "end": 3.29,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " to",
+              "start": 3.29,
+              "end": 3.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " take",
+              "start": 3.59,
+              "end": 3.77,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " many",
+              "start": 3.77,
+              "end": 3.95,
+              "probability": 0.998046875
+            },
+            {
+              "text": " shapes?",
+              "start": 3.95,
+              "end": 4.37,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "raw": "he",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "raw": "can",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "hardly",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "raw": "be",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "compelled",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "raw": "by",
+          "start": 1.89,
+          "end": 2.29
+        },
+        {
+          "raw": "external",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "raw": "influence",
+          "start": 2.69,
+          "end": 3.29
+        },
+        {
+          "raw": "to",
+          "start": 3.29,
+          "end": 3.59
+        },
+        {
+          "raw": "take",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "raw": "many",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "raw": "shapes?",
+          "start": 3.95,
+          "end": 4.37
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "he",
+        "can",
+        "hardly",
+        "be",
+        "compelled",
+        "by",
+        "external",
+        "influence",
+        "to",
+        "take",
+        "many",
+        "shapes?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.05,
+          "end": 0.61
+        },
+        {
+          "text": "he",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "text": "can",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "hardly",
+          "start": 0.97,
+          "end": 1.23
+        },
+        {
+          "text": "be",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "compelled",
+          "start": 1.49,
+          "end": 1.89
+        },
+        {
+          "text": "by",
+          "start": 1.89,
+          "end": 2.29
+        },
+        {
+          "text": "external",
+          "start": 2.29,
+          "end": 2.69
+        },
+        {
+          "text": "influence",
+          "start": 2.69,
+          "end": 3.29
+        },
+        {
+          "text": "to",
+          "start": 3.29,
+          "end": 3.59
+        },
+        {
+          "text": "take",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "text": "many",
+          "start": 3.77,
+          "end": 3.95
+        },
+        {
+          "text": "shapes?",
+          "start": 3.95,
+          "end": 4.37
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13635355979204178
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "53bef7e4cbdf52a4a74e66df084ba15fbe6209a0a136af30c54f3249643b0c0e",
+  "selected_reasons": []
+}

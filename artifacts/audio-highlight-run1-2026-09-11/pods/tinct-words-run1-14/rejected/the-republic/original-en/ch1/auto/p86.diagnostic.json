@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "1d4db2b9be7dce3bae94aac174e41917d4484c90c4095288004b9c5a9c8f333b",
+  "attempts": [
+    {
+      "asr_seconds": 0.08388441056013107,
+      "alignment_seconds": 6.593018770217896e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Quite the reverse.",
+        "hotwords": "Quite"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Quite the reverse.",
+          "start": 0.05,
+          "end": 1.01,
+          "words": [
+            {
+              "text": " Quite",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.67919921875
+            },
+            {
+              "text": " the",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.99609375
+            },
+            {
+              "text": " reverse.",
+              "start": 0.71,
+              "end": 1.01,
+              "probability": 0.958984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quite",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "the",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "reverse.",
+          "start": 0.71,
+          "end": 1.01
+        }
+      ],
+      "expected_tokens": [
+        "Quite",
+        "the",
+        "reverse."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Quite",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "the",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "reverse.",
+          "start": 0.71,
+          "end": 1.01
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08397537469863892
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a539f3e4a00ac89d982062a6a18b804a40030a941731db2a4ea0187b87fe9325",
+  "selected_reasons": []
+}

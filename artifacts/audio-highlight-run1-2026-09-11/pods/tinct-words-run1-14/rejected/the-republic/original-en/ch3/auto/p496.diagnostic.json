@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "29265deede83f5f82fe7bbd1981f2d011f9f84ebfd3faf74c0b1575b46fe1dbc",
+  "attempts": [
+    {
+      "asr_seconds": 0.09620875865221024,
+      "alignment_seconds": 5.81592321395874e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, said Glaucon.",
+        "hotwords": "Yes, Glaucon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, said Glaucon.",
+          "start": 0.02,
+          "end": 1.44,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.72,
+              "probability": 0.10638427734375
+            },
+            {
+              "text": " said",
+              "start": 0.8,
+              "end": 1.02,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " Glaucon.",
+              "start": 1.02,
+              "end": 1.44,
+              "probability": 0.4789225260416667
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "raw": "said",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "raw": "Glaucon.",
+          "start": 1.02,
+          "end": 1.44
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "said",
+        "Glaucon."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.72
+        },
+        {
+          "text": "said",
+          "start": 0.8,
+          "end": 1.02
+        },
+        {
+          "text": "Glaucon.",
+          "start": 1.02,
+          "end": 1.44
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09628906100988388
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c72ff9d04de62a2e759cc06f4af8ce0622d1f41a6dae48baf9129984536aa011",
+  "selected_reasons": []
+}

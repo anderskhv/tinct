@@ -1,0 +1,241 @@
+{
+  "complete": true,
+  "signature": "8aded6c66b42ba5233fa852250f4bdb24a1b4cff4530a22ca74cc255fe65ad7f",
+  "attempts": [
+    {
+      "asr_seconds": 0.15846654027700424,
+      "alignment_seconds": 9.807944297790527e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But they are well-educated already,\" he replied.",
+          "start": 0.11,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.11,
+              "end": 0.47,
+              "probability": 0.364013671875
+            },
+            {
+              "text": " they",
+              "start": 0.47,
+              "end": 0.59,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " are",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.994140625
+            },
+            {
+              "text": " well",
+              "start": 0.73,
+              "end": 0.93,
+              "probability": 0.99658203125
+            },
+            {
+              "text": "-educated",
+              "start": 0.93,
+              "end": 1.27,
+              "probability": 0.81103515625
+            },
+            {
+              "text": " already,\"",
+              "start": 1.27,
+              "end": 2.05,
+              "probability": 0.694580078125
+            },
+            {
+              "text": " he",
+              "start": 2.05,
+              "end": 2.21,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " replied.",
+              "start": 2.21,
+              "end": 2.55,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.11,
+          "end": 0.47
+        },
+        {
+          "raw": "they",
+          "start": 0.47,
+          "end": 0.59
+        },
+        {
+          "raw": "are",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "well",
+          "start": 0.73,
+          "end": 0.93
+        },
+        {
+          "raw": "-educated",
+          "start": 0.93,
+          "end": 1.27
+        },
+        {
+          "raw": "already,\"",
+          "start": 1.27,
+          "end": 2.05
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "raw": "replied.",
+          "start": 2.21,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "they",
+        "are",
+        "well-educated",
+        "already,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ],
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ],
+        [
+          "equal",
+          4,
+          7,
+          5,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          3,
+          4,
+          3,
+          5
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.11,
+          "end": 0.47
+        },
+        {
+          "text": "they",
+          "start": 0.47,
+          "end": 0.59
+        },
+        {
+          "text": "are",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "well-educated",
+          "start": 0.73,
+          "end": 1.0
+        },
+        {
+          "text": "already,",
+          "start": 1.27,
+          "end": 2.05
+        },
+        {
+          "text": "he",
+          "start": 2.05,
+          "end": 2.21
+        },
+        {
+          "text": "replied.",
+          "start": 2.21,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 8,
+        "matched_words": 6
+      },
+      "match_ratio": 0.8571428571428571,
+      "rejection_reasons": [],
+      "seconds": 0.15860220789909363
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4ed6a2017096487f43ed160e3fa44a379ed6be2aac59b4188bb27d503cbeeb0c",
+  "selected_reasons": []
+}

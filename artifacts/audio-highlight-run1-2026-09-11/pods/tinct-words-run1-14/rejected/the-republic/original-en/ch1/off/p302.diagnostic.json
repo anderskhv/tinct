@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "8037842427eb631c319030b44b5abdaf276708bdf8993758a7a98eca4421128c",
+  "attempts": [
+    {
+      "asr_seconds": 0.08001115918159485,
+      "alignment_seconds": 5.80325722694397e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " True, he replied.",
+          "start": 0.08,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " True,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.84228515625
+            },
+            {
+              "text": " he",
+              "start": 0.88,
+              "end": 0.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " replied.",
+              "start": 0.9,
+              "end": 1.26,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "he",
+          "start": 0.88,
+          "end": 0.9
+        },
+        {
+          "raw": "replied.",
+          "start": 0.9,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "True,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "True,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "he",
+          "start": 0.88,
+          "end": 0.9
+        },
+        {
+          "text": "replied.",
+          "start": 0.9,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08009205013513565
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7907fdd5a12862d2e4e40440b7fdf41d3bef240134317ebef31d1104a5e08ac0",
+  "selected_reasons": []
+}

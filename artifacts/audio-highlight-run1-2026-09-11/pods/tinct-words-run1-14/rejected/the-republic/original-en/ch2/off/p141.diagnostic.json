@@ -1,0 +1,318 @@
+{
+  "complete": true,
+  "signature": "237599aab1b9537232fc0c885b6e28ee1b22ac8685610aa1f871462ed90ca872",
+  "attempts": [
+    {
+      "asr_seconds": 0.12724334746599197,
+      "alignment_seconds": 9.031593799591064e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And so we shall go to war, Glocken, shall we not?",
+          "start": 0.05,
+          "end": 2.93,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.75
+            },
+            {
+              "text": " so",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " we",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " shall",
+              "start": 0.83,
+              "end": 0.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " go",
+              "start": 0.95,
+              "end": 1.11,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " to",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " war,",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.94873046875
+            },
+            {
+              "text": " Glocken,",
+              "start": 1.73,
+              "end": 2.07,
+              "probability": 0.5459391276041666
+            },
+            {
+              "text": " shall",
+              "start": 2.41,
+              "end": 2.53,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " we",
+              "start": 2.53,
+              "end": 2.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " not?",
+              "start": 2.67,
+              "end": 2.93,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "so",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "we",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "shall",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "raw": "go",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "raw": "to",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "war,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "Glocken,",
+          "start": 1.73,
+          "end": 2.07
+        },
+        {
+          "raw": "shall",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "raw": "we",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "raw": "not?",
+          "start": 2.67,
+          "end": 2.93
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "so",
+        "we",
+        "shall",
+        "go",
+        "to",
+        "war,",
+        "Glaucon.",
+        "Shall",
+        "we",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ],
+        [
+          "equal",
+          8,
+          11,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          7,
+          8,
+          7,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "so",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "we",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "shall",
+          "start": 0.83,
+          "end": 0.95
+        },
+        {
+          "text": "go",
+          "start": 0.95,
+          "end": 1.11
+        },
+        {
+          "text": "to",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "war,",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "Glaucon.",
+          "start": 1.49,
+          "end": 1.95
+        },
+        {
+          "text": "Shall",
+          "start": 2.41,
+          "end": 2.53
+        },
+        {
+          "text": "we",
+          "start": 2.53,
+          "end": 2.67
+        },
+        {
+          "text": "not?",
+          "start": 2.67,
+          "end": 2.93
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 10
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.12736982107162476
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a7215687e71da168516586ef7920bd87d840e73c1ea4db00000c4bf1dd410894",
+  "selected_reasons": []
+}

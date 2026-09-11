@@ -1,0 +1,298 @@
+{
+  "complete": true,
+  "signature": "481a8e196e0edc339e5a24dc608e50b6ad7004ff00894a380a7cdbba617d30bc",
+  "attempts": [
+    {
+      "asr_seconds": 0.19227609783411026,
+      "alignment_seconds": 9.936094284057617e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'Sons of Ariston,' he sang, 'divine offspring of an illustrious hero.'",
+        "hotwords": "Sons, Ariston"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Sons of Ariston, he sang, divine offspring of an illustrious hero.",
+          "start": 0.11,
+          "end": 4.61,
+          "words": [
+            {
+              "text": " Sons",
+              "start": 0.11,
+              "end": 0.65,
+              "probability": 0.340087890625
+            },
+            {
+              "text": " of",
+              "start": 0.65,
+              "end": 0.81,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Ariston,",
+              "start": 0.81,
+              "end": 1.53,
+              "probability": 0.191680908203125
+            },
+            {
+              "text": " he",
+              "start": 1.71,
+              "end": 1.81,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " sang,",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " divine",
+              "start": 2.89,
+              "end": 2.95,
+              "probability": 0.75
+            },
+            {
+              "text": " offspring",
+              "start": 2.95,
+              "end": 3.49,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 3.49,
+              "end": 3.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " an",
+              "start": 3.69,
+              "end": 3.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " illustrious",
+              "start": 3.77,
+              "end": 4.19,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " hero.",
+              "start": 4.19,
+              "end": 4.61,
+              "probability": 0.9560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Sons",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "raw": "of",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "raw": "Ariston,",
+          "start": 0.81,
+          "end": 1.53
+        },
+        {
+          "raw": "he",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "raw": "sang,",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "raw": "divine",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "raw": "offspring",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "raw": "of",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "raw": "an",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "raw": "illustrious",
+          "start": 3.77,
+          "end": 4.19
+        },
+        {
+          "raw": "hero.",
+          "start": 4.19,
+          "end": 4.61
+        }
+      ],
+      "expected_tokens": [
+        "'Sons",
+        "of",
+        "Ariston,'",
+        "he",
+        "sang,",
+        "'divine",
+        "offspring",
+        "of",
+        "an",
+        "illustrious",
+        "hero.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'Sons",
+          "start": 0.11,
+          "end": 0.65
+        },
+        {
+          "text": "of",
+          "start": 0.65,
+          "end": 0.81
+        },
+        {
+          "text": "Ariston,'",
+          "start": 0.81,
+          "end": 1.53
+        },
+        {
+          "text": "he",
+          "start": 1.71,
+          "end": 1.81
+        },
+        {
+          "text": "sang,",
+          "start": 1.81,
+          "end": 2.15
+        },
+        {
+          "text": "'divine",
+          "start": 2.89,
+          "end": 2.95
+        },
+        {
+          "text": "offspring",
+          "start": 2.95,
+          "end": 3.49
+        },
+        {
+          "text": "of",
+          "start": 3.49,
+          "end": 3.69
+        },
+        {
+          "text": "an",
+          "start": 3.69,
+          "end": 3.77
+        },
+        {
+          "text": "illustrious",
+          "start": 3.77,
+          "end": 4.19
+        },
+        {
+          "text": "hero.'",
+          "start": 4.19,
+          "end": 4.61
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.192420594394207
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "4fde030b15a8d126b7d3a18ede4bd673c97e324b2ae78fe3bd0715265ee31413",
+  "selected_reasons": []
+}

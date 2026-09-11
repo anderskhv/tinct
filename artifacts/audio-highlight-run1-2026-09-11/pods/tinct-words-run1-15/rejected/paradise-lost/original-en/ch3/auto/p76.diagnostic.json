@@ -1,0 +1,5917 @@
+{
+  "complete": true,
+  "signature": "d74139bf119d406c8804d83c04e598d97884a40c46c08d17b4ade58588b11fae",
+  "attempts": [
+    {
+      "asr_seconds": 1.276141844689846,
+      "alignment_seconds": 0.0006373599171638489,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Here matter new to gaze the Devil met Undazzled; far and wide his eye commands; For sight no obstacle found here, nor shade, But all sun-shine, as when his beams at noon Culminate from the equator, as they now Shot upward still direct, whence no way round Shadow from body opaque can fall; and the air, No where so clear, sharpened his visual ray To objects distant far, whereby he soon Saw within ken a glorious Angel stand, The same whom John saw also in the sun:",
+        "hotwords": "Devil, Undazzled, For, But, Culminate, Shot, Shadow, Angel, John"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " For sight no obstacle found here, nor shade, But all sun-shine, as when his beams at noon Culminate from the equator, As they now Shot upward still direct, whence no way round Shadow from body opaque can fall, And the air, No where so clear, sharpened his visual ray To objects distant far, whereby he soon Saw within ken a glorious Angel stand, The same whom John saw also in the sun.",
+          "start": 4.57,
+          "end": 28.75,
+          "words": [
+            {
+              "text": " For",
+              "start": 4.57,
+              "end": 5.13,
+              "probability": 0.0009326934814453125
+            },
+            {
+              "text": " sight",
+              "start": 5.13,
+              "end": 5.69,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " no",
+              "start": 5.69,
+              "end": 5.97,
+              "probability": 0.966796875
+            },
+            {
+              "text": " obstacle",
+              "start": 5.97,
+              "end": 6.43,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " found",
+              "start": 6.43,
+              "end": 6.79,
+              "probability": 0.98828125
+            },
+            {
+              "text": " here,",
+              "start": 6.79,
+              "end": 7.17,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " nor",
+              "start": 7.45,
+              "end": 7.53,
+              "probability": 0.701171875
+            },
+            {
+              "text": " shade,",
+              "start": 7.53,
+              "end": 7.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " But",
+              "start": 8.29,
+              "end": 8.37,
+              "probability": 0.2017822265625
+            },
+            {
+              "text": " all",
+              "start": 8.37,
+              "end": 8.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sun",
+              "start": 8.53,
+              "end": 8.79,
+              "probability": 0.0748291015625
+            },
+            {
+              "text": "-shine,",
+              "start": 8.79,
+              "end": 9.15,
+              "probability": 0.62646484375
+            },
+            {
+              "text": " as",
+              "start": 9.49,
+              "end": 9.63,
+              "probability": 0.80322265625
+            },
+            {
+              "text": " when",
+              "start": 9.63,
+              "end": 9.77,
+              "probability": 0.98828125
+            },
+            {
+              "text": " his",
+              "start": 9.77,
+              "end": 9.91,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " beams",
+              "start": 9.91,
+              "end": 10.17,
+              "probability": 0.986328125
+            },
+            {
+              "text": " at",
+              "start": 10.17,
+              "end": 10.33,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " noon",
+              "start": 10.33,
+              "end": 10.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " Culminate",
+              "start": 10.51,
+              "end": 11.09,
+              "probability": 0.6912434895833334
+            },
+            {
+              "text": " from",
+              "start": 11.09,
+              "end": 11.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 11.25,
+              "end": 11.35,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " equator,",
+              "start": 11.35,
+              "end": 11.75,
+              "probability": 0.9296875
+            },
+            {
+              "text": " As",
+              "start": 12.19,
+              "end": 12.31,
+              "probability": 0.4052734375
+            },
+            {
+              "text": " they",
+              "start": 12.31,
+              "end": 12.45,
+              "probability": 0.9921875
+            },
+            {
+              "text": " now",
+              "start": 12.45,
+              "end": 12.65,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " Shot",
+              "start": 12.65,
+              "end": 12.93,
+              "probability": 8.285045623779297e-05
+            },
+            {
+              "text": " upward",
+              "start": 12.93,
+              "end": 13.23,
+              "probability": 0.61279296875
+            },
+            {
+              "text": " still",
+              "start": 13.23,
+              "end": 13.53,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " direct,",
+              "start": 13.53,
+              "end": 13.97,
+              "probability": 0.98828125
+            },
+            {
+              "text": " whence",
+              "start": 14.53,
+              "end": 14.63,
+              "probability": 0.955078125
+            },
+            {
+              "text": " no",
+              "start": 14.63,
+              "end": 14.85,
+              "probability": 0.94921875
+            },
+            {
+              "text": " way",
+              "start": 14.85,
+              "end": 15.07,
+              "probability": 0.875
+            },
+            {
+              "text": " round",
+              "start": 15.07,
+              "end": 15.31,
+              "probability": 0.12322998046875
+            },
+            {
+              "text": " Shadow",
+              "start": 15.31,
+              "end": 15.65,
+              "probability": 0.3701171875
+            },
+            {
+              "text": " from",
+              "start": 15.65,
+              "end": 15.95,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " body",
+              "start": 15.95,
+              "end": 16.21,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " opaque",
+              "start": 16.21,
+              "end": 16.51,
+              "probability": 0.50830078125
+            },
+            {
+              "text": " can",
+              "start": 16.51,
+              "end": 16.77,
+              "probability": 0.787109375
+            },
+            {
+              "text": " fall,",
+              "start": 16.77,
+              "end": 17.09,
+              "probability": 0.9921875
+            },
+            {
+              "text": " And",
+              "start": 17.75,
+              "end": 17.91,
+              "probability": 0.93310546875
+            },
+            {
+              "text": " the",
+              "start": 17.91,
+              "end": 18.05,
+              "probability": 0.98828125
+            },
+            {
+              "text": " air,",
+              "start": 18.05,
+              "end": 18.33,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " No",
+              "start": 18.65,
+              "end": 18.79,
+              "probability": 0.001018524169921875
+            },
+            {
+              "text": " where",
+              "start": 18.79,
+              "end": 18.93,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " so",
+              "start": 18.93,
+              "end": 19.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " clear,",
+              "start": 19.19,
+              "end": 19.61,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sharpened",
+              "start": 20.05,
+              "end": 20.33,
+              "probability": 0.876953125
+            },
+            {
+              "text": " his",
+              "start": 20.33,
+              "end": 20.45,
+              "probability": 0.77392578125
+            },
+            {
+              "text": " visual",
+              "start": 20.45,
+              "end": 20.79,
+              "probability": 0.82080078125
+            },
+            {
+              "text": " ray",
+              "start": 20.79,
+              "end": 21.09,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " To",
+              "start": 21.09,
+              "end": 21.33,
+              "probability": 0.82421875
+            },
+            {
+              "text": " objects",
+              "start": 21.33,
+              "end": 21.67,
+              "probability": 0.3515625
+            },
+            {
+              "text": " distant",
+              "start": 21.67,
+              "end": 22.11,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " far,",
+              "start": 22.11,
+              "end": 22.55,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " whereby",
+              "start": 23.05,
+              "end": 23.19,
+              "probability": 0.9140625
+            },
+            {
+              "text": " he",
+              "start": 23.19,
+              "end": 23.51,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " soon",
+              "start": 23.51,
+              "end": 23.71,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " Saw",
+              "start": 23.71,
+              "end": 23.99,
+              "probability": 0.1708984375
+            },
+            {
+              "text": " within",
+              "start": 23.99,
+              "end": 24.27,
+              "probability": 0.9384765625
+            },
+            {
+              "text": " ken",
+              "start": 24.27,
+              "end": 24.55,
+              "probability": 0.522705078125
+            },
+            {
+              "text": " a",
+              "start": 24.55,
+              "end": 24.75,
+              "probability": 0.83837890625
+            },
+            {
+              "text": " glorious",
+              "start": 24.75,
+              "end": 25.19,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Angel",
+              "start": 25.19,
+              "end": 25.63,
+              "probability": 0.07275390625
+            },
+            {
+              "text": " stand,",
+              "start": 25.63,
+              "end": 26.13,
+              "probability": 0.849609375
+            },
+            {
+              "text": " The",
+              "start": 26.53,
+              "end": 26.71,
+              "probability": 0.68115234375
+            },
+            {
+              "text": " same",
+              "start": 26.71,
+              "end": 27.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whom",
+              "start": 27.01,
+              "end": 27.25,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " John",
+              "start": 27.25,
+              "end": 27.57,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " saw",
+              "start": 27.57,
+              "end": 27.85,
+              "probability": 0.96337890625
+            },
+            {
+              "text": " also",
+              "start": 27.85,
+              "end": 28.21,
+              "probability": 0.986328125
+            },
+            {
+              "text": " in",
+              "start": 28.21,
+              "end": 28.37,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " the",
+              "start": 28.37,
+              "end": 28.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sun.",
+              "start": 28.51,
+              "end": 28.75,
+              "probability": 0.96533203125
+            }
+          ]
+        },
+        {
+          "text": " Subs by www.zeoranger.co.uk",
+          "start": 28.75,
+          "end": 29.45,
+          "words": [
+            {
+              "text": " Subs",
+              "start": 28.75,
+              "end": 29.45,
+              "probability": 0.25993430614471436
+            },
+            {
+              "text": " by",
+              "start": 29.45,
+              "end": 29.45,
+              "probability": 0.95263671875
+            },
+            {
+              "text": " www",
+              "start": 29.45,
+              "end": 29.45,
+              "probability": 0.34130859375
+            },
+            {
+              "text": ".zeoranger",
+              "start": 29.45,
+              "end": 29.45,
+              "probability": 0.974365234375
+            },
+            {
+              "text": ".co",
+              "start": 29.45,
+              "end": 29.45,
+              "probability": 0.989013671875
+            },
+            {
+              "text": ".uk",
+              "start": 29.45,
+              "end": 29.45,
+              "probability": 0.992431640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "For",
+          "start": 4.57,
+          "end": 5.13
+        },
+        {
+          "raw": "sight",
+          "start": 5.13,
+          "end": 5.69
+        },
+        {
+          "raw": "no",
+          "start": 5.69,
+          "end": 5.97
+        },
+        {
+          "raw": "obstacle",
+          "start": 5.97,
+          "end": 6.43
+        },
+        {
+          "raw": "found",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "raw": "here,",
+          "start": 6.79,
+          "end": 7.17
+        },
+        {
+          "raw": "nor",
+          "start": 7.45,
+          "end": 7.53
+        },
+        {
+          "raw": "shade,",
+          "start": 7.53,
+          "end": 7.95
+        },
+        {
+          "raw": "But",
+          "start": 8.29,
+          "end": 8.37
+        },
+        {
+          "raw": "all",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "raw": "sun",
+          "start": 8.53,
+          "end": 8.79
+        },
+        {
+          "raw": "-shine,",
+          "start": 8.79,
+          "end": 9.15
+        },
+        {
+          "raw": "as",
+          "start": 9.49,
+          "end": 9.63
+        },
+        {
+          "raw": "when",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "raw": "his",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "raw": "beams",
+          "start": 9.91,
+          "end": 10.17
+        },
+        {
+          "raw": "at",
+          "start": 10.17,
+          "end": 10.33
+        },
+        {
+          "raw": "noon",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "raw": "Culminate",
+          "start": 10.51,
+          "end": 11.09
+        },
+        {
+          "raw": "from",
+          "start": 11.09,
+          "end": 11.25
+        },
+        {
+          "raw": "the",
+          "start": 11.25,
+          "end": 11.35
+        },
+        {
+          "raw": "equator,",
+          "start": 11.35,
+          "end": 11.75
+        },
+        {
+          "raw": "As",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "raw": "they",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "raw": "now",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "raw": "Shot",
+          "start": 12.65,
+          "end": 12.93
+        },
+        {
+          "raw": "upward",
+          "start": 12.93,
+          "end": 13.23
+        },
+        {
+          "raw": "still",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "raw": "direct,",
+          "start": 13.53,
+          "end": 13.97
+        },
+        {
+          "raw": "whence",
+          "start": 14.53,
+          "end": 14.63
+        },
+        {
+          "raw": "no",
+          "start": 14.63,
+          "end": 14.85
+        },
+        {
+          "raw": "way",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "raw": "round",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "raw": "Shadow",
+          "start": 15.31,
+          "end": 15.65
+        },
+        {
+          "raw": "from",
+          "start": 15.65,
+          "end": 15.95
+        },
+        {
+          "raw": "body",
+          "start": 15.95,
+          "end": 16.21
+        },
+        {
+          "raw": "opaque",
+          "start": 16.21,
+          "end": 16.51
+        },
+        {
+          "raw": "can",
+          "start": 16.51,
+          "end": 16.77
+        },
+        {
+          "raw": "fall,",
+          "start": 16.77,
+          "end": 17.09
+        },
+        {
+          "raw": "And",
+          "start": 17.75,
+          "end": 17.91
+        },
+        {
+          "raw": "the",
+          "start": 17.91,
+          "end": 18.05
+        },
+        {
+          "raw": "air,",
+          "start": 18.05,
+          "end": 18.33
+        },
+        {
+          "raw": "No",
+          "start": 18.65,
+          "end": 18.79
+        },
+        {
+          "raw": "where",
+          "start": 18.79,
+          "end": 18.93
+        },
+        {
+          "raw": "so",
+          "start": 18.93,
+          "end": 19.19
+        },
+        {
+          "raw": "clear,",
+          "start": 19.19,
+          "end": 19.61
+        },
+        {
+          "raw": "sharpened",
+          "start": 20.05,
+          "end": 20.33
+        },
+        {
+          "raw": "his",
+          "start": 20.33,
+          "end": 20.45
+        },
+        {
+          "raw": "visual",
+          "start": 20.45,
+          "end": 20.79
+        },
+        {
+          "raw": "ray",
+          "start": 20.79,
+          "end": 21.09
+        },
+        {
+          "raw": "To",
+          "start": 21.09,
+          "end": 21.33
+        },
+        {
+          "raw": "objects",
+          "start": 21.33,
+          "end": 21.67
+        },
+        {
+          "raw": "distant",
+          "start": 21.67,
+          "end": 22.11
+        },
+        {
+          "raw": "far,",
+          "start": 22.11,
+          "end": 22.55
+        },
+        {
+          "raw": "whereby",
+          "start": 23.05,
+          "end": 23.19
+        },
+        {
+          "raw": "he",
+          "start": 23.19,
+          "end": 23.51
+        },
+        {
+          "raw": "soon",
+          "start": 23.51,
+          "end": 23.71
+        },
+        {
+          "raw": "Saw",
+          "start": 23.71,
+          "end": 23.99
+        },
+        {
+          "raw": "within",
+          "start": 23.99,
+          "end": 24.27
+        },
+        {
+          "raw": "ken",
+          "start": 24.27,
+          "end": 24.55
+        },
+        {
+          "raw": "a",
+          "start": 24.55,
+          "end": 24.75
+        },
+        {
+          "raw": "glorious",
+          "start": 24.75,
+          "end": 25.19
+        },
+        {
+          "raw": "Angel",
+          "start": 25.19,
+          "end": 25.63
+        },
+        {
+          "raw": "stand,",
+          "start": 25.63,
+          "end": 26.13
+        },
+        {
+          "raw": "The",
+          "start": 26.53,
+          "end": 26.71
+        },
+        {
+          "raw": "same",
+          "start": 26.71,
+          "end": 27.01
+        },
+        {
+          "raw": "whom",
+          "start": 27.01,
+          "end": 27.25
+        },
+        {
+          "raw": "John",
+          "start": 27.25,
+          "end": 27.57
+        },
+        {
+          "raw": "saw",
+          "start": 27.57,
+          "end": 27.85
+        },
+        {
+          "raw": "also",
+          "start": 27.85,
+          "end": 28.21
+        },
+        {
+          "raw": "in",
+          "start": 28.21,
+          "end": 28.37
+        },
+        {
+          "raw": "the",
+          "start": 28.37,
+          "end": 28.51
+        },
+        {
+          "raw": "sun.",
+          "start": 28.51,
+          "end": 28.75
+        },
+        {
+          "raw": "Subs",
+          "start": 28.75,
+          "end": 29.45
+        },
+        {
+          "raw": "by",
+          "start": 29.45,
+          "end": 29.45
+        },
+        {
+          "raw": "www",
+          "start": 29.45,
+          "end": 29.45
+        },
+        {
+          "raw": ".zeoranger",
+          "start": 29.45,
+          "end": 29.45
+        },
+        {
+          "raw": ".co",
+          "start": 29.45,
+          "end": 29.45
+        },
+        {
+          "raw": ".uk",
+          "start": 29.45,
+          "end": 29.45
+        }
+      ],
+      "expected_tokens": [
+        "Here",
+        "matter",
+        "new",
+        "to",
+        "gaze",
+        "the",
+        "Devil",
+        "met",
+        "Undazzled;",
+        "far",
+        "and",
+        "wide",
+        "his",
+        "eye",
+        "commands;",
+        "For",
+        "sight",
+        "no",
+        "obstacle",
+        "found",
+        "here,",
+        "nor",
+        "shade,",
+        "But",
+        "all",
+        "sun-shine,",
+        "as",
+        "when",
+        "his",
+        "beams",
+        "at",
+        "noon",
+        "Culminate",
+        "from",
+        "the",
+        "equator,",
+        "as",
+        "they",
+        "now",
+        "Shot",
+        "upward",
+        "still",
+        "direct,",
+        "whence",
+        "no",
+        "way",
+        "round",
+        "Shadow",
+        "from",
+        "body",
+        "opaque",
+        "can",
+        "fall;",
+        "and",
+        "the",
+        "air,",
+        "No",
+        "where",
+        "so",
+        "clear,",
+        "sharpened",
+        "his",
+        "visual",
+        "ray",
+        "To",
+        "objects",
+        "distant",
+        "far,",
+        "whereby",
+        "he",
+        "soon",
+        "Saw",
+        "within",
+        "ken",
+        "a",
+        "glorious",
+        "Angel",
+        "stand,",
+        "The",
+        "same",
+        "whom",
+        "John",
+        "saw",
+        "also",
+        "in",
+        "the",
+        "sun:"
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          "equal",
+          15,
+          25,
+          0,
+          10
+        ],
+        [
+          "replace",
+          25,
+          26,
+          10,
+          12
+        ],
+        [
+          "equal",
+          26,
+          87,
+          12,
+          73
+        ],
+        [
+          "insert",
+          87,
+          87,
+          73,
+          79
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 4,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 12,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 72
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          "replace",
+          25,
+          26,
+          10,
+          12
+        ],
+        [
+          "insert",
+          87,
+          87,
+          73,
+          79
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Here",
+          "start": 0.0,
+          "end": 2.285
+        },
+        {
+          "text": "matter",
+          "start": 2.285,
+          "end": 3.428
+        },
+        {
+          "text": "new",
+          "start": 3.428,
+          "end": 3.999
+        },
+        {
+          "text": "to",
+          "start": 3.999,
+          "end": 4.285
+        },
+        {
+          "text": "gaze",
+          "start": 4.285,
+          "end": 4.428
+        },
+        {
+          "text": "the",
+          "start": 4.428,
+          "end": 4.499
+        },
+        {
+          "text": "Devil",
+          "start": 4.499,
+          "end": 4.534
+        },
+        {
+          "text": "met",
+          "start": 4.534,
+          "end": 4.552
+        },
+        {
+          "text": "Undazzled;",
+          "start": 4.552,
+          "end": 4.561
+        },
+        {
+          "text": "far",
+          "start": 4.561,
+          "end": 4.566
+        },
+        {
+          "text": "and",
+          "start": 4.566,
+          "end": 4.568
+        },
+        {
+          "text": "wide",
+          "start": 4.568,
+          "end": 4.569
+        },
+        {
+          "text": "his",
+          "start": 4.569,
+          "end": 4.569
+        },
+        {
+          "text": "eye",
+          "start": 4.569,
+          "end": 4.569
+        },
+        {
+          "text": "commands;",
+          "start": 4.569,
+          "end": 4.569
+        },
+        {
+          "text": "For",
+          "start": 4.57,
+          "end": 5.13
+        },
+        {
+          "text": "sight",
+          "start": 5.13,
+          "end": 5.69
+        },
+        {
+          "text": "no",
+          "start": 5.69,
+          "end": 5.97
+        },
+        {
+          "text": "obstacle",
+          "start": 5.97,
+          "end": 6.43
+        },
+        {
+          "text": "found",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "text": "here,",
+          "start": 6.79,
+          "end": 7.17
+        },
+        {
+          "text": "nor",
+          "start": 7.45,
+          "end": 7.53
+        },
+        {
+          "text": "shade,",
+          "start": 7.53,
+          "end": 7.95
+        },
+        {
+          "text": "But",
+          "start": 8.29,
+          "end": 8.37
+        },
+        {
+          "text": "all",
+          "start": 8.37,
+          "end": 8.53
+        },
+        {
+          "text": "sun-shine,",
+          "start": 8.53,
+          "end": 9.01
+        },
+        {
+          "text": "as",
+          "start": 9.49,
+          "end": 9.63
+        },
+        {
+          "text": "when",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "text": "his",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "text": "beams",
+          "start": 9.91,
+          "end": 10.17
+        },
+        {
+          "text": "at",
+          "start": 10.17,
+          "end": 10.33
+        },
+        {
+          "text": "noon",
+          "start": 10.33,
+          "end": 10.51
+        },
+        {
+          "text": "Culminate",
+          "start": 10.51,
+          "end": 11.09
+        },
+        {
+          "text": "from",
+          "start": 11.09,
+          "end": 11.25
+        },
+        {
+          "text": "the",
+          "start": 11.25,
+          "end": 11.35
+        },
+        {
+          "text": "equator,",
+          "start": 11.35,
+          "end": 11.75
+        },
+        {
+          "text": "as",
+          "start": 12.19,
+          "end": 12.31
+        },
+        {
+          "text": "they",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "text": "now",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "text": "Shot",
+          "start": 12.65,
+          "end": 12.93
+        },
+        {
+          "text": "upward",
+          "start": 12.93,
+          "end": 13.23
+        },
+        {
+          "text": "still",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "text": "direct,",
+          "start": 13.53,
+          "end": 13.97
+        },
+        {
+          "text": "whence",
+          "start": 14.53,
+          "end": 14.63
+        },
+        {
+          "text": "no",
+          "start": 14.63,
+          "end": 14.85
+        },
+        {
+          "text": "way",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "text": "round",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "text": "Shadow",
+          "start": 15.31,
+          "end": 15.65
+        },
+        {
+          "text": "from",
+          "start": 15.65,
+          "end": 15.95
+        },
+        {
+          "text": "body",
+          "start": 15.95,
+          "end": 16.21
+        },
+        {
+          "text": "opaque",
+          "start": 16.21,
+          "end": 16.51
+        },
+        {
+          "text": "can",
+          "start": 16.51,
+          "end": 16.77
+        },
+        {
+          "text": "fall;",
+          "start": 16.77,
+          "end": 17.09
+        },
+        {
+          "text": "and",
+          "start": 17.75,
+          "end": 17.91
+        },
+        {
+          "text": "the",
+          "start": 17.91,
+          "end": 18.05
+        },
+        {
+          "text": "air,",
+          "start": 18.05,
+          "end": 18.33
+        },
+        {
+          "text": "No",
+          "start": 18.65,
+          "end": 18.79
+        },
+        {
+          "text": "where",
+          "start": 18.79,
+          "end": 18.93
+        },
+        {
+          "text": "so",
+          "start": 18.93,
+          "end": 19.19
+        },
+        {
+          "text": "clear,",
+          "start": 19.19,
+          "end": 19.61
+        },
+        {
+          "text": "sharpened",
+          "start": 20.05,
+          "end": 20.33
+        },
+        {
+          "text": "his",
+          "start": 20.33,
+          "end": 20.45
+        },
+        {
+          "text": "visual",
+          "start": 20.45,
+          "end": 20.79
+        },
+        {
+          "text": "ray",
+          "start": 20.79,
+          "end": 21.09
+        },
+        {
+          "text": "To",
+          "start": 21.09,
+          "end": 21.33
+        },
+        {
+          "text": "objects",
+          "start": 21.33,
+          "end": 21.67
+        },
+        {
+          "text": "distant",
+          "start": 21.67,
+          "end": 22.11
+        },
+        {
+          "text": "far,",
+          "start": 22.11,
+          "end": 22.55
+        },
+        {
+          "text": "whereby",
+          "start": 23.05,
+          "end": 23.19
+        },
+        {
+          "text": "he",
+          "start": 23.19,
+          "end": 23.51
+        },
+        {
+          "text": "soon",
+          "start": 23.51,
+          "end": 23.71
+        },
+        {
+          "text": "Saw",
+          "start": 23.71,
+          "end": 23.99
+        },
+        {
+          "text": "within",
+          "start": 23.99,
+          "end": 24.27
+        },
+        {
+          "text": "ken",
+          "start": 24.27,
+          "end": 24.55
+        },
+        {
+          "text": "a",
+          "start": 24.55,
+          "end": 24.75
+        },
+        {
+          "text": "glorious",
+          "start": 24.75,
+          "end": 25.19
+        },
+        {
+          "text": "Angel",
+          "start": 25.19,
+          "end": 25.63
+        },
+        {
+          "text": "stand,",
+          "start": 25.63,
+          "end": 26.13
+        },
+        {
+          "text": "The",
+          "start": 26.53,
+          "end": 26.71
+        },
+        {
+          "text": "same",
+          "start": 26.71,
+          "end": 27.01
+        },
+        {
+          "text": "whom",
+          "start": 27.01,
+          "end": 27.25
+        },
+        {
+          "text": "John",
+          "start": 27.25,
+          "end": 27.57
+        },
+        {
+          "text": "saw",
+          "start": 27.57,
+          "end": 27.85
+        },
+        {
+          "text": "also",
+          "start": 27.85,
+          "end": 28.21
+        },
+        {
+          "text": "in",
+          "start": 28.21,
+          "end": 28.37
+        },
+        {
+          "text": "the",
+          "start": 28.37,
+          "end": 28.51
+        },
+        {
+          "text": "sun:",
+          "start": 28.51,
+          "end": 28.75
+        }
+      ],
+      "stats": {
+        "expected_words": 87,
+        "heard_words": 79,
+        "matched_words": 71
+      },
+      "match_ratio": 0.8160919540229885,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 1.2771512791514397
+    },
+    {
+      "asr_seconds": 0.5415039286017418,
+      "alignment_seconds": 0.0005292370915412903,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Devil, Undazzled, For, But, Culminate, Shot, Shadow, Angel, John"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Here matter new to gaze the devil met undazzled, Far and wide his eye commands, For sight no obstacle found here, Nor shade, but all sunshine, As when his beams at noon culminate from the equator, As they now shot upward still direct, Whence no way round shadow from body opaque can fall, And the air, nowhere so clear, Sharpened his visual ray to object's distant far, Whereby he soon saw within Ken a glorious angel stand, The same whom John saw also in the sun.",
+          "start": 0.05,
+          "end": 28.73,
+          "words": [
+            {
+              "text": " Here",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.802734375
+            },
+            {
+              "text": " matter",
+              "start": 0.57,
+              "end": 0.81,
+              "probability": 0.4638671875
+            },
+            {
+              "text": " new",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.50732421875
+            },
+            {
+              "text": " to",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " gaze",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.87109375
+            },
+            {
+              "text": " the",
+              "start": 1.37,
+              "end": 1.59,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " devil",
+              "start": 1.59,
+              "end": 1.89,
+              "probability": 0.8935546875
+            },
+            {
+              "text": " met",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " undazzled,",
+              "start": 2.15,
+              "end": 2.89,
+              "probability": 0.9129231770833334
+            },
+            {
+              "text": " Far",
+              "start": 3.57,
+              "end": 3.57,
+              "probability": 0.302001953125
+            },
+            {
+              "text": " and",
+              "start": 3.57,
+              "end": 3.77,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " wide",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " his",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " eye",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " commands,",
+              "start": 4.35,
+              "end": 4.83,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " For",
+              "start": 5.35,
+              "end": 5.51,
+              "probability": 0.81689453125
+            },
+            {
+              "text": " sight",
+              "start": 5.51,
+              "end": 5.71,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " no",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " obstacle",
+              "start": 5.97,
+              "end": 6.41,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " found",
+              "start": 6.41,
+              "end": 6.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " here,",
+              "start": 6.77,
+              "end": 7.19,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " Nor",
+              "start": 7.41,
+              "end": 7.53,
+              "probability": 0.626953125
+            },
+            {
+              "text": " shade,",
+              "start": 7.53,
+              "end": 7.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " but",
+              "start": 8.21,
+              "end": 8.37,
+              "probability": 0.990234375
+            },
+            {
+              "text": " all",
+              "start": 8.37,
+              "end": 8.55,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sunshine,",
+              "start": 8.55,
+              "end": 9.05,
+              "probability": 0.982421875
+            },
+            {
+              "text": " As",
+              "start": 9.47,
+              "end": 9.63,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " when",
+              "start": 9.63,
+              "end": 9.77,
+              "probability": 0.990234375
+            },
+            {
+              "text": " his",
+              "start": 9.77,
+              "end": 9.91,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " beams",
+              "start": 9.91,
+              "end": 10.17,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " at",
+              "start": 10.17,
+              "end": 10.33,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " noon",
+              "start": 10.33,
+              "end": 10.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " culminate",
+              "start": 10.49,
+              "end": 11.09,
+              "probability": 0.98046875
+            },
+            {
+              "text": " from",
+              "start": 11.09,
+              "end": 11.23,
+              "probability": 0.92236328125
+            },
+            {
+              "text": " the",
+              "start": 11.23,
+              "end": 11.35,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " equator,",
+              "start": 11.35,
+              "end": 11.75,
+              "probability": 0.917724609375
+            },
+            {
+              "text": " As",
+              "start": 12.11,
+              "end": 12.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 12.31,
+              "end": 12.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " now",
+              "start": 12.45,
+              "end": 12.65,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " shot",
+              "start": 12.65,
+              "end": 12.93,
+              "probability": 0.966796875
+            },
+            {
+              "text": " upward",
+              "start": 12.93,
+              "end": 13.23,
+              "probability": 0.77783203125
+            },
+            {
+              "text": " still",
+              "start": 13.23,
+              "end": 13.53,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " direct,",
+              "start": 13.53,
+              "end": 13.97,
+              "probability": 0.994140625
+            },
+            {
+              "text": " Whence",
+              "start": 14.53,
+              "end": 14.71,
+              "probability": 0.65771484375
+            },
+            {
+              "text": " no",
+              "start": 14.71,
+              "end": 14.85,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " way",
+              "start": 14.85,
+              "end": 15.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " round",
+              "start": 15.07,
+              "end": 15.31,
+              "probability": 0.8720703125
+            },
+            {
+              "text": " shadow",
+              "start": 15.31,
+              "end": 15.69,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " from",
+              "start": 15.69,
+              "end": 15.93,
+              "probability": 0.80712890625
+            },
+            {
+              "text": " body",
+              "start": 15.93,
+              "end": 16.21,
+              "probability": 0.9921875
+            },
+            {
+              "text": " opaque",
+              "start": 16.21,
+              "end": 16.51,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " can",
+              "start": 16.51,
+              "end": 16.77,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " fall,",
+              "start": 16.77,
+              "end": 17.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " And",
+              "start": 17.63,
+              "end": 17.93,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " the",
+              "start": 17.93,
+              "end": 18.05,
+              "probability": 0.990234375
+            },
+            {
+              "text": " air,",
+              "start": 18.05,
+              "end": 18.33,
+              "probability": 0.974609375
+            },
+            {
+              "text": " nowhere",
+              "start": 18.65,
+              "end": 18.83,
+              "probability": 0.861328125
+            },
+            {
+              "text": " so",
+              "start": 18.83,
+              "end": 19.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " clear,",
+              "start": 19.19,
+              "end": 19.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Sharpened",
+              "start": 20.07,
+              "end": 20.31,
+              "probability": 0.902587890625
+            },
+            {
+              "text": " his",
+              "start": 20.31,
+              "end": 20.45,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " visual",
+              "start": 20.45,
+              "end": 20.81,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ray",
+              "start": 20.81,
+              "end": 21.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 21.09,
+              "end": 21.33,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " object's",
+              "start": 21.33,
+              "end": 21.85,
+              "probability": 0.936767578125
+            },
+            {
+              "text": " distant",
+              "start": 21.85,
+              "end": 22.15,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " far,",
+              "start": 22.15,
+              "end": 22.55,
+              "probability": 0.92041015625
+            },
+            {
+              "text": " Whereby",
+              "start": 23.03,
+              "end": 23.33,
+              "probability": 0.970947265625
+            },
+            {
+              "text": " he",
+              "start": 23.33,
+              "end": 23.51,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " soon",
+              "start": 23.51,
+              "end": 23.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " saw",
+              "start": 23.73,
+              "end": 23.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " within",
+              "start": 23.99,
+              "end": 24.29,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Ken",
+              "start": 24.29,
+              "end": 24.53,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " a",
+              "start": 24.53,
+              "end": 24.75,
+              "probability": 0.88525390625
+            },
+            {
+              "text": " glorious",
+              "start": 24.75,
+              "end": 25.21,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " angel",
+              "start": 25.21,
+              "end": 25.65,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " stand,",
+              "start": 25.65,
+              "end": 26.11,
+              "probability": 0.970703125
+            },
+            {
+              "text": " The",
+              "start": 26.51,
+              "end": 26.73,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " same",
+              "start": 26.73,
+              "end": 27.01,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " whom",
+              "start": 27.01,
+              "end": 27.25,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " John",
+              "start": 27.25,
+              "end": 27.55,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " saw",
+              "start": 27.55,
+              "end": 27.85,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " also",
+              "start": 27.85,
+              "end": 28.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 28.23,
+              "end": 28.37,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 28.37,
+              "end": 28.51,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sun.",
+              "start": 28.51,
+              "end": 28.73,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "matter",
+          "start": 0.57,
+          "end": 0.81
+        },
+        {
+          "raw": "new",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "gaze",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "raw": "devil",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "raw": "met",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "undazzled,",
+          "start": 2.15,
+          "end": 2.89
+        },
+        {
+          "raw": "Far",
+          "start": 3.57,
+          "end": 3.57
+        },
+        {
+          "raw": "and",
+          "start": 3.57,
+          "end": 3.77
+        },
+        {
+          "raw": "wide",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "his",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "eye",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "commands,",
+          "start": 4.35,
+          "end": 4.83
+        },
+        {
+          "raw": "For",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "raw": "sight",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "raw": "no",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "obstacle",
+          "start": 5.97,
+          "end": 6.41
+        },
+        {
+          "raw": "found",
+          "start": 6.41,
+          "end": 6.77
+        },
+        {
+          "raw": "here,",
+          "start": 6.77,
+          "end": 7.19
+        },
+        {
+          "raw": "Nor",
+          "start": 7.41,
+          "end": 7.53
+        },
+        {
+          "raw": "shade,",
+          "start": 7.53,
+          "end": 7.93
+        },
+        {
+          "raw": "but",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "raw": "all",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "raw": "sunshine,",
+          "start": 8.55,
+          "end": 9.05
+        },
+        {
+          "raw": "As",
+          "start": 9.47,
+          "end": 9.63
+        },
+        {
+          "raw": "when",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "raw": "his",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "raw": "beams",
+          "start": 9.91,
+          "end": 10.17
+        },
+        {
+          "raw": "at",
+          "start": 10.17,
+          "end": 10.33
+        },
+        {
+          "raw": "noon",
+          "start": 10.33,
+          "end": 10.49
+        },
+        {
+          "raw": "culminate",
+          "start": 10.49,
+          "end": 11.09
+        },
+        {
+          "raw": "from",
+          "start": 11.09,
+          "end": 11.23
+        },
+        {
+          "raw": "the",
+          "start": 11.23,
+          "end": 11.35
+        },
+        {
+          "raw": "equator,",
+          "start": 11.35,
+          "end": 11.75
+        },
+        {
+          "raw": "As",
+          "start": 12.11,
+          "end": 12.31
+        },
+        {
+          "raw": "they",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "raw": "now",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "raw": "shot",
+          "start": 12.65,
+          "end": 12.93
+        },
+        {
+          "raw": "upward",
+          "start": 12.93,
+          "end": 13.23
+        },
+        {
+          "raw": "still",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "raw": "direct,",
+          "start": 13.53,
+          "end": 13.97
+        },
+        {
+          "raw": "Whence",
+          "start": 14.53,
+          "end": 14.71
+        },
+        {
+          "raw": "no",
+          "start": 14.71,
+          "end": 14.85
+        },
+        {
+          "raw": "way",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "raw": "round",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "raw": "shadow",
+          "start": 15.31,
+          "end": 15.69
+        },
+        {
+          "raw": "from",
+          "start": 15.69,
+          "end": 15.93
+        },
+        {
+          "raw": "body",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "raw": "opaque",
+          "start": 16.21,
+          "end": 16.51
+        },
+        {
+          "raw": "can",
+          "start": 16.51,
+          "end": 16.77
+        },
+        {
+          "raw": "fall,",
+          "start": 16.77,
+          "end": 17.09
+        },
+        {
+          "raw": "And",
+          "start": 17.63,
+          "end": 17.93
+        },
+        {
+          "raw": "the",
+          "start": 17.93,
+          "end": 18.05
+        },
+        {
+          "raw": "air,",
+          "start": 18.05,
+          "end": 18.33
+        },
+        {
+          "raw": "nowhere",
+          "start": 18.65,
+          "end": 18.83
+        },
+        {
+          "raw": "so",
+          "start": 18.83,
+          "end": 19.19
+        },
+        {
+          "raw": "clear,",
+          "start": 19.19,
+          "end": 19.61
+        },
+        {
+          "raw": "Sharpened",
+          "start": 20.07,
+          "end": 20.31
+        },
+        {
+          "raw": "his",
+          "start": 20.31,
+          "end": 20.45
+        },
+        {
+          "raw": "visual",
+          "start": 20.45,
+          "end": 20.81
+        },
+        {
+          "raw": "ray",
+          "start": 20.81,
+          "end": 21.09
+        },
+        {
+          "raw": "to",
+          "start": 21.09,
+          "end": 21.33
+        },
+        {
+          "raw": "object's",
+          "start": 21.33,
+          "end": 21.85
+        },
+        {
+          "raw": "distant",
+          "start": 21.85,
+          "end": 22.15
+        },
+        {
+          "raw": "far,",
+          "start": 22.15,
+          "end": 22.55
+        },
+        {
+          "raw": "Whereby",
+          "start": 23.03,
+          "end": 23.33
+        },
+        {
+          "raw": "he",
+          "start": 23.33,
+          "end": 23.51
+        },
+        {
+          "raw": "soon",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "raw": "saw",
+          "start": 23.73,
+          "end": 23.99
+        },
+        {
+          "raw": "within",
+          "start": 23.99,
+          "end": 24.29
+        },
+        {
+          "raw": "Ken",
+          "start": 24.29,
+          "end": 24.53
+        },
+        {
+          "raw": "a",
+          "start": 24.53,
+          "end": 24.75
+        },
+        {
+          "raw": "glorious",
+          "start": 24.75,
+          "end": 25.21
+        },
+        {
+          "raw": "angel",
+          "start": 25.21,
+          "end": 25.65
+        },
+        {
+          "raw": "stand,",
+          "start": 25.65,
+          "end": 26.11
+        },
+        {
+          "raw": "The",
+          "start": 26.51,
+          "end": 26.73
+        },
+        {
+          "raw": "same",
+          "start": 26.73,
+          "end": 27.01
+        },
+        {
+          "raw": "whom",
+          "start": 27.01,
+          "end": 27.25
+        },
+        {
+          "raw": "John",
+          "start": 27.25,
+          "end": 27.55
+        },
+        {
+          "raw": "saw",
+          "start": 27.55,
+          "end": 27.85
+        },
+        {
+          "raw": "also",
+          "start": 27.85,
+          "end": 28.23
+        },
+        {
+          "raw": "in",
+          "start": 28.23,
+          "end": 28.37
+        },
+        {
+          "raw": "the",
+          "start": 28.37,
+          "end": 28.51
+        },
+        {
+          "raw": "sun.",
+          "start": 28.51,
+          "end": 28.73
+        }
+      ],
+      "expected_tokens": [
+        "Here",
+        "matter",
+        "new",
+        "to",
+        "gaze",
+        "the",
+        "Devil",
+        "met",
+        "Undazzled;",
+        "far",
+        "and",
+        "wide",
+        "his",
+        "eye",
+        "commands;",
+        "For",
+        "sight",
+        "no",
+        "obstacle",
+        "found",
+        "here,",
+        "nor",
+        "shade,",
+        "But",
+        "all",
+        "sun-shine,",
+        "as",
+        "when",
+        "his",
+        "beams",
+        "at",
+        "noon",
+        "Culminate",
+        "from",
+        "the",
+        "equator,",
+        "as",
+        "they",
+        "now",
+        "Shot",
+        "upward",
+        "still",
+        "direct,",
+        "whence",
+        "no",
+        "way",
+        "round",
+        "Shadow",
+        "from",
+        "body",
+        "opaque",
+        "can",
+        "fall;",
+        "and",
+        "the",
+        "air,",
+        "No",
+        "where",
+        "so",
+        "clear,",
+        "sharpened",
+        "his",
+        "visual",
+        "ray",
+        "To",
+        "objects",
+        "distant",
+        "far,",
+        "whereby",
+        "he",
+        "soon",
+        "Saw",
+        "within",
+        "ken",
+        "a",
+        "glorious",
+        "Angel",
+        "stand,",
+        "The",
+        "same",
+        "whom",
+        "John",
+        "saw",
+        "also",
+        "in",
+        "the",
+        "sun:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          56,
+          0,
+          56
+        ],
+        [
+          "replace",
+          56,
+          58,
+          56,
+          57
+        ],
+        [
+          "equal",
+          58,
+          87,
+          57,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 85
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          56,
+          58,
+          56,
+          57
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "matter",
+          "start": 0.57,
+          "end": 0.81
+        },
+        {
+          "text": "new",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "to",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "gaze",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "the",
+          "start": 1.37,
+          "end": 1.59
+        },
+        {
+          "text": "Devil",
+          "start": 1.59,
+          "end": 1.89
+        },
+        {
+          "text": "met",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "Undazzled;",
+          "start": 2.15,
+          "end": 2.89
+        },
+        {
+          "text": "far",
+          "start": 3.57,
+          "end": 3.57
+        },
+        {
+          "text": "and",
+          "start": 3.57,
+          "end": 3.77
+        },
+        {
+          "text": "wide",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "his",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "eye",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "commands;",
+          "start": 4.35,
+          "end": 4.83
+        },
+        {
+          "text": "For",
+          "start": 5.35,
+          "end": 5.51
+        },
+        {
+          "text": "sight",
+          "start": 5.51,
+          "end": 5.71
+        },
+        {
+          "text": "no",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "obstacle",
+          "start": 5.97,
+          "end": 6.41
+        },
+        {
+          "text": "found",
+          "start": 6.41,
+          "end": 6.77
+        },
+        {
+          "text": "here,",
+          "start": 6.77,
+          "end": 7.19
+        },
+        {
+          "text": "nor",
+          "start": 7.41,
+          "end": 7.53
+        },
+        {
+          "text": "shade,",
+          "start": 7.53,
+          "end": 7.93
+        },
+        {
+          "text": "But",
+          "start": 8.21,
+          "end": 8.37
+        },
+        {
+          "text": "all",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "text": "sun-shine,",
+          "start": 8.55,
+          "end": 9.05
+        },
+        {
+          "text": "as",
+          "start": 9.47,
+          "end": 9.63
+        },
+        {
+          "text": "when",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "text": "his",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "text": "beams",
+          "start": 9.91,
+          "end": 10.17
+        },
+        {
+          "text": "at",
+          "start": 10.17,
+          "end": 10.33
+        },
+        {
+          "text": "noon",
+          "start": 10.33,
+          "end": 10.49
+        },
+        {
+          "text": "Culminate",
+          "start": 10.49,
+          "end": 11.09
+        },
+        {
+          "text": "from",
+          "start": 11.09,
+          "end": 11.23
+        },
+        {
+          "text": "the",
+          "start": 11.23,
+          "end": 11.35
+        },
+        {
+          "text": "equator,",
+          "start": 11.35,
+          "end": 11.75
+        },
+        {
+          "text": "as",
+          "start": 12.11,
+          "end": 12.31
+        },
+        {
+          "text": "they",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "text": "now",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "text": "Shot",
+          "start": 12.65,
+          "end": 12.93
+        },
+        {
+          "text": "upward",
+          "start": 12.93,
+          "end": 13.23
+        },
+        {
+          "text": "still",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "text": "direct,",
+          "start": 13.53,
+          "end": 13.97
+        },
+        {
+          "text": "whence",
+          "start": 14.53,
+          "end": 14.71
+        },
+        {
+          "text": "no",
+          "start": 14.71,
+          "end": 14.85
+        },
+        {
+          "text": "way",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "text": "round",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "text": "Shadow",
+          "start": 15.31,
+          "end": 15.69
+        },
+        {
+          "text": "from",
+          "start": 15.69,
+          "end": 15.93
+        },
+        {
+          "text": "body",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "text": "opaque",
+          "start": 16.21,
+          "end": 16.51
+        },
+        {
+          "text": "can",
+          "start": 16.51,
+          "end": 16.77
+        },
+        {
+          "text": "fall;",
+          "start": 16.77,
+          "end": 17.09
+        },
+        {
+          "text": "and",
+          "start": 17.63,
+          "end": 17.93
+        },
+        {
+          "text": "the",
+          "start": 17.93,
+          "end": 18.05
+        },
+        {
+          "text": "air,",
+          "start": 18.05,
+          "end": 18.33
+        },
+        {
+          "text": "No",
+          "start": 18.33,
+          "end": 18.58
+        },
+        {
+          "text": "where",
+          "start": 18.58,
+          "end": 18.705
+        },
+        {
+          "text": "so",
+          "start": 18.83,
+          "end": 19.19
+        },
+        {
+          "text": "clear,",
+          "start": 19.19,
+          "end": 19.61
+        },
+        {
+          "text": "sharpened",
+          "start": 20.07,
+          "end": 20.31
+        },
+        {
+          "text": "his",
+          "start": 20.31,
+          "end": 20.45
+        },
+        {
+          "text": "visual",
+          "start": 20.45,
+          "end": 20.81
+        },
+        {
+          "text": "ray",
+          "start": 20.81,
+          "end": 21.09
+        },
+        {
+          "text": "To",
+          "start": 21.09,
+          "end": 21.33
+        },
+        {
+          "text": "objects",
+          "start": 21.33,
+          "end": 21.85
+        },
+        {
+          "text": "distant",
+          "start": 21.85,
+          "end": 22.15
+        },
+        {
+          "text": "far,",
+          "start": 22.15,
+          "end": 22.55
+        },
+        {
+          "text": "whereby",
+          "start": 23.03,
+          "end": 23.33
+        },
+        {
+          "text": "he",
+          "start": 23.33,
+          "end": 23.51
+        },
+        {
+          "text": "soon",
+          "start": 23.51,
+          "end": 23.73
+        },
+        {
+          "text": "Saw",
+          "start": 23.73,
+          "end": 23.99
+        },
+        {
+          "text": "within",
+          "start": 23.99,
+          "end": 24.29
+        },
+        {
+          "text": "ken",
+          "start": 24.29,
+          "end": 24.53
+        },
+        {
+          "text": "a",
+          "start": 24.53,
+          "end": 24.75
+        },
+        {
+          "text": "glorious",
+          "start": 24.75,
+          "end": 25.21
+        },
+        {
+          "text": "Angel",
+          "start": 25.21,
+          "end": 25.65
+        },
+        {
+          "text": "stand,",
+          "start": 25.65,
+          "end": 26.11
+        },
+        {
+          "text": "The",
+          "start": 26.51,
+          "end": 26.73
+        },
+        {
+          "text": "same",
+          "start": 26.73,
+          "end": 27.01
+        },
+        {
+          "text": "whom",
+          "start": 27.01,
+          "end": 27.25
+        },
+        {
+          "text": "John",
+          "start": 27.25,
+          "end": 27.55
+        },
+        {
+          "text": "saw",
+          "start": 27.55,
+          "end": 27.85
+        },
+        {
+          "text": "also",
+          "start": 27.85,
+          "end": 28.23
+        },
+        {
+          "text": "in",
+          "start": 28.23,
+          "end": 28.37
+        },
+        {
+          "text": "the",
+          "start": 28.37,
+          "end": 28.51
+        },
+        {
+          "text": "sun:",
+          "start": 28.51,
+          "end": 28.73
+        }
+      ],
+      "stats": {
+        "expected_words": 87,
+        "heard_words": 86,
+        "matched_words": 85
+      },
+      "match_ratio": 0.9770114942528736,
+      "rejection_reasons": [],
+      "seconds": 0.5423530489206314
+    },
+    {
+      "asr_seconds": 0.6725119054317474,
+      "alignment_seconds": 0.0005912110209465027,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Here, matter new to gaze, the devil met undazzled, far and wide his eye commands.",
+          "start": 0.05,
+          "end": 4.83,
+          "words": [
+            {
+              "text": " Here,",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.802734375
+            },
+            {
+              "text": " matter",
+              "start": 0.81,
+              "end": 0.81,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " new",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.5888671875
+            },
+            {
+              "text": " to",
+              "start": 1.05,
+              "end": 1.21,
+              "probability": 0.994140625
+            },
+            {
+              "text": " gaze,",
+              "start": 1.21,
+              "end": 1.37,
+              "probability": 0.658203125
+            },
+            {
+              "text": " the",
+              "start": 1.53,
+              "end": 1.61,
+              "probability": 0.974609375
+            },
+            {
+              "text": " devil",
+              "start": 1.61,
+              "end": 1.89,
+              "probability": 0.81201171875
+            },
+            {
+              "text": " met",
+              "start": 1.89,
+              "end": 2.15,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " undazzled,",
+              "start": 2.15,
+              "end": 2.87,
+              "probability": 0.9060872395833334
+            },
+            {
+              "text": " far",
+              "start": 3.55,
+              "end": 3.57,
+              "probability": 0.7265625
+            },
+            {
+              "text": " and",
+              "start": 3.57,
+              "end": 3.77,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " wide",
+              "start": 3.77,
+              "end": 3.99,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 3.99,
+              "end": 4.17,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " eye",
+              "start": 4.17,
+              "end": 4.35,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " commands.",
+              "start": 4.35,
+              "end": 4.83,
+              "probability": 0.9892578125
+            }
+          ]
+        },
+        {
+          "text": " For sight no obstacle found here, nor shade, but all sunshine, as when his beams at noon",
+          "start": 5.33,
+          "end": 10.49,
+          "words": [
+            {
+              "text": " For",
+              "start": 5.33,
+              "end": 5.53,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sight",
+              "start": 5.53,
+              "end": 5.71,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " no",
+              "start": 5.71,
+              "end": 5.97,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " obstacle",
+              "start": 5.97,
+              "end": 6.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " found",
+              "start": 6.43,
+              "end": 6.79,
+              "probability": 0.99609375
+            },
+            {
+              "text": " here,",
+              "start": 6.79,
+              "end": 7.17,
+              "probability": 0.9921875
+            },
+            {
+              "text": " nor",
+              "start": 7.41,
+              "end": 7.53,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " shade,",
+              "start": 7.53,
+              "end": 7.93,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 8.23,
+              "end": 8.37,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " all",
+              "start": 8.37,
+              "end": 8.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sunshine,",
+              "start": 8.55,
+              "end": 9.07,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " as",
+              "start": 9.45,
+              "end": 9.63,
+              "probability": 0.984375
+            },
+            {
+              "text": " when",
+              "start": 9.63,
+              "end": 9.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " his",
+              "start": 9.77,
+              "end": 9.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " beams",
+              "start": 9.91,
+              "end": 10.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " at",
+              "start": 10.17,
+              "end": 10.33,
+              "probability": 0.998046875
+            },
+            {
+              "text": " noon",
+              "start": 10.33,
+              "end": 10.49,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " culminate from the equator, as they now shot upward still direct, whence no way round shadow",
+          "start": 10.49,
+          "end": 15.69,
+          "words": [
+            {
+              "text": " culminate",
+              "start": 10.49,
+              "end": 11.09,
+              "probability": 0.995361328125
+            },
+            {
+              "text": " from",
+              "start": 11.09,
+              "end": 11.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 11.25,
+              "end": 11.35,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " equator,",
+              "start": 11.35,
+              "end": 11.75,
+              "probability": 0.960693359375
+            },
+            {
+              "text": " as",
+              "start": 12.11,
+              "end": 12.31,
+              "probability": 0.994140625
+            },
+            {
+              "text": " they",
+              "start": 12.31,
+              "end": 12.45,
+              "probability": 0.998046875
+            },
+            {
+              "text": " now",
+              "start": 12.45,
+              "end": 12.65,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " shot",
+              "start": 12.65,
+              "end": 12.93,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " upward",
+              "start": 12.93,
+              "end": 13.23,
+              "probability": 0.79541015625
+            },
+            {
+              "text": " still",
+              "start": 13.23,
+              "end": 13.53,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " direct,",
+              "start": 13.53,
+              "end": 13.97,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " whence",
+              "start": 14.53,
+              "end": 14.63,
+              "probability": 0.99609375
+            },
+            {
+              "text": " no",
+              "start": 14.63,
+              "end": 14.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " way",
+              "start": 14.85,
+              "end": 15.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " round",
+              "start": 15.07,
+              "end": 15.31,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " shadow",
+              "start": 15.31,
+              "end": 15.69,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " from body opaque can fall.",
+          "start": 15.69,
+          "end": 17.09,
+          "words": [
+            {
+              "text": " from",
+              "start": 15.69,
+              "end": 15.93,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " body",
+              "start": 15.93,
+              "end": 16.21,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " opaque",
+              "start": 16.21,
+              "end": 16.51,
+              "probability": 0.8740234375
+            },
+            {
+              "text": " can",
+              "start": 16.51,
+              "end": 16.77,
+              "probability": 0.99609375
+            },
+            {
+              "text": " fall.",
+              "start": 16.77,
+              "end": 17.09,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " And the air, nowhere so clear, sharpened his visual ray to object's distant far, whereby",
+          "start": 17.65,
+          "end": 23.21,
+          "words": [
+            {
+              "text": " And",
+              "start": 17.65,
+              "end": 17.93,
+              "probability": 0.990234375
+            },
+            {
+              "text": " the",
+              "start": 17.93,
+              "end": 18.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " air,",
+              "start": 18.05,
+              "end": 18.31,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " nowhere",
+              "start": 18.61,
+              "end": 18.85,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " so",
+              "start": 18.85,
+              "end": 19.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " clear,",
+              "start": 19.17,
+              "end": 19.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sharpened",
+              "start": 20.05,
+              "end": 20.33,
+              "probability": 0.99609375
+            },
+            {
+              "text": " his",
+              "start": 20.33,
+              "end": 20.45,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " visual",
+              "start": 20.45,
+              "end": 20.81,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " ray",
+              "start": 20.81,
+              "end": 21.09,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 21.09,
+              "end": 21.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " object's",
+              "start": 21.35,
+              "end": 21.85,
+              "probability": 0.970458984375
+            },
+            {
+              "text": " distant",
+              "start": 21.85,
+              "end": 22.17,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " far,",
+              "start": 22.17,
+              "end": 22.53,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " whereby",
+              "start": 23.05,
+              "end": 23.21,
+              "probability": 0.982421875
+            }
+          ]
+        },
+        {
+          "text": " he soon saw within Ken a glorious angel stand, the same whom John saw also in the sun.",
+          "start": 23.21,
+          "end": 28.73,
+          "words": [
+            {
+              "text": " he",
+              "start": 23.21,
+              "end": 23.51,
+              "probability": 0.998046875
+            },
+            {
+              "text": " soon",
+              "start": 23.51,
+              "end": 23.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " saw",
+              "start": 23.71,
+              "end": 23.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " within",
+              "start": 23.99,
+              "end": 24.29,
+              "probability": 0.98828125
+            },
+            {
+              "text": " Ken",
+              "start": 24.29,
+              "end": 24.53,
+              "probability": 0.970703125
+            },
+            {
+              "text": " a",
+              "start": 24.53,
+              "end": 24.75,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " glorious",
+              "start": 24.75,
+              "end": 25.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " angel",
+              "start": 25.21,
+              "end": 25.65,
+              "probability": 0.94921875
+            },
+            {
+              "text": " stand,",
+              "start": 25.65,
+              "end": 26.11,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " the",
+              "start": 26.59,
+              "end": 26.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " same",
+              "start": 26.73,
+              "end": 27.01,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " whom",
+              "start": 27.01,
+              "end": 27.25,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " John",
+              "start": 27.25,
+              "end": 27.55,
+              "probability": 0.908203125
+            },
+            {
+              "text": " saw",
+              "start": 27.55,
+              "end": 27.85,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " also",
+              "start": 27.85,
+              "end": 28.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " in",
+              "start": 28.23,
+              "end": 28.37,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 28.37,
+              "end": 28.51,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " sun.",
+              "start": 28.51,
+              "end": 28.73,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Here,",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "matter",
+          "start": 0.81,
+          "end": 0.81
+        },
+        {
+          "raw": "new",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "raw": "gaze,",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "raw": "the",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "raw": "devil",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "raw": "met",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "raw": "undazzled,",
+          "start": 2.15,
+          "end": 2.87
+        },
+        {
+          "raw": "far",
+          "start": 3.55,
+          "end": 3.57
+        },
+        {
+          "raw": "and",
+          "start": 3.57,
+          "end": 3.77
+        },
+        {
+          "raw": "wide",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "raw": "his",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "raw": "eye",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "raw": "commands.",
+          "start": 4.35,
+          "end": 4.83
+        },
+        {
+          "raw": "For",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "raw": "sight",
+          "start": 5.53,
+          "end": 5.71
+        },
+        {
+          "raw": "no",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "raw": "obstacle",
+          "start": 5.97,
+          "end": 6.43
+        },
+        {
+          "raw": "found",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "raw": "here,",
+          "start": 6.79,
+          "end": 7.17
+        },
+        {
+          "raw": "nor",
+          "start": 7.41,
+          "end": 7.53
+        },
+        {
+          "raw": "shade,",
+          "start": 7.53,
+          "end": 7.93
+        },
+        {
+          "raw": "but",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "raw": "all",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "raw": "sunshine,",
+          "start": 8.55,
+          "end": 9.07
+        },
+        {
+          "raw": "as",
+          "start": 9.45,
+          "end": 9.63
+        },
+        {
+          "raw": "when",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "raw": "his",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "raw": "beams",
+          "start": 9.91,
+          "end": 10.17
+        },
+        {
+          "raw": "at",
+          "start": 10.17,
+          "end": 10.33
+        },
+        {
+          "raw": "noon",
+          "start": 10.33,
+          "end": 10.49
+        },
+        {
+          "raw": "culminate",
+          "start": 10.49,
+          "end": 11.09
+        },
+        {
+          "raw": "from",
+          "start": 11.09,
+          "end": 11.25
+        },
+        {
+          "raw": "the",
+          "start": 11.25,
+          "end": 11.35
+        },
+        {
+          "raw": "equator,",
+          "start": 11.35,
+          "end": 11.75
+        },
+        {
+          "raw": "as",
+          "start": 12.11,
+          "end": 12.31
+        },
+        {
+          "raw": "they",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "raw": "now",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "raw": "shot",
+          "start": 12.65,
+          "end": 12.93
+        },
+        {
+          "raw": "upward",
+          "start": 12.93,
+          "end": 13.23
+        },
+        {
+          "raw": "still",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "raw": "direct,",
+          "start": 13.53,
+          "end": 13.97
+        },
+        {
+          "raw": "whence",
+          "start": 14.53,
+          "end": 14.63
+        },
+        {
+          "raw": "no",
+          "start": 14.63,
+          "end": 14.85
+        },
+        {
+          "raw": "way",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "raw": "round",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "raw": "shadow",
+          "start": 15.31,
+          "end": 15.69
+        },
+        {
+          "raw": "from",
+          "start": 15.69,
+          "end": 15.93
+        },
+        {
+          "raw": "body",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "raw": "opaque",
+          "start": 16.21,
+          "end": 16.51
+        },
+        {
+          "raw": "can",
+          "start": 16.51,
+          "end": 16.77
+        },
+        {
+          "raw": "fall.",
+          "start": 16.77,
+          "end": 17.09
+        },
+        {
+          "raw": "And",
+          "start": 17.65,
+          "end": 17.93
+        },
+        {
+          "raw": "the",
+          "start": 17.93,
+          "end": 18.05
+        },
+        {
+          "raw": "air,",
+          "start": 18.05,
+          "end": 18.31
+        },
+        {
+          "raw": "nowhere",
+          "start": 18.61,
+          "end": 18.85
+        },
+        {
+          "raw": "so",
+          "start": 18.85,
+          "end": 19.17
+        },
+        {
+          "raw": "clear,",
+          "start": 19.17,
+          "end": 19.61
+        },
+        {
+          "raw": "sharpened",
+          "start": 20.05,
+          "end": 20.33
+        },
+        {
+          "raw": "his",
+          "start": 20.33,
+          "end": 20.45
+        },
+        {
+          "raw": "visual",
+          "start": 20.45,
+          "end": 20.81
+        },
+        {
+          "raw": "ray",
+          "start": 20.81,
+          "end": 21.09
+        },
+        {
+          "raw": "to",
+          "start": 21.09,
+          "end": 21.35
+        },
+        {
+          "raw": "object's",
+          "start": 21.35,
+          "end": 21.85
+        },
+        {
+          "raw": "distant",
+          "start": 21.85,
+          "end": 22.17
+        },
+        {
+          "raw": "far,",
+          "start": 22.17,
+          "end": 22.53
+        },
+        {
+          "raw": "whereby",
+          "start": 23.05,
+          "end": 23.21
+        },
+        {
+          "raw": "he",
+          "start": 23.21,
+          "end": 23.51
+        },
+        {
+          "raw": "soon",
+          "start": 23.51,
+          "end": 23.71
+        },
+        {
+          "raw": "saw",
+          "start": 23.71,
+          "end": 23.99
+        },
+        {
+          "raw": "within",
+          "start": 23.99,
+          "end": 24.29
+        },
+        {
+          "raw": "Ken",
+          "start": 24.29,
+          "end": 24.53
+        },
+        {
+          "raw": "a",
+          "start": 24.53,
+          "end": 24.75
+        },
+        {
+          "raw": "glorious",
+          "start": 24.75,
+          "end": 25.21
+        },
+        {
+          "raw": "angel",
+          "start": 25.21,
+          "end": 25.65
+        },
+        {
+          "raw": "stand,",
+          "start": 25.65,
+          "end": 26.11
+        },
+        {
+          "raw": "the",
+          "start": 26.59,
+          "end": 26.73
+        },
+        {
+          "raw": "same",
+          "start": 26.73,
+          "end": 27.01
+        },
+        {
+          "raw": "whom",
+          "start": 27.01,
+          "end": 27.25
+        },
+        {
+          "raw": "John",
+          "start": 27.25,
+          "end": 27.55
+        },
+        {
+          "raw": "saw",
+          "start": 27.55,
+          "end": 27.85
+        },
+        {
+          "raw": "also",
+          "start": 27.85,
+          "end": 28.23
+        },
+        {
+          "raw": "in",
+          "start": 28.23,
+          "end": 28.37
+        },
+        {
+          "raw": "the",
+          "start": 28.37,
+          "end": 28.51
+        },
+        {
+          "raw": "sun.",
+          "start": 28.51,
+          "end": 28.73
+        }
+      ],
+      "expected_tokens": [
+        "Here",
+        "matter",
+        "new",
+        "to",
+        "gaze",
+        "the",
+        "Devil",
+        "met",
+        "Undazzled;",
+        "far",
+        "and",
+        "wide",
+        "his",
+        "eye",
+        "commands;",
+        "For",
+        "sight",
+        "no",
+        "obstacle",
+        "found",
+        "here,",
+        "nor",
+        "shade,",
+        "But",
+        "all",
+        "sun-shine,",
+        "as",
+        "when",
+        "his",
+        "beams",
+        "at",
+        "noon",
+        "Culminate",
+        "from",
+        "the",
+        "equator,",
+        "as",
+        "they",
+        "now",
+        "Shot",
+        "upward",
+        "still",
+        "direct,",
+        "whence",
+        "no",
+        "way",
+        "round",
+        "Shadow",
+        "from",
+        "body",
+        "opaque",
+        "can",
+        "fall;",
+        "and",
+        "the",
+        "air,",
+        "No",
+        "where",
+        "so",
+        "clear,",
+        "sharpened",
+        "his",
+        "visual",
+        "ray",
+        "To",
+        "objects",
+        "distant",
+        "far,",
+        "whereby",
+        "he",
+        "soon",
+        "Saw",
+        "within",
+        "ken",
+        "a",
+        "glorious",
+        "Angel",
+        "stand,",
+        "The",
+        "same",
+        "whom",
+        "John",
+        "saw",
+        "also",
+        "in",
+        "the",
+        "sun:"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          56,
+          0,
+          56
+        ],
+        [
+          "replace",
+          56,
+          58,
+          56,
+          57
+        ],
+        [
+          "equal",
+          58,
+          87,
+          57,
+          86
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 53,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 56,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 57,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 57
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 58
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 62,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 63,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 64,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 65,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 66,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 67,
+          "source": "observed",
+          "heard_index": 66
+        },
+        {
+          "index": 68,
+          "source": "observed",
+          "heard_index": 67
+        },
+        {
+          "index": 69,
+          "source": "observed",
+          "heard_index": 68
+        },
+        {
+          "index": 70,
+          "source": "observed",
+          "heard_index": 69
+        },
+        {
+          "index": 71,
+          "source": "observed",
+          "heard_index": 70
+        },
+        {
+          "index": 72,
+          "source": "observed",
+          "heard_index": 71
+        },
+        {
+          "index": 73,
+          "source": "observed",
+          "heard_index": 72
+        },
+        {
+          "index": 74,
+          "source": "observed",
+          "heard_index": 73
+        },
+        {
+          "index": 75,
+          "source": "observed",
+          "heard_index": 74
+        },
+        {
+          "index": 76,
+          "source": "observed",
+          "heard_index": 75
+        },
+        {
+          "index": 77,
+          "source": "observed",
+          "heard_index": 76
+        },
+        {
+          "index": 78,
+          "source": "observed",
+          "heard_index": 77
+        },
+        {
+          "index": 79,
+          "source": "observed",
+          "heard_index": 78
+        },
+        {
+          "index": 80,
+          "source": "observed",
+          "heard_index": 79
+        },
+        {
+          "index": 81,
+          "source": "observed",
+          "heard_index": 80
+        },
+        {
+          "index": 82,
+          "source": "observed",
+          "heard_index": 81
+        },
+        {
+          "index": 83,
+          "source": "observed",
+          "heard_index": 82
+        },
+        {
+          "index": 84,
+          "source": "observed",
+          "heard_index": 83
+        },
+        {
+          "index": 85,
+          "source": "observed",
+          "heard_index": 84
+        },
+        {
+          "index": 86,
+          "source": "observed",
+          "heard_index": 85
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          56,
+          58,
+          56,
+          57
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Here",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "matter",
+          "start": 0.81,
+          "end": 0.81
+        },
+        {
+          "text": "new",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "to",
+          "start": 1.05,
+          "end": 1.21
+        },
+        {
+          "text": "gaze",
+          "start": 1.21,
+          "end": 1.37
+        },
+        {
+          "text": "the",
+          "start": 1.53,
+          "end": 1.61
+        },
+        {
+          "text": "Devil",
+          "start": 1.61,
+          "end": 1.89
+        },
+        {
+          "text": "met",
+          "start": 1.89,
+          "end": 2.15
+        },
+        {
+          "text": "Undazzled;",
+          "start": 2.15,
+          "end": 2.87
+        },
+        {
+          "text": "far",
+          "start": 3.55,
+          "end": 3.57
+        },
+        {
+          "text": "and",
+          "start": 3.57,
+          "end": 3.77
+        },
+        {
+          "text": "wide",
+          "start": 3.77,
+          "end": 3.99
+        },
+        {
+          "text": "his",
+          "start": 3.99,
+          "end": 4.17
+        },
+        {
+          "text": "eye",
+          "start": 4.17,
+          "end": 4.35
+        },
+        {
+          "text": "commands;",
+          "start": 4.35,
+          "end": 4.83
+        },
+        {
+          "text": "For",
+          "start": 5.33,
+          "end": 5.53
+        },
+        {
+          "text": "sight",
+          "start": 5.53,
+          "end": 5.71
+        },
+        {
+          "text": "no",
+          "start": 5.71,
+          "end": 5.97
+        },
+        {
+          "text": "obstacle",
+          "start": 5.97,
+          "end": 6.43
+        },
+        {
+          "text": "found",
+          "start": 6.43,
+          "end": 6.79
+        },
+        {
+          "text": "here,",
+          "start": 6.79,
+          "end": 7.17
+        },
+        {
+          "text": "nor",
+          "start": 7.41,
+          "end": 7.53
+        },
+        {
+          "text": "shade,",
+          "start": 7.53,
+          "end": 7.93
+        },
+        {
+          "text": "But",
+          "start": 8.23,
+          "end": 8.37
+        },
+        {
+          "text": "all",
+          "start": 8.37,
+          "end": 8.55
+        },
+        {
+          "text": "sun-shine,",
+          "start": 8.55,
+          "end": 9.07
+        },
+        {
+          "text": "as",
+          "start": 9.45,
+          "end": 9.63
+        },
+        {
+          "text": "when",
+          "start": 9.63,
+          "end": 9.77
+        },
+        {
+          "text": "his",
+          "start": 9.77,
+          "end": 9.91
+        },
+        {
+          "text": "beams",
+          "start": 9.91,
+          "end": 10.17
+        },
+        {
+          "text": "at",
+          "start": 10.17,
+          "end": 10.33
+        },
+        {
+          "text": "noon",
+          "start": 10.33,
+          "end": 10.49
+        },
+        {
+          "text": "Culminate",
+          "start": 10.49,
+          "end": 11.09
+        },
+        {
+          "text": "from",
+          "start": 11.09,
+          "end": 11.25
+        },
+        {
+          "text": "the",
+          "start": 11.25,
+          "end": 11.35
+        },
+        {
+          "text": "equator,",
+          "start": 11.35,
+          "end": 11.75
+        },
+        {
+          "text": "as",
+          "start": 12.11,
+          "end": 12.31
+        },
+        {
+          "text": "they",
+          "start": 12.31,
+          "end": 12.45
+        },
+        {
+          "text": "now",
+          "start": 12.45,
+          "end": 12.65
+        },
+        {
+          "text": "Shot",
+          "start": 12.65,
+          "end": 12.93
+        },
+        {
+          "text": "upward",
+          "start": 12.93,
+          "end": 13.23
+        },
+        {
+          "text": "still",
+          "start": 13.23,
+          "end": 13.53
+        },
+        {
+          "text": "direct,",
+          "start": 13.53,
+          "end": 13.97
+        },
+        {
+          "text": "whence",
+          "start": 14.53,
+          "end": 14.63
+        },
+        {
+          "text": "no",
+          "start": 14.63,
+          "end": 14.85
+        },
+        {
+          "text": "way",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "text": "round",
+          "start": 15.07,
+          "end": 15.31
+        },
+        {
+          "text": "Shadow",
+          "start": 15.31,
+          "end": 15.69
+        },
+        {
+          "text": "from",
+          "start": 15.69,
+          "end": 15.93
+        },
+        {
+          "text": "body",
+          "start": 15.93,
+          "end": 16.21
+        },
+        {
+          "text": "opaque",
+          "start": 16.21,
+          "end": 16.51
+        },
+        {
+          "text": "can",
+          "start": 16.51,
+          "end": 16.77
+        },
+        {
+          "text": "fall;",
+          "start": 16.77,
+          "end": 17.09
+        },
+        {
+          "text": "and",
+          "start": 17.65,
+          "end": 17.93
+        },
+        {
+          "text": "the",
+          "start": 17.93,
+          "end": 18.05
+        },
+        {
+          "text": "air,",
+          "start": 18.05,
+          "end": 18.31
+        },
+        {
+          "text": "No",
+          "start": 18.31,
+          "end": 18.58
+        },
+        {
+          "text": "where",
+          "start": 18.58,
+          "end": 18.715
+        },
+        {
+          "text": "so",
+          "start": 18.85,
+          "end": 19.17
+        },
+        {
+          "text": "clear,",
+          "start": 19.17,
+          "end": 19.61
+        },
+        {
+          "text": "sharpened",
+          "start": 20.05,
+          "end": 20.33
+        },
+        {
+          "text": "his",
+          "start": 20.33,
+          "end": 20.45
+        },
+        {
+          "text": "visual",
+          "start": 20.45,
+          "end": 20.81
+        },
+        {
+          "text": "ray",
+          "start": 20.81,
+          "end": 21.09
+        },
+        {
+          "text": "To",
+          "start": 21.09,
+          "end": 21.35
+        },
+        {
+          "text": "objects",
+          "start": 21.35,
+          "end": 21.85
+        },
+        {
+          "text": "distant",
+          "start": 21.85,
+          "end": 22.17
+        },
+        {
+          "text": "far,",
+          "start": 22.17,
+          "end": 22.53
+        },
+        {
+          "text": "whereby",
+          "start": 23.05,
+          "end": 23.21
+        },
+        {
+          "text": "he",
+          "start": 23.21,
+          "end": 23.51
+        },
+        {
+          "text": "soon",
+          "start": 23.51,
+          "end": 23.71
+        },
+        {
+          "text": "Saw",
+          "start": 23.71,
+          "end": 23.99
+        },
+        {
+          "text": "within",
+          "start": 23.99,
+          "end": 24.29
+        },
+        {
+          "text": "ken",
+          "start": 24.29,
+          "end": 24.53
+        },
+        {
+          "text": "a",
+          "start": 24.53,
+          "end": 24.75
+        },
+        {
+          "text": "glorious",
+          "start": 24.75,
+          "end": 25.21
+        },
+        {
+          "text": "Angel",
+          "start": 25.21,
+          "end": 25.65
+        },
+        {
+          "text": "stand,",
+          "start": 25.65,
+          "end": 26.11
+        },
+        {
+          "text": "The",
+          "start": 26.59,
+          "end": 26.73
+        },
+        {
+          "text": "same",
+          "start": 26.73,
+          "end": 27.01
+        },
+        {
+          "text": "whom",
+          "start": 27.01,
+          "end": 27.25
+        },
+        {
+          "text": "John",
+          "start": 27.25,
+          "end": 27.55
+        },
+        {
+          "text": "saw",
+          "start": 27.55,
+          "end": 27.85
+        },
+        {
+          "text": "also",
+          "start": 27.85,
+          "end": 28.23
+        },
+        {
+          "text": "in",
+          "start": 28.23,
+          "end": 28.37
+        },
+        {
+          "text": "the",
+          "start": 28.37,
+          "end": 28.51
+        },
+        {
+          "text": "sun:",
+          "start": 28.51,
+          "end": 28.73
+        }
+      ],
+      "stats": {
+        "expected_words": 87,
+        "heard_words": 86,
+        "matched_words": 85
+      },
+      "match_ratio": 0.9770114942528736,
+      "rejection_reasons": [],
+      "seconds": 0.6734367907047272
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "20ef20c195806ae041384063e9591f8e1e78742cdb05554ca2c52c246ffbe1bd",
+  "selected_reasons": []
+}

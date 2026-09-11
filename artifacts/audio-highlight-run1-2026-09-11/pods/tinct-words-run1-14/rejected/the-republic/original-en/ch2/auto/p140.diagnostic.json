@@ -1,0 +1,393 @@
+{
+  "complete": true,
+  "signature": "d6d598700a827dbecdfb1334c3c89f81d0daebca13804ed65764fc04057e81c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.43512924760580063,
+      "alignment_seconds": 8.065253496170044e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That, Socrates, will be inevitable.",
+        "hotwords": "That, Socrates"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Socrates Will Be Inevitable",
+          "start": 0.08,
+          "end": 2.26,
+          "words": [
+            {
+              "text": " Socrates",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.029144287109375
+            },
+            {
+              "text": " Will",
+              "start": 0.92,
+              "end": 1.6,
+              "probability": 0.007457733154296875
+            },
+            {
+              "text": " Be",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.45263671875
+            },
+            {
+              "text": " Inevitable",
+              "start": 1.74,
+              "end": 2.26,
+              "probability": 0.9778645833333334
+            }
+          ]
+        },
+        {
+          "text": " Socrates Will Be Inevitable",
+          "start": 2.26,
+          "end": 2.34,
+          "words": [
+            {
+              "text": " Socrates",
+              "start": 2.26,
+              "end": 2.26,
+              "probability": 5.960464477539063e-08
+            },
+            {
+              "text": " Will",
+              "start": 2.26,
+              "end": 2.26,
+              "probability": 0.0001957416534423828
+            },
+            {
+              "text": " Be",
+              "start": 2.26,
+              "end": 2.26,
+              "probability": 0.001102447509765625
+            },
+            {
+              "text": " Inevitable",
+              "start": 2.26,
+              "end": 2.34,
+              "probability": 0.2544443607330322
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Socrates",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "raw": "Will",
+          "start": 0.92,
+          "end": 1.6
+        },
+        {
+          "raw": "Be",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "Inevitable",
+          "start": 1.74,
+          "end": 2.26
+        },
+        {
+          "raw": "Socrates",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "raw": "Will",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "raw": "Be",
+          "start": 2.26,
+          "end": 2.26
+        },
+        {
+          "raw": "Inevitable",
+          "start": 2.26,
+          "end": 2.34
+        }
+      ],
+      "expected_tokens": [
+        "That,",
+        "Socrates,",
+        "will",
+        "be",
+        "inevitable."
+      ],
+      "opcodes": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "equal",
+          1,
+          5,
+          0,
+          4
+        ],
+        [
+          "insert",
+          5,
+          5,
+          4,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          "insert",
+          5,
+          5,
+          4,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "That,",
+          "start": 0.0,
+          "end": 0.04
+        },
+        {
+          "text": "Socrates,",
+          "start": 0.08,
+          "end": 0.92
+        },
+        {
+          "text": "will",
+          "start": 0.92,
+          "end": 1.6
+        },
+        {
+          "text": "be",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "inevitable.",
+          "start": 1.74,
+          "end": 2.26
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 8,
+        "matched_words": 4
+      },
+      "match_ratio": 0.8,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.4352478086948395
+    },
+    {
+      "asr_seconds": 0.12327664345502853,
+      "alignment_seconds": 6.72563910484314e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "That, Socrates"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " That Socrates will be inevitable.",
+          "start": 0.08,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " Socrates",
+              "start": 0.56,
+              "end": 1.04,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " will",
+              "start": 1.04,
+              "end": 1.6,
+              "probability": 0.9765625
+            },
+            {
+              "text": " be",
+              "start": 1.6,
+              "end": 1.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inevitable.",
+              "start": 1.74,
+              "end": 2.14,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "Socrates",
+          "start": 0.56,
+          "end": 1.04
+        },
+        {
+          "raw": "will",
+          "start": 1.04,
+          "end": 1.6
+        },
+        {
+          "raw": "be",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "raw": "inevitable.",
+          "start": 1.74,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "That,",
+        "Socrates,",
+        "will",
+        "be",
+        "inevitable."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That,",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "Socrates,",
+          "start": 0.56,
+          "end": 1.04
+        },
+        {
+          "text": "will",
+          "start": 1.04,
+          "end": 1.6
+        },
+        {
+          "text": "be",
+          "start": 1.6,
+          "end": 1.74
+        },
+        {
+          "text": "inevitable.",
+          "start": 1.74,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1233716830611229
+    }
+  ],
+  "selected_mode": "hotwords",
+  "audio_sha256": "b04c2b69a4325894df63148958fa87ce0ece923494ec5397060d89f4b99fc46a",
+  "selected_reasons": []
+}

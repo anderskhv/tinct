@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "0987f3d3d7dba4f39e5fe325c9764867b1b0aeb9e08552efdd6c5e3a9046dd8c",
+  "attempts": [
+    {
+      "asr_seconds": 0.08871541917324066,
+      "alignment_seconds": 6.232410669326782e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Why not? he said.",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why not? he said.",
+          "start": 0.05,
+          "end": 1.43,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.22705078125
+            },
+            {
+              "text": " not?",
+              "start": 0.57,
+              "end": 0.87,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " he",
+              "start": 1.09,
+              "end": 1.15,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " said.",
+              "start": 1.15,
+              "end": 1.43,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "not?",
+          "start": 0.57,
+          "end": 0.87
+        },
+        {
+          "raw": "he",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "raw": "said.",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "expected_tokens": [
+        "Why",
+        "not?",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Why",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "not?",
+          "start": 0.57,
+          "end": 0.87
+        },
+        {
+          "text": "he",
+          "start": 1.09,
+          "end": 1.15
+        },
+        {
+          "text": "said.",
+          "start": 1.15,
+          "end": 1.43
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08880405128002167
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "935289608939fdd59da54d927c5a970370d5b2d8d8b1d7bb60111665f4f9398f",
+  "selected_reasons": []
+}

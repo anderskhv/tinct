@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "03a1af2ff1c3ffa188dc4d140f79bd0bb49342ec551db86717d4c69882cba99e",
+  "attempts": [
+    {
+      "asr_seconds": 0.08721170574426651,
+      "alignment_seconds": 5.871802568435669e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Again of Tiresias:—",
+        "hotwords": "Again, Tiresias"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Again of Tiresias—",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " Again",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.2763671875
+            },
+            {
+              "text": " of",
+              "start": 0.65,
+              "end": 0.79,
+              "probability": 0.98046875
+            },
+            {
+              "text": " Tiresias—",
+              "start": 0.79,
+              "end": 1.93,
+              "probability": 0.41826796531677246
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Again",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "of",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "raw": "Tiresias—",
+          "start": 0.79,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "Again",
+        "of",
+        "Tiresias:—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Again",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "of",
+          "start": 0.65,
+          "end": 0.79
+        },
+        {
+          "text": "Tiresias:—",
+          "start": 0.79,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0872916504740715
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1e1a6d5020d8f0a8705a723861477fc833cedf39414b69ba18b2612811b2f534",
+  "selected_reasons": []
+}

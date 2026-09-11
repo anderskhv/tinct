@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "bec25e57de3315601fadc0964ebe8e9019623591359f1e8b0475c031afeab678",
+  "attempts": [
+    {
+      "asr_seconds": 0.06992087513208389,
+      "alignment_seconds": 3.8020312786102295e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "How?",
+        "hotwords": "How"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " How?",
+          "start": 0.11,
+          "end": 0.59,
+          "words": [
+            {
+              "text": " How?",
+              "start": 0.11,
+              "end": 0.59,
+              "probability": 0.1295166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "How?",
+          "start": 0.11,
+          "end": 0.59
+        }
+      ],
+      "expected_tokens": [
+        "How?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "How?",
+          "start": 0.11,
+          "end": 0.59
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0699719786643982
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7ba4cc4876031ff6a845f65c7d3dc486b256b8d1e34f983f8b1d3da12b3d49bc",
+  "selected_reasons": []
+}

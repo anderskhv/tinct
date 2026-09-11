@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "297362dd89ff2c1d8d9d982300af80e0ed56075351030ce7dbfbf1c9ec9d6749",
+  "attempts": [
+    {
+      "asr_seconds": 0.09087973833084106,
+      "alignment_seconds": 5.1349401473999023e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "It cannot.",
+        "hotwords": "It"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " It cannot.",
+          "start": 0.05,
+          "end": 0.77,
+          "words": [
+            {
+              "text": " It",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.81591796875
+            },
+            {
+              "text": " cannot.",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.95703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "cannot.",
+          "start": 0.53,
+          "end": 0.77
+        }
+      ],
+      "expected_tokens": [
+        "It",
+        "cannot."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "It",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "cannot.",
+          "start": 0.53,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09094958752393723
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "77573bf2f403134a7ef55ee88c371b790bad2a8fe9dfcf7bd9c1167c06e0044d",
+  "selected_reasons": []
+}

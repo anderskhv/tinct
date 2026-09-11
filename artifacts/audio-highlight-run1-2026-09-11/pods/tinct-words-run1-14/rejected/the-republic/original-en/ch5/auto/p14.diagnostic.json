@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "610b5f2240b8ba227ce0b5e11ae780f6aedb399343222eb0dccc4e45a69ab7d0",
+  "attempts": [
+    {
+      "asr_seconds": 0.12744926661252975,
+      "alignment_seconds": 7.777661085128784e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, but discourse should have a limit.",
+        "hotwords": "Yes"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, but discourse should have a limit.",
+          "start": 0.02,
+          "end": 2.14,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " but",
+              "start": 0.98,
+              "end": 1.1,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " discourse",
+              "start": 1.1,
+              "end": 1.46,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " should",
+              "start": 1.46,
+              "end": 1.7,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " have",
+              "start": 1.7,
+              "end": 1.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 1.84,
+              "end": 1.94,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " limit.",
+              "start": 1.94,
+              "end": 2.14,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "but",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "raw": "discourse",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "raw": "should",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "raw": "have",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "raw": "a",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "raw": "limit.",
+          "start": 1.94,
+          "end": 2.14
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "but",
+        "discourse",
+        "should",
+        "have",
+        "a",
+        "limit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "but",
+          "start": 0.98,
+          "end": 1.1
+        },
+        {
+          "text": "discourse",
+          "start": 1.1,
+          "end": 1.46
+        },
+        {
+          "text": "should",
+          "start": 1.46,
+          "end": 1.7
+        },
+        {
+          "text": "have",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "text": "a",
+          "start": 1.84,
+          "end": 1.94
+        },
+        {
+          "text": "limit.",
+          "start": 1.94,
+          "end": 2.14
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12756134569644928
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e4dba8b6059ca2b65dd33551d43b27c47dff53ab3cb5b617a6bebaa996c51a90",
+  "selected_reasons": []
+}

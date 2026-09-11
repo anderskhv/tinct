@@ -1,0 +1,100 @@
+{
+  "complete": true,
+  "signature": "744238eb751423320055af3050c457142c7ba9068853abe5dbba47fdcffd5417",
+  "attempts": [
+    {
+      "asr_seconds": 0.07957690209150314,
+      "alignment_seconds": 5.224347114562988e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "No doubt.",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No doubt.",
+          "start": 0.02,
+          "end": 0.8,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " doubt.",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.93359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "doubt.",
+          "start": 0.58,
+          "end": 0.8
+        }
+      ],
+      "expected_tokens": [
+        "No",
+        "doubt."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "No",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "doubt.",
+          "start": 0.58,
+          "end": 0.8
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07964852452278137
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7c56fa7acd41244f23a03b36fc83cfd9970f30419c182772567311ed9a9278d9",
+  "selected_reasons": []
+}

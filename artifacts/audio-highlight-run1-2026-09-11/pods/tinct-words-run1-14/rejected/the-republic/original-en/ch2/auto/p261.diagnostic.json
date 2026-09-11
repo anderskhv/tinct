@@ -1,0 +1,166 @@
+{
+  "complete": true,
+  "signature": "82326f50b1b408030d6492d5e7184410539d5da75c104e67f66aa9958f09b270",
+  "attempts": [
+    {
+      "asr_seconds": 0.09493525326251984,
+      "alignment_seconds": 6.626546382904053e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And the good is advantageous?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And the good is advantageous?",
+          "start": 0.05,
+          "end": 1.55,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.61669921875
+            },
+            {
+              "text": " the",
+              "start": 0.51,
+              "end": 0.61,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " good",
+              "start": 0.61,
+              "end": 0.75,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 0.75,
+              "end": 0.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " advantageous?",
+              "start": 0.91,
+              "end": 1.55,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "the",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "raw": "good",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "raw": "is",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "raw": "advantageous?",
+          "start": 0.91,
+          "end": 1.55
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "good",
+        "is",
+        "advantageous?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "the",
+          "start": 0.51,
+          "end": 0.61
+        },
+        {
+          "text": "good",
+          "start": 0.61,
+          "end": 0.75
+        },
+        {
+          "text": "is",
+          "start": 0.75,
+          "end": 0.91
+        },
+        {
+          "text": "advantageous?",
+          "start": 0.91,
+          "end": 1.55
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09503009915351868
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b185eb810c05c13c8ccfcba1c23d266d7211c9f522d3c73abeee87b446d47a99",
+  "selected_reasons": []
+}

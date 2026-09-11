@@ -1,0 +1,341 @@
+{
+  "complete": true,
+  "signature": "70e732c07a00f596f342ae87986b3aae6a29f7c7386b5f864855700c8d1dde13",
+  "attempts": [
+    {
+      "asr_seconds": 0.12611619383096695,
+      "alignment_seconds": 0.00010590255260467529,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "and in honouring them, we shall be at the same time training them."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And in honouring them, we shall be at the same time training them.",
+          "start": 0.08,
+          "end": 3.64,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.4541015625
+            },
+            {
+              "text": " in",
+              "start": 0.54,
+              "end": 0.68,
+              "probability": 0.921875
+            },
+            {
+              "text": " honouring",
+              "start": 0.68,
+              "end": 1.16,
+              "probability": 0.5086669921875
+            },
+            {
+              "text": " them,",
+              "start": 1.16,
+              "end": 1.36,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " we",
+              "start": 1.74,
+              "end": 1.88,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " shall",
+              "start": 1.88,
+              "end": 2.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " be",
+              "start": 2.04,
+              "end": 2.18,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " at",
+              "start": 2.18,
+              "end": 2.28,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 2.28,
+              "end": 2.4,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same",
+              "start": 2.4,
+              "end": 2.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " time",
+              "start": 2.62,
+              "end": 2.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " training",
+              "start": 2.98,
+              "end": 3.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " them.",
+              "start": 3.32,
+              "end": 3.64,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "in",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "raw": "honouring",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "raw": "them,",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "raw": "we",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "raw": "shall",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "raw": "be",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "raw": "at",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "raw": "the",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "raw": "same",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "raw": "time",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "raw": "training",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "raw": "them.",
+          "start": 3.32,
+          "end": 3.64
+        }
+      ],
+      "expected_tokens": [
+        "and",
+        "in",
+        "honouring",
+        "them,",
+        "we",
+        "shall",
+        "be",
+        "at",
+        "the",
+        "same",
+        "time",
+        "training",
+        "them."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          13,
+          0,
+          13
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "and",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "in",
+          "start": 0.54,
+          "end": 0.68
+        },
+        {
+          "text": "honouring",
+          "start": 0.68,
+          "end": 1.16
+        },
+        {
+          "text": "them,",
+          "start": 1.16,
+          "end": 1.36
+        },
+        {
+          "text": "we",
+          "start": 1.74,
+          "end": 1.88
+        },
+        {
+          "text": "shall",
+          "start": 1.88,
+          "end": 2.04
+        },
+        {
+          "text": "be",
+          "start": 2.04,
+          "end": 2.18
+        },
+        {
+          "text": "at",
+          "start": 2.18,
+          "end": 2.28
+        },
+        {
+          "text": "the",
+          "start": 2.28,
+          "end": 2.4
+        },
+        {
+          "text": "same",
+          "start": 2.4,
+          "end": 2.62
+        },
+        {
+          "text": "time",
+          "start": 2.62,
+          "end": 2.98
+        },
+        {
+          "text": "training",
+          "start": 2.98,
+          "end": 3.32
+        },
+        {
+          "text": "them.",
+          "start": 3.32,
+          "end": 3.64
+        }
+      ],
+      "stats": {
+        "expected_words": 13,
+        "heard_words": 13,
+        "matched_words": 13
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12627564370632172
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "baf7b5cdf58f4b01a2fcdaa88e8784224e54a46fd7fc0e4a06810ac01bc6f678",
+  "selected_reasons": []
+}

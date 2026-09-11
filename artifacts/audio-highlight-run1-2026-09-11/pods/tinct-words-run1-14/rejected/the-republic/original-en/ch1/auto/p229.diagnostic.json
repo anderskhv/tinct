@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "12ae92897ca04e99f8df20d19c9fc36ef5465c257891c37ed8b67689470fc545",
+  "attempts": [
+    {
+      "asr_seconds": 0.1348288282752037,
+      "alignment_seconds": 8.15168023109436e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Yes, said Cleitophon, interposing, if you are allowed to be his witness.",
+        "hotwords": "Yes, Cleitophon"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Yes, said Cleitophon, interposing, if you are allowed to be his witness.",
+          "start": 0.05,
+          "end": 4.35,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.055816650390625
+            },
+            {
+              "text": " said",
+              "start": 1.01,
+              "end": 1.09,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " Cleitophon,",
+              "start": 1.09,
+              "end": 1.63,
+              "probability": 0.0549163818359375
+            },
+            {
+              "text": " interposing,",
+              "start": 1.95,
+              "end": 2.45,
+              "probability": 0.958984375
+            },
+            {
+              "text": " if",
+              "start": 2.93,
+              "end": 3.07,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " you",
+              "start": 3.07,
+              "end": 3.21,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 3.21,
+              "end": 3.35,
+              "probability": 0.99609375
+            },
+            {
+              "text": " allowed",
+              "start": 3.35,
+              "end": 3.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 3.59,
+              "end": 3.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 3.77,
+              "end": 3.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " his",
+              "start": 3.87,
+              "end": 4.03,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " witness.",
+              "start": 4.03,
+              "end": 4.35,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "said",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "raw": "Cleitophon,",
+          "start": 1.09,
+          "end": 1.63
+        },
+        {
+          "raw": "interposing,",
+          "start": 1.95,
+          "end": 2.45
+        },
+        {
+          "raw": "if",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "raw": "you",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "raw": "are",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "raw": "allowed",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "raw": "to",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "raw": "be",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "raw": "his",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "raw": "witness.",
+          "start": 4.03,
+          "end": 4.35
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "said",
+        "Cleitophon,",
+        "interposing,",
+        "if",
+        "you",
+        "are",
+        "allowed",
+        "to",
+        "be",
+        "his",
+        "witness."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "said",
+          "start": 1.01,
+          "end": 1.09
+        },
+        {
+          "text": "Cleitophon,",
+          "start": 1.09,
+          "end": 1.63
+        },
+        {
+          "text": "interposing,",
+          "start": 1.95,
+          "end": 2.45
+        },
+        {
+          "text": "if",
+          "start": 2.93,
+          "end": 3.07
+        },
+        {
+          "text": "you",
+          "start": 3.07,
+          "end": 3.21
+        },
+        {
+          "text": "are",
+          "start": 3.21,
+          "end": 3.35
+        },
+        {
+          "text": "allowed",
+          "start": 3.35,
+          "end": 3.59
+        },
+        {
+          "text": "to",
+          "start": 3.59,
+          "end": 3.77
+        },
+        {
+          "text": "be",
+          "start": 3.77,
+          "end": 3.87
+        },
+        {
+          "text": "his",
+          "start": 3.87,
+          "end": 4.03
+        },
+        {
+          "text": "witness.",
+          "start": 4.03,
+          "end": 4.35
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13495685905218124
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "fa442fd5ab93959a0c20e0a53bc520c6958a02c9cbceec361a08e17931e3637a",
+  "selected_reasons": []
+}

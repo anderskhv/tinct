@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "d24368e87d3b694e8c4f072dc8e29d56db49082c64acd9dcea479a8323ed92bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.06510115414857864,
+      "alignment_seconds": 4.608184099197388e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " again.",
+          "start": 0.05,
+          "end": 0.71,
+          "words": [
+            {
+              "text": " again.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.47705078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "again.",
+          "start": 0.05,
+          "end": 0.71
+        }
+      ],
+      "expected_tokens": [
+        "Again:—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Again:—",
+          "start": 0.05,
+          "end": 0.71
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.06516274809837341
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2440e9e3946a85334539ac217e81d60222cd5bb25de38a884253c4d01430cae7",
+  "selected_reasons": []
+}

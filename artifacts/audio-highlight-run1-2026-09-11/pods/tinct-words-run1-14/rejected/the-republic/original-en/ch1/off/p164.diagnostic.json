@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "17b56d05dd73c638653ac37ab79f7260e5b7c2932a54c787ea13a63b360c91a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.08202675729990005,
+      "alignment_seconds": 5.2794814109802246e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " or drought moisture.",
+          "start": 0.02,
+          "end": 1.16,
+          "words": [
+            {
+              "text": " or",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.818359375
+            },
+            {
+              "text": " drought",
+              "start": 0.5,
+              "end": 0.74,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " moisture.",
+              "start": 0.74,
+              "end": 1.16,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "or",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "drought",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "raw": "moisture.",
+          "start": 0.74,
+          "end": 1.16
+        }
+      ],
+      "expected_tokens": [
+        "Or",
+        "drought",
+        "moisture?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Or",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "drought",
+          "start": 0.5,
+          "end": 0.74
+        },
+        {
+          "text": "moisture?",
+          "start": 0.74,
+          "end": 1.16
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08210103213787079
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf2d03312126f9b232284b521a45d5e8a2f9a4d98948bddce35b3494200a69aa",
+  "selected_reasons": []
+}

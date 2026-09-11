@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "7c6b3a17c9ff5ab922de6a654503d7c7bdf7a5aaaf2979dde7715d9de7b99a95",
+  "attempts": [
+    {
+      "asr_seconds": 0.08208978921175003,
+      "alignment_seconds": 5.982816219329834e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I remember.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.66,
+              "probability": 0.92333984375
+            },
+            {
+              "text": " I",
+              "start": 0.82,
+              "end": 0.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " remember.",
+              "start": 0.96,
+              "end": 1.26,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "raw": "I",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "raw": "remember.",
+          "start": 0.96,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "remember."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.66
+        },
+        {
+          "text": "I",
+          "start": 0.82,
+          "end": 0.96
+        },
+        {
+          "text": "remember.",
+          "start": 0.96,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.0821719840168953
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "42f5dd2f681fbcbebfc2e3aaaa7d1692039272eeb121f1b1126959f92cfa6f41",
+  "selected_reasons": []
+}

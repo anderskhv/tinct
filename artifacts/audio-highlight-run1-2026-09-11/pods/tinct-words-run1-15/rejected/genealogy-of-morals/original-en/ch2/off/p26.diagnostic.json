@@ -1,0 +1,76 @@
+{
+  "complete": true,
+  "signature": "18e56908ac43d3c42f74d8e24a428d3697f2a7222f72aed9e7113a897ed46aeb",
+  "attempts": [
+    {
+      "asr_seconds": 0.07417767494916916,
+      "alignment_seconds": 5.177408456802368e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Further.",
+          "start": 0.08,
+          "end": 0.72,
+          "words": [
+            {
+              "text": " Further.",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.70166015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Further.",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "expected_tokens": [
+        "Further!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Further!",
+          "start": 0.08,
+          "end": 0.72
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07424880564212799
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a8c9db8ba174f277c066bad71e6948ddb34e0f2072a0dcbb93a09c6089ba65e0",
+  "selected_reasons": []
+}

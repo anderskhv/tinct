@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "9f613b6e316c626db1a76f15c02b1035865d3576b23daf1496d56f222b21f5f6",
+  "attempts": [
+    {
+      "asr_seconds": 0.17585334181785583,
+      "alignment_seconds": 0.00010547041893005371,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "'Alas! my misery! Alas! that I bore the bravest to my sorrow.'",
+        "hotwords": "Alas, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Alas! my misery! Alas! that I bore the bravest to my sorrow.",
+          "start": 0.08,
+          "end": 4.14,
+          "words": [
+            {
+              "text": " Alas!",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.939453125
+            },
+            {
+              "text": " my",
+              "start": 0.98,
+              "end": 1.04,
+              "probability": 0.8916015625
+            },
+            {
+              "text": " misery!",
+              "start": 1.04,
+              "end": 1.36,
+              "probability": 0.92626953125
+            },
+            {
+              "text": " Alas!",
+              "start": 1.82,
+              "end": 2.04,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " that",
+              "start": 2.6,
+              "end": 2.68,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " I",
+              "start": 2.68,
+              "end": 2.82,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " bore",
+              "start": 2.82,
+              "end": 2.98,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " the",
+              "start": 2.98,
+              "end": 3.16,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " bravest",
+              "start": 3.16,
+              "end": 3.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 3.6,
+              "end": 3.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " my",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sorrow.",
+              "start": 3.86,
+              "end": 4.14,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Alas!",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "my",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "raw": "misery!",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "raw": "Alas!",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "raw": "that",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "raw": "I",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "raw": "bore",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "raw": "the",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "raw": "bravest",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "raw": "to",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "raw": "my",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "sorrow.",
+          "start": 3.86,
+          "end": 4.14
+        }
+      ],
+      "expected_tokens": [
+        "'Alas!",
+        "my",
+        "misery!",
+        "Alas!",
+        "that",
+        "I",
+        "bore",
+        "the",
+        "bravest",
+        "to",
+        "my",
+        "sorrow.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "'Alas!",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "my",
+          "start": 0.98,
+          "end": 1.04
+        },
+        {
+          "text": "misery!",
+          "start": 1.04,
+          "end": 1.36
+        },
+        {
+          "text": "Alas!",
+          "start": 1.82,
+          "end": 2.04
+        },
+        {
+          "text": "that",
+          "start": 2.6,
+          "end": 2.68
+        },
+        {
+          "text": "I",
+          "start": 2.68,
+          "end": 2.82
+        },
+        {
+          "text": "bore",
+          "start": 2.82,
+          "end": 2.98
+        },
+        {
+          "text": "the",
+          "start": 2.98,
+          "end": 3.16
+        },
+        {
+          "text": "bravest",
+          "start": 3.16,
+          "end": 3.6
+        },
+        {
+          "text": "to",
+          "start": 3.6,
+          "end": 3.7
+        },
+        {
+          "text": "my",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "sorrow.'",
+          "start": 3.86,
+          "end": 4.14
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.17600761353969574
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c1c9ef0b59722899aa44572ccd21957942a86575f5b75190ea0f4bc9932a5649",
+  "selected_reasons": []
+}

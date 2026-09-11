@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "5c35bdcd2b75b8ffb0680768db320d700f9bdae09acc52c8bff7bb86df2e7cc9",
+  "attempts": [
+    {
+      "asr_seconds": 0.09046773612499237,
+      "alignment_seconds": 7.063895463943481e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I do not know, he replied.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I do not know, he replied.",
+          "start": 0.05,
+          "end": 1.61,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.34521484375
+            },
+            {
+              "text": " do",
+              "start": 0.49,
+              "end": 0.57,
+              "probability": 0.66748046875
+            },
+            {
+              "text": " not",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " know,",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.15,
+              "end": 1.23,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " replied.",
+              "start": 1.23,
+              "end": 1.61,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "do",
+          "start": 0.49,
+          "end": 0.57
+        },
+        {
+          "raw": "not",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "know,",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "raw": "he",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "raw": "replied.",
+          "start": 1.23,
+          "end": 1.61
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "do",
+        "not",
+        "know,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "do",
+          "start": 0.49,
+          "end": 0.57
+        },
+        {
+          "text": "not",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "know,",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "text": "he",
+          "start": 1.15,
+          "end": 1.23
+        },
+        {
+          "text": "replied.",
+          "start": 1.23,
+          "end": 1.61
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09056913107633591
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9db29b58e1db03d8803438e9997ae40994ed625061b4c56480376e08c2589e4c",
+  "selected_reasons": []
+}

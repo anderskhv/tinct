@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "983af94caef7d75b6617748f7b122598f355ddf553369d6fbab9cba78f25c990",
+  "attempts": [
+    {
+      "asr_seconds": 0.07655598968267441,
+      "alignment_seconds": 6.16312026977539e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, I will.",
+          "start": 0.02,
+          "end": 1.12,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8974609375
+            },
+            {
+              "text": " I",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " will.",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "I",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "will.",
+          "start": 0.92,
+          "end": 1.12
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "I",
+        "will."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "I",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "will.",
+          "start": 0.92,
+          "end": 1.12
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07664191722869873
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6ec43ffa6613dc9804e2e6642be0ef02f3b806cef63ea4ff2cf908373dcd4dff",
+  "selected_reasons": []
+}

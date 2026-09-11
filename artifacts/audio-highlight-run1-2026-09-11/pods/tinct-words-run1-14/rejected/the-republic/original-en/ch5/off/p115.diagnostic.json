@@ -1,0 +1,252 @@
+{
+  "complete": true,
+  "signature": "9e5594763972f4c32ad9d48b477bd396434f9570c37cde6803c9d2826172baff",
+  "attempts": [
+    {
+      "asr_seconds": 0.15392260253429413,
+      "alignment_seconds": 8.375942707061768e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The very great benefit has next to be established.",
+          "start": 0.05,
+          "end": 2.87,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.8984375
+            },
+            {
+              "text": " very",
+              "start": 0.49,
+              "end": 0.73,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " great",
+              "start": 0.73,
+              "end": 1.05,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " benefit",
+              "start": 1.05,
+              "end": 1.45,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " has",
+              "start": 1.45,
+              "end": 1.83,
+              "probability": 0.93701171875
+            },
+            {
+              "text": " next",
+              "start": 1.83,
+              "end": 2.09,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " to",
+              "start": 2.09,
+              "end": 2.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 2.25,
+              "end": 2.35,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " established.",
+              "start": 2.35,
+              "end": 2.87,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "very",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "raw": "great",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "raw": "benefit",
+          "start": 1.05,
+          "end": 1.45
+        },
+        {
+          "raw": "has",
+          "start": 1.45,
+          "end": 1.83
+        },
+        {
+          "raw": "next",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "raw": "to",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "raw": "be",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "raw": "established.",
+          "start": 2.35,
+          "end": 2.87
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "very",
+        "great",
+        "benefit",
+        "has",
+        "next",
+        "to",
+        "be",
+        "established?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "very",
+          "start": 0.49,
+          "end": 0.73
+        },
+        {
+          "text": "great",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "text": "benefit",
+          "start": 1.05,
+          "end": 1.45
+        },
+        {
+          "text": "has",
+          "start": 1.45,
+          "end": 1.83
+        },
+        {
+          "text": "next",
+          "start": 1.83,
+          "end": 2.09
+        },
+        {
+          "text": "to",
+          "start": 2.09,
+          "end": 2.25
+        },
+        {
+          "text": "be",
+          "start": 2.25,
+          "end": 2.35
+        },
+        {
+          "text": "established?",
+          "start": 2.35,
+          "end": 2.87
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1540416032075882
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "f6246b8b57f65c46656565eeab93bb131dddd79df0c9e643ba1b35c4302a3eec",
+  "selected_reasons": []
+}

@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "signature": "3ed8791bb186dccee5967e5c543778f977169c42a6cd53cbd0d2059b1bd53e29",
+  "attempts": [
+    {
+      "asr_seconds": 0.13634052872657776,
+      "alignment_seconds": 8.205324411392212e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And that which is not hurtful hurts not.",
+          "start": 0.05,
+          "end": 2.15,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.68017578125
+            },
+            {
+              "text": " that",
+              "start": 0.53,
+              "end": 0.67,
+              "probability": 0.986328125
+            },
+            {
+              "text": " which",
+              "start": 0.67,
+              "end": 0.83,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " is",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " not",
+              "start": 0.97,
+              "end": 1.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " hurtful",
+              "start": 1.19,
+              "end": 1.59,
+              "probability": 0.996826171875
+            },
+            {
+              "text": " hurts",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.880859375
+            },
+            {
+              "text": " not.",
+              "start": 1.81,
+              "end": 2.15,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "that",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "raw": "which",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "raw": "is",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "not",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "raw": "hurtful",
+          "start": 1.19,
+          "end": 1.59
+        },
+        {
+          "raw": "hurts",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "raw": "not.",
+          "start": 1.81,
+          "end": 2.15
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "that",
+        "which",
+        "is",
+        "not",
+        "hurtful",
+        "hurts",
+        "not?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "that",
+          "start": 0.53,
+          "end": 0.67
+        },
+        {
+          "text": "which",
+          "start": 0.67,
+          "end": 0.83
+        },
+        {
+          "text": "is",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "not",
+          "start": 0.97,
+          "end": 1.19
+        },
+        {
+          "text": "hurtful",
+          "start": 1.19,
+          "end": 1.59
+        },
+        {
+          "text": "hurts",
+          "start": 1.59,
+          "end": 1.81
+        },
+        {
+          "text": "not?",
+          "start": 1.81,
+          "end": 2.15
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13646200299263
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7c336e74a9e7c34258d85cfe1f465cf1c0cabafce00395f55d25cb5bbe705c65",
+  "selected_reasons": []
+}

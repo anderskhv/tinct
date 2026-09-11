@@ -1,0 +1,406 @@
+{
+  "complete": true,
+  "signature": "501660b014eb189fbc233fe486d955fd9e5674fdf85dd60fa4d9a653a293688c",
+  "attempts": [
+    {
+      "asr_seconds": 0.21822379529476166,
+      "alignment_seconds": 0.00013352185487747192,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I entirely agree,\" he said, in these principles and promised to make them my laws.",
+          "start": 0.08,
+          "end": 5.14,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.44384765625
+            },
+            {
+              "text": " entirely",
+              "start": 0.56,
+              "end": 0.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " agree,\"",
+              "start": 0.96,
+              "end": 1.94,
+              "probability": 0.6785888671875
+            },
+            {
+              "text": " he",
+              "start": 1.94,
+              "end": 2.04,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " said,",
+              "start": 2.04,
+              "end": 2.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " in",
+              "start": 2.68,
+              "end": 2.76,
+              "probability": 0.1107177734375
+            },
+            {
+              "text": " these",
+              "start": 2.76,
+              "end": 2.94,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " principles",
+              "start": 2.94,
+              "end": 3.3,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " and",
+              "start": 3.3,
+              "end": 3.74,
+              "probability": 0.806640625
+            },
+            {
+              "text": " promised",
+              "start": 3.74,
+              "end": 4.06,
+              "probability": 0.96484375
+            },
+            {
+              "text": " to",
+              "start": 4.06,
+              "end": 4.3,
+              "probability": 0.998046875
+            },
+            {
+              "text": " make",
+              "start": 4.3,
+              "end": 4.42,
+              "probability": 0.986328125
+            },
+            {
+              "text": " them",
+              "start": 4.42,
+              "end": 4.62,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " my",
+              "start": 4.62,
+              "end": 4.82,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " laws.",
+              "start": 4.82,
+              "end": 5.14,
+              "probability": 0.97607421875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "entirely",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "raw": "agree,\"",
+          "start": 0.96,
+          "end": 1.94
+        },
+        {
+          "raw": "he",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "raw": "said,",
+          "start": 2.04,
+          "end": 2.34
+        },
+        {
+          "raw": "in",
+          "start": 2.68,
+          "end": 2.76
+        },
+        {
+          "raw": "these",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "raw": "principles",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "raw": "and",
+          "start": 3.3,
+          "end": 3.74
+        },
+        {
+          "raw": "promised",
+          "start": 3.74,
+          "end": 4.06
+        },
+        {
+          "raw": "to",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "raw": "make",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "raw": "them",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "raw": "my",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "raw": "laws.",
+          "start": 4.82,
+          "end": 5.14
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "entirely",
+        "agree,",
+        "he",
+        "said,",
+        "in",
+        "these",
+        "principles,",
+        "and",
+        "promise",
+        "to",
+        "make",
+        "them",
+        "my",
+        "laws."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ],
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ],
+        [
+          "equal",
+          10,
+          15,
+          10,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          9,
+          10,
+          9,
+          10
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "entirely",
+          "start": 0.56,
+          "end": 0.96
+        },
+        {
+          "text": "agree,",
+          "start": 0.96,
+          "end": 1.94
+        },
+        {
+          "text": "he",
+          "start": 1.94,
+          "end": 2.04
+        },
+        {
+          "text": "said,",
+          "start": 2.04,
+          "end": 2.34
+        },
+        {
+          "text": "in",
+          "start": 2.68,
+          "end": 2.76
+        },
+        {
+          "text": "these",
+          "start": 2.76,
+          "end": 2.94
+        },
+        {
+          "text": "principles,",
+          "start": 2.94,
+          "end": 3.3
+        },
+        {
+          "text": "and",
+          "start": 3.3,
+          "end": 3.74
+        },
+        {
+          "text": "promise",
+          "start": 3.74,
+          "end": 3.9
+        },
+        {
+          "text": "to",
+          "start": 4.06,
+          "end": 4.3
+        },
+        {
+          "text": "make",
+          "start": 4.3,
+          "end": 4.42
+        },
+        {
+          "text": "them",
+          "start": 4.42,
+          "end": 4.62
+        },
+        {
+          "text": "my",
+          "start": 4.62,
+          "end": 4.82
+        },
+        {
+          "text": "laws.",
+          "start": 4.82,
+          "end": 5.14
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 14
+      },
+      "match_ratio": 0.9333333333333333,
+      "rejection_reasons": [],
+      "seconds": 0.2184133529663086
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "3323bb12b1b64d2dae235991a7da8e83fa44937a2315e288905b0317265f8ffa",
+  "selected_reasons": []
+}

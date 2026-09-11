@@ -1,0 +1,4384 @@
+{
+  "complete": true,
+  "signature": "ae92f9c5fc03f6e4bba247ca6a3c01e3ebd4d1816a0c08ee5f00e06329b863d7",
+  "attempts": [
+    {
+      "asr_seconds": 1.1862910240888596,
+      "alignment_seconds": 0.0008208081126213074,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The law, I said, which is the sequel of this and of all that has preceded, is to the following effect,—'that the wives of our guardians are to be common, and their children are to be common, and no parent is to know his own child, nor any child his parent.'",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I The law, I said, which is the sequel of this and of all that has preceded, is to the following effect,—'that the wives of our guardians are to be common, and their children are to be common, and no parent is to know his own child, nor any child his parent.'",
+          "start": 0.02,
+          "end": 15.66,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.006866455078125
+            },
+            {
+              "text": " The",
+              "start": 0.5,
+              "end": 0.5,
+              "probability": 0.00037860870361328125
+            },
+            {
+              "text": " law,",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 0.96,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " said,",
+              "start": 0.96,
+              "end": 1.3,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " which",
+              "start": 1.68,
+              "end": 1.86,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " is",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.98828125
+            },
+            {
+              "text": " sequel",
+              "start": 2.2,
+              "end": 2.52,
+              "probability": 0.97265625
+            },
+            {
+              "text": " of",
+              "start": 2.52,
+              "end": 2.74,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " this",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " and",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.78662109375
+            },
+            {
+              "text": " of",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " all",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " has",
+              "start": 3.7,
+              "end": 3.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " preceded,",
+              "start": 3.88,
+              "end": 4.32,
+              "probability": 0.186279296875
+            },
+            {
+              "text": " is",
+              "start": 4.78,
+              "end": 4.94,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " to",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " following",
+              "start": 5.22,
+              "end": 5.64,
+              "probability": 0.994140625
+            },
+            {
+              "text": " effect,—",
+              "start": 5.64,
+              "end": 6.66,
+              "probability": 0.4989023208618164
+            },
+            {
+              "text": "'that",
+              "start": 6.66,
+              "end": 6.88,
+              "probability": 0.192063570022583
+            },
+            {
+              "text": " the",
+              "start": 6.88,
+              "end": 7.08,
+              "probability": 0.994140625
+            },
+            {
+              "text": " wives",
+              "start": 7.08,
+              "end": 7.4,
+              "probability": 0.994140625
+            },
+            {
+              "text": " of",
+              "start": 7.4,
+              "end": 7.58,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " our",
+              "start": 7.58,
+              "end": 7.72,
+              "probability": 0.99609375
+            },
+            {
+              "text": " guardians",
+              "start": 7.72,
+              "end": 8.14,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " are",
+              "start": 8.14,
+              "end": 8.44,
+              "probability": 0.994140625
+            },
+            {
+              "text": " to",
+              "start": 8.44,
+              "end": 8.56,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 8.56,
+              "end": 8.7,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " common,",
+              "start": 8.7,
+              "end": 9.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 9.32,
+              "end": 9.64,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " their",
+              "start": 9.64,
+              "end": 9.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " children",
+              "start": 9.78,
+              "end": 10.1,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 10.1,
+              "end": 10.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 10.5,
+              "end": 10.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 10.6,
+              "end": 10.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " common,",
+              "start": 10.74,
+              "end": 11.12,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 11.46,
+              "end": 11.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " no",
+              "start": 11.68,
+              "end": 11.9,
+              "probability": 0.998046875
+            },
+            {
+              "text": " parent",
+              "start": 11.9,
+              "end": 12.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 12.2,
+              "end": 12.52,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 12.52,
+              "end": 12.68,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " know",
+              "start": 12.68,
+              "end": 12.86,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 12.86,
+              "end": 13.04,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " own",
+              "start": 13.04,
+              "end": 13.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " child,",
+              "start": 13.32,
+              "end": 13.84,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " nor",
+              "start": 14.2,
+              "end": 14.32,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " any",
+              "start": 14.32,
+              "end": 14.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " child",
+              "start": 14.62,
+              "end": 14.96,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 14.96,
+              "end": 15.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " parent.'",
+              "start": 15.16,
+              "end": 15.66,
+              "probability": 0.81494140625
+            }
+          ]
+        },
+        {
+          "text": " I The law, I said, which is the sequel of this and of all that has preceded, is to the following effect,—'that the wives of our guardians are to be common, nor his parents are to know his own child, nor his parent is to know his own child, nor his parent is to know his own child.'",
+          "start": 15.66,
+          "end": 16.14,
+          "words": [
+            {
+              "text": " I",
+              "start": 15.66,
+              "end": 16.14,
+              "probability": 0.0030574798583984375
+            },
+            {
+              "text": " The",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 1.704692840576172e-05
+            },
+            {
+              "text": " law,",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0008473396301269531
+            },
+            {
+              "text": " I",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.080078125
+            },
+            {
+              "text": " said,",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0074615478515625
+            },
+            {
+              "text": " which",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0006213188171386719
+            },
+            {
+              "text": " is",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.1689453125
+            },
+            {
+              "text": " the",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.149658203125
+            },
+            {
+              "text": " sequel",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 8.046627044677734e-06
+            },
+            {
+              "text": " of",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.2548828125
+            },
+            {
+              "text": " this",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.094970703125
+            },
+            {
+              "text": " and",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.00409698486328125
+            },
+            {
+              "text": " of",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.00156402587890625
+            },
+            {
+              "text": " all",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0265045166015625
+            },
+            {
+              "text": " that",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0288848876953125
+            },
+            {
+              "text": " has",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.01149749755859375
+            },
+            {
+              "text": " preceded,",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 2.205371856689453e-06
+            },
+            {
+              "text": " is",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.02093505859375
+            },
+            {
+              "text": " to",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0232086181640625
+            },
+            {
+              "text": " the",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.036651611328125
+            },
+            {
+              "text": " following",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0009365081787109375
+            },
+            {
+              "text": " effect,—",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0002684593200683594
+            },
+            {
+              "text": "'that",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0017139911651611328
+            },
+            {
+              "text": " the",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.051727294921875
+            },
+            {
+              "text": " wives",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 5.662441253662109e-06
+            },
+            {
+              "text": " of",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.311279296875
+            },
+            {
+              "text": " our",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0126190185546875
+            },
+            {
+              "text": " guardians",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.00010412931442260742
+            },
+            {
+              "text": " are",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.099609375
+            },
+            {
+              "text": " to",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0116729736328125
+            },
+            {
+              "text": " be",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0672607421875
+            },
+            {
+              "text": " common,",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 3.170967102050781e-05
+            },
+            {
+              "text": " nor",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.004947662353515625
+            },
+            {
+              "text": " his",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.00024235248565673828
+            },
+            {
+              "text": " parents",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.005657196044921875
+            },
+            {
+              "text": " are",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.5986328125
+            },
+            {
+              "text": " to",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.7373046875
+            },
+            {
+              "text": " know",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.00447845458984375
+            },
+            {
+              "text": " his",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.007282257080078125
+            },
+            {
+              "text": " own",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0213470458984375
+            },
+            {
+              "text": " child,",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0007467269897460938
+            },
+            {
+              "text": " nor",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.6552734375
+            },
+            {
+              "text": " his",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.55078125
+            },
+            {
+              "text": " parent",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.00022923946380615234
+            },
+            {
+              "text": " is",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.036102294921875
+            },
+            {
+              "text": " to",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.79736328125
+            },
+            {
+              "text": " know",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.11669921875
+            },
+            {
+              "text": " his",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.407958984375
+            },
+            {
+              "text": " own",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.258056640625
+            },
+            {
+              "text": " child,",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.1512451171875
+            },
+            {
+              "text": " nor",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " his",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " parent",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.0033130645751953125
+            },
+            {
+              "text": " is",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.61328125
+            },
+            {
+              "text": " to",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.9521484375
+            },
+            {
+              "text": " know",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.51708984375
+            },
+            {
+              "text": " his",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.6533203125
+            },
+            {
+              "text": " own",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.54296875
+            },
+            {
+              "text": " child.'",
+              "start": 16.14,
+              "end": 16.14,
+              "probability": 0.4716796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "The",
+          "start": 0.5,
+          "end": 0.5
+        },
+        {
+          "raw": "law,",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 0.96
+        },
+        {
+          "raw": "said,",
+          "start": 0.96,
+          "end": 1.3
+        },
+        {
+          "raw": "which",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "raw": "is",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "sequel",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "raw": "of",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "raw": "this",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "and",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": "of",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "that",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "has",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "raw": "preceded,",
+          "start": 3.88,
+          "end": 4.32
+        },
+        {
+          "raw": "is",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "raw": "to",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "the",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "following",
+          "start": 5.22,
+          "end": 5.64
+        },
+        {
+          "raw": "effect,—",
+          "start": 5.64,
+          "end": 6.66
+        },
+        {
+          "raw": "'that",
+          "start": 6.66,
+          "end": 6.88
+        },
+        {
+          "raw": "the",
+          "start": 6.88,
+          "end": 7.08
+        },
+        {
+          "raw": "wives",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "raw": "of",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "raw": "our",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "raw": "guardians",
+          "start": 7.72,
+          "end": 8.14
+        },
+        {
+          "raw": "are",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "raw": "to",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "raw": "be",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "raw": "common,",
+          "start": 8.7,
+          "end": 9.08
+        },
+        {
+          "raw": "and",
+          "start": 9.32,
+          "end": 9.64
+        },
+        {
+          "raw": "their",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "raw": "children",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "raw": "are",
+          "start": 10.1,
+          "end": 10.5
+        },
+        {
+          "raw": "to",
+          "start": 10.5,
+          "end": 10.6
+        },
+        {
+          "raw": "be",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "raw": "common,",
+          "start": 10.74,
+          "end": 11.12
+        },
+        {
+          "raw": "and",
+          "start": 11.46,
+          "end": 11.68
+        },
+        {
+          "raw": "no",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "raw": "parent",
+          "start": 11.9,
+          "end": 12.2
+        },
+        {
+          "raw": "is",
+          "start": 12.2,
+          "end": 12.52
+        },
+        {
+          "raw": "to",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "raw": "know",
+          "start": 12.68,
+          "end": 12.86
+        },
+        {
+          "raw": "his",
+          "start": 12.86,
+          "end": 13.04
+        },
+        {
+          "raw": "own",
+          "start": 13.04,
+          "end": 13.32
+        },
+        {
+          "raw": "child,",
+          "start": 13.32,
+          "end": 13.84
+        },
+        {
+          "raw": "nor",
+          "start": 14.2,
+          "end": 14.32
+        },
+        {
+          "raw": "any",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "raw": "child",
+          "start": 14.62,
+          "end": 14.96
+        },
+        {
+          "raw": "his",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "raw": "parent.'",
+          "start": 15.16,
+          "end": 15.66
+        },
+        {
+          "raw": "I",
+          "start": 15.66,
+          "end": 16.14
+        },
+        {
+          "raw": "The",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "law,",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "I",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "said,",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "which",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "is",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "the",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "sequel",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "of",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "this",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "and",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "of",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "all",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "that",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "has",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "preceded,",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "is",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "to",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "the",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "following",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "effect,—",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "'that",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "the",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "wives",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "of",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "our",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "guardians",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "are",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "to",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "be",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "common,",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "nor",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "his",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "parents",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "are",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "to",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "know",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "his",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "own",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "child,",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "nor",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "his",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "parent",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "is",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "to",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "know",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "his",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "own",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "child,",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "nor",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "his",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "parent",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "is",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "to",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "know",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "his",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "own",
+          "start": 16.14,
+          "end": 16.14
+        },
+        {
+          "raw": "child.'",
+          "start": 16.14,
+          "end": 16.14
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "law,",
+        "I",
+        "said,",
+        "which",
+        "is",
+        "the",
+        "sequel",
+        "of",
+        "this",
+        "and",
+        "of",
+        "all",
+        "that",
+        "has",
+        "preceded,",
+        "is",
+        "to",
+        "the",
+        "following",
+        "effect,—'that",
+        "the",
+        "wives",
+        "of",
+        "our",
+        "guardians",
+        "are",
+        "to",
+        "be",
+        "common,",
+        "and",
+        "their",
+        "children",
+        "are",
+        "to",
+        "be",
+        "common,",
+        "and",
+        "no",
+        "parent",
+        "is",
+        "to",
+        "know",
+        "his",
+        "own",
+        "child,",
+        "nor",
+        "any",
+        "child",
+        "his",
+        "parent.'"
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          20,
+          1,
+          21
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          23
+        ],
+        [
+          "equal",
+          21,
+          51,
+          23,
+          53
+        ],
+        [
+          "insert",
+          51,
+          51,
+          53,
+          112
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 52
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "replace",
+          20,
+          21,
+          21,
+          23
+        ],
+        [
+          "insert",
+          51,
+          51,
+          53,
+          112
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.5,
+          "end": 0.5
+        },
+        {
+          "text": "law,",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 0.96
+        },
+        {
+          "text": "said,",
+          "start": 0.96,
+          "end": 1.3
+        },
+        {
+          "text": "which",
+          "start": 1.68,
+          "end": 1.86
+        },
+        {
+          "text": "is",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "sequel",
+          "start": 2.2,
+          "end": 2.52
+        },
+        {
+          "text": "of",
+          "start": 2.52,
+          "end": 2.74
+        },
+        {
+          "text": "this",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "and",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "text": "of",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "that",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "has",
+          "start": 3.7,
+          "end": 3.88
+        },
+        {
+          "text": "preceded,",
+          "start": 3.88,
+          "end": 4.32
+        },
+        {
+          "text": "is",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "text": "to",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "the",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "following",
+          "start": 5.22,
+          "end": 5.64
+        },
+        {
+          "text": "effect,—'that",
+          "start": 5.64,
+          "end": 6.26
+        },
+        {
+          "text": "the",
+          "start": 6.88,
+          "end": 7.08
+        },
+        {
+          "text": "wives",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "text": "of",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "our",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "text": "guardians",
+          "start": 7.72,
+          "end": 8.14
+        },
+        {
+          "text": "are",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "text": "to",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "text": "be",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "text": "common,",
+          "start": 8.7,
+          "end": 9.08
+        },
+        {
+          "text": "and",
+          "start": 9.32,
+          "end": 9.64
+        },
+        {
+          "text": "their",
+          "start": 9.64,
+          "end": 9.78
+        },
+        {
+          "text": "children",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "text": "are",
+          "start": 10.1,
+          "end": 10.5
+        },
+        {
+          "text": "to",
+          "start": 10.5,
+          "end": 10.6
+        },
+        {
+          "text": "be",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "text": "common,",
+          "start": 10.74,
+          "end": 11.12
+        },
+        {
+          "text": "and",
+          "start": 11.46,
+          "end": 11.68
+        },
+        {
+          "text": "no",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "text": "parent",
+          "start": 11.9,
+          "end": 12.2
+        },
+        {
+          "text": "is",
+          "start": 12.2,
+          "end": 12.52
+        },
+        {
+          "text": "to",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "text": "know",
+          "start": 12.68,
+          "end": 12.86
+        },
+        {
+          "text": "his",
+          "start": 12.86,
+          "end": 13.04
+        },
+        {
+          "text": "own",
+          "start": 13.04,
+          "end": 13.32
+        },
+        {
+          "text": "child,",
+          "start": 13.32,
+          "end": 13.84
+        },
+        {
+          "text": "nor",
+          "start": 14.2,
+          "end": 14.32
+        },
+        {
+          "text": "any",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "text": "child",
+          "start": 14.62,
+          "end": 14.96
+        },
+        {
+          "text": "his",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "text": "parent.'",
+          "start": 15.16,
+          "end": 15.66
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 112,
+        "matched_words": 50
+      },
+      "match_ratio": 0.9803921568627451,
+      "rejection_reasons": [],
+      "seconds": 1.1877643018960953
+    },
+    {
+      "asr_seconds": 0.390446238219738,
+      "alignment_seconds": 0.00040209293365478516,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "I"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " The law, I said, which is the sequel of this and of all that has proceeded, is to",
+          "start": 0.02,
+          "end": 5.1,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.455322265625
+            },
+            {
+              "text": " law,",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " I",
+              "start": 0.9,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said,",
+              "start": 0.98,
+              "end": 1.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " is",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sequel",
+              "start": 2.2,
+              "end": 2.5,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " of",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " all",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " has",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " proceeded,",
+              "start": 3.86,
+              "end": 4.34,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " is",
+              "start": 4.78,
+              "end": 4.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99462890625
+            }
+          ]
+        },
+        {
+          "text": " the following effect, that the wives of our guardians are to be common, and their children",
+          "start": 5.1,
+          "end": 10.1,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " following",
+              "start": 5.22,
+              "end": 5.62,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " effect,",
+              "start": 5.62,
+              "end": 6.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 6.64,
+              "end": 6.9,
+              "probability": 0.93212890625
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.08,
+              "probability": 0.984375
+            },
+            {
+              "text": " wives",
+              "start": 7.08,
+              "end": 7.4,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " of",
+              "start": 7.4,
+              "end": 7.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 7.58,
+              "end": 7.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " guardians",
+              "start": 7.72,
+              "end": 8.14,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " are",
+              "start": 8.14,
+              "end": 8.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.44,
+              "end": 8.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 8.56,
+              "end": 8.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " common,",
+              "start": 8.7,
+              "end": 9.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 9.42,
+              "end": 9.66,
+              "probability": 0.99609375
+            },
+            {
+              "text": " their",
+              "start": 9.66,
+              "end": 9.78,
+              "probability": 0.998046875
+            },
+            {
+              "text": " children",
+              "start": 9.78,
+              "end": 10.1,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " are to be common, and no parent is to know his own child, nor any child his parent.",
+          "start": 10.1,
+          "end": 15.52,
+          "words": [
+            {
+              "text": " are",
+              "start": 10.1,
+              "end": 10.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 10.5,
+              "end": 10.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 10.6,
+              "end": 10.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " common,",
+              "start": 10.74,
+              "end": 11.12,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 11.5,
+              "end": 11.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " no",
+              "start": 11.68,
+              "end": 11.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " parent",
+              "start": 11.9,
+              "end": 12.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 12.22,
+              "end": 12.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 12.52,
+              "end": 12.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 12.68,
+              "end": 12.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 12.86,
+              "end": 13.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " own",
+              "start": 13.04,
+              "end": 13.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " child,",
+              "start": 13.32,
+              "end": 13.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nor",
+              "start": 14.18,
+              "end": 14.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " any",
+              "start": 14.32,
+              "end": 14.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " child",
+              "start": 14.62,
+              "end": 14.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 14.96,
+              "end": 15.16,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " parent.",
+              "start": 15.16,
+              "end": 15.52,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "law,",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 0.98
+        },
+        {
+          "raw": "said,",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "raw": "which",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "is",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "sequel",
+          "start": 2.2,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "this",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "and",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": "of",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "that",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "has",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "proceeded,",
+          "start": 3.86,
+          "end": 4.34
+        },
+        {
+          "raw": "is",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "raw": "to",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "the",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "following",
+          "start": 5.22,
+          "end": 5.62
+        },
+        {
+          "raw": "effect,",
+          "start": 5.62,
+          "end": 6.08
+        },
+        {
+          "raw": "that",
+          "start": 6.64,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.08
+        },
+        {
+          "raw": "wives",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "raw": "of",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "raw": "our",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "raw": "guardians",
+          "start": 7.72,
+          "end": 8.14
+        },
+        {
+          "raw": "are",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "raw": "to",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "raw": "be",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "raw": "common,",
+          "start": 8.7,
+          "end": 9.08
+        },
+        {
+          "raw": "and",
+          "start": 9.42,
+          "end": 9.66
+        },
+        {
+          "raw": "their",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "raw": "children",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "raw": "are",
+          "start": 10.1,
+          "end": 10.5
+        },
+        {
+          "raw": "to",
+          "start": 10.5,
+          "end": 10.6
+        },
+        {
+          "raw": "be",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "raw": "common,",
+          "start": 10.74,
+          "end": 11.12
+        },
+        {
+          "raw": "and",
+          "start": 11.5,
+          "end": 11.68
+        },
+        {
+          "raw": "no",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "raw": "parent",
+          "start": 11.9,
+          "end": 12.22
+        },
+        {
+          "raw": "is",
+          "start": 12.22,
+          "end": 12.52
+        },
+        {
+          "raw": "to",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "raw": "know",
+          "start": 12.68,
+          "end": 12.86
+        },
+        {
+          "raw": "his",
+          "start": 12.86,
+          "end": 13.04
+        },
+        {
+          "raw": "own",
+          "start": 13.04,
+          "end": 13.32
+        },
+        {
+          "raw": "child,",
+          "start": 13.32,
+          "end": 13.86
+        },
+        {
+          "raw": "nor",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "raw": "any",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "raw": "child",
+          "start": 14.62,
+          "end": 14.96
+        },
+        {
+          "raw": "his",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "raw": "parent.",
+          "start": 15.16,
+          "end": 15.52
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "law,",
+        "I",
+        "said,",
+        "which",
+        "is",
+        "the",
+        "sequel",
+        "of",
+        "this",
+        "and",
+        "of",
+        "all",
+        "that",
+        "has",
+        "preceded,",
+        "is",
+        "to",
+        "the",
+        "following",
+        "effect,—'that",
+        "the",
+        "wives",
+        "of",
+        "our",
+        "guardians",
+        "are",
+        "to",
+        "be",
+        "common,",
+        "and",
+        "their",
+        "children",
+        "are",
+        "to",
+        "be",
+        "common,",
+        "and",
+        "no",
+        "parent",
+        "is",
+        "to",
+        "know",
+        "his",
+        "own",
+        "child,",
+        "nor",
+        "any",
+        "child",
+        "his",
+        "parent.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          20,
+          16,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          51,
+          22,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "law,",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.9,
+          "end": 0.98
+        },
+        {
+          "text": "said,",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "text": "which",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "is",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "sequel",
+          "start": 2.2,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "this",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "and",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "text": "of",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "that",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "has",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "preceded,",
+          "start": 3.86,
+          "end": 4.32
+        },
+        {
+          "text": "is",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "text": "to",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "the",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "following",
+          "start": 5.22,
+          "end": 5.62
+        },
+        {
+          "text": "effect,—'that",
+          "start": 5.62,
+          "end": 6.26
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.08
+        },
+        {
+          "text": "wives",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "text": "of",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "our",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "text": "guardians",
+          "start": 7.72,
+          "end": 8.14
+        },
+        {
+          "text": "are",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "text": "to",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "text": "be",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "text": "common,",
+          "start": 8.7,
+          "end": 9.08
+        },
+        {
+          "text": "and",
+          "start": 9.42,
+          "end": 9.66
+        },
+        {
+          "text": "their",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "text": "children",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "text": "are",
+          "start": 10.1,
+          "end": 10.5
+        },
+        {
+          "text": "to",
+          "start": 10.5,
+          "end": 10.6
+        },
+        {
+          "text": "be",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "text": "common,",
+          "start": 10.74,
+          "end": 11.12
+        },
+        {
+          "text": "and",
+          "start": 11.5,
+          "end": 11.68
+        },
+        {
+          "text": "no",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "text": "parent",
+          "start": 11.9,
+          "end": 12.22
+        },
+        {
+          "text": "is",
+          "start": 12.22,
+          "end": 12.52
+        },
+        {
+          "text": "to",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "text": "know",
+          "start": 12.68,
+          "end": 12.86
+        },
+        {
+          "text": "his",
+          "start": 12.86,
+          "end": 13.04
+        },
+        {
+          "text": "own",
+          "start": 13.04,
+          "end": 13.32
+        },
+        {
+          "text": "child,",
+          "start": 13.32,
+          "end": 13.86
+        },
+        {
+          "text": "nor",
+          "start": 14.18,
+          "end": 14.32
+        },
+        {
+          "text": "any",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "text": "child",
+          "start": 14.62,
+          "end": 14.96
+        },
+        {
+          "text": "his",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "text": "parent.'",
+          "start": 15.16,
+          "end": 15.52
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 52,
+        "matched_words": 49
+      },
+      "match_ratio": 0.9607843137254902,
+      "rejection_reasons": [],
+      "seconds": 0.39106711000204086
+    },
+    {
+      "asr_seconds": 0.37183112651109695,
+      "alignment_seconds": 0.0003989413380622864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " The law, I said, which is the sequel of this and of all that has proceeded, is to the following",
+          "start": 0.02,
+          "end": 5.62,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.455322265625
+            },
+            {
+              "text": " law,",
+              "start": 0.5,
+              "end": 0.76,
+              "probability": 0.70263671875
+            },
+            {
+              "text": " I",
+              "start": 0.9,
+              "end": 0.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said,",
+              "start": 0.98,
+              "end": 1.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " which",
+              "start": 1.64,
+              "end": 1.86,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " is",
+              "start": 1.86,
+              "end": 2.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " the",
+              "start": 2.04,
+              "end": 2.2,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " sequel",
+              "start": 2.2,
+              "end": 2.5,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " this",
+              "start": 2.74,
+              "end": 2.96,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 2.96,
+              "end": 3.18,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " of",
+              "start": 3.18,
+              "end": 3.28,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " all",
+              "start": 3.28,
+              "end": 3.54,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " that",
+              "start": 3.54,
+              "end": 3.7,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " has",
+              "start": 3.7,
+              "end": 3.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " proceeded,",
+              "start": 3.86,
+              "end": 4.34,
+              "probability": 0.81982421875
+            },
+            {
+              "text": " is",
+              "start": 4.78,
+              "end": 4.94,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 4.94,
+              "end": 5.1,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 5.1,
+              "end": 5.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " following",
+              "start": 5.22,
+              "end": 5.62,
+              "probability": 0.99658203125
+            }
+          ]
+        },
+        {
+          "text": " effect.",
+          "start": 5.62,
+          "end": 6.08,
+          "words": [
+            {
+              "text": " effect.",
+              "start": 5.62,
+              "end": 6.08,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " That the wives of our guardians are to be common, and their children are to be common,",
+          "start": 6.68,
+          "end": 11.12,
+          "words": [
+            {
+              "text": " That",
+              "start": 6.68,
+              "end": 6.9,
+              "probability": 0.984375
+            },
+            {
+              "text": " the",
+              "start": 6.9,
+              "end": 7.08,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wives",
+              "start": 7.08,
+              "end": 7.4,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " of",
+              "start": 7.4,
+              "end": 7.58,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " our",
+              "start": 7.58,
+              "end": 7.72,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " guardians",
+              "start": 7.72,
+              "end": 8.14,
+              "probability": 0.95703125
+            },
+            {
+              "text": " are",
+              "start": 8.14,
+              "end": 8.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 8.44,
+              "end": 8.56,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 8.56,
+              "end": 8.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " common,",
+              "start": 8.7,
+              "end": 9.08,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 9.42,
+              "end": 9.66,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " their",
+              "start": 9.66,
+              "end": 9.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " children",
+              "start": 9.78,
+              "end": 10.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " are",
+              "start": 10.1,
+              "end": 10.5,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 10.5,
+              "end": 10.6,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " be",
+              "start": 10.6,
+              "end": 10.74,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " common,",
+              "start": 10.74,
+              "end": 11.12,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " and no parent is to know his own child, nor any child his parent.",
+          "start": 11.54,
+          "end": 15.52,
+          "words": [
+            {
+              "text": " and",
+              "start": 11.54,
+              "end": 11.68,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " no",
+              "start": 11.68,
+              "end": 11.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " parent",
+              "start": 11.9,
+              "end": 12.22,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 12.22,
+              "end": 12.52,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 12.52,
+              "end": 12.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " know",
+              "start": 12.68,
+              "end": 12.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 12.88,
+              "end": 13.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " own",
+              "start": 13.04,
+              "end": 13.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " child,",
+              "start": 13.32,
+              "end": 13.86,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " nor",
+              "start": 14.2,
+              "end": 14.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " any",
+              "start": 14.32,
+              "end": 14.62,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " child",
+              "start": 14.62,
+              "end": 14.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " his",
+              "start": 14.96,
+              "end": 15.16,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " parent.",
+              "start": 15.16,
+              "end": 15.52,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "law,",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "raw": "I",
+          "start": 0.9,
+          "end": 0.98
+        },
+        {
+          "raw": "said,",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "raw": "which",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "raw": "is",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "raw": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "raw": "sequel",
+          "start": 2.2,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "raw": "this",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "raw": "and",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "raw": "of",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "raw": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "raw": "that",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "raw": "has",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "raw": "proceeded,",
+          "start": 3.86,
+          "end": 4.34
+        },
+        {
+          "raw": "is",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "raw": "to",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "raw": "the",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "raw": "following",
+          "start": 5.22,
+          "end": 5.62
+        },
+        {
+          "raw": "effect.",
+          "start": 5.62,
+          "end": 6.08
+        },
+        {
+          "raw": "That",
+          "start": 6.68,
+          "end": 6.9
+        },
+        {
+          "raw": "the",
+          "start": 6.9,
+          "end": 7.08
+        },
+        {
+          "raw": "wives",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "raw": "of",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "raw": "our",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "raw": "guardians",
+          "start": 7.72,
+          "end": 8.14
+        },
+        {
+          "raw": "are",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "raw": "to",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "raw": "be",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "raw": "common,",
+          "start": 8.7,
+          "end": 9.08
+        },
+        {
+          "raw": "and",
+          "start": 9.42,
+          "end": 9.66
+        },
+        {
+          "raw": "their",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "raw": "children",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "raw": "are",
+          "start": 10.1,
+          "end": 10.5
+        },
+        {
+          "raw": "to",
+          "start": 10.5,
+          "end": 10.6
+        },
+        {
+          "raw": "be",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "raw": "common,",
+          "start": 10.74,
+          "end": 11.12
+        },
+        {
+          "raw": "and",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "raw": "no",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "raw": "parent",
+          "start": 11.9,
+          "end": 12.22
+        },
+        {
+          "raw": "is",
+          "start": 12.22,
+          "end": 12.52
+        },
+        {
+          "raw": "to",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "raw": "know",
+          "start": 12.68,
+          "end": 12.88
+        },
+        {
+          "raw": "his",
+          "start": 12.88,
+          "end": 13.04
+        },
+        {
+          "raw": "own",
+          "start": 13.04,
+          "end": 13.32
+        },
+        {
+          "raw": "child,",
+          "start": 13.32,
+          "end": 13.86
+        },
+        {
+          "raw": "nor",
+          "start": 14.2,
+          "end": 14.32
+        },
+        {
+          "raw": "any",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "raw": "child",
+          "start": 14.62,
+          "end": 14.96
+        },
+        {
+          "raw": "his",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "raw": "parent.",
+          "start": 15.16,
+          "end": 15.52
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "law,",
+        "I",
+        "said,",
+        "which",
+        "is",
+        "the",
+        "sequel",
+        "of",
+        "this",
+        "and",
+        "of",
+        "all",
+        "that",
+        "has",
+        "preceded,",
+        "is",
+        "to",
+        "the",
+        "following",
+        "effect,—'that",
+        "the",
+        "wives",
+        "of",
+        "our",
+        "guardians",
+        "are",
+        "to",
+        "be",
+        "common,",
+        "and",
+        "their",
+        "children",
+        "are",
+        "to",
+        "be",
+        "common,",
+        "and",
+        "no",
+        "parent",
+        "is",
+        "to",
+        "know",
+        "his",
+        "own",
+        "child,",
+        "nor",
+        "any",
+        "child",
+        "his",
+        "parent.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ],
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "equal",
+          16,
+          20,
+          16,
+          20
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ],
+        [
+          "equal",
+          21,
+          51,
+          22,
+          52
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 51
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          15,
+          16,
+          15,
+          16
+        ],
+        [
+          "replace",
+          20,
+          21,
+          20,
+          22
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "law,",
+          "start": 0.5,
+          "end": 0.76
+        },
+        {
+          "text": "I",
+          "start": 0.9,
+          "end": 0.98
+        },
+        {
+          "text": "said,",
+          "start": 0.98,
+          "end": 1.3
+        },
+        {
+          "text": "which",
+          "start": 1.64,
+          "end": 1.86
+        },
+        {
+          "text": "is",
+          "start": 1.86,
+          "end": 2.04
+        },
+        {
+          "text": "the",
+          "start": 2.04,
+          "end": 2.2
+        },
+        {
+          "text": "sequel",
+          "start": 2.2,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.74
+        },
+        {
+          "text": "this",
+          "start": 2.74,
+          "end": 2.96
+        },
+        {
+          "text": "and",
+          "start": 2.96,
+          "end": 3.18
+        },
+        {
+          "text": "of",
+          "start": 3.18,
+          "end": 3.28
+        },
+        {
+          "text": "all",
+          "start": 3.28,
+          "end": 3.54
+        },
+        {
+          "text": "that",
+          "start": 3.54,
+          "end": 3.7
+        },
+        {
+          "text": "has",
+          "start": 3.7,
+          "end": 3.86
+        },
+        {
+          "text": "preceded,",
+          "start": 3.86,
+          "end": 4.32
+        },
+        {
+          "text": "is",
+          "start": 4.78,
+          "end": 4.94
+        },
+        {
+          "text": "to",
+          "start": 4.94,
+          "end": 5.1
+        },
+        {
+          "text": "the",
+          "start": 5.1,
+          "end": 5.22
+        },
+        {
+          "text": "following",
+          "start": 5.22,
+          "end": 5.62
+        },
+        {
+          "text": "effect,—'that",
+          "start": 5.62,
+          "end": 6.26
+        },
+        {
+          "text": "the",
+          "start": 6.9,
+          "end": 7.08
+        },
+        {
+          "text": "wives",
+          "start": 7.08,
+          "end": 7.4
+        },
+        {
+          "text": "of",
+          "start": 7.4,
+          "end": 7.58
+        },
+        {
+          "text": "our",
+          "start": 7.58,
+          "end": 7.72
+        },
+        {
+          "text": "guardians",
+          "start": 7.72,
+          "end": 8.14
+        },
+        {
+          "text": "are",
+          "start": 8.14,
+          "end": 8.44
+        },
+        {
+          "text": "to",
+          "start": 8.44,
+          "end": 8.56
+        },
+        {
+          "text": "be",
+          "start": 8.56,
+          "end": 8.7
+        },
+        {
+          "text": "common,",
+          "start": 8.7,
+          "end": 9.08
+        },
+        {
+          "text": "and",
+          "start": 9.42,
+          "end": 9.66
+        },
+        {
+          "text": "their",
+          "start": 9.66,
+          "end": 9.78
+        },
+        {
+          "text": "children",
+          "start": 9.78,
+          "end": 10.1
+        },
+        {
+          "text": "are",
+          "start": 10.1,
+          "end": 10.5
+        },
+        {
+          "text": "to",
+          "start": 10.5,
+          "end": 10.6
+        },
+        {
+          "text": "be",
+          "start": 10.6,
+          "end": 10.74
+        },
+        {
+          "text": "common,",
+          "start": 10.74,
+          "end": 11.12
+        },
+        {
+          "text": "and",
+          "start": 11.54,
+          "end": 11.68
+        },
+        {
+          "text": "no",
+          "start": 11.68,
+          "end": 11.9
+        },
+        {
+          "text": "parent",
+          "start": 11.9,
+          "end": 12.22
+        },
+        {
+          "text": "is",
+          "start": 12.22,
+          "end": 12.52
+        },
+        {
+          "text": "to",
+          "start": 12.52,
+          "end": 12.68
+        },
+        {
+          "text": "know",
+          "start": 12.68,
+          "end": 12.88
+        },
+        {
+          "text": "his",
+          "start": 12.88,
+          "end": 13.04
+        },
+        {
+          "text": "own",
+          "start": 13.04,
+          "end": 13.32
+        },
+        {
+          "text": "child,",
+          "start": 13.32,
+          "end": 13.86
+        },
+        {
+          "text": "nor",
+          "start": 14.2,
+          "end": 14.32
+        },
+        {
+          "text": "any",
+          "start": 14.32,
+          "end": 14.62
+        },
+        {
+          "text": "child",
+          "start": 14.62,
+          "end": 14.96
+        },
+        {
+          "text": "his",
+          "start": 14.96,
+          "end": 15.16
+        },
+        {
+          "text": "parent.'",
+          "start": 15.16,
+          "end": 15.52
+        }
+      ],
+      "stats": {
+        "expected_words": 51,
+        "heard_words": 52,
+        "matched_words": 49
+      },
+      "match_ratio": 0.9607843137254902,
+      "rejection_reasons": [],
+      "seconds": 0.37243813276290894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "bddec9b29e530adeb20bb660ef9fbaf8780c14e437ac801bf1308ef4cdd88657",
+  "selected_reasons": []
+}

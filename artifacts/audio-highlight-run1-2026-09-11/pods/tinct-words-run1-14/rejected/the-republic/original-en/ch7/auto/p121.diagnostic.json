@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "7be3fca25d5ad6d2429160fc12b1890a95b7a20ec793940a5faac84fa6a50544",
+  "attempts": [
+    {
+      "asr_seconds": 0.08805348724126816,
+      "alignment_seconds": 5.65648078918457e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What is it?",
+        "hotwords": "What"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What is it?",
+          "start": 0.02,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " is",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " it?",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "is",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "it?",
+          "start": 0.72,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "is",
+        "it?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "is",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "it?",
+          "start": 0.72,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08813155442476273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "92e4adcb01d48ffa0585b7193c7abc8d422451d745bb6b2fe2edda2b0d5ba510",
+  "selected_reasons": []
+}

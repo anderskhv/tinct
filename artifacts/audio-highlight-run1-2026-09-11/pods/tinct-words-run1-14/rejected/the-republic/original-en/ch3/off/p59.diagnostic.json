@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "96301ce165d1164c5a5ad13dcadd966925a951258a1b0d92d49950daaa568a7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.10630519688129425,
+      "alignment_seconds": 7.453560829162598e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Still less of the gods, as you say, he replied.",
+          "start": 0.08,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " Still",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.65625
+            },
+            {
+              "text": " less",
+              "start": 0.58,
+              "end": 0.76,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " of",
+              "start": 0.76,
+              "end": 0.9,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 0.9,
+              "end": 1.0,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gods,",
+              "start": 1.0,
+              "end": 1.32,
+              "probability": 0.98828125
+            },
+            {
+              "text": " as",
+              "start": 1.66,
+              "end": 1.8,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " you",
+              "start": 1.8,
+              "end": 1.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say,",
+              "start": 1.9,
+              "end": 2.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " he",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " replied.",
+              "start": 2.52,
+              "end": 2.9,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Still",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "less",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "raw": "of",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "raw": "the",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "raw": "gods,",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "raw": "as",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "raw": "you",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "raw": "say,",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "raw": "he",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "replied.",
+          "start": 2.52,
+          "end": 2.9
+        }
+      ],
+      "expected_tokens": [
+        "Still",
+        "less",
+        "of",
+        "the",
+        "gods,",
+        "as",
+        "you",
+        "say,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Still",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "less",
+          "start": 0.58,
+          "end": 0.76
+        },
+        {
+          "text": "of",
+          "start": 0.76,
+          "end": 0.9
+        },
+        {
+          "text": "the",
+          "start": 0.9,
+          "end": 1.0
+        },
+        {
+          "text": "gods,",
+          "start": 1.0,
+          "end": 1.32
+        },
+        {
+          "text": "as",
+          "start": 1.66,
+          "end": 1.8
+        },
+        {
+          "text": "you",
+          "start": 1.8,
+          "end": 1.9
+        },
+        {
+          "text": "say,",
+          "start": 1.9,
+          "end": 2.2
+        },
+        {
+          "text": "he",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "replied.",
+          "start": 2.52,
+          "end": 2.9
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10641483217477798
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a8be783de7f2079742728c105bac80e938ab40d6d9939a29b5014930e147754",
+  "selected_reasons": []
+}

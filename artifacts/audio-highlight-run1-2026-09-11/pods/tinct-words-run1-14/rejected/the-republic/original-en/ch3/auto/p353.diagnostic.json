@@ -1,0 +1,720 @@
+{
+  "complete": true,
+  "signature": "d32a9569cbaf0e4c132384873c6fa868d82a07c18bed8f4c840fa3eaf695de54",
+  "attempts": [
+    {
+      "asr_seconds": 0.25399354100227356,
+      "alignment_seconds": 0.00017429888248443604,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But with the rich man this is otherwise; of him we do not say that he has any specially appointed work which he must perform, if he would live.",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But But with the rich man this is otherwise. Of him we do not say that he has any specially appointed work which he must perform, if he would live.",
+          "start": 0.02,
+          "end": 9.04,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.75146484375
+            },
+            {
+              "text": " But",
+              "start": 0.48,
+              "end": 0.62,
+              "probability": 4.172325134277344e-07
+            },
+            {
+              "text": " with",
+              "start": 0.62,
+              "end": 0.62,
+              "probability": 0.88427734375
+            },
+            {
+              "text": " the",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.95458984375
+            },
+            {
+              "text": " rich",
+              "start": 0.78,
+              "end": 0.96,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " man",
+              "start": 0.96,
+              "end": 1.38,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " this",
+              "start": 1.38,
+              "end": 1.8,
+              "probability": 0.2578125
+            },
+            {
+              "text": " is",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.984375
+            },
+            {
+              "text": " otherwise.",
+              "start": 1.96,
+              "end": 2.44,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " Of",
+              "start": 3.1,
+              "end": 3.32,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " him",
+              "start": 3.32,
+              "end": 3.58,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " we",
+              "start": 3.58,
+              "end": 4.04,
+              "probability": 0.7626953125
+            },
+            {
+              "text": " do",
+              "start": 4.04,
+              "end": 4.18,
+              "probability": 0.994140625
+            },
+            {
+              "text": " not",
+              "start": 4.18,
+              "end": 4.38,
+              "probability": 0.986328125
+            },
+            {
+              "text": " say",
+              "start": 4.38,
+              "end": 4.66,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " that",
+              "start": 4.66,
+              "end": 4.86,
+              "probability": 0.9501953125
+            },
+            {
+              "text": " he",
+              "start": 4.86,
+              "end": 5.02,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " has",
+              "start": 5.02,
+              "end": 5.18,
+              "probability": 0.986328125
+            },
+            {
+              "text": " any",
+              "start": 5.18,
+              "end": 5.5,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " specially",
+              "start": 5.5,
+              "end": 6.02,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " appointed",
+              "start": 6.02,
+              "end": 6.5,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " work",
+              "start": 6.5,
+              "end": 6.86,
+              "probability": 0.9921875
+            },
+            {
+              "text": " which",
+              "start": 6.86,
+              "end": 7.06,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " he",
+              "start": 7.06,
+              "end": 7.24,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " must",
+              "start": 7.24,
+              "end": 7.4,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " perform,",
+              "start": 7.4,
+              "end": 7.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " if",
+              "start": 8.26,
+              "end": 8.44,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " he",
+              "start": 8.44,
+              "end": 8.58,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " would",
+              "start": 8.58,
+              "end": 8.7,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " live.",
+              "start": 8.7,
+              "end": 9.04,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "But",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "raw": "with",
+          "start": 0.62,
+          "end": 0.62
+        },
+        {
+          "raw": "the",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "rich",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "raw": "man",
+          "start": 0.96,
+          "end": 1.38
+        },
+        {
+          "raw": "this",
+          "start": 1.38,
+          "end": 1.8
+        },
+        {
+          "raw": "is",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "otherwise.",
+          "start": 1.96,
+          "end": 2.44
+        },
+        {
+          "raw": "Of",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "raw": "him",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "raw": "we",
+          "start": 3.58,
+          "end": 4.04
+        },
+        {
+          "raw": "do",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "raw": "not",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "raw": "say",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "raw": "that",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "raw": "he",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "raw": "has",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "raw": "any",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "raw": "specially",
+          "start": 5.5,
+          "end": 6.02
+        },
+        {
+          "raw": "appointed",
+          "start": 6.02,
+          "end": 6.5
+        },
+        {
+          "raw": "work",
+          "start": 6.5,
+          "end": 6.86
+        },
+        {
+          "raw": "which",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "raw": "he",
+          "start": 7.06,
+          "end": 7.24
+        },
+        {
+          "raw": "must",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "raw": "perform,",
+          "start": 7.4,
+          "end": 7.9
+        },
+        {
+          "raw": "if",
+          "start": 8.26,
+          "end": 8.44
+        },
+        {
+          "raw": "he",
+          "start": 8.44,
+          "end": 8.58
+        },
+        {
+          "raw": "would",
+          "start": 8.58,
+          "end": 8.7
+        },
+        {
+          "raw": "live.",
+          "start": 8.7,
+          "end": 9.04
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "with",
+        "the",
+        "rich",
+        "man",
+        "this",
+        "is",
+        "otherwise;",
+        "of",
+        "him",
+        "we",
+        "do",
+        "not",
+        "say",
+        "that",
+        "he",
+        "has",
+        "any",
+        "specially",
+        "appointed",
+        "work",
+        "which",
+        "he",
+        "must",
+        "perform,",
+        "if",
+        "he",
+        "would",
+        "live."
+      ],
+      "opcodes": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          "equal",
+          0,
+          29,
+          1,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "insert",
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.48,
+          "end": 0.62
+        },
+        {
+          "text": "with",
+          "start": 0.62,
+          "end": 0.62
+        },
+        {
+          "text": "the",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "text": "rich",
+          "start": 0.78,
+          "end": 0.96
+        },
+        {
+          "text": "man",
+          "start": 0.96,
+          "end": 1.38
+        },
+        {
+          "text": "this",
+          "start": 1.38,
+          "end": 1.8
+        },
+        {
+          "text": "is",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "otherwise;",
+          "start": 1.96,
+          "end": 2.44
+        },
+        {
+          "text": "of",
+          "start": 3.1,
+          "end": 3.32
+        },
+        {
+          "text": "him",
+          "start": 3.32,
+          "end": 3.58
+        },
+        {
+          "text": "we",
+          "start": 3.58,
+          "end": 4.04
+        },
+        {
+          "text": "do",
+          "start": 4.04,
+          "end": 4.18
+        },
+        {
+          "text": "not",
+          "start": 4.18,
+          "end": 4.38
+        },
+        {
+          "text": "say",
+          "start": 4.38,
+          "end": 4.66
+        },
+        {
+          "text": "that",
+          "start": 4.66,
+          "end": 4.86
+        },
+        {
+          "text": "he",
+          "start": 4.86,
+          "end": 5.02
+        },
+        {
+          "text": "has",
+          "start": 5.02,
+          "end": 5.18
+        },
+        {
+          "text": "any",
+          "start": 5.18,
+          "end": 5.5
+        },
+        {
+          "text": "specially",
+          "start": 5.5,
+          "end": 6.02
+        },
+        {
+          "text": "appointed",
+          "start": 6.02,
+          "end": 6.5
+        },
+        {
+          "text": "work",
+          "start": 6.5,
+          "end": 6.86
+        },
+        {
+          "text": "which",
+          "start": 6.86,
+          "end": 7.06
+        },
+        {
+          "text": "he",
+          "start": 7.06,
+          "end": 7.24
+        },
+        {
+          "text": "must",
+          "start": 7.24,
+          "end": 7.4
+        },
+        {
+          "text": "perform,",
+          "start": 7.4,
+          "end": 7.9
+        },
+        {
+          "text": "if",
+          "start": 8.26,
+          "end": 8.44
+        },
+        {
+          "text": "he",
+          "start": 8.44,
+          "end": 8.58
+        },
+        {
+          "text": "would",
+          "start": 8.58,
+          "end": 8.7
+        },
+        {
+          "text": "live.",
+          "start": 8.7,
+          "end": 9.04
+        }
+      ],
+      "stats": {
+        "expected_words": 29,
+        "heard_words": 30,
+        "matched_words": 29
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2542690485715866
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "140c48223d2bfa8b3bcc67c230377588f079d6e83105ef73025179b8161b0eed",
+  "selected_reasons": []
+}

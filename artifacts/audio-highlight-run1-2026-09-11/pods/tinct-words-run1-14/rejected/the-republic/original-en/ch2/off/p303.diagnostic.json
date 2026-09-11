@@ -1,0 +1,486 @@
+{
+  "complete": true,
+  "signature": "a2aa46a9538a41c54e231a92ad147781ef9365c619c4a129a06c425f9ab4004a",
+  "attempts": [
+    {
+      "asr_seconds": 0.23406745493412018,
+      "alignment_seconds": 0.00013405084609985352,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Very true, a Day Mantis. But then, would anyone, whether God or man, desire to make himself worse?",
+          "start": 0.08,
+          "end": 6.64,
+          "words": [
+            {
+              "text": " Very",
+              "start": 0.08,
+              "end": 0.72,
+              "probability": 0.783203125
+            },
+            {
+              "text": " true,",
+              "start": 0.72,
+              "end": 1.12,
+              "probability": 0.984375
+            },
+            {
+              "text": " a",
+              "start": 1.4,
+              "end": 1.42,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " Day",
+              "start": 1.42,
+              "end": 1.6,
+              "probability": 0.380615234375
+            },
+            {
+              "text": " Mantis.",
+              "start": 1.6,
+              "end": 1.94,
+              "probability": 0.7900390625
+            },
+            {
+              "text": " But",
+              "start": 2.62,
+              "end": 2.72,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " then,",
+              "start": 2.72,
+              "end": 2.96,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " would",
+              "start": 3.3,
+              "end": 3.36,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " anyone,",
+              "start": 3.36,
+              "end": 3.68,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " whether",
+              "start": 3.98,
+              "end": 4.06,
+              "probability": 0.994140625
+            },
+            {
+              "text": " God",
+              "start": 4.06,
+              "end": 4.48,
+              "probability": 0.7421875
+            },
+            {
+              "text": " or",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " man,",
+              "start": 4.72,
+              "end": 5.04,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " desire",
+              "start": 5.36,
+              "end": 5.62,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " to",
+              "start": 5.62,
+              "end": 5.86,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " make",
+              "start": 5.86,
+              "end": 6.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " himself",
+              "start": 6.0,
+              "end": 6.26,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " worse?",
+              "start": 6.26,
+              "end": 6.64,
+              "probability": 0.99609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Very",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "raw": "true,",
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "raw": "a",
+          "start": 1.4,
+          "end": 1.42
+        },
+        {
+          "raw": "Day",
+          "start": 1.42,
+          "end": 1.6
+        },
+        {
+          "raw": "Mantis.",
+          "start": 1.6,
+          "end": 1.94
+        },
+        {
+          "raw": "But",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "raw": "then,",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "raw": "would",
+          "start": 3.3,
+          "end": 3.36
+        },
+        {
+          "raw": "anyone,",
+          "start": 3.36,
+          "end": 3.68
+        },
+        {
+          "raw": "whether",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "raw": "God",
+          "start": 4.06,
+          "end": 4.48
+        },
+        {
+          "raw": "or",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "raw": "man,",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "raw": "desire",
+          "start": 5.36,
+          "end": 5.62
+        },
+        {
+          "raw": "to",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "raw": "make",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "raw": "himself",
+          "start": 6.0,
+          "end": 6.26
+        },
+        {
+          "raw": "worse?",
+          "start": 6.26,
+          "end": 6.64
+        }
+      ],
+      "expected_tokens": [
+        "Very",
+        "true,",
+        "Adeimantus;",
+        "but",
+        "then,",
+        "would",
+        "any",
+        "one,",
+        "whether",
+        "God",
+        "or",
+        "man,",
+        "desire",
+        "to",
+        "make",
+        "himself",
+        "worse?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "equal",
+          3,
+          6,
+          5,
+          8
+        ],
+        [
+          "replace",
+          6,
+          8,
+          8,
+          9
+        ],
+        [
+          "equal",
+          8,
+          17,
+          9,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          5
+        ],
+        [
+          "replace",
+          6,
+          8,
+          8,
+          9
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Very",
+          "start": 0.08,
+          "end": 0.72
+        },
+        {
+          "text": "true,",
+          "start": 0.72,
+          "end": 1.12
+        },
+        {
+          "text": "Adeimantus;",
+          "start": 1.12,
+          "end": 1.87
+        },
+        {
+          "text": "but",
+          "start": 2.62,
+          "end": 2.72
+        },
+        {
+          "text": "then,",
+          "start": 2.72,
+          "end": 2.96
+        },
+        {
+          "text": "would",
+          "start": 3.3,
+          "end": 3.36
+        },
+        {
+          "text": "any",
+          "start": 3.36,
+          "end": 3.67
+        },
+        {
+          "text": "one,",
+          "start": 3.67,
+          "end": 3.825
+        },
+        {
+          "text": "whether",
+          "start": 3.98,
+          "end": 4.06
+        },
+        {
+          "text": "God",
+          "start": 4.06,
+          "end": 4.48
+        },
+        {
+          "text": "or",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "text": "man,",
+          "start": 4.72,
+          "end": 5.04
+        },
+        {
+          "text": "desire",
+          "start": 5.36,
+          "end": 5.62
+        },
+        {
+          "text": "to",
+          "start": 5.62,
+          "end": 5.86
+        },
+        {
+          "text": "make",
+          "start": 5.86,
+          "end": 6.0
+        },
+        {
+          "text": "himself",
+          "start": 6.0,
+          "end": 6.26
+        },
+        {
+          "text": "worse?",
+          "start": 6.26,
+          "end": 6.64
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 18,
+        "matched_words": 14
+      },
+      "match_ratio": 0.8235294117647058,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.2342570275068283
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "269125f827714a9c61e4f5db656bc636bf489c8acb80aa8e4cbc28bedf529d87",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

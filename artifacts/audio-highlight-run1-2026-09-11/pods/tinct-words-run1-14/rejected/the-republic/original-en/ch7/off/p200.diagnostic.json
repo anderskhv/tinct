@@ -1,0 +1,307 @@
+{
+  "complete": true,
+  "signature": "921a08c1d83defe3c6e25aed11554dc08900688ce2cd720ab06dcae8f07ebc2c",
+  "attempts": [
+    {
+      "asr_seconds": 0.13334333896636963,
+      "alignment_seconds": 0.00011666864156723022,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And suppose we make astronomy the third, what do you say?",
+          "start": 0.08,
+          "end": 3.62,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.7880859375
+            },
+            {
+              "text": " suppose",
+              "start": 0.5,
+              "end": 0.92,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " we",
+              "start": 0.92,
+              "end": 1.24,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " make",
+              "start": 1.24,
+              "end": 1.42,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " astronomy",
+              "start": 1.42,
+              "end": 1.9,
+              "probability": 0.982421875
+            },
+            {
+              "text": " the",
+              "start": 1.9,
+              "end": 2.24,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " third,",
+              "start": 2.24,
+              "end": 2.5,
+              "probability": 0.91796875
+            },
+            {
+              "text": " what",
+              "start": 3.02,
+              "end": 3.16,
+              "probability": 0.98828125
+            },
+            {
+              "text": " do",
+              "start": 3.16,
+              "end": 3.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " you",
+              "start": 3.26,
+              "end": 3.38,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say?",
+              "start": 3.38,
+              "end": 3.62,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "suppose",
+          "start": 0.5,
+          "end": 0.92
+        },
+        {
+          "raw": "we",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "raw": "make",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "raw": "astronomy",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "raw": "the",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "raw": "third,",
+          "start": 2.24,
+          "end": 2.5
+        },
+        {
+          "raw": "what",
+          "start": 3.02,
+          "end": 3.16
+        },
+        {
+          "raw": "do",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "raw": "you",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "raw": "say?",
+          "start": 3.38,
+          "end": 3.62
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "suppose",
+        "we",
+        "make",
+        "astronomy",
+        "the",
+        "third—what",
+        "do",
+        "you",
+        "say?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ],
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ],
+        [
+          "equal",
+          7,
+          10,
+          8,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          6,
+          7,
+          6,
+          8
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "suppose",
+          "start": 0.5,
+          "end": 0.92
+        },
+        {
+          "text": "we",
+          "start": 0.92,
+          "end": 1.24
+        },
+        {
+          "text": "make",
+          "start": 1.24,
+          "end": 1.42
+        },
+        {
+          "text": "astronomy",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "text": "the",
+          "start": 1.9,
+          "end": 2.24
+        },
+        {
+          "text": "third—what",
+          "start": 2.24,
+          "end": 2.7
+        },
+        {
+          "text": "do",
+          "start": 3.16,
+          "end": 3.26
+        },
+        {
+          "text": "you",
+          "start": 3.26,
+          "end": 3.38
+        },
+        {
+          "text": "say?",
+          "start": 3.38,
+          "end": 3.62
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 11,
+        "matched_words": 9
+      },
+      "match_ratio": 0.9,
+      "rejection_reasons": [],
+      "seconds": 0.13350635766983032
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7b5caa739a0ff71503640542a4de88f99e00372a20bbc5c5bbcb169deae0957d",
+  "selected_reasons": []
+}

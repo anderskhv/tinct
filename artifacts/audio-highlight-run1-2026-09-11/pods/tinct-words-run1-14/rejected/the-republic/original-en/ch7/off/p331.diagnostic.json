@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "2604bee39f0cc86d1e818f46d611d3b06c3579b83c0216c7a75a8c472182b744",
+  "attempts": [
+    {
+      "asr_seconds": 0.08501826226711273,
+      "alignment_seconds": 5.877763032913208e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " If you please.",
+          "start": 0.05,
+          "end": 0.97,
+          "words": [
+            {
+              "text": " If",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.39501953125
+            },
+            {
+              "text": " you",
+              "start": 0.53,
+              "end": 0.65,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " please.",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.96484375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "If",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "raw": "please.",
+          "start": 0.65,
+          "end": 0.97
+        }
+      ],
+      "expected_tokens": [
+        "If",
+        "you",
+        "please."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "If",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "you",
+          "start": 0.53,
+          "end": 0.65
+        },
+        {
+          "text": "please.",
+          "start": 0.65,
+          "end": 0.97
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08509886264801025
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "fab2e53f7901d311f530c2ef90009a86b2825417bb83866d6719d0b62cae4609",
+  "selected_reasons": []
+}

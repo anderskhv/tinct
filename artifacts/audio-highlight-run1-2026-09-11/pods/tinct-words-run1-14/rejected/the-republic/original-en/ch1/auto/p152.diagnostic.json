@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "195e23cc4b4ff298f2a100aff7081d83cdb10550597aa20de542cd5c50726df5",
+  "attempts": [
+    {
+      "asr_seconds": 0.11614271253347397,
+      "alignment_seconds": 7.086247205734253e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And that human virtue is justice?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And that human virtue is justice?",
+          "start": 0.05,
+          "end": 1.93,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.6494140625
+            },
+            {
+              "text": " that",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " human",
+              "start": 0.65,
+              "end": 0.91,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " virtue",
+              "start": 0.91,
+              "end": 1.33,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " is",
+              "start": 1.33,
+              "end": 1.55,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " justice?",
+              "start": 1.55,
+              "end": 1.93,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "that",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "human",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "raw": "virtue",
+          "start": 0.91,
+          "end": 1.33
+        },
+        {
+          "raw": "is",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "raw": "justice?",
+          "start": 1.55,
+          "end": 1.93
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "that",
+        "human",
+        "virtue",
+        "is",
+        "justice?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "that",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "human",
+          "start": 0.65,
+          "end": 0.91
+        },
+        {
+          "text": "virtue",
+          "start": 0.91,
+          "end": 1.33
+        },
+        {
+          "text": "is",
+          "start": 1.33,
+          "end": 1.55
+        },
+        {
+          "text": "justice?",
+          "start": 1.55,
+          "end": 1.93
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1162450760602951
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e22fa4593860fba82565763415c0e4de1ec15d70b96e886ad1744961fd252c61",
+  "selected_reasons": []
+}

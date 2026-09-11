@@ -1,0 +1,479 @@
+{
+  "complete": true,
+  "signature": "fe5f94db533d84ec0249a716388a6ba4619de29d3f493bfd7813f3351a5a4e63",
+  "attempts": [
+    {
+      "asr_seconds": 0.22908148169517517,
+      "alignment_seconds": 0.00010898709297180176,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Then, if women are to have the same duties as men, they must have the same nurture and",
+          "start": 0.02,
+          "end": 5.18,
+          "words": [
+            {
+              "text": " Then,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " if",
+              "start": 0.72,
+              "end": 1.08,
+              "probability": 0.9921875
+            },
+            {
+              "text": " women",
+              "start": 1.08,
+              "end": 1.26,
+              "probability": 0.99609375
+            },
+            {
+              "text": " are",
+              "start": 1.26,
+              "end": 1.5,
+              "probability": 0.998046875
+            },
+            {
+              "text": " to",
+              "start": 1.5,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 1.6,
+              "end": 1.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.78,
+              "end": 1.96,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " same",
+              "start": 1.96,
+              "end": 2.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " duties",
+              "start": 2.24,
+              "end": 2.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " as",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.998046875
+            },
+            {
+              "text": " men,",
+              "start": 2.8,
+              "end": 3.08,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " they",
+              "start": 3.6,
+              "end": 3.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " must",
+              "start": 3.68,
+              "end": 3.86,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " have",
+              "start": 3.86,
+              "end": 4.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.1,
+              "end": 4.28,
+              "probability": 0.998046875
+            },
+            {
+              "text": " same",
+              "start": 4.28,
+              "end": 4.54,
+              "probability": 1.0
+            },
+            {
+              "text": " nurture",
+              "start": 4.54,
+              "end": 4.94,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " and",
+              "start": 4.94,
+              "end": 5.18,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " education.",
+          "start": 5.18,
+          "end": 5.66,
+          "words": [
+            {
+              "text": " education.",
+              "start": 5.18,
+              "end": 5.66,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "if",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "raw": "women",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "raw": "are",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "raw": "to",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "raw": "have",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "raw": "the",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "raw": "same",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "raw": "duties",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "raw": "as",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "men,",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "raw": "they",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "raw": "must",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "raw": "have",
+          "start": 3.86,
+          "end": 4.1
+        },
+        {
+          "raw": "the",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "raw": "same",
+          "start": 4.28,
+          "end": 4.54
+        },
+        {
+          "raw": "nurture",
+          "start": 4.54,
+          "end": 4.94
+        },
+        {
+          "raw": "and",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "raw": "education.",
+          "start": 5.18,
+          "end": 5.66
+        }
+      ],
+      "expected_tokens": [
+        "Then,",
+        "if",
+        "women",
+        "are",
+        "to",
+        "have",
+        "the",
+        "same",
+        "duties",
+        "as",
+        "men,",
+        "they",
+        "must",
+        "have",
+        "the",
+        "same",
+        "nurture",
+        "and",
+        "education?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "if",
+          "start": 0.72,
+          "end": 1.08
+        },
+        {
+          "text": "women",
+          "start": 1.08,
+          "end": 1.26
+        },
+        {
+          "text": "are",
+          "start": 1.26,
+          "end": 1.5
+        },
+        {
+          "text": "to",
+          "start": 1.5,
+          "end": 1.6
+        },
+        {
+          "text": "have",
+          "start": 1.6,
+          "end": 1.78
+        },
+        {
+          "text": "the",
+          "start": 1.78,
+          "end": 1.96
+        },
+        {
+          "text": "same",
+          "start": 1.96,
+          "end": 2.24
+        },
+        {
+          "text": "duties",
+          "start": 2.24,
+          "end": 2.54
+        },
+        {
+          "text": "as",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "text": "men,",
+          "start": 2.8,
+          "end": 3.08
+        },
+        {
+          "text": "they",
+          "start": 3.6,
+          "end": 3.68
+        },
+        {
+          "text": "must",
+          "start": 3.68,
+          "end": 3.86
+        },
+        {
+          "text": "have",
+          "start": 3.86,
+          "end": 4.1
+        },
+        {
+          "text": "the",
+          "start": 4.1,
+          "end": 4.28
+        },
+        {
+          "text": "same",
+          "start": 4.28,
+          "end": 4.54
+        },
+        {
+          "text": "nurture",
+          "start": 4.54,
+          "end": 4.94
+        },
+        {
+          "text": "and",
+          "start": 4.94,
+          "end": 5.18
+        },
+        {
+          "text": "education?",
+          "start": 5.18,
+          "end": 5.66
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22925755381584167
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ca3a885f1fe212a2bba97bc024fc21add456d3288aa36fadba839601c4f421ff",
+  "selected_reasons": []
+}

@@ -1,0 +1,285 @@
+{
+  "complete": true,
+  "signature": "0dd9f291103e9d5380cbf6209d07cd18ffbf70fd370892e6c72e3c0d415bba2f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1358201950788498,
+      "alignment_seconds": 9.975582361221313e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " then more husband men and more artisans will be required.",
+          "start": 0.08,
+          "end": 3.42,
+          "words": [
+            {
+              "text": " then",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.4580078125
+            },
+            {
+              "text": " more",
+              "start": 0.54,
+              "end": 0.76,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " husband",
+              "start": 0.76,
+              "end": 1.08,
+              "probability": 0.865234375
+            },
+            {
+              "text": " men",
+              "start": 1.08,
+              "end": 1.42,
+              "probability": 0.716796875
+            },
+            {
+              "text": " and",
+              "start": 1.42,
+              "end": 1.9,
+              "probability": 0.85400390625
+            },
+            {
+              "text": " more",
+              "start": 1.9,
+              "end": 2.08,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " artisans",
+              "start": 2.08,
+              "end": 2.54,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " will",
+              "start": 2.54,
+              "end": 2.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 2.8,
+              "end": 2.92,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " required.",
+              "start": 2.92,
+              "end": 3.42,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "then",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "more",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "raw": "husband",
+          "start": 0.76,
+          "end": 1.08
+        },
+        {
+          "raw": "men",
+          "start": 1.08,
+          "end": 1.42
+        },
+        {
+          "raw": "and",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "raw": "more",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "raw": "artisans",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "raw": "will",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "raw": "be",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "raw": "required.",
+          "start": 2.92,
+          "end": 3.42
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "more",
+        "husbandmen",
+        "and",
+        "more",
+        "artisans",
+        "will",
+        "be",
+        "required?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          9,
+          4,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "more",
+          "start": 0.54,
+          "end": 0.76
+        },
+        {
+          "text": "husbandmen",
+          "start": 0.76,
+          "end": 1.09
+        },
+        {
+          "text": "and",
+          "start": 1.42,
+          "end": 1.9
+        },
+        {
+          "text": "more",
+          "start": 1.9,
+          "end": 2.08
+        },
+        {
+          "text": "artisans",
+          "start": 2.08,
+          "end": 2.54
+        },
+        {
+          "text": "will",
+          "start": 2.54,
+          "end": 2.8
+        },
+        {
+          "text": "be",
+          "start": 2.8,
+          "end": 2.92
+        },
+        {
+          "text": "required?",
+          "start": 2.92,
+          "end": 3.42
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 10,
+        "matched_words": 8
+      },
+      "match_ratio": 0.8888888888888888,
+      "rejection_reasons": [],
+      "seconds": 0.135963074862957
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "db971394fdfe785c235126fbd9aad93461a3ba3a785818b5c087f7925f4949a2",
+  "selected_reasons": []
+}

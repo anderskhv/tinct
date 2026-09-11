@@ -1,0 +1,906 @@
+{
+  "complete": true,
+  "signature": "7ec378e603b90e2238543dd535e8df04be0814f72c7efcd383fbc4ec5c928b64",
+  "attempts": [
+    {
+      "asr_seconds": 0.48598603159189224,
+      "alignment_seconds": 0.000237390398979187,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "So should thy goodness and thy greatness both Be question'd and blasphem'd without defence. To whom the great Creator thus replied. O son, in whom my soul hath chief delight, Son of my bosom, Son who art alone.",
+        "hotwords": "So, Be, To, Creator, O"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " So should thy goodness and thy greatness both Be question'd and blasphem'd without defence.",
+          "start": 0.02,
+          "end": 4.68,
+          "words": [
+            {
+              "text": " So",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.6962890625
+            },
+            {
+              "text": " should",
+              "start": 0.5,
+              "end": 0.66,
+              "probability": 0.8642578125
+            },
+            {
+              "text": " thy",
+              "start": 0.66,
+              "end": 0.84,
+              "probability": 0.939453125
+            },
+            {
+              "text": " goodness",
+              "start": 0.84,
+              "end": 1.18,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " and",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " thy",
+              "start": 1.44,
+              "end": 1.62,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " greatness",
+              "start": 1.62,
+              "end": 2.02,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " both",
+              "start": 2.02,
+              "end": 2.32,
+              "probability": 0.96484375
+            },
+            {
+              "text": " Be",
+              "start": 2.32,
+              "end": 2.6,
+              "probability": 0.0016460418701171875
+            },
+            {
+              "text": " question'd",
+              "start": 2.6,
+              "end": 3.2,
+              "probability": 0.3498706817626953
+            },
+            {
+              "text": " and",
+              "start": 3.2,
+              "end": 3.38,
+              "probability": 0.93408203125
+            },
+            {
+              "text": " blasphem'd",
+              "start": 3.38,
+              "end": 4.02,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " without",
+              "start": 4.02,
+              "end": 4.24,
+              "probability": 0.8671875
+            },
+            {
+              "text": " defence.",
+              "start": 4.24,
+              "end": 4.68,
+              "probability": 0.6650390625
+            }
+          ]
+        },
+        {
+          "text": " To whom the great Creator thus replied. O son, in whom my soul hath chief delight,",
+          "start": 4.68,
+          "end": 10.84,
+          "words": [
+            {
+              "text": " To",
+              "start": 4.68,
+              "end": 5.52,
+              "probability": 0.5703125
+            },
+            {
+              "text": " whom",
+              "start": 5.52,
+              "end": 5.76,
+              "probability": 0.966796875
+            },
+            {
+              "text": " the",
+              "start": 5.76,
+              "end": 5.94,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " great",
+              "start": 5.94,
+              "end": 6.18,
+              "probability": 0.7802734375
+            },
+            {
+              "text": " Creator",
+              "start": 6.18,
+              "end": 6.62,
+              "probability": 0.70703125
+            },
+            {
+              "text": " thus",
+              "start": 6.62,
+              "end": 6.94,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " replied.",
+              "start": 6.94,
+              "end": 7.4,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " O",
+              "start": 8.16,
+              "end": 8.3,
+              "probability": 0.5380859375
+            },
+            {
+              "text": " son,",
+              "start": 8.3,
+              "end": 8.62,
+              "probability": 0.38916015625
+            },
+            {
+              "text": " in",
+              "start": 9.06,
+              "end": 9.14,
+              "probability": 0.970703125
+            },
+            {
+              "text": " whom",
+              "start": 9.14,
+              "end": 9.32,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " my",
+              "start": 9.32,
+              "end": 9.54,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " soul",
+              "start": 9.54,
+              "end": 9.84,
+              "probability": 0.97119140625
+            },
+            {
+              "text": " hath",
+              "start": 9.84,
+              "end": 10.1,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " chief",
+              "start": 10.1,
+              "end": 10.44,
+              "probability": 0.9599609375
+            },
+            {
+              "text": " delight,",
+              "start": 10.44,
+              "end": 10.84,
+              "probability": 0.9931640625
+            }
+          ]
+        },
+        {
+          "text": " Son of my bosom, Son who art alone.",
+          "start": 11.42,
+          "end": 13.5,
+          "words": [
+            {
+              "text": " Son",
+              "start": 11.42,
+              "end": 11.46,
+              "probability": 0.638671875
+            },
+            {
+              "text": " of",
+              "start": 11.46,
+              "end": 11.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " my",
+              "start": 11.58,
+              "end": 11.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " bosom,",
+              "start": 11.76,
+              "end": 12.2,
+              "probability": 0.990478515625
+            },
+            {
+              "text": " Son",
+              "start": 12.58,
+              "end": 12.68,
+              "probability": 0.184814453125
+            },
+            {
+              "text": " who",
+              "start": 12.68,
+              "end": 12.92,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " art",
+              "start": 12.92,
+              "end": 13.14,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " alone.",
+              "start": 13.14,
+              "end": 13.5,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "So",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "should",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "raw": "thy",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "raw": "goodness",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "raw": "and",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "thy",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "raw": "greatness",
+          "start": 1.62,
+          "end": 2.02
+        },
+        {
+          "raw": "both",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "raw": "Be",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "raw": "question'd",
+          "start": 2.6,
+          "end": 3.2
+        },
+        {
+          "raw": "and",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "raw": "blasphem'd",
+          "start": 3.38,
+          "end": 4.02
+        },
+        {
+          "raw": "without",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "raw": "defence.",
+          "start": 4.24,
+          "end": 4.68
+        },
+        {
+          "raw": "To",
+          "start": 4.68,
+          "end": 5.52
+        },
+        {
+          "raw": "whom",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "raw": "the",
+          "start": 5.76,
+          "end": 5.94
+        },
+        {
+          "raw": "great",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "raw": "Creator",
+          "start": 6.18,
+          "end": 6.62
+        },
+        {
+          "raw": "thus",
+          "start": 6.62,
+          "end": 6.94
+        },
+        {
+          "raw": "replied.",
+          "start": 6.94,
+          "end": 7.4
+        },
+        {
+          "raw": "O",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "raw": "son,",
+          "start": 8.3,
+          "end": 8.62
+        },
+        {
+          "raw": "in",
+          "start": 9.06,
+          "end": 9.14
+        },
+        {
+          "raw": "whom",
+          "start": 9.14,
+          "end": 9.32
+        },
+        {
+          "raw": "my",
+          "start": 9.32,
+          "end": 9.54
+        },
+        {
+          "raw": "soul",
+          "start": 9.54,
+          "end": 9.84
+        },
+        {
+          "raw": "hath",
+          "start": 9.84,
+          "end": 10.1
+        },
+        {
+          "raw": "chief",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "raw": "delight,",
+          "start": 10.44,
+          "end": 10.84
+        },
+        {
+          "raw": "Son",
+          "start": 11.42,
+          "end": 11.46
+        },
+        {
+          "raw": "of",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "raw": "my",
+          "start": 11.58,
+          "end": 11.76
+        },
+        {
+          "raw": "bosom,",
+          "start": 11.76,
+          "end": 12.2
+        },
+        {
+          "raw": "Son",
+          "start": 12.58,
+          "end": 12.68
+        },
+        {
+          "raw": "who",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "raw": "art",
+          "start": 12.92,
+          "end": 13.14
+        },
+        {
+          "raw": "alone.",
+          "start": 13.14,
+          "end": 13.5
+        }
+      ],
+      "expected_tokens": [
+        "So",
+        "should",
+        "thy",
+        "goodness",
+        "and",
+        "thy",
+        "greatness",
+        "both",
+        "Be",
+        "question'd",
+        "and",
+        "blasphem'd",
+        "without",
+        "defence.",
+        "To",
+        "whom",
+        "the",
+        "great",
+        "Creator",
+        "thus",
+        "replied.",
+        "O",
+        "son,",
+        "in",
+        "whom",
+        "my",
+        "soul",
+        "hath",
+        "chief",
+        "delight,",
+        "Son",
+        "of",
+        "my",
+        "bosom,",
+        "Son",
+        "who",
+        "art",
+        "alone."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          38,
+          0,
+          38
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "So",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "should",
+          "start": 0.5,
+          "end": 0.66
+        },
+        {
+          "text": "thy",
+          "start": 0.66,
+          "end": 0.84
+        },
+        {
+          "text": "goodness",
+          "start": 0.84,
+          "end": 1.18
+        },
+        {
+          "text": "and",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "thy",
+          "start": 1.44,
+          "end": 1.62
+        },
+        {
+          "text": "greatness",
+          "start": 1.62,
+          "end": 2.02
+        },
+        {
+          "text": "both",
+          "start": 2.02,
+          "end": 2.32
+        },
+        {
+          "text": "Be",
+          "start": 2.32,
+          "end": 2.6
+        },
+        {
+          "text": "question'd",
+          "start": 2.6,
+          "end": 3.2
+        },
+        {
+          "text": "and",
+          "start": 3.2,
+          "end": 3.38
+        },
+        {
+          "text": "blasphem'd",
+          "start": 3.38,
+          "end": 4.02
+        },
+        {
+          "text": "without",
+          "start": 4.02,
+          "end": 4.24
+        },
+        {
+          "text": "defence.",
+          "start": 4.24,
+          "end": 4.68
+        },
+        {
+          "text": "To",
+          "start": 4.68,
+          "end": 5.52
+        },
+        {
+          "text": "whom",
+          "start": 5.52,
+          "end": 5.76
+        },
+        {
+          "text": "the",
+          "start": 5.76,
+          "end": 5.94
+        },
+        {
+          "text": "great",
+          "start": 5.94,
+          "end": 6.18
+        },
+        {
+          "text": "Creator",
+          "start": 6.18,
+          "end": 6.62
+        },
+        {
+          "text": "thus",
+          "start": 6.62,
+          "end": 6.94
+        },
+        {
+          "text": "replied.",
+          "start": 6.94,
+          "end": 7.4
+        },
+        {
+          "text": "O",
+          "start": 8.16,
+          "end": 8.3
+        },
+        {
+          "text": "son,",
+          "start": 8.3,
+          "end": 8.62
+        },
+        {
+          "text": "in",
+          "start": 9.06,
+          "end": 9.14
+        },
+        {
+          "text": "whom",
+          "start": 9.14,
+          "end": 9.32
+        },
+        {
+          "text": "my",
+          "start": 9.32,
+          "end": 9.54
+        },
+        {
+          "text": "soul",
+          "start": 9.54,
+          "end": 9.84
+        },
+        {
+          "text": "hath",
+          "start": 9.84,
+          "end": 10.1
+        },
+        {
+          "text": "chief",
+          "start": 10.1,
+          "end": 10.44
+        },
+        {
+          "text": "delight,",
+          "start": 10.44,
+          "end": 10.84
+        },
+        {
+          "text": "Son",
+          "start": 11.42,
+          "end": 11.46
+        },
+        {
+          "text": "of",
+          "start": 11.46,
+          "end": 11.58
+        },
+        {
+          "text": "my",
+          "start": 11.58,
+          "end": 11.76
+        },
+        {
+          "text": "bosom,",
+          "start": 11.76,
+          "end": 12.2
+        },
+        {
+          "text": "Son",
+          "start": 12.58,
+          "end": 12.68
+        },
+        {
+          "text": "who",
+          "start": 12.68,
+          "end": 12.92
+        },
+        {
+          "text": "art",
+          "start": 12.92,
+          "end": 13.14
+        },
+        {
+          "text": "alone.",
+          "start": 13.14,
+          "end": 13.5
+        }
+      ],
+      "stats": {
+        "expected_words": 38,
+        "heard_words": 38,
+        "matched_words": 38
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.48636386543512344
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "48ce35c14513a863af75398fa19b1fab55114f1025e1e8505a5a74ce98492075",
+  "selected_reasons": []
+}

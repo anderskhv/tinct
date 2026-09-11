@@ -1,0 +1,296 @@
+{
+  "complete": true,
+  "signature": "ddc21a29b4cb84580c31e11a5c07ea4be7526181bfdd2632897170c60bf5c4b9",
+  "attempts": [
+    {
+      "asr_seconds": 0.12491650879383087,
+      "alignment_seconds": 9.476393461227417e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And would not a really good education furnish the best safeguard?",
+          "start": 0.14,
+          "end": 3.34,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.14,
+              "end": 0.52,
+              "probability": 0.505859375
+            },
+            {
+              "text": " would",
+              "start": 0.52,
+              "end": 0.62,
+              "probability": 0.962890625
+            },
+            {
+              "text": " not",
+              "start": 0.62,
+              "end": 0.78,
+              "probability": 0.99609375
+            },
+            {
+              "text": " a",
+              "start": 0.78,
+              "end": 0.92,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " really",
+              "start": 0.92,
+              "end": 1.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " good",
+              "start": 1.12,
+              "end": 1.34,
+              "probability": 0.994140625
+            },
+            {
+              "text": " education",
+              "start": 1.34,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " furnish",
+              "start": 1.88,
+              "end": 2.26,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 2.26,
+              "end": 2.56,
+              "probability": 0.998046875
+            },
+            {
+              "text": " best",
+              "start": 2.56,
+              "end": 2.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " safeguard?",
+              "start": 2.82,
+              "end": 3.34,
+              "probability": 0.8916015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "raw": "would",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "raw": "not",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "raw": "a",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "raw": "really",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "raw": "good",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "raw": "education",
+          "start": 1.34,
+          "end": 1.88
+        },
+        {
+          "raw": "furnish",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "raw": "the",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "raw": "best",
+          "start": 2.56,
+          "end": 2.82
+        },
+        {
+          "raw": "safeguard?",
+          "start": 2.82,
+          "end": 3.34
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "would",
+        "not",
+        "a",
+        "really",
+        "good",
+        "education",
+        "furnish",
+        "the",
+        "best",
+        "safeguard?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          11,
+          0,
+          11
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.14,
+          "end": 0.52
+        },
+        {
+          "text": "would",
+          "start": 0.52,
+          "end": 0.62
+        },
+        {
+          "text": "not",
+          "start": 0.62,
+          "end": 0.78
+        },
+        {
+          "text": "a",
+          "start": 0.78,
+          "end": 0.92
+        },
+        {
+          "text": "really",
+          "start": 0.92,
+          "end": 1.12
+        },
+        {
+          "text": "good",
+          "start": 1.12,
+          "end": 1.34
+        },
+        {
+          "text": "education",
+          "start": 1.34,
+          "end": 1.88
+        },
+        {
+          "text": "furnish",
+          "start": 1.88,
+          "end": 2.26
+        },
+        {
+          "text": "the",
+          "start": 2.26,
+          "end": 2.56
+        },
+        {
+          "text": "best",
+          "start": 2.56,
+          "end": 2.82
+        },
+        {
+          "text": "safeguard?",
+          "start": 2.82,
+          "end": 3.34
+        }
+      ],
+      "stats": {
+        "expected_words": 11,
+        "heard_words": 11,
+        "matched_words": 11
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12505809217691422
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c4f87b14c52eb950cb3919b37957dd0c69fd92fdb385b1484bc4729c0449c153",
+  "selected_reasons": []
+}

@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "45b61d6d6bd77eba6d541e0d8ebab08fbb0af08bac59f279adf8aac01968c9bd",
+  "attempts": [
+    {
+      "asr_seconds": 0.11018577963113785,
+      "alignment_seconds": 7.665157318115234e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "You have guessed most infallibly, he replied.",
+        "hotwords": "You"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " You have guessed most infallibly, he replied.",
+          "start": 0.05,
+          "end": 2.55,
+          "words": [
+            {
+              "text": " You",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.34716796875
+            },
+            {
+              "text": " have",
+              "start": 0.53,
+              "end": 0.61,
+              "probability": 0.958984375
+            },
+            {
+              "text": " guessed",
+              "start": 0.61,
+              "end": 0.83,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " most",
+              "start": 0.83,
+              "end": 1.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " infallibly,",
+              "start": 1.11,
+              "end": 1.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " he",
+              "start": 2.05,
+              "end": 2.17,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " replied.",
+              "start": 2.17,
+              "end": 2.55,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "have",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "raw": "guessed",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "raw": "most",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "raw": "infallibly,",
+          "start": 1.11,
+          "end": 1.79
+        },
+        {
+          "raw": "he",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "raw": "replied.",
+          "start": 2.17,
+          "end": 2.55
+        }
+      ],
+      "expected_tokens": [
+        "You",
+        "have",
+        "guessed",
+        "most",
+        "infallibly,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "You",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "have",
+          "start": 0.53,
+          "end": 0.61
+        },
+        {
+          "text": "guessed",
+          "start": 0.61,
+          "end": 0.83
+        },
+        {
+          "text": "most",
+          "start": 0.83,
+          "end": 1.11
+        },
+        {
+          "text": "infallibly,",
+          "start": 1.11,
+          "end": 1.79
+        },
+        {
+          "text": "he",
+          "start": 2.05,
+          "end": 2.17
+        },
+        {
+          "text": "replied.",
+          "start": 2.17,
+          "end": 2.55
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.110295869410038
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d068c3fcd128df8d2f3664e59afe1f5f4ff1228e3ff9e5ac585a80c20dc2ddbd",
+  "selected_reasons": []
+}

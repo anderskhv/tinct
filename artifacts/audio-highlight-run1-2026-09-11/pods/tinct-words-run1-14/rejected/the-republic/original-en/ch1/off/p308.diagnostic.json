@@ -1,0 +1,164 @@
+{
+  "complete": true,
+  "signature": "75548caeec6ae1f2c8a96c45ba994b9b8dfcd162efa77ee1dcbac6e8303c0e10",
+  "attempts": [
+    {
+      "asr_seconds": 0.10496044158935547,
+      "alignment_seconds": 6.605684757232666e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly, he confers a benefit.",
+          "start": 0.08,
+          "end": 1.98,
+          "words": [
+            {
+              "text": " Certainly,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.8857421875
+            },
+            {
+              "text": " he",
+              "start": 1.12,
+              "end": 1.18,
+              "probability": 0.990234375
+            },
+            {
+              "text": " confers",
+              "start": 1.18,
+              "end": 1.54,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " a",
+              "start": 1.54,
+              "end": 1.7,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " benefit.",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "he",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "raw": "confers",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "raw": "a",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "raw": "benefit.",
+          "start": 1.7,
+          "end": 1.98
+        }
+      ],
+      "expected_tokens": [
+        "Certainly,",
+        "he",
+        "confers",
+        "a",
+        "benefit."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "he",
+          "start": 1.12,
+          "end": 1.18
+        },
+        {
+          "text": "confers",
+          "start": 1.18,
+          "end": 1.54
+        },
+        {
+          "text": "a",
+          "start": 1.54,
+          "end": 1.7
+        },
+        {
+          "text": "benefit.",
+          "start": 1.7,
+          "end": 1.98
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10505411773920059
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4f39def0a0b21ee01cf0fce1dee6a14e88cc08b7453c95ecd7cf5a1dd6269021",
+  "selected_reasons": []
+}

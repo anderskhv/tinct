@@ -1,0 +1,274 @@
+{
+  "complete": true,
+  "signature": "8f4aa33662eea7b4e9bc7b3390b61ce47f8506f88517f968d552d678cb088c44",
+  "attempts": [
+    {
+      "asr_seconds": 0.1204947903752327,
+      "alignment_seconds": 7.437169551849365e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly not, I said, if contrary to your real opinion.",
+          "start": 0.08,
+          "end": 3.58,
+          "words": [
+            {
+              "text": " Certainly",
+              "start": 0.08,
+              "end": 0.68,
+              "probability": 0.12249755859375
+            },
+            {
+              "text": " not,",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.984375
+            },
+            {
+              "text": " I",
+              "start": 1.36,
+              "end": 1.44,
+              "probability": 0.98828125
+            },
+            {
+              "text": " said,",
+              "start": 1.44,
+              "end": 1.76,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " if",
+              "start": 2.14,
+              "end": 2.26,
+              "probability": 0.98828125
+            },
+            {
+              "text": " contrary",
+              "start": 2.26,
+              "end": 2.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 2.68,
+              "end": 2.9,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " your",
+              "start": 2.9,
+              "end": 3.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " real",
+              "start": 3.02,
+              "end": 3.22,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " opinion.",
+              "start": 3.22,
+              "end": 3.58,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "raw": "not,",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "raw": "I",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "raw": "said,",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "raw": "if",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "raw": "contrary",
+          "start": 2.26,
+          "end": 2.68
+        },
+        {
+          "raw": "to",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "raw": "your",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "raw": "real",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "raw": "opinion.",
+          "start": 3.22,
+          "end": 3.58
+        }
+      ],
+      "expected_tokens": [
+        "Certainly",
+        "not,",
+        "I",
+        "said,",
+        "if",
+        "contrary",
+        "to",
+        "your",
+        "real",
+        "opinion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Certainly",
+          "start": 0.08,
+          "end": 0.68
+        },
+        {
+          "text": "not,",
+          "start": 0.68,
+          "end": 1.06
+        },
+        {
+          "text": "I",
+          "start": 1.36,
+          "end": 1.44
+        },
+        {
+          "text": "said,",
+          "start": 1.44,
+          "end": 1.76
+        },
+        {
+          "text": "if",
+          "start": 2.14,
+          "end": 2.26
+        },
+        {
+          "text": "contrary",
+          "start": 2.26,
+          "end": 2.68
+        },
+        {
+          "text": "to",
+          "start": 2.68,
+          "end": 2.9
+        },
+        {
+          "text": "your",
+          "start": 2.9,
+          "end": 3.02
+        },
+        {
+          "text": "real",
+          "start": 3.02,
+          "end": 3.22
+        },
+        {
+          "text": "opinion.",
+          "start": 3.22,
+          "end": 3.58
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1206040307879448
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7fbb0ea2172f1fecb7518d15036c0152b39857fd884ff5d7c66a0cb2e0e374a5",
+  "selected_reasons": []
+}

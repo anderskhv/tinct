@@ -1,0 +1,3672 @@
+{
+  "complete": true,
+  "signature": "90d029679f2588a6fdffb237221707ade982a86a89736bdda2f49035f70a3012",
+  "attempts": [
+    {
+      "asr_seconds": 0.41513243317604065,
+      "alignment_seconds": 0.0003415718674659729,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "What wonder then if fields and regions here Breathe forth Elixir pure, and rivers run Potable gold, when with one virtuous touch The arch-chemick sun, so far from us remote, Produces, with terrestrial humour mixed, Here in the dark so many precious things Of colour glorious, and effect so rare?",
+        "hotwords": "What, Breathe, Elixir, Potable, Produces, Of"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " What wonder then if fields and regions here Breathe forth Elixir pure, and rivers run Potable gold, when with one virtuous touch The arch-chemick sun, so far from us remote, Produces, with terrestrial humour mixed, Here in the dark so many precious things Of colour glorious, and effect so rare?",
+          "start": 0.05,
+          "end": 18.37,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.826171875
+            },
+            {
+              "text": " wonder",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " then",
+              "start": 0.77,
+              "end": 0.99,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " if",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.83203125
+            },
+            {
+              "text": " fields",
+              "start": 1.25,
+              "end": 1.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " regions",
+              "start": 1.83,
+              "end": 2.17,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " here",
+              "start": 2.17,
+              "end": 2.51,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " Breathe",
+              "start": 2.51,
+              "end": 3.01,
+              "probability": 0.5007038116455078
+            },
+            {
+              "text": " forth",
+              "start": 3.01,
+              "end": 3.23,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " Elixir",
+              "start": 3.23,
+              "end": 3.63,
+              "probability": 0.0309600830078125
+            },
+            {
+              "text": " pure,",
+              "start": 3.63,
+              "end": 3.97,
+              "probability": 0.69287109375
+            },
+            {
+              "text": " and",
+              "start": 4.53,
+              "end": 4.67,
+              "probability": 0.68994140625
+            },
+            {
+              "text": " rivers",
+              "start": 4.67,
+              "end": 4.97,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " run",
+              "start": 4.97,
+              "end": 5.23,
+              "probability": 0.884765625
+            },
+            {
+              "text": " Potable",
+              "start": 5.23,
+              "end": 5.71,
+              "probability": 0.49956607818603516
+            },
+            {
+              "text": " gold,",
+              "start": 5.71,
+              "end": 6.13,
+              "probability": 0.884765625
+            },
+            {
+              "text": " when",
+              "start": 6.63,
+              "end": 6.81,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " with",
+              "start": 6.81,
+              "end": 6.95,
+              "probability": 0.96484375
+            },
+            {
+              "text": " one",
+              "start": 6.95,
+              "end": 7.25,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " virtuous",
+              "start": 7.25,
+              "end": 7.65,
+              "probability": 0.7744140625
+            },
+            {
+              "text": " touch",
+              "start": 7.65,
+              "end": 8.03,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " The",
+              "start": 8.03,
+              "end": 8.27,
+              "probability": 0.513671875
+            },
+            {
+              "text": " arch",
+              "start": 8.27,
+              "end": 8.51,
+              "probability": 0.49755859375
+            },
+            {
+              "text": "-chemick",
+              "start": 8.51,
+              "end": 8.87,
+              "probability": 0.17140706380208334
+            },
+            {
+              "text": " sun,",
+              "start": 8.87,
+              "end": 9.13,
+              "probability": 0.875
+            },
+            {
+              "text": " so",
+              "start": 9.59,
+              "end": 9.81,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " far",
+              "start": 9.81,
+              "end": 10.05,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " from",
+              "start": 10.05,
+              "end": 10.25,
+              "probability": 0.990234375
+            },
+            {
+              "text": " us",
+              "start": 10.25,
+              "end": 10.41,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " remote,",
+              "start": 10.41,
+              "end": 10.77,
+              "probability": 0.90673828125
+            },
+            {
+              "text": " Produces,",
+              "start": 11.35,
+              "end": 11.77,
+              "probability": 0.794921875
+            },
+            {
+              "text": " with",
+              "start": 11.93,
+              "end": 12.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " terrestrial",
+              "start": 12.07,
+              "end": 12.41,
+              "probability": 0.95703125
+            },
+            {
+              "text": " humour",
+              "start": 12.41,
+              "end": 13.01,
+              "probability": 0.0662841796875
+            },
+            {
+              "text": " mixed,",
+              "start": 13.01,
+              "end": 13.49,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " Here",
+              "start": 14.01,
+              "end": 14.15,
+              "probability": 0.5595703125
+            },
+            {
+              "text": " in",
+              "start": 14.15,
+              "end": 14.29,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " the",
+              "start": 14.29,
+              "end": 14.39,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " dark",
+              "start": 14.39,
+              "end": 14.55,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " so",
+              "start": 14.55,
+              "end": 14.85,
+              "probability": 0.74072265625
+            },
+            {
+              "text": " many",
+              "start": 14.85,
+              "end": 15.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " precious",
+              "start": 15.07,
+              "end": 15.39,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " things",
+              "start": 15.39,
+              "end": 15.75,
+              "probability": 0.87890625
+            },
+            {
+              "text": " Of",
+              "start": 15.75,
+              "end": 16.01,
+              "probability": 0.609375
+            },
+            {
+              "text": " colour",
+              "start": 16.01,
+              "end": 16.27,
+              "probability": 0.8095703125
+            },
+            {
+              "text": " glorious,",
+              "start": 16.27,
+              "end": 16.83,
+              "probability": 0.955078125
+            },
+            {
+              "text": " and",
+              "start": 17.27,
+              "end": 17.37,
+              "probability": 0.986328125
+            },
+            {
+              "text": " effect",
+              "start": 17.37,
+              "end": 17.65,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " so",
+              "start": 17.65,
+              "end": 18.03,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " rare?",
+              "start": 18.03,
+              "end": 18.37,
+              "probability": 0.99169921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "wonder",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "then",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "raw": "if",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "fields",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "regions",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "raw": "here",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "raw": "Breathe",
+          "start": 2.51,
+          "end": 3.01
+        },
+        {
+          "raw": "forth",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "raw": "Elixir",
+          "start": 3.23,
+          "end": 3.63
+        },
+        {
+          "raw": "pure,",
+          "start": 3.63,
+          "end": 3.97
+        },
+        {
+          "raw": "and",
+          "start": 4.53,
+          "end": 4.67
+        },
+        {
+          "raw": "rivers",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "raw": "run",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "raw": "Potable",
+          "start": 5.23,
+          "end": 5.71
+        },
+        {
+          "raw": "gold,",
+          "start": 5.71,
+          "end": 6.13
+        },
+        {
+          "raw": "when",
+          "start": 6.63,
+          "end": 6.81
+        },
+        {
+          "raw": "with",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "raw": "one",
+          "start": 6.95,
+          "end": 7.25
+        },
+        {
+          "raw": "virtuous",
+          "start": 7.25,
+          "end": 7.65
+        },
+        {
+          "raw": "touch",
+          "start": 7.65,
+          "end": 8.03
+        },
+        {
+          "raw": "The",
+          "start": 8.03,
+          "end": 8.27
+        },
+        {
+          "raw": "arch",
+          "start": 8.27,
+          "end": 8.51
+        },
+        {
+          "raw": "-chemick",
+          "start": 8.51,
+          "end": 8.87
+        },
+        {
+          "raw": "sun,",
+          "start": 8.87,
+          "end": 9.13
+        },
+        {
+          "raw": "so",
+          "start": 9.59,
+          "end": 9.81
+        },
+        {
+          "raw": "far",
+          "start": 9.81,
+          "end": 10.05
+        },
+        {
+          "raw": "from",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "raw": "us",
+          "start": 10.25,
+          "end": 10.41
+        },
+        {
+          "raw": "remote,",
+          "start": 10.41,
+          "end": 10.77
+        },
+        {
+          "raw": "Produces,",
+          "start": 11.35,
+          "end": 11.77
+        },
+        {
+          "raw": "with",
+          "start": 11.93,
+          "end": 12.07
+        },
+        {
+          "raw": "terrestrial",
+          "start": 12.07,
+          "end": 12.41
+        },
+        {
+          "raw": "humour",
+          "start": 12.41,
+          "end": 13.01
+        },
+        {
+          "raw": "mixed,",
+          "start": 13.01,
+          "end": 13.49
+        },
+        {
+          "raw": "Here",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "raw": "in",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "raw": "the",
+          "start": 14.29,
+          "end": 14.39
+        },
+        {
+          "raw": "dark",
+          "start": 14.39,
+          "end": 14.55
+        },
+        {
+          "raw": "so",
+          "start": 14.55,
+          "end": 14.85
+        },
+        {
+          "raw": "many",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "raw": "precious",
+          "start": 15.07,
+          "end": 15.39
+        },
+        {
+          "raw": "things",
+          "start": 15.39,
+          "end": 15.75
+        },
+        {
+          "raw": "Of",
+          "start": 15.75,
+          "end": 16.01
+        },
+        {
+          "raw": "colour",
+          "start": 16.01,
+          "end": 16.27
+        },
+        {
+          "raw": "glorious,",
+          "start": 16.27,
+          "end": 16.83
+        },
+        {
+          "raw": "and",
+          "start": 17.27,
+          "end": 17.37
+        },
+        {
+          "raw": "effect",
+          "start": 17.37,
+          "end": 17.65
+        },
+        {
+          "raw": "so",
+          "start": 17.65,
+          "end": 18.03
+        },
+        {
+          "raw": "rare?",
+          "start": 18.03,
+          "end": 18.37
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "wonder",
+        "then",
+        "if",
+        "fields",
+        "and",
+        "regions",
+        "here",
+        "Breathe",
+        "forth",
+        "Elixir",
+        "pure,",
+        "and",
+        "rivers",
+        "run",
+        "Potable",
+        "gold,",
+        "when",
+        "with",
+        "one",
+        "virtuous",
+        "touch",
+        "The",
+        "arch-chemick",
+        "sun,",
+        "so",
+        "far",
+        "from",
+        "us",
+        "remote,",
+        "Produces,",
+        "with",
+        "terrestrial",
+        "humour",
+        "mixed,",
+        "Here",
+        "in",
+        "the",
+        "dark",
+        "so",
+        "many",
+        "precious",
+        "things",
+        "Of",
+        "colour",
+        "glorious,",
+        "and",
+        "effect",
+        "so",
+        "rare?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          50,
+          25,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "wonder",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "then",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "text": "if",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "fields",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "and",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "regions",
+          "start": 1.83,
+          "end": 2.17
+        },
+        {
+          "text": "here",
+          "start": 2.17,
+          "end": 2.51
+        },
+        {
+          "text": "Breathe",
+          "start": 2.51,
+          "end": 3.01
+        },
+        {
+          "text": "forth",
+          "start": 3.01,
+          "end": 3.23
+        },
+        {
+          "text": "Elixir",
+          "start": 3.23,
+          "end": 3.63
+        },
+        {
+          "text": "pure,",
+          "start": 3.63,
+          "end": 3.97
+        },
+        {
+          "text": "and",
+          "start": 4.53,
+          "end": 4.67
+        },
+        {
+          "text": "rivers",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "text": "run",
+          "start": 4.97,
+          "end": 5.23
+        },
+        {
+          "text": "Potable",
+          "start": 5.23,
+          "end": 5.71
+        },
+        {
+          "text": "gold,",
+          "start": 5.71,
+          "end": 6.13
+        },
+        {
+          "text": "when",
+          "start": 6.63,
+          "end": 6.81
+        },
+        {
+          "text": "with",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "text": "one",
+          "start": 6.95,
+          "end": 7.25
+        },
+        {
+          "text": "virtuous",
+          "start": 7.25,
+          "end": 7.65
+        },
+        {
+          "text": "touch",
+          "start": 7.65,
+          "end": 8.03
+        },
+        {
+          "text": "The",
+          "start": 8.03,
+          "end": 8.27
+        },
+        {
+          "text": "arch-chemick",
+          "start": 8.27,
+          "end": 8.57
+        },
+        {
+          "text": "sun,",
+          "start": 8.87,
+          "end": 9.13
+        },
+        {
+          "text": "so",
+          "start": 9.59,
+          "end": 9.81
+        },
+        {
+          "text": "far",
+          "start": 9.81,
+          "end": 10.05
+        },
+        {
+          "text": "from",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "text": "us",
+          "start": 10.25,
+          "end": 10.41
+        },
+        {
+          "text": "remote,",
+          "start": 10.41,
+          "end": 10.77
+        },
+        {
+          "text": "Produces,",
+          "start": 11.35,
+          "end": 11.77
+        },
+        {
+          "text": "with",
+          "start": 11.93,
+          "end": 12.07
+        },
+        {
+          "text": "terrestrial",
+          "start": 12.07,
+          "end": 12.41
+        },
+        {
+          "text": "humour",
+          "start": 12.41,
+          "end": 13.01
+        },
+        {
+          "text": "mixed,",
+          "start": 13.01,
+          "end": 13.49
+        },
+        {
+          "text": "Here",
+          "start": 14.01,
+          "end": 14.15
+        },
+        {
+          "text": "in",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "text": "the",
+          "start": 14.29,
+          "end": 14.39
+        },
+        {
+          "text": "dark",
+          "start": 14.39,
+          "end": 14.55
+        },
+        {
+          "text": "so",
+          "start": 14.55,
+          "end": 14.85
+        },
+        {
+          "text": "many",
+          "start": 14.85,
+          "end": 15.07
+        },
+        {
+          "text": "precious",
+          "start": 15.07,
+          "end": 15.39
+        },
+        {
+          "text": "things",
+          "start": 15.39,
+          "end": 15.75
+        },
+        {
+          "text": "Of",
+          "start": 15.75,
+          "end": 16.01
+        },
+        {
+          "text": "colour",
+          "start": 16.01,
+          "end": 16.27
+        },
+        {
+          "text": "glorious,",
+          "start": 16.27,
+          "end": 16.83
+        },
+        {
+          "text": "and",
+          "start": 17.27,
+          "end": 17.37
+        },
+        {
+          "text": "effect",
+          "start": 17.37,
+          "end": 17.65
+        },
+        {
+          "text": "so",
+          "start": 17.65,
+          "end": 18.03
+        },
+        {
+          "text": "rare?",
+          "start": 18.03,
+          "end": 18.37
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 51,
+        "matched_words": 49
+      },
+      "match_ratio": 0.98,
+      "rejection_reasons": [],
+      "seconds": 0.41570696979761124
+    },
+    {
+      "asr_seconds": 0.46365518867969513,
+      "alignment_seconds": 0.0003678426146507263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "What, Breathe, Elixir, Potable, Produces, Of"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " What wonder then if fields and regions here breathe forth elixir pure, and rivers run",
+          "start": 0.05,
+          "end": 5.25,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.8271484375
+            },
+            {
+              "text": " wonder",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " then",
+              "start": 0.77,
+              "end": 0.99,
+              "probability": 0.57568359375
+            },
+            {
+              "text": " if",
+              "start": 0.99,
+              "end": 1.25,
+              "probability": 0.83203125
+            },
+            {
+              "text": " fields",
+              "start": 1.25,
+              "end": 1.61,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " and",
+              "start": 1.61,
+              "end": 1.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " regions",
+              "start": 1.83,
+              "end": 2.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " here",
+              "start": 2.15,
+              "end": 2.51,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " breathe",
+              "start": 2.51,
+              "end": 2.81,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " forth",
+              "start": 2.81,
+              "end": 3.19,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " elixir",
+              "start": 3.19,
+              "end": 3.63,
+              "probability": 0.96044921875
+            },
+            {
+              "text": " pure,",
+              "start": 3.63,
+              "end": 3.97,
+              "probability": 0.86376953125
+            },
+            {
+              "text": " and",
+              "start": 4.47,
+              "end": 4.67,
+              "probability": 0.775390625
+            },
+            {
+              "text": " rivers",
+              "start": 4.67,
+              "end": 4.95,
+              "probability": 0.98828125
+            },
+            {
+              "text": " run",
+              "start": 4.95,
+              "end": 5.25,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " potable gold, when with one virtuous touch the arch-chemic sun, so far from us remote,",
+          "start": 5.25,
+          "end": 10.75,
+          "words": [
+            {
+              "text": " potable",
+              "start": 5.25,
+              "end": 5.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " gold,",
+              "start": 5.69,
+              "end": 6.13,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " when",
+              "start": 6.65,
+              "end": 6.81,
+              "probability": 0.9296875
+            },
+            {
+              "text": " with",
+              "start": 6.81,
+              "end": 6.95,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " one",
+              "start": 6.95,
+              "end": 7.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " virtuous",
+              "start": 7.23,
+              "end": 7.67,
+              "probability": 0.990234375
+            },
+            {
+              "text": " touch",
+              "start": 7.67,
+              "end": 8.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 8.05,
+              "end": 8.27,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " arch",
+              "start": 8.27,
+              "end": 8.51,
+              "probability": 0.78173828125
+            },
+            {
+              "text": "-chemic",
+              "start": 8.51,
+              "end": 8.79,
+              "probability": 0.6620279947916666
+            },
+            {
+              "text": " sun,",
+              "start": 8.79,
+              "end": 9.13,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " so",
+              "start": 9.59,
+              "end": 9.81,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " far",
+              "start": 9.81,
+              "end": 10.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 10.05,
+              "end": 10.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us",
+              "start": 10.25,
+              "end": 10.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " remote,",
+              "start": 10.39,
+              "end": 10.75,
+              "probability": 0.99169921875
+            }
+          ]
+        },
+        {
+          "text": " produces with terrestrial humor mixed, here in the dark so many precious things of color",
+          "start": 11.49,
+          "end": 16.31,
+          "words": [
+            {
+              "text": " produces",
+              "start": 11.49,
+              "end": 11.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " with",
+              "start": 11.55,
+              "end": 12.05,
+              "probability": 0.42041015625
+            },
+            {
+              "text": " terrestrial",
+              "start": 12.05,
+              "end": 12.47,
+              "probability": 0.986328125
+            },
+            {
+              "text": " humor",
+              "start": 12.47,
+              "end": 13.01,
+              "probability": 0.93603515625
+            },
+            {
+              "text": " mixed,",
+              "start": 13.01,
+              "end": 13.51,
+              "probability": 0.96826171875
+            },
+            {
+              "text": " here",
+              "start": 13.99,
+              "end": 14.15,
+              "probability": 0.94091796875
+            },
+            {
+              "text": " in",
+              "start": 14.15,
+              "end": 14.29,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " the",
+              "start": 14.29,
+              "end": 14.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dark",
+              "start": 14.39,
+              "end": 14.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so",
+              "start": 14.57,
+              "end": 14.85,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " many",
+              "start": 14.85,
+              "end": 15.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " precious",
+              "start": 15.05,
+              "end": 15.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " things",
+              "start": 15.41,
+              "end": 15.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.77,
+              "end": 16.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " color",
+              "start": 16.01,
+              "end": 16.31,
+              "probability": 0.94677734375
+            }
+          ]
+        },
+        {
+          "text": " glorious and effect so rare?",
+          "start": 16.31,
+          "end": 18.37,
+          "words": [
+            {
+              "text": " glorious",
+              "start": 16.31,
+              "end": 16.83,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " and",
+              "start": 16.83,
+              "end": 17.37,
+              "probability": 0.64111328125
+            },
+            {
+              "text": " effect",
+              "start": 17.37,
+              "end": 17.63,
+              "probability": 0.849609375
+            },
+            {
+              "text": " so",
+              "start": 17.63,
+              "end": 18.03,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " rare?",
+              "start": 18.03,
+              "end": 18.37,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "wonder",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "then",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "raw": "if",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "raw": "fields",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "raw": "and",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "raw": "regions",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "raw": "here",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "raw": "breathe",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "raw": "forth",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "raw": "elixir",
+          "start": 3.19,
+          "end": 3.63
+        },
+        {
+          "raw": "pure,",
+          "start": 3.63,
+          "end": 3.97
+        },
+        {
+          "raw": "and",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "raw": "rivers",
+          "start": 4.67,
+          "end": 4.95
+        },
+        {
+          "raw": "run",
+          "start": 4.95,
+          "end": 5.25
+        },
+        {
+          "raw": "potable",
+          "start": 5.25,
+          "end": 5.69
+        },
+        {
+          "raw": "gold,",
+          "start": 5.69,
+          "end": 6.13
+        },
+        {
+          "raw": "when",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "raw": "with",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "raw": "one",
+          "start": 6.95,
+          "end": 7.23
+        },
+        {
+          "raw": "virtuous",
+          "start": 7.23,
+          "end": 7.67
+        },
+        {
+          "raw": "touch",
+          "start": 7.67,
+          "end": 8.05
+        },
+        {
+          "raw": "the",
+          "start": 8.05,
+          "end": 8.27
+        },
+        {
+          "raw": "arch",
+          "start": 8.27,
+          "end": 8.51
+        },
+        {
+          "raw": "-chemic",
+          "start": 8.51,
+          "end": 8.79
+        },
+        {
+          "raw": "sun,",
+          "start": 8.79,
+          "end": 9.13
+        },
+        {
+          "raw": "so",
+          "start": 9.59,
+          "end": 9.81
+        },
+        {
+          "raw": "far",
+          "start": 9.81,
+          "end": 10.05
+        },
+        {
+          "raw": "from",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "raw": "us",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "raw": "remote,",
+          "start": 10.39,
+          "end": 10.75
+        },
+        {
+          "raw": "produces",
+          "start": 11.49,
+          "end": 11.55
+        },
+        {
+          "raw": "with",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "raw": "terrestrial",
+          "start": 12.05,
+          "end": 12.47
+        },
+        {
+          "raw": "humor",
+          "start": 12.47,
+          "end": 13.01
+        },
+        {
+          "raw": "mixed,",
+          "start": 13.01,
+          "end": 13.51
+        },
+        {
+          "raw": "here",
+          "start": 13.99,
+          "end": 14.15
+        },
+        {
+          "raw": "in",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "raw": "the",
+          "start": 14.29,
+          "end": 14.39
+        },
+        {
+          "raw": "dark",
+          "start": 14.39,
+          "end": 14.57
+        },
+        {
+          "raw": "so",
+          "start": 14.57,
+          "end": 14.85
+        },
+        {
+          "raw": "many",
+          "start": 14.85,
+          "end": 15.05
+        },
+        {
+          "raw": "precious",
+          "start": 15.05,
+          "end": 15.41
+        },
+        {
+          "raw": "things",
+          "start": 15.41,
+          "end": 15.77
+        },
+        {
+          "raw": "of",
+          "start": 15.77,
+          "end": 16.01
+        },
+        {
+          "raw": "color",
+          "start": 16.01,
+          "end": 16.31
+        },
+        {
+          "raw": "glorious",
+          "start": 16.31,
+          "end": 16.83
+        },
+        {
+          "raw": "and",
+          "start": 16.83,
+          "end": 17.37
+        },
+        {
+          "raw": "effect",
+          "start": 17.37,
+          "end": 17.63
+        },
+        {
+          "raw": "so",
+          "start": 17.63,
+          "end": 18.03
+        },
+        {
+          "raw": "rare?",
+          "start": 18.03,
+          "end": 18.37
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "wonder",
+        "then",
+        "if",
+        "fields",
+        "and",
+        "regions",
+        "here",
+        "Breathe",
+        "forth",
+        "Elixir",
+        "pure,",
+        "and",
+        "rivers",
+        "run",
+        "Potable",
+        "gold,",
+        "when",
+        "with",
+        "one",
+        "virtuous",
+        "touch",
+        "The",
+        "arch-chemick",
+        "sun,",
+        "so",
+        "far",
+        "from",
+        "us",
+        "remote,",
+        "Produces,",
+        "with",
+        "terrestrial",
+        "humour",
+        "mixed,",
+        "Here",
+        "in",
+        "the",
+        "dark",
+        "so",
+        "many",
+        "precious",
+        "things",
+        "Of",
+        "colour",
+        "glorious,",
+        "and",
+        "effect",
+        "so",
+        "rare?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          33,
+          25,
+          34
+        ],
+        [
+          "replace",
+          33,
+          34,
+          34,
+          35
+        ],
+        [
+          "equal",
+          34,
+          44,
+          35,
+          45
+        ],
+        [
+          "replace",
+          44,
+          45,
+          45,
+          46
+        ],
+        [
+          "equal",
+          45,
+          50,
+          46,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "replace",
+          33,
+          34,
+          34,
+          35
+        ],
+        [
+          "replace",
+          44,
+          45,
+          45,
+          46
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "wonder",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "then",
+          "start": 0.77,
+          "end": 0.99
+        },
+        {
+          "text": "if",
+          "start": 0.99,
+          "end": 1.25
+        },
+        {
+          "text": "fields",
+          "start": 1.25,
+          "end": 1.61
+        },
+        {
+          "text": "and",
+          "start": 1.61,
+          "end": 1.83
+        },
+        {
+          "text": "regions",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "text": "here",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "text": "Breathe",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "text": "forth",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "text": "Elixir",
+          "start": 3.19,
+          "end": 3.63
+        },
+        {
+          "text": "pure,",
+          "start": 3.63,
+          "end": 3.97
+        },
+        {
+          "text": "and",
+          "start": 4.47,
+          "end": 4.67
+        },
+        {
+          "text": "rivers",
+          "start": 4.67,
+          "end": 4.95
+        },
+        {
+          "text": "run",
+          "start": 4.95,
+          "end": 5.25
+        },
+        {
+          "text": "Potable",
+          "start": 5.25,
+          "end": 5.69
+        },
+        {
+          "text": "gold,",
+          "start": 5.69,
+          "end": 6.13
+        },
+        {
+          "text": "when",
+          "start": 6.65,
+          "end": 6.81
+        },
+        {
+          "text": "with",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "text": "one",
+          "start": 6.95,
+          "end": 7.23
+        },
+        {
+          "text": "virtuous",
+          "start": 7.23,
+          "end": 7.67
+        },
+        {
+          "text": "touch",
+          "start": 7.67,
+          "end": 8.05
+        },
+        {
+          "text": "The",
+          "start": 8.05,
+          "end": 8.27
+        },
+        {
+          "text": "arch-chemick",
+          "start": 8.27,
+          "end": 8.53
+        },
+        {
+          "text": "sun,",
+          "start": 8.79,
+          "end": 9.13
+        },
+        {
+          "text": "so",
+          "start": 9.59,
+          "end": 9.81
+        },
+        {
+          "text": "far",
+          "start": 9.81,
+          "end": 10.05
+        },
+        {
+          "text": "from",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "text": "us",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "text": "remote,",
+          "start": 10.39,
+          "end": 10.75
+        },
+        {
+          "text": "Produces,",
+          "start": 11.49,
+          "end": 11.55
+        },
+        {
+          "text": "with",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "text": "terrestrial",
+          "start": 12.05,
+          "end": 12.47
+        },
+        {
+          "text": "humour",
+          "start": 12.47,
+          "end": 12.74
+        },
+        {
+          "text": "mixed,",
+          "start": 13.01,
+          "end": 13.51
+        },
+        {
+          "text": "Here",
+          "start": 13.99,
+          "end": 14.15
+        },
+        {
+          "text": "in",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "text": "the",
+          "start": 14.29,
+          "end": 14.39
+        },
+        {
+          "text": "dark",
+          "start": 14.39,
+          "end": 14.57
+        },
+        {
+          "text": "so",
+          "start": 14.57,
+          "end": 14.85
+        },
+        {
+          "text": "many",
+          "start": 14.85,
+          "end": 15.05
+        },
+        {
+          "text": "precious",
+          "start": 15.05,
+          "end": 15.41
+        },
+        {
+          "text": "things",
+          "start": 15.41,
+          "end": 15.77
+        },
+        {
+          "text": "Of",
+          "start": 15.77,
+          "end": 16.01
+        },
+        {
+          "text": "colour",
+          "start": 16.01,
+          "end": 16.16
+        },
+        {
+          "text": "glorious,",
+          "start": 16.31,
+          "end": 16.83
+        },
+        {
+          "text": "and",
+          "start": 16.83,
+          "end": 17.37
+        },
+        {
+          "text": "effect",
+          "start": 17.37,
+          "end": 17.63
+        },
+        {
+          "text": "so",
+          "start": 17.63,
+          "end": 18.03
+        },
+        {
+          "text": "rare?",
+          "start": 18.03,
+          "end": 18.37
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 51,
+        "matched_words": 47
+      },
+      "match_ratio": 0.94,
+      "rejection_reasons": [],
+      "seconds": 0.46421830356121063
+    },
+    {
+      "asr_seconds": 0.44943714141845703,
+      "alignment_seconds": 0.00035700201988220215,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What wonder, then, if fields and regions here breathe forth elixir pure, and rivers run",
+          "start": 0.05,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.826171875
+            },
+            {
+              "text": " wonder,",
+              "start": 0.53,
+              "end": 0.77,
+              "probability": 0.9921875
+            },
+            {
+              "text": " then,",
+              "start": 0.99,
+              "end": 0.99,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " if",
+              "start": 1.11,
+              "end": 1.25,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " fields",
+              "start": 1.25,
+              "end": 1.59,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 1.59,
+              "end": 1.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " regions",
+              "start": 1.83,
+              "end": 2.15,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " here",
+              "start": 2.15,
+              "end": 2.51,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " breathe",
+              "start": 2.51,
+              "end": 2.81,
+              "probability": 0.916015625
+            },
+            {
+              "text": " forth",
+              "start": 2.81,
+              "end": 3.19,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " elixir",
+              "start": 3.19,
+              "end": 3.63,
+              "probability": 0.963623046875
+            },
+            {
+              "text": " pure,",
+              "start": 3.63,
+              "end": 3.99,
+              "probability": 0.814453125
+            },
+            {
+              "text": " and",
+              "start": 4.45,
+              "end": 4.67,
+              "probability": 0.755859375
+            },
+            {
+              "text": " rivers",
+              "start": 4.67,
+              "end": 4.95,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " run",
+              "start": 4.95,
+              "end": 5.23,
+              "probability": 0.99853515625
+            }
+          ]
+        },
+        {
+          "text": " potable gold, when with one virtuous touch the arch-chemic sun, so far from us remote,",
+          "start": 5.23,
+          "end": 10.75,
+          "words": [
+            {
+              "text": " potable",
+              "start": 5.23,
+              "end": 5.69,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " gold,",
+              "start": 5.69,
+              "end": 6.13,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " when",
+              "start": 6.63,
+              "end": 6.81,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " with",
+              "start": 6.81,
+              "end": 6.95,
+              "probability": 0.86474609375
+            },
+            {
+              "text": " one",
+              "start": 6.95,
+              "end": 7.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " virtuous",
+              "start": 7.23,
+              "end": 7.67,
+              "probability": 0.994140625
+            },
+            {
+              "text": " touch",
+              "start": 7.67,
+              "end": 8.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 8.05,
+              "end": 8.27,
+              "probability": 0.984375
+            },
+            {
+              "text": " arch",
+              "start": 8.27,
+              "end": 8.51,
+              "probability": 0.7978515625
+            },
+            {
+              "text": "-chemic",
+              "start": 8.51,
+              "end": 8.79,
+              "probability": 0.6717936197916666
+            },
+            {
+              "text": " sun,",
+              "start": 8.79,
+              "end": 9.13,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " so",
+              "start": 9.59,
+              "end": 9.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " far",
+              "start": 9.81,
+              "end": 10.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " from",
+              "start": 10.05,
+              "end": 10.25,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " us",
+              "start": 10.25,
+              "end": 10.39,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " remote,",
+              "start": 10.39,
+              "end": 10.75,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " produces with terrestrial humor mixed, here in the dark so many precious things of color",
+          "start": 11.53,
+          "end": 16.31,
+          "words": [
+            {
+              "text": " produces",
+              "start": 11.53,
+              "end": 11.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 11.55,
+              "end": 12.05,
+              "probability": 0.291259765625
+            },
+            {
+              "text": " terrestrial",
+              "start": 12.05,
+              "end": 12.47,
+              "probability": 0.986328125
+            },
+            {
+              "text": " humor",
+              "start": 12.47,
+              "end": 13.01,
+              "probability": 0.93017578125
+            },
+            {
+              "text": " mixed,",
+              "start": 13.01,
+              "end": 13.51,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " here",
+              "start": 13.97,
+              "end": 14.15,
+              "probability": 0.939453125
+            },
+            {
+              "text": " in",
+              "start": 14.15,
+              "end": 14.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 14.29,
+              "end": 14.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " dark",
+              "start": 14.39,
+              "end": 14.57,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " so",
+              "start": 14.57,
+              "end": 14.85,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " many",
+              "start": 14.85,
+              "end": 15.05,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " precious",
+              "start": 15.05,
+              "end": 15.41,
+              "probability": 0.998046875
+            },
+            {
+              "text": " things",
+              "start": 15.41,
+              "end": 15.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 15.77,
+              "end": 16.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " color",
+              "start": 16.01,
+              "end": 16.31,
+              "probability": 0.94287109375
+            }
+          ]
+        },
+        {
+          "text": " glorious and effect so rare?",
+          "start": 16.31,
+          "end": 18.37,
+          "words": [
+            {
+              "text": " glorious",
+              "start": 16.31,
+              "end": 16.83,
+              "probability": 0.96875
+            },
+            {
+              "text": " and",
+              "start": 16.83,
+              "end": 17.37,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " effect",
+              "start": 17.37,
+              "end": 17.65,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " so",
+              "start": 17.65,
+              "end": 18.03,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rare?",
+              "start": 18.03,
+              "end": 18.37,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "wonder,",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "raw": "then,",
+          "start": 0.99,
+          "end": 0.99
+        },
+        {
+          "raw": "if",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "raw": "fields",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "raw": "and",
+          "start": 1.59,
+          "end": 1.83
+        },
+        {
+          "raw": "regions",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "raw": "here",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "raw": "breathe",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "raw": "forth",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "raw": "elixir",
+          "start": 3.19,
+          "end": 3.63
+        },
+        {
+          "raw": "pure,",
+          "start": 3.63,
+          "end": 3.99
+        },
+        {
+          "raw": "and",
+          "start": 4.45,
+          "end": 4.67
+        },
+        {
+          "raw": "rivers",
+          "start": 4.67,
+          "end": 4.95
+        },
+        {
+          "raw": "run",
+          "start": 4.95,
+          "end": 5.23
+        },
+        {
+          "raw": "potable",
+          "start": 5.23,
+          "end": 5.69
+        },
+        {
+          "raw": "gold,",
+          "start": 5.69,
+          "end": 6.13
+        },
+        {
+          "raw": "when",
+          "start": 6.63,
+          "end": 6.81
+        },
+        {
+          "raw": "with",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "raw": "one",
+          "start": 6.95,
+          "end": 7.23
+        },
+        {
+          "raw": "virtuous",
+          "start": 7.23,
+          "end": 7.67
+        },
+        {
+          "raw": "touch",
+          "start": 7.67,
+          "end": 8.05
+        },
+        {
+          "raw": "the",
+          "start": 8.05,
+          "end": 8.27
+        },
+        {
+          "raw": "arch",
+          "start": 8.27,
+          "end": 8.51
+        },
+        {
+          "raw": "-chemic",
+          "start": 8.51,
+          "end": 8.79
+        },
+        {
+          "raw": "sun,",
+          "start": 8.79,
+          "end": 9.13
+        },
+        {
+          "raw": "so",
+          "start": 9.59,
+          "end": 9.81
+        },
+        {
+          "raw": "far",
+          "start": 9.81,
+          "end": 10.05
+        },
+        {
+          "raw": "from",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "raw": "us",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "raw": "remote,",
+          "start": 10.39,
+          "end": 10.75
+        },
+        {
+          "raw": "produces",
+          "start": 11.53,
+          "end": 11.55
+        },
+        {
+          "raw": "with",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "raw": "terrestrial",
+          "start": 12.05,
+          "end": 12.47
+        },
+        {
+          "raw": "humor",
+          "start": 12.47,
+          "end": 13.01
+        },
+        {
+          "raw": "mixed,",
+          "start": 13.01,
+          "end": 13.51
+        },
+        {
+          "raw": "here",
+          "start": 13.97,
+          "end": 14.15
+        },
+        {
+          "raw": "in",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "raw": "the",
+          "start": 14.29,
+          "end": 14.39
+        },
+        {
+          "raw": "dark",
+          "start": 14.39,
+          "end": 14.57
+        },
+        {
+          "raw": "so",
+          "start": 14.57,
+          "end": 14.85
+        },
+        {
+          "raw": "many",
+          "start": 14.85,
+          "end": 15.05
+        },
+        {
+          "raw": "precious",
+          "start": 15.05,
+          "end": 15.41
+        },
+        {
+          "raw": "things",
+          "start": 15.41,
+          "end": 15.77
+        },
+        {
+          "raw": "of",
+          "start": 15.77,
+          "end": 16.01
+        },
+        {
+          "raw": "color",
+          "start": 16.01,
+          "end": 16.31
+        },
+        {
+          "raw": "glorious",
+          "start": 16.31,
+          "end": 16.83
+        },
+        {
+          "raw": "and",
+          "start": 16.83,
+          "end": 17.37
+        },
+        {
+          "raw": "effect",
+          "start": 17.37,
+          "end": 17.65
+        },
+        {
+          "raw": "so",
+          "start": 17.65,
+          "end": 18.03
+        },
+        {
+          "raw": "rare?",
+          "start": 18.03,
+          "end": 18.37
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "wonder",
+        "then",
+        "if",
+        "fields",
+        "and",
+        "regions",
+        "here",
+        "Breathe",
+        "forth",
+        "Elixir",
+        "pure,",
+        "and",
+        "rivers",
+        "run",
+        "Potable",
+        "gold,",
+        "when",
+        "with",
+        "one",
+        "virtuous",
+        "touch",
+        "The",
+        "arch-chemick",
+        "sun,",
+        "so",
+        "far",
+        "from",
+        "us",
+        "remote,",
+        "Produces,",
+        "with",
+        "terrestrial",
+        "humour",
+        "mixed,",
+        "Here",
+        "in",
+        "the",
+        "dark",
+        "so",
+        "many",
+        "precious",
+        "things",
+        "Of",
+        "colour",
+        "glorious,",
+        "and",
+        "effect",
+        "so",
+        "rare?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          23,
+          0,
+          23
+        ],
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "equal",
+          24,
+          33,
+          25,
+          34
+        ],
+        [
+          "replace",
+          33,
+          34,
+          34,
+          35
+        ],
+        [
+          "equal",
+          34,
+          44,
+          35,
+          45
+        ],
+        [
+          "replace",
+          44,
+          45,
+          45,
+          46
+        ],
+        [
+          "equal",
+          45,
+          50,
+          46,
+          51
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 33,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 44,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 50
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          23,
+          24,
+          23,
+          25
+        ],
+        [
+          "replace",
+          33,
+          34,
+          34,
+          35
+        ],
+        [
+          "replace",
+          44,
+          45,
+          45,
+          46
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "wonder",
+          "start": 0.53,
+          "end": 0.77
+        },
+        {
+          "text": "then",
+          "start": 0.99,
+          "end": 0.99
+        },
+        {
+          "text": "if",
+          "start": 1.11,
+          "end": 1.25
+        },
+        {
+          "text": "fields",
+          "start": 1.25,
+          "end": 1.59
+        },
+        {
+          "text": "and",
+          "start": 1.59,
+          "end": 1.83
+        },
+        {
+          "text": "regions",
+          "start": 1.83,
+          "end": 2.15
+        },
+        {
+          "text": "here",
+          "start": 2.15,
+          "end": 2.51
+        },
+        {
+          "text": "Breathe",
+          "start": 2.51,
+          "end": 2.81
+        },
+        {
+          "text": "forth",
+          "start": 2.81,
+          "end": 3.19
+        },
+        {
+          "text": "Elixir",
+          "start": 3.19,
+          "end": 3.63
+        },
+        {
+          "text": "pure,",
+          "start": 3.63,
+          "end": 3.99
+        },
+        {
+          "text": "and",
+          "start": 4.45,
+          "end": 4.67
+        },
+        {
+          "text": "rivers",
+          "start": 4.67,
+          "end": 4.95
+        },
+        {
+          "text": "run",
+          "start": 4.95,
+          "end": 5.23
+        },
+        {
+          "text": "Potable",
+          "start": 5.23,
+          "end": 5.69
+        },
+        {
+          "text": "gold,",
+          "start": 5.69,
+          "end": 6.13
+        },
+        {
+          "text": "when",
+          "start": 6.63,
+          "end": 6.81
+        },
+        {
+          "text": "with",
+          "start": 6.81,
+          "end": 6.95
+        },
+        {
+          "text": "one",
+          "start": 6.95,
+          "end": 7.23
+        },
+        {
+          "text": "virtuous",
+          "start": 7.23,
+          "end": 7.67
+        },
+        {
+          "text": "touch",
+          "start": 7.67,
+          "end": 8.05
+        },
+        {
+          "text": "The",
+          "start": 8.05,
+          "end": 8.27
+        },
+        {
+          "text": "arch-chemick",
+          "start": 8.27,
+          "end": 8.53
+        },
+        {
+          "text": "sun,",
+          "start": 8.79,
+          "end": 9.13
+        },
+        {
+          "text": "so",
+          "start": 9.59,
+          "end": 9.81
+        },
+        {
+          "text": "far",
+          "start": 9.81,
+          "end": 10.05
+        },
+        {
+          "text": "from",
+          "start": 10.05,
+          "end": 10.25
+        },
+        {
+          "text": "us",
+          "start": 10.25,
+          "end": 10.39
+        },
+        {
+          "text": "remote,",
+          "start": 10.39,
+          "end": 10.75
+        },
+        {
+          "text": "Produces,",
+          "start": 11.53,
+          "end": 11.55
+        },
+        {
+          "text": "with",
+          "start": 11.55,
+          "end": 12.05
+        },
+        {
+          "text": "terrestrial",
+          "start": 12.05,
+          "end": 12.47
+        },
+        {
+          "text": "humour",
+          "start": 12.47,
+          "end": 12.74
+        },
+        {
+          "text": "mixed,",
+          "start": 13.01,
+          "end": 13.51
+        },
+        {
+          "text": "Here",
+          "start": 13.97,
+          "end": 14.15
+        },
+        {
+          "text": "in",
+          "start": 14.15,
+          "end": 14.29
+        },
+        {
+          "text": "the",
+          "start": 14.29,
+          "end": 14.39
+        },
+        {
+          "text": "dark",
+          "start": 14.39,
+          "end": 14.57
+        },
+        {
+          "text": "so",
+          "start": 14.57,
+          "end": 14.85
+        },
+        {
+          "text": "many",
+          "start": 14.85,
+          "end": 15.05
+        },
+        {
+          "text": "precious",
+          "start": 15.05,
+          "end": 15.41
+        },
+        {
+          "text": "things",
+          "start": 15.41,
+          "end": 15.77
+        },
+        {
+          "text": "Of",
+          "start": 15.77,
+          "end": 16.01
+        },
+        {
+          "text": "colour",
+          "start": 16.01,
+          "end": 16.16
+        },
+        {
+          "text": "glorious,",
+          "start": 16.31,
+          "end": 16.83
+        },
+        {
+          "text": "and",
+          "start": 16.83,
+          "end": 17.37
+        },
+        {
+          "text": "effect",
+          "start": 17.37,
+          "end": 17.65
+        },
+        {
+          "text": "so",
+          "start": 17.65,
+          "end": 18.03
+        },
+        {
+          "text": "rare?",
+          "start": 18.03,
+          "end": 18.37
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 51,
+        "matched_words": 47
+      },
+      "match_ratio": 0.94,
+      "rejection_reasons": [],
+      "seconds": 0.4499896913766861
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0488e8389ec59eb79ac59369b924d9d47bbc77bf900861f3fa2eaf058f50648d",
+  "selected_reasons": []
+}

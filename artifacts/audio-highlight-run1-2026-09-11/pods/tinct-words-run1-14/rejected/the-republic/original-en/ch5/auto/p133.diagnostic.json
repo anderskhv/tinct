@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "signature": "1d9eff9fe8db7b85a41a44473f2482da522c0c643b684a6906a0166977bb2824",
+  "attempts": [
+    {
+      "asr_seconds": 0.20768038928508759,
+      "alignment_seconds": 0.00010021030902862549,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Then we have made an enactment not only possible but in the highest degree beneficial to the State?",
+        "hotwords": "Then, State"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Then we have made an enactment not only possible but in the highest degree beneficial to the State?",
+          "start": 0.02,
+          "end": 6.04,
+          "words": [
+            {
+              "text": " Then",
+              "start": 0.02,
+              "end": 0.64,
+              "probability": 0.8349609375
+            },
+            {
+              "text": " we",
+              "start": 0.64,
+              "end": 0.9,
+              "probability": 0.576171875
+            },
+            {
+              "text": " have",
+              "start": 0.9,
+              "end": 1.04,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " made",
+              "start": 1.04,
+              "end": 1.24,
+              "probability": 0.99609375
+            },
+            {
+              "text": " an",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " enactment",
+              "start": 1.36,
+              "end": 1.78,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " not",
+              "start": 1.78,
+              "end": 2.42,
+              "probability": 0.521484375
+            },
+            {
+              "text": " only",
+              "start": 2.42,
+              "end": 2.7,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " possible",
+              "start": 2.7,
+              "end": 3.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " but",
+              "start": 3.22,
+              "end": 3.88,
+              "probability": 0.412353515625
+            },
+            {
+              "text": " in",
+              "start": 3.88,
+              "end": 3.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " the",
+              "start": 3.98,
+              "end": 4.1,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " highest",
+              "start": 4.1,
+              "end": 4.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " degree",
+              "start": 4.42,
+              "end": 4.88,
+              "probability": 0.87841796875
+            },
+            {
+              "text": " beneficial",
+              "start": 4.88,
+              "end": 5.32,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " to",
+              "start": 5.32,
+              "end": 5.68,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 5.68,
+              "end": 5.78,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " State?",
+              "start": 5.78,
+              "end": 6.04,
+              "probability": 0.0838623046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Then",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "raw": "we",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "raw": "have",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "raw": "made",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "raw": "an",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "enactment",
+          "start": 1.36,
+          "end": 1.78
+        },
+        {
+          "raw": "not",
+          "start": 1.78,
+          "end": 2.42
+        },
+        {
+          "raw": "only",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "raw": "possible",
+          "start": 2.7,
+          "end": 3.22
+        },
+        {
+          "raw": "but",
+          "start": 3.22,
+          "end": 3.88
+        },
+        {
+          "raw": "in",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "raw": "the",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "raw": "highest",
+          "start": 4.1,
+          "end": 4.42
+        },
+        {
+          "raw": "degree",
+          "start": 4.42,
+          "end": 4.88
+        },
+        {
+          "raw": "beneficial",
+          "start": 4.88,
+          "end": 5.32
+        },
+        {
+          "raw": "to",
+          "start": 5.32,
+          "end": 5.68
+        },
+        {
+          "raw": "the",
+          "start": 5.68,
+          "end": 5.78
+        },
+        {
+          "raw": "State?",
+          "start": 5.78,
+          "end": 6.04
+        }
+      ],
+      "expected_tokens": [
+        "Then",
+        "we",
+        "have",
+        "made",
+        "an",
+        "enactment",
+        "not",
+        "only",
+        "possible",
+        "but",
+        "in",
+        "the",
+        "highest",
+        "degree",
+        "beneficial",
+        "to",
+        "the",
+        "State?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Then",
+          "start": 0.02,
+          "end": 0.64
+        },
+        {
+          "text": "we",
+          "start": 0.64,
+          "end": 0.9
+        },
+        {
+          "text": "have",
+          "start": 0.9,
+          "end": 1.04
+        },
+        {
+          "text": "made",
+          "start": 1.04,
+          "end": 1.24
+        },
+        {
+          "text": "an",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "enactment",
+          "start": 1.36,
+          "end": 1.78
+        },
+        {
+          "text": "not",
+          "start": 1.78,
+          "end": 2.42
+        },
+        {
+          "text": "only",
+          "start": 2.42,
+          "end": 2.7
+        },
+        {
+          "text": "possible",
+          "start": 2.7,
+          "end": 3.22
+        },
+        {
+          "text": "but",
+          "start": 3.22,
+          "end": 3.88
+        },
+        {
+          "text": "in",
+          "start": 3.88,
+          "end": 3.98
+        },
+        {
+          "text": "the",
+          "start": 3.98,
+          "end": 4.1
+        },
+        {
+          "text": "highest",
+          "start": 4.1,
+          "end": 4.42
+        },
+        {
+          "text": "degree",
+          "start": 4.42,
+          "end": 4.88
+        },
+        {
+          "text": "beneficial",
+          "start": 4.88,
+          "end": 5.32
+        },
+        {
+          "text": "to",
+          "start": 5.32,
+          "end": 5.68
+        },
+        {
+          "text": "the",
+          "start": 5.68,
+          "end": 5.78
+        },
+        {
+          "text": "State?",
+          "start": 5.78,
+          "end": 6.04
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20783284306526184
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "548da1c04793b2bb3c432adaf82c5b7acf8988d3d53ea35a8671b0c163adbe4c",
+  "selected_reasons": []
+}
