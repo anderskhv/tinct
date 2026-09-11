@@ -1,0 +1,450 @@
+{
+  "complete": true,
+  "signature": "ca4aae47c71141346fbf6f2595a8395dff3d5005531d90451bb393f8d9d054db",
+  "attempts": [
+    {
+      "asr_seconds": 0.26411131024360657,
+      "alignment_seconds": 0.00035976991057395935,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " His end said I with dull anger stirring in me was in every way worthy of his life",
+          "start": 0.05,
+          "end": 5.61,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.468017578125
+            },
+            {
+              "text": " end",
+              "start": 0.59,
+              "end": 1.03,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " said",
+              "start": 1.03,
+              "end": 1.57,
+              "probability": 0.25146484375
+            },
+            {
+              "text": " I",
+              "start": 1.57,
+              "end": 1.81,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " with",
+              "start": 1.81,
+              "end": 1.99,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " dull",
+              "start": 1.99,
+              "end": 2.31,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " anger",
+              "start": 2.31,
+              "end": 2.69,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " stirring",
+              "start": 2.69,
+              "end": 3.05,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " in",
+              "start": 3.05,
+              "end": 3.23,
+              "probability": 0.9921875
+            },
+            {
+              "text": " me",
+              "start": 3.23,
+              "end": 3.55,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 3.55,
+              "end": 3.99,
+              "probability": 0.83251953125
+            },
+            {
+              "text": " in",
+              "start": 3.99,
+              "end": 4.13,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " every",
+              "start": 4.13,
+              "end": 4.43,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " way",
+              "start": 4.43,
+              "end": 4.67,
+              "probability": 0.99609375
+            },
+            {
+              "text": " worthy",
+              "start": 4.67,
+              "end": 4.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 4.97,
+              "end": 5.17,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " his",
+              "start": 5.17,
+              "end": 5.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " life",
+              "start": 5.31,
+              "end": 5.61,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "end",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "raw": "said",
+          "start": 1.03,
+          "end": 1.57
+        },
+        {
+          "raw": "I",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "raw": "with",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "raw": "dull",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "raw": "anger",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "raw": "stirring",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "raw": "in",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "raw": "me",
+          "start": 3.23,
+          "end": 3.55
+        },
+        {
+          "raw": "was",
+          "start": 3.55,
+          "end": 3.99
+        },
+        {
+          "raw": "in",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "raw": "every",
+          "start": 4.13,
+          "end": 4.43
+        },
+        {
+          "raw": "way",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "raw": "worthy",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "raw": "of",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "raw": "his",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "raw": "life",
+          "start": 5.31,
+          "end": 5.61
+        }
+      ],
+      "expected_tokens": [
+        "\"'His",
+        "end,'",
+        "said",
+        "I,",
+        "with",
+        "dull",
+        "anger",
+        "stirring",
+        "in",
+        "me,",
+        "'was",
+        "in",
+        "every",
+        "way",
+        "worthy",
+        "of",
+        "his",
+        "life.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"'His",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "end,'",
+          "start": 0.59,
+          "end": 1.03
+        },
+        {
+          "text": "said",
+          "start": 1.03,
+          "end": 1.57
+        },
+        {
+          "text": "I,",
+          "start": 1.57,
+          "end": 1.81
+        },
+        {
+          "text": "with",
+          "start": 1.81,
+          "end": 1.99
+        },
+        {
+          "text": "dull",
+          "start": 1.99,
+          "end": 2.31
+        },
+        {
+          "text": "anger",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "text": "stirring",
+          "start": 2.69,
+          "end": 3.05
+        },
+        {
+          "text": "in",
+          "start": 3.05,
+          "end": 3.23
+        },
+        {
+          "text": "me,",
+          "start": 3.23,
+          "end": 3.55
+        },
+        {
+          "text": "'was",
+          "start": 3.55,
+          "end": 3.99
+        },
+        {
+          "text": "in",
+          "start": 3.99,
+          "end": 4.13
+        },
+        {
+          "text": "every",
+          "start": 4.13,
+          "end": 4.43
+        },
+        {
+          "text": "way",
+          "start": 4.43,
+          "end": 4.67
+        },
+        {
+          "text": "worthy",
+          "start": 4.67,
+          "end": 4.97
+        },
+        {
+          "text": "of",
+          "start": 4.97,
+          "end": 5.17
+        },
+        {
+          "text": "his",
+          "start": 5.17,
+          "end": 5.31
+        },
+        {
+          "text": "life.'",
+          "start": 5.31,
+          "end": 5.61
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2646546699106693
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8c2dbc5c03477ddfc1f7d9f8353b97088e47667c95fd18e076306f7ff6a8cabd",
+  "selected_reasons": []
+}

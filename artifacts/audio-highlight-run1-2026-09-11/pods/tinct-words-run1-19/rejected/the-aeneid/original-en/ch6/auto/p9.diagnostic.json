@@ -1,0 +1,723 @@
+{
+  "complete": true,
+  "signature": "31fa885f72c40218f227ab4c01a0fc0f0b79ee1ca6cf78c9c69e665ee0d4ff1d",
+  "attempts": [
+    {
+      "asr_seconds": 0.4627981223165989,
+      "alignment_seconds": 0.0002701394259929657,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Ye realms, yet unreveal'd to human sight, Ye gods who rule the regions of the night, Ye gliding ghosts, permit me to relate The mystic wonders of your silent state!",
+        "hotwords": "Ye"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Ye realms, yet unreveal'd to human sight, Ye gods who rule the regions of the night,",
+          "start": 0.05,
+          "end": 5.49,
+          "words": [
+            {
+              "text": " Ye",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " realms,",
+              "start": 0.59,
+              "end": 0.99,
+              "probability": 0.775390625
+            },
+            {
+              "text": " yet",
+              "start": 1.41,
+              "end": 1.53,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " unreveal'd",
+              "start": 1.53,
+              "end": 2.25,
+              "probability": 0.7046303749084473
+            },
+            {
+              "text": " to",
+              "start": 2.25,
+              "end": 2.33,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " human",
+              "start": 2.33,
+              "end": 2.61,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " sight,",
+              "start": 2.61,
+              "end": 2.99,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Ye",
+              "start": 3.59,
+              "end": 3.63,
+              "probability": 0.64990234375
+            },
+            {
+              "text": " gods",
+              "start": 3.63,
+              "end": 3.95,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " who",
+              "start": 3.95,
+              "end": 4.19,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " rule",
+              "start": 4.19,
+              "end": 4.41,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " the",
+              "start": 4.41,
+              "end": 4.65,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " regions",
+              "start": 4.65,
+              "end": 4.91,
+              "probability": 0.92919921875
+            },
+            {
+              "text": " of",
+              "start": 4.91,
+              "end": 5.15,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 5.15,
+              "end": 5.25,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " night,",
+              "start": 5.25,
+              "end": 5.49,
+              "probability": 0.89892578125
+            }
+          ]
+        },
+        {
+          "text": " Ye gliding ghosts, permit me to relate The mystic wonders of your silent state!",
+          "start": 5.95,
+          "end": 10.27,
+          "words": [
+            {
+              "text": " Ye",
+              "start": 5.95,
+              "end": 5.99,
+              "probability": 0.8662109375
+            },
+            {
+              "text": " gliding",
+              "start": 5.99,
+              "end": 6.35,
+              "probability": 0.784912109375
+            },
+            {
+              "text": " ghosts,",
+              "start": 6.35,
+              "end": 6.79,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " permit",
+              "start": 7.37,
+              "end": 7.49,
+              "probability": 0.463134765625
+            },
+            {
+              "text": " me",
+              "start": 7.49,
+              "end": 7.71,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " to",
+              "start": 7.71,
+              "end": 7.87,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " relate",
+              "start": 7.87,
+              "end": 8.15,
+              "probability": 0.88720703125
+            },
+            {
+              "text": " The",
+              "start": 8.15,
+              "end": 8.41,
+              "probability": 0.3310546875
+            },
+            {
+              "text": " mystic",
+              "start": 8.41,
+              "end": 8.71,
+              "probability": 0.8701171875
+            },
+            {
+              "text": " wonders",
+              "start": 8.71,
+              "end": 9.07,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " of",
+              "start": 9.07,
+              "end": 9.33,
+              "probability": 0.9716796875
+            },
+            {
+              "text": " your",
+              "start": 9.33,
+              "end": 9.45,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " silent",
+              "start": 9.45,
+              "end": 9.81,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " state!",
+              "start": 9.81,
+              "end": 10.27,
+              "probability": 0.9501953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Ye",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "realms,",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "raw": "yet",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "raw": "unreveal'd",
+          "start": 1.53,
+          "end": 2.25
+        },
+        {
+          "raw": "to",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "raw": "human",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "raw": "sight,",
+          "start": 2.61,
+          "end": 2.99
+        },
+        {
+          "raw": "Ye",
+          "start": 3.59,
+          "end": 3.63
+        },
+        {
+          "raw": "gods",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "raw": "who",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "raw": "rule",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "raw": "the",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "raw": "regions",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "raw": "of",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "raw": "the",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "raw": "night,",
+          "start": 5.25,
+          "end": 5.49
+        },
+        {
+          "raw": "Ye",
+          "start": 5.95,
+          "end": 5.99
+        },
+        {
+          "raw": "gliding",
+          "start": 5.99,
+          "end": 6.35
+        },
+        {
+          "raw": "ghosts,",
+          "start": 6.35,
+          "end": 6.79
+        },
+        {
+          "raw": "permit",
+          "start": 7.37,
+          "end": 7.49
+        },
+        {
+          "raw": "me",
+          "start": 7.49,
+          "end": 7.71
+        },
+        {
+          "raw": "to",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "raw": "relate",
+          "start": 7.87,
+          "end": 8.15
+        },
+        {
+          "raw": "The",
+          "start": 8.15,
+          "end": 8.41
+        },
+        {
+          "raw": "mystic",
+          "start": 8.41,
+          "end": 8.71
+        },
+        {
+          "raw": "wonders",
+          "start": 8.71,
+          "end": 9.07
+        },
+        {
+          "raw": "of",
+          "start": 9.07,
+          "end": 9.33
+        },
+        {
+          "raw": "your",
+          "start": 9.33,
+          "end": 9.45
+        },
+        {
+          "raw": "silent",
+          "start": 9.45,
+          "end": 9.81
+        },
+        {
+          "raw": "state!",
+          "start": 9.81,
+          "end": 10.27
+        }
+      ],
+      "expected_tokens": [
+        "Ye",
+        "realms,",
+        "yet",
+        "unreveal'd",
+        "to",
+        "human",
+        "sight,",
+        "Ye",
+        "gods",
+        "who",
+        "rule",
+        "the",
+        "regions",
+        "of",
+        "the",
+        "night,",
+        "Ye",
+        "gliding",
+        "ghosts,",
+        "permit",
+        "me",
+        "to",
+        "relate",
+        "The",
+        "mystic",
+        "wonders",
+        "of",
+        "your",
+        "silent",
+        "state!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          30,
+          0,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Ye",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "realms,",
+          "start": 0.59,
+          "end": 0.99
+        },
+        {
+          "text": "yet",
+          "start": 1.41,
+          "end": 1.53
+        },
+        {
+          "text": "unreveal'd",
+          "start": 1.53,
+          "end": 2.25
+        },
+        {
+          "text": "to",
+          "start": 2.25,
+          "end": 2.33
+        },
+        {
+          "text": "human",
+          "start": 2.33,
+          "end": 2.61
+        },
+        {
+          "text": "sight,",
+          "start": 2.61,
+          "end": 2.99
+        },
+        {
+          "text": "Ye",
+          "start": 3.59,
+          "end": 3.63
+        },
+        {
+          "text": "gods",
+          "start": 3.63,
+          "end": 3.95
+        },
+        {
+          "text": "who",
+          "start": 3.95,
+          "end": 4.19
+        },
+        {
+          "text": "rule",
+          "start": 4.19,
+          "end": 4.41
+        },
+        {
+          "text": "the",
+          "start": 4.41,
+          "end": 4.65
+        },
+        {
+          "text": "regions",
+          "start": 4.65,
+          "end": 4.91
+        },
+        {
+          "text": "of",
+          "start": 4.91,
+          "end": 5.15
+        },
+        {
+          "text": "the",
+          "start": 5.15,
+          "end": 5.25
+        },
+        {
+          "text": "night,",
+          "start": 5.25,
+          "end": 5.49
+        },
+        {
+          "text": "Ye",
+          "start": 5.95,
+          "end": 5.99
+        },
+        {
+          "text": "gliding",
+          "start": 5.99,
+          "end": 6.35
+        },
+        {
+          "text": "ghosts,",
+          "start": 6.35,
+          "end": 6.79
+        },
+        {
+          "text": "permit",
+          "start": 7.37,
+          "end": 7.49
+        },
+        {
+          "text": "me",
+          "start": 7.49,
+          "end": 7.71
+        },
+        {
+          "text": "to",
+          "start": 7.71,
+          "end": 7.87
+        },
+        {
+          "text": "relate",
+          "start": 7.87,
+          "end": 8.15
+        },
+        {
+          "text": "The",
+          "start": 8.15,
+          "end": 8.41
+        },
+        {
+          "text": "mystic",
+          "start": 8.41,
+          "end": 8.71
+        },
+        {
+          "text": "wonders",
+          "start": 8.71,
+          "end": 9.07
+        },
+        {
+          "text": "of",
+          "start": 9.07,
+          "end": 9.33
+        },
+        {
+          "text": "your",
+          "start": 9.33,
+          "end": 9.45
+        },
+        {
+          "text": "silent",
+          "start": 9.45,
+          "end": 9.81
+        },
+        {
+          "text": "state!",
+          "start": 9.81,
+          "end": 10.27
+        }
+      ],
+      "stats": {
+        "expected_words": 30,
+        "heard_words": 30,
+        "matched_words": 30
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4632122106850147
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9f3b9d1d886353c14b8178fab3b1076e526cbcbae6ef0995809d2ab805297110",
+  "selected_reasons": []
+}

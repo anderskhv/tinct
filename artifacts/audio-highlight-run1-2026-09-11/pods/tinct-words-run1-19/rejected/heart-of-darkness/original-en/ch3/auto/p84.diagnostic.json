@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "4472aa40dd930fdbb5bd2d5b5ecdf28d53cea46311199f61801b40b352cbc68e",
+  "attempts": [
+    {
+      "asr_seconds": 0.13981187343597412,
+      "alignment_seconds": 9.487941861152649e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'The last word he pronounced was—your name.'",
+        "hotwords": "The"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The last word he pronounced was—your name.\"",
+          "start": 0.02,
+          "end": 3.3,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.955078125
+            },
+            {
+              "text": " last",
+              "start": 0.54,
+              "end": 0.78,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " word",
+              "start": 0.78,
+              "end": 1.0,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.0,
+              "end": 1.14,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " pronounced",
+              "start": 1.14,
+              "end": 1.46,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " was—your",
+              "start": 1.46,
+              "end": 2.34,
+              "probability": 0.5755062103271484
+            },
+            {
+              "text": " name.\"",
+              "start": 2.34,
+              "end": 3.3,
+              "probability": 0.5031890869140625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "last",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "raw": "word",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "raw": "he",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "raw": "pronounced",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "raw": "was—your",
+          "start": 1.46,
+          "end": 2.34
+        },
+        {
+          "raw": "name.\"",
+          "start": 2.34,
+          "end": 3.3
+        }
+      ],
+      "expected_tokens": [
+        "\"'The",
+        "last",
+        "word",
+        "he",
+        "pronounced",
+        "was—your",
+        "name.'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"'The",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "last",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "text": "word",
+          "start": 0.78,
+          "end": 1.0
+        },
+        {
+          "text": "he",
+          "start": 1.0,
+          "end": 1.14
+        },
+        {
+          "text": "pronounced",
+          "start": 1.14,
+          "end": 1.46
+        },
+        {
+          "text": "was—your",
+          "start": 1.46,
+          "end": 2.34
+        },
+        {
+          "text": "name.'",
+          "start": 2.34,
+          "end": 3.3
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.13994808122515678
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "e224abe63d2fa1b42b77fa12271fd6ed3f4138f2a596726ec4fc6e8b6a498337",
+  "selected_reasons": []
+}

@@ -1,0 +1,437 @@
+{
+  "complete": true,
+  "signature": "4b7560c2a7fc19d3be842f1bbd652f337fda21041020a3588ffcebc16a6c8d48",
+  "attempts": [
+    {
+      "asr_seconds": 0.28737562894821167,
+      "alignment_seconds": 0.000235874205827713,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"'His last word—to live with,' she insisted. 'Don't you understand I loved him—I loved him—I loved him!'",
+        "hotwords": "His, Don't, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " His last word—to live with, she insisted.",
+          "start": 0.02,
+          "end": 2.84,
+          "words": [
+            {
+              "text": " His",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.492431640625
+            },
+            {
+              "text": " last",
+              "start": 0.58,
+              "end": 0.88,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " word—to",
+              "start": 0.88,
+              "end": 1.52,
+              "probability": 0.6408640543619791
+            },
+            {
+              "text": " live",
+              "start": 1.52,
+              "end": 1.7,
+              "probability": 0.9765625
+            },
+            {
+              "text": " with,",
+              "start": 1.7,
+              "end": 1.98,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " she",
+              "start": 2.22,
+              "end": 2.4,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " insisted.",
+              "start": 2.4,
+              "end": 2.84,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " \"'Don't you understand I loved him—I loved him—I loved him!'",
+          "start": 3.58,
+          "end": 6.78,
+          "words": [
+            {
+              "text": " \"'Don't",
+              "start": 3.58,
+              "end": 3.74,
+              "probability": 0.6570858955383301
+            },
+            {
+              "text": " you",
+              "start": 3.74,
+              "end": 3.84,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " understand",
+              "start": 3.84,
+              "end": 4.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " I",
+              "start": 4.26,
+              "end": 4.5,
+              "probability": 0.4208984375
+            },
+            {
+              "text": " loved",
+              "start": 4.5,
+              "end": 4.7,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " him—I",
+              "start": 4.7,
+              "end": 5.3,
+              "probability": 0.64581298828125
+            },
+            {
+              "text": " loved",
+              "start": 5.3,
+              "end": 5.52,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " him—I",
+              "start": 5.52,
+              "end": 6.12,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " loved",
+              "start": 6.12,
+              "end": 6.36,
+              "probability": 0.9111328125
+            },
+            {
+              "text": " him!'",
+              "start": 6.36,
+              "end": 6.78,
+              "probability": 0.506927490234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "His",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "last",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "raw": "word—to",
+          "start": 0.88,
+          "end": 1.52
+        },
+        {
+          "raw": "live",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "raw": "with,",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "raw": "she",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "raw": "insisted.",
+          "start": 2.4,
+          "end": 2.84
+        },
+        {
+          "raw": "\"'Don't",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "raw": "you",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "raw": "understand",
+          "start": 3.84,
+          "end": 4.26
+        },
+        {
+          "raw": "I",
+          "start": 4.26,
+          "end": 4.5
+        },
+        {
+          "raw": "loved",
+          "start": 4.5,
+          "end": 4.7
+        },
+        {
+          "raw": "him—I",
+          "start": 4.7,
+          "end": 5.3
+        },
+        {
+          "raw": "loved",
+          "start": 5.3,
+          "end": 5.52
+        },
+        {
+          "raw": "him—I",
+          "start": 5.52,
+          "end": 6.12
+        },
+        {
+          "raw": "loved",
+          "start": 6.12,
+          "end": 6.36
+        },
+        {
+          "raw": "him!'",
+          "start": 6.36,
+          "end": 6.78
+        }
+      ],
+      "expected_tokens": [
+        "\"'His",
+        "last",
+        "word—to",
+        "live",
+        "with,'",
+        "she",
+        "insisted.",
+        "'Don't",
+        "you",
+        "understand",
+        "I",
+        "loved",
+        "him—I",
+        "loved",
+        "him—I",
+        "loved",
+        "him!'"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"'His",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "last",
+          "start": 0.58,
+          "end": 0.88
+        },
+        {
+          "text": "word—to",
+          "start": 0.88,
+          "end": 1.52
+        },
+        {
+          "text": "live",
+          "start": 1.52,
+          "end": 1.7
+        },
+        {
+          "text": "with,'",
+          "start": 1.7,
+          "end": 1.98
+        },
+        {
+          "text": "she",
+          "start": 2.22,
+          "end": 2.4
+        },
+        {
+          "text": "insisted.",
+          "start": 2.4,
+          "end": 2.84
+        },
+        {
+          "text": "'Don't",
+          "start": 3.58,
+          "end": 3.74
+        },
+        {
+          "text": "you",
+          "start": 3.74,
+          "end": 3.84
+        },
+        {
+          "text": "understand",
+          "start": 3.84,
+          "end": 4.26
+        },
+        {
+          "text": "I",
+          "start": 4.26,
+          "end": 4.5
+        },
+        {
+          "text": "loved",
+          "start": 4.5,
+          "end": 4.7
+        },
+        {
+          "text": "him—I",
+          "start": 4.7,
+          "end": 5.3
+        },
+        {
+          "text": "loved",
+          "start": 5.3,
+          "end": 5.52
+        },
+        {
+          "text": "him—I",
+          "start": 5.52,
+          "end": 6.12
+        },
+        {
+          "text": "loved",
+          "start": 6.12,
+          "end": 6.36
+        },
+        {
+          "text": "him!'",
+          "start": 6.36,
+          "end": 6.78
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2877236269414425
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "029c03bdc5a53cb40f5cf6864af266bfd290df8984a7298831b2b31a44e16d99",
+  "selected_reasons": []
+}

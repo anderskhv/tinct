@@ -1,0 +1,1090 @@
+{
+  "complete": true,
+  "signature": "c00fdbb2443490d8c762e5a0999e78fd55c5eb2522fac21fd0a260314957f4f0",
+  "attempts": [
+    {
+      "asr_seconds": 0.5627875030040741,
+      "alignment_seconds": 0.0004121735692024231,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Obscure they went thro' dreary shades, that led Along the waste dominions of the dead. Thus wander travelers in woods by night, By the moon's doubtful and malignant light, When Jove in dusky clouds involves the skies, And the faint crescent shoots by fits before their eyes.",
+        "hotwords": "Obscure, Along, Thus, When, Jove"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Obscure they went thro' dreary shades, that led Along the waste dominions of the dead. Thus wander travelers in woods by night, By the moon's doubtful and malignant light, When Jove in dusky clouds involves the skies, And the faint crescent shoots by fits before their eyes.",
+          "start": 0.02,
+          "end": 17.36,
+          "words": [
+            {
+              "text": " Obscure",
+              "start": 0.02,
+              "end": 0.82,
+              "probability": 0.9070638020833334
+            },
+            {
+              "text": " they",
+              "start": 0.82,
+              "end": 0.98,
+              "probability": 0.77734375
+            },
+            {
+              "text": " went",
+              "start": 0.98,
+              "end": 1.18,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " thro'",
+              "start": 1.18,
+              "end": 1.44,
+              "probability": 0.00023925304412841797
+            },
+            {
+              "text": " dreary",
+              "start": 1.62,
+              "end": 1.9,
+              "probability": 0.9933268229166666
+            },
+            {
+              "text": " shades,",
+              "start": 1.9,
+              "end": 2.42,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " that",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.58154296875
+            },
+            {
+              "text": " led",
+              "start": 3.04,
+              "end": 3.2,
+              "probability": 0.91650390625
+            },
+            {
+              "text": " Along",
+              "start": 3.2,
+              "end": 3.48,
+              "probability": 0.0010328292846679688
+            },
+            {
+              "text": " the",
+              "start": 3.48,
+              "end": 3.72,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " waste",
+              "start": 3.72,
+              "end": 4.0,
+              "probability": 0.84033203125
+            },
+            {
+              "text": " dominions",
+              "start": 4.0,
+              "end": 4.6,
+              "probability": 0.935302734375
+            },
+            {
+              "text": " of",
+              "start": 4.6,
+              "end": 4.72,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " the",
+              "start": 4.72,
+              "end": 4.84,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " dead.",
+              "start": 4.84,
+              "end": 5.1,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " Thus",
+              "start": 5.86,
+              "end": 6.04,
+              "probability": 0.986328125
+            },
+            {
+              "text": " wander",
+              "start": 6.04,
+              "end": 6.48,
+              "probability": 0.88623046875
+            },
+            {
+              "text": " travelers",
+              "start": 6.48,
+              "end": 7.04,
+              "probability": 0.50634765625
+            },
+            {
+              "text": " in",
+              "start": 7.04,
+              "end": 7.36,
+              "probability": 0.9130859375
+            },
+            {
+              "text": " woods",
+              "start": 7.36,
+              "end": 7.58,
+              "probability": 0.8876953125
+            },
+            {
+              "text": " by",
+              "start": 7.58,
+              "end": 7.88,
+              "probability": 0.869140625
+            },
+            {
+              "text": " night,",
+              "start": 7.88,
+              "end": 8.22,
+              "probability": 0.9658203125
+            },
+            {
+              "text": " By",
+              "start": 8.66,
+              "end": 8.78,
+              "probability": 0.76953125
+            },
+            {
+              "text": " the",
+              "start": 8.78,
+              "end": 8.96,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " moon's",
+              "start": 8.96,
+              "end": 9.8,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " doubtful",
+              "start": 9.8,
+              "end": 9.8,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " and",
+              "start": 9.8,
+              "end": 10.0,
+              "probability": 0.96875
+            },
+            {
+              "text": " malignant",
+              "start": 10.0,
+              "end": 10.34,
+              "probability": 0.998046875
+            },
+            {
+              "text": " light,",
+              "start": 10.34,
+              "end": 10.74,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " When",
+              "start": 11.24,
+              "end": 11.38,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " Jove",
+              "start": 11.38,
+              "end": 11.76,
+              "probability": 0.75
+            },
+            {
+              "text": " in",
+              "start": 11.76,
+              "end": 11.96,
+              "probability": 0.52294921875
+            },
+            {
+              "text": " dusky",
+              "start": 11.96,
+              "end": 12.28,
+              "probability": 0.955322265625
+            },
+            {
+              "text": " clouds",
+              "start": 12.28,
+              "end": 12.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " involves",
+              "start": 12.74,
+              "end": 13.16,
+              "probability": 0.7587890625
+            },
+            {
+              "text": " the",
+              "start": 13.16,
+              "end": 13.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " skies,",
+              "start": 13.5,
+              "end": 13.8,
+              "probability": 0.986328125
+            },
+            {
+              "text": " And",
+              "start": 14.4,
+              "end": 14.52,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " the",
+              "start": 14.52,
+              "end": 14.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " faint",
+              "start": 14.66,
+              "end": 14.92,
+              "probability": 0.98388671875
+            },
+            {
+              "text": " crescent",
+              "start": 14.92,
+              "end": 15.38,
+              "probability": 0.992919921875
+            },
+            {
+              "text": " shoots",
+              "start": 15.38,
+              "end": 15.72,
+              "probability": 0.83203125
+            },
+            {
+              "text": " by",
+              "start": 15.72,
+              "end": 16.02,
+              "probability": 0.79296875
+            },
+            {
+              "text": " fits",
+              "start": 16.02,
+              "end": 16.34,
+              "probability": 0.8486328125
+            },
+            {
+              "text": " before",
+              "start": 16.34,
+              "end": 16.7,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " their",
+              "start": 16.7,
+              "end": 16.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " eyes.",
+              "start": 16.96,
+              "end": 17.36,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Obscure",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "raw": "they",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "raw": "went",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "raw": "thro'",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "raw": "dreary",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "raw": "shades,",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "raw": "that",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "led",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "raw": "Along",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "raw": "the",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "raw": "waste",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "raw": "dominions",
+          "start": 4.0,
+          "end": 4.6
+        },
+        {
+          "raw": "of",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "raw": "the",
+          "start": 4.72,
+          "end": 4.84
+        },
+        {
+          "raw": "dead.",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "raw": "Thus",
+          "start": 5.86,
+          "end": 6.04
+        },
+        {
+          "raw": "wander",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "raw": "travelers",
+          "start": 6.48,
+          "end": 7.04
+        },
+        {
+          "raw": "in",
+          "start": 7.04,
+          "end": 7.36
+        },
+        {
+          "raw": "woods",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "raw": "by",
+          "start": 7.58,
+          "end": 7.88
+        },
+        {
+          "raw": "night,",
+          "start": 7.88,
+          "end": 8.22
+        },
+        {
+          "raw": "By",
+          "start": 8.66,
+          "end": 8.78
+        },
+        {
+          "raw": "the",
+          "start": 8.78,
+          "end": 8.96
+        },
+        {
+          "raw": "moon's",
+          "start": 8.96,
+          "end": 9.8
+        },
+        {
+          "raw": "doubtful",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "raw": "and",
+          "start": 9.8,
+          "end": 10.0
+        },
+        {
+          "raw": "malignant",
+          "start": 10.0,
+          "end": 10.34
+        },
+        {
+          "raw": "light,",
+          "start": 10.34,
+          "end": 10.74
+        },
+        {
+          "raw": "When",
+          "start": 11.24,
+          "end": 11.38
+        },
+        {
+          "raw": "Jove",
+          "start": 11.38,
+          "end": 11.76
+        },
+        {
+          "raw": "in",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "raw": "dusky",
+          "start": 11.96,
+          "end": 12.28
+        },
+        {
+          "raw": "clouds",
+          "start": 12.28,
+          "end": 12.74
+        },
+        {
+          "raw": "involves",
+          "start": 12.74,
+          "end": 13.16
+        },
+        {
+          "raw": "the",
+          "start": 13.16,
+          "end": 13.5
+        },
+        {
+          "raw": "skies,",
+          "start": 13.5,
+          "end": 13.8
+        },
+        {
+          "raw": "And",
+          "start": 14.4,
+          "end": 14.52
+        },
+        {
+          "raw": "the",
+          "start": 14.52,
+          "end": 14.66
+        },
+        {
+          "raw": "faint",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "raw": "crescent",
+          "start": 14.92,
+          "end": 15.38
+        },
+        {
+          "raw": "shoots",
+          "start": 15.38,
+          "end": 15.72
+        },
+        {
+          "raw": "by",
+          "start": 15.72,
+          "end": 16.02
+        },
+        {
+          "raw": "fits",
+          "start": 16.02,
+          "end": 16.34
+        },
+        {
+          "raw": "before",
+          "start": 16.34,
+          "end": 16.7
+        },
+        {
+          "raw": "their",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "raw": "eyes.",
+          "start": 16.96,
+          "end": 17.36
+        }
+      ],
+      "expected_tokens": [
+        "Obscure",
+        "they",
+        "went",
+        "thro'",
+        "dreary",
+        "shades,",
+        "that",
+        "led",
+        "Along",
+        "the",
+        "waste",
+        "dominions",
+        "of",
+        "the",
+        "dead.",
+        "Thus",
+        "wander",
+        "travelers",
+        "in",
+        "woods",
+        "by",
+        "night,",
+        "By",
+        "the",
+        "moon's",
+        "doubtful",
+        "and",
+        "malignant",
+        "light,",
+        "When",
+        "Jove",
+        "in",
+        "dusky",
+        "clouds",
+        "involves",
+        "the",
+        "skies,",
+        "And",
+        "the",
+        "faint",
+        "crescent",
+        "shoots",
+        "by",
+        "fits",
+        "before",
+        "their",
+        "eyes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          47,
+          0,
+          47
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Obscure",
+          "start": 0.02,
+          "end": 0.82
+        },
+        {
+          "text": "they",
+          "start": 0.82,
+          "end": 0.98
+        },
+        {
+          "text": "went",
+          "start": 0.98,
+          "end": 1.18
+        },
+        {
+          "text": "thro'",
+          "start": 1.18,
+          "end": 1.44
+        },
+        {
+          "text": "dreary",
+          "start": 1.62,
+          "end": 1.9
+        },
+        {
+          "text": "shades,",
+          "start": 1.9,
+          "end": 2.42
+        },
+        {
+          "text": "that",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "led",
+          "start": 3.04,
+          "end": 3.2
+        },
+        {
+          "text": "Along",
+          "start": 3.2,
+          "end": 3.48
+        },
+        {
+          "text": "the",
+          "start": 3.48,
+          "end": 3.72
+        },
+        {
+          "text": "waste",
+          "start": 3.72,
+          "end": 4.0
+        },
+        {
+          "text": "dominions",
+          "start": 4.0,
+          "end": 4.6
+        },
+        {
+          "text": "of",
+          "start": 4.6,
+          "end": 4.72
+        },
+        {
+          "text": "the",
+          "start": 4.72,
+          "end": 4.84
+        },
+        {
+          "text": "dead.",
+          "start": 4.84,
+          "end": 5.1
+        },
+        {
+          "text": "Thus",
+          "start": 5.86,
+          "end": 6.04
+        },
+        {
+          "text": "wander",
+          "start": 6.04,
+          "end": 6.48
+        },
+        {
+          "text": "travelers",
+          "start": 6.48,
+          "end": 7.04
+        },
+        {
+          "text": "in",
+          "start": 7.04,
+          "end": 7.36
+        },
+        {
+          "text": "woods",
+          "start": 7.36,
+          "end": 7.58
+        },
+        {
+          "text": "by",
+          "start": 7.58,
+          "end": 7.88
+        },
+        {
+          "text": "night,",
+          "start": 7.88,
+          "end": 8.22
+        },
+        {
+          "text": "By",
+          "start": 8.66,
+          "end": 8.78
+        },
+        {
+          "text": "the",
+          "start": 8.78,
+          "end": 8.96
+        },
+        {
+          "text": "moon's",
+          "start": 8.96,
+          "end": 9.8
+        },
+        {
+          "text": "doubtful",
+          "start": 9.8,
+          "end": 9.8
+        },
+        {
+          "text": "and",
+          "start": 9.8,
+          "end": 10.0
+        },
+        {
+          "text": "malignant",
+          "start": 10.0,
+          "end": 10.34
+        },
+        {
+          "text": "light,",
+          "start": 10.34,
+          "end": 10.74
+        },
+        {
+          "text": "When",
+          "start": 11.24,
+          "end": 11.38
+        },
+        {
+          "text": "Jove",
+          "start": 11.38,
+          "end": 11.76
+        },
+        {
+          "text": "in",
+          "start": 11.76,
+          "end": 11.96
+        },
+        {
+          "text": "dusky",
+          "start": 11.96,
+          "end": 12.28
+        },
+        {
+          "text": "clouds",
+          "start": 12.28,
+          "end": 12.74
+        },
+        {
+          "text": "involves",
+          "start": 12.74,
+          "end": 13.16
+        },
+        {
+          "text": "the",
+          "start": 13.16,
+          "end": 13.5
+        },
+        {
+          "text": "skies,",
+          "start": 13.5,
+          "end": 13.8
+        },
+        {
+          "text": "And",
+          "start": 14.4,
+          "end": 14.52
+        },
+        {
+          "text": "the",
+          "start": 14.52,
+          "end": 14.66
+        },
+        {
+          "text": "faint",
+          "start": 14.66,
+          "end": 14.92
+        },
+        {
+          "text": "crescent",
+          "start": 14.92,
+          "end": 15.38
+        },
+        {
+          "text": "shoots",
+          "start": 15.38,
+          "end": 15.72
+        },
+        {
+          "text": "by",
+          "start": 15.72,
+          "end": 16.02
+        },
+        {
+          "text": "fits",
+          "start": 16.02,
+          "end": 16.34
+        },
+        {
+          "text": "before",
+          "start": 16.34,
+          "end": 16.7
+        },
+        {
+          "text": "their",
+          "start": 16.7,
+          "end": 16.96
+        },
+        {
+          "text": "eyes.",
+          "start": 16.96,
+          "end": 17.36
+        }
+      ],
+      "stats": {
+        "expected_words": 47,
+        "heard_words": 47,
+        "matched_words": 47
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5634488798677921
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ca3dfee3ccb7d3b25ce8a04e336fb4bc1673021050dcb1e50e0a87b97490f12",
+  "selected_reasons": []
+}
