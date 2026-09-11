@@ -1,7 +1,9 @@
-# Continuity sheet — Meditations, Book II (candidate v1)
+# Continuity sheet — Meditations, Book II (candidate v1, updated for v2)
 
 Written alongside drafting `candidate-v1.json` and describing what the frozen
-draft actually did. Term renderings follow `../GLOSSARY.md`; this sheet records
+draft actually did; entries marked "v2" record where the round-1 review
+(`review/findings-v1.md`) changed a decision. The full change list is in
+`changes-v1-to-v2.md`. Term renderings follow `../GLOSSARY.md`; this sheet records
 only what is specific to Book II.
 
 ## Source
@@ -22,7 +24,7 @@ only what is specific to Book II.
 |---|---|---|
 | the ruling part | the ruling part | II.2 (twice) |
 | the daemon within him / the daemon within a man | the god within him / the god within a man | II.13 (twice), II.17 |
-| the Deity; portion of the divinity | the divine; portion of the divine | II.12, II.1 |
+| the Deity; portion of the divinity | the divine; share of the divine | II.12, II.1 |
 | the nature of the whole; the nature of the universe | the nature of the whole | II.3, II.9, II.11 |
 | the whole universe; the universe | the whole universe; the universe | II.3, II.11, II.12, II.16 |
 | according to nature; contrary to nature | according to nature; against nature | II.9, II.17; II.1 |
@@ -33,10 +35,11 @@ only what is specific to Book II.
 | opinion; all is opinion | opinion; everything is opinion | II.15; "fixed opinions" II.3 |
 | principles | principles | II.3 |
 | intelligence; intellectual faculty | intelligence; intellectual faculty | II.1, II.12 |
-| vexed | resent | II.1, II.16 |
+| vexed | resentful / resent | II.1, II.16 |
+| dissatisfied; dissatisfaction | discontented; discontent | II.2, II.13 (Long's word is neither "vexed" nor "discontent"; rendered with the glossary's "discontent" family, consistently, per review finding 2.3) |
 | felicity | happiness | II.6 |
 | kinsman; akin to me; kinship | kinsman; akin to me; kinship | II.1, II.13 |
-| fame; after fame; vapory fame | fame; fame after death; empty fame | II.12, II.17 |
+| fame; after fame; vapory fame | fame; fame after death; vaporous fame | II.12, II.17 (the "vapor" echo between II.12 and II.17 kept, per review finding 12.1) |
 | the most ancient city and polity | the oldest city and commonwealth | II.16 |
 | the elements; dissolution | the elements; dissolution | II.3, II.17 |
 | philosophy | philosophy | II.17 |
@@ -44,9 +47,10 @@ only what is specific to Book II.
 ## Paragraph-level decisions
 
 - **II.1** — Long's bracketed supplements "[only]", "[the same]", "[the same]"
-  folded into plain prose ("not only of the same blood or seed, but sharing the
-  same intelligence and the same portion of the divine"); brackets not
-  reproduced. "Co-operation" → "cooperation" (spelling only). The final clause
+  folded into plain prose ("not only of the same blood or seed, but partaking
+  in the same intelligence and the same share of the divine"); brackets not
+  reproduced. (v1 had "sharing … portion of the divine"; v2 follows the
+  glossary's "share of the divine" per review finding 1.2.) "Co-operation" → "cooperation" (spelling only). The final clause
   keeps Long's order and logic: acting against one another is against nature,
   and resentment and turning away *are* acting against one another.
 - **II.2** — "network, a contexture of nerves" → "a mesh, a weave of nerves":
@@ -80,8 +84,9 @@ only what is specific to Book II.
   one who hinders thee" kept as "there is no one who hinders you" (a statement
   of fact, not "can stop").
 - **II.10** — "Womanish" kept (Long's rendering of Marcus's own word;
-  softening it would be an imposition). "Unconscious contraction" →
-  "involuntary contraction". "Blamable" → "blameworthy". "Intemperate" kept.
+  softening it would be an imposition). "Unconscious contraction" kept
+  (v1 had "involuntary", which says "not willed" rather than "not aware";
+  reverted in v2 per review finding 10.1). "Blamable" → "blameworthy". "Intemperate" kept.
 - **II.11** — Long's long negative sentence ("But neither through ignorance,
   nor—having the knowledge but not the power…") restructured with the same
   three branches: not overlooked through ignorance, not through knowing but
@@ -91,19 +96,22 @@ only what is specific to Book II.
   kept).
 - **II.12** — "Sensible things" (things perceived by the senses) → "the things
   the senses perceive": a modern reader would read "sensible" as "reasonable".
-  "Noised abroad by vapory fame" → "trumpeted about by empty fame". "Abstractive
+  "Noised abroad by vapory fame" → "trumpeted about by vaporous fame" (v1
+  had "empty fame"; corrected in v2). "Abstractive
   power of reflection" → "separating power of reflection". Long's cross-reference
   "(vi. 28)" **dropped** (apparatus). The closing clause "and when this part of
-  man is so disposed" (dagger-marked in Long) rendered "and how that part of him
-  is disposed when it does"; the obscurity is Long's and the Greek's, and no
-  interpretation was supplied.
+  man is so disposed" (dagger-marked in Long) is kept as "and when that part of
+  him is so disposed"; the obscurity is Long's and the Greek's, and no
+  interpretation was supplied. (v1 had altered it to "how … when it does";
+  corrected in v2 per review finding 12.2.)
 - **II.13** — "Traverses everything in a round" → "goes the round of
   everything". "The things beneath the earth, as the poet says" kept without
   added quotation marks (Long prints none). "Seeks by conjecture" → "tries to
   guess". "Reverence of the daemon" → "reverence for the god within".
 - **II.14** — Long's "three thousand years and as many times ten thousand
-  years" means 3,000 × 10,000; rendered "three thousand years, or ten thousand
-  times as many" (not "thirty thousand"). Long's "though that which perish is
+  years" means 3,000 × 10,000; rendered "three thousand years, and ten thousand
+  times as many" (cumulative, as Long's "and"; not "thirty thousand"; v1 had
+  "or", corrected in v2 per review finding 14.2). Long's "though that which perish is
   not the same" is obscure and dagger-marked; rendered "though what perishes is
   not the same" to preserve Long's distinction between what *perishes* and what
   is *lost*, without resolving it. "The longest liver and he who will die

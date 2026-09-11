@@ -36,6 +36,13 @@ session. Kept current at every push.
   `provenance.json`, `manifest.json`, `review-instructions.md` and six review
   packets pushed. **Stopped for independent review** (step 4, coordinator's
   reviewer session). Findings expected under `book2/review/`.
+- 2026-09-11 — **Book II accepted** (steps 4–8). Round-1 independent review
+  (`book2/review/findings-v1.md`): Accept after corrections, 5 substantive +
+  20 minor. All applied in `book2/candidate-v2.json` (sha256 `8fcc64e2…`) via
+  `scripts/build_book2_v2.py`; every change listed in
+  `book2/changes-v1-to-v2.md`; changed passages verified by word diff; flow
+  read done with two further within-Long fixes; acceptance recorded in
+  `book2/ACCEPTANCE.md`. `continuity.md` and `provenance.json` updated.
 
 ## Decided, and why
 
@@ -47,17 +54,15 @@ session. Kept current at every push.
 | D4 | One paragraph per numbered section; each paragraph begins with its section number. | Keeps meditation numbering visible and stable, and gives the modern edition exact 1:1 alignment with the staged original. |
 | D5 | Long's bracketed supplements, cross-references and verse citations kept in the staged original; footnotes, dagger marks and PG apparatus removed. | The brackets are Long's translation; the rest is scholarly apparatus, not text. All normalisations are listed in `PROVENANCE.md` §4 and reproducible by script. |
 | D6 | PG #15877 preferred over the Standard Ebooks text as the base file. | PG keeps Long's square brackets (SE removes them); the two otherwise differ only in spelling convention and punctuation. SE used as a cross-check. |
+| D8 | Apply every review finding in Book II, including the discretionary ones, and record the two glossary/continuity reversals (II.1 "share of the divine", II.16 "ourselves"). | Each proposed wording stayed inside Long and the glossary; declining any would have needed a reason better than the reviewer's, and none existed. Sets the pattern for later books: minor findings are applied unless `continuity.md` already records a considered reason not to. |
 | D7 | Chapter titles `Book 1`…`Book 12`, matching the served file's title style. | Keeps the app's existing chapter labelling; a change of style is not this task's call. |
 
 ## Next
 
-1. **Waiting on the coordinator:** independent review of Book II
-   (`book2/review-instructions.md`, `book2/review-packets/`). Nothing else in
-   this thread can proceed past step 3 without it; Book I is not started until
-   Book II is accepted, per the brief.
-2. On findings: `candidate-v2.json`, verification of changed passages, flow
-   read, `ACCEPTANCE.md`. Then Book I, III … XII in numerical order, each
-   through the same eight steps and its own review round.
+1. Book I through the same eight steps: draft with full book context, freeze
+   `book1/candidate-v1.json`, packets, push, stop for the coordinator's
+   independent review under `book1/review/`.
+2. Then Books III … XII in numerical order, each with its own review round.
 
 ## Needs Anders (listed, not waited on)
 
