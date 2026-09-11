@@ -1,0 +1,24 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/macbeth-modern-en-20260911",
+ "served_original_path": "app/public/data/editions/macbeth-original-en.json",
+ "served_original_sha256": "2650bcc666428a808584fd6f99534f71474a4e99a085c7ae6b87234e24e30608",
+ "served_modern_en_path": "app/public/data/editions/macbeth-modern-en.json",
+ "served_modern_en_sha256_being_replaced": "0c85273086804fdd02abee81842de15338b61a2288bb26805e9b2f2d505d02f1",
+ "chapter_extracted": {
+  "number": 1,
+  "extraction": "found by chapters[0] (0-based index 0) in the served original-en; byte-identical to the served chapter"
+ },
+ "source_chNN_json_sha256": "279593818be5378c85a917a3b0566a50c7f5808a77f98cde4165726002d1e513",
+ "candidate_v1_json_sha256": "21304f136f17739972fdb7a1f898927a0b06dfc597e0c731a7c3255bf0d394a5",
+ "translation_source_for_original": "Content matches Project Gutenberg #1533 (standalone Macbeth) and #100 (Moby Shakespeare complete works), both fetched 2026-09-11; see ../PROVENANCE.md for full identification, the two known textual anomalies (scene 1 heading, one missing line in scene 2), and public-domain status.",
+ "word_counts": {
+  "source": 87,
+  "candidate": 89,
+  "ratio": 1.023,
+  "min_paragraph_ratio": 0.857,
+  "note": "screening signal only; not evidence of semantic completeness."
+ },
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Sonnet 5 session), whole scene read before drafting, GLOSSARY.md fixed first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run. No modern Shakespeare paraphrase (e.g. No Fear Shakespeare) consulted.",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+}

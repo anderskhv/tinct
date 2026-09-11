@@ -1,0 +1,47 @@
+{
+ "chapter": 1,
+ "source_paragraph_count": 12,
+ "candidate_paragraph_count": 12,
+ "packet_size": 3,
+ "packets": [
+  {
+   "packet": "review-packets/packet-01.md",
+   "assigned_paragraph_ids": [
+    "B01-P001",
+    "B01-P002",
+    "B01-P003"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-02.md",
+   "assigned_paragraph_ids": [
+    "B01-P004",
+    "B01-P005",
+    "B01-P006"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-03.md",
+   "assigned_paragraph_ids": [
+    "B01-P007",
+    "B01-P008",
+    "B01-P009"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-04.md",
+   "assigned_paragraph_ids": [
+    "B01-P010",
+    "B01-P011",
+    "B01-P012"
+   ]
+  }
+ ],
+ "coverage_check": {
+  "all_ids_present_exactly_once_in_order": true,
+  "first_id": "B01-P001",
+  "last_id": "B01-P012"
+ },
+ "candidate_v1_json_sha256": "21304f136f17739972fdb7a1f898927a0b06dfc597e0c731a7c3255bf0d394a5",
+ "frozen": "candidate-v1.json"
+}

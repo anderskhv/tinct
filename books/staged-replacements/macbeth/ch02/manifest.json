@@ -1,0 +1,77 @@
+{
+ "chapter": 2,
+ "source_paragraph_count": 22,
+ "candidate_paragraph_count": 22,
+ "packet_size": 3,
+ "packets": [
+  {
+   "packet": "review-packets/packet-01.md",
+   "assigned_paragraph_ids": [
+    "B02-P001",
+    "B02-P002",
+    "B02-P003"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-02.md",
+   "assigned_paragraph_ids": [
+    "B02-P004",
+    "B02-P005",
+    "B02-P006"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-03.md",
+   "assigned_paragraph_ids": [
+    "B02-P007",
+    "B02-P008",
+    "B02-P009"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-04.md",
+   "assigned_paragraph_ids": [
+    "B02-P010",
+    "B02-P011",
+    "B02-P012"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-05.md",
+   "assigned_paragraph_ids": [
+    "B02-P013",
+    "B02-P014",
+    "B02-P015"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-06.md",
+   "assigned_paragraph_ids": [
+    "B02-P016",
+    "B02-P017",
+    "B02-P018"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-07.md",
+   "assigned_paragraph_ids": [
+    "B02-P019",
+    "B02-P020",
+    "B02-P021"
+   ]
+  },
+  {
+   "packet": "review-packets/packet-08.md",
+   "assigned_paragraph_ids": [
+    "B02-P022"
+   ]
+  }
+ ],
+ "coverage_check": {
+  "all_ids_present_exactly_once_in_order": true,
+  "first_id": "B02-P001",
+  "last_id": "B02-P022"
+ },
+ "candidate_v1_json_sha256": "17ba47fc5c12df039d9c57e46a893de92b20f58f82a8abc3272055086380a0c8",
+ "frozen": "candidate-v1.json"
+}
