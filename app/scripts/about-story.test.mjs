@@ -27,7 +27,9 @@ test('parent and audio iframe comply with script-src self', () => {
 test('all HTML asset references resolve inside the isolated namespace', () => {
   for (const document of [html, iframe]) {
     for (const match of document.matchAll(/(?:src|href)="(\/[^"]+)"/g)) {
-      assert.ok(existsSync(publicDir + match[1]), match[1]);
+      // Workers static assets serve /privacy from privacy.html (html_handling), so
+      // accept an extensionless page link when its .html file exists.
+      assert.ok(existsSync(publicDir + match[1]) || existsSync(publicDir + match[1] + '.html'), match[1]);
     }
   }
   assert.ok(existsSync(publicDir + 'about.rsc'));
