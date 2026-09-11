@@ -54,7 +54,7 @@
  function frame(t){if(!playing)return;if(last)p=Math.min(1.45,p+(t-last)/(settings.duration*1000));last=t;draw();if(p>=1.45){playing=false;button.textContent='Replay';last=0;return}raf=requestAnimationFrame(frame)}
  button.onclick=()=>{playing=!playing;if(playing){if(p>=1.45)p=0;last=0;button.textContent='Pause';raf=requestAnimationFrame(frame)}else{cancelAnimationFrame(raf);last=0;button.textContent='Continue'}};
  slider.oninput=()=>{playing=false;cancelAnimationFrame(raf);last=0;p=Number(slider.value)/1000;button.textContent=p>=1.45?'Replay':'Play transition';draw()};
- new ResizeObserver(()=>world.style.transform=`translate(-50%,-50%) scale(${(scene.clientWidth>700?Math.max:Math.min)(scene.clientWidth/1000,scene.clientHeight/625)})`).observe(scene);
+ new ResizeObserver(()=>{const portrait=scene.clientWidth<scene.clientHeight;scene.classList.toggle('ta-portrait',portrait);[$('.ta-caption'),$('.ta-unwind')].forEach(el=>{const home=portrait?scene:world;if(el.parentNode!==home)home.appendChild(el)});world.style.transformOrigin=portrait?'68% 50%':'50% 50%';world.style.transform=`translate(${portrait?-68:-50}%,-50%) scale(${(scene.clientWidth>700||portrait?Math.max:Math.min)(scene.clientWidth/1000,scene.clientHeight/625)})`}).observe(scene);
  window.addEventListener('message',event=>{
    if(event.source!==parent || event.origin!==location.origin || event.data?.type!=='tinct-audio-progress')return;
    const value=event.data.progress;
