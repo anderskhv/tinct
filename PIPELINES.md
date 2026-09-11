@@ -31,7 +31,21 @@ python3 books/wip_inventory.py --audio
 
 Detailed modern-English repair tracker: `books/MODERN-EN-REPAIR-STATUS.md`.
 
-Important: the reported mechanical `modern-en` batch for Wealth of Nations, Leviathan, Don Quixote, Montaigne, and Anna Karenina should not be treated as final `modern-en` without review or regeneration. `modern-en` means a full modern-English rendering, not regex/dictionary cleanup.
+Important (historical, 2026-05/06): the reported mechanical `modern-en` batch for Wealth
+of Nations, Leviathan, Don Quixote, Montaigne, and Anna Karenina should not be treated as
+final `modern-en` without review or regeneration. `modern-en` means a full modern-English
+rendering, not regex/dictionary cleanup. **Status update, 2026-09-11:** all 5 of these
+books were independently re-verified in the full 101-book translation audit
+(`docs/modern-english-translation-audit-2026-09-11/`) and confirmed comprehensively
+repaired — this line is kept for history, not as current guidance. That same audit is now
+the current source of truth for every book's modern-en quality (see
+`docs/modern-english-translation-audit-2026-09-11/final/approved-questionmark-fail.md` for
+the practical ranking), superseding this file's book-quality claims specifically (not its
+process/lane guidance below, which is unaffected). A follow-on content-prep pass
+(`docs/content-release-2026-09-11/`) built on that audit to stage a Bible replacement, a
+confirmed-defect ledger for the audit's most severe findings, and an Odyssey pilot chapter
+for a small test-reader release — see that folder's `01-release-readiness-report.md` for
+current status.
 
 ## Work Lanes
 
