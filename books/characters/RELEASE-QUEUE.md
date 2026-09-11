@@ -503,6 +503,80 @@ the fetched asset:
 Report live evidence back to the package `status.json` and the generated
 inventory only after those checks pass. Validated is not deployed.
 
+## Lane A automation batch 2: Fear and Trembling
+
+Authored on branch `claude/tinct-character-content-1n5iqq` by the Lane A
+automated author per `AUTOMATION-QUEUE.md` (queue item 2 of 15). Queued, not
+production verified; this lane never sets `appStatus`.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---:|---:|---|
+| Fear and Trembling | acaf280e | 68 / 68 | build_fear_and_trembling.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Fear and Trembling | d6f7ab72adfe4c161c5ab69b5bedda7e3bb519a92b0050d8b0b6f07d294e45a1 | 152776f19e1b707b610d2bee033d6984ed0f1e26826b314e2d0541d9c0b49132 |
+
+675 exact mentions in the original, 672 in the modern, across 8 chapters
+(Preface, Exordium, Eulogy on Abraham, Preliminary Expectoration, Problema
+I-III, Epilogue) and 232 paragraphs per edition. Zero omitted entities on
+either side. Commands: `python3 books/characters/build_fear_and_trembling.py
+--check`, then `python3 -m unittest discover -s books/characters -p
+'test_*.py'`. Shared dependencies: `build_reviewed.py` and
+`reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+The automation queue flagged this book by name for a namesake, and it was
+real: **"Sarah" names two different people.** Abraham's wife is named
+throughout the Exordium, the Eulogy, and the frame of Problema III; a wholly
+different Sarah — daughter of Raguel and Edna in the Book of Tobit — is
+named only within Johannes de Silentio's digression at 7:40-7:46. Every one
+of 18 occurrences in both editions was read and verified; the package binds
+"Sarah" with a location-scoped rule rather than a bare alias (`sarah` and
+`sarah-tobit` carry no aliases of their own). Review 7:60 and 7:68 in
+particular — both are back in the Abraham frame, immediately after and long
+after the Tobit digression, and both must land on Abraham's wife.
+
+Also review: "Cain" (6:15, "for Cain and Abraham are not identical") is a
+genuine Cain/Abel-vs-Abraham/Isaac contrast, not a scribal slip; four
+edition-specific spellings of the same entity, not namesakes — original's
+Latin "Cartesius" vs. modern's "Descartes," the signature "Johannes de
+silentio" vs. "Johannes de Silentio," "Gloster" vs. "Gloucester," and the
+original's own drift from "Agnete" (7:27-29) to "Agnes" (7:30 onward)
+against the modern edition's uniform "Agnes"; and one reference,
+"Kildevalle" (7:46, named only inside a quotation from Baggesen),
+deliberately left unbound as unresolved from the text alone.
+
+Categories: Abraham is the only Central entry. Isaac, Sarah (Abraham's) and
+Eliezer are Major/Supporting as the three from whom Abraham conceals his
+undertaking. Agnete/Agnes, the Merman, Faust, and Sarah of the Book of
+Tobit are Major — each is a sustained analytical figure Johannes de
+Silentio builds and reworks across several paragraphs, not a single
+citation. Everything else is Reference.
+
+### Source defects, none blocking enablement
+
+| Defect | Effect |
+|---|---|
+| Problema III's chapter title spells Abraham's servant "Eleazar" in `original-en` and "Eliezer" in `modern-en`; both editions' body paragraphs consistently say "Eliezer" | Chapter titles are not indexed paragraph text and are never bound, so no offsets are affected |
+
+No edition file was changed.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the
+normal app gates and deploy, then open the production reader and confirm on
+the fetched asset:
+
+1. A first-encounter card in each edition (2:0, "Abraham").
+2. That "Sarah" at 7:40 shows the Book of Tobit card, and that "Sarah" at
+   7:60 (immediately after) shows Abraham's-wife card.
+3. That "Kildevalle" (7:46) shows no card.
+
+Report live evidence back to the package `status.json` and the generated
+inventory only after those checks pass. Validated is not deployed.
+
 ## Opus batch 5: The Aeneid
 
 Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
