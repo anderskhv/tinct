@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 concurrency:
   group: deploy-tinct-production
   cancel-in-progress: false
@@ -13,6 +16,9 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: true
     defaults:
       run:
         working-directory: app
@@ -21,16 +27,13 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: '24.13.0'
           cache: npm
           cache-dependency-path: app/package-lock.json
 
-      - run: npm ci
+      - name: Set up cloud checkout
+        run: bash ../scripts/cloud-setup.sh
       - run: npm test
-      - run: npm run build
-        env:
-          CI: true
-      - run: npm run verify-bundle
 
       - name: Deploy to Cloudflare Workers
         run: npm run deploy
