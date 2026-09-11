@@ -1,0 +1,1511 @@
+{
+ "note": "Chapter/arm re-decided under v2 from run-1 recorded attempts; only terminal pod records (rejected/candidate) considered.",
+ "rejected_chapters": [
+  {
+   "key": "beyond-good-and-evil/original-en/ch5",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    10,
+    19,
+    79,
+    84,
+    99,
+    111,
+    122
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-5",
+     "below": [
+      10,
+      79,
+      84,
+      99,
+      111
+     ],
+     "worst": 0.471,
+     "paragraphs": 123
+    },
+    "auto": {
+     "pod": "tinct-words-run1-5",
+     "below": [
+      84
+     ],
+     "worst": 0.688,
+     "paragraphs": 123
+    }
+   }
+  },
+  {
+   "key": "communist-manifesto/original-en/ch3",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    19
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-1",
+     "below": [
+      19
+     ],
+     "worst": 0.8,
+     "paragraphs": 83
+    },
+    "auto": {
+     "pod": "tinct-words-run1-1",
+     "below": [],
+     "worst": 0.961,
+     "paragraphs": 83
+    }
+   }
+  },
+  {
+   "key": "fear-and-trembling/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    1,
+    4
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-6",
+     "below": [
+      1,
+      4
+     ],
+     "worst": 0.717,
+     "paragraphs": 5
+    },
+    "auto": {
+     "pod": "tinct-words-run1-6",
+     "below": [
+      1
+     ],
+     "worst": 0.743,
+     "paragraphs": 5
+    }
+   }
+  },
+  {
+   "key": "genealogy-of-morals/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    10
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-8",
+     "below": [
+      10
+     ],
+     "worst": 0.6,
+     "paragraphs": 11
+    },
+    "auto": {
+     "pod": "tinct-words-run1-8",
+     "below": [],
+     "worst": 0.959,
+     "paragraphs": 11
+    }
+   }
+  },
+  {
+   "key": "genealogy-of-morals/original-en/ch2",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    19,
+    33
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-15",
+     "below": [
+      33
+     ],
+     "worst": 0.746,
+     "paragraphs": 40
+    },
+    "auto": {
+     "pod": "tinct-words-run1-15",
+     "below": [
+      33
+     ],
+     "worst": 0.748,
+     "paragraphs": 40
+    }
+   }
+  },
+  {
+   "key": "heart-of-darkness/original-en/ch3",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    44,
+    69,
+    80,
+    82
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-16",
+     "below": [
+      44,
+      69,
+      80,
+      82
+     ],
+     "worst": 0.333,
+     "paragraphs": 87
+    },
+    "auto": {
+     "pod": "tinct-words-run1-19",
+     "below": [
+      80
+     ],
+     "worst": 0.846,
+     "paragraphs": 87
+    }
+   }
+  },
+  {
+   "key": "hume-enquiry/original-en/ch16",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    2,
+    3
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-3",
+     "below": [
+      2,
+      3
+     ],
+     "worst": 0.0,
+     "paragraphs": 34
+    },
+    "auto": {
+     "pod": "tinct-words-run1-3",
+     "below": [],
+     "worst": 0.981,
+     "paragraphs": 34
+    }
+   }
+  },
+  {
+   "key": "hume-enquiry/original-en/ch3",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    4,
+    5
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-3",
+     "below": [
+      4
+     ],
+     "worst": 0.0,
+     "paragraphs": 7
+    },
+    "auto": {
+     "pod": "tinct-words-run1-3",
+     "below": [],
+     "worst": 0.985,
+     "paragraphs": 7
+    }
+   }
+  },
+  {
+   "key": "iliad/original-en/ch14",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    33,
+    34,
+    35
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-5",
+     "below": [
+      33,
+      34,
+      35
+     ],
+     "worst": 0.225,
+     "paragraphs": 41
+    },
+    "auto": {
+     "pod": "tinct-words-run1-5",
+     "below": [
+      33,
+      34,
+      35
+     ],
+     "worst": 0.26,
+     "paragraphs": 41
+    }
+   }
+  },
+  {
+   "key": "jekyll-and-hyde/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    8
+   ],
+   "v2_pass_arms": [
+    "auto",
+    "off"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-3",
+     "below": [],
+     "worst": 0.857,
+     "paragraphs": 28
+    },
+    "auto": {
+     "pod": "tinct-words-run1-3",
+     "below": [],
+     "worst": 0.977,
+     "paragraphs": 28
+    }
+   }
+  },
+  {
+   "key": "jekyll-and-hyde/original-en/ch2",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    10,
+    47,
+    48
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-3",
+     "below": [
+      10,
+      47
+     ],
+     "worst": 0.667,
+     "paragraphs": 50
+    },
+    "auto": {
+     "pod": "tinct-words-run1-3",
+     "below": [],
+     "worst": 0.966,
+     "paragraphs": 50
+    }
+   }
+  },
+  {
+   "key": "jungle-book/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    17,
+    22,
+    118,
+    149,
+    153
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-7",
+     "below": [
+      17,
+      118,
+      149
+     ],
+     "worst": 0.8,
+     "paragraphs": 154
+    },
+    "auto": {
+     "pod": "tinct-words-run1-7",
+     "below": [],
+     "worst": 0.947,
+     "paragraphs": 154
+    }
+   }
+  },
+  {
+   "key": "jungle-book/original-en/ch2",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    6,
+    17,
+    26,
+    38,
+    52,
+    73,
+    88,
+    90,
+    92,
+    99,
+    105,
+    126,
+    127,
+    129,
+    147,
+    151,
+    155,
+    157,
+    164,
+    167,
+    175
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-7",
+     "below": [
+      52,
+      73,
+      88,
+      90,
+      92,
+      105,
+      127,
+      129,
+      147,
+      151,
+      155,
+      167,
+      175
+     ],
+     "worst": 0.667,
+     "paragraphs": 181
+    },
+    "auto": {
+     "pod": "tinct-words-run1-7",
+     "below": [],
+     "worst": 0.9,
+     "paragraphs": 181
+    }
+   }
+  },
+  {
+   "key": "jungle-book/original-en/ch4",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    9,
+    17,
+    46,
+    61,
+    62,
+    68,
+    107,
+    114
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-7",
+     "below": [
+      9,
+      17,
+      46,
+      61,
+      62,
+      68,
+      107
+     ],
+     "worst": 0.0,
+     "paragraphs": 115
+    },
+    "auto": {
+     "pod": "tinct-words-run1-7",
+     "below": [
+      46
+     ],
+     "worst": 0.833,
+     "paragraphs": 115
+    }
+   }
+  },
+  {
+   "key": "jungle-book/original-en/ch6",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    18,
+    20,
+    26,
+    58
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-7",
+     "below": [
+      18,
+      26
+     ],
+     "worst": 0.706,
+     "paragraphs": 89
+    },
+    "auto": {
+     "pod": "tinct-words-run1-7",
+     "below": [],
+     "worst": 0.951,
+     "paragraphs": 89
+    }
+   }
+  },
+  {
+   "key": "jungle-book/original-en/ch7",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    12,
+    35,
+    115,
+    126,
+    153
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-7",
+     "below": [
+      35,
+      115,
+      126,
+      153
+     ],
+     "worst": 0.5,
+     "paragraphs": 165
+    },
+    "auto": {
+     "pod": "tinct-words-run1-7",
+     "below": [],
+     "worst": 0.933,
+     "paragraphs": 165
+    }
+   }
+  },
+  {
+   "key": "medea/original-en/ch4",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    17,
+    25,
+    26,
+    28,
+    36,
+    40,
+    41,
+    44,
+    46,
+    54,
+    56,
+    58,
+    61,
+    62,
+    63,
+    64,
+    68,
+    75,
+    76
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      26,
+      28,
+      40,
+      41,
+      44,
+      54,
+      56,
+      58,
+      62,
+      64,
+      68,
+      75
+     ],
+     "worst": 0.556,
+     "paragraphs": 79
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      26
+     ],
+     "worst": 0.556,
+     "paragraphs": 79
+    }
+   }
+  },
+  {
+   "key": "medea/original-en/ch7",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    2,
+    10,
+    12,
+    13,
+    16,
+    25,
+    29,
+    38,
+    46,
+    58,
+    59
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      12,
+      13,
+      38,
+      58
+     ],
+     "worst": 0.667,
+     "paragraphs": 67
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [],
+     "worst": 0.929,
+     "paragraphs": 67
+    }
+   }
+  },
+  {
+   "key": "midsummer/original-en/ch2",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    5,
+    9,
+    13,
+    15,
+    16,
+    20,
+    37
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      9,
+      13,
+      15,
+      16,
+      20
+     ],
+     "worst": 0.714,
+     "paragraphs": 43
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [],
+     "worst": 0.968,
+     "paragraphs": 43
+    }
+   }
+  },
+  {
+   "key": "nicomachean-ethics/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    78
+   ],
+   "v2_pass_arms": [
+    "auto",
+    "off"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-8",
+     "below": [],
+     "worst": 0.906,
+     "paragraphs": 107
+    },
+    "auto": {
+     "pod": "tinct-words-run1-8",
+     "below": [],
+     "worst": 0.952,
+     "paragraphs": 107
+    }
+   }
+  },
+  {
+   "key": "notes-from-underground/original-en/ch17",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    19,
+    22,
+    24,
+    28,
+    41,
+    42
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-1",
+     "below": [
+      19,
+      22,
+      24,
+      28,
+      41
+     ],
+     "worst": 0.0,
+     "paragraphs": 120
+    },
+    "auto": {
+     "pod": "tinct-words-run1-1",
+     "below": [
+      19,
+      24
+     ],
+     "worst": 0.5,
+     "paragraphs": 120
+    }
+   }
+  },
+  {
+   "key": "odyssey/original-en/ch3",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    37
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      37
+     ],
+     "worst": 0.058,
+     "paragraphs": 38
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      37
+     ],
+     "worst": 0.091,
+     "paragraphs": 38
+    }
+   }
+  },
+  {
+   "key": "oedipus-at-colonus/original-en/ch3",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    0,
+    3,
+    5,
+    8,
+    9,
+    11,
+    12,
+    17,
+    21,
+    25,
+    29,
+    37,
+    47
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      0,
+      3,
+      5,
+      8,
+      9,
+      11,
+      12,
+      17,
+      21,
+      25,
+      29,
+      37,
+      47
+     ],
+     "worst": 0.333,
+     "paragraphs": 51
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      17
+     ],
+     "worst": 0.75,
+     "paragraphs": 51
+    }
+   }
+  },
+  {
+   "key": "paradise-lost/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    10,
+    40
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-15",
+     "below": [
+      10,
+      40
+     ],
+     "worst": 0.821,
+     "paragraphs": 73
+    },
+    "auto": {
+     "pod": "tinct-words-run1-15",
+     "below": [
+      10
+     ],
+     "worst": 0.822,
+     "paragraphs": 73
+    }
+   }
+  },
+  {
+   "key": "paradise-lost/original-en/ch11",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    19,
+    58
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-10",
+     "below": [
+      58
+     ],
+     "worst": 0.815,
+     "paragraphs": 110
+    },
+    "auto": {
+     "pod": "tinct-words-run1-10",
+     "below": [
+      58
+     ],
+     "worst": 0.833,
+     "paragraphs": 110
+    }
+   }
+  },
+  {
+   "key": "phaedo/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    1,
+    6,
+    14,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22,
+    31,
+    43,
+    45
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-4",
+     "below": [
+      1,
+      6,
+      14,
+      16,
+      17,
+      18,
+      19,
+      21,
+      22,
+      43,
+      45
+     ],
+     "worst": 0.25,
+     "paragraphs": 61
+    },
+    "auto": {
+     "pod": "tinct-words-run1-4",
+     "below": [
+      6,
+      14,
+      16,
+      18,
+      22
+     ],
+     "worst": 0.25,
+     "paragraphs": 61
+    }
+   }
+  },
+  {
+   "key": "phaedo/original-en/ch7",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    6,
+    40,
+    42,
+    104,
+    125,
+    130,
+    138,
+    141,
+    164,
+    202
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-4",
+     "below": [
+      6,
+      40,
+      42,
+      104,
+      125,
+      130,
+      138,
+      141,
+      164,
+      202
+     ],
+     "worst": 0.25,
+     "paragraphs": 211
+    },
+    "auto": {
+     "pod": "tinct-words-run1-4",
+     "below": [
+      6
+     ],
+     "worst": 0.667,
+     "paragraphs": 211
+    }
+   }
+  },
+  {
+   "key": "second-treatise/original-en/ch19",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    27,
+    34,
+    37,
+    38
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      27,
+      34,
+      37,
+      38
+     ],
+     "worst": 0.372,
+     "paragraphs": 48
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      27,
+      37
+     ],
+     "worst": 0.437,
+     "paragraphs": 48
+    }
+   }
+  },
+  {
+   "key": "the-aeneid/original-en/ch6",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    31
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-19",
+     "below": [
+      31
+     ],
+     "worst": 0.835,
+     "paragraphs": 32
+    },
+    "auto": {
+     "pod": "tinct-words-run1-19",
+     "below": [
+      31
+     ],
+     "worst": 0.835,
+     "paragraphs": 32
+    }
+   }
+  },
+  {
+   "key": "the-republic/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    11,
+    33,
+    84,
+    142,
+    145,
+    166,
+    173,
+    177,
+    288,
+    382,
+    441
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-14",
+     "below": [
+      11,
+      33,
+      84,
+      142,
+      145,
+      166,
+      173,
+      177,
+      288,
+      382,
+      441
+     ],
+     "worst": 0.0,
+     "paragraphs": 492
+    },
+    "auto": {
+     "pod": "tinct-words-run1-14",
+     "below": [
+      33
+     ],
+     "worst": 0.667,
+     "paragraphs": 492
+    }
+   }
+  },
+  {
+   "key": "the-republic/original-en/ch2",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    45,
+    53,
+    149,
+    182,
+    208,
+    263,
+    303,
+    310
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-14",
+     "below": [
+      45,
+      53,
+      149,
+      182,
+      208,
+      303,
+      310
+     ],
+     "worst": 0.333,
+     "paragraphs": 349
+    },
+    "auto": {
+     "pod": "tinct-words-run1-14",
+     "below": [],
+     "worst": 0.875,
+     "paragraphs": 349
+    }
+   }
+  },
+  {
+   "key": "the-republic/original-en/ch3",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    14,
+    76,
+    108,
+    130,
+    228,
+    252,
+    288,
+    496
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-14",
+     "below": [
+      14,
+      76,
+      108,
+      130,
+      228,
+      252,
+      288,
+      496
+     ],
+     "worst": 0.5,
+     "paragraphs": 497
+    },
+    "auto": {
+     "pod": "tinct-words-run1-14",
+     "below": [
+      108
+     ],
+     "worst": 0.667,
+     "paragraphs": 497
+    }
+   }
+  },
+  {
+   "key": "the-republic/original-en/ch5",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    8,
+    122,
+    236,
+    240,
+    241,
+    242,
+    298,
+    497
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-14",
+     "below": [
+      8,
+      122,
+      241,
+      298,
+      497
+     ],
+     "worst": 0.0,
+     "paragraphs": 563
+    },
+    "auto": {
+     "pod": "tinct-words-run1-14",
+     "below": [],
+     "worst": 0.935,
+     "paragraphs": 563
+    }
+   }
+  },
+  {
+   "key": "the-republic/original-en/ch8",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    16,
+    55,
+    69,
+    79,
+    137,
+    161,
+    205,
+    209,
+    291
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-12",
+     "below": [
+      16,
+      55,
+      69,
+      79,
+      137,
+      161,
+      205,
+      209,
+      291
+     ],
+     "worst": 0.0,
+     "paragraphs": 447
+    },
+    "auto": {
+     "pod": "tinct-words-run1-12",
+     "below": [
+      161
+     ],
+     "worst": 0.0,
+     "paragraphs": 447
+    }
+   }
+  },
+  {
+   "key": "the-tempest/original-en/ch1",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    8,
+    9,
+    10,
+    18,
+    19,
+    20,
+    23,
+    24,
+    25,
+    26,
+    29,
+    40,
+    42
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      0,
+      1,
+      2,
+      3,
+      6,
+      8,
+      9,
+      10,
+      18,
+      19,
+      20,
+      24,
+      25,
+      26,
+      40,
+      42
+     ],
+     "worst": 0.0,
+     "paragraphs": 43
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      10
+     ],
+     "worst": 0.667,
+     "paragraphs": 43
+    }
+   }
+  },
+  {
+   "key": "the-tempest/original-en/ch2",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    3,
+    25,
+    33,
+    49,
+    55,
+    57,
+    76,
+    78,
+    80,
+    88,
+    94,
+    96,
+    102,
+    115,
+    116,
+    117,
+    119,
+    122,
+    124,
+    137,
+    149,
+    153,
+    172
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-2",
+     "below": [
+      3,
+      25,
+      33,
+      49,
+      55,
+      57,
+      76,
+      78,
+      80,
+      88,
+      94,
+      96,
+      116,
+      117,
+      119,
+      122,
+      124,
+      137,
+      149,
+      153,
+      172
+     ],
+     "worst": 0.25,
+     "paragraphs": 175
+    },
+    "auto": {
+     "pod": "tinct-words-run1-2",
+     "below": [],
+     "worst": 0.861,
+     "paragraphs": 175
+    }
+   }
+  },
+  {
+   "key": "the-tempest/original-en/ch3",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    2,
+    8,
+    14,
+    19,
+    28,
+    31,
+    34,
+    52,
+    55,
+    56,
+    62,
+    67,
+    73,
+    75,
+    77,
+    80,
+    85,
+    86,
+    93,
+    98,
+    101,
+    104,
+    106,
+    107,
+    115,
+    116,
+    124,
+    127,
+    131,
+    137,
+    149,
+    151,
+    161,
+    163,
+    167
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-13",
+     "below": [
+      2,
+      8,
+      14,
+      19,
+      28,
+      31,
+      34,
+      52,
+      55,
+      56,
+      62,
+      67,
+      73,
+      75,
+      77,
+      80,
+      85,
+      86,
+      93,
+      101,
+      106,
+      107,
+      115,
+      116,
+      127,
+      131,
+      137,
+      149,
+      151,
+      161,
+      163,
+      167
+     ],
+     "worst": 0.0,
+     "paragraphs": 170
+    },
+    "auto": {
+     "pod": "tinct-words-run1-13",
+     "below": [
+      85
+     ],
+     "worst": 0.8,
+     "paragraphs": 170
+    }
+   }
+  },
+  {
+   "key": "the-tempest/original-en/ch6",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    0,
+    7,
+    9,
+    14,
+    18,
+    20,
+    26,
+    30,
+    35,
+    37,
+    41,
+    43,
+    45,
+    51,
+    56,
+    58,
+    59,
+    62,
+    65,
+    71,
+    72
+   ],
+   "v2_pass_arms": [
+    "auto"
+   ],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-13",
+     "below": [
+      0,
+      7,
+      14,
+      18,
+      20,
+      26,
+      30,
+      35,
+      37,
+      41,
+      43,
+      45,
+      51,
+      56,
+      58,
+      59,
+      62,
+      65,
+      71,
+      72
+     ],
+     "worst": 0.0,
+     "paragraphs": 74
+    },
+    "auto": {
+     "pod": "tinct-words-run1-13",
+     "below": [],
+     "worst": 0.909,
+     "paragraphs": 74
+    }
+   }
+  },
+  {
+   "key": "the-tempest/original-en/ch7",
+   "run1": "rejected-below-0.85-on-both-arms",
+   "run1_below": [
+    9,
+    17,
+    18,
+    20,
+    25,
+    31
+   ],
+   "v2_pass_arms": [],
+   "v2_detail": {
+    "off": {
+     "pod": "tinct-words-run1-13",
+     "below": [
+      9,
+      17,
+      18,
+      20,
+      25,
+      31
+     ],
+     "worst": 0.667,
+     "paragraphs": 39
+    },
+    "auto": {
+     "pod": "tinct-words-run1-13",
+     "below": [
+      18
+     ],
+     "worst": 0.75,
+     "paragraphs": 39
+    }
+   }
+  }
+ ]
+}

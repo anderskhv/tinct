@@ -1,0 +1,99 @@
+{
+  "complete": true,
+  "signature": "2e1649e663eda0b6cba30569beefb8522b546d19760fc8bddc41988cafccc96e",
+  "attempts": [
+    {
+      "asr_seconds": 3.2633443570002783,
+      "alignment_seconds": 0.00012114699984522304,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " R.W.",
+          "start": 0.05,
+          "end": 0.89,
+          "words": [
+            {
+              "text": " R",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.16717533767223358
+            },
+            {
+              "text": ".W.",
+              "start": 0.55,
+              "end": 0.89,
+              "probability": 0.4850434511899948
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "R",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": ".W.",
+          "start": 0.55,
+          "end": 0.89
+        }
+      ],
+      "expected_tokens": [
+        "R.W."
+      ],
+      "opcodes": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          0,
+          1,
+          0,
+          2
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "R.W.",
+          "start": 0.0,
+          "end": 0.445
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 2,
+        "matched_words": 0
+      },
+      "match_ratio": 0.0,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 3.2634973100002753
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "83eb1b571ee68021840373b23d25bae8dc8484cd0d67a3b4734fa237d52cdb65",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

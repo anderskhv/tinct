@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "signature": "8f50a1c1498316cc8807096f39a68e8b04fe8718170eb91e68544ff5d0d2012a",
+  "attempts": [
+    {
+      "asr_seconds": 1.319591556000887,
+      "alignment_seconds": 0.00011964999976044055,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " My dear sister.",
+          "start": 0.02,
+          "end": 1.06,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.02,
+              "end": 0.58,
+              "probability": 0.8026110529899597
+            },
+            {
+              "text": " dear",
+              "start": 0.58,
+              "end": 0.74,
+              "probability": 0.9667647480964661
+            },
+            {
+              "text": " sister.",
+              "start": 0.74,
+              "end": 1.06,
+              "probability": 0.9703000783920288
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "raw": "dear",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "raw": "sister.",
+          "start": 0.74,
+          "end": 1.06
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "dear",
+        "Sister,"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.02,
+          "end": 0.58
+        },
+        {
+          "text": "dear",
+          "start": 0.58,
+          "end": 0.74
+        },
+        {
+          "text": "Sister,",
+          "start": 0.74,
+          "end": 1.06
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.3197637940002096
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "855090536c4bcb835c14146609921f142bffaade0a64b46dbfe8a6f822ba5848",
+  "selected_reasons": []
+}

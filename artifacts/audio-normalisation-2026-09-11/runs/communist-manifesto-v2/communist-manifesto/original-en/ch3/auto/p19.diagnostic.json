@@ -1,0 +1,246 @@
+{
+  "complete": true,
+  "signature": "6ec06f8dbe749680647dab1b65ac8d61331828cd152faa382f6fe26df72d068b",
+  "attempts": [
+    {
+      "asr_seconds": 1.441645542000515,
+      "alignment_seconds": 0.00023584800055687083,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Let us now take wage-labour.",
+        "hotwords": "Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Let us now take wage-labour.",
+          "start": 0.05,
+          "end": 1.65,
+          "words": [
+            {
+              "text": " Let",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.9339504837989807
+            },
+            {
+              "text": " us",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.9934393763542175
+            },
+            {
+              "text": " now",
+              "start": 0.71,
+              "end": 0.87,
+              "probability": 0.976898193359375
+            },
+            {
+              "text": " take",
+              "start": 0.87,
+              "end": 1.09,
+              "probability": 0.9909818768501282
+            },
+            {
+              "text": " wage",
+              "start": 1.09,
+              "end": 1.27,
+              "probability": 0.914095938205719
+            },
+            {
+              "text": "-labour.",
+              "start": 1.27,
+              "end": 1.65,
+              "probability": 0.33530723191021633
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "us",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "now",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "raw": "take",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "raw": "wage",
+          "start": 1.09,
+          "end": 1.27
+        },
+        {
+          "raw": "-labour.",
+          "start": 1.27,
+          "end": 1.65
+        }
+      ],
+      "expected_tokens": [
+        "Let",
+        "us",
+        "now",
+        "take",
+        "wage-labour."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Let",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "let",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "us",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "now",
+          "start": 0.71,
+          "end": 0.87,
+          "key": "now",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "take",
+          "start": 0.87,
+          "end": 1.09,
+          "key": "take",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "wage -labour.",
+          "start": 1.09,
+          "end": 1.65,
+          "key": "wagelabour",
+          "pieces": [
+            4,
+            5
+          ]
+        }
+      ],
+      "merges": [
+        {
+          "expected_index": 4,
+          "text": "wage-labour.",
+          "heard": "wage -labour.",
+          "heard_indexes": [
+            4,
+            5
+          ],
+          "start": 1.09,
+          "end": 1.65
+        }
+      ],
+      "candidate_words": [
+        {
+          "text": "Let",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "us",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "now",
+          "start": 0.71,
+          "end": 0.87
+        },
+        {
+          "text": "take",
+          "start": 0.87,
+          "end": 1.09
+        },
+        {
+          "text": "wage-labour.",
+          "start": 1.09,
+          "end": 1.65
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.4419269729996813
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0e4f19ba88f1d9ecb75dd3a14dbc834f27e344bf4b3b0bf703bc7fbd18a17409",
+  "selected_reasons": []
+}

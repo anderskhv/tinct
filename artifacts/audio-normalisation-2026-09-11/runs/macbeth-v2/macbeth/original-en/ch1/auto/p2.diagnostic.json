@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "1dc7f23c74fcc32d5e0185b9a7ea6281e2b51212b36e60f8a386805ac57396e7",
+  "attempts": [
+    {
+      "asr_seconds": 2.094772802999614,
+      "alignment_seconds": 0.00023336599952017423,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Second Witch. When the hurlyburly's done, When the battle's lost and won.",
+        "hotwords": "Second, Witch, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Second, Witch, When the hurlyburly's done, When the battle's lost and won.",
+          "start": 0.08,
+          "end": 4.32,
+          "words": [
+            {
+              "text": " Second,",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.6913054585456848
+            },
+            {
+              "text": " Witch,",
+              "start": 0.86,
+              "end": 0.94,
+              "probability": 0.1097387745976448
+            },
+            {
+              "text": " When",
+              "start": 1.58,
+              "end": 1.66,
+              "probability": 0.3380224406719208
+            },
+            {
+              "text": " the",
+              "start": 1.66,
+              "end": 1.78,
+              "probability": 0.9715139269828796
+            },
+            {
+              "text": " hurlyburly's",
+              "start": 1.78,
+              "end": 2.4,
+              "probability": 0.5385639149695635
+            },
+            {
+              "text": " done,",
+              "start": 2.4,
+              "end": 2.6,
+              "probability": 0.97575843334198
+            },
+            {
+              "text": " When",
+              "start": 2.84,
+              "end": 2.9,
+              "probability": 0.6586102843284607
+            },
+            {
+              "text": " the",
+              "start": 2.9,
+              "end": 3.04,
+              "probability": 0.996383547782898
+            },
+            {
+              "text": " battle's",
+              "start": 3.04,
+              "end": 3.46,
+              "probability": 0.8191235363483429
+            },
+            {
+              "text": " lost",
+              "start": 3.46,
+              "end": 3.76,
+              "probability": 0.9902940988540649
+            },
+            {
+              "text": " and",
+              "start": 3.76,
+              "end": 4.08,
+              "probability": 0.8883640766143799
+            },
+            {
+              "text": " won.",
+              "start": 4.08,
+              "end": 4.32,
+              "probability": 0.9989245533943176
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "raw": "When",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "raw": "hurlyburly's",
+          "start": 1.78,
+          "end": 2.4
+        },
+        {
+          "raw": "done,",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "raw": "When",
+          "start": 2.84,
+          "end": 2.9
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "raw": "battle's",
+          "start": 3.04,
+          "end": 3.46
+        },
+        {
+          "raw": "lost",
+          "start": 3.46,
+          "end": 3.76
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.08
+        },
+        {
+          "raw": "won.",
+          "start": 4.08,
+          "end": 4.32
+        }
+      ],
+      "expected_tokens": [
+        "Second",
+        "Witch.",
+        "When",
+        "the",
+        "hurlyburly's",
+        "done,",
+        "When",
+        "the",
+        "battle's",
+        "lost",
+        "and",
+        "won."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Second,",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "second",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.86,
+          "end": 0.94,
+          "key": "witch",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 1.58,
+          "end": 1.66,
+          "key": "when",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.66,
+          "end": 1.78,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hurlyburly's",
+          "start": 1.78,
+          "end": 2.4,
+          "key": "hurlyburlys",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "done,",
+          "start": 2.4,
+          "end": 2.6,
+          "key": "done",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 2.84,
+          "end": 2.9,
+          "key": "when",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.9,
+          "end": 3.04,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "battle's",
+          "start": 3.04,
+          "end": 3.46,
+          "key": "battles",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "lost",
+          "start": 3.46,
+          "end": 3.76,
+          "key": "lost",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.76,
+          "end": 4.08,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "won.",
+          "start": 4.08,
+          "end": 4.32,
+          "key": "won",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Second",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Witch.",
+          "start": 0.86,
+          "end": 0.94
+        },
+        {
+          "text": "When",
+          "start": 1.58,
+          "end": 1.66
+        },
+        {
+          "text": "the",
+          "start": 1.66,
+          "end": 1.78
+        },
+        {
+          "text": "hurlyburly's",
+          "start": 1.78,
+          "end": 2.4
+        },
+        {
+          "text": "done,",
+          "start": 2.4,
+          "end": 2.6
+        },
+        {
+          "text": "When",
+          "start": 2.84,
+          "end": 2.9
+        },
+        {
+          "text": "the",
+          "start": 2.9,
+          "end": 3.04
+        },
+        {
+          "text": "battle's",
+          "start": 3.04,
+          "end": 3.46
+        },
+        {
+          "text": "lost",
+          "start": 3.46,
+          "end": 3.76
+        },
+        {
+          "text": "and",
+          "start": 3.76,
+          "end": 4.08
+        },
+        {
+          "text": "won.",
+          "start": 4.08,
+          "end": 4.32
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.0950732569999673
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "33a1424bc51062f814347dd8fe30accb7d5c31568962918d1161cd0eab58a666",
+  "selected_reasons": []
+}

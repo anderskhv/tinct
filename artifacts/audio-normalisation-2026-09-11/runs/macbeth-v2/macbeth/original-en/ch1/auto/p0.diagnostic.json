@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "312b17f7b5874ad11ab7dad016a3a2b684ef91465fe62b75ce83721e4c56f88c",
+  "attempts": [
+    {
+      "asr_seconds": 1.6255007199997635,
+      "alignment_seconds": 0.0001490220001869602,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "[Thunder and Lightning. Enter three Witches.]",
+        "hotwords": "Thunder, Lightning, Enter, Witches"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Thunder and Lightning, Enter three Witches.",
+          "start": 0.08,
+          "end": 2.52,
+          "words": [
+            {
+              "text": " Thunder",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.9593660235404968
+            },
+            {
+              "text": " and",
+              "start": 0.7,
+              "end": 0.92,
+              "probability": 0.9528596997261047
+            },
+            {
+              "text": " Lightning,",
+              "start": 0.92,
+              "end": 1.26,
+              "probability": 0.36843210458755493
+            },
+            {
+              "text": " Enter",
+              "start": 1.78,
+              "end": 1.92,
+              "probability": 0.1042214035987854
+            },
+            {
+              "text": " three",
+              "start": 1.92,
+              "end": 2.24,
+              "probability": 0.19726845622062683
+            },
+            {
+              "text": " Witches.",
+              "start": 2.24,
+              "end": 2.52,
+              "probability": 0.2016085833311081
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Thunder",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "and",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "raw": "Lightning,",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "raw": "Enter",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "raw": "three",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "raw": "Witches.",
+          "start": 2.24,
+          "end": 2.52
+        }
+      ],
+      "expected_tokens": [
+        "[Thunder",
+        "and",
+        "Lightning.",
+        "Enter",
+        "three",
+        "Witches.]"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Thunder",
+          "start": 0.08,
+          "end": 0.7,
+          "key": "thunder",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 0.7,
+          "end": 0.92,
+          "key": "and",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Lightning,",
+          "start": 0.92,
+          "end": 1.26,
+          "key": "lightning",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "Enter",
+          "start": 1.78,
+          "end": 1.92,
+          "key": "enter",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 1.92,
+          "end": 2.24,
+          "key": "three",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Witches.",
+          "start": 2.24,
+          "end": 2.52,
+          "key": "witches",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "[Thunder",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "and",
+          "start": 0.7,
+          "end": 0.92
+        },
+        {
+          "text": "Lightning.",
+          "start": 0.92,
+          "end": 1.26
+        },
+        {
+          "text": "Enter",
+          "start": 1.78,
+          "end": 1.92
+        },
+        {
+          "text": "three",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "text": "Witches.]",
+          "start": 2.24,
+          "end": 2.52
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.6256856049994894
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "063fd474444ad32bd9dbee98c657a4840464b6647db2db959d9a4c3e1236e4b8",
+  "selected_reasons": []
+}

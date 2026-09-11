@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "e1fb3532f313ce898b508f31c5dd8b7bd79222d232be1393ffc00fd2f11d0ae7",
+  "attempts": [
+    {
+      "asr_seconds": 1.6761785240005338,
+      "alignment_seconds": 0.00015284999972209334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Third Witch. That will be ere the set of sun.",
+        "hotwords": "Third, Witch, That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Third Witch, That will be ere the set of sun.",
+          "start": 0.05,
+          "end": 2.57,
+          "words": [
+            {
+              "text": " Third",
+              "start": 0.05,
+              "end": 0.63,
+              "probability": 0.8285930156707764
+            },
+            {
+              "text": " Witch,",
+              "start": 0.63,
+              "end": 0.89,
+              "probability": 0.3686351776123047
+            },
+            {
+              "text": " That",
+              "start": 1.39,
+              "end": 1.49,
+              "probability": 0.05503803864121437
+            },
+            {
+              "text": " will",
+              "start": 1.49,
+              "end": 1.61,
+              "probability": 0.8869222402572632
+            },
+            {
+              "text": " be",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.9763495922088623
+            },
+            {
+              "text": " ere",
+              "start": 1.75,
+              "end": 1.95,
+              "probability": 0.4928790698759258
+            },
+            {
+              "text": " the",
+              "start": 1.95,
+              "end": 2.09,
+              "probability": 0.9542456865310669
+            },
+            {
+              "text": " set",
+              "start": 2.09,
+              "end": 2.21,
+              "probability": 0.7786930799484253
+            },
+            {
+              "text": " of",
+              "start": 2.21,
+              "end": 2.33,
+              "probability": 0.994971752166748
+            },
+            {
+              "text": " sun.",
+              "start": 2.33,
+              "end": 2.57,
+              "probability": 0.521405041217804
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "raw": "That",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "raw": "will",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "raw": "be",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "ere",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "raw": "the",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "raw": "set",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "raw": "sun.",
+          "start": 2.33,
+          "end": 2.57
+        }
+      ],
+      "expected_tokens": [
+        "Third",
+        "Witch.",
+        "That",
+        "will",
+        "be",
+        "ere",
+        "the",
+        "set",
+        "of",
+        "sun."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Third",
+          "start": 0.05,
+          "end": 0.63
+        },
+        {
+          "text": "Witch.",
+          "start": 0.63,
+          "end": 0.89
+        },
+        {
+          "text": "That",
+          "start": 1.39,
+          "end": 1.49
+        },
+        {
+          "text": "will",
+          "start": 1.49,
+          "end": 1.61
+        },
+        {
+          "text": "be",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "ere",
+          "start": 1.75,
+          "end": 1.95
+        },
+        {
+          "text": "the",
+          "start": 1.95,
+          "end": 2.09
+        },
+        {
+          "text": "set",
+          "start": 2.09,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.21,
+          "end": 2.33
+        },
+        {
+          "text": "sun.",
+          "start": 2.33,
+          "end": 2.57
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.676389418999861
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "a813b2f7f3f2938500276594ba1d4dd85ac97a22683f4e5076e770c2d2404197",
+  "selected_reasons": []
+}

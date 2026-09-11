@@ -1,0 +1,430 @@
+{
+  "complete": true,
+  "signature": "22fe0356ba2bed362f3264ee1da1043f2e9af2bf73e6e523b16942314d4af1fe",
+  "attempts": [
+    {
+      "asr_seconds": 2.0912439850008013,
+      "alignment_seconds": 0.00015992499993444653,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "My swelling heart involuntarily pours itself out thus. But I must finish. Heaven bless my beloved sister!",
+        "hotwords": "But, I, Heaven"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " My swelling heart involuntarily pours itself out thus. But I must finish. Heaven bless my beloved sister!",
+          "start": 0.02,
+          "end": 7.02,
+          "words": [
+            {
+              "text": " My",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.8884363770484924
+            },
+            {
+              "text": " swelling",
+              "start": 0.56,
+              "end": 0.9,
+              "probability": 0.9815333485603333
+            },
+            {
+              "text": " heart",
+              "start": 0.9,
+              "end": 1.3,
+              "probability": 0.9822903275489807
+            },
+            {
+              "text": " involuntarily",
+              "start": 1.3,
+              "end": 2.12,
+              "probability": 0.9972194731235504
+            },
+            {
+              "text": " pours",
+              "start": 2.12,
+              "end": 2.58,
+              "probability": 0.9926504194736481
+            },
+            {
+              "text": " itself",
+              "start": 2.58,
+              "end": 2.86,
+              "probability": 0.9989389777183533
+            },
+            {
+              "text": " out",
+              "start": 2.86,
+              "end": 3.2,
+              "probability": 0.9982581734657288
+            },
+            {
+              "text": " thus.",
+              "start": 3.2,
+              "end": 3.52,
+              "probability": 0.9490309357643127
+            },
+            {
+              "text": " But",
+              "start": 4.04,
+              "end": 4.2,
+              "probability": 0.9832274913787842
+            },
+            {
+              "text": " I",
+              "start": 4.2,
+              "end": 4.28,
+              "probability": 0.9803977608680725
+            },
+            {
+              "text": " must",
+              "start": 4.28,
+              "end": 4.48,
+              "probability": 0.9985755681991577
+            },
+            {
+              "text": " finish.",
+              "start": 4.48,
+              "end": 4.88,
+              "probability": 0.9976509213447571
+            },
+            {
+              "text": " Heaven",
+              "start": 5.66,
+              "end": 5.76,
+              "probability": 0.9650013446807861
+            },
+            {
+              "text": " bless",
+              "start": 5.76,
+              "end": 6.08,
+              "probability": 0.9722800850868225
+            },
+            {
+              "text": " my",
+              "start": 6.08,
+              "end": 6.34,
+              "probability": 0.9490046501159668
+            },
+            {
+              "text": " beloved",
+              "start": 6.34,
+              "end": 6.66,
+              "probability": 0.9944469928741455
+            },
+            {
+              "text": " sister!",
+              "start": 6.66,
+              "end": 7.02,
+              "probability": 0.8471349477767944
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "My",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "swelling",
+          "start": 0.56,
+          "end": 0.9
+        },
+        {
+          "raw": "heart",
+          "start": 0.9,
+          "end": 1.3
+        },
+        {
+          "raw": "involuntarily",
+          "start": 1.3,
+          "end": 2.12
+        },
+        {
+          "raw": "pours",
+          "start": 2.12,
+          "end": 2.58
+        },
+        {
+          "raw": "itself",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "raw": "out",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "raw": "thus.",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "raw": "But",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "raw": "I",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "raw": "must",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "raw": "finish.",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "raw": "Heaven",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "raw": "bless",
+          "start": 5.76,
+          "end": 6.08
+        },
+        {
+          "raw": "my",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "raw": "beloved",
+          "start": 6.34,
+          "end": 6.66
+        },
+        {
+          "raw": "sister!",
+          "start": 6.66,
+          "end": 7.02
+        }
+      ],
+      "expected_tokens": [
+        "My",
+        "swelling",
+        "heart",
+        "involuntarily",
+        "pours",
+        "itself",
+        "out",
+        "thus.",
+        "But",
+        "I",
+        "must",
+        "finish.",
+        "Heaven",
+        "bless",
+        "my",
+        "beloved",
+        "sister!"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "My",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "swelling",
+          "start": 0.56,
+          "end": 0.9
+        },
+        {
+          "text": "heart",
+          "start": 0.9,
+          "end": 1.3
+        },
+        {
+          "text": "involuntarily",
+          "start": 1.3,
+          "end": 2.12
+        },
+        {
+          "text": "pours",
+          "start": 2.12,
+          "end": 2.58
+        },
+        {
+          "text": "itself",
+          "start": 2.58,
+          "end": 2.86
+        },
+        {
+          "text": "out",
+          "start": 2.86,
+          "end": 3.2
+        },
+        {
+          "text": "thus.",
+          "start": 3.2,
+          "end": 3.52
+        },
+        {
+          "text": "But",
+          "start": 4.04,
+          "end": 4.2
+        },
+        {
+          "text": "I",
+          "start": 4.2,
+          "end": 4.28
+        },
+        {
+          "text": "must",
+          "start": 4.28,
+          "end": 4.48
+        },
+        {
+          "text": "finish.",
+          "start": 4.48,
+          "end": 4.88
+        },
+        {
+          "text": "Heaven",
+          "start": 5.66,
+          "end": 5.76
+        },
+        {
+          "text": "bless",
+          "start": 5.76,
+          "end": 6.08
+        },
+        {
+          "text": "my",
+          "start": 6.08,
+          "end": 6.34
+        },
+        {
+          "text": "beloved",
+          "start": 6.34,
+          "end": 6.66
+        },
+        {
+          "text": "sister!",
+          "start": 6.66,
+          "end": 7.02
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 2.09149579500081
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b7e6190db02bc69fa0acc28e5742e5d3f5ebd810c43127ba94931a4cb85d8f8a",
+  "selected_reasons": []
+}

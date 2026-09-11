@@ -1,0 +1,364 @@
+{
+  "complete": true,
+  "signature": "80e9e98b1b3fc23fca09f4d1130d695d4e6a506e5e16485bce6e41ad35f20a20",
+  "attempts": [
+    {
+      "asr_seconds": 1.8998248650004825,
+      "alignment_seconds": 0.0001587149999977555,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "First Witch. When shall we three meet again? In thunder, lightning, or in rain?",
+        "hotwords": "First, Witch, When"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " First Witch, When shall we three meet again? In thunder, lightning, or in rain?",
+          "start": 0.05,
+          "end": 4.81,
+          "words": [
+            {
+              "text": " First",
+              "start": 0.05,
+              "end": 0.67,
+              "probability": 0.8137550950050354
+            },
+            {
+              "text": " Witch,",
+              "start": 0.67,
+              "end": 0.95,
+              "probability": 0.20024247467517853
+            },
+            {
+              "text": " When",
+              "start": 1.55,
+              "end": 1.59,
+              "probability": 0.19053760170936584
+            },
+            {
+              "text": " shall",
+              "start": 1.59,
+              "end": 1.75,
+              "probability": 0.7884216904640198
+            },
+            {
+              "text": " we",
+              "start": 1.75,
+              "end": 1.91,
+              "probability": 0.9805555939674377
+            },
+            {
+              "text": " three",
+              "start": 1.91,
+              "end": 2.11,
+              "probability": 0.8886662125587463
+            },
+            {
+              "text": " meet",
+              "start": 2.11,
+              "end": 2.31,
+              "probability": 0.992205798625946
+            },
+            {
+              "text": " again?",
+              "start": 2.31,
+              "end": 2.59,
+              "probability": 0.9901722073554993
+            },
+            {
+              "text": " In",
+              "start": 3.07,
+              "end": 3.19,
+              "probability": 0.7963903546333313
+            },
+            {
+              "text": " thunder,",
+              "start": 3.19,
+              "end": 3.47,
+              "probability": 0.29509904980659485
+            },
+            {
+              "text": " lightning,",
+              "start": 3.85,
+              "end": 4.05,
+              "probability": 0.8603665828704834
+            },
+            {
+              "text": " or",
+              "start": 4.39,
+              "end": 4.41,
+              "probability": 0.9922196865081787
+            },
+            {
+              "text": " in",
+              "start": 4.41,
+              "end": 4.57,
+              "probability": 0.9697937369346619
+            },
+            {
+              "text": " rain?",
+              "start": 4.57,
+              "end": 4.81,
+              "probability": 0.9955999851226807
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "raw": "Witch,",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "raw": "When",
+          "start": 1.55,
+          "end": 1.59
+        },
+        {
+          "raw": "shall",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "raw": "we",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "raw": "three",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "raw": "meet",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "raw": "again?",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "raw": "In",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "raw": "thunder,",
+          "start": 3.19,
+          "end": 3.47
+        },
+        {
+          "raw": "lightning,",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "raw": "or",
+          "start": 4.39,
+          "end": 4.41
+        },
+        {
+          "raw": "in",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "raw": "rain?",
+          "start": 4.57,
+          "end": 4.81
+        }
+      ],
+      "expected_tokens": [
+        "First",
+        "Witch.",
+        "When",
+        "shall",
+        "we",
+        "three",
+        "meet",
+        "again?",
+        "In",
+        "thunder,",
+        "lightning,",
+        "or",
+        "in",
+        "rain?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          14,
+          0,
+          14
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "First",
+          "start": 0.05,
+          "end": 0.67
+        },
+        {
+          "text": "Witch.",
+          "start": 0.67,
+          "end": 0.95
+        },
+        {
+          "text": "When",
+          "start": 1.55,
+          "end": 1.59
+        },
+        {
+          "text": "shall",
+          "start": 1.59,
+          "end": 1.75
+        },
+        {
+          "text": "we",
+          "start": 1.75,
+          "end": 1.91
+        },
+        {
+          "text": "three",
+          "start": 1.91,
+          "end": 2.11
+        },
+        {
+          "text": "meet",
+          "start": 2.11,
+          "end": 2.31
+        },
+        {
+          "text": "again?",
+          "start": 2.31,
+          "end": 2.59
+        },
+        {
+          "text": "In",
+          "start": 3.07,
+          "end": 3.19
+        },
+        {
+          "text": "thunder,",
+          "start": 3.19,
+          "end": 3.47
+        },
+        {
+          "text": "lightning,",
+          "start": 3.85,
+          "end": 4.05
+        },
+        {
+          "text": "or",
+          "start": 4.39,
+          "end": 4.41
+        },
+        {
+          "text": "in",
+          "start": 4.41,
+          "end": 4.57
+        },
+        {
+          "text": "rain?",
+          "start": 4.57,
+          "end": 4.81
+        }
+      ],
+      "stats": {
+        "expected_words": 14,
+        "heard_words": 14,
+        "matched_words": 14
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 1.9000456020003185
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "87fc530705068dc95dfe3cecaf7bd6f4af44850931586bc5ca58d0cdabe75d0a",
+  "selected_reasons": []
+}
