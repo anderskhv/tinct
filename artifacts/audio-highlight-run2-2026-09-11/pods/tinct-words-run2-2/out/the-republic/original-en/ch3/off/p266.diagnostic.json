@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "985834f8ec5c74144e56af52078f1e1af9373869130e3f84506ff656eef72fa9",
+  "attempts": [
+    {
+      "asr_seconds": 0.3477068208158016,
+      "alignment_seconds": 0.0003560110926628113,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " There can be no nobler training than that,\" he replied.",
+          "start": 0.02,
+          "end": 2.88,
+          "words": [
+            {
+              "text": " There",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.497802734375
+            },
+            {
+              "text": " can",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 0.6,
+              "end": 0.74,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " no",
+              "start": 0.74,
+              "end": 0.98,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " nobler",
+              "start": 0.98,
+              "end": 1.34,
+              "probability": 0.967041015625
+            },
+            {
+              "text": " training",
+              "start": 1.34,
+              "end": 1.6,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.9921875
+            },
+            {
+              "text": " that,\"",
+              "start": 1.82,
+              "end": 2.36,
+              "probability": 0.7177734375
+            },
+            {
+              "text": " he",
+              "start": 2.36,
+              "end": 2.52,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " replied.",
+              "start": 2.52,
+              "end": 2.88,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "be",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "raw": "no",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "raw": "nobler",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "raw": "training",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "raw": "than",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "that,\"",
+          "start": 1.82,
+          "end": 2.36
+        },
+        {
+          "raw": "he",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "raw": "replied.",
+          "start": 2.52,
+          "end": 2.88
+        }
+      ],
+      "expected_tokens": [
+        "There",
+        "can",
+        "be",
+        "no",
+        "nobler",
+        "training",
+        "than",
+        "that,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "There",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "there",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 0.5,
+          "end": 0.6,
+          "key": "can",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 0.6,
+          "end": 0.74,
+          "key": "be",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "no",
+          "start": 0.74,
+          "end": 0.98,
+          "key": "no",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "nobler",
+          "start": 0.98,
+          "end": 1.34,
+          "key": "nobler",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "training",
+          "start": 1.34,
+          "end": 1.6,
+          "key": "training",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 1.6,
+          "end": 1.82,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that,\"",
+          "start": 1.82,
+          "end": 2.36,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.36,
+          "end": 2.52,
+          "key": "he",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 2.52,
+          "end": 2.88,
+          "key": "replied",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "There",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "can",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "be",
+          "start": 0.6,
+          "end": 0.74
+        },
+        {
+          "text": "no",
+          "start": 0.74,
+          "end": 0.98
+        },
+        {
+          "text": "nobler",
+          "start": 0.98,
+          "end": 1.34
+        },
+        {
+          "text": "training",
+          "start": 1.34,
+          "end": 1.6
+        },
+        {
+          "text": "than",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "that,",
+          "start": 1.82,
+          "end": 2.36
+        },
+        {
+          "text": "he",
+          "start": 2.36,
+          "end": 2.52
+        },
+        {
+          "text": "replied.",
+          "start": 2.52,
+          "end": 2.88
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3481709137558937
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "824160a49d83fd92ddc6213268fcbcd84cbefcfa81a3472feab6a38526b1c1bb",
+  "selected_reasons": []
+}

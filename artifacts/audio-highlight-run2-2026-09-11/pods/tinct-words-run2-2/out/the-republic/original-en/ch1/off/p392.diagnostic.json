@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "95fa210c71fe3bdf361c5369a08cb647de241f0879d686be7c25454d32596336",
+  "attempts": [
+    {
+      "asr_seconds": 0.2312106341123581,
+      "alignment_seconds": 0.00021331757307052612,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " They were",
+          "start": 0.05,
+          "end": 0.77,
+          "words": [
+            {
+              "text": " They",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.814453125
+            },
+            {
+              "text": " were",
+              "start": 0.57,
+              "end": 0.77,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "were",
+          "start": 0.57,
+          "end": 0.77
+        }
+      ],
+      "expected_tokens": [
+        "They",
+        "were."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "They",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "they",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "were",
+          "start": 0.57,
+          "end": 0.77,
+          "key": "were",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "They",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "were.",
+          "start": 0.57,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23149210214614868
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8181629621d9cde2615ab1ac36efbf8bac980f4df93c5996e668bfe836942615",
+  "selected_reasons": []
+}

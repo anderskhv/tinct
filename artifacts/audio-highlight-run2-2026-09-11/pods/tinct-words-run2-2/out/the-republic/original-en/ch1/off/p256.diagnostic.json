@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "a5d1907ea3a72de9b24062e2b4a6994ac58bf24ed3bb4dc4ff2892f92bde42a0",
+  "attempts": [
+    {
+      "asr_seconds": 0.29536934942007065,
+      "alignment_seconds": 0.0003203079104423523,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, that is the aim of art.",
+          "start": 0.42,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.42,
+              "end": 0.7,
+              "probability": 0.91796875
+            },
+            {
+              "text": " that",
+              "start": 1.0,
+              "end": 1.12,
+              "probability": 0.9921875
+            },
+            {
+              "text": " is",
+              "start": 1.12,
+              "end": 1.24,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 1.24,
+              "end": 1.36,
+              "probability": 0.998046875
+            },
+            {
+              "text": " aim",
+              "start": 1.36,
+              "end": 1.5,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " of",
+              "start": 1.5,
+              "end": 1.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " art.",
+              "start": 1.64,
+              "end": 1.92,
+              "probability": 0.98046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.42,
+          "end": 0.7
+        },
+        {
+          "raw": "that",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "raw": "is",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "raw": "aim",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "raw": "art.",
+          "start": 1.64,
+          "end": 1.92
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "that",
+        "is",
+        "the",
+        "aim",
+        "of",
+        "art."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.42,
+          "end": 0.7,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.0,
+          "end": 1.12,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.12,
+          "end": 1.24,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.24,
+          "end": 1.36,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "aim",
+          "start": 1.36,
+          "end": 1.5,
+          "key": "aim",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.5,
+          "end": 1.64,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "art.",
+          "start": 1.64,
+          "end": 1.92,
+          "key": "art",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.42,
+          "end": 0.7
+        },
+        {
+          "text": "that",
+          "start": 1.0,
+          "end": 1.12
+        },
+        {
+          "text": "is",
+          "start": 1.12,
+          "end": 1.24
+        },
+        {
+          "text": "the",
+          "start": 1.24,
+          "end": 1.36
+        },
+        {
+          "text": "aim",
+          "start": 1.36,
+          "end": 1.5
+        },
+        {
+          "text": "of",
+          "start": 1.5,
+          "end": 1.64
+        },
+        {
+          "text": "art.",
+          "start": 1.64,
+          "end": 1.92
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2958263047039509
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5f7061b189dd7689f3dd93f952f26c33f43d98e39930f105dcd8fdfd5c5d4609",
+  "selected_reasons": []
+}

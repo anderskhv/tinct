@@ -1,0 +1,338 @@
+{
+  "complete": true,
+  "signature": "1daeece08da5cfc19215548fed06aaea66d3e0dea05c29e8753773286931b3a9",
+  "attempts": [
+    {
+      "asr_seconds": 0.2899058237671852,
+      "alignment_seconds": 0.00038234516978263855,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " and has not the soul and excellence also.",
+          "start": 0.05,
+          "end": 2.17,
+          "words": [
+            {
+              "text": " and",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.544921875
+            },
+            {
+              "text": " has",
+              "start": 0.51,
+              "end": 0.65,
+              "probability": 0.984375
+            },
+            {
+              "text": " not",
+              "start": 0.65,
+              "end": 0.83,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 0.83,
+              "end": 0.97,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " soul",
+              "start": 0.97,
+              "end": 1.13,
+              "probability": 0.890625
+            },
+            {
+              "text": " and",
+              "start": 1.13,
+              "end": 1.29,
+              "probability": 0.50341796875
+            },
+            {
+              "text": " excellence",
+              "start": 1.29,
+              "end": 1.65,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " also.",
+              "start": 1.65,
+              "end": 2.17,
+              "probability": 0.8720703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "has",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "raw": "not",
+          "start": 0.65,
+          "end": 0.83
+        },
+        {
+          "raw": "the",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "raw": "soul",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.29
+        },
+        {
+          "raw": "excellence",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "raw": "also.",
+          "start": 1.65,
+          "end": 2.17
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "has",
+        "not",
+        "the",
+        "soul",
+        "an",
+        "excellence",
+        "also?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ],
+        [
+          "equal",
+          6,
+          8,
+          6,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          6
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "and",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 0.51,
+          "end": 0.65,
+          "key": "has",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.65,
+          "end": 0.83,
+          "key": "not",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.83,
+          "end": 0.97,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "soul",
+          "start": 0.97,
+          "end": 1.13,
+          "key": "soul",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.13,
+          "end": 1.29,
+          "key": "and",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "excellence",
+          "start": 1.29,
+          "end": 1.65,
+          "key": "excellence",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "also.",
+          "start": 1.65,
+          "end": 2.17,
+          "key": "also",
+          "pieces": [
+            7
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "has",
+          "start": 0.51,
+          "end": 0.65
+        },
+        {
+          "text": "not",
+          "start": 0.65,
+          "end": 0.83
+        },
+        {
+          "text": "the",
+          "start": 0.83,
+          "end": 0.97
+        },
+        {
+          "text": "soul",
+          "start": 0.97,
+          "end": 1.13
+        },
+        {
+          "text": "an",
+          "start": 1.13,
+          "end": 1.21
+        },
+        {
+          "text": "excellence",
+          "start": 1.29,
+          "end": 1.65
+        },
+        {
+          "text": "also?",
+          "start": 1.65,
+          "end": 2.17
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 7
+      },
+      "match_ratio": 0.875,
+      "rejection_reasons": [],
+      "seconds": 0.29042618349194527
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a0c4647bb344713cdb64f92771a496354bda1eee32cda65d94f2469022ef0579",
+  "selected_reasons": []
+}

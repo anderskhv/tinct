@@ -1,0 +1,278 @@
+{
+  "complete": true,
+  "signature": "a90a6831657739aaf445c7322b837dd6e9b14017aa4ad27ec48ddd5a89f7df54",
+  "attempts": [
+    {
+      "asr_seconds": 0.250531442463398,
+      "alignment_seconds": 0.000340193510055542,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " or here, except with the ear.",
+          "start": 0.05,
+          "end": 1.81,
+          "words": [
+            {
+              "text": " or",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.5625
+            },
+            {
+              "text": " here,",
+              "start": 0.55,
+              "end": 0.87,
+              "probability": 0.982421875
+            },
+            {
+              "text": " except",
+              "start": 1.09,
+              "end": 1.29,
+              "probability": 0.99609375
+            },
+            {
+              "text": " with",
+              "start": 1.29,
+              "end": 1.47,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " the",
+              "start": 1.47,
+              "end": 1.59,
+              "probability": 0.99609375
+            },
+            {
+              "text": " ear.",
+              "start": 1.59,
+              "end": 1.81,
+              "probability": 0.99560546875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "or",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "here,",
+          "start": 0.55,
+          "end": 0.87
+        },
+        {
+          "raw": "except",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "raw": "with",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "raw": "ear.",
+          "start": 1.59,
+          "end": 1.81
+        }
+      ],
+      "expected_tokens": [
+        "Or",
+        "hear,",
+        "except",
+        "with",
+        "the",
+        "ear?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          "equal",
+          2,
+          6,
+          2,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          1,
+          2,
+          1,
+          2
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "or",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "or",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "here,",
+          "start": 0.55,
+          "end": 0.87,
+          "key": "here",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "except",
+          "start": 1.09,
+          "end": 1.29,
+          "key": "except",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.29,
+          "end": 1.47,
+          "key": "with",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.47,
+          "end": 1.59,
+          "key": "the",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "ear.",
+          "start": 1.59,
+          "end": 1.81,
+          "key": "ear",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Or",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "hear,",
+          "start": 0.55,
+          "end": 0.82
+        },
+        {
+          "text": "except",
+          "start": 1.09,
+          "end": 1.29
+        },
+        {
+          "text": "with",
+          "start": 1.29,
+          "end": 1.47
+        },
+        {
+          "text": "the",
+          "start": 1.47,
+          "end": 1.59
+        },
+        {
+          "text": "ear?",
+          "start": 1.59,
+          "end": 1.81
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 5
+      },
+      "match_ratio": 0.8333333333333334,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.25098636746406555
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8f1e7182fb7baebbaa85a3587c12a1700356ba6c9c37ffda5847cddc815d8181",
+  "selected_reasons": [
+    "observed_alignment_below_85_percent"
+  ]
+}

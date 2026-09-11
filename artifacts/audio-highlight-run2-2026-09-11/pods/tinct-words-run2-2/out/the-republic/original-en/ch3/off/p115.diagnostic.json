@@ -1,0 +1,668 @@
+{
+  "complete": true,
+  "signature": "e8b42fb506c265f16dfdc04715608c04eb51a0da97eac5890b0b1dcb34a13925",
+  "attempts": [
+    {
+      "asr_seconds": 0.4140567444264889,
+      "alignment_seconds": 0.0004871748387813568,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And therefore let us put an end to such tales, lest they engender laxity of morals among the young.",
+          "start": 0.05,
+          "end": 6.05,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.377685546875
+            },
+            {
+              "text": " therefore",
+              "start": 0.53,
+              "end": 0.89,
+              "probability": 0.97265625
+            },
+            {
+              "text": " let",
+              "start": 0.89,
+              "end": 1.15,
+              "probability": 0.73876953125
+            },
+            {
+              "text": " us",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " put",
+              "start": 1.31,
+              "end": 1.45,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " an",
+              "start": 1.45,
+              "end": 1.57,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " end",
+              "start": 1.57,
+              "end": 1.77,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 1.77,
+              "end": 2.01,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " such",
+              "start": 2.01,
+              "end": 2.21,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " tales,",
+              "start": 2.21,
+              "end": 2.67,
+              "probability": 0.998046875
+            },
+            {
+              "text": " lest",
+              "start": 3.27,
+              "end": 3.33,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " they",
+              "start": 3.33,
+              "end": 3.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " engender",
+              "start": 3.61,
+              "end": 4.13,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " laxity",
+              "start": 4.13,
+              "end": 4.67,
+              "probability": 0.990966796875
+            },
+            {
+              "text": " of",
+              "start": 4.67,
+              "end": 4.83,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " morals",
+              "start": 4.83,
+              "end": 5.23,
+              "probability": 0.998046875
+            },
+            {
+              "text": " among",
+              "start": 5.23,
+              "end": 5.59,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 5.59,
+              "end": 5.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " young.",
+              "start": 5.77,
+              "end": 6.05,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "therefore",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "raw": "let",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "raw": "us",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "put",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "raw": "an",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "raw": "end",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "raw": "to",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "raw": "such",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "raw": "tales,",
+          "start": 2.21,
+          "end": 2.67
+        },
+        {
+          "raw": "lest",
+          "start": 3.27,
+          "end": 3.33
+        },
+        {
+          "raw": "they",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "raw": "engender",
+          "start": 3.61,
+          "end": 4.13
+        },
+        {
+          "raw": "laxity",
+          "start": 4.13,
+          "end": 4.67
+        },
+        {
+          "raw": "of",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "raw": "morals",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "raw": "among",
+          "start": 5.23,
+          "end": 5.59
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.77
+        },
+        {
+          "raw": "young.",
+          "start": 5.77,
+          "end": 6.05
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "therefore",
+        "let",
+        "us",
+        "put",
+        "an",
+        "end",
+        "to",
+        "such",
+        "tales,",
+        "lest",
+        "they",
+        "engender",
+        "laxity",
+        "of",
+        "morals",
+        "among",
+        "the",
+        "young."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "therefore",
+          "start": 0.53,
+          "end": 0.89,
+          "key": "therefore",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "let",
+          "start": 0.89,
+          "end": 1.15,
+          "key": "let",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "us",
+          "start": 1.15,
+          "end": 1.31,
+          "key": "us",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "put",
+          "start": 1.31,
+          "end": 1.45,
+          "key": "put",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 1.45,
+          "end": 1.57,
+          "key": "an",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "end",
+          "start": 1.57,
+          "end": 1.77,
+          "key": "end",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.77,
+          "end": 2.01,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "such",
+          "start": 2.01,
+          "end": 2.21,
+          "key": "such",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "tales,",
+          "start": 2.21,
+          "end": 2.67,
+          "key": "tales",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "lest",
+          "start": 3.27,
+          "end": 3.33,
+          "key": "lest",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.33,
+          "end": 3.61,
+          "key": "they",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "engender",
+          "start": 3.61,
+          "end": 4.13,
+          "key": "engender",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "laxity",
+          "start": 4.13,
+          "end": 4.67,
+          "key": "laxity",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 4.67,
+          "end": 4.83,
+          "key": "of",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "morals",
+          "start": 4.83,
+          "end": 5.23,
+          "key": "morals",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "among",
+          "start": 5.23,
+          "end": 5.59,
+          "key": "among",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.59,
+          "end": 5.77,
+          "key": "the",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "young.",
+          "start": 5.77,
+          "end": 6.05,
+          "key": "young",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "therefore",
+          "start": 0.53,
+          "end": 0.89
+        },
+        {
+          "text": "let",
+          "start": 0.89,
+          "end": 1.15
+        },
+        {
+          "text": "us",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "put",
+          "start": 1.31,
+          "end": 1.45
+        },
+        {
+          "text": "an",
+          "start": 1.45,
+          "end": 1.57
+        },
+        {
+          "text": "end",
+          "start": 1.57,
+          "end": 1.77
+        },
+        {
+          "text": "to",
+          "start": 1.77,
+          "end": 2.01
+        },
+        {
+          "text": "such",
+          "start": 2.01,
+          "end": 2.21
+        },
+        {
+          "text": "tales,",
+          "start": 2.21,
+          "end": 2.67
+        },
+        {
+          "text": "lest",
+          "start": 3.27,
+          "end": 3.33
+        },
+        {
+          "text": "they",
+          "start": 3.33,
+          "end": 3.61
+        },
+        {
+          "text": "engender",
+          "start": 3.61,
+          "end": 4.13
+        },
+        {
+          "text": "laxity",
+          "start": 4.13,
+          "end": 4.67
+        },
+        {
+          "text": "of",
+          "start": 4.67,
+          "end": 4.83
+        },
+        {
+          "text": "morals",
+          "start": 4.83,
+          "end": 5.23
+        },
+        {
+          "text": "among",
+          "start": 5.23,
+          "end": 5.59
+        },
+        {
+          "text": "the",
+          "start": 5.59,
+          "end": 5.77
+        },
+        {
+          "text": "young.",
+          "start": 5.77,
+          "end": 6.05
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4147372245788574
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "df486e1932cdf44c101e18f1f359a12d1cd550b9d2e48b6b6c771f0269cfc4eb",
+  "selected_reasons": []
+}

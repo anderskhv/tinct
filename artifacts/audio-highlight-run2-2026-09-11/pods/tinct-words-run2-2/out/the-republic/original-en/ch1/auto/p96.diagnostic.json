@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "be545f7cf94006bb531a2cff31a1a85429a891f17c7273324f7e2cc09342dc82",
+  "attempts": [
+    {
+      "asr_seconds": 0.20424899831414223,
+      "alignment_seconds": 0.00019093602895736694,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Precisely.",
+        "hotwords": "Precisely"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Precisely.",
+          "start": 0.05,
+          "end": 1.07,
+          "words": [
+            {
+              "text": " Precisely.",
+              "start": 0.05,
+              "end": 1.07,
+              "probability": 0.7578938802083334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Precisely.",
+          "start": 0.05,
+          "end": 1.07
+        }
+      ],
+      "expected_tokens": [
+        "Precisely."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Precisely.",
+          "start": 0.05,
+          "end": 1.07,
+          "key": "precisely",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Precisely.",
+          "start": 0.05,
+          "end": 1.07
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20449967682361603
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "faa9d901c632b77d2c4e1a4e50cd471afe98755288fc6e7ef7f364624d6c4d16",
+  "selected_reasons": []
+}

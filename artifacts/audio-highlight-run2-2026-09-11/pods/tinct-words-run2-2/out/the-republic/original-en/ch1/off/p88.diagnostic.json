@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "093c26eb6f572d2ce6fbaa9be3ea907a93d374e71f7945080cb143defb1db59e",
+  "attempts": [
+    {
+      "asr_seconds": 0.2630571983754635,
+      "alignment_seconds": 0.0002658255398273468,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " in a money partnership.",
+          "start": 0.05,
+          "end": 1.45,
+          "words": [
+            {
+              "text": " in",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.63671875
+            },
+            {
+              "text": " a",
+              "start": 0.51,
+              "end": 0.59,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " money",
+              "start": 0.59,
+              "end": 0.79,
+              "probability": 0.90283203125
+            },
+            {
+              "text": " partnership.",
+              "start": 0.79,
+              "end": 1.45,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "raw": "money",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "raw": "partnership.",
+          "start": 0.79,
+          "end": 1.45
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "a",
+        "money",
+        "partnership."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "in",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "in",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 0.51,
+          "end": 0.59,
+          "key": "a",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "money",
+          "start": 0.59,
+          "end": 0.79,
+          "key": "money",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "partnership.",
+          "start": 0.79,
+          "end": 1.45,
+          "key": "partnership",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "a",
+          "start": 0.51,
+          "end": 0.59
+        },
+        {
+          "text": "money",
+          "start": 0.59,
+          "end": 0.79
+        },
+        {
+          "text": "partnership.",
+          "start": 0.79,
+          "end": 1.45
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2634160593152046
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9b0897903882c9e6a7f8c95db736baf880e4a1450e7b10e73c552f89d2620c97",
+  "selected_reasons": []
+}

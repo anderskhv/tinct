@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "b80e0fee092327d5e087a66924ec7757e3ca1e9e392a47815c5bec92d309ffa3",
+  "attempts": [
+    {
+      "asr_seconds": 0.4074549823999405,
+      "alignment_seconds": 0.00043371692299842834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " whereas the bad and ignorant will desire to gain more than both.",
+          "start": 0.05,
+          "end": 3.85,
+          "words": [
+            {
+              "text": " whereas",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.5400390625
+            },
+            {
+              "text": " the",
+              "start": 0.73,
+              "end": 1.01,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " bad",
+              "start": 1.01,
+              "end": 1.33,
+              "probability": 0.9404296875
+            },
+            {
+              "text": " and",
+              "start": 1.33,
+              "end": 1.53,
+              "probability": 0.97216796875
+            },
+            {
+              "text": " ignorant",
+              "start": 1.53,
+              "end": 1.95,
+              "probability": 0.99609375
+            },
+            {
+              "text": " will",
+              "start": 1.95,
+              "end": 2.41,
+              "probability": 0.982421875
+            },
+            {
+              "text": " desire",
+              "start": 2.41,
+              "end": 2.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " to",
+              "start": 2.73,
+              "end": 2.93,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " gain",
+              "start": 2.93,
+              "end": 3.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " more",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " than",
+              "start": 3.39,
+              "end": 3.59,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " both.",
+              "start": 3.59,
+              "end": 3.85,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "whereas",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 1.01
+        },
+        {
+          "raw": "bad",
+          "start": 1.01,
+          "end": 1.33
+        },
+        {
+          "raw": "and",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "raw": "ignorant",
+          "start": 1.53,
+          "end": 1.95
+        },
+        {
+          "raw": "will",
+          "start": 1.95,
+          "end": 2.41
+        },
+        {
+          "raw": "desire",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "raw": "gain",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "raw": "more",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "than",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "raw": "both.",
+          "start": 3.59,
+          "end": 3.85
+        }
+      ],
+      "expected_tokens": [
+        "Whereas",
+        "the",
+        "bad",
+        "and",
+        "ignorant",
+        "will",
+        "desire",
+        "to",
+        "gain",
+        "more",
+        "than",
+        "both?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "whereas",
+          "start": 0.05,
+          "end": 0.73,
+          "key": "whereas",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.73,
+          "end": 1.01,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "bad",
+          "start": 1.01,
+          "end": 1.33,
+          "key": "bad",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.33,
+          "end": 1.53,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "ignorant",
+          "start": 1.53,
+          "end": 1.95,
+          "key": "ignorant",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.95,
+          "end": 2.41,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "desire",
+          "start": 2.41,
+          "end": 2.73,
+          "key": "desire",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 2.73,
+          "end": 2.93,
+          "key": "to",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "gain",
+          "start": 2.93,
+          "end": 3.13,
+          "key": "gain",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "more",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 3.39,
+          "end": 3.59,
+          "key": "than",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "both.",
+          "start": 3.59,
+          "end": 3.85,
+          "key": "both",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Whereas",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "the",
+          "start": 0.73,
+          "end": 1.01
+        },
+        {
+          "text": "bad",
+          "start": 1.01,
+          "end": 1.33
+        },
+        {
+          "text": "and",
+          "start": 1.33,
+          "end": 1.53
+        },
+        {
+          "text": "ignorant",
+          "start": 1.53,
+          "end": 1.95
+        },
+        {
+          "text": "will",
+          "start": 1.95,
+          "end": 2.41
+        },
+        {
+          "text": "desire",
+          "start": 2.41,
+          "end": 2.73
+        },
+        {
+          "text": "to",
+          "start": 2.73,
+          "end": 2.93
+        },
+        {
+          "text": "gain",
+          "start": 2.93,
+          "end": 3.13
+        },
+        {
+          "text": "more",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "than",
+          "start": 3.39,
+          "end": 3.59
+        },
+        {
+          "text": "both?",
+          "start": 3.59,
+          "end": 3.85
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.40806107595562935
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "a4f557bf91bb3b27126ade4f20c8c763812e4d660928abf4309d8e522e1d70ae",
+  "selected_reasons": []
+}

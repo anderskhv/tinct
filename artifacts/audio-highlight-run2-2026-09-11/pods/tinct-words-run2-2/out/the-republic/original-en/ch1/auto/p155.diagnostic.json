@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "6a37b2a0aab26d094537c4030c96694515a414e8194a55b05faddc35283f1c19",
+  "attempts": [
+    {
+      "asr_seconds": 0.21520578861236572,
+      "alignment_seconds": 0.0002158433198928833,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is the result.",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is the result.",
+          "start": 0.05,
+          "end": 1.15,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.9365234375
+            },
+            {
+              "text": " is",
+              "start": 0.57,
+              "end": 0.71,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " the",
+              "start": 0.71,
+              "end": 0.85,
+              "probability": 0.998046875
+            },
+            {
+              "text": " result.",
+              "start": 0.85,
+              "end": 1.15,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "is",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "raw": "result.",
+          "start": 0.85,
+          "end": 1.15
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "the",
+        "result."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.57,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.57,
+          "end": 0.71,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.71,
+          "end": 0.85,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "result.",
+          "start": 0.85,
+          "end": 1.15,
+          "key": "result",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "is",
+          "start": 0.57,
+          "end": 0.71
+        },
+        {
+          "text": "the",
+          "start": 0.71,
+          "end": 0.85
+        },
+        {
+          "text": "result.",
+          "start": 0.85,
+          "end": 1.15
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.21548476070165634
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5f997ed9b863cd95548b1e01bc286d3b8e4afd4078e90b56ec59e849ebb3d726",
+  "selected_reasons": []
+}

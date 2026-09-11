@@ -1,0 +1,771 @@
+{
+  "complete": true,
+  "signature": "cfe636b3e5ddc03062f92b72ffd4ad382d135c60033d9481198b971340b89917",
+  "attempts": [
+    {
+      "asr_seconds": 0.45918823033571243,
+      "alignment_seconds": 0.0006442591547966003,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, but do not persons often err about good and evil.",
+          "start": 0.05,
+          "end": 3.53,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.83740234375
+            },
+            {
+              "text": " but",
+              "start": 0.91,
+              "end": 1.03,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " do",
+              "start": 1.03,
+              "end": 1.15,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " not",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " persons",
+              "start": 1.35,
+              "end": 1.73,
+              "probability": 0.953125
+            },
+            {
+              "text": " often",
+              "start": 1.73,
+              "end": 2.17,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " err",
+              "start": 2.17,
+              "end": 2.41,
+              "probability": 0.71142578125
+            },
+            {
+              "text": " about",
+              "start": 2.41,
+              "end": 2.71,
+              "probability": 0.94677734375
+            },
+            {
+              "text": " good",
+              "start": 2.71,
+              "end": 3.03,
+              "probability": 0.9248046875
+            },
+            {
+              "text": " and",
+              "start": 3.03,
+              "end": 3.25,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " evil.",
+              "start": 3.25,
+              "end": 3.53,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " Many who are not good seem to be so, and conversely.",
+          "start": 4.21,
+          "end": 6.83,
+          "words": [
+            {
+              "text": " Many",
+              "start": 4.21,
+              "end": 4.33,
+              "probability": 0.990234375
+            },
+            {
+              "text": " who",
+              "start": 4.33,
+              "end": 4.53,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " are",
+              "start": 4.53,
+              "end": 4.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not",
+              "start": 4.63,
+              "end": 4.83,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good",
+              "start": 4.83,
+              "end": 5.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " seem",
+              "start": 5.01,
+              "end": 5.23,
+              "probability": 0.984375
+            },
+            {
+              "text": " to",
+              "start": 5.23,
+              "end": 5.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 5.39,
+              "end": 5.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " so,",
+              "start": 5.55,
+              "end": 5.81,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.17,
+              "end": 6.31,
+              "probability": 0.9921875
+            },
+            {
+              "text": " conversely.",
+              "start": 6.31,
+              "end": 6.83,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "but",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "raw": "do",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "raw": "not",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "raw": "persons",
+          "start": 1.35,
+          "end": 1.73
+        },
+        {
+          "raw": "often",
+          "start": 1.73,
+          "end": 2.17
+        },
+        {
+          "raw": "err",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "raw": "about",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "raw": "good",
+          "start": 2.71,
+          "end": 3.03
+        },
+        {
+          "raw": "and",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "raw": "evil.",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "raw": "Many",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "raw": "who",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "raw": "are",
+          "start": 4.53,
+          "end": 4.63
+        },
+        {
+          "raw": "not",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "raw": "good",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "raw": "seem",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "raw": "to",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "raw": "be",
+          "start": 5.39,
+          "end": 5.55
+        },
+        {
+          "raw": "so,",
+          "start": 5.55,
+          "end": 5.81
+        },
+        {
+          "raw": "and",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "raw": "conversely.",
+          "start": 6.31,
+          "end": 6.83
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "but",
+        "do",
+        "not",
+        "persons",
+        "often",
+        "err",
+        "about",
+        "good",
+        "and",
+        "evil:",
+        "many",
+        "who",
+        "are",
+        "not",
+        "good",
+        "seem",
+        "to",
+        "be",
+        "so,",
+        "and",
+        "conversely?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 0.91,
+          "end": 1.03,
+          "key": "but",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.03,
+          "end": 1.15,
+          "key": "do",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "persons",
+          "start": 1.35,
+          "end": 1.73,
+          "key": "persons",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "often",
+          "start": 1.73,
+          "end": 2.17,
+          "key": "often",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "err",
+          "start": 2.17,
+          "end": 2.41,
+          "key": "err",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "about",
+          "start": 2.41,
+          "end": 2.71,
+          "key": "about",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.71,
+          "end": 3.03,
+          "key": "good",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.03,
+          "end": 3.25,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "evil.",
+          "start": 3.25,
+          "end": 3.53,
+          "key": "evil",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "Many",
+          "start": 4.21,
+          "end": 4.33,
+          "key": "many",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 4.33,
+          "end": 4.53,
+          "key": "who",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 4.53,
+          "end": 4.63,
+          "key": "are",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 4.63,
+          "end": 4.83,
+          "key": "not",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 4.83,
+          "end": 5.01,
+          "key": "good",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "seem",
+          "start": 5.01,
+          "end": 5.23,
+          "key": "seem",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.23,
+          "end": 5.39,
+          "key": "to",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.39,
+          "end": 5.55,
+          "key": "be",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 5.55,
+          "end": 5.81,
+          "key": "so",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.17,
+          "end": 6.31,
+          "key": "and",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "conversely.",
+          "start": 6.31,
+          "end": 6.83,
+          "key": "conversely",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "but",
+          "start": 0.91,
+          "end": 1.03
+        },
+        {
+          "text": "do",
+          "start": 1.03,
+          "end": 1.15
+        },
+        {
+          "text": "not",
+          "start": 1.15,
+          "end": 1.35
+        },
+        {
+          "text": "persons",
+          "start": 1.35,
+          "end": 1.73
+        },
+        {
+          "text": "often",
+          "start": 1.73,
+          "end": 2.17
+        },
+        {
+          "text": "err",
+          "start": 2.17,
+          "end": 2.41
+        },
+        {
+          "text": "about",
+          "start": 2.41,
+          "end": 2.71
+        },
+        {
+          "text": "good",
+          "start": 2.71,
+          "end": 3.03
+        },
+        {
+          "text": "and",
+          "start": 3.03,
+          "end": 3.25
+        },
+        {
+          "text": "evil:",
+          "start": 3.25,
+          "end": 3.53
+        },
+        {
+          "text": "many",
+          "start": 4.21,
+          "end": 4.33
+        },
+        {
+          "text": "who",
+          "start": 4.33,
+          "end": 4.53
+        },
+        {
+          "text": "are",
+          "start": 4.53,
+          "end": 4.63
+        },
+        {
+          "text": "not",
+          "start": 4.63,
+          "end": 4.83
+        },
+        {
+          "text": "good",
+          "start": 4.83,
+          "end": 5.01
+        },
+        {
+          "text": "seem",
+          "start": 5.01,
+          "end": 5.23
+        },
+        {
+          "text": "to",
+          "start": 5.23,
+          "end": 5.39
+        },
+        {
+          "text": "be",
+          "start": 5.39,
+          "end": 5.55
+        },
+        {
+          "text": "so,",
+          "start": 5.55,
+          "end": 5.81
+        },
+        {
+          "text": "and",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "text": "conversely?",
+          "start": 6.31,
+          "end": 6.83
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.46010076254606247
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "793edb3bd709c98da05d791d55d047e14422757a416e9520d4ab58d636c91716",
+  "selected_reasons": []
+}

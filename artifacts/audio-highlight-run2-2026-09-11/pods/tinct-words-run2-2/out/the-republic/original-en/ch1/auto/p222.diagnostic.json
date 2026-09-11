@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "05ae582975b449d8e49a554ec8db243235310bb7a62920f3e2a2fcada86790fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.2233383096754551,
+      "alignment_seconds": 0.00018088147044181824,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Doubtless.",
+        "hotwords": "Doubtless"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Doubtless.",
+          "start": 0.05,
+          "end": 0.95,
+          "words": [
+            {
+              "text": " Doubtless.",
+              "start": 0.05,
+              "end": 0.95,
+              "probability": 0.9532877604166666
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Doubtless.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "expected_tokens": [
+        "Doubtless."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Doubtless.",
+          "start": 0.05,
+          "end": 0.95,
+          "key": "doubtless",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Doubtless.",
+          "start": 0.05,
+          "end": 0.95
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22357522323727608
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "88c89a9a52ec4d1c607a7681b515f3d10f51e756abbba4b86be43a61cf1476a4",
+  "selected_reasons": []
+}

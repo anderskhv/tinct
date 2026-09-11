@@ -1,0 +1,773 @@
+{
+  "complete": true,
+  "signature": "ba2c6e4c41f94778e9451d0e7020113ba11424e42bfe3671a53f9542db919ff8",
+  "attempts": [
+    {
+      "asr_seconds": 0.5252369754016399,
+      "alignment_seconds": 0.0004483908414840698,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And this is because injustice creates divisions and hatreds and fighting, and justice imparts harmony and friendship; is not that true, Thrasymachus?",
+        "hotwords": "Thrasymachus"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And this is because injustice creates divisions and hatreds and fighting, and justice imparts harmony and friendship.",
+          "start": 0.05,
+          "end": 6.99,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.72021484375
+            },
+            {
+              "text": " this",
+              "start": 0.53,
+              "end": 0.69,
+              "probability": 0.990234375
+            },
+            {
+              "text": " is",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " because",
+              "start": 0.87,
+              "end": 1.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " injustice",
+              "start": 1.25,
+              "end": 1.85,
+              "probability": 0.97998046875
+            },
+            {
+              "text": " creates",
+              "start": 1.85,
+              "end": 2.37,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " divisions",
+              "start": 2.37,
+              "end": 2.93,
+              "probability": 0.9921875
+            },
+            {
+              "text": " and",
+              "start": 2.93,
+              "end": 3.25,
+              "probability": 0.9091796875
+            },
+            {
+              "text": " hatreds",
+              "start": 3.25,
+              "end": 3.79,
+              "probability": 0.993896484375
+            },
+            {
+              "text": " and",
+              "start": 3.79,
+              "end": 3.91,
+              "probability": 0.70654296875
+            },
+            {
+              "text": " fighting,",
+              "start": 3.91,
+              "end": 4.25,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 4.79,
+              "end": 4.87,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " justice",
+              "start": 4.87,
+              "end": 5.31,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " imparts",
+              "start": 5.31,
+              "end": 5.81,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " harmony",
+              "start": 5.81,
+              "end": 6.23,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " and",
+              "start": 6.23,
+              "end": 6.55,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " friendship.",
+              "start": 6.55,
+              "end": 6.99,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " Is not that true, Thrasymachus?",
+          "start": 7.53,
+          "end": 9.59,
+          "words": [
+            {
+              "text": " Is",
+              "start": 7.53,
+              "end": 7.69,
+              "probability": 0.74462890625
+            },
+            {
+              "text": " not",
+              "start": 7.69,
+              "end": 7.91,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " that",
+              "start": 7.91,
+              "end": 8.17,
+              "probability": 0.998046875
+            },
+            {
+              "text": " true,",
+              "start": 8.17,
+              "end": 8.57,
+              "probability": 0.9921875
+            },
+            {
+              "text": " Thrasymachus?",
+              "start": 9.09,
+              "end": 9.59,
+              "probability": 0.3404541015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "this",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "because",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "raw": "injustice",
+          "start": 1.25,
+          "end": 1.85
+        },
+        {
+          "raw": "creates",
+          "start": 1.85,
+          "end": 2.37
+        },
+        {
+          "raw": "divisions",
+          "start": 2.37,
+          "end": 2.93
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "raw": "hatreds",
+          "start": 3.25,
+          "end": 3.79
+        },
+        {
+          "raw": "and",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "raw": "fighting,",
+          "start": 3.91,
+          "end": 4.25
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 4.87
+        },
+        {
+          "raw": "justice",
+          "start": 4.87,
+          "end": 5.31
+        },
+        {
+          "raw": "imparts",
+          "start": 5.31,
+          "end": 5.81
+        },
+        {
+          "raw": "harmony",
+          "start": 5.81,
+          "end": 6.23
+        },
+        {
+          "raw": "and",
+          "start": 6.23,
+          "end": 6.55
+        },
+        {
+          "raw": "friendship.",
+          "start": 6.55,
+          "end": 6.99
+        },
+        {
+          "raw": "Is",
+          "start": 7.53,
+          "end": 7.69
+        },
+        {
+          "raw": "not",
+          "start": 7.69,
+          "end": 7.91
+        },
+        {
+          "raw": "that",
+          "start": 7.91,
+          "end": 8.17
+        },
+        {
+          "raw": "true,",
+          "start": 8.17,
+          "end": 8.57
+        },
+        {
+          "raw": "Thrasymachus?",
+          "start": 9.09,
+          "end": 9.59
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "this",
+        "is",
+        "because",
+        "injustice",
+        "creates",
+        "divisions",
+        "and",
+        "hatreds",
+        "and",
+        "fighting,",
+        "and",
+        "justice",
+        "imparts",
+        "harmony",
+        "and",
+        "friendship;",
+        "is",
+        "not",
+        "that",
+        "true,",
+        "Thrasymachus?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.53,
+          "end": 0.69,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.87,
+          "key": "is",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "because",
+          "start": 0.87,
+          "end": 1.25,
+          "key": "because",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "injustice",
+          "start": 1.25,
+          "end": 1.85,
+          "key": "injustice",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "creates",
+          "start": 1.85,
+          "end": 2.37,
+          "key": "creates",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "divisions",
+          "start": 2.37,
+          "end": 2.93,
+          "key": "divisions",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.93,
+          "end": 3.25,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "hatreds",
+          "start": 3.25,
+          "end": 3.79,
+          "key": "hatreds",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.79,
+          "end": 3.91,
+          "key": "and",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "fighting,",
+          "start": 3.91,
+          "end": 4.25,
+          "key": "fighting",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.79,
+          "end": 4.87,
+          "key": "and",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "justice",
+          "start": 4.87,
+          "end": 5.31,
+          "key": "justice",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "imparts",
+          "start": 5.31,
+          "end": 5.81,
+          "key": "imparts",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "harmony",
+          "start": 5.81,
+          "end": 6.23,
+          "key": "harmony",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 6.23,
+          "end": 6.55,
+          "key": "and",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "friendship.",
+          "start": 6.55,
+          "end": 6.99,
+          "key": "friendship",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "Is",
+          "start": 7.53,
+          "end": 7.69,
+          "key": "is",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 7.69,
+          "end": 7.91,
+          "key": "not",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 7.91,
+          "end": 8.17,
+          "key": "that",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "true,",
+          "start": 8.17,
+          "end": 8.57,
+          "key": "true",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "Thrasymachus?",
+          "start": 9.09,
+          "end": 9.59,
+          "key": "thrasymachus",
+          "pieces": [
+            21
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "this",
+          "start": 0.53,
+          "end": 0.69
+        },
+        {
+          "text": "is",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "text": "because",
+          "start": 0.87,
+          "end": 1.25
+        },
+        {
+          "text": "injustice",
+          "start": 1.25,
+          "end": 1.85
+        },
+        {
+          "text": "creates",
+          "start": 1.85,
+          "end": 2.37
+        },
+        {
+          "text": "divisions",
+          "start": 2.37,
+          "end": 2.93
+        },
+        {
+          "text": "and",
+          "start": 2.93,
+          "end": 3.25
+        },
+        {
+          "text": "hatreds",
+          "start": 3.25,
+          "end": 3.79
+        },
+        {
+          "text": "and",
+          "start": 3.79,
+          "end": 3.91
+        },
+        {
+          "text": "fighting,",
+          "start": 3.91,
+          "end": 4.25
+        },
+        {
+          "text": "and",
+          "start": 4.79,
+          "end": 4.87
+        },
+        {
+          "text": "justice",
+          "start": 4.87,
+          "end": 5.31
+        },
+        {
+          "text": "imparts",
+          "start": 5.31,
+          "end": 5.81
+        },
+        {
+          "text": "harmony",
+          "start": 5.81,
+          "end": 6.23
+        },
+        {
+          "text": "and",
+          "start": 6.23,
+          "end": 6.55
+        },
+        {
+          "text": "friendship;",
+          "start": 6.55,
+          "end": 6.99
+        },
+        {
+          "text": "is",
+          "start": 7.53,
+          "end": 7.69
+        },
+        {
+          "text": "not",
+          "start": 7.69,
+          "end": 7.91
+        },
+        {
+          "text": "that",
+          "start": 7.91,
+          "end": 8.17
+        },
+        {
+          "text": "true,",
+          "start": 8.17,
+          "end": 8.57
+        },
+        {
+          "text": "Thrasymachus?",
+          "start": 9.09,
+          "end": 9.59
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5258764289319515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b01a0506bfc901ed26b44cb09fc2f661f28740ac2b5d5e931c10a2bdb0a89dd5",
+  "selected_reasons": []
+}

@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "fc0008ace9c1055147de052866ae6e72535a450eae26a630716279ccf9aa49e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.16013608500361443,
+      "alignment_seconds": 0.0001785755157470703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " again.",
+          "start": 0.05,
+          "end": 0.71,
+          "words": [
+            {
+              "text": " again.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.47216796875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "again.",
+          "start": 0.05,
+          "end": 0.71
+        }
+      ],
+      "expected_tokens": [
+        "Again:—"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "again.",
+          "start": 0.05,
+          "end": 0.71,
+          "key": "again",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Again:—",
+          "start": 0.05,
+          "end": 0.71
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.16036934033036232
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9a4f6dd9f00351ca328bb6b9d14ead55bd3b855b7aa11664bd6c98197c24f322",
+  "selected_reasons": []
+}

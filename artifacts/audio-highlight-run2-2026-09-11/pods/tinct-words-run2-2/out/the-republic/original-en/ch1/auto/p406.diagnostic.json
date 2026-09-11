@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "9cd978a8e73535b41dab17202ac72cb972dff4dbf6a6784562c03c90e709fc12",
+  "attempts": [
+    {
+      "asr_seconds": 0.19717171788215637,
+      "alignment_seconds": 0.00019003823399543762,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Proceed.",
+        "hotwords": "Proceed"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Proceed.",
+          "start": 0.05,
+          "end": 0.75,
+          "words": [
+            {
+              "text": " Proceed.",
+              "start": 0.05,
+              "end": 0.75,
+              "probability": 0.83984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Proceed.",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "expected_tokens": [
+        "Proceed."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Proceed.",
+          "start": 0.05,
+          "end": 0.75,
+          "key": "proceed",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Proceed.",
+          "start": 0.05,
+          "end": 0.75
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19742242246866226
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7944155892239b5cf00b9c3de0c63cb7bd5599d7df0381180b7e18e48a00a468",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "494e36f493fb8b2bcd96fe34a463489481f2ec80fc3b6196988d56cee6014e2b",
+  "attempts": [
+    {
+      "asr_seconds": 0.3219698332250118,
+      "alignment_seconds": 0.000362396240234375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That, I suppose, can hardly be denied.",
+          "start": 0.18,
+          "end": 2.44,
+          "words": [
+            {
+              "text": " That,",
+              "start": 0.18,
+              "end": 0.56,
+              "probability": 0.8359375
+            },
+            {
+              "text": " I",
+              "start": 0.62,
+              "end": 0.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " suppose,",
+              "start": 0.72,
+              "end": 1.04,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " can",
+              "start": 1.52,
+              "end": 1.62,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " hardly",
+              "start": 1.62,
+              "end": 1.88,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " be",
+              "start": 1.88,
+              "end": 2.14,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " denied.",
+              "start": 2.14,
+              "end": 2.44,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That,",
+          "start": 0.18,
+          "end": 0.56
+        },
+        {
+          "raw": "I",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "raw": "suppose,",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "raw": "can",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "raw": "hardly",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "raw": "be",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "raw": "denied.",
+          "start": 2.14,
+          "end": 2.44
+        }
+      ],
+      "expected_tokens": [
+        "That,",
+        "I",
+        "suppose,",
+        "can",
+        "hardly",
+        "be",
+        "denied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That,",
+          "start": 0.18,
+          "end": 0.56,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.62,
+          "end": 0.72,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "suppose,",
+          "start": 0.72,
+          "end": 1.04,
+          "key": "suppose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.52,
+          "end": 1.62,
+          "key": "can",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "hardly",
+          "start": 1.62,
+          "end": 1.88,
+          "key": "hardly",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.88,
+          "end": 2.14,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "denied.",
+          "start": 2.14,
+          "end": 2.44,
+          "key": "denied",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That,",
+          "start": 0.18,
+          "end": 0.56
+        },
+        {
+          "text": "I",
+          "start": 0.62,
+          "end": 0.72
+        },
+        {
+          "text": "suppose,",
+          "start": 0.72,
+          "end": 1.04
+        },
+        {
+          "text": "can",
+          "start": 1.52,
+          "end": 1.62
+        },
+        {
+          "text": "hardly",
+          "start": 1.62,
+          "end": 1.88
+        },
+        {
+          "text": "be",
+          "start": 1.88,
+          "end": 2.14
+        },
+        {
+          "text": "denied.",
+          "start": 2.14,
+          "end": 2.44
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.32245710492134094
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "08e22f2157c48c68eb6792c0a1902363325040ce71c48ede5f9d1448ad00673d",
+  "selected_reasons": []
+}

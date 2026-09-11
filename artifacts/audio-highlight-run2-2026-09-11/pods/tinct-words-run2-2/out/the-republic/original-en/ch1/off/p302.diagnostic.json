@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "7700b42130bb0346a6cbfc531f1a167d23ec9243216afc3489d472dd1516d5b6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2868901453912258,
+      "alignment_seconds": 0.0002491176128387451,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " True, he replied.",
+          "start": 0.08,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " True,",
+              "start": 0.08,
+              "end": 0.62,
+              "probability": 0.84130859375
+            },
+            {
+              "text": " he",
+              "start": 0.88,
+              "end": 0.9,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " replied.",
+              "start": 0.9,
+              "end": 1.26,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "True,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "raw": "he",
+          "start": 0.88,
+          "end": 0.9
+        },
+        {
+          "raw": "replied.",
+          "start": 0.9,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "True,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "True,",
+          "start": 0.08,
+          "end": 0.62,
+          "key": "true",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.88,
+          "end": 0.9,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 0.9,
+          "end": 1.26,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "True,",
+          "start": 0.08,
+          "end": 0.62
+        },
+        {
+          "text": "he",
+          "start": 0.88,
+          "end": 0.9
+        },
+        {
+          "text": "replied.",
+          "start": 0.9,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2872481010854244
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "7907fdd5a12862d2e4e40440b7fdf41d3bef240134317ebef31d1104a5e08ac0",
+  "selected_reasons": []
+}

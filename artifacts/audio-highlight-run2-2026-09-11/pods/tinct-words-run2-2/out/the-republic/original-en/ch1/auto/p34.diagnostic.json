@@ -1,0 +1,638 @@
+{
+  "complete": true,
+  "signature": "ad7752f271368f94e7143695e6132d66e5f6287d699dfff7046c06ce25c02ca5",
+  "attempts": [
+    {
+      "asr_seconds": 0.4153449535369873,
+      "alignment_seconds": 0.00047704577445983887,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But then, I said, speaking the truth and paying your debts is not a correct definition of justice.",
+        "hotwords": "But, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But then, I said, speaking the truth and paying your debts is not a correct definition of justice.",
+          "start": 0.11,
+          "end": 5.75,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.11,
+              "end": 0.47,
+              "probability": 0.88232421875
+            },
+            {
+              "text": " then,",
+              "start": 0.47,
+              "end": 0.73,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " I",
+              "start": 0.99,
+              "end": 1.05,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " said,",
+              "start": 1.05,
+              "end": 1.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " speaking",
+              "start": 2.03,
+              "end": 2.15,
+              "probability": 0.6328125
+            },
+            {
+              "text": " the",
+              "start": 2.15,
+              "end": 2.39,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " truth",
+              "start": 2.39,
+              "end": 2.65,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.65,
+              "end": 2.97,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " paying",
+              "start": 2.97,
+              "end": 3.23,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " your",
+              "start": 3.23,
+              "end": 3.47,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " debts",
+              "start": 3.47,
+              "end": 3.75,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " is",
+              "start": 3.75,
+              "end": 3.97,
+              "probability": 0.990234375
+            },
+            {
+              "text": " not",
+              "start": 3.97,
+              "end": 4.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 4.17,
+              "end": 4.29,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " correct",
+              "start": 4.29,
+              "end": 4.57,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " definition",
+              "start": 4.57,
+              "end": 5.07,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 5.07,
+              "end": 5.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " justice.",
+              "start": 5.35,
+              "end": 5.75,
+              "probability": 0.97265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.11,
+          "end": 0.47
+        },
+        {
+          "raw": "then,",
+          "start": 0.47,
+          "end": 0.73
+        },
+        {
+          "raw": "I",
+          "start": 0.99,
+          "end": 1.05
+        },
+        {
+          "raw": "said,",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "raw": "speaking",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "raw": "truth",
+          "start": 2.39,
+          "end": 2.65
+        },
+        {
+          "raw": "and",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "raw": "paying",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "raw": "your",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "raw": "debts",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "raw": "is",
+          "start": 3.75,
+          "end": 3.97
+        },
+        {
+          "raw": "not",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "raw": "a",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "raw": "correct",
+          "start": 4.29,
+          "end": 4.57
+        },
+        {
+          "raw": "definition",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "raw": "of",
+          "start": 5.07,
+          "end": 5.35
+        },
+        {
+          "raw": "justice.",
+          "start": 5.35,
+          "end": 5.75
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "then,",
+        "I",
+        "said,",
+        "speaking",
+        "the",
+        "truth",
+        "and",
+        "paying",
+        "your",
+        "debts",
+        "is",
+        "not",
+        "a",
+        "correct",
+        "definition",
+        "of",
+        "justice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.11,
+          "end": 0.47,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 0.47,
+          "end": 0.73,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.99,
+          "end": 1.05,
+          "key": "i",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.05,
+          "end": 1.39,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "speaking",
+          "start": 2.03,
+          "end": 2.15,
+          "key": "speaking",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.15,
+          "end": 2.39,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "truth",
+          "start": 2.39,
+          "end": 2.65,
+          "key": "truth",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.65,
+          "end": 2.97,
+          "key": "and",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "paying",
+          "start": 2.97,
+          "end": 3.23,
+          "key": "paying",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 3.23,
+          "end": 3.47,
+          "key": "your",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "debts",
+          "start": 3.47,
+          "end": 3.75,
+          "key": "debts",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.75,
+          "end": 3.97,
+          "key": "is",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 3.97,
+          "end": 4.17,
+          "key": "not",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 4.17,
+          "end": 4.29,
+          "key": "a",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "correct",
+          "start": 4.29,
+          "end": 4.57,
+          "key": "correct",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "definition",
+          "start": 4.57,
+          "end": 5.07,
+          "key": "definition",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 5.07,
+          "end": 5.35,
+          "key": "of",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "justice.",
+          "start": 5.35,
+          "end": 5.75,
+          "key": "justice",
+          "pieces": [
+            17
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.11,
+          "end": 0.47
+        },
+        {
+          "text": "then,",
+          "start": 0.47,
+          "end": 0.73
+        },
+        {
+          "text": "I",
+          "start": 0.99,
+          "end": 1.05
+        },
+        {
+          "text": "said,",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "text": "speaking",
+          "start": 2.03,
+          "end": 2.15
+        },
+        {
+          "text": "the",
+          "start": 2.15,
+          "end": 2.39
+        },
+        {
+          "text": "truth",
+          "start": 2.39,
+          "end": 2.65
+        },
+        {
+          "text": "and",
+          "start": 2.65,
+          "end": 2.97
+        },
+        {
+          "text": "paying",
+          "start": 2.97,
+          "end": 3.23
+        },
+        {
+          "text": "your",
+          "start": 3.23,
+          "end": 3.47
+        },
+        {
+          "text": "debts",
+          "start": 3.47,
+          "end": 3.75
+        },
+        {
+          "text": "is",
+          "start": 3.75,
+          "end": 3.97
+        },
+        {
+          "text": "not",
+          "start": 3.97,
+          "end": 4.17
+        },
+        {
+          "text": "a",
+          "start": 4.17,
+          "end": 4.29
+        },
+        {
+          "text": "correct",
+          "start": 4.29,
+          "end": 4.57
+        },
+        {
+          "text": "definition",
+          "start": 4.57,
+          "end": 5.07
+        },
+        {
+          "text": "of",
+          "start": 5.07,
+          "end": 5.35
+        },
+        {
+          "text": "justice.",
+          "start": 5.35,
+          "end": 5.75
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.41602980718016624
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1d1fc9bf586ebe19569ff1a847447d63a021fb4873ebea8006b136cc1d02b856",
+  "selected_reasons": []
+}

@@ -1,0 +1,685 @@
+{
+  "complete": true,
+  "signature": "a8db7ba5dbf916f90faf44d831f9f0db757c129847c7a4744c6272fd36c2cc7c",
+  "attempts": [
+    {
+      "asr_seconds": 0.4601884223520756,
+      "alignment_seconds": 0.0009101368486881256,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And so of all other things, justice is useful when they are useless, and useless when they",
+          "start": 0.08,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " so",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9921875
+            },
+            {
+              "text": " of",
+              "start": 0.68,
+              "end": 0.82,
+              "probability": 0.73828125
+            },
+            {
+              "text": " all",
+              "start": 0.82,
+              "end": 1.0,
+              "probability": 0.998046875
+            },
+            {
+              "text": " other",
+              "start": 1.0,
+              "end": 1.18,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " things,",
+              "start": 1.18,
+              "end": 1.64,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " justice",
+              "start": 2.56,
+              "end": 2.56,
+              "probability": 0.89453125
+            },
+            {
+              "text": " is",
+              "start": 2.56,
+              "end": 2.86,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " useful",
+              "start": 2.86,
+              "end": 3.22,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " when",
+              "start": 3.22,
+              "end": 3.44,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " they",
+              "start": 3.44,
+              "end": 3.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " are",
+              "start": 3.6,
+              "end": 3.74,
+              "probability": 0.998046875
+            },
+            {
+              "text": " useless,",
+              "start": 3.74,
+              "end": 4.18,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " and",
+              "start": 4.6,
+              "end": 4.76,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " useless",
+              "start": 4.76,
+              "end": 5.06,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " when",
+              "start": 5.06,
+              "end": 5.36,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " they",
+              "start": 5.36,
+              "end": 5.5,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " are useful.",
+          "start": 5.5,
+          "end": 6.0,
+          "words": [
+            {
+              "text": " are",
+              "start": 5.5,
+              "end": 5.66,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " useful.",
+              "start": 5.66,
+              "end": 6.0,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "so",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "of",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "raw": "all",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "raw": "other",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "raw": "things,",
+          "start": 1.18,
+          "end": 1.64
+        },
+        {
+          "raw": "justice",
+          "start": 2.56,
+          "end": 2.56
+        },
+        {
+          "raw": "is",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "raw": "useful",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "raw": "when",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "raw": "they",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "raw": "are",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "raw": "useless,",
+          "start": 3.74,
+          "end": 4.18
+        },
+        {
+          "raw": "and",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "raw": "useless",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "raw": "when",
+          "start": 5.06,
+          "end": 5.36
+        },
+        {
+          "raw": "they",
+          "start": 5.36,
+          "end": 5.5
+        },
+        {
+          "raw": "are",
+          "start": 5.5,
+          "end": 5.66
+        },
+        {
+          "raw": "useful.",
+          "start": 5.66,
+          "end": 6.0
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "so",
+        "of",
+        "all",
+        "other",
+        "things;—justice",
+        "is",
+        "useful",
+        "when",
+        "they",
+        "are",
+        "useless,",
+        "and",
+        "useless",
+        "when",
+        "they",
+        "are",
+        "useful?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ],
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ],
+        [
+          "equal",
+          6,
+          18,
+          7,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          5,
+          6,
+          5,
+          7
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "so",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "so",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.68,
+          "end": 0.82,
+          "key": "of",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "all",
+          "start": 0.82,
+          "end": 1.0,
+          "key": "all",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "other",
+          "start": 1.0,
+          "end": 1.18,
+          "key": "other",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "things,",
+          "start": 1.18,
+          "end": 1.64,
+          "key": "things",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "justice",
+          "start": 2.56,
+          "end": 2.56,
+          "key": "justice",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.56,
+          "end": 2.86,
+          "key": "is",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "useful",
+          "start": 2.86,
+          "end": 3.22,
+          "key": "useful",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 3.22,
+          "end": 3.44,
+          "key": "when",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 3.44,
+          "end": 3.6,
+          "key": "they",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 3.6,
+          "end": 3.74,
+          "key": "are",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "useless,",
+          "start": 3.74,
+          "end": 4.18,
+          "key": "useless",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 4.6,
+          "end": 4.76,
+          "key": "and",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "useless",
+          "start": 4.76,
+          "end": 5.06,
+          "key": "useless",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 5.06,
+          "end": 5.36,
+          "key": "when",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.36,
+          "end": 5.5,
+          "key": "they",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 5.5,
+          "end": 5.66,
+          "key": "are",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "useful.",
+          "start": 5.66,
+          "end": 6.0,
+          "key": "useful",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "so",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "of",
+          "start": 0.68,
+          "end": 0.82
+        },
+        {
+          "text": "all",
+          "start": 0.82,
+          "end": 1.0
+        },
+        {
+          "text": "other",
+          "start": 1.0,
+          "end": 1.18
+        },
+        {
+          "text": "things;—justice",
+          "start": 1.18,
+          "end": 1.87
+        },
+        {
+          "text": "is",
+          "start": 2.56,
+          "end": 2.86
+        },
+        {
+          "text": "useful",
+          "start": 2.86,
+          "end": 3.22
+        },
+        {
+          "text": "when",
+          "start": 3.22,
+          "end": 3.44
+        },
+        {
+          "text": "they",
+          "start": 3.44,
+          "end": 3.6
+        },
+        {
+          "text": "are",
+          "start": 3.6,
+          "end": 3.74
+        },
+        {
+          "text": "useless,",
+          "start": 3.74,
+          "end": 4.18
+        },
+        {
+          "text": "and",
+          "start": 4.6,
+          "end": 4.76
+        },
+        {
+          "text": "useless",
+          "start": 4.76,
+          "end": 5.06
+        },
+        {
+          "text": "when",
+          "start": 5.06,
+          "end": 5.36
+        },
+        {
+          "text": "they",
+          "start": 5.36,
+          "end": 5.5
+        },
+        {
+          "text": "are",
+          "start": 5.5,
+          "end": 5.66
+        },
+        {
+          "text": "useful?",
+          "start": 5.66,
+          "end": 6.0
+        }
+      ],
+      "stats": {
+        "expected_words": 18,
+        "heard_words": 19,
+        "matched_words": 17
+      },
+      "match_ratio": 0.9444444444444444,
+      "rejection_reasons": [],
+      "seconds": 0.4615250565111637
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "762ab2eb4f7fa59fe1482d2272a66ba6e11bb2e271d3f95378ed8397311094b3",
+  "selected_reasons": []
+}

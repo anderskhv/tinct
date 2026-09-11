@@ -1,0 +1,729 @@
+{
+  "complete": true,
+  "signature": "9d617ea98deb2292bab3282a0ee51c47840cd335b672240042e0efd83a34e743",
+  "attempts": [
+    {
+      "asr_seconds": 0.4088680036365986,
+      "alignment_seconds": 0.0005663931369781494,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I might say the same of the ears.",
+          "start": 0.08,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.8896484375
+            },
+            {
+              "text": " might",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " say",
+              "start": 0.68,
+              "end": 0.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 0.96,
+              "end": 1.14,
+              "probability": 0.984375
+            },
+            {
+              "text": " same",
+              "start": 1.14,
+              "end": 1.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 1.34,
+              "end": 1.48,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " the",
+              "start": 1.48,
+              "end": 1.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " ears.",
+              "start": 1.6,
+              "end": 1.92,
+              "probability": 0.8212890625
+            }
+          ]
+        },
+        {
+          "text": " When deprived of their own proper excellence, they cannot fulfill their end.",
+          "start": 2.54,
+          "end": 6.42,
+          "words": [
+            {
+              "text": " When",
+              "start": 2.54,
+              "end": 2.66,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " deprived",
+              "start": 2.66,
+              "end": 3.06,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " their",
+              "start": 3.32,
+              "end": 3.44,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " own",
+              "start": 3.44,
+              "end": 3.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " proper",
+              "start": 3.74,
+              "end": 4.14,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " excellence,",
+              "start": 4.14,
+              "end": 4.66,
+              "probability": 0.97412109375
+            },
+            {
+              "text": " they",
+              "start": 5.02,
+              "end": 5.1,
+              "probability": 0.99609375
+            },
+            {
+              "text": " cannot",
+              "start": 5.1,
+              "end": 5.38,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " fulfill",
+              "start": 5.38,
+              "end": 5.74,
+              "probability": 0.927734375
+            },
+            {
+              "text": " their",
+              "start": 5.74,
+              "end": 6.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " end.",
+              "start": 6.04,
+              "end": 6.42,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "might",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "say",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "raw": "same",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "raw": "ears.",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "raw": "When",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "raw": "deprived",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "their",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "raw": "own",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "raw": "proper",
+          "start": 3.74,
+          "end": 4.14
+        },
+        {
+          "raw": "excellence,",
+          "start": 4.14,
+          "end": 4.66
+        },
+        {
+          "raw": "they",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "raw": "cannot",
+          "start": 5.1,
+          "end": 5.38
+        },
+        {
+          "raw": "fulfill",
+          "start": 5.38,
+          "end": 5.74
+        },
+        {
+          "raw": "their",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "raw": "end.",
+          "start": 6.04,
+          "end": 6.42
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "might",
+        "say",
+        "the",
+        "same",
+        "of",
+        "the",
+        "ears;",
+        "when",
+        "deprived",
+        "of",
+        "their",
+        "own",
+        "proper",
+        "excellence",
+        "they",
+        "cannot",
+        "fulfil",
+        "their",
+        "end?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ],
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ],
+        [
+          "equal",
+          18,
+          20,
+          18,
+          20
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          17,
+          18,
+          17,
+          18
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "might",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "might",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.68,
+          "end": 0.96,
+          "key": "say",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.96,
+          "end": 1.14,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "same",
+          "start": 1.14,
+          "end": 1.34,
+          "key": "same",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 1.34,
+          "end": 1.48,
+          "key": "of",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.48,
+          "end": 1.6,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ears.",
+          "start": 1.6,
+          "end": 1.92,
+          "key": "ears",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "When",
+          "start": 2.54,
+          "end": 2.66,
+          "key": "when",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "deprived",
+          "start": 2.66,
+          "end": 3.06,
+          "key": "deprived",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "of",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 3.32,
+          "end": 3.44,
+          "key": "their",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "own",
+          "start": 3.44,
+          "end": 3.74,
+          "key": "own",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "proper",
+          "start": 3.74,
+          "end": 4.14,
+          "key": "proper",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "excellence,",
+          "start": 4.14,
+          "end": 4.66,
+          "key": "excellence",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 5.02,
+          "end": 5.1,
+          "key": "they",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "cannot",
+          "start": 5.1,
+          "end": 5.38,
+          "key": "cannot",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "fulfill",
+          "start": 5.38,
+          "end": 5.74,
+          "key": "fulfill",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 5.74,
+          "end": 6.04,
+          "key": "their",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "end.",
+          "start": 6.04,
+          "end": 6.42,
+          "key": "end",
+          "pieces": [
+            19
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "might",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "say",
+          "start": 0.68,
+          "end": 0.96
+        },
+        {
+          "text": "the",
+          "start": 0.96,
+          "end": 1.14
+        },
+        {
+          "text": "same",
+          "start": 1.14,
+          "end": 1.34
+        },
+        {
+          "text": "of",
+          "start": 1.34,
+          "end": 1.48
+        },
+        {
+          "text": "the",
+          "start": 1.48,
+          "end": 1.6
+        },
+        {
+          "text": "ears;",
+          "start": 1.6,
+          "end": 1.92
+        },
+        {
+          "text": "when",
+          "start": 2.54,
+          "end": 2.66
+        },
+        {
+          "text": "deprived",
+          "start": 2.66,
+          "end": 3.06
+        },
+        {
+          "text": "of",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "their",
+          "start": 3.32,
+          "end": 3.44
+        },
+        {
+          "text": "own",
+          "start": 3.44,
+          "end": 3.74
+        },
+        {
+          "text": "proper",
+          "start": 3.74,
+          "end": 4.14
+        },
+        {
+          "text": "excellence",
+          "start": 4.14,
+          "end": 4.66
+        },
+        {
+          "text": "they",
+          "start": 5.02,
+          "end": 5.1
+        },
+        {
+          "text": "cannot",
+          "start": 5.1,
+          "end": 5.38
+        },
+        {
+          "text": "fulfil",
+          "start": 5.38,
+          "end": 5.56
+        },
+        {
+          "text": "their",
+          "start": 5.74,
+          "end": 6.04
+        },
+        {
+          "text": "end?",
+          "start": 6.04,
+          "end": 6.42
+        }
+      ],
+      "stats": {
+        "expected_words": 20,
+        "heard_words": 20,
+        "matched_words": 19
+      },
+      "match_ratio": 0.95,
+      "rejection_reasons": [],
+      "seconds": 0.40969744697213173
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "bb1dfaf0f07628f1037c4f10665f362f958178258bd8c74a6b3935984213a226",
+  "selected_reasons": []
+}

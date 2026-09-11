@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "signature": "178880d71b20a1628bb3abe3a1cc47e3f99af93a6286863cc8da99fdb49cc547",
+  "attempts": [
+    {
+      "asr_seconds": 0.2763237841427326,
+      "alignment_seconds": 0.00029062479734420776,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That is his meaning then?",
+        "hotwords": "That"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That is his meaning then?",
+          "start": 0.05,
+          "end": 1.41,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.91552734375
+            },
+            {
+              "text": " is",
+              "start": 0.59,
+              "end": 0.73,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " his",
+              "start": 0.73,
+              "end": 0.85,
+              "probability": 0.982421875
+            },
+            {
+              "text": " meaning",
+              "start": 0.85,
+              "end": 1.11,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " then?",
+              "start": 1.11,
+              "end": 1.41,
+              "probability": 0.73193359375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "is",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "raw": "his",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "raw": "meaning",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "raw": "then?",
+          "start": 1.11,
+          "end": 1.41
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "his",
+        "meaning",
+        "then?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          5,
+          0,
+          5
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.59,
+          "end": 0.73,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 0.73,
+          "end": 0.85,
+          "key": "his",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "meaning",
+          "start": 0.85,
+          "end": 1.11,
+          "key": "meaning",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "then?",
+          "start": 1.11,
+          "end": 1.41,
+          "key": "then",
+          "pieces": [
+            4
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "is",
+          "start": 0.59,
+          "end": 0.73
+        },
+        {
+          "text": "his",
+          "start": 0.73,
+          "end": 0.85
+        },
+        {
+          "text": "meaning",
+          "start": 0.85,
+          "end": 1.11
+        },
+        {
+          "text": "then?",
+          "start": 1.11,
+          "end": 1.41
+        }
+      ],
+      "stats": {
+        "expected_words": 5,
+        "heard_words": 5,
+        "matched_words": 5
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.27672204002738
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "d71f6e9fac298f30614d2114cc31e0066f93fcfcb6d12850e2aec0ac2e8ea3eb",
+  "selected_reasons": []
+}

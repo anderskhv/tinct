@@ -1,0 +1,466 @@
+{
+  "complete": true,
+  "signature": "588d18638bfefc652bd35928bfecd5d017e21df0cb63b9f03bdc331db9859aa6",
+  "attempts": [
+    {
+      "asr_seconds": 0.443776223808527,
+      "alignment_seconds": 0.00043633580207824707,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Quite correct, Socrates, if Simonides is to be believed,\" said Polmarchus, interposing.",
+          "start": 0.08,
+          "end": 5.92,
+          "words": [
+            {
+              "text": " Quite",
+              "start": 0.08,
+              "end": 0.58,
+              "probability": 0.2147216796875
+            },
+            {
+              "text": " correct,",
+              "start": 0.58,
+              "end": 1.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Socrates,",
+              "start": 1.88,
+              "end": 1.88,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " if",
+              "start": 2.36,
+              "end": 2.46,
+              "probability": 0.9140625
+            },
+            {
+              "text": " Simonides",
+              "start": 2.46,
+              "end": 3.06,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " is",
+              "start": 3.06,
+              "end": 3.32,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " to",
+              "start": 3.32,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 3.46,
+              "end": 3.58,
+              "probability": 0.998046875
+            },
+            {
+              "text": " believed,\"",
+              "start": 3.58,
+              "end": 4.42,
+              "probability": 0.78955078125
+            },
+            {
+              "text": " said",
+              "start": 4.42,
+              "end": 4.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Polmarchus,",
+              "start": 4.68,
+              "end": 5.4,
+              "probability": 0.72100830078125
+            },
+            {
+              "text": " interposing.",
+              "start": 5.46,
+              "end": 5.92,
+              "probability": 0.948974609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Quite",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "raw": "correct,",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "raw": "Socrates,",
+          "start": 1.88,
+          "end": 1.88
+        },
+        {
+          "raw": "if",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "raw": "Simonides",
+          "start": 2.46,
+          "end": 3.06
+        },
+        {
+          "raw": "is",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "raw": "to",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "raw": "be",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "raw": "believed,\"",
+          "start": 3.58,
+          "end": 4.42
+        },
+        {
+          "raw": "said",
+          "start": 4.42,
+          "end": 4.68
+        },
+        {
+          "raw": "Polmarchus,",
+          "start": 4.68,
+          "end": 5.4
+        },
+        {
+          "raw": "interposing.",
+          "start": 5.46,
+          "end": 5.92
+        }
+      ],
+      "expected_tokens": [
+        "Quite",
+        "correct,",
+        "Socrates,",
+        "if",
+        "Simonides",
+        "is",
+        "to",
+        "be",
+        "believed,",
+        "said",
+        "Polemarchus",
+        "interposing."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ],
+        [
+          "equal",
+          11,
+          12,
+          11,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          10,
+          11,
+          10,
+          11
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Quite",
+          "start": 0.08,
+          "end": 0.58,
+          "key": "quite",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "correct,",
+          "start": 0.58,
+          "end": 1.04,
+          "key": "correct",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "Socrates,",
+          "start": 1.88,
+          "end": 1.88,
+          "key": "socrates",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 2.36,
+          "end": 2.46,
+          "key": "if",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "Simonides",
+          "start": 2.46,
+          "end": 3.06,
+          "key": "simonides",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 3.06,
+          "end": 3.32,
+          "key": "is",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.32,
+          "end": 3.46,
+          "key": "to",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.46,
+          "end": 3.58,
+          "key": "be",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "believed,\"",
+          "start": 3.58,
+          "end": 4.42,
+          "key": "believed",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "said",
+          "start": 4.42,
+          "end": 4.68,
+          "key": "said",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "Polmarchus,",
+          "start": 4.68,
+          "end": 5.4,
+          "key": "polmarchus",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "interposing.",
+          "start": 5.46,
+          "end": 5.92,
+          "key": "interposing",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Quite",
+          "start": 0.08,
+          "end": 0.58
+        },
+        {
+          "text": "correct,",
+          "start": 0.58,
+          "end": 1.04
+        },
+        {
+          "text": "Socrates,",
+          "start": 1.88,
+          "end": 1.88
+        },
+        {
+          "text": "if",
+          "start": 2.36,
+          "end": 2.46
+        },
+        {
+          "text": "Simonides",
+          "start": 2.46,
+          "end": 3.06
+        },
+        {
+          "text": "is",
+          "start": 3.06,
+          "end": 3.32
+        },
+        {
+          "text": "to",
+          "start": 3.32,
+          "end": 3.46
+        },
+        {
+          "text": "be",
+          "start": 3.46,
+          "end": 3.58
+        },
+        {
+          "text": "believed,",
+          "start": 3.58,
+          "end": 4.42
+        },
+        {
+          "text": "said",
+          "start": 4.42,
+          "end": 4.68
+        },
+        {
+          "text": "Polemarchus",
+          "start": 4.68,
+          "end": 5.07
+        },
+        {
+          "text": "interposing.",
+          "start": 5.46,
+          "end": 5.92
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 11
+      },
+      "match_ratio": 0.9166666666666666,
+      "rejection_reasons": [],
+      "seconds": 0.4443764314055443
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "c8978f0bd5b318846e90f5ed60aa701bfc73a82afa4511721d8bb06a4079064d",
+  "selected_reasons": []
+}

@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "703f172d47df6ed40c85e902ee76c1564d6e9f6d2f6c439c760fbd24a1ed19e7",
+  "attempts": [
+    {
+      "asr_seconds": 0.2898435704410076,
+      "alignment_seconds": 0.0003323853015899658,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "No; I would rather say discretion.",
+        "hotwords": "No, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No, I would rather say discretion.",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " No,",
+              "start": 0.02,
+              "end": 0.68,
+              "probability": 0.904296875
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 1.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " would",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " rather",
+              "start": 1.2,
+              "end": 1.32,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " say",
+              "start": 1.32,
+              "end": 1.6,
+              "probability": 0.986328125
+            },
+            {
+              "text": " discretion.",
+              "start": 1.6,
+              "end": 2.0,
+              "probability": 0.75830078125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "raw": "would",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "rather",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "raw": "say",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "raw": "discretion.",
+          "start": 1.6,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "No;",
+        "I",
+        "would",
+        "rather",
+        "say",
+        "discretion."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No,",
+          "start": 0.02,
+          "end": 0.68,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.1,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "would",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "rather",
+          "start": 1.2,
+          "end": 1.32,
+          "key": "rather",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 1.32,
+          "end": 1.6,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "discretion.",
+          "start": 1.6,
+          "end": 2.0,
+          "key": "discretion",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "No;",
+          "start": 0.02,
+          "end": 0.68
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.1
+        },
+        {
+          "text": "would",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "rather",
+          "start": 1.2,
+          "end": 1.32
+        },
+        {
+          "text": "say",
+          "start": 1.32,
+          "end": 1.6
+        },
+        {
+          "text": "discretion.",
+          "start": 1.6,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2902904041111469
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "6840f45028bca3847cdd9f34bac6dd4795265805f0d3b1130f2e886616ceffb5",
+  "selected_reasons": []
+}

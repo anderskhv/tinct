@@ -1,0 +1,933 @@
+{
+  "complete": true,
+  "signature": "b6151ffb4da72c09192f0b12ce667df4f3c97843fc697397b2ec0684ce7ac2cf",
+  "attempts": [
+    {
+      "asr_seconds": 0.526393037289381,
+      "alignment_seconds": 0.0005310960114002228,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " At any rate, you can tell that a song or ode has three parts—the words, the melody, and",
+          "start": 0.05,
+          "end": 5.79,
+          "words": [
+            {
+              "text": " At",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.89697265625
+            },
+            {
+              "text": " any",
+              "start": 0.51,
+              "end": 0.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rate,",
+              "start": 0.67,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " you",
+              "start": 0.93,
+              "end": 1.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " can",
+              "start": 1.01,
+              "end": 1.17,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " tell",
+              "start": 1.17,
+              "end": 1.39,
+              "probability": 0.998046875
+            },
+            {
+              "text": " that",
+              "start": 1.39,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.61,
+              "end": 1.75,
+              "probability": 0.986328125
+            },
+            {
+              "text": " song",
+              "start": 1.75,
+              "end": 2.09,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " or",
+              "start": 2.09,
+              "end": 2.31,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " ode",
+              "start": 2.31,
+              "end": 2.69,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " has",
+              "start": 2.69,
+              "end": 2.85,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " three",
+              "start": 2.85,
+              "end": 3.15,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " parts—the",
+              "start": 3.15,
+              "end": 4.29,
+              "probability": 0.7571614583333334
+            },
+            {
+              "text": " words,",
+              "start": 4.29,
+              "end": 4.67,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 5.13,
+              "end": 5.19,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " melody,",
+              "start": 5.19,
+              "end": 5.45,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " and",
+              "start": 5.73,
+              "end": 5.79,
+              "probability": 0.998046875
+            }
+          ]
+        },
+        {
+          "text": " the rhythm—that degree of knowledge I may presuppose.",
+          "start": 5.79,
+          "end": 8.93,
+          "words": [
+            {
+              "text": " the",
+              "start": 5.79,
+              "end": 5.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " rhythm—that",
+              "start": 5.89,
+              "end": 6.93,
+              "probability": 0.8951822916666666
+            },
+            {
+              "text": " degree",
+              "start": 6.93,
+              "end": 7.23,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 7.23,
+              "end": 7.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " knowledge",
+              "start": 7.41,
+              "end": 7.73,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " I",
+              "start": 7.73,
+              "end": 7.99,
+              "probability": 0.53662109375
+            },
+            {
+              "text": " may",
+              "start": 7.99,
+              "end": 8.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " presuppose.",
+              "start": 8.17,
+              "end": 8.93,
+              "probability": 0.996337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "At",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "any",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "raw": "rate,",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "raw": "you",
+          "start": 0.93,
+          "end": 1.01
+        },
+        {
+          "raw": "can",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "raw": "tell",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "raw": "that",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "raw": "song",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "raw": "or",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "raw": "ode",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "raw": "has",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "raw": "three",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "raw": "parts—the",
+          "start": 3.15,
+          "end": 4.29
+        },
+        {
+          "raw": "words,",
+          "start": 4.29,
+          "end": 4.67
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.19
+        },
+        {
+          "raw": "melody,",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "raw": "and",
+          "start": 5.73,
+          "end": 5.79
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.89
+        },
+        {
+          "raw": "rhythm—that",
+          "start": 5.89,
+          "end": 6.93
+        },
+        {
+          "raw": "degree",
+          "start": 6.93,
+          "end": 7.23
+        },
+        {
+          "raw": "of",
+          "start": 7.23,
+          "end": 7.41
+        },
+        {
+          "raw": "knowledge",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "raw": "may",
+          "start": 7.99,
+          "end": 8.17
+        },
+        {
+          "raw": "presuppose.",
+          "start": 8.17,
+          "end": 8.93
+        }
+      ],
+      "expected_tokens": [
+        "At",
+        "any",
+        "rate",
+        "you",
+        "can",
+        "tell",
+        "that",
+        "a",
+        "song",
+        "or",
+        "ode",
+        "has",
+        "three",
+        "parts—the",
+        "words,",
+        "the",
+        "melody,",
+        "and",
+        "the",
+        "rhythm;",
+        "that",
+        "degree",
+        "of",
+        "knowledge",
+        "I",
+        "may",
+        "presuppose?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ],
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ],
+        [
+          "equal",
+          21,
+          27,
+          20,
+          26
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 20,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 25
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          19,
+          21,
+          19,
+          20
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "At",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "at",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "any",
+          "start": 0.51,
+          "end": 0.67,
+          "key": "any",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "rate,",
+          "start": 0.67,
+          "end": 0.87,
+          "key": "rate",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.93,
+          "end": 1.01,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.01,
+          "end": 1.17,
+          "key": "can",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "tell",
+          "start": 1.17,
+          "end": 1.39,
+          "key": "tell",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.39,
+          "end": 1.61,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.61,
+          "end": 1.75,
+          "key": "a",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "song",
+          "start": 1.75,
+          "end": 2.09,
+          "key": "song",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.09,
+          "end": 2.31,
+          "key": "or",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "ode",
+          "start": 2.31,
+          "end": 2.69,
+          "key": "ode",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 2.69,
+          "end": 2.85,
+          "key": "has",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "three",
+          "start": 2.85,
+          "end": 3.15,
+          "key": "three",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "parts—the",
+          "start": 3.15,
+          "end": 4.29,
+          "key": "partsthe",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "words,",
+          "start": 4.29,
+          "end": 4.67,
+          "key": "words",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.13,
+          "end": 5.19,
+          "key": "the",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "melody,",
+          "start": 5.19,
+          "end": 5.45,
+          "key": "melody",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.73,
+          "end": 5.79,
+          "key": "and",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.79,
+          "end": 5.89,
+          "key": "the",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "rhythm—that",
+          "start": 5.89,
+          "end": 6.93,
+          "key": "rhythmthat",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "degree",
+          "start": 6.93,
+          "end": 7.23,
+          "key": "degree",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 7.23,
+          "end": 7.41,
+          "key": "of",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "knowledge",
+          "start": 7.41,
+          "end": 7.73,
+          "key": "knowledge",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 7.73,
+          "end": 7.99,
+          "key": "i",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "may",
+          "start": 7.99,
+          "end": 8.17,
+          "key": "may",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "presuppose.",
+          "start": 8.17,
+          "end": 8.93,
+          "key": "presuppose",
+          "pieces": [
+            25
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "At",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "any",
+          "start": 0.51,
+          "end": 0.67
+        },
+        {
+          "text": "rate",
+          "start": 0.67,
+          "end": 0.87
+        },
+        {
+          "text": "you",
+          "start": 0.93,
+          "end": 1.01
+        },
+        {
+          "text": "can",
+          "start": 1.01,
+          "end": 1.17
+        },
+        {
+          "text": "tell",
+          "start": 1.17,
+          "end": 1.39
+        },
+        {
+          "text": "that",
+          "start": 1.39,
+          "end": 1.61
+        },
+        {
+          "text": "a",
+          "start": 1.61,
+          "end": 1.75
+        },
+        {
+          "text": "song",
+          "start": 1.75,
+          "end": 2.09
+        },
+        {
+          "text": "or",
+          "start": 2.09,
+          "end": 2.31
+        },
+        {
+          "text": "ode",
+          "start": 2.31,
+          "end": 2.69
+        },
+        {
+          "text": "has",
+          "start": 2.69,
+          "end": 2.85
+        },
+        {
+          "text": "three",
+          "start": 2.85,
+          "end": 3.15
+        },
+        {
+          "text": "parts—the",
+          "start": 3.15,
+          "end": 4.29
+        },
+        {
+          "text": "words,",
+          "start": 4.29,
+          "end": 4.67
+        },
+        {
+          "text": "the",
+          "start": 5.13,
+          "end": 5.19
+        },
+        {
+          "text": "melody,",
+          "start": 5.19,
+          "end": 5.45
+        },
+        {
+          "text": "and",
+          "start": 5.73,
+          "end": 5.79
+        },
+        {
+          "text": "the",
+          "start": 5.79,
+          "end": 5.89
+        },
+        {
+          "text": "rhythm;",
+          "start": 5.89,
+          "end": 6.41
+        },
+        {
+          "text": "that",
+          "start": 6.41,
+          "end": 6.67
+        },
+        {
+          "text": "degree",
+          "start": 6.93,
+          "end": 7.23
+        },
+        {
+          "text": "of",
+          "start": 7.23,
+          "end": 7.41
+        },
+        {
+          "text": "knowledge",
+          "start": 7.41,
+          "end": 7.73
+        },
+        {
+          "text": "I",
+          "start": 7.73,
+          "end": 7.99
+        },
+        {
+          "text": "may",
+          "start": 7.99,
+          "end": 8.17
+        },
+        {
+          "text": "presuppose?",
+          "start": 8.17,
+          "end": 8.93
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 26,
+        "matched_words": 25
+      },
+      "match_ratio": 0.9259259259259259,
+      "rejection_reasons": [],
+      "seconds": 0.5271171927452087
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8bb1e97d4838bd5299dccf0e237803f55af89a14616f71ab9912fe6de01d26ef",
+  "selected_reasons": []
+}

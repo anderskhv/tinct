@@ -1,0 +1,350 @@
+{
+  "complete": true,
+  "signature": "1fa37ec2be0a538bcd267cd31b49733cbe0467ff44b4ae251d65fda2ae3a5b5b",
+  "attempts": [
+    {
+      "asr_seconds": 0.26143909990787506,
+      "alignment_seconds": 0.00031881406903266907,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Nothing, he said, can be better than that statement.",
+        "hotwords": "Nothing"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Nothing, he said, can be better than that statement.",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " Nothing,",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.3681640625
+            },
+            {
+              "text": " he",
+              "start": 0.81,
+              "end": 1.01,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " said,",
+              "start": 1.01,
+              "end": 1.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " can",
+              "start": 1.67,
+              "end": 1.79,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " be",
+              "start": 1.79,
+              "end": 1.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " better",
+              "start": 1.93,
+              "end": 2.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " than",
+              "start": 2.09,
+              "end": 2.27,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " that",
+              "start": 2.27,
+              "end": 2.47,
+              "probability": 0.998046875
+            },
+            {
+              "text": " statement.",
+              "start": 2.47,
+              "end": 2.83,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Nothing,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "he",
+          "start": 0.81,
+          "end": 1.01
+        },
+        {
+          "raw": "said,",
+          "start": 1.01,
+          "end": 1.27
+        },
+        {
+          "raw": "can",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "raw": "be",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "raw": "better",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "raw": "than",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "raw": "that",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "raw": "statement.",
+          "start": 2.47,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "Nothing,",
+        "he",
+        "said,",
+        "can",
+        "be",
+        "better",
+        "than",
+        "that",
+        "statement."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Nothing,",
+          "start": 0.05,
+          "end": 0.77,
+          "key": "nothing",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.81,
+          "end": 1.01,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.01,
+          "end": 1.27,
+          "key": "said",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "can",
+          "start": 1.67,
+          "end": 1.79,
+          "key": "can",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.79,
+          "end": 1.93,
+          "key": "be",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 1.93,
+          "end": 2.09,
+          "key": "better",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 2.09,
+          "end": 2.27,
+          "key": "than",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.27,
+          "end": 2.47,
+          "key": "that",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "statement.",
+          "start": 2.47,
+          "end": 2.83,
+          "key": "statement",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Nothing,",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "he",
+          "start": 0.81,
+          "end": 1.01
+        },
+        {
+          "text": "said,",
+          "start": 1.01,
+          "end": 1.27
+        },
+        {
+          "text": "can",
+          "start": 1.67,
+          "end": 1.79
+        },
+        {
+          "text": "be",
+          "start": 1.79,
+          "end": 1.93
+        },
+        {
+          "text": "better",
+          "start": 1.93,
+          "end": 2.09
+        },
+        {
+          "text": "than",
+          "start": 2.09,
+          "end": 2.27
+        },
+        {
+          "text": "that",
+          "start": 2.27,
+          "end": 2.47
+        },
+        {
+          "text": "statement.",
+          "start": 2.47,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26187849044799805
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "11b4c4c8b5193889808366e87785d2c52de3e2908e78a3e471492649bfed8561",
+  "selected_reasons": []
+}

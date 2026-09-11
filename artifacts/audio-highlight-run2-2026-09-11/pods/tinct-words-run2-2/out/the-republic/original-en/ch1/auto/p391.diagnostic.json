@@ -1,0 +1,741 @@
+{
+  "complete": true,
+  "signature": "d216a0625feee4b0202d720a7560e575961777aa9b5af531264cdcdee9f69661",
+  "attempts": [
+    {
+      "asr_seconds": 0.4920579232275486,
+      "alignment_seconds": 0.0006266646087169647,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But did we not say, Thrasymachus, that the unjust goes beyond both his like and unlike? Were not these your words?",
+        "hotwords": "But, Thrasymachus, Were"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But did we not say, Thrasymachus, that the unjust goes beyond both his like and unlike?",
+          "start": 0.02,
+          "end": 5.88,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.87109375
+            },
+            {
+              "text": " did",
+              "start": 0.48,
+              "end": 0.58,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " we",
+              "start": 0.58,
+              "end": 0.72,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " not",
+              "start": 0.72,
+              "end": 0.92,
+              "probability": 0.99609375
+            },
+            {
+              "text": " say,",
+              "start": 0.92,
+              "end": 1.32,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " Thrasymachus,",
+              "start": 1.72,
+              "end": 2.32,
+              "probability": 0.27166748046875
+            },
+            {
+              "text": " that",
+              "start": 2.78,
+              "end": 2.96,
+              "probability": 0.974609375
+            },
+            {
+              "text": " the",
+              "start": 2.96,
+              "end": 3.1,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " unjust",
+              "start": 3.1,
+              "end": 3.5,
+              "probability": 0.79150390625
+            },
+            {
+              "text": " goes",
+              "start": 3.5,
+              "end": 3.98,
+              "probability": 0.9638671875
+            },
+            {
+              "text": " beyond",
+              "start": 3.98,
+              "end": 4.5,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " both",
+              "start": 4.5,
+              "end": 4.76,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " his",
+              "start": 4.76,
+              "end": 4.98,
+              "probability": 0.8779296875
+            },
+            {
+              "text": " like",
+              "start": 4.98,
+              "end": 5.26,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " and",
+              "start": 5.26,
+              "end": 5.5,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " unlike?",
+              "start": 5.5,
+              "end": 5.88,
+              "probability": 0.90673828125
+            }
+          ]
+        },
+        {
+          "text": " Were not these your words?",
+          "start": 6.58,
+          "end": 7.5,
+          "words": [
+            {
+              "text": " Were",
+              "start": 6.58,
+              "end": 6.66,
+              "probability": 0.1866455078125
+            },
+            {
+              "text": " not",
+              "start": 6.66,
+              "end": 6.82,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " these",
+              "start": 6.82,
+              "end": 7.04,
+              "probability": 0.998046875
+            },
+            {
+              "text": " your",
+              "start": 7.04,
+              "end": 7.2,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " words?",
+              "start": 7.2,
+              "end": 7.5,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "did",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "raw": "we",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "raw": "not",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "raw": "say,",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "raw": "Thrasymachus,",
+          "start": 1.72,
+          "end": 2.32
+        },
+        {
+          "raw": "that",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "raw": "unjust",
+          "start": 3.1,
+          "end": 3.5
+        },
+        {
+          "raw": "goes",
+          "start": 3.5,
+          "end": 3.98
+        },
+        {
+          "raw": "beyond",
+          "start": 3.98,
+          "end": 4.5
+        },
+        {
+          "raw": "both",
+          "start": 4.5,
+          "end": 4.76
+        },
+        {
+          "raw": "his",
+          "start": 4.76,
+          "end": 4.98
+        },
+        {
+          "raw": "like",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.5
+        },
+        {
+          "raw": "unlike?",
+          "start": 5.5,
+          "end": 5.88
+        },
+        {
+          "raw": "Were",
+          "start": 6.58,
+          "end": 6.66
+        },
+        {
+          "raw": "not",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "raw": "these",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "raw": "your",
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "raw": "words?",
+          "start": 7.2,
+          "end": 7.5
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "did",
+        "we",
+        "not",
+        "say,",
+        "Thrasymachus,",
+        "that",
+        "the",
+        "unjust",
+        "goes",
+        "beyond",
+        "both",
+        "his",
+        "like",
+        "and",
+        "unlike?",
+        "Were",
+        "not",
+        "these",
+        "your",
+        "words?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "did",
+          "start": 0.48,
+          "end": 0.58,
+          "key": "did",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "we",
+          "start": 0.58,
+          "end": 0.72,
+          "key": "we",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 0.72,
+          "end": 0.92,
+          "key": "not",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "say,",
+          "start": 0.92,
+          "end": 1.32,
+          "key": "say",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "Thrasymachus,",
+          "start": 1.72,
+          "end": 2.32,
+          "key": "thrasymachus",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 2.78,
+          "end": 2.96,
+          "key": "that",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.96,
+          "end": 3.1,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "unjust",
+          "start": 3.1,
+          "end": 3.5,
+          "key": "unjust",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "goes",
+          "start": 3.5,
+          "end": 3.98,
+          "key": "goes",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "beyond",
+          "start": 3.98,
+          "end": 4.5,
+          "key": "beyond",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "both",
+          "start": 4.5,
+          "end": 4.76,
+          "key": "both",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.76,
+          "end": 4.98,
+          "key": "his",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "like",
+          "start": 4.98,
+          "end": 5.26,
+          "key": "like",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 5.26,
+          "end": 5.5,
+          "key": "and",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "unlike?",
+          "start": 5.5,
+          "end": 5.88,
+          "key": "unlike",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "Were",
+          "start": 6.58,
+          "end": 6.66,
+          "key": "were",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 6.66,
+          "end": 6.82,
+          "key": "not",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "these",
+          "start": 6.82,
+          "end": 7.04,
+          "key": "these",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 7.04,
+          "end": 7.2,
+          "key": "your",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "words?",
+          "start": 7.2,
+          "end": 7.5,
+          "key": "words",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "did",
+          "start": 0.48,
+          "end": 0.58
+        },
+        {
+          "text": "we",
+          "start": 0.58,
+          "end": 0.72
+        },
+        {
+          "text": "not",
+          "start": 0.72,
+          "end": 0.92
+        },
+        {
+          "text": "say,",
+          "start": 0.92,
+          "end": 1.32
+        },
+        {
+          "text": "Thrasymachus,",
+          "start": 1.72,
+          "end": 2.32
+        },
+        {
+          "text": "that",
+          "start": 2.78,
+          "end": 2.96
+        },
+        {
+          "text": "the",
+          "start": 2.96,
+          "end": 3.1
+        },
+        {
+          "text": "unjust",
+          "start": 3.1,
+          "end": 3.5
+        },
+        {
+          "text": "goes",
+          "start": 3.5,
+          "end": 3.98
+        },
+        {
+          "text": "beyond",
+          "start": 3.98,
+          "end": 4.5
+        },
+        {
+          "text": "both",
+          "start": 4.5,
+          "end": 4.76
+        },
+        {
+          "text": "his",
+          "start": 4.76,
+          "end": 4.98
+        },
+        {
+          "text": "like",
+          "start": 4.98,
+          "end": 5.26
+        },
+        {
+          "text": "and",
+          "start": 5.26,
+          "end": 5.5
+        },
+        {
+          "text": "unlike?",
+          "start": 5.5,
+          "end": 5.88
+        },
+        {
+          "text": "Were",
+          "start": 6.58,
+          "end": 6.66
+        },
+        {
+          "text": "not",
+          "start": 6.66,
+          "end": 6.82
+        },
+        {
+          "text": "these",
+          "start": 6.82,
+          "end": 7.04
+        },
+        {
+          "text": "your",
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "text": "words?",
+          "start": 7.2,
+          "end": 7.5
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.49293725565075874
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "7e24699dc684c8b412b77386d5cd5ba1a03cd3384603c3a515e70b2665c3fad9",
+  "selected_reasons": []
+}

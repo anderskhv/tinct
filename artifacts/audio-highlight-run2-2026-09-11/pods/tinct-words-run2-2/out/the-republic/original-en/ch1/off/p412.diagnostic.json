@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "fe7fc66cf8cfb86daf5816722714494de7f530dd33582fc5e17fbe3127c3e982",
+  "attempts": [
+    {
+      "asr_seconds": 0.31316569074988365,
+      "alignment_seconds": 0.0006169788539409637,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That is out of civility to you, he replied.",
+          "start": 0.05,
+          "end": 2.49,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.381591796875
+            },
+            {
+              "text": " is",
+              "start": 0.55,
+              "end": 0.67,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " out",
+              "start": 0.67,
+              "end": 0.81,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 0.81,
+              "end": 0.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " civility",
+              "start": 0.93,
+              "end": 1.25,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.25,
+              "end": 1.49,
+              "probability": 0.990234375
+            },
+            {
+              "text": " you,",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 1.91,
+              "end": 2.09,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " replied.",
+              "start": 2.09,
+              "end": 2.49,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "raw": "out",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "raw": "civility",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "raw": "to",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "raw": "you,",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "he",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "raw": "replied.",
+          "start": 2.09,
+          "end": 2.49
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "is",
+        "out",
+        "of",
+        "civility",
+        "to",
+        "you,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.55,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 0.55,
+          "end": 0.67,
+          "key": "is",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "out",
+          "start": 0.67,
+          "end": 0.81,
+          "key": "out",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.81,
+          "end": 0.93,
+          "key": "of",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "civility",
+          "start": 0.93,
+          "end": 1.25,
+          "key": "civility",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.25,
+          "end": 1.49,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "you,",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "you",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.91,
+          "end": 2.09,
+          "key": "he",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 2.09,
+          "end": 2.49,
+          "key": "replied",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "is",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "text": "out",
+          "start": 0.67,
+          "end": 0.81
+        },
+        {
+          "text": "of",
+          "start": 0.81,
+          "end": 0.93
+        },
+        {
+          "text": "civility",
+          "start": 0.93,
+          "end": 1.25
+        },
+        {
+          "text": "to",
+          "start": 1.25,
+          "end": 1.49
+        },
+        {
+          "text": "you,",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "he",
+          "start": 1.91,
+          "end": 2.09
+        },
+        {
+          "text": "replied.",
+          "start": 2.09,
+          "end": 2.49
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3139551915228367
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf1d234cfa39833ee4e75657464a889b8815f9537f144224b9dc6f3317718026",
+  "selected_reasons": []
+}

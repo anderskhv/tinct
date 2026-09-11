@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "24be45fa669c9aed2399a966ac2af077adfb0c87a2443a071d92315955fb739d",
+  "attempts": [
+    {
+      "asr_seconds": 0.3789353035390377,
+      "alignment_seconds": 0.00040113553404808044,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " To this he assented with a good deal of reluctance",
+          "start": 0.02,
+          "end": 3.1,
+          "words": [
+            {
+              "text": " To",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.9580078125
+            },
+            {
+              "text": " this",
+              "start": 0.5,
+              "end": 0.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " he",
+              "start": 0.78,
+              "end": 1.28,
+              "probability": 0.249267578125
+            },
+            {
+              "text": " assented",
+              "start": 1.28,
+              "end": 1.66,
+              "probability": 0.919677734375
+            },
+            {
+              "text": " with",
+              "start": 1.66,
+              "end": 1.96,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " a",
+              "start": 1.96,
+              "end": 2.08,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " good",
+              "start": 2.08,
+              "end": 2.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " deal",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " of",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " reluctance",
+              "start": 2.66,
+              "end": 3.1,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "this",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "raw": "he",
+          "start": 0.78,
+          "end": 1.28
+        },
+        {
+          "raw": "assented",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "raw": "a",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "raw": "good",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "raw": "deal",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "reluctance",
+          "start": 2.66,
+          "end": 3.1
+        }
+      ],
+      "expected_tokens": [
+        "To",
+        "this",
+        "he",
+        "assented",
+        "with",
+        "a",
+        "good",
+        "deal",
+        "of",
+        "reluctance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "To",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "to",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 0.5,
+          "end": 0.78,
+          "key": "this",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.78,
+          "end": 1.28,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "assented",
+          "start": 1.28,
+          "end": 1.66,
+          "key": "assented",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 1.66,
+          "end": 1.96,
+          "key": "with",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 1.96,
+          "end": 2.08,
+          "key": "a",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "good",
+          "start": 2.08,
+          "end": 2.26,
+          "key": "good",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "deal",
+          "start": 2.26,
+          "end": 2.5,
+          "key": "deal",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "of",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "reluctance",
+          "start": 2.66,
+          "end": 3.1,
+          "key": "reluctance",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "To",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "this",
+          "start": 0.5,
+          "end": 0.78
+        },
+        {
+          "text": "he",
+          "start": 0.78,
+          "end": 1.28
+        },
+        {
+          "text": "assented",
+          "start": 1.28,
+          "end": 1.66
+        },
+        {
+          "text": "with",
+          "start": 1.66,
+          "end": 1.96
+        },
+        {
+          "text": "a",
+          "start": 1.96,
+          "end": 2.08
+        },
+        {
+          "text": "good",
+          "start": 2.08,
+          "end": 2.26
+        },
+        {
+          "text": "deal",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "of",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "reluctance.",
+          "start": 2.66,
+          "end": 3.1
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.37949231266975403
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "cf0c4cbedc2fc1c7cc7f2a800dcdf6c5bcb5136bbf769082fa0bb159ed4fd130",
+  "selected_reasons": []
+}

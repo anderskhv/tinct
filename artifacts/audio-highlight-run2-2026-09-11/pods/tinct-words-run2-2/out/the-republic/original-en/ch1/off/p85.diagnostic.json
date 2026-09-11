@@ -1,0 +1,732 @@
+{
+  "complete": true,
+  "signature": "e083d72d57146bc17a9b11c2cfab79e401228f6fe989875f1903503441dde789",
+  "attempts": [
+    {
+      "asr_seconds": 0.4302171356976032,
+      "alignment_seconds": 0.0005822889506816864,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And in the laying of bricks and stones is the just man a more useful or better partner than the builder",
+          "start": 0.05,
+          "end": 5.85,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.55859375
+            },
+            {
+              "text": " in",
+              "start": 0.53,
+              "end": 0.63,
+              "probability": 0.96240234375
+            },
+            {
+              "text": " the",
+              "start": 0.63,
+              "end": 0.73,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " laying",
+              "start": 0.73,
+              "end": 0.95,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " of",
+              "start": 0.95,
+              "end": 1.23,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " bricks",
+              "start": 1.23,
+              "end": 1.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 1.49,
+              "end": 1.77,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " stones",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 2.11,
+              "end": 2.81,
+              "probability": 0.126953125
+            },
+            {
+              "text": " the",
+              "start": 2.81,
+              "end": 2.95,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " just",
+              "start": 2.95,
+              "end": 3.15,
+              "probability": 0.8583984375
+            },
+            {
+              "text": " man",
+              "start": 3.15,
+              "end": 3.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " a",
+              "start": 3.47,
+              "end": 3.65,
+              "probability": 0.94921875
+            },
+            {
+              "text": " more",
+              "start": 3.65,
+              "end": 3.83,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " useful",
+              "start": 3.83,
+              "end": 4.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " or",
+              "start": 4.31,
+              "end": 4.61,
+              "probability": 0.94384765625
+            },
+            {
+              "text": " better",
+              "start": 4.61,
+              "end": 4.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " partner",
+              "start": 4.87,
+              "end": 5.27,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " than",
+              "start": 5.27,
+              "end": 5.53,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " the",
+              "start": 5.53,
+              "end": 5.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " builder",
+              "start": 5.65,
+              "end": 5.85,
+              "probability": 0.9228515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "in",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "raw": "laying",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "raw": "of",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "raw": "bricks",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "raw": "stones",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "raw": "is",
+          "start": 2.11,
+          "end": 2.81
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "raw": "just",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "raw": "man",
+          "start": 3.15,
+          "end": 3.47
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "raw": "more",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "raw": "useful",
+          "start": 3.83,
+          "end": 4.31
+        },
+        {
+          "raw": "or",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "raw": "better",
+          "start": 4.61,
+          "end": 4.87
+        },
+        {
+          "raw": "partner",
+          "start": 4.87,
+          "end": 5.27
+        },
+        {
+          "raw": "than",
+          "start": 5.27,
+          "end": 5.53
+        },
+        {
+          "raw": "the",
+          "start": 5.53,
+          "end": 5.65
+        },
+        {
+          "raw": "builder",
+          "start": 5.65,
+          "end": 5.85
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "in",
+        "the",
+        "laying",
+        "of",
+        "bricks",
+        "and",
+        "stones",
+        "is",
+        "the",
+        "just",
+        "man",
+        "a",
+        "more",
+        "useful",
+        "or",
+        "better",
+        "partner",
+        "than",
+        "the",
+        "builder?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.05,
+          "end": 0.53,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 0.53,
+          "end": 0.63,
+          "key": "in",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.63,
+          "end": 0.73,
+          "key": "the",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "laying",
+          "start": 0.73,
+          "end": 0.95,
+          "key": "laying",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 0.95,
+          "end": 1.23,
+          "key": "of",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "bricks",
+          "start": 1.23,
+          "end": 1.49,
+          "key": "bricks",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.49,
+          "end": 1.77,
+          "key": "and",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "stones",
+          "start": 1.77,
+          "end": 2.11,
+          "key": "stones",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.11,
+          "end": 2.81,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.81,
+          "end": 2.95,
+          "key": "the",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 2.95,
+          "end": 3.15,
+          "key": "just",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "man",
+          "start": 3.15,
+          "end": 3.47,
+          "key": "man",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 3.47,
+          "end": 3.65,
+          "key": "a",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 3.65,
+          "end": 3.83,
+          "key": "more",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "useful",
+          "start": 3.83,
+          "end": 4.31,
+          "key": "useful",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 4.31,
+          "end": 4.61,
+          "key": "or",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "better",
+          "start": 4.61,
+          "end": 4.87,
+          "key": "better",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "partner",
+          "start": 4.87,
+          "end": 5.27,
+          "key": "partner",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "than",
+          "start": 5.27,
+          "end": 5.53,
+          "key": "than",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 5.53,
+          "end": 5.65,
+          "key": "the",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "builder",
+          "start": 5.65,
+          "end": 5.85,
+          "key": "builder",
+          "pieces": [
+            20
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "in",
+          "start": 0.53,
+          "end": 0.63
+        },
+        {
+          "text": "the",
+          "start": 0.63,
+          "end": 0.73
+        },
+        {
+          "text": "laying",
+          "start": 0.73,
+          "end": 0.95
+        },
+        {
+          "text": "of",
+          "start": 0.95,
+          "end": 1.23
+        },
+        {
+          "text": "bricks",
+          "start": 1.23,
+          "end": 1.49
+        },
+        {
+          "text": "and",
+          "start": 1.49,
+          "end": 1.77
+        },
+        {
+          "text": "stones",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "text": "is",
+          "start": 2.11,
+          "end": 2.81
+        },
+        {
+          "text": "the",
+          "start": 2.81,
+          "end": 2.95
+        },
+        {
+          "text": "just",
+          "start": 2.95,
+          "end": 3.15
+        },
+        {
+          "text": "man",
+          "start": 3.15,
+          "end": 3.47
+        },
+        {
+          "text": "a",
+          "start": 3.47,
+          "end": 3.65
+        },
+        {
+          "text": "more",
+          "start": 3.65,
+          "end": 3.83
+        },
+        {
+          "text": "useful",
+          "start": 3.83,
+          "end": 4.31
+        },
+        {
+          "text": "or",
+          "start": 4.31,
+          "end": 4.61
+        },
+        {
+          "text": "better",
+          "start": 4.61,
+          "end": 4.87
+        },
+        {
+          "text": "partner",
+          "start": 4.87,
+          "end": 5.27
+        },
+        {
+          "text": "than",
+          "start": 5.27,
+          "end": 5.53
+        },
+        {
+          "text": "the",
+          "start": 5.53,
+          "end": 5.65
+        },
+        {
+          "text": "builder?",
+          "start": 5.65,
+          "end": 5.85
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4310625344514847
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "9c638df89a2843931baae99664c0c2ef08d433ed418652e06012085b28ddaccb",
+  "selected_reasons": []
+}

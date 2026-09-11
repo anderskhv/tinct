@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "c4d37751d9d58304727667376e5b3a2a596f15d6a745732307909859d8e1deda",
+  "attempts": [
+    {
+      "asr_seconds": 0.2827567011117935,
+      "alignment_seconds": 0.00034080445766448975,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What makes you say that I replied",
+          "start": 0.02,
+          "end": 2.0,
+          "words": [
+            {
+              "text": " What",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.315673828125
+            },
+            {
+              "text": " makes",
+              "start": 0.52,
+              "end": 0.68,
+              "probability": 0.998046875
+            },
+            {
+              "text": " you",
+              "start": 0.68,
+              "end": 0.84,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " say",
+              "start": 0.84,
+              "end": 1.0,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " that",
+              "start": 1.0,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " I",
+              "start": 1.3,
+              "end": 1.66,
+              "probability": 0.2381591796875
+            },
+            {
+              "text": " replied",
+              "start": 1.66,
+              "end": 2.0,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "makes",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "raw": "say",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "raw": "that",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "raw": "replied",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "expected_tokens": [
+        "What",
+        "makes",
+        "you",
+        "say",
+        "that?",
+        "I",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "What",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "what",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "makes",
+          "start": 0.52,
+          "end": 0.68,
+          "key": "makes",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 0.68,
+          "end": 0.84,
+          "key": "you",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 0.84,
+          "end": 1.0,
+          "key": "say",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.0,
+          "end": 1.3,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.3,
+          "end": 1.66,
+          "key": "i",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "replied",
+          "start": 1.66,
+          "end": 2.0,
+          "key": "replied",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "What",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "makes",
+          "start": 0.52,
+          "end": 0.68
+        },
+        {
+          "text": "you",
+          "start": 0.68,
+          "end": 0.84
+        },
+        {
+          "text": "say",
+          "start": 0.84,
+          "end": 1.0
+        },
+        {
+          "text": "that?",
+          "start": 1.0,
+          "end": 1.3
+        },
+        {
+          "text": "I",
+          "start": 1.3,
+          "end": 1.66
+        },
+        {
+          "text": "replied.",
+          "start": 1.66,
+          "end": 2.0
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2832224555313587
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4325a3d83299d12f54700038475dacd4743a93611cd3af85d86e964b55bdf437",
+  "selected_reasons": []
+}

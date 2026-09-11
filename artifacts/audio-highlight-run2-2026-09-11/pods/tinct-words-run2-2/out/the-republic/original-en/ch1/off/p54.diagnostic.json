@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "41bb7cd986ba0704a0bccc85aed0fd92bed8bd4794b51282448fe362ac0c62d6",
+  "attempts": [
+    {
+      "asr_seconds": 0.3828215040266514,
+      "alignment_seconds": 0.0005291663110256195,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He would surely reply that medicine gives drugs and meat and drink to human bodies.",
+          "start": 0.05,
+          "end": 4.97,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.71337890625
+            },
+            {
+              "text": " would",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " surely",
+              "start": 0.61,
+              "end": 0.95,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " reply",
+              "start": 0.95,
+              "end": 1.43,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " that",
+              "start": 1.43,
+              "end": 1.77,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " medicine",
+              "start": 1.77,
+              "end": 2.13,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " gives",
+              "start": 2.13,
+              "end": 2.45,
+              "probability": 0.990234375
+            },
+            {
+              "text": " drugs",
+              "start": 2.45,
+              "end": 2.83,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 2.83,
+              "end": 3.13,
+              "probability": 0.994140625
+            },
+            {
+              "text": " meat",
+              "start": 3.13,
+              "end": 3.39,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " and",
+              "start": 3.39,
+              "end": 3.95,
+              "probability": 0.56591796875
+            },
+            {
+              "text": " drink",
+              "start": 3.95,
+              "end": 4.13,
+              "probability": 0.9921875
+            },
+            {
+              "text": " to",
+              "start": 4.13,
+              "end": 4.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " human",
+              "start": 4.31,
+              "end": 4.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bodies.",
+              "start": 4.55,
+              "end": 4.97,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "would",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "surely",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "raw": "reply",
+          "start": 0.95,
+          "end": 1.43
+        },
+        {
+          "raw": "that",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "raw": "medicine",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "raw": "gives",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "raw": "drugs",
+          "start": 2.45,
+          "end": 2.83
+        },
+        {
+          "raw": "and",
+          "start": 2.83,
+          "end": 3.13
+        },
+        {
+          "raw": "meat",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "raw": "drink",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "raw": "to",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "raw": "human",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "raw": "bodies.",
+          "start": 4.55,
+          "end": 4.97
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "would",
+        "surely",
+        "reply",
+        "that",
+        "medicine",
+        "gives",
+        "drugs",
+        "and",
+        "meat",
+        "and",
+        "drink",
+        "to",
+        "human",
+        "bodies."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          15,
+          0,
+          15
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "would",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "would",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "surely",
+          "start": 0.61,
+          "end": 0.95,
+          "key": "surely",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "reply",
+          "start": 0.95,
+          "end": 1.43,
+          "key": "reply",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.43,
+          "end": 1.77,
+          "key": "that",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "medicine",
+          "start": 1.77,
+          "end": 2.13,
+          "key": "medicine",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "gives",
+          "start": 2.13,
+          "end": 2.45,
+          "key": "gives",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "drugs",
+          "start": 2.45,
+          "end": 2.83,
+          "key": "drugs",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 2.83,
+          "end": 3.13,
+          "key": "and",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "meat",
+          "start": 3.13,
+          "end": 3.39,
+          "key": "meat",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.39,
+          "end": 3.95,
+          "key": "and",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "drink",
+          "start": 3.95,
+          "end": 4.13,
+          "key": "drink",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 4.13,
+          "end": 4.31,
+          "key": "to",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "human",
+          "start": 4.31,
+          "end": 4.55,
+          "key": "human",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "bodies.",
+          "start": 4.55,
+          "end": 4.97,
+          "key": "bodies",
+          "pieces": [
+            14
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "would",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "surely",
+          "start": 0.61,
+          "end": 0.95
+        },
+        {
+          "text": "reply",
+          "start": 0.95,
+          "end": 1.43
+        },
+        {
+          "text": "that",
+          "start": 1.43,
+          "end": 1.77
+        },
+        {
+          "text": "medicine",
+          "start": 1.77,
+          "end": 2.13
+        },
+        {
+          "text": "gives",
+          "start": 2.13,
+          "end": 2.45
+        },
+        {
+          "text": "drugs",
+          "start": 2.45,
+          "end": 2.83
+        },
+        {
+          "text": "and",
+          "start": 2.83,
+          "end": 3.13
+        },
+        {
+          "text": "meat",
+          "start": 3.13,
+          "end": 3.39
+        },
+        {
+          "text": "and",
+          "start": 3.39,
+          "end": 3.95
+        },
+        {
+          "text": "drink",
+          "start": 3.95,
+          "end": 4.13
+        },
+        {
+          "text": "to",
+          "start": 4.13,
+          "end": 4.31
+        },
+        {
+          "text": "human",
+          "start": 4.31,
+          "end": 4.55
+        },
+        {
+          "text": "bodies.",
+          "start": 4.55,
+          "end": 4.97
+        }
+      ],
+      "stats": {
+        "expected_words": 15,
+        "heard_words": 15,
+        "matched_words": 15
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.383561335504055
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6d65c512e0c8851f57b56412b79d4d8a2b7bcf7ba50eeb81f3ede67ac69e64ef",
+  "selected_reasons": []
+}

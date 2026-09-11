@@ -1,0 +1,675 @@
+{
+  "complete": true,
+  "signature": "0c182982d7372a7afce1bb0fa1e32888eb636de01c48600726a99e82e8f80ef4",
+  "attempts": [
+    {
+      "asr_seconds": 0.4417125806212425,
+      "alignment_seconds": 0.0006037615239620209,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But if so, the unjust will be the enemy of the gods,",
+          "start": 0.05,
+          "end": 3.39,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.76123046875
+            },
+            {
+              "text": " if",
+              "start": 0.49,
+              "end": 0.61,
+              "probability": 0.96923828125
+            },
+            {
+              "text": " so,",
+              "start": 0.61,
+              "end": 0.93,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 1.37,
+              "end": 1.51,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " unjust",
+              "start": 1.51,
+              "end": 1.91,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " will",
+              "start": 1.91,
+              "end": 2.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 2.17,
+              "end": 2.31,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 2.31,
+              "end": 2.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " enemy",
+              "start": 2.49,
+              "end": 2.73,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " of",
+              "start": 2.73,
+              "end": 2.97,
+              "probability": 1.0
+            },
+            {
+              "text": " the",
+              "start": 2.97,
+              "end": 3.09,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " gods,",
+              "start": 3.09,
+              "end": 3.39,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " and the just will be their friend.",
+          "start": 3.93,
+          "end": 5.23,
+          "words": [
+            {
+              "text": " and",
+              "start": 3.93,
+              "end": 4.07,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 4.07,
+              "end": 4.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " just",
+              "start": 4.17,
+              "end": 4.39,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " will",
+              "start": 4.39,
+              "end": 4.59,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 4.59,
+              "end": 4.75,
+              "probability": 1.0
+            },
+            {
+              "text": " their",
+              "start": 4.75,
+              "end": 4.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " friend.",
+              "start": 4.91,
+              "end": 5.23,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "if",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "raw": "so,",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "raw": "unjust",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "raw": "will",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "raw": "be",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "raw": "enemy",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.97
+        },
+        {
+          "raw": "the",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "raw": "gods,",
+          "start": 3.09,
+          "end": 3.39
+        },
+        {
+          "raw": "and",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "raw": "the",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "raw": "just",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "raw": "will",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "raw": "be",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "raw": "their",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "raw": "friend.",
+          "start": 4.91,
+          "end": 5.23
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "if",
+        "so,",
+        "the",
+        "unjust",
+        "will",
+        "be",
+        "the",
+        "enemy",
+        "of",
+        "the",
+        "gods,",
+        "and",
+        "the",
+        "just",
+        "will",
+        "be",
+        "their",
+        "friend?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          19,
+          0,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "but",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "if",
+          "start": 0.49,
+          "end": 0.61,
+          "key": "if",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "so,",
+          "start": 0.61,
+          "end": 0.93,
+          "key": "so",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.37,
+          "end": 1.51,
+          "key": "the",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "unjust",
+          "start": 1.51,
+          "end": 1.91,
+          "key": "unjust",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.91,
+          "end": 2.17,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 2.17,
+          "end": 2.31,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.31,
+          "end": 2.49,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "enemy",
+          "start": 2.49,
+          "end": 2.73,
+          "key": "enemy",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.73,
+          "end": 2.97,
+          "key": "of",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.97,
+          "end": 3.09,
+          "key": "the",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "gods,",
+          "start": 3.09,
+          "end": 3.39,
+          "key": "gods",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 3.93,
+          "end": 4.07,
+          "key": "and",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 4.07,
+          "end": 4.17,
+          "key": "the",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "just",
+          "start": 4.17,
+          "end": 4.39,
+          "key": "just",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 4.39,
+          "end": 4.59,
+          "key": "will",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 4.59,
+          "end": 4.75,
+          "key": "be",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "their",
+          "start": 4.75,
+          "end": 4.91,
+          "key": "their",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "friend.",
+          "start": 4.91,
+          "end": 5.23,
+          "key": "friend",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "if",
+          "start": 0.49,
+          "end": 0.61
+        },
+        {
+          "text": "so,",
+          "start": 0.61,
+          "end": 0.93
+        },
+        {
+          "text": "the",
+          "start": 1.37,
+          "end": 1.51
+        },
+        {
+          "text": "unjust",
+          "start": 1.51,
+          "end": 1.91
+        },
+        {
+          "text": "will",
+          "start": 1.91,
+          "end": 2.17
+        },
+        {
+          "text": "be",
+          "start": 2.17,
+          "end": 2.31
+        },
+        {
+          "text": "the",
+          "start": 2.31,
+          "end": 2.49
+        },
+        {
+          "text": "enemy",
+          "start": 2.49,
+          "end": 2.73
+        },
+        {
+          "text": "of",
+          "start": 2.73,
+          "end": 2.97
+        },
+        {
+          "text": "the",
+          "start": 2.97,
+          "end": 3.09
+        },
+        {
+          "text": "gods,",
+          "start": 3.09,
+          "end": 3.39
+        },
+        {
+          "text": "and",
+          "start": 3.93,
+          "end": 4.07
+        },
+        {
+          "text": "the",
+          "start": 4.07,
+          "end": 4.17
+        },
+        {
+          "text": "just",
+          "start": 4.17,
+          "end": 4.39
+        },
+        {
+          "text": "will",
+          "start": 4.39,
+          "end": 4.59
+        },
+        {
+          "text": "be",
+          "start": 4.59,
+          "end": 4.75
+        },
+        {
+          "text": "their",
+          "start": 4.75,
+          "end": 4.91
+        },
+        {
+          "text": "friend?",
+          "start": 4.91,
+          "end": 5.23
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 19
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.4425668343901634
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8fbfbe30da2928fcbc530f50f0ca0c6ff26c0b2613f9113e64e9981c09a295e8",
+  "selected_reasons": []
+}

@@ -1,0 +1,284 @@
+{
+  "complete": true,
+  "signature": "8852616a1846d0b9ed789c67c9827876632201a1ab173296230a46b28a3e19e1",
+  "attempts": [
+    {
+      "asr_seconds": 0.3379434198141098,
+      "alignment_seconds": 0.00033912062644958496,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " That, I suppose, is to be inferred.",
+          "start": 0.21,
+          "end": 2.19,
+          "words": [
+            {
+              "text": " That,",
+              "start": 0.21,
+              "end": 0.55,
+              "probability": 0.80859375
+            },
+            {
+              "text": " I",
+              "start": 0.63,
+              "end": 0.71,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " suppose,",
+              "start": 0.71,
+              "end": 1.05,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " is",
+              "start": 1.35,
+              "end": 1.63,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.63,
+              "end": 1.73,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " be",
+              "start": 1.73,
+              "end": 1.85,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " inferred.",
+              "start": 1.85,
+              "end": 2.19,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That,",
+          "start": 0.21,
+          "end": 0.55
+        },
+        {
+          "raw": "I",
+          "start": 0.63,
+          "end": 0.71
+        },
+        {
+          "raw": "suppose,",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "raw": "to",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "raw": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "raw": "inferred.",
+          "start": 1.85,
+          "end": 2.19
+        }
+      ],
+      "expected_tokens": [
+        "That,",
+        "I",
+        "suppose,",
+        "is",
+        "to",
+        "be",
+        "inferred."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "That,",
+          "start": 0.21,
+          "end": 0.55,
+          "key": "that",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.63,
+          "end": 0.71,
+          "key": "i",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "suppose,",
+          "start": 0.71,
+          "end": 1.05,
+          "key": "suppose",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 1.35,
+          "end": 1.63,
+          "key": "is",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.63,
+          "end": 1.73,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.73,
+          "end": 1.85,
+          "key": "be",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "inferred.",
+          "start": 1.85,
+          "end": 2.19,
+          "key": "inferred",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "That,",
+          "start": 0.21,
+          "end": 0.55
+        },
+        {
+          "text": "I",
+          "start": 0.63,
+          "end": 0.71
+        },
+        {
+          "text": "suppose,",
+          "start": 0.71,
+          "end": 1.05
+        },
+        {
+          "text": "is",
+          "start": 1.35,
+          "end": 1.63
+        },
+        {
+          "text": "to",
+          "start": 1.63,
+          "end": 1.73
+        },
+        {
+          "text": "be",
+          "start": 1.73,
+          "end": 1.85
+        },
+        {
+          "text": "inferred.",
+          "start": 1.85,
+          "end": 2.19
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33842355757951736
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "456ef2ec640641f27a6339598bb2219861de8609b1f0f2cde6eb2cbefc6edb29",
+  "selected_reasons": []
+}

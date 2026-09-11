@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "334b80214ebc3908c8cfc0899ec4b8281769e2b90668fd4f0ec6163ddfbe3645",
+  "attempts": [
+    {
+      "asr_seconds": 0.3132750280201435,
+      "alignment_seconds": 0.0003979094326496124,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And the melody and rhythm will depend upon the words.",
+          "start": 0.08,
+          "end": 3.16,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.5556640625
+            },
+            {
+              "text": " the",
+              "start": 0.54,
+              "end": 0.64,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " melody",
+              "start": 0.64,
+              "end": 1.02,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 1.02,
+              "end": 1.46,
+              "probability": 0.951171875
+            },
+            {
+              "text": " rhythm",
+              "start": 1.46,
+              "end": 1.74,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " will",
+              "start": 1.74,
+              "end": 2.12,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " depend",
+              "start": 2.12,
+              "end": 2.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " upon",
+              "start": 2.42,
+              "end": 2.72,
+              "probability": 0.98828125
+            },
+            {
+              "text": " the",
+              "start": 2.72,
+              "end": 2.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " words.",
+              "start": 2.88,
+              "end": 3.16,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "raw": "melody",
+          "start": 0.64,
+          "end": 1.02
+        },
+        {
+          "raw": "and",
+          "start": 1.02,
+          "end": 1.46
+        },
+        {
+          "raw": "rhythm",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "raw": "will",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "raw": "depend",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "raw": "upon",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "raw": "words.",
+          "start": 2.88,
+          "end": 3.16
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "the",
+        "melody",
+        "and",
+        "rhythm",
+        "will",
+        "depend",
+        "upon",
+        "the",
+        "words?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 0.54,
+          "end": 0.64,
+          "key": "the",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "melody",
+          "start": 0.64,
+          "end": 1.02,
+          "key": "melody",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 1.02,
+          "end": 1.46,
+          "key": "and",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "rhythm",
+          "start": 1.46,
+          "end": 1.74,
+          "key": "rhythm",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 1.74,
+          "end": 2.12,
+          "key": "will",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "depend",
+          "start": 2.12,
+          "end": 2.42,
+          "key": "depend",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "upon",
+          "start": 2.42,
+          "end": 2.72,
+          "key": "upon",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.72,
+          "end": 2.88,
+          "key": "the",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "words.",
+          "start": 2.88,
+          "end": 3.16,
+          "key": "words",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "the",
+          "start": 0.54,
+          "end": 0.64
+        },
+        {
+          "text": "melody",
+          "start": 0.64,
+          "end": 1.02
+        },
+        {
+          "text": "and",
+          "start": 1.02,
+          "end": 1.46
+        },
+        {
+          "text": "rhythm",
+          "start": 1.46,
+          "end": 1.74
+        },
+        {
+          "text": "will",
+          "start": 1.74,
+          "end": 2.12
+        },
+        {
+          "text": "depend",
+          "start": 2.12,
+          "end": 2.42
+        },
+        {
+          "text": "upon",
+          "start": 2.42,
+          "end": 2.72
+        },
+        {
+          "text": "the",
+          "start": 2.72,
+          "end": 2.88
+        },
+        {
+          "text": "words?",
+          "start": 2.88,
+          "end": 3.16
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3138304129242897
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "63dd875196d95b3b2d9c5f07229659b4141489a4b82f5b1351aedbec50fb0cbc",
+  "selected_reasons": []
+}

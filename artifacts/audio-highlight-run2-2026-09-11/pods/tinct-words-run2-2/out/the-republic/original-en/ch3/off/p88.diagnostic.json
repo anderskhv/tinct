@@ -1,0 +1,690 @@
+{
+  "complete": true,
+  "signature": "b3eb9c0c45737630180961c3792767d02d5c488f1839cdb4bd6f2e1d05444cca",
+  "attempts": [
+    {
+      "asr_seconds": 0.46654365211725235,
+      "alignment_seconds": 0.00042473897337913513,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And then, again, to make the wisest of men say that nothing in his opinion is more glorious",
+          "start": 0.08,
+          "end": 5.72,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.56,
+              "probability": 0.86083984375
+            },
+            {
+              "text": " then,",
+              "start": 0.56,
+              "end": 0.82,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " again,",
+              "start": 1.04,
+              "end": 1.32,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " to",
+              "start": 1.8,
+              "end": 1.96,
+              "probability": 0.986328125
+            },
+            {
+              "text": " make",
+              "start": 1.96,
+              "end": 2.1,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.1,
+              "end": 2.3,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " wisest",
+              "start": 2.3,
+              "end": 2.72,
+              "probability": 0.9962565104166666
+            },
+            {
+              "text": " of",
+              "start": 2.72,
+              "end": 2.86,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " men",
+              "start": 2.86,
+              "end": 3.12,
+              "probability": 0.94287109375
+            },
+            {
+              "text": " say",
+              "start": 3.12,
+              "end": 3.46,
+              "probability": 0.97265625
+            },
+            {
+              "text": " that",
+              "start": 3.46,
+              "end": 3.68,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " nothing",
+              "start": 3.68,
+              "end": 3.98,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " in",
+              "start": 3.98,
+              "end": 4.2,
+              "probability": 0.96630859375
+            },
+            {
+              "text": " his",
+              "start": 4.2,
+              "end": 4.32,
+              "probability": 0.990234375
+            },
+            {
+              "text": " opinion",
+              "start": 4.32,
+              "end": 4.7,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " is",
+              "start": 4.7,
+              "end": 4.98,
+              "probability": 0.99609375
+            },
+            {
+              "text": " more",
+              "start": 4.98,
+              "end": 5.22,
+              "probability": 0.998046875
+            },
+            {
+              "text": " glorious",
+              "start": 5.22,
+              "end": 5.72,
+              "probability": 0.99560546875
+            }
+          ]
+        },
+        {
+          "text": " then.",
+          "start": 5.72,
+          "end": 6.1,
+          "words": [
+            {
+              "text": " then.",
+              "start": 5.72,
+              "end": 6.1,
+              "probability": 0.469970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "raw": "then,",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "raw": "again,",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "raw": "to",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "raw": "make",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "raw": "wisest",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "raw": "men",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "raw": "say",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "raw": "that",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "raw": "nothing",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "raw": "in",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "raw": "his",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "raw": "opinion",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "raw": "is",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "raw": "more",
+          "start": 4.98,
+          "end": 5.22
+        },
+        {
+          "raw": "glorious",
+          "start": 5.22,
+          "end": 5.72
+        },
+        {
+          "raw": "then.",
+          "start": 5.72,
+          "end": 6.1
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "then,",
+        "again,",
+        "to",
+        "make",
+        "the",
+        "wisest",
+        "of",
+        "men",
+        "say",
+        "that",
+        "nothing",
+        "in",
+        "his",
+        "opinion",
+        "is",
+        "more",
+        "glorious",
+        "than"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          19
+        ]
+      ],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.56,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "then,",
+          "start": 0.56,
+          "end": 0.82,
+          "key": "then",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 1.04,
+          "end": 1.32,
+          "key": "again",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.8,
+          "end": 1.96,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "make",
+          "start": 1.96,
+          "end": 2.1,
+          "key": "make",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.1,
+          "end": 2.3,
+          "key": "the",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "wisest",
+          "start": 2.3,
+          "end": 2.72,
+          "key": "wisest",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 2.72,
+          "end": 2.86,
+          "key": "of",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "men",
+          "start": 2.86,
+          "end": 3.12,
+          "key": "men",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "say",
+          "start": 3.12,
+          "end": 3.46,
+          "key": "say",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 3.46,
+          "end": 3.68,
+          "key": "that",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 3.68,
+          "end": 3.98,
+          "key": "nothing",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 3.98,
+          "end": 4.2,
+          "key": "in",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 4.2,
+          "end": 4.32,
+          "key": "his",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "opinion",
+          "start": 4.32,
+          "end": 4.7,
+          "key": "opinion",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 4.7,
+          "end": 4.98,
+          "key": "is",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "more",
+          "start": 4.98,
+          "end": 5.22,
+          "key": "more",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "glorious",
+          "start": 5.22,
+          "end": 5.72,
+          "key": "glorious",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "then.",
+          "start": 5.72,
+          "end": 6.1,
+          "key": "then",
+          "pieces": [
+            18
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.08,
+          "end": 0.56
+        },
+        {
+          "text": "then,",
+          "start": 0.56,
+          "end": 0.82
+        },
+        {
+          "text": "again,",
+          "start": 1.04,
+          "end": 1.32
+        },
+        {
+          "text": "to",
+          "start": 1.8,
+          "end": 1.96
+        },
+        {
+          "text": "make",
+          "start": 1.96,
+          "end": 2.1
+        },
+        {
+          "text": "the",
+          "start": 2.1,
+          "end": 2.3
+        },
+        {
+          "text": "wisest",
+          "start": 2.3,
+          "end": 2.72
+        },
+        {
+          "text": "of",
+          "start": 2.72,
+          "end": 2.86
+        },
+        {
+          "text": "men",
+          "start": 2.86,
+          "end": 3.12
+        },
+        {
+          "text": "say",
+          "start": 3.12,
+          "end": 3.46
+        },
+        {
+          "text": "that",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "text": "nothing",
+          "start": 3.68,
+          "end": 3.98
+        },
+        {
+          "text": "in",
+          "start": 3.98,
+          "end": 4.2
+        },
+        {
+          "text": "his",
+          "start": 4.2,
+          "end": 4.32
+        },
+        {
+          "text": "opinion",
+          "start": 4.32,
+          "end": 4.7
+        },
+        {
+          "text": "is",
+          "start": 4.7,
+          "end": 4.98
+        },
+        {
+          "text": "more",
+          "start": 4.98,
+          "end": 5.22
+        },
+        {
+          "text": "glorious",
+          "start": 5.22,
+          "end": 5.72
+        },
+        {
+          "text": "than",
+          "start": 5.72,
+          "end": 5.91
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 19,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.4671347551047802
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "8469a6a8453e6eb819a20897a2285d09104ccbde93595f26e5ab35e6c0407a2f",
+  "selected_reasons": []
+}

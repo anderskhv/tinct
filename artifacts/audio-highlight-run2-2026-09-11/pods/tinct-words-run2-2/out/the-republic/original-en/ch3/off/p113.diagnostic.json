@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "66be253ae19a2bc9de770287578d241105e7bb6a01fcdc7472300094894489fd",
+  "attempts": [
+    {
+      "asr_seconds": 0.19333425909280777,
+      "alignment_seconds": 0.0002470873296260834,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " And who have.",
+          "start": 0.08,
+          "end": 0.98,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.08,
+              "end": 0.54,
+              "probability": 0.485595703125
+            },
+            {
+              "text": " who",
+              "start": 0.54,
+              "end": 0.66,
+              "probability": 0.76513671875
+            },
+            {
+              "text": " have.",
+              "start": 0.66,
+              "end": 0.98,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "raw": "who",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "raw": "have.",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "expected_tokens": [
+        "and",
+        "who",
+        "have"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.08,
+          "end": 0.54,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "who",
+          "start": 0.54,
+          "end": 0.66,
+          "key": "who",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "have.",
+          "start": 0.66,
+          "end": 0.98,
+          "key": "have",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "and",
+          "start": 0.08,
+          "end": 0.54
+        },
+        {
+          "text": "who",
+          "start": 0.54,
+          "end": 0.66
+        },
+        {
+          "text": "have",
+          "start": 0.66,
+          "end": 0.98
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.19366470351815224
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "2dbfc884c1f04f48944fe3139519c099c640c294c2665c9fc0f6157706715151",
+  "selected_reasons": []
+}

@@ -1,0 +1,188 @@
+{
+  "complete": true,
+  "signature": "496c4b9ae3aad07bb5062c403df530f12453e7ae89ad04c09135888d38155d07",
+  "attempts": [
+    {
+      "asr_seconds": 0.19771187752485275,
+      "alignment_seconds": 0.00024610012769699097,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Granted that they are.",
+          "start": 0.05,
+          "end": 1.35,
+          "words": [
+            {
+              "text": " Granted",
+              "start": 0.05,
+              "end": 0.65,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " that",
+              "start": 0.65,
+              "end": 0.97,
+              "probability": 0.8203125
+            },
+            {
+              "text": " they",
+              "start": 0.97,
+              "end": 1.15,
+              "probability": 0.97314453125
+            },
+            {
+              "text": " are.",
+              "start": 1.15,
+              "end": 1.35,
+              "probability": 0.9970703125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Granted",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "raw": "that",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "raw": "they",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "raw": "are.",
+          "start": 1.15,
+          "end": 1.35
+        }
+      ],
+      "expected_tokens": [
+        "Granted",
+        "that",
+        "they",
+        "are."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Granted",
+          "start": 0.05,
+          "end": 0.65,
+          "key": "granted",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 0.65,
+          "end": 0.97,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 0.97,
+          "end": 1.15,
+          "key": "they",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "are.",
+          "start": 1.15,
+          "end": 1.35,
+          "key": "are",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Granted",
+          "start": 0.05,
+          "end": 0.65
+        },
+        {
+          "text": "that",
+          "start": 0.65,
+          "end": 0.97
+        },
+        {
+          "text": "they",
+          "start": 0.97,
+          "end": 1.15
+        },
+        {
+          "text": "are.",
+          "start": 1.15,
+          "end": 1.35
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1980469450354576
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "acda9e7c4c4bcaf82ece94cac2cb46354e037cf46d68b752160086c4e0ba7a61",
+  "selected_reasons": []
+}

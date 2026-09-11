@@ -1,0 +1,380 @@
+{
+  "complete": true,
+  "signature": "97057dce9f6c37d1053ed748b1a0f5a57a2d56d3cbf0817f5b4c1a98e8369beb",
+  "attempts": [
+    {
+      "asr_seconds": 0.29841798543930054,
+      "alignment_seconds": 0.0004286356270313263,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " I will pay when I have the money,\" I replied.",
+          "start": 0.08,
+          "end": 2.42,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.291748046875
+            },
+            {
+              "text": " will",
+              "start": 0.52,
+              "end": 0.6,
+              "probability": 0.9765625
+            },
+            {
+              "text": " pay",
+              "start": 0.6,
+              "end": 0.8,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " when",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " I",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " have",
+              "start": 1.08,
+              "end": 1.22,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.22,
+              "end": 1.34,
+              "probability": 0.99609375
+            },
+            {
+              "text": " money,\"",
+              "start": 1.34,
+              "end": 1.9,
+              "probability": 0.6904296875
+            },
+            {
+              "text": " I",
+              "start": 1.9,
+              "end": 2.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " replied.",
+              "start": 2.04,
+              "end": 2.42,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "raw": "pay",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "raw": "when",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "have",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "raw": "money,\"",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "raw": "replied.",
+          "start": 2.04,
+          "end": 2.42
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "will",
+        "pay",
+        "when",
+        "I",
+        "have",
+        "the",
+        "money,",
+        "I",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "will",
+          "start": 0.52,
+          "end": 0.6,
+          "key": "will",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "pay",
+          "start": 0.6,
+          "end": 0.8,
+          "key": "pay",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "when",
+          "start": 0.8,
+          "end": 0.96,
+          "key": "when",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 0.96,
+          "end": 1.08,
+          "key": "i",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "have",
+          "start": 1.08,
+          "end": 1.22,
+          "key": "have",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.22,
+          "end": 1.34,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "money,\"",
+          "start": 1.34,
+          "end": 1.9,
+          "key": "money",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "I",
+          "start": 1.9,
+          "end": 2.04,
+          "key": "i",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 2.04,
+          "end": 2.42,
+          "key": "replied",
+          "pieces": [
+            9
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "will",
+          "start": 0.52,
+          "end": 0.6
+        },
+        {
+          "text": "pay",
+          "start": 0.6,
+          "end": 0.8
+        },
+        {
+          "text": "when",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "I",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "have",
+          "start": 1.08,
+          "end": 1.22
+        },
+        {
+          "text": "the",
+          "start": 1.22,
+          "end": 1.34
+        },
+        {
+          "text": "money,",
+          "start": 1.34,
+          "end": 1.9
+        },
+        {
+          "text": "I",
+          "start": 1.9,
+          "end": 2.04
+        },
+        {
+          "text": "replied.",
+          "start": 2.04,
+          "end": 2.42
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.29900412634015083
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5466a4debdc2168d8f8146e54f8219351f84b386d532d0cfd58e3c1276c3b326",
+  "selected_reasons": []
+}

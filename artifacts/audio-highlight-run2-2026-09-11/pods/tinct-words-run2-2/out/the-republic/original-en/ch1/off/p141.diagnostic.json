@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "d47e703182c3916792d4c98130a35015288f634e8424b68ba1f4e9bb0b4ba32b",
+  "attempts": [
+    {
+      "asr_seconds": 0.30472349748015404,
+      "alignment_seconds": 0.0002081841230392456,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, that appears to me to be the truth.",
+          "start": 0.05,
+          "end": 2.33,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " that",
+              "start": 1.01,
+              "end": 1.21,
+              "probability": 0.9921875
+            },
+            {
+              "text": " appears",
+              "start": 1.21,
+              "end": 1.45,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 1.45,
+              "end": 1.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " me",
+              "start": 1.67,
+              "end": 1.77,
+              "probability": 0.95703125
+            },
+            {
+              "text": " to",
+              "start": 1.77,
+              "end": 1.85,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " be",
+              "start": 1.85,
+              "end": 1.97,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 1.97,
+              "end": 2.09,
+              "probability": 0.994140625
+            },
+            {
+              "text": " truth.",
+              "start": 2.09,
+              "end": 2.33,
+              "probability": 0.98779296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "that",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "raw": "appears",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "raw": "to",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "raw": "me",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "raw": "to",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "raw": "be",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "raw": "truth.",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "expected_tokens": [
+        "Yes,",
+        "that",
+        "appears",
+        "to",
+        "me",
+        "to",
+        "be",
+        "the",
+        "truth."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.05,
+          "end": 0.69,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.01,
+          "end": 1.21,
+          "key": "that",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "appears",
+          "start": 1.21,
+          "end": 1.45,
+          "key": "appears",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.45,
+          "end": 1.67,
+          "key": "to",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "me",
+          "start": 1.67,
+          "end": 1.77,
+          "key": "me",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.77,
+          "end": 1.85,
+          "key": "to",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 1.85,
+          "end": 1.97,
+          "key": "be",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 1.97,
+          "end": 2.09,
+          "key": "the",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "truth.",
+          "start": 2.09,
+          "end": 2.33,
+          "key": "truth",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes,",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "that",
+          "start": 1.01,
+          "end": 1.21
+        },
+        {
+          "text": "appears",
+          "start": 1.21,
+          "end": 1.45
+        },
+        {
+          "text": "to",
+          "start": 1.45,
+          "end": 1.67
+        },
+        {
+          "text": "me",
+          "start": 1.67,
+          "end": 1.77
+        },
+        {
+          "text": "to",
+          "start": 1.77,
+          "end": 1.85
+        },
+        {
+          "text": "be",
+          "start": 1.85,
+          "end": 1.97
+        },
+        {
+          "text": "the",
+          "start": 1.97,
+          "end": 2.09
+        },
+        {
+          "text": "truth.",
+          "start": 2.09,
+          "end": 2.33
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3050066791474819
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2acf63fb2ff7c75276ca9a9a87cf68fcc856401e1dd1e8f40e4bc00fe3c1437",
+  "selected_reasons": []
+}

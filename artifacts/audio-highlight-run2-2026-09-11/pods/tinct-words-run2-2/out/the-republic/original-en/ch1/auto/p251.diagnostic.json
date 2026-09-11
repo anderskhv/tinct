@@ -1,0 +1,1668 @@
+{
+  "complete": true,
+  "signature": "5cdf29c65ed41c2136f83a20821907e55472f6c9ac176ce8bc752c3a1987cb9a",
+  "attempts": [
+    {
+      "asr_seconds": 0.578729160130024,
+      "alignment_seconds": 0.0010483264923095703,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The circumstance that he sails in the ship is not to be taken into account; neither is he to be called a sailor; the name pilot by which he is distinguished has nothing to do with sailing, but is significant of his skill and of his authority over the sailors."
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The circumstance that he sails in the ship is not to be taken into account, neither is he to be called a sailor.",
+          "start": 0.05,
+          "end": 6.55,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.7783203125
+            },
+            {
+              "text": " circumstance",
+              "start": 0.49,
+              "end": 1.05,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " that",
+              "start": 1.05,
+              "end": 1.39,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " he",
+              "start": 1.39,
+              "end": 1.55,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " sails",
+              "start": 1.55,
+              "end": 1.87,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " in",
+              "start": 1.87,
+              "end": 2.11,
+              "probability": 0.837890625
+            },
+            {
+              "text": " the",
+              "start": 2.11,
+              "end": 2.23,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " ship",
+              "start": 2.23,
+              "end": 2.45,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " is",
+              "start": 2.45,
+              "end": 2.89,
+              "probability": 0.978515625
+            },
+            {
+              "text": " not",
+              "start": 2.89,
+              "end": 3.11,
+              "probability": 0.99609375
+            },
+            {
+              "text": " to",
+              "start": 3.11,
+              "end": 3.27,
+              "probability": 0.998046875
+            },
+            {
+              "text": " be",
+              "start": 3.27,
+              "end": 3.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " taken",
+              "start": 3.39,
+              "end": 3.63,
+              "probability": 0.998046875
+            },
+            {
+              "text": " into",
+              "start": 3.63,
+              "end": 3.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " account,",
+              "start": 3.93,
+              "end": 4.39,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " neither",
+              "start": 4.97,
+              "end": 5.19,
+              "probability": 0.982421875
+            },
+            {
+              "text": " is",
+              "start": 5.19,
+              "end": 5.49,
+              "probability": 0.998046875
+            },
+            {
+              "text": " he",
+              "start": 5.49,
+              "end": 5.65,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " to",
+              "start": 5.65,
+              "end": 5.75,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " be",
+              "start": 5.75,
+              "end": 5.89,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " called",
+              "start": 5.89,
+              "end": 6.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " a",
+              "start": 6.13,
+              "end": 6.35,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " sailor.",
+              "start": 6.35,
+              "end": 6.55,
+              "probability": 0.8486328125
+            }
+          ]
+        },
+        {
+          "text": " The name pilot by which he is distinguished has nothing to do with sailing, but is significant of his skill and of his authority over the sailors.",
+          "start": 7.27,
+          "end": 15.17,
+          "words": [
+            {
+              "text": " The",
+              "start": 7.27,
+              "end": 7.41,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " name",
+              "start": 7.41,
+              "end": 7.61,
+              "probability": 0.9755859375
+            },
+            {
+              "text": " pilot",
+              "start": 7.61,
+              "end": 7.93,
+              "probability": 0.2841796875
+            },
+            {
+              "text": " by",
+              "start": 7.93,
+              "end": 8.25,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " which",
+              "start": 8.25,
+              "end": 8.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " he",
+              "start": 8.43,
+              "end": 8.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " is",
+              "start": 8.63,
+              "end": 8.75,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " distinguished",
+              "start": 8.75,
+              "end": 9.33,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " has",
+              "start": 9.33,
+              "end": 9.69,
+              "probability": 0.98583984375
+            },
+            {
+              "text": " nothing",
+              "start": 9.69,
+              "end": 9.95,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 9.95,
+              "end": 10.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 10.27,
+              "end": 10.41,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 10.41,
+              "end": 10.61,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sailing,",
+              "start": 10.61,
+              "end": 10.99,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " but",
+              "start": 11.47,
+              "end": 11.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " is",
+              "start": 11.69,
+              "end": 11.85,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " significant",
+              "start": 11.85,
+              "end": 12.35,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " of",
+              "start": 12.35,
+              "end": 12.65,
+              "probability": 0.998046875
+            },
+            {
+              "text": " his",
+              "start": 12.65,
+              "end": 12.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " skill",
+              "start": 12.79,
+              "end": 13.19,
+              "probability": 0.998046875
+            },
+            {
+              "text": " and",
+              "start": 13.19,
+              "end": 13.69,
+              "probability": 0.90576171875
+            },
+            {
+              "text": " of",
+              "start": 13.69,
+              "end": 13.77,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " his",
+              "start": 13.77,
+              "end": 13.91,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " authority",
+              "start": 13.91,
+              "end": 14.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " over",
+              "start": 14.31,
+              "end": 14.71,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " the",
+              "start": 14.71,
+              "end": 14.89,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sailors.",
+              "start": 14.89,
+              "end": 15.17,
+              "probability": 0.98486328125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "circumstance",
+          "start": 0.49,
+          "end": 1.05
+        },
+        {
+          "raw": "that",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "raw": "he",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "raw": "sails",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "raw": "in",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "raw": "the",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "raw": "ship",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "raw": "is",
+          "start": 2.45,
+          "end": 2.89
+        },
+        {
+          "raw": "not",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "raw": "to",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "raw": "taken",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "raw": "into",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "raw": "account,",
+          "start": 3.93,
+          "end": 4.39
+        },
+        {
+          "raw": "neither",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "raw": "he",
+          "start": 5.49,
+          "end": 5.65
+        },
+        {
+          "raw": "to",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "raw": "be",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "raw": "called",
+          "start": 5.89,
+          "end": 6.13
+        },
+        {
+          "raw": "a",
+          "start": 6.13,
+          "end": 6.35
+        },
+        {
+          "raw": "sailor.",
+          "start": 6.35,
+          "end": 6.55
+        },
+        {
+          "raw": "The",
+          "start": 7.27,
+          "end": 7.41
+        },
+        {
+          "raw": "name",
+          "start": 7.41,
+          "end": 7.61
+        },
+        {
+          "raw": "pilot",
+          "start": 7.61,
+          "end": 7.93
+        },
+        {
+          "raw": "by",
+          "start": 7.93,
+          "end": 8.25
+        },
+        {
+          "raw": "which",
+          "start": 8.25,
+          "end": 8.43
+        },
+        {
+          "raw": "he",
+          "start": 8.43,
+          "end": 8.63
+        },
+        {
+          "raw": "is",
+          "start": 8.63,
+          "end": 8.75
+        },
+        {
+          "raw": "distinguished",
+          "start": 8.75,
+          "end": 9.33
+        },
+        {
+          "raw": "has",
+          "start": 9.33,
+          "end": 9.69
+        },
+        {
+          "raw": "nothing",
+          "start": 9.69,
+          "end": 9.95
+        },
+        {
+          "raw": "to",
+          "start": 9.95,
+          "end": 10.27
+        },
+        {
+          "raw": "do",
+          "start": 10.27,
+          "end": 10.41
+        },
+        {
+          "raw": "with",
+          "start": 10.41,
+          "end": 10.61
+        },
+        {
+          "raw": "sailing,",
+          "start": 10.61,
+          "end": 10.99
+        },
+        {
+          "raw": "but",
+          "start": 11.47,
+          "end": 11.69
+        },
+        {
+          "raw": "is",
+          "start": 11.69,
+          "end": 11.85
+        },
+        {
+          "raw": "significant",
+          "start": 11.85,
+          "end": 12.35
+        },
+        {
+          "raw": "of",
+          "start": 12.35,
+          "end": 12.65
+        },
+        {
+          "raw": "his",
+          "start": 12.65,
+          "end": 12.79
+        },
+        {
+          "raw": "skill",
+          "start": 12.79,
+          "end": 13.19
+        },
+        {
+          "raw": "and",
+          "start": 13.19,
+          "end": 13.69
+        },
+        {
+          "raw": "of",
+          "start": 13.69,
+          "end": 13.77
+        },
+        {
+          "raw": "his",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "raw": "authority",
+          "start": 13.91,
+          "end": 14.31
+        },
+        {
+          "raw": "over",
+          "start": 14.31,
+          "end": 14.71
+        },
+        {
+          "raw": "the",
+          "start": 14.71,
+          "end": 14.89
+        },
+        {
+          "raw": "sailors.",
+          "start": 14.89,
+          "end": 15.17
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "circumstance",
+        "that",
+        "he",
+        "sails",
+        "in",
+        "the",
+        "ship",
+        "is",
+        "not",
+        "to",
+        "be",
+        "taken",
+        "into",
+        "account;",
+        "neither",
+        "is",
+        "he",
+        "to",
+        "be",
+        "called",
+        "a",
+        "sailor;",
+        "the",
+        "name",
+        "pilot",
+        "by",
+        "which",
+        "he",
+        "is",
+        "distinguished",
+        "has",
+        "nothing",
+        "to",
+        "do",
+        "with",
+        "sailing,",
+        "but",
+        "is",
+        "significant",
+        "of",
+        "his",
+        "skill",
+        "and",
+        "of",
+        "his",
+        "authority",
+        "over",
+        "the",
+        "sailors."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          50,
+          0,
+          50
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 36,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 39
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 40
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 49
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "The",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "the",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "circumstance",
+          "start": 0.49,
+          "end": 1.05,
+          "key": "circumstance",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "that",
+          "start": 1.05,
+          "end": 1.39,
+          "key": "that",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.39,
+          "end": 1.55,
+          "key": "he",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "sails",
+          "start": 1.55,
+          "end": 1.87,
+          "key": "sails",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "in",
+          "start": 1.87,
+          "end": 2.11,
+          "key": "in",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 2.11,
+          "end": 2.23,
+          "key": "the",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "ship",
+          "start": 2.23,
+          "end": 2.45,
+          "key": "ship",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 2.45,
+          "end": 2.89,
+          "key": "is",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "not",
+          "start": 2.89,
+          "end": 3.11,
+          "key": "not",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 3.11,
+          "end": 3.27,
+          "key": "to",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 3.27,
+          "end": 3.39,
+          "key": "be",
+          "pieces": [
+            11
+          ]
+        },
+        {
+          "raw": "taken",
+          "start": 3.39,
+          "end": 3.63,
+          "key": "taken",
+          "pieces": [
+            12
+          ]
+        },
+        {
+          "raw": "into",
+          "start": 3.63,
+          "end": 3.93,
+          "key": "into",
+          "pieces": [
+            13
+          ]
+        },
+        {
+          "raw": "account,",
+          "start": 3.93,
+          "end": 4.39,
+          "key": "account",
+          "pieces": [
+            14
+          ]
+        },
+        {
+          "raw": "neither",
+          "start": 4.97,
+          "end": 5.19,
+          "key": "neither",
+          "pieces": [
+            15
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 5.19,
+          "end": 5.49,
+          "key": "is",
+          "pieces": [
+            16
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 5.49,
+          "end": 5.65,
+          "key": "he",
+          "pieces": [
+            17
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 5.65,
+          "end": 5.75,
+          "key": "to",
+          "pieces": [
+            18
+          ]
+        },
+        {
+          "raw": "be",
+          "start": 5.75,
+          "end": 5.89,
+          "key": "be",
+          "pieces": [
+            19
+          ]
+        },
+        {
+          "raw": "called",
+          "start": 5.89,
+          "end": 6.13,
+          "key": "called",
+          "pieces": [
+            20
+          ]
+        },
+        {
+          "raw": "a",
+          "start": 6.13,
+          "end": 6.35,
+          "key": "a",
+          "pieces": [
+            21
+          ]
+        },
+        {
+          "raw": "sailor.",
+          "start": 6.35,
+          "end": 6.55,
+          "key": "sailor",
+          "pieces": [
+            22
+          ]
+        },
+        {
+          "raw": "The",
+          "start": 7.27,
+          "end": 7.41,
+          "key": "the",
+          "pieces": [
+            23
+          ]
+        },
+        {
+          "raw": "name",
+          "start": 7.41,
+          "end": 7.61,
+          "key": "name",
+          "pieces": [
+            24
+          ]
+        },
+        {
+          "raw": "pilot",
+          "start": 7.61,
+          "end": 7.93,
+          "key": "pilot",
+          "pieces": [
+            25
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 7.93,
+          "end": 8.25,
+          "key": "by",
+          "pieces": [
+            26
+          ]
+        },
+        {
+          "raw": "which",
+          "start": 8.25,
+          "end": 8.43,
+          "key": "which",
+          "pieces": [
+            27
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 8.43,
+          "end": 8.63,
+          "key": "he",
+          "pieces": [
+            28
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 8.63,
+          "end": 8.75,
+          "key": "is",
+          "pieces": [
+            29
+          ]
+        },
+        {
+          "raw": "distinguished",
+          "start": 8.75,
+          "end": 9.33,
+          "key": "distinguished",
+          "pieces": [
+            30
+          ]
+        },
+        {
+          "raw": "has",
+          "start": 9.33,
+          "end": 9.69,
+          "key": "has",
+          "pieces": [
+            31
+          ]
+        },
+        {
+          "raw": "nothing",
+          "start": 9.69,
+          "end": 9.95,
+          "key": "nothing",
+          "pieces": [
+            32
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 9.95,
+          "end": 10.27,
+          "key": "to",
+          "pieces": [
+            33
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 10.27,
+          "end": 10.41,
+          "key": "do",
+          "pieces": [
+            34
+          ]
+        },
+        {
+          "raw": "with",
+          "start": 10.41,
+          "end": 10.61,
+          "key": "with",
+          "pieces": [
+            35
+          ]
+        },
+        {
+          "raw": "sailing,",
+          "start": 10.61,
+          "end": 10.99,
+          "key": "sailing",
+          "pieces": [
+            36
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 11.47,
+          "end": 11.69,
+          "key": "but",
+          "pieces": [
+            37
+          ]
+        },
+        {
+          "raw": "is",
+          "start": 11.69,
+          "end": 11.85,
+          "key": "is",
+          "pieces": [
+            38
+          ]
+        },
+        {
+          "raw": "significant",
+          "start": 11.85,
+          "end": 12.35,
+          "key": "significant",
+          "pieces": [
+            39
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 12.35,
+          "end": 12.65,
+          "key": "of",
+          "pieces": [
+            40
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 12.65,
+          "end": 12.79,
+          "key": "his",
+          "pieces": [
+            41
+          ]
+        },
+        {
+          "raw": "skill",
+          "start": 12.79,
+          "end": 13.19,
+          "key": "skill",
+          "pieces": [
+            42
+          ]
+        },
+        {
+          "raw": "and",
+          "start": 13.19,
+          "end": 13.69,
+          "key": "and",
+          "pieces": [
+            43
+          ]
+        },
+        {
+          "raw": "of",
+          "start": 13.69,
+          "end": 13.77,
+          "key": "of",
+          "pieces": [
+            44
+          ]
+        },
+        {
+          "raw": "his",
+          "start": 13.77,
+          "end": 13.91,
+          "key": "his",
+          "pieces": [
+            45
+          ]
+        },
+        {
+          "raw": "authority",
+          "start": 13.91,
+          "end": 14.31,
+          "key": "authority",
+          "pieces": [
+            46
+          ]
+        },
+        {
+          "raw": "over",
+          "start": 14.31,
+          "end": 14.71,
+          "key": "over",
+          "pieces": [
+            47
+          ]
+        },
+        {
+          "raw": "the",
+          "start": 14.71,
+          "end": 14.89,
+          "key": "the",
+          "pieces": [
+            48
+          ]
+        },
+        {
+          "raw": "sailors.",
+          "start": 14.89,
+          "end": 15.17,
+          "key": "sailors",
+          "pieces": [
+            49
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "circumstance",
+          "start": 0.49,
+          "end": 1.05
+        },
+        {
+          "text": "that",
+          "start": 1.05,
+          "end": 1.39
+        },
+        {
+          "text": "he",
+          "start": 1.39,
+          "end": 1.55
+        },
+        {
+          "text": "sails",
+          "start": 1.55,
+          "end": 1.87
+        },
+        {
+          "text": "in",
+          "start": 1.87,
+          "end": 2.11
+        },
+        {
+          "text": "the",
+          "start": 2.11,
+          "end": 2.23
+        },
+        {
+          "text": "ship",
+          "start": 2.23,
+          "end": 2.45
+        },
+        {
+          "text": "is",
+          "start": 2.45,
+          "end": 2.89
+        },
+        {
+          "text": "not",
+          "start": 2.89,
+          "end": 3.11
+        },
+        {
+          "text": "to",
+          "start": 3.11,
+          "end": 3.27
+        },
+        {
+          "text": "be",
+          "start": 3.27,
+          "end": 3.39
+        },
+        {
+          "text": "taken",
+          "start": 3.39,
+          "end": 3.63
+        },
+        {
+          "text": "into",
+          "start": 3.63,
+          "end": 3.93
+        },
+        {
+          "text": "account;",
+          "start": 3.93,
+          "end": 4.39
+        },
+        {
+          "text": "neither",
+          "start": 4.97,
+          "end": 5.19
+        },
+        {
+          "text": "is",
+          "start": 5.19,
+          "end": 5.49
+        },
+        {
+          "text": "he",
+          "start": 5.49,
+          "end": 5.65
+        },
+        {
+          "text": "to",
+          "start": 5.65,
+          "end": 5.75
+        },
+        {
+          "text": "be",
+          "start": 5.75,
+          "end": 5.89
+        },
+        {
+          "text": "called",
+          "start": 5.89,
+          "end": 6.13
+        },
+        {
+          "text": "a",
+          "start": 6.13,
+          "end": 6.35
+        },
+        {
+          "text": "sailor;",
+          "start": 6.35,
+          "end": 6.55
+        },
+        {
+          "text": "the",
+          "start": 7.27,
+          "end": 7.41
+        },
+        {
+          "text": "name",
+          "start": 7.41,
+          "end": 7.61
+        },
+        {
+          "text": "pilot",
+          "start": 7.61,
+          "end": 7.93
+        },
+        {
+          "text": "by",
+          "start": 7.93,
+          "end": 8.25
+        },
+        {
+          "text": "which",
+          "start": 8.25,
+          "end": 8.43
+        },
+        {
+          "text": "he",
+          "start": 8.43,
+          "end": 8.63
+        },
+        {
+          "text": "is",
+          "start": 8.63,
+          "end": 8.75
+        },
+        {
+          "text": "distinguished",
+          "start": 8.75,
+          "end": 9.33
+        },
+        {
+          "text": "has",
+          "start": 9.33,
+          "end": 9.69
+        },
+        {
+          "text": "nothing",
+          "start": 9.69,
+          "end": 9.95
+        },
+        {
+          "text": "to",
+          "start": 9.95,
+          "end": 10.27
+        },
+        {
+          "text": "do",
+          "start": 10.27,
+          "end": 10.41
+        },
+        {
+          "text": "with",
+          "start": 10.41,
+          "end": 10.61
+        },
+        {
+          "text": "sailing,",
+          "start": 10.61,
+          "end": 10.99
+        },
+        {
+          "text": "but",
+          "start": 11.47,
+          "end": 11.69
+        },
+        {
+          "text": "is",
+          "start": 11.69,
+          "end": 11.85
+        },
+        {
+          "text": "significant",
+          "start": 11.85,
+          "end": 12.35
+        },
+        {
+          "text": "of",
+          "start": 12.35,
+          "end": 12.65
+        },
+        {
+          "text": "his",
+          "start": 12.65,
+          "end": 12.79
+        },
+        {
+          "text": "skill",
+          "start": 12.79,
+          "end": 13.19
+        },
+        {
+          "text": "and",
+          "start": 13.19,
+          "end": 13.69
+        },
+        {
+          "text": "of",
+          "start": 13.69,
+          "end": 13.77
+        },
+        {
+          "text": "his",
+          "start": 13.77,
+          "end": 13.91
+        },
+        {
+          "text": "authority",
+          "start": 13.91,
+          "end": 14.31
+        },
+        {
+          "text": "over",
+          "start": 14.31,
+          "end": 14.71
+        },
+        {
+          "text": "the",
+          "start": 14.71,
+          "end": 14.89
+        },
+        {
+          "text": "sailors.",
+          "start": 14.89,
+          "end": 15.17
+        }
+      ],
+      "stats": {
+        "expected_words": 50,
+        "heard_words": 50,
+        "matched_words": 50
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.5802364014089108
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b8aba2a5112ae78a11b781ed3002a2245e88aa8c51168a973184f963971c4db",
+  "selected_reasons": []
+}

@@ -1,0 +1,94 @@
+{
+  "complete": true,
+  "signature": "f2e69ebdc38877d0731ea7bb0c50d0512f1bfaa3ce7038370ac2c3d78d3e0996",
+  "attempts": [
+    {
+      "asr_seconds": 0.18759872391819954,
+      "alignment_seconds": 0.00019368529319763184,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Impossible.",
+        "hotwords": "Impossible"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Impossible.",
+          "start": 0.02,
+          "end": 0.84,
+          "words": [
+            {
+              "text": " Impossible.",
+              "start": 0.02,
+              "end": 0.84,
+              "probability": 0.4404296875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Impossible.",
+          "start": 0.02,
+          "end": 0.84
+        }
+      ],
+      "expected_tokens": [
+        "Impossible."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Impossible.",
+          "start": 0.02,
+          "end": 0.84,
+          "key": "impossible",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Impossible.",
+          "start": 0.02,
+          "end": 0.84
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1878652311861515
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "ec9d18b2ef206c43529a1f39429354c512c1c3f8fd5ffb7a68b96e3131d0bf1a",
+  "selected_reasons": []
+}

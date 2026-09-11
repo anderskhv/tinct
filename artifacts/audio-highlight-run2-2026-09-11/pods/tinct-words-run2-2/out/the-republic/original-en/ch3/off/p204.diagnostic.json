@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "2b8b26555aff3f7b54588fd219235636f7f2f5a726fded4e3b0d58e9cc9e6c25",
+  "attempts": [
+    {
+      "asr_seconds": 0.2682367265224457,
+      "alignment_seconds": 0.0002537555992603302,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Yes, quite unsuitable.",
+          "start": 0.02,
+          "end": 1.78,
+          "words": [
+            {
+              "text": " Yes,",
+              "start": 0.02,
+              "end": 0.7,
+              "probability": 0.89892578125
+            },
+            {
+              "text": " quite",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " unsuitable.",
+              "start": 1.2,
+              "end": 1.78,
+              "probability": 0.99462890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "raw": "quite",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "unsuitable.",
+          "start": 1.2,
+          "end": 1.78
+        }
+      ],
+      "expected_tokens": [
+        "Yes;",
+        "quite",
+        "unsuitable."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Yes,",
+          "start": 0.02,
+          "end": 0.7,
+          "key": "yes",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 1.1,
+          "end": 1.2,
+          "key": "quite",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "unsuitable.",
+          "start": 1.2,
+          "end": 1.78,
+          "key": "unsuitable",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Yes;",
+          "start": 0.02,
+          "end": 0.7
+        },
+        {
+          "text": "quite",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "unsuitable.",
+          "start": 1.2,
+          "end": 1.78
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2685678116977215
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "6a47c3d7e23bbe6dd1fab126f94c459f2a1752c096e2a5f79528e9693add702d",
+  "selected_reasons": []
+}

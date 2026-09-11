@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "signature": "a7de8e7cef6c7b3707babe0920a4353c38a6a40d4d478dc6c923adb15455420d",
+  "attempts": [
+    {
+      "asr_seconds": 0.25966932624578476,
+      "alignment_seconds": 0.00026097148656845093,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Certainly, he replied.",
+          "start": 0.08,
+          "end": 1.42,
+          "words": [
+            {
+              "text": " Certainly,",
+              "start": 0.08,
+              "end": 0.76,
+              "probability": 0.77001953125
+            },
+            {
+              "text": " he",
+              "start": 1.06,
+              "end": 1.08,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " replied.",
+              "start": 1.08,
+              "end": 1.42,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Certainly,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "raw": "replied.",
+          "start": 1.08,
+          "end": 1.42
+        }
+      ],
+      "expected_tokens": [
+        "Certainly,",
+        "he",
+        "replied."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Certainly,",
+          "start": 0.08,
+          "end": 0.76,
+          "key": "certainly",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.06,
+          "end": 1.08,
+          "key": "he",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "replied.",
+          "start": 1.08,
+          "end": 1.42,
+          "key": "replied",
+          "pieces": [
+            2
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Certainly,",
+          "start": 0.08,
+          "end": 0.76
+        },
+        {
+          "text": "he",
+          "start": 1.06,
+          "end": 1.08
+        },
+        {
+          "text": "replied.",
+          "start": 1.08,
+          "end": 1.42
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.26001278311014175
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "659ce962ad1d34f178b8c50e9d44f262a7b3f0377140ad674ce027fad4153807",
+  "selected_reasons": []
+}

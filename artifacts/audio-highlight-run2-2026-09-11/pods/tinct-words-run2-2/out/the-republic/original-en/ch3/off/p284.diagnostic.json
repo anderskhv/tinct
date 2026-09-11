@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "signature": "3a2dbbd74ef773977da47d3b3d42401f9b21e095515aa5cea2eace25e30e5d4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.222089022397995,
+      "alignment_seconds": 0.000270012766122818,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " None, whatever.",
+          "start": 0.02,
+          "end": 0.9,
+          "words": [
+            {
+              "text": " None,",
+              "start": 0.02,
+              "end": 0.62,
+              "probability": 0.662109375
+            },
+            {
+              "text": " whatever.",
+              "start": 0.74,
+              "end": 0.9,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "None,",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "raw": "whatever.",
+          "start": 0.74,
+          "end": 0.9
+        }
+      ],
+      "expected_tokens": [
+        "None",
+        "whatever."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "None,",
+          "start": 0.02,
+          "end": 0.62,
+          "key": "none",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "whatever.",
+          "start": 0.74,
+          "end": 0.9,
+          "key": "whatever",
+          "pieces": [
+            1
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "None",
+          "start": 0.02,
+          "end": 0.62
+        },
+        {
+          "text": "whatever.",
+          "start": 0.74,
+          "end": 0.9
+        }
+      ],
+      "stats": {
+        "expected_words": 2,
+        "heard_words": 2,
+        "matched_words": 2
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.22243386507034302
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "5a3a19107c77100f59d5d55b6c8a92f53865f03878b7276013a44368a8747060",
+  "selected_reasons": []
+}

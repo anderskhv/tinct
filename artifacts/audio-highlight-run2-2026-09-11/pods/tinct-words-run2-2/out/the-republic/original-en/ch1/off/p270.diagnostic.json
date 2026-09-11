@@ -1,0 +1,444 @@
+{
+  "complete": true,
+  "signature": "3229098cd240361654cf40d009e56e473cbc4dc1a9d031f23de8cb2182cdf1c9",
+  "attempts": [
+    {
+      "asr_seconds": 0.33725035935640335,
+      "alignment_seconds": 0.0004341639578342438,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " He made an attempt to contest this proposition also, but finally acquiesced.",
+          "start": 0.05,
+          "end": 4.89,
+          "words": [
+            {
+              "text": " He",
+              "start": 0.05,
+              "end": 0.49,
+              "probability": 0.92138671875
+            },
+            {
+              "text": " made",
+              "start": 0.49,
+              "end": 0.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " an",
+              "start": 0.63,
+              "end": 0.77,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " attempt",
+              "start": 0.77,
+              "end": 1.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " to",
+              "start": 1.05,
+              "end": 1.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " contest",
+              "start": 1.27,
+              "end": 1.61,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " this",
+              "start": 1.61,
+              "end": 1.93,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " proposition",
+              "start": 1.93,
+              "end": 2.43,
+              "probability": 0.98828125
+            },
+            {
+              "text": " also,",
+              "start": 2.43,
+              "end": 2.95,
+              "probability": 0.94970703125
+            },
+            {
+              "text": " but",
+              "start": 3.47,
+              "end": 3.63,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " finally",
+              "start": 3.63,
+              "end": 4.07,
+              "probability": 0.994140625
+            },
+            {
+              "text": " acquiesced.",
+              "start": 4.07,
+              "end": 4.89,
+              "probability": 0.995849609375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "raw": "made",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "raw": "an",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "raw": "attempt",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "raw": "contest",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "raw": "this",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "raw": "proposition",
+          "start": 1.93,
+          "end": 2.43
+        },
+        {
+          "raw": "also,",
+          "start": 2.43,
+          "end": 2.95
+        },
+        {
+          "raw": "but",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "raw": "finally",
+          "start": 3.63,
+          "end": 4.07
+        },
+        {
+          "raw": "acquiesced.",
+          "start": 4.07,
+          "end": 4.89
+        }
+      ],
+      "expected_tokens": [
+        "He",
+        "made",
+        "an",
+        "attempt",
+        "to",
+        "contest",
+        "this",
+        "proposition",
+        "also,",
+        "but",
+        "finally",
+        "acquiesced."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "He",
+          "start": 0.05,
+          "end": 0.49,
+          "key": "he",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "made",
+          "start": 0.49,
+          "end": 0.63,
+          "key": "made",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "an",
+          "start": 0.63,
+          "end": 0.77,
+          "key": "an",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "attempt",
+          "start": 0.77,
+          "end": 1.05,
+          "key": "attempt",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.05,
+          "end": 1.27,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "contest",
+          "start": 1.27,
+          "end": 1.61,
+          "key": "contest",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "this",
+          "start": 1.61,
+          "end": 1.93,
+          "key": "this",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "proposition",
+          "start": 1.93,
+          "end": 2.43,
+          "key": "proposition",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "also,",
+          "start": 2.43,
+          "end": 2.95,
+          "key": "also",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "but",
+          "start": 3.47,
+          "end": 3.63,
+          "key": "but",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "finally",
+          "start": 3.63,
+          "end": 4.07,
+          "key": "finally",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "acquiesced.",
+          "start": 4.07,
+          "end": 4.89,
+          "key": "acquiesced",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "He",
+          "start": 0.05,
+          "end": 0.49
+        },
+        {
+          "text": "made",
+          "start": 0.49,
+          "end": 0.63
+        },
+        {
+          "text": "an",
+          "start": 0.63,
+          "end": 0.77
+        },
+        {
+          "text": "attempt",
+          "start": 0.77,
+          "end": 1.05
+        },
+        {
+          "text": "to",
+          "start": 1.05,
+          "end": 1.27
+        },
+        {
+          "text": "contest",
+          "start": 1.27,
+          "end": 1.61
+        },
+        {
+          "text": "this",
+          "start": 1.61,
+          "end": 1.93
+        },
+        {
+          "text": "proposition",
+          "start": 1.93,
+          "end": 2.43
+        },
+        {
+          "text": "also,",
+          "start": 2.43,
+          "end": 2.95
+        },
+        {
+          "text": "but",
+          "start": 3.47,
+          "end": 3.63
+        },
+        {
+          "text": "finally",
+          "start": 3.63,
+          "end": 4.07
+        },
+        {
+          "text": "acquiesced.",
+          "start": 4.07,
+          "end": 4.89
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.33788351342082024
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "e2fbe5ddf5abc5456b7924a9b4f3bc8d3406d240c229ab6380809b2258b08db0",
+  "selected_reasons": []
+}

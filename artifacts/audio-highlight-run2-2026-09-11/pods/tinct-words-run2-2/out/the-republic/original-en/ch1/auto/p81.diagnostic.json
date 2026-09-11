@@ -1,0 +1,254 @@
+{
+  "complete": true,
+  "signature": "92e92f3f01002c4fa5f8d4b8b4bfd750afacfa9ceac73a4d8c319f235c9f15c6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2836497910320759,
+      "alignment_seconds": 0.0003010965883731842,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "And by contracts you mean partnerships?",
+        "hotwords": "And"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " And by contracts you mean partnerships?",
+          "start": 0.02,
+          "end": 2.06,
+          "words": [
+            {
+              "text": " And",
+              "start": 0.02,
+              "end": 0.5,
+              "probability": 0.6806640625
+            },
+            {
+              "text": " by",
+              "start": 0.5,
+              "end": 0.64,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " contracts",
+              "start": 0.64,
+              "end": 1.1,
+              "probability": 0.859375
+            },
+            {
+              "text": " you",
+              "start": 1.1,
+              "end": 1.32,
+              "probability": 0.45849609375
+            },
+            {
+              "text": " mean",
+              "start": 1.32,
+              "end": 1.46,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " partnerships?",
+              "start": 1.46,
+              "end": 2.06,
+              "probability": 0.9833984375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "raw": "by",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "raw": "contracts",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "raw": "you",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "raw": "mean",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "raw": "partnerships?",
+          "start": 1.46,
+          "end": 2.06
+        }
+      ],
+      "expected_tokens": [
+        "And",
+        "by",
+        "contracts",
+        "you",
+        "mean",
+        "partnerships?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "And",
+          "start": 0.02,
+          "end": 0.5,
+          "key": "and",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "by",
+          "start": 0.5,
+          "end": 0.64,
+          "key": "by",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "contracts",
+          "start": 0.64,
+          "end": 1.1,
+          "key": "contracts",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "you",
+          "start": 1.1,
+          "end": 1.32,
+          "key": "you",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "mean",
+          "start": 1.32,
+          "end": 1.46,
+          "key": "mean",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "partnerships?",
+          "start": 1.46,
+          "end": 2.06,
+          "key": "partnerships",
+          "pieces": [
+            5
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "And",
+          "start": 0.02,
+          "end": 0.5
+        },
+        {
+          "text": "by",
+          "start": 0.5,
+          "end": 0.64
+        },
+        {
+          "text": "contracts",
+          "start": 0.64,
+          "end": 1.1
+        },
+        {
+          "text": "you",
+          "start": 1.1,
+          "end": 1.32
+        },
+        {
+          "text": "mean",
+          "start": 1.32,
+          "end": 1.46
+        },
+        {
+          "text": "partnerships?",
+          "start": 1.46,
+          "end": 2.06
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2840609513223171
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5ac6995fc4400d3687991c8b88627438cf9530f676d20321cd3709033b7a3d20",
+  "selected_reasons": []
+}

@@ -1,0 +1,446 @@
+{
+  "complete": true,
+  "signature": "b86ccef2c8c1e87ed8842b124492d83c046ae9df519da943b7612cca3514f792",
+  "attempts": [
+    {
+      "asr_seconds": 0.3030237965285778,
+      "alignment_seconds": 0.0004022084176540375,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "I am quite ready to do battle at your side, he said.",
+        "hotwords": "I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " I am quite ready to do battle at your side, he said.",
+          "start": 0.08,
+          "end": 2.92,
+          "words": [
+            {
+              "text": " I",
+              "start": 0.08,
+              "end": 0.52,
+              "probability": 0.179931640625
+            },
+            {
+              "text": " am",
+              "start": 0.52,
+              "end": 0.64,
+              "probability": 0.95166015625
+            },
+            {
+              "text": " quite",
+              "start": 0.64,
+              "end": 0.84,
+              "probability": 0.9921875
+            },
+            {
+              "text": " ready",
+              "start": 0.84,
+              "end": 1.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 1.06,
+              "end": 1.24,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 1.24,
+              "end": 1.38,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " battle",
+              "start": 1.38,
+              "end": 1.64,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " at",
+              "start": 1.64,
+              "end": 1.82,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " your",
+              "start": 1.82,
+              "end": 1.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " side,",
+              "start": 1.92,
+              "end": 2.3,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " he",
+              "start": 2.5,
+              "end": 2.66,
+              "probability": 0.9814453125
+            },
+            {
+              "text": " said.",
+              "start": 2.66,
+              "end": 2.92,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "raw": "quite",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "raw": "ready",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "raw": "to",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "raw": "do",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "raw": "battle",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "raw": "at",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "raw": "your",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "raw": "side,",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "raw": "he",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "raw": "said.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "expected_tokens": [
+        "I",
+        "am",
+        "quite",
+        "ready",
+        "to",
+        "do",
+        "battle",
+        "at",
+        "your",
+        "side,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "I",
+          "start": 0.08,
+          "end": 0.52,
+          "key": "i",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "am",
+          "start": 0.52,
+          "end": 0.64,
+          "key": "am",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "quite",
+          "start": 0.64,
+          "end": 0.84,
+          "key": "quite",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "ready",
+          "start": 0.84,
+          "end": 1.06,
+          "key": "ready",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "to",
+          "start": 1.06,
+          "end": 1.24,
+          "key": "to",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "do",
+          "start": 1.24,
+          "end": 1.38,
+          "key": "do",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "battle",
+          "start": 1.38,
+          "end": 1.64,
+          "key": "battle",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "at",
+          "start": 1.64,
+          "end": 1.82,
+          "key": "at",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "your",
+          "start": 1.82,
+          "end": 1.92,
+          "key": "your",
+          "pieces": [
+            8
+          ]
+        },
+        {
+          "raw": "side,",
+          "start": 1.92,
+          "end": 2.3,
+          "key": "side",
+          "pieces": [
+            9
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 2.5,
+          "end": 2.66,
+          "key": "he",
+          "pieces": [
+            10
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 2.66,
+          "end": 2.92,
+          "key": "said",
+          "pieces": [
+            11
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "I",
+          "start": 0.08,
+          "end": 0.52
+        },
+        {
+          "text": "am",
+          "start": 0.52,
+          "end": 0.64
+        },
+        {
+          "text": "quite",
+          "start": 0.64,
+          "end": 0.84
+        },
+        {
+          "text": "ready",
+          "start": 0.84,
+          "end": 1.06
+        },
+        {
+          "text": "to",
+          "start": 1.06,
+          "end": 1.24
+        },
+        {
+          "text": "do",
+          "start": 1.24,
+          "end": 1.38
+        },
+        {
+          "text": "battle",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "text": "at",
+          "start": 1.64,
+          "end": 1.82
+        },
+        {
+          "text": "your",
+          "start": 1.82,
+          "end": 1.92
+        },
+        {
+          "text": "side,",
+          "start": 1.92,
+          "end": 2.3
+        },
+        {
+          "text": "he",
+          "start": 2.5,
+          "end": 2.66
+        },
+        {
+          "text": "said.",
+          "start": 2.66,
+          "end": 2.92
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3035896569490433
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "52435b7b0d1d8b55fba0e63ea40e0b8eebde69b00bb6eca00caa8157f09fcb51",
+  "selected_reasons": []
+}

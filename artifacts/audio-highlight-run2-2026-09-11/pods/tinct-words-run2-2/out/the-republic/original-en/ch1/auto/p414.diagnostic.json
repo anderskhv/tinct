@@ -1,0 +1,286 @@
+{
+  "complete": true,
+  "signature": "65afc95e25e652ff6c51e6271afa331004a1e104f129092799cee3191aa3dc17",
+  "attempts": [
+    {
+      "asr_seconds": 0.269133847206831,
+      "alignment_seconds": 0.00035186856985092163,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "No indeed, he said, they could not.",
+        "hotwords": "No"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " No indeed, he said, they could not.",
+          "start": 0.05,
+          "end": 2.27,
+          "words": [
+            {
+              "text": " No",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.822265625
+            },
+            {
+              "text": " indeed,",
+              "start": 0.59,
+              "end": 0.95,
+              "probability": 0.21533203125
+            },
+            {
+              "text": " he",
+              "start": 1.33,
+              "end": 1.41,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " said,",
+              "start": 1.41,
+              "end": 1.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " they",
+              "start": 1.75,
+              "end": 1.85,
+              "probability": 0.9736328125
+            },
+            {
+              "text": " could",
+              "start": 1.85,
+              "end": 1.99,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " not.",
+              "start": 1.99,
+              "end": 2.27,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "raw": "he",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "raw": "said,",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "raw": "they",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "raw": "could",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "raw": "not.",
+          "start": 1.99,
+          "end": 2.27
+        }
+      ],
+      "expected_tokens": [
+        "No",
+        "indeed,",
+        "he",
+        "said,",
+        "they",
+        "could",
+        "not."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "No",
+          "start": 0.05,
+          "end": 0.59,
+          "key": "no",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "indeed,",
+          "start": 0.59,
+          "end": 0.95,
+          "key": "indeed",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 1.33,
+          "end": 1.41,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said,",
+          "start": 1.41,
+          "end": 1.63,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.75,
+          "end": 1.85,
+          "key": "they",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "could",
+          "start": 1.85,
+          "end": 1.99,
+          "key": "could",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "not.",
+          "start": 1.99,
+          "end": 2.27,
+          "key": "not",
+          "pieces": [
+            6
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "No",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "indeed,",
+          "start": 0.59,
+          "end": 0.95
+        },
+        {
+          "text": "he",
+          "start": 1.33,
+          "end": 1.41
+        },
+        {
+          "text": "said,",
+          "start": 1.41,
+          "end": 1.63
+        },
+        {
+          "text": "they",
+          "start": 1.75,
+          "end": 1.85
+        },
+        {
+          "text": "could",
+          "start": 1.85,
+          "end": 1.99
+        },
+        {
+          "text": "not.",
+          "start": 1.99,
+          "end": 2.27
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2696053795516491
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "140899a6c5c1fedcf0de9701876e722f3c57be5d835b6396ff515e9408fdd092",
+  "selected_reasons": []
+}

@@ -1,0 +1,348 @@
+{
+  "complete": true,
+  "signature": "ae9ebe5d79bbbe4f867187374f75698499c1d86c06a6f0f494841ea6eec3ae6b",
+  "attempts": [
+    {
+      "asr_seconds": 0.34029901772737503,
+      "alignment_seconds": 0.00038758665323257446,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " When horses are injured, are they improved or deteriorated?",
+          "start": 0.05,
+          "end": 3.41,
+          "words": [
+            {
+              "text": " When",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.96533203125
+            },
+            {
+              "text": " horses",
+              "start": 0.51,
+              "end": 0.81,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " are",
+              "start": 0.81,
+              "end": 1.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " injured,",
+              "start": 1.05,
+              "end": 1.43,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " are",
+              "start": 1.87,
+              "end": 1.95,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " they",
+              "start": 1.95,
+              "end": 2.05,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " improved",
+              "start": 2.05,
+              "end": 2.55,
+              "probability": 0.994140625
+            },
+            {
+              "text": " or",
+              "start": 2.55,
+              "end": 2.85,
+              "probability": 0.99609375
+            },
+            {
+              "text": " deteriorated?",
+              "start": 2.85,
+              "end": 3.41,
+              "probability": 0.998046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "horses",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "raw": "are",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "raw": "injured,",
+          "start": 1.05,
+          "end": 1.43
+        },
+        {
+          "raw": "are",
+          "start": 1.87,
+          "end": 1.95
+        },
+        {
+          "raw": "they",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "raw": "improved",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "raw": "or",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "raw": "deteriorated?",
+          "start": 2.85,
+          "end": 3.41
+        }
+      ],
+      "expected_tokens": [
+        "When",
+        "horses",
+        "are",
+        "injured,",
+        "are",
+        "they",
+        "improved",
+        "or",
+        "deteriorated?"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          9,
+          0,
+          9
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "When",
+          "start": 0.05,
+          "end": 0.51,
+          "key": "when",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "horses",
+          "start": 0.51,
+          "end": 0.81,
+          "key": "horses",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 0.81,
+          "end": 1.05,
+          "key": "are",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "injured,",
+          "start": 1.05,
+          "end": 1.43,
+          "key": "injured",
+          "pieces": [
+            3
+          ]
+        },
+        {
+          "raw": "are",
+          "start": 1.87,
+          "end": 1.95,
+          "key": "are",
+          "pieces": [
+            4
+          ]
+        },
+        {
+          "raw": "they",
+          "start": 1.95,
+          "end": 2.05,
+          "key": "they",
+          "pieces": [
+            5
+          ]
+        },
+        {
+          "raw": "improved",
+          "start": 2.05,
+          "end": 2.55,
+          "key": "improved",
+          "pieces": [
+            6
+          ]
+        },
+        {
+          "raw": "or",
+          "start": 2.55,
+          "end": 2.85,
+          "key": "or",
+          "pieces": [
+            7
+          ]
+        },
+        {
+          "raw": "deteriorated?",
+          "start": 2.85,
+          "end": 3.41,
+          "key": "deteriorated",
+          "pieces": [
+            8
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "When",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "horses",
+          "start": 0.51,
+          "end": 0.81
+        },
+        {
+          "text": "are",
+          "start": 0.81,
+          "end": 1.05
+        },
+        {
+          "text": "injured,",
+          "start": 1.05,
+          "end": 1.43
+        },
+        {
+          "text": "are",
+          "start": 1.87,
+          "end": 1.95
+        },
+        {
+          "text": "they",
+          "start": 1.95,
+          "end": 2.05
+        },
+        {
+          "text": "improved",
+          "start": 2.05,
+          "end": 2.55
+        },
+        {
+          "text": "or",
+          "start": 2.55,
+          "end": 2.85
+        },
+        {
+          "text": "deteriorated?",
+          "start": 2.85,
+          "end": 3.41
+        }
+      ],
+      "stats": {
+        "expected_words": 9,
+        "heard_words": 9,
+        "matched_words": 9
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.3408339023590088
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "ae2e3448a0ed883c2f4f6b442c7ac9e6e558d7328c5547112125dfa0ea854e91",
+  "selected_reasons": []
+}

@@ -1,0 +1,190 @@
+{
+  "complete": true,
+  "signature": "8f28a2c35a33dc009b2e02eb49ca621bf227349702bb973a216f661e9c4561e0",
+  "attempts": [
+    {
+      "asr_seconds": 0.2095017172396183,
+      "alignment_seconds": 0.00025613605976104736,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Good again, he said.",
+        "hotwords": "Good"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Good again, he said.",
+          "start": 0.02,
+          "end": 1.26,
+          "words": [
+            {
+              "text": " Good",
+              "start": 0.02,
+              "end": 0.52,
+              "probability": 0.2366943359375
+            },
+            {
+              "text": " again,",
+              "start": 0.52,
+              "end": 0.78,
+              "probability": 0.9873046875
+            },
+            {
+              "text": " he",
+              "start": 0.84,
+              "end": 0.98,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " said.",
+              "start": 0.98,
+              "end": 1.26,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "raw": "again,",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "raw": "he",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "raw": "said.",
+          "start": 0.98,
+          "end": 1.26
+        }
+      ],
+      "expected_tokens": [
+        "Good",
+        "again,",
+        "he",
+        "said."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Good",
+          "start": 0.02,
+          "end": 0.52,
+          "key": "good",
+          "pieces": [
+            0
+          ]
+        },
+        {
+          "raw": "again,",
+          "start": 0.52,
+          "end": 0.78,
+          "key": "again",
+          "pieces": [
+            1
+          ]
+        },
+        {
+          "raw": "he",
+          "start": 0.84,
+          "end": 0.98,
+          "key": "he",
+          "pieces": [
+            2
+          ]
+        },
+        {
+          "raw": "said.",
+          "start": 0.98,
+          "end": 1.26,
+          "key": "said",
+          "pieces": [
+            3
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Good",
+          "start": 0.02,
+          "end": 0.52
+        },
+        {
+          "text": "again,",
+          "start": 0.52,
+          "end": 0.78
+        },
+        {
+          "text": "he",
+          "start": 0.84,
+          "end": 0.98
+        },
+        {
+          "text": "said.",
+          "start": 0.98,
+          "end": 1.26
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.2098492942750454
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "68025ad1d3944acb67faa3e370d533b62a8846575ad6005d08f3101bdb3e68eb",
+  "selected_reasons": []
+}

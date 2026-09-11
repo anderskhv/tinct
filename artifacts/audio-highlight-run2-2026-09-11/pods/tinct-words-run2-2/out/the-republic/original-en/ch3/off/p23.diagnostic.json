@@ -1,0 +1,92 @@
+{
+  "complete": true,
+  "signature": "56943a6912f8fc212cc9614756f0bd04f656ba3c2a89f71a9c647f557584f50f",
+  "attempts": [
+    {
+      "asr_seconds": 0.20741034299135208,
+      "alignment_seconds": 0.00018000230193138123,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Undoubtedly.",
+          "start": 0.08,
+          "end": 0.92,
+          "words": [
+            {
+              "text": " Undoubtedly.",
+              "start": 0.08,
+              "end": 0.92,
+              "probability": 0.6309814453125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Undoubtedly.",
+          "start": 0.08,
+          "end": 0.92
+        }
+      ],
+      "expected_tokens": [
+        "Undoubtedly."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "spoken_expected_indexes": [
+        0
+      ],
+      "unspoken_expected_indexes": [],
+      "compared_heard": [
+        {
+          "raw": "Undoubtedly.",
+          "start": 0.08,
+          "end": 0.92,
+          "key": "undoubtedly",
+          "pieces": [
+            0
+          ]
+        }
+      ],
+      "merges": [],
+      "candidate_words": [
+        {
+          "text": "Undoubtedly.",
+          "start": 0.08,
+          "end": 0.92
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20764819905161858
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "eb915ad04577f0f6e92a235dffca0d06b12390c177a6c4b301d9a1cde57d0f57",
+  "selected_reasons": []
+}
