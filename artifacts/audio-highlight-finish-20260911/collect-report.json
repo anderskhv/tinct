@@ -1,0 +1,406 @@
+[
+ {
+  "key": "beyond-good-and-evil/original-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9948677457560205,
+    "reasons": [
+     {
+      "paragraph": 79,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 84,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard1-auto/beyond-good-and-evil/original-en/ch5/auto/words.candidate.json"
+   },
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.9711804184761152,
+    "reasons": [
+     {
+      "paragraph": 10,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 79,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 84,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 99,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 111,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/base/beyond-good-and-evil/original-en/ch5/off/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "fear-and-trembling/original-en/ch1",
+  "arms": {
+   "off": {
+    "status": "rejected",
+    "matchRatio": 0.8923611111111112,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 4,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/base/fear-and-trembling/original-en/ch1/off/words.candidate.json"
+   },
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9157986111111112,
+    "reasons": [
+     {
+      "paragraph": 1,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard1-auto/fear-and-trembling/original-en/ch1/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "frederick-douglass/original-en/ch11",
+  "arms": {
+   "off": {
+    "status": "running",
+    "matchRatio": null,
+    "reasons": [],
+    "validationErrors": null,
+    "sidecar": null
+   },
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9886061526775541,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard4-auto/frederick-douglass/original-en/ch11/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9886061526775541
+ },
+ {
+  "key": "frederick-douglass/original-en/ch12",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9807589524318546,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard4-auto/frederick-douglass/original-en/ch12/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9807589524318546
+ },
+ {
+  "key": "genealogy-of-morals/original-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9803136469803136,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard2-auto/genealogy-of-morals/original-en/ch1/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9803136469803136
+ },
+ {
+  "key": "genealogy-of-morals/original-en/ch2",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9680224403927069,
+    "reasons": [
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard1-auto/genealogy-of-morals/original-en/ch2/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "iliad/original-en/ch14",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9153713298791019,
+    "reasons": [
+     {
+      "paragraph": 33,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 34,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 35,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard4-auto/iliad/original-en/ch14/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "notes-from-underground/original-en/ch15",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9916666666666667,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard4-auto/notes-from-underground/original-en/ch15/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9916666666666667
+ },
+ {
+  "key": "notes-from-underground/original-en/ch17",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9935674082015545,
+    "reasons": [
+     {
+      "paragraph": 19,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 24,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard2-auto/notes-from-underground/original-en/ch17/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "odyssey/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9534503879134341,
+    "reasons": [
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard3-auto/odyssey/original-en/ch3/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "oedipus-at-colonus/original-en/ch3",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9772329246935202,
+    "reasons": [
+     {
+      "paragraph": 17,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard4-auto/oedipus-at-colonus/original-en/ch3/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "oedipus-at-colonus/original-en/ch5",
+  "arms": {
+   "auto": {
+    "status": "candidate_requires_acoustic_review",
+    "matchRatio": 0.9849094567404426,
+    "reasons": [],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard2-auto/oedipus-at-colonus/original-en/ch5/auto/words.candidate.json"
+   }
+  },
+  "outcome": "candidate",
+  "selectedArm": "auto",
+  "matchRatio": 0.9849094567404426
+ },
+ {
+  "key": "phaedo/original-en/ch1",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9930278884462151,
+    "reasons": [
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 14,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 16,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 18,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 22,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard3-auto/phaedo/original-en/ch1/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "phaedo/original-en/ch7",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9953019365188496,
+    "reasons": [
+     {
+      "paragraph": 6,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard2-auto/phaedo/original-en/ch7/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ },
+ {
+  "key": "second-treatise/original-en/ch19",
+  "arms": {
+   "auto": {
+    "status": "rejected",
+    "matchRatio": 0.9568547357671687,
+    "reasons": [
+     {
+      "paragraph": 27,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     },
+     {
+      "paragraph": 37,
+      "reasons": [
+       "observed_alignment_below_85_percent"
+      ]
+     }
+    ],
+    "validationErrors": [],
+    "sidecar": "/tmp/claude-0/-home-user-tinct/34a078a6-a07b-5c87-b7f0-6a2f19fb35f5/scratchpad/work/runs/shard3-auto/second-treatise/original-en/ch19/auto/words.candidate.json"
+   }
+  },
+  "outcome": "excluded",
+  "reason": "no arm passed the gate and sidecar validation"
+ }
+]
