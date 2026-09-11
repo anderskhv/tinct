@@ -1,0 +1,29 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/hamlet-modern-en-20260911",
+ "served_original_en_path": "app/public/data/editions/hamlet-original-en.json",
+ "served_original_en_sha256": "77f9bf6e33516a710b6e7a747cd0ae3e1518eca29483c0470341f69d8de6e58f",
+ "served_modern_en_path": "app/public/data/editions/hamlet-modern-en.json",
+ "served_modern_en_sha256": "b355830766b696812decba35f95dee0ee68ff7662e36370194a129bc2147fda5",
+ "chapter_extracted": {
+  "number": 1,
+  "title": "Act 1, Scene 1 — Elsinore. A Platform Before the Castle",
+  "section": "Act I",
+  "paragraphs": 71,
+  "extraction": "found by chapter.number == 1 in the served original-en; paragraphs byte-identical"
+ },
+ "source_ch01_json_sha256": "4cce71c456eeb6fd84e67c86c98af8e38c9c9eb03949949100ccb6f1c74451db",
+ "candidate_v1_json_sha256": "ea6280a7c3ed81aa317f72da691d19b4133651a15ae776d9457d33751493de1f",
+ "manifest_json_sha256": "465077f1df18793abe545db11509496e522e1f43139c13379515bc87e1c0e2f5",
+ "translation_source": "William Shakespeare, Hamlet, in the text of the served original-en (Project Gutenberg ebook #1524; see ../PROVENANCE.md for identification and public-domain status). No copyrighted modern paraphrase (including No Fear Shakespeare) was consulted at any point.",
+ "word_counts": {
+  "source": 1401,
+  "candidate": 1406,
+  "ratio": 1.0036,
+  "min_paragraph_ratio": {"id": "C01-P030", "ratio": 0.769, "source_words": 13, "candidate_words": 10},
+  "note": "screening signal only; not evidence of semantic completeness. Overall ratio is above the 0.90 floor with no expansion; the single low-ratio paragraph (C01-P030) is recorded in continuity.md and loses no content."
+ },
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Sonnet 5 session), whole scene read before drafting, GLOSSARY.md established first. Zero Anthropic API calls; no scripts calling any LLM API.",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "review_round_1": "not yet performed — awaiting an independent reviewer session per WORKFLOW.md step 4"
+}
