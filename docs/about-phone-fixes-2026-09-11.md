@@ -167,8 +167,56 @@ Dark `prefers-color-scheme` (390×760, 430×844): identical to light; the page d
   place`). Applied to the raw import (release commit `840b67fb`'s `about.html` and `assets/about-v20/`),
   it reproduces the checked-in `about.html`, story chunk, bootstrap payload, `audio-journey.html` and
   audio script byte for byte.
-- `npm test`, `CI=true npm run build`, `CI=true npm run verify-bundle`: see the results section below.
+- `npm test` (Node 24.13.0, `npm ci`): 1,858 tests / 154 files pass on the branch; 1,898 / 155 after
+  merging `origin/main` (`7d6126e4`, another session's reader change landed while this was in flight;
+  the merge touched nothing under `about`). `CI=true npm run build` and `CI=true npm run verify-bundle`
+  pass on both (`dist/about.html` and `dist/assets/about-v20/about-v21.css` are byte-identical to
+  `public/`).
 
 ## Landing and production
 
-Filled in below after the merge and deploy.
+- MKT branch `claude/funny-keller-y2grh9` re-fetched before landing: it carries no commit that
+  `origin/main` lacks (only its own merges of `main`), so there was nothing to merge from it.
+- Branch commit `0b59b98e`, merge of `origin/main` into the branch `dd26d1f5`, merged into `main` with a
+  merge commit `c4cd99c0` (no rebase, no force) and pushed at 14:34 UTC.
+- GitHub `deploy` workflow run 50: https://github.com/anderskhv/tinct/actions/runs/34610979348 —
+  conclusion recorded in the last section below.
+- Production byte check (SHA-256 of the local build vs. `curl` of tinct.app, 75 s after the push):
+
+  | file | local build | production |
+  | --- | --- | --- |
+  | `/about` | `c6752344…dc8652` | same |
+  | `/assets/about-v20/about-v21.css` | `fbaa3530…1d05e3` | same |
+  | `/assets/about-v20/about-v21.js` | `78270cb5…2610ab` | same |
+  | `/assets/about-v20/_next/static/chunks/scroll-story-BQLclMWW.js` | `3aee969d…b096f7` | same |
+  | `/assets/about-v20/audio-journey.html` (307 → extensionless, as before) | `b3055076…35ffd2` | same |
+
+  Full hashes: `c6752344f0c8d8a424e3db2e9cbf7a8829d0ffe3406c1b8f106d3c5cd0dc8652`,
+  `fbaa3530bb163c5767dccbba740e6a9bb92401c880c7da6470861bb2601d05e3`,
+  `78270cb59179fb41c479e16804af673e91161dee48f8443989f1fb0c882610ab`,
+  `3aee969df4fdbbcd77b76cc1ef3ae94aac84a5a896efa5fb8fc396378fb096f7`,
+  `b3055076ef26a2e87beddf7d7edd9dd268e0efbb5f30bba4a517707c5235ffd2`.
+  `about-v21.css` is served with `cache-control: public, max-age=0, must-revalidate` and a fresh ETag,
+  so no `?v=` bump was needed; the live `/about` carries `<meta name="theme-color" content="#191411">`.
+- The sandbox browser cannot open tinct.app (its tunnel drops Chromium's TLS handshake), so the
+  production check is bytes-equal to what was screenshot-verified locally, as the brief specifies.
+
+## What was not done, and why
+
+- **No Safari/WebKit run.** WebKit is not installed in the sandbox and cannot be installed. The two iOS
+  mechanisms behind issues 1 and 2 are established from the CSS (green container under a `100svh` stage;
+  `vh` page against a `%` headline) and reproduced by simulation; the fixes remove the unit mismatch
+  entirely rather than tune numbers, so they do not depend on a particular svh/lvh pair. Anders's phone is
+  the first Safari to see them.
+- **No screenshot of Safari's toolbar tint or over-scroll** (same reason); verified by computed colours
+  and the `theme-color` meta.
+- **The hero copy window's hard clip on phones** is reported, not changed (design decision for the page's
+  owner; see "Observed and left unchanged").
+- The full 656-frame series is not committed (59 MB); the curated 122-file set is.
+
+## Deploy result
+
+GitHub `deploy` run 50 (https://github.com/anderskhv/tinct/actions/runs/34610979348) on `c4cd99c0`
+completed with conclusion **success** at 14:36:59 UTC (tests, `npm run deploy`, bundle-served check).
+Production re-checked after completion: `/about`, `about-v21.css`, `about-v21.js`, the story chunk and
+the audio iframe all serve the SHA-256 listed above. Live at https://tinct.app/about.
