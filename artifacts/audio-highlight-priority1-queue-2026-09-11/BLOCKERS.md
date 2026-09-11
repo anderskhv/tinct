@@ -32,6 +32,68 @@ Five chapters were aligned this session specifically because each would complete
 an edition on its own. **None passed.** Their causes are the classes below, not
 throughput.
 
+## 0. Short paragraphs have no error tolerance — the largest blocker
+
+Found last, and it outranks everything below it.
+
+The acceptance ratio is **per paragraph**, and one failing paragraph rejects the
+whole chapter. For a paragraph of n tokens, a single recognition error scores
+(n-1)/n, so the gate is passed only when n is at least 7:
+
+| tokens | score after ONE error | verdict |
+| --- | --- | --- |
+| 2 | 0.500 | fails |
+| 4 | 0.750 | fails |
+| 6 | 0.833 | **fails** |
+| 7 | 0.857 | passes |
+
+So any paragraph of **6 tokens or fewer must be recognised perfectly**. Measured
+on `the-tempest/original-en`, 501 paragraphs, biased arm:
+
+| paragraph length | paragraphs | failures | fail rate |
+| --- | --- | --- | --- |
+| 1–5 words | 138 | 8 | **5.8%** |
+| 6–10 | 114 | 1 | 0.9% |
+| 11–20 | 105 | 1 | 1.0% |
+| 21–50 | 97 | 0 | 0% |
+| 51+ | 47 | 0 | 0% |
+
+Every failure in all five chapters was a short paragraph. Half of that edition —
+252 of 501 paragraphs — is 10 tokens or fewer, because verse drama is built from
+one-line speeches.
+
+**Reach across the finish queue** (`short-paragraph-scan.json`):
+
+| | |
+| --- | --- |
+| paragraphs of 6 tokens or fewer | **2,683 of 14,859 — 18.1%** |
+| **chapters containing at least one** | **114 of 206 — 55.3%** |
+| editions affected | **26 of 36** |
+
+Worst exposed: `the-republic` ch10 with **120** such paragraphs of 318,
+`phaedo` ch3 at 51% of its paragraphs, `oedipus-at-colonus` ch11 at 46%,
+`the-tempest` ch1 at 44%, `notes-from-underground` ch17 with 51 of 120.
+
+At the measured ~5% failure rate per short paragraph, a chapter carrying 20 of
+them passes with probability about 0.95^20 — roughly a third of the time. For
+`the-republic` ch10 the probability is indistinguishable from zero. **This is why
+all five `the-tempest` chapters were rejected and why passing is erratic** —
+two chapters of similar quality differ only in whether some two-word line
+happened to be heard exactly. It also explains why `macbeth` ch1 passed: 12
+paragraphs, and none of its short ones took an error.
+
+This is arithmetic, not a judgement about the 0.85 threshold, and **the threshold
+should not be lowered** — it is correct for prose. What needs deciding is how a
+ratio gate applies to a two-word line, where it demands perfection from a
+recogniser that has none. Options, none taken here:
+
+- score short paragraphs against an absolute allowance rather than a ratio
+- group consecutive short paragraphs for scoring and keep per-word timings
+- accept a different acceptance policy for verse and dialogue editions
+
+Whichever is chosen, it is a gate-design decision for Anders, so this section
+records the evidence and changes nothing.
+
 ## 1. Token granularity — one expected token, several spoken words
 
 `chapter_words_from_text` splits the edition text on whitespace only, so a single
@@ -128,6 +190,9 @@ cases; no recording was regenerated.
 
 ## Recommended order
 
+0. **Decide how the ratio gate applies to short paragraphs.** It gates 55% of
+   queue chapters and 26 of 36 editions — more than everything below combined,
+   and it is why passing currently looks like luck. Do not lower 0.85.
 1. **Fix token granularity** — split expected tokens on `--`, strip Markdown
    emphasis, and let one expected token align to several heard words. Unblocks
    ~18% of chapters and 14 of 36 editions. Re-measure the acceptance sample
