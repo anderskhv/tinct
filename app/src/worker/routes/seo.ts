@@ -325,6 +325,16 @@ export async function handleSeoAndStaticRequest(request: Request, env: SeoEnv, c
       })
     }
 
+    // The privacy policy is one page at /privacy (public/privacy.html, served by
+    // the assets binding's html_handling). The older /privacy-policy URL, which
+    // store listings and old links may still use, redirects there permanently.
+    if (/^\/privacy-policy(?:\.html|\/)?$/.test(url.pathname)) {
+      return new Response(null, {
+        status: 301,
+        headers: { Location: `${url.origin}/privacy`, 'Cache-Control': 'public, max-age=3600' },
+      })
+    }
+
     // Promote the proven catalogue/reader flow at the public entry. The
     // boot script handles anonymous, returning and recently-reading users.
     if ((request.method === 'GET' || request.method === 'HEAD') && (url.pathname === '/' || url.pathname === '/index.html')) {

@@ -4,45 +4,228 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Tinct</title>
+  <meta name="description" content="How Tinct collects, uses, stores and deletes your data: accounts, reading data, billing, AI chat, cookies and your rights.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://tinct.app/privacy">
+  <meta name="theme-color" content="#ece7db">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preload" href="/fonts/f6667783-zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/9947e6f6-SlGUmQSNjdsmc35JDF1K5GR1SDk_YAPI.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fdd6c391-nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/tinct-fonts.css">
   <style>
-    body { font-family: Georgia, serif; max-width: 640px; margin: 40px auto; padding: 0 20px; color: #2a2a2a; line-height: 1.7; }
-    h1 { font-size: 1.5rem; margin-bottom: 8px; }
-    h2 { font-size: 1.1rem; margin-top: 32px; }
-    p { margin: 12px 0; }
-    .updated { color: #888; font-size: 0.85rem; }
+    /* Tinct marketing-site design system (landing.html / about.html): paper, ink, deep-teal accent;
+       Playfair Display for headlines, EB Garamond for body, IBM Plex Mono for chrome. One look, light. */
+    :root {
+      --paper: #ece7db;
+      --paper-alt: #dfd8c4;
+      --ink: #0b0b0b;
+      --accent: #1f4a5c;
+      --dim: #6a6555;
+      --rule: rgba(11, 11, 11, 0.14);
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--paper); }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      font-size: 19px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      padding-inline: clamp(16px, 5vw, 48px);
+    }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(31, 74, 92, 0.35); transition: border-color 0.15s; }
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* Header: the landing page's wordmark and mono nav. */
+    .site-header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-block: 26px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .wordmark { font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; line-height: 1; color: var(--ink); border: 0; }
+    .wordmark .dot { color: var(--accent); }
+    .site-nav { display: flex; gap: 24px; flex-wrap: wrap; justify-content: flex-end; }
+    .site-nav a { color: var(--ink); border: 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.15s; }
+    .site-nav a:hover { color: var(--accent); }
+
+    /* Document */
+    .policy { max-width: 680px; margin: 0 auto; padding-block: 56px 72px; }
+    .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin: 0 0 14px; }
+    h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1; letter-spacing: -0.025em; margin: 0 0 18px; }
+    .lede { font-size: 1.15em; line-height: 1.45; margin: 0 0 12px; }
+    .updated { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); margin: 0; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+    .toc { margin: 24px 0 8px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    .toc a { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); border: 0; }
+    .toc a:hover { color: var(--accent); }
+    section { padding-top: 34px; }
+    h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 1.55rem; line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 12px; scroll-margin-top: 24px; }
+    h3 { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 500; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); margin: 24px 0 6px; }
+    p { margin: 0 0 14px; }
+    ul { margin: 0 0 14px; padding-left: 1.2em; }
+    li { margin-bottom: 6px; }
+    li::marker { color: var(--accent); }
+    strong { font-weight: 600; }
+    code { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.8em; background: var(--paper-alt); padding: 1px 6px; border-radius: 3px; }
+    .contact-card { margin-top: 8px; padding: 22px 24px; border: 1px solid var(--rule); border-radius: 4px; background: rgba(255, 253, 245, 0.55); }
+    .contact-card p { margin: 0; }
+    .contact-card a { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.85em; letter-spacing: 0.04em; }
+
+    /* Footer: the About page's mark-and-links footer, in the paper palette. */
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      border-top: 1px solid var(--rule);
+      padding-block: 30px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px 32px;
+      font-size: 15px;
+      color: var(--dim);
+    }
+    .site-footer-mark { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 24px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; }
+    .site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-left: auto; }
+    .site-footer a { color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+    .site-footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    @media (max-width: 600px) {
+      body { font-size: 18px; }
+      .site-header { padding-block: 20px 6px; }
+      .wordmark { font-size: 28px; }
+      .site-nav { gap: 14px; }
+      .site-nav a { font-size: 10px; }
+      .site-nav a.nav-secondary { display: none; }
+      .policy { padding-block: 40px 56px; }
+      section { padding-top: 28px; }
+      .site-footer nav { margin-left: 0; }
+    }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: May 12, 2026</p>
+  <header class="site-header">
+    <a href="/" class="wordmark">Tinct<span class="dot">.</span></a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/about" class="nav-secondary">About</a>
+      <a href="/app?view=library" class="nav-secondary">Library</a>
+      <a href="/read">Start reading</a>
+    </nav>
+  </header>
 
-  <p>Tinct ("we", "our", "the app") is a reading platform built by Anders Hvelplund. This policy explains what data we collect and how we use it.</p>
+  <main class="policy">
+    <p class="eyebrow">Tinct · tinct.app</p>
+    <h1>Privacy Policy</h1>
+    <p class="lede">This policy explains what data Tinct collects, why it is collected, how it is stored, and the rights you have over it.</p>
+    <p class="updated">Last updated: 11 September 2026</p>
 
-  <h2>What we collect</h2>
-  <p><strong>Account data:</strong> If you create an account, we store your email address and authentication credentials via Supabase (our database provider). Google sign-in users: we receive your email and name from Google.</p>
-  <p><strong>Reading data:</strong> Your reading position, selected book, preferences, highlights, notes, chat history, and other reading-state data are stored so the app can preserve your place and sync across your devices. If you are signed in, this data is tied to your account. If you are not signed in, some of it is stored locally in your browser.</p>
-  <p><strong>Issue reports:</strong> When you report a text error, we store the selected text, your comment, and your user ID (if logged in).</p>
-  <p><strong>Payment data:</strong> Payments are processed by Stripe. We do not store credit card numbers. Stripe provides us with your customer ID and transaction records.</p>
-  <p><strong>Product analytics:</strong> We collect first-party usage events to understand whether Tinct is useful and where readers get stuck. These events can include pages viewed, book and chapter IDs, reading duration, device type, screen size, browser language, approximate country, referrer/source, chat/audio/feed/cast interactions, checkout starts, and timestamps. For signed-in users, analytics events may be associated with your user ID and account email so we can understand account-level behavior during the beta. For signed-out users, analytics are grouped by a temporary session ID.</p>
+    <ul class="toc" aria-label="Sections">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#collect">What we collect</a></li>
+      <li><a href="#use">How we use it</a></li>
+      <li><a href="#cookies">Cookies and local storage</a></li>
+      <li><a href="#third-parties">Third-party services</a></li>
+      <li><a href="#retention">Retention and deletion</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-  <h2>What we don't collect</h2>
-  <p>We do not collect location data, contacts, photos, or any data unrelated to the reading experience. We do not sell or share your data with third parties for advertising.</p>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>Tinct is a reading platform for classic literature, available at tinct.app and as an Android application. It is an independent product operated from Copenhagen, Denmark. In this policy, "Tinct", "we" and "our" refer to the service and its operator; "you" refers to a reader of the service.</p>
+      <p>Tinct collects only the data needed to run the service: to keep your place in a book, to synchronise your reading across devices, to process payments, to answer your questions about a text, and to understand whether the product is useful. Tinct does not sell your data, does not share it with third parties for advertising, and does not run advertising.</p>
+    </section>
 
-  <h2>Cookies and local storage</h2>
-  <p>Tinct uses first-party browser storage to make the app work. This includes Supabase authentication storage, reading progress, preferences, offline/cache data, and small dismissal flags for in-app notices. We also set a first-party <code>tinct_auth</code> cookie after sign-in so the homepage can route signed-in readers back into the app. We do not use third-party advertising cookies.</p>
-  <p>We may store attribution information such as UTM parameters or referrer source in browser storage to understand which links bring readers to Tinct. We also use session storage to avoid repeating some analytics lookups during a single visit.</p>
+    <section id="collect">
+      <h2>What we collect</h2>
+      <h3>Account data</h3>
+      <p>If you create an account, your email address and authentication credentials are stored with Supabase, our database and authentication provider. Passwords are hashed and are never stored in plain text. If you sign in with Google, Google provides us with your email address and name.</p>
+      <h3>Reading data</h3>
+      <p>Your reading position, selected book, preferences, highlights, notes, reading journal, chat history and other reading-state data are stored so that the service can preserve your place and synchronise it across your devices. If you are signed in, this data is associated with your account. If you are not signed in, some of it is stored locally in your browser only.</p>
+      <h3>Issue reports</h3>
+      <p>When you report an error in a text, we store the selected passage, your comment and, if you are signed in, your user ID.</p>
+      <h3>Payment data</h3>
+      <p>Payments are processed by Stripe. Tinct does not store card numbers. Stripe provides us with a customer identifier and transaction records for your subscription.</p>
+      <h3>Product analytics</h3>
+      <p>Tinct records first-party usage events to understand whether the product is useful and where readers get stuck. These events may include pages viewed, book and chapter identifiers, reading duration, device type, screen size, browser language, approximate country, referrer or traffic source, interactions with the chat, audio, feed and cast features, checkout starts, and timestamps. For signed-in users, events may be associated with your user ID and account email so that account-level behaviour can be understood during the beta period. For signed-out users, events are grouped under a temporary session identifier.</p>
+      <h3>What we do not collect</h3>
+      <p>Tinct does not collect location data, contacts, photos, or any data unrelated to the reading experience.</p>
+    </section>
 
-  <h2>AI chat</h2>
-  <p>When you use the AI chat feature, your messages are sent to Anthropic's Claude API for processing. Anthropic's privacy policy applies to that interaction. We do not use your chat messages to train AI models.</p>
+    <section id="use">
+      <h2>How we use it</h2>
+      <ul>
+        <li><strong>To run the service</strong> — account data, reading data and browser storage are used to sign you in, keep your place, and synchronise your reading across devices.</li>
+        <li><strong>To bill subscriptions</strong> — payment data is used to manage your Premium subscription and to issue receipts.</li>
+        <li><strong>To answer questions about a text</strong> — when you use the AI reading features, the relevant passage and your messages are sent to the AI provider described below in order to generate a response.</li>
+        <li><strong>To improve the product</strong> — analytics and issue reports are used internally to fix errors and to understand how features are used. Account-level analytics and the database are accessible only to the site administrator, for operational purposes such as fixing bugs and keeping the service running.</li>
+        <li><strong>To contact you, if you opted in</strong> — if you opted in during sign-up, Tinct may occasionally send a personal email about your experience with the service. This is not marketing and not a newsletter. You may opt out at any time by replying to such an email or by writing to <a href="mailto:contact@tinct.app">contact@tinct.app</a>.</li>
+      </ul>
+      <p>Tinct does not use your content, messages or reading data to train AI models.</p>
+    </section>
 
-  <h2>Data storage</h2>
-  <p>Your data is stored on Supabase (PostgreSQL, hosted in the EU) and Cloudflare (Workers and R2, global CDN). Audio files are stored on Cloudflare R2.</p>
-  <p>Beta analytics are used internally by Tinct to improve the product. Account-level analytics are visible only to the site administrator.</p>
+    <section id="cookies">
+      <h2>Cookies and local storage</h2>
+      <p>Tinct uses first-party browser storage to make the service work. This includes Supabase authentication storage, reading progress, preferences, offline and cache data, and small flags recording that an in-app notice has been dismissed. After sign-in, Tinct sets a first-party <code>tinct_auth</code> cookie so that the homepage can route signed-in readers directly into the application.</p>
+      <p>Tinct may store attribution information, such as UTM parameters or the referring site, in browser storage to understand which links bring readers to the service, and uses session storage to avoid repeating certain analytics lookups within a single visit.</p>
+      <p>Tinct does not use tracking cookies or third-party advertising cookies.</p>
+    </section>
 
-  <h2>Your rights</h2>
-  <p>You can request deletion of your account and all associated data by emailing <a href="mailto:anders@tinct.app">anders@tinct.app</a>. We will delete your data within 30 days.</p>
+    <section id="third-parties">
+      <h2>Third-party services</h2>
+      <p>Tinct relies on the following providers to operate the service. Each processes data only as needed to provide its function.</p>
+      <ul>
+        <li><strong>Supabase</strong> — authentication and database (PostgreSQL), hosted in the European Union. Row-level security ensures that each user can access only their own data.</li>
+        <li><strong>Cloudflare</strong> — application hosting (Workers) and file storage (R2) on a global content delivery network. Audio files are stored on Cloudflare R2.</li>
+        <li><strong>Stripe</strong> — payment processing for Premium subscriptions.</li>
+        <li><strong>Anthropic</strong> — the AI reading features are powered by Anthropic's Claude. When you use them, your messages and the relevant text are sent to Anthropic's API for processing. Anthropic does not use API data to train its models; it retains inputs and outputs for up to 30 days for trust and safety purposes and then deletes them. See <a href="https://www.anthropic.com/privacy">Anthropic's privacy policy</a> for details.</li>
+        <li><strong>Google</strong> — optional sign-in. If you sign in with Google, Google provides your email address and name.</li>
+      </ul>
+      <p>All connections to Tinct and to these providers are encrypted in transit (HTTPS).</p>
+    </section>
 
-  <h2>Contact</h2>
-  <p>Anders Hvelplund — <a href="mailto:anders@tinct.app">anders@tinct.app</a></p>
+    <section id="retention">
+      <h2>Data retention and deletion</h2>
+      <p>Account and reading data are retained for as long as your account exists. Data stored locally in your browser for signed-out use remains on your device until you clear your browser storage.</p>
+      <p>You may request deletion of your account and all associated data by writing to <a href="mailto:contact@tinct.app">contact@tinct.app</a>. Deletion is completed within 30 days of the request.</p>
+    </section>
+
+    <section id="rights">
+      <h2>Your rights</h2>
+      <p>Under the General Data Protection Regulation (GDPR), you have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> — request a copy of all data Tinct holds about you.</li>
+        <li><strong>Deletion</strong> — request that your account and all associated data be deleted.</li>
+        <li><strong>Portability</strong> — request your data in a portable format.</li>
+        <li><strong>Correction</strong> — request that inaccurate data be corrected.</li>
+        <li><strong>Withdrawal of consent</strong> — for optional processing such as email contact, withdraw your consent at any time.</li>
+      </ul>
+      <p>To exercise any of these rights, write to <a href="mailto:contact@tinct.app">contact@tinct.app</a>.</p>
+      <h3>Changes to this policy</h3>
+      <p>If this policy changes significantly, Tinct will notify you at the email address on your account. Minor wording changes are not notified; the date at the top of this page records the most recent revision.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-card">
+        <p>Questions about this policy or about your data: <a href="mailto:contact@tinct.app">contact@tinct.app</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer-mark">Tinct</span>
+    <nav aria-label="Footer">
+      <a href="/read">Start reading</a>
+      <a href="/about">About</a>
+      <a href="mailto:contact@tinct.app">Contact</a>
+    </nav>
+  </footer>
 </body>
 </html>

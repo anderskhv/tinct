@@ -156,6 +156,17 @@ describe('worker SEO SPA metadata', () => {
 })
 
 describe('worker SEO routing', () => {
+  it.each(['/privacy-policy', '/privacy-policy/', '/privacy-policy.html'])('redirects the legacy privacy URL %s to /privacy', async (pathname) => {
+    const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
+    expect(resp.status).toBe(301)
+    expect(resp.headers.get('Location')).toBe('https://tinct.app/privacy')
+  })
+
+  it('leaves /privacy itself to the static privacy.html asset', async () => {
+    const resp = await worker.fetch(new Request('https://tinct.app/privacy'), routerEnv() as never, ctx)
+    expect(resp.status).not.toBe(301)
+  })
+
   it.each(['/lab', '/lab/', '/lab/landing', '/library'])('serves the standalone noindex lab at %s', async (pathname) => {
     const resp = await worker.fetch(new Request(`https://tinct.app${pathname}`), routerEnv() as never, ctx)
     expect(resp.status).toBe(200)
