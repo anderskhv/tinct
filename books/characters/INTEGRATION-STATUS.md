@@ -9,9 +9,10 @@ verified68e7d1d0 with current main tooling/CI. GitHub deploy34579232785 succeede
 including exact bundle-byte comparison and15smoke checks. Current recovery bundle
 index-DnUXeTyY.js, Worker2afbdd92-12a7-4ad3-bf8e-087ef9bd3731.
 
-The reader registers17book scopes:15validated full packages, The Awakening pilot
-covering its book, and partial Bible (Baruch only). All17versioned live assets
-match the verified release files. The content inventory remains60validated,
+After reference release b7abab07a, the reader registers 20 book scopes: 18 validated
+packages, the whole-book Awakening pilot, and partial Bible (Baruch only). All 20
+versioned live assets match release files. Reference release workflow34580387836
+passed; bundle index-ByP0wWUD.js; all 60 new browser scenarios passed. The content inventory remains60validated,
 37not-started, and3partial/pilot scopes; **45validated packages remain unreleased**:
 44awaiting independent release review/integration plus The Tempest source hold.
 
@@ -26,6 +27,7 @@ Latest detailed release: [nine plays](../../docs/character-cards-nine-2026-09-10
 Runtime and release history are now pushed to main. Preserve source ambiguity
 exclusions from20b4d7bc; do not overwrite them with older author-side assets.
 
-Next: independently review and integrate queued packages; the initial reference
-review is US Founding Documents, Kant Groundwork and Descartes Meditations.
-These three are not yet live. No authoring lane or external routine was changed.
+US Founding Documents, Kant Groundwork and Descartes Meditations are now live;
+see the [reference release](../../docs/character-reference-release-2026-09-11.md).
+Next: independently review the remaining 41 queued packages; preserve the separate
+Tempest hold. No authoring lane or external routine was changed.

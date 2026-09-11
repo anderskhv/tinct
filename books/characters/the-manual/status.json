@@ -16,14 +16,6 @@
     "artifacts": "/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-characters-four/",
     "checks": "Both edition pairs; exact bundle and asset bytes; 60 live card scenarios plus four documented modern omissions; 15 smoke checks."
   },
-  "servingCheck": {
-    "date": "2026-09-11",
-    "host": "https://tinct.app",
-    "result": "404 \u2014 sidecar not served",
-    "finding": "Verified 2026-09-10 from a local checkout; that integration commit (10de86bb) and its evidence doc are not on origin, and origin/main does not register this book in supportedEditions. Not being served today.",
-    "nextAction": "Release owner pushes the integration commit, redeploys, then re-runs books/characters/serving_check.py and restores appStatus: live.",
-    "detail": "books/characters/INTEGRATION-STATUS.md"
-  },
   "productionVerification": {
     "reportedBy": "release owner",
     "date": "2026-09-10",
@@ -39,5 +31,19 @@
     "commit": "95029ffe2",
     "workflowRun": 34579232785,
     "bundle": "index-DnUXeTyY.js"
+  },
+  "priorServingCheck": {
+    "date": "2026-09-11",
+    "host": "https://tinct.app",
+    "result": "404 \u2014 sidecar not served",
+    "finding": "Verified 2026-09-10 from a local checkout; that integration commit (10de86bb) and its evidence doc are not on origin, and origin/main does not register this book in supportedEditions. Not being served today.",
+    "nextAction": "Release owner pushes the integration commit, redeploys, then re-runs books/characters/serving_check.py and restores appStatus: live.",
+    "detail": "books/characters/INTEGRATION-STATUS.md"
+  },
+  "servingCheck": {
+    "date": "2026-09-11",
+    "host": "https://tinct.app",
+    "result": "Matching versioned character JSON served after verified recovery; reader checks passed",
+    "detail": "books/characters/INTEGRATION-STATUS.md"
   }
 }

@@ -2,7 +2,7 @@
   "checkedAt": "2026-09-11",
   "host": "https://tinct.app",
   "packages": 63,
-  "servedCount": 17,
+  "servedCount": 20,
   "served": [
     "antony-and-cleopatra",
     "apology",
@@ -10,9 +10,11 @@
     "coriolanus",
     "crito",
     "cymbeline",
+    "descartes-meditations",
     "hamlet",
     "henry-iv-part-2",
     "henry-v",
+    "kant-groundwork",
     "macbeth",
     "measure-for-measure",
     "merry-wives-of-windsor",
@@ -20,6 +22,7 @@
     "the-art-of-war",
     "the-awakening",
     "the-manual",
+    "us-founding-documents",
     "winters-tale"
   ],
   "statusMismatches": [],
@@ -146,11 +149,11 @@
     },
     {
       "book": "descartes-meditations",
-      "appStatus": "awaiting-integration",
-      "url": "https://tinct.app/data/characters/descartes-meditations.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "appStatus": "live",
+      "url": "https://tinct.app/data/characters/descartes-meditations.v1.json?v=2026-09-11.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "discourse-on-inequality",
@@ -250,11 +253,11 @@
     },
     {
       "book": "kant-groundwork",
-      "appStatus": "awaiting-integration",
-      "url": "https://tinct.app/data/characters/kant-groundwork.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "appStatus": "live",
+      "url": "https://tinct.app/data/characters/kant-groundwork.v1.json?v=2026-09-11.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "king-lear",
@@ -490,11 +493,11 @@
     },
     {
       "book": "us-founding-documents",
-      "appStatus": "awaiting-integration",
-      "url": "https://tinct.app/data/characters/us-founding-documents.v1.json?v=2026-09-10.1",
-      "httpStatus": "404",
-      "validAsset": false,
-      "served": false
+      "appStatus": "live",
+      "url": "https://tinct.app/data/characters/us-founding-documents.v1.json?v=2026-09-11.1",
+      "httpStatus": "200",
+      "validAsset": true,
+      "served": true
     },
     {
       "book": "utilitarianism",

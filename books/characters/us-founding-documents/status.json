@@ -1,6 +1,18 @@
 {
   "contentStatus": "validated-package",
-  "appStatus": "awaiting-integration",
-  "reviewedEditions": ["original-en", "modern-en"],
-  "nextAction": "Consolidated release queue: integrate versioned asset and verify production"
+  "appStatus": "live",
+  "reviewedEditions": [
+    "original-en",
+    "modern-en"
+  ],
+  "nextAction": "Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions.",
+  "releaseEvidence": {
+    "contentCommit": "95bdc8792",
+    "appCommit": "1341dede0",
+    "deployCommit": "b7abab07a",
+    "revision": "2026-09-11.1",
+    "workflowRun": 34580387836,
+    "bundle": "index-ByP0wWUD.js",
+    "report": "docs/character-reference-release-2026-09-11.md"
+  }
 }

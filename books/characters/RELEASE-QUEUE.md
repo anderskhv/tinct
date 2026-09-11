@@ -2,12 +2,26 @@
 
 Updated September 10, 2026. This is a content-lane handoff to the existing release owner, not a separate deployment. Read each package README and validation report before integration. Sources were byte-compared with Tinct-reader-stabilization at authoring; recheck before enabling.
 
+## September 11 reference release — current queue
+
+US Founding Documents, Kant Groundwork and Descartes Meditations are now
+production-verified in both English editions. Content95bdc8792; app1341dede0;
+deployb7abab07a; workflow34580387836 passed. All60live browser checks and15smoke
+checks passed. [Evidence](../../docs/character-reference-release-2026-09-11.md).
+
+Current inventory:60validated =18live +41awaiting integration +1Tempest source hold.
+37not-started and3partial/pilot statuses remain. Whole-book Awakening pilot and
+partial Bible are separate from the18validated-live count. Do not re-integrate
+these three or the already released nine-play batch from older sections below.
+Next: independent review of remaining41, beginning with the queued literary batch
+(Jekyll and Hyde, Oedipus Rex, Antigone); preserve the Tempest source-review hold.
+
 ## September 11 reconciliation
 
 Authoring branch aec6edff contained 60 validated packages, 37 not-started books
 and three partial/pilot scopes. Nine of its awaiting-integration statuses were
-stale: the nine-play release was production verified September 10. After fixing
-those statuses there are **45 unreleased validated packages: 44 awaiting independent
+stale: the nine-play release was production verified September 10. Before the reference release, fixing
+those statuses left **45 unreleased validated packages: 44 awaiting independent
 release review/integration and The Tempest held for source review**. Six earlier
 validated packages were already marked live; The Awakening pilot and partial Bible
 are tracked separately. Thus 16 whole-book scopes plus partial Bible were previously
@@ -26,8 +40,7 @@ Cymbeline13:8 Caesar and RichardIII19:10/11 Plantagenet/Edward ambiguous pairs r
 unbound; these release corrections supersede tentative author assignments below.
 Do not redeploy those books just because an older section calls them queued.
 
-Next reference batch under independent release review: US Founding Documents,
-Kant Groundwork and Descartes Meditations. They are not yet enabled by this update.
+The reference batch named here was subsequently released; see the current queue above.
 Lane A/B authorship remains with the external owners; no book is claimed here.
 
 ## Verified live

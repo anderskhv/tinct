@@ -45,7 +45,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Nicomachean Ethics (`nicomachean-ethics`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Prince (`the-prince`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Beyond Good and Evil (`beyond-good-and-evil`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Groundwork of the Metaphysics of Morals (`kant-groundwork`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
+| Groundwork of the Metaphysics of Morals (`kant-groundwork`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
 | Beowulf (`beowulf`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Candide (`candide`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Democracy in America (`democracy-in-america`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
@@ -53,7 +53,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Oedipus at Colonus (`oedipus-at-colonus`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Antigone (`antigone`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | On the Genealogy of Morals (`genealogy-of-morals`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| Meditations on First Philosophy (`descartes-meditations`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
+| Meditations on First Philosophy (`descartes-meditations`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
 | On Liberty (`on-liberty`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Utilitarianism (`utilitarianism`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | History of the Peloponnesian War (`peloponnesian-war`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
@@ -73,7 +73,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Confessions (`confessions`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Notes from Underground (`notes-from-underground`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | Magna Carta (`magna-carta`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
-| The US Founding Documents (`us-founding-documents`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
+| The US Founding Documents (`us-founding-documents`) | validated-package | Production verified September 11 in both English editions; preserve source fingerprints and contextual exclusions. |
 | The Federalist Papers (`federalist-papers`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Narrative of the Life of Frederick Douglass (`frederick-douglass`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
 | A Little Princess (`a-little-princess`) | validated-package | Consolidated release queue: integrate versioned asset and verify production |
