@@ -61,6 +61,16 @@ session. Kept current at every push.
   recorded in `book1/ACCEPTANCE.md`. `continuity.md`, `provenance.json`,
   `manifest.json` and `README.md` updated. The three pending glossary rows
   (discontented, in a way, spirits) added to `GLOSSARY.md`.
+- 2026-09-11 — **Book III drafted and frozen** (steps 1–3): `book3/candidate-v1.json`
+  (sha256 `7079d32b…`), 16 paragraphs 1:1 with Long's III.1–III.16, word ratio
+  0.985 (min paragraph 0.94). Source verified from the staged Long chapter 3
+  into `book3/source-book3.json` (sha256 `c417f5bc…`); no new glossary row
+  needed (every recurring term in Book III was already fixed). Readable copy,
+  `continuity.md`, `provenance.json`, `manifest.json`, `README.md`,
+  `review-instructions.md` and six review packets (5×3 + 1) pushed, built by
+  `scripts/build_book_package.py 3` from `scripts/candidates/book3.py`.
+  **Stopped for independent review** (step 4). Findings expected under
+  `book3/review/`.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -91,10 +101,12 @@ session. Kept current at every push.
 
 ## Next
 
-1. **Book III** (steps 1–3): draft from the staged Long chapter 3 (16
-   paragraphs), freeze as `book3/candidate-v1.json`, packets, push, stop for
-   independent review.
+1. **Waiting on the coordinator: independent review of Book III**
+   (`book3/review-instructions.md`, `book3/review-packets/`). On findings:
+   `book3/candidate-v2.json` via a change script in the Book I/II pattern,
+   verification, flow read, `book3/ACCEPTANCE.md`.
 2. Then Books IV … XII in numerical order, each with its own review round.
+   Book IV is not started until Book III is accepted.
 
 ## Needs Anders (listed, not waited on)
 
