@@ -1632,9 +1632,12 @@
     {
       "bookId": "faust-part-1",
       "title": "Faust, Part One",
-      "contentStatus": "not-started",
+      "contentStatus": "validated-package",
       "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -1652,7 +1655,7 @@
         }
       ],
       "existingThreadCandidates": 0,
-      "nextAction": "Review source, author concise identities and categories, bind mentions and spoiler gates"
+      "nextAction": "Awaiting integration by the release owner. 97 entities across 28 scenes. The original edition is a damaged scan: see the source-defect table in the package README, including a duplicated scene opening at 25:32-35 / 26:0-3 that is worth fixing at source before any further offset work."
     },
     {
       "bookId": "oresteia",

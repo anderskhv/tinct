@@ -772,3 +772,53 @@ Register both English editions, version the immutable asset URL, run the normal 
 4. 5:55 shows Adam's card, not the Son's.
 
 Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.
+
+## Opus batch 8: Faust, Part One
+
+Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| Faust, Part One | COMMIT | 96 / 97 | build_faust_part_1.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| Faust, Part One | bff236838e6e5ee6baeb7afd16c6b1c1b2872f87605f21e79e4cd5198a997395 | 9e66da5b45267bfb3cae70905897d9f9c1397bd1d1c8b080bf325cda0046d28b |
+
+97 authored entities, 1,101 exact mentions in the original and 1,143 in the modern, across 28 scenes and 895 paragraphs per edition. Commands: `python3 books/characters/build_faust_part_1.py --check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+A play, so most bindings are speaker tags. Every speaking part is carried under its capitalised tag and under the name other characters use for it, and case is significant: `MARGARET` is the tag, `Margaret` is the dialogue name, both are one person.
+
+**Two grouping decisions to confirm.** The anonymous crowd of "Before the Gate" (A MECHANIC, ANOTHER BURGHER, A THIRD, SERVANT-GIRL and the rest) is one card rather than a dozen, because the crowd is deliberately faceless. The **Walpurgis-Night's Dream** goes the other way — thirty one-line speakers, each carded, because each is a caricature of a named contemporary journal or school and without a card the whole intermezzo is noise.
+
+Spot-check, in order of risk: 9:36 "you may call me Lord Baron" (Mephistopheles, not the Lord — skipped by table, with a test); scene 4's SPIRIT (the Earth Spirit, not the Evil Spirit of scene 23); 20:0 "Marearet" (scanning damage, carried as an alias); 28:51 the Voice from Above, which is the last line of the play.
+
+### ⚠ Source defect worth fixing before further offset work
+
+**The last four paragraphs of scene 25 duplicate the first four of scene 26.** "A Gloomy Day" begins twice — once at the tail of the Walpurgis-Night's Dream chapter and again at the head of its own. Present identically in both editions, so alignment holds and this package's offsets are correct as they stand, but **a reader sees the scene's opening twice**. Repairing it moves every offset after 25:31 and requires a rebuild of this package against new hashes.
+
+### Other source defects, none blocking enablement
+
+The original edition is a scan with visible damage — the most defective source in the library so far. No byte was touched.
+
+| Defect | Where | Effect |
+|---|---|---|
+| Speaker tag **CHORUS OF DISCIPLES** lost; the speech runs on from Faust's line | 4:26 | The one `omittedEntities` divergence; a test pins it |
+| **Marearet** for Margaret | 20:0 | Alias |
+| German running heads left in the text: **ABEND**, **OA ABEND**, **GARTEN**, **FELD**, **BB KERKER**, **BRUBER**, **MARTHE**, **MARGARETE** | scenes 10-27 | MARTHE and MARGARETE carried as aliases; the rest is page furniture and is not cast |
+| **PRELUDE ON TIE STAGE**; **FAust—** for FAUST | 2:0, 26:0 | Not bound at those occurrences |
+| **PROCKTOPHANTASMIST** against the modern **PROKTOPHANTASMIST** | 24:32 | Both carried |
+| **Will-o'-the- Wisps** broken across a line with a space | 25:26 | Not bound there; the entity binds at 24:4 |
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the normal app gates and deploy, then open the production reader and confirm on the fetched asset:
+
+1. Speaker tags carry cards: open scene 8 (Auerbach's Cellar) and confirm Frosch, Brander, Siebel and Altmayer are four distinct cards.
+2. Scene 25 (Walpurgis-Night's Dream) shows a distinct card on each one-line speaker.
+3. 9:36 "Lord Baron" shows no card, and 3:4 "Lord" shows the Lord's card.
+4. 20:0 "Marearet" in the original edition shows Margaret's card.
+
+Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.
