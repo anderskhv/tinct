@@ -25,7 +25,9 @@ easy one.
   to any Odyssey edition file, so these hashes still identify the exact files this pilot
   was built against.
 - New candidate: `books/staged-replacements/odyssey-pilot/odyssey-book9-candidate.json`,
-  sha256_16 `10ef71b22be505f5`.
+  sha256_16 `662aa2a453f65f81` (post-correction; see "Errors found by external review and
+  fixed" below — the file changed after Anders's review, this is the current, corrected
+  hash).
 
 ## Structure
 
@@ -86,6 +88,56 @@ exactly one corresponding candidate paragraph at the same index.
   specifically because this is the single most common failure mode found across the whole
   101-book audit (e.g. Jane Eyre's invented imagery, Ulysses's invented attribution) — this
   candidate adds no sentence, clause, or claim that is not in the source.
+
+## Errors found by external review and fixed (2026-09-11, post-drafting)
+
+Anders reviewed the first draft directly and found six real errors the drafting pass
+missed. All six were verified against the actual source text and corrected. Recorded here
+in full rather than silently fixed, per the task's own standard of not implying more
+verification than actually happened:
+
+1. **The Nobody pun's capitalization (paragraph 27).** Butler writes "*Noman* is killing me
+   by fraud; *no man* is killing me by force" — capitalizing the first instance (invoking
+   it as a name) and lowercasing the second (the plain statement). The first draft
+   capitalized "Nobody" both times, flattening a distinction Butler's own text makes.
+   Fixed to mirror Butler's pattern exactly: "*Nobody* is killing me by treachery; *nobody*
+   is killing me by force."
+2. **The stake-sharpening action (paragraph 20).** Butler has the men smooth *one end*,
+   and Odysseus then sharpens *that same end* to a point. The first draft wrote "I
+   sharpened **the other end**," which invents a second end being worked on — a real
+   change to the described action. Fixed to "I finished sharpening that same end."
+3. **An invented drilling mechanism (paragraph 25).** Butler's simile is an auger turned
+   by two men with "a wheel and strap." The first draft added "a bow" — a real but
+   different historical drilling method (a bow-drill, not a strap-drill) that isn't in
+   Butler's text at all. This was an unprompted intrusion of outside knowledge into the
+   translation. Fixed to match Butler's actual mechanism: "which two men can keep turning
+   ... with a wheel and strap."
+4. **A changed season (paragraph 2).** Butler: the Cicones' reinforcements came "as thick
+   as leaves and bloom in **summer**." The first draft wrote "leaves and blossoms of
+   **spring**" — a plain factual change with no justification. Fixed to "summer."
+5. **A lost condition (paragraph 6).** Butler: ships wait at the harbor "till **the wind
+   becomes fair** for putting out to sea again" — an external, weather-based condition.
+   The first draft substituted "until **the crew is ready**" — a different, invented
+   reason. Fixed to restore the wind condition.
+6. **Two invented Homeric epithets (paragraphs 37, 40).** The first draft added "sacker of
+   cities" for Odysseus (paragraphs 37 and 40) and "god of the dark hair" for Poseidon
+   (paragraph 40) — both real, well-known Homeric epithets, but not ones Butler uses at
+   these specific points, and not something a faithful modernization of Butler's *own*
+   text should import on its own authority. Butler's paragraph 37 has "the valiant warrior
+   Ulysses"; paragraph 40 has plain "Ulysses" with no epithet and no repeated
+   "son of Laertes, who lives in Ithaca." Fixed both to match Butler's actual wording
+   exactly, dropping the imported epithets rather than deciding unilaterally that they
+   belonged.
+
+**Pattern across all six:** every one is a case of the drafting pass supplying something
+plausible, sometimes even historically or poetically accurate in a general Homeric sense,
+that was not actually present in the specific source text being modernized. This is
+exactly the "invention" failure mode the reading standard is built to catch, and it slipped
+past the drafter's own first-pass self-check (which caught a different problem, paragraph
+36's compression, but missed these). It's a concrete demonstration of why the task calls
+for independent review before any larger retranslation: a single careful pass, even one
+that explicitly checks for this failure mode, does not reliably catch every instance of it
+without a second reader.
 
 ## Local compression found and fixed during drafting
 
