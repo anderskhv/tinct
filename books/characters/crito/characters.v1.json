@@ -1,0 +1,3722 @@
+{
+  "schemaVersion": 1,
+  "bookId": "crito",
+  "language": "en",
+  "contentVersion": "2026-09-10.1",
+  "normalization": "prose-reader-v1",
+  "offsetUnit": "utf16",
+  "reviewStatus": "authoring-agent-reviewed",
+  "editions": {
+    "original-en": {
+      "sourcePath": "app/public/data/editions/crito-original-en.json",
+      "sourceSha256": "19dbc33de3076411f4abedfd1016529a244dc3ac9b31fe1f792e629e219fd0b7",
+      "chapterCount": 3,
+      "paragraphCount": 95,
+      "paragraphHashes": {
+        "1": [
+          "9d3b96dd5c9a54ee506f13a3cb2995f64a292d69849d5eee50fc9b42063a4881",
+          "8f8dec27e256760055e0c9f4e5042fd77fcdfdc45709e95505a9d418017fec8d",
+          "e31ad8c9c72ff91f00df6ef05b45d6322a4ca56a5edcb5e5955312693270e826",
+          "14f30a34396872564248d4323d588cb8ca370d211e32703c10487f5e1e036458",
+          "498f4a365ac21277b1c9efdf3d786cd42decf9b2ba25accbf27d191a7da5a26c",
+          "cf0054638eacdaf8df8e576833683690d032c5f28875e696fe2154c2a46fc02f",
+          "8eed5cfab482d2e9bab1c48d059c3d7b42ea4ef8b87e54c159cb269cc9ea915f",
+          "3b910dfb9bb362d0e31b007428d92da05521018d18798313e92122f368c7e123",
+          "fe2074e92cfc6e2f8605ba3266bc521a291e6503b680ffd488c2455e9ad4cca7",
+          "01d0e66aaf6ce1c5900402e5f6a1ea3460c9adc5d9a61c02b51656c4ae05924a",
+          "a6d119691da3561f0cfb9bdbf247657188f338bdd510f732474edbf625ebc5ec",
+          "74a3dd26cb792b8be43852e47fed0bdd60f6ce5418b9bf8d899efd5e4f70e4c4",
+          "ed34653628b3db2880678af6b79335b06533162d14da54a9d5abb792d03e2c26",
+          "681a866cc7e544b43ed7a0a2b0bb8cb0dc9be66444f3814825d515322027b7cd",
+          "895aa2ac43c820b99965dbebbd469e4c0421e75994da5d022b968baa4c45b72c",
+          "c0aec02fc0f47a0238d87969a98aa598bb158ea9df3ecf96c08f451131816908",
+          "4e42f0daa17ed28dcd6a3b6f575a546e5de1261f5901240646ecae1461d48cd6",
+          "3ee6926cf4c07cb8b546271e61871291f493a2e7eff7d790c81881596a4cc3ab",
+          "644ffae6898b49d42a5e6906e8587d7389287d9c95847d8e601b2397a89c274f",
+          "c990c7a73b301d3478246beb00aa4b6a03447de828372ea360982ec52c098600",
+          "08bd81d68853c89de8481a3748f9011538a83431e7423e77b53de2b364ea8bf0",
+          "2c4896f09b5f44264dbb3057ff13ac84887fdc050090951f44e2c9e5bef91b5f",
+          "47b1afe3710318daf9cc72ffae58bd4dd9c1bc98c22a9e2d9ffff2f9abfa4f0d",
+          "e3874ebb537b016bf46760bf4c52ba28f654826b8eadc455b949e1e26b348b51",
+          "5ce8348ce88a1f5ac2f4865b19125c88c61390678d607cfd3fddf5abae52e5e3"
+        ],
+        "2": [
+          "7f76d3b1b8135997622272e512b4c963beb5d043c6c16ce2fec457206e76fde9",
+          "8053a8d64ce9671ca8eaf9e3ca6f42e8006677147b67b8dd059991cfe91018f3",
+          "dd0102d71087de44600af85e8e5c5251e0f99d93d6cace35dab6277b13b68ab7",
+          "555cbc3581596279ea838eaf835e5a5f44f22ec38ddcd1c4a5708618ade00127",
+          "fbc43f3a5fe81295b6561a9e7072b7a0789decfadbec43c5f95126d3199ffb8f",
+          "5cb7d084814b9a36104d96d2f8725451230f84ecd6891b23c2374eb01ca30661",
+          "1a01c7c4f0f7b3da2acd3056f99dd95c9bb1016c41a141deae94d4bddc025ad2",
+          "b451812ec7fd3fc659f2baf452cb80fbb9c76aaf63c6f2837ac517bd61fed7c3",
+          "ec35b550cdc2216555f02d06e769258aa302dc2be8752f4e917e9d823241f6b9",
+          "69586e044721db79ac8ae2032959b325a6ccd99bfd9652ff74f485319c002b11",
+          "e7ebd14a34bd3fc68dd7cc0569e798acb26d29b886179d34bc1371359cb4dd5e",
+          "2d28527ff9842c358575b8cf8df7c60cc0f62bf19cbe629ac6beb71947191328",
+          "ec35b550cdc2216555f02d06e769258aa302dc2be8752f4e917e9d823241f6b9",
+          "a17d52650736514313007c1b859f3a5575c2b19ecc766c343410a5777de45aa2",
+          "bc680a736bb061048e2d62bb48885ca42f6eac5ff21afffac1bbd17590f47c4d",
+          "f0bb22fedbe1ba97618339f7993bed99a1e7f0fd6e0e6ab9cc897449ee16ca03",
+          "124393029220c4febce676df321f65036c057fdbf240ced04a0255ae383c2ee8",
+          "40888ecf1fe8ef9f02a3deef39a6379066d2828ac1c73d18040bc599dca56e0a",
+          "4ba19fd2881762369b757a12ec984803c901e6886f8c12cd79f75d711e7815e5",
+          "99a52f2e8ec76e1ca7101c72136e5c359022c520f94b0c339fdccae6de11dac9",
+          "5990a1687e03dcbe235b05b3e8a40f5cdca82e21f655ad41d44b2ce3b1b9664d",
+          "1d20f45b6db8e7421b98cba4e380d7672e3623ba03f6c302e6a2891a689f2a6e",
+          "ceeaa3541947cf79e66d5d50556b04ffa4ab3d28028bb42264c8c1bac3ebe88c",
+          "95339d048aca77d27194c8525c348e94c687e57f4aadfc9656a330aed1b0bff3",
+          "588686e5743a7c936fdccc27f03b4a7dd9b3f018e5a36f5f4f3df56a9bc8c9a7",
+          "5859ded55fbc2b94a42e303101eeb97c51870f5cabd083147bd1ae576ab17e9a",
+          "e7ebd14a34bd3fc68dd7cc0569e798acb26d29b886179d34bc1371359cb4dd5e",
+          "5ca16a117ec971fa049c98bdcb9b56b6fb0548152e287bb50868415baac56547",
+          "e6d1682f630e112764e8bf569337a395db766257173ab5536c7ddb048ad5ed88",
+          "793b7f37da4199d62f250f4092508038c54264d17f9353f59416d6b9afb08724",
+          "e6d1682f630e112764e8bf569337a395db766257173ab5536c7ddb048ad5ed88",
+          "b95743618f7ff385a7a1e6f5ae173453d7ab451e09dbdf351cf1fd5d5373715a",
+          "1056903d0d472f072f2790487f90d5ce3b5377c381ccfe7c2ad8dbddc2a246ca",
+          "0640696c36e27e392383f37d438dca37c2518fdcdee5569d9bfb74a74ae8f0ce",
+          "f28739ccd743f6933f052197da6f8f61f4e6b6fbac8bfd78fa1f1e73bf49ca0c",
+          "c56fb93107259edc1ebcf16f1979603189792002f469a1ccc82fcbd921fc5398",
+          "566e0f6a03bc5f775d81cb6860b2f7a75c2a0c38c9dd5577e5d93a1db73bb62c",
+          "81e1c0e67aba65b316166b6a1e8312a732a7fa2dba629c4eb7e47cd24e0f8059",
+          "c0b4a91072c70b35cd6b2a638ccb8caa850b80e72252e36fea09ed3727a907fa",
+          "ada79a71dc4fb8a083f2bbc3d3effce6a2014dfacff028474c7d3ebef6d17cea",
+          "574ec1b611358a8ef1cfa251e2842c58b00da2c40d302c0501edec1fb3ba4e21",
+          "967c4d9ce4a5402ee4b03ec0f47497774f25b531c9b387769e8110f8be19a409",
+          "c3b25219cae37efc699f2a2b919e588ed9aa89512e371ce8f87a12c09b116ea4",
+          "15c78aa1361c708483fe01a57d3f9fe5a1fea0beb7ff9a8562e2d74aa6659040",
+          "e7ebd14a34bd3fc68dd7cc0569e798acb26d29b886179d34bc1371359cb4dd5e",
+          "652e232454a786bc18febd8134836602ba70db8781d70dca1901dc156e45113b",
+          "e6d1682f630e112764e8bf569337a395db766257173ab5536c7ddb048ad5ed88",
+          "43d14c2ecda490f80c4db40c6b63cad155e67eb0310866584b04397fac1a4256",
+          "6dbedbb64aae68a3f5e51373040758e9c148fc5c51eb1a85afe751356bedff46",
+          "fec95769d57a9ed12b4fe0ac6222a31d1f3b9910f759dce3244303c2d46b881d",
+          "0e0fa63231b5d27cfbd34ef8ea8debc1c838cf65be84756714f6c51b16ed47bd",
+          "2948faef534fc506cda594e97746fb3a49cd2c2a93d6ab4124a8e807fc6793ba",
+          "82e22749f650076ce3e0ef77e8056a8f235f31543afc180bc825e8e532b27c6a",
+          "c5c41b88e1fd94041696fc29c33a8892850756baf0235078aaf7b858a9498c96",
+          "bd6f67629876e3d96c9d5266a1669df5eb59e5611fba8cce190bae3ca13add31",
+          "aea95105ca0cab62c020089730e52a7b34242c15bb955b19a895a41993c84848",
+          "ccc0fa420e477957df6d3c6118d1547653c6f7c89041e476a18f4eee40c20280",
+          "4a3ce01a1cc82173bb484a4439803a7b4beb9eb4fd7c424e4e743f57b8ddf162",
+          "40f5bb56de8a70324074df2d145bdab343079f40a623602739e29388e73b4029",
+          "7277ef91632d18d2cfc3004d6f3ee05ddcacde6d2ba3fd1b0edbf89b31131dfb",
+          "a1801a07784323708288a81db3f7fcb3ecfcb3093d2fbda5c4fe5bf41a225c9b"
+        ],
+        "3": [
+          "870cc795e44c3d2820521b97adba5c67ce7c3acfec783e2ce0f75e18539a7eff",
+          "e0cee58a327cfa38b388fe5f11fbdf06b440c13f3d11d8e4dc816321e475e11c",
+          "c3b476cbe8c6a04fab4dfd500bfb9164a41c94ee9e0b51e2d2d72fe3d2a5bff6",
+          "3388843b42b868132ad4d2d889f181d351612418cd76f280c12bbe570131c7b2",
+          "d4fb767bf903e55fea6eb7a987b046fd6a1df7f00383ea60ab718044b1983c59",
+          "8edd4eefed27e2366906089546ef31f908622caa415af81a6fcc47c9478e9c2c",
+          "d6ca10c0885164ce9d06c7618d9e5a7b366b7c70b07a46c72d91fa819a6c1a10",
+          "b986ce6fc0c2b68323d81e9fb96158e02cb0eea3694d252f059b5889750b23b1",
+          "73634ec3a3c90aa074ef97d90a1d77db2424af61aa4d1268b4059ace89454270"
+        ]
+      },
+      "characters": [
+        {
+          "id": "socrates",
+          "kind": "person",
+          "storyRole": "central",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 8
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 8
+          },
+          "snapshots": [
+            {
+              "id": "socrates-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 8
+              },
+              "name": "Socrates",
+              "subtitle": "",
+              "body": "The Athenian philosopher, imprisoned after his trial and awaiting execution.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "crito",
+          "kind": "person",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 47
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 47
+          },
+          "snapshots": [
+            {
+              "id": "crito-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 47
+              },
+              "name": "Crito",
+              "subtitle": "",
+              "body": "Socrates’ close friend, visiting him in prison.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 47
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "simmias",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 395
+          },
+          "firstMention": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 395
+          },
+          "snapshots": [
+            {
+              "id": "simmias-identity",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 6,
+                "offset": 395
+              },
+              "name": "Simmias",
+              "subtitle": "",
+              "body": "A friend of Socrates from Thebes.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 6,
+                  "throughOffset": 395
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cebes",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 473
+          },
+          "firstMention": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 473
+          },
+          "snapshots": [
+            {
+              "id": "cebes-identity",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 6,
+                "offset": 473
+              },
+              "name": "Cebes",
+              "subtitle": "",
+              "body": "A friend of Socrates, mentioned alongside Simmias.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 6,
+                  "throughOffset": 473
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "homer",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 200
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 200
+          },
+          "snapshots": [
+            {
+              "id": "homer-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 22,
+                "offset": 200
+              },
+              "name": "Homer",
+              "subtitle": "",
+              "body": "The Greek poet traditionally credited with the Iliad and Odyssey. The dream quotes a line from the Iliad.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 22,
+                  "throughOffset": 200
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "keeper",
+          "kind": "unnamed-person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 4,
+            "offset": 48
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 4,
+            "offset": 48
+          },
+          "snapshots": [
+            {
+              "id": "keeper-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 4,
+                "offset": 48
+              },
+              "name": "The prison keeper",
+              "subtitle": "",
+              "body": "The prison attendant who admits Crito to see Socrates.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 4,
+                  "throughOffset": 48
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dream-woman",
+          "kind": "dream-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 54
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 54
+          },
+          "snapshots": [
+            {
+              "id": "dream-woman-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 22,
+                "offset": 54
+              },
+              "name": "The woman in the dream",
+              "subtitle": "",
+              "body": "The unnamed woman who addresses Socrates in his dream.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 22,
+                  "throughOffset": 54
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "laws",
+          "kind": "personification",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 3,
+            "paragraphIndex": 0,
+            "offset": 158
+          },
+          "firstMention": {
+            "chapterNumber": 3,
+            "paragraphIndex": 0,
+            "offset": 158
+          },
+          "snapshots": [
+            {
+              "id": "laws-identity",
+              "availableAt": {
+                "chapterNumber": 3,
+                "paragraphIndex": 0,
+                "offset": 158
+              },
+              "name": "The Laws of Athens",
+              "subtitle": "",
+              "body": "Athens’ laws imagined as speakers in Socrates’ argument, rather than people physically present.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 3,
+                  "paragraphIndex": 0,
+                  "throughOffset": 158
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "children",
+          "kind": "group",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 1241
+          },
+          "firstMention": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 1241
+          },
+          "snapshots": [
+            {
+              "id": "children-identity",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 6,
+                "offset": 1241
+              },
+              "name": "Socrates’ children",
+              "subtitle": "",
+              "body": "Socrates’ children, whose upbringing concerns Crito. They are not named in this dialogue.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 6,
+                  "throughOffset": 1241
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "mentions": [
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 42,
+          "endOffset": 47,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 3,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 4,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "keeper",
+          "chapterNumber": 1,
+          "paragraphIndex": 4,
+          "startOffset": 28,
+          "endOffset": 48,
+          "text": "keeper of the prison",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 5,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 5,
+          "startOffset": 41,
+          "endOffset": 49,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 6,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 8,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 9,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 9,
+          "startOffset": 39,
+          "endOffset": 47,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 10,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 10,
+          "startOffset": 15,
+          "endOffset": 20,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 11,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 12,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 13,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 14,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 15,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 15,
+          "startOffset": 185,
+          "endOffset": 193,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 16,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 16,
+          "startOffset": 21,
+          "endOffset": 26,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 17,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 18,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 19,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 20,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 21,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "dream-woman",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 49,
+          "endOffset": 54,
+          "text": "woman",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 129,
+          "endOffset": 137,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "homer",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 195,
+          "endOffset": 200,
+          "text": "Homer",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 23,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 23,
+          "startOffset": 30,
+          "endOffset": 38,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 24,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 24,
+          "startOffset": 51,
+          "endOffset": 56,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 0,
+          "startOffset": 63,
+          "endOffset": 71,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 1,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 1,
+          "startOffset": 27,
+          "endOffset": 32,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 2,
+          "startOffset": 20,
+          "endOffset": 28,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 3,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 3,
+          "startOffset": 34,
+          "endOffset": 39,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 4,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 4,
+          "startOffset": 65,
+          "endOffset": 73,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 5,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 5,
+          "startOffset": 15,
+          "endOffset": 20,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "simmias",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 388,
+          "endOffset": 395,
+          "text": "Simmias",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "cebes",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 468,
+          "endOffset": 473,
+          "text": "Cebes",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 1013,
+          "endOffset": 1021,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "children",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 1224,
+          "endOffset": 1241,
+          "text": "your own children",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 2252,
+          "endOffset": 2260,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 2601,
+          "endOffset": 2609,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 15,
+          "endOffset": 20,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 1193,
+          "endOffset": 1198,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 1552,
+          "endOffset": 1557,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 8,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 9,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 10,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 11,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 12,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 13,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 14,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 15,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 16,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 17,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 18,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 19,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 20,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 21,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 22,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 23,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 23,
+          "startOffset": 43,
+          "endOffset": 48,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 24,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 24,
+          "startOffset": 27,
+          "endOffset": 35,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 25,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 26,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 27,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 28,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 29,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 30,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 31,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 32,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 33,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 34,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 34,
+          "startOffset": 12,
+          "endOffset": 20,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 35,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 36,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 37,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 38,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 39,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 40,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 40,
+          "startOffset": 35,
+          "endOffset": 43,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 41,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 42,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 43,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 44,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 45,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 46,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 47,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 48,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 49,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 49,
+          "startOffset": 17,
+          "endOffset": 22,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 50,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 50,
+          "startOffset": 19,
+          "endOffset": 27,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 51,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 52,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 53,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 54,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 55,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 55,
+          "startOffset": 153,
+          "endOffset": 158,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 56,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 57,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 58,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 59,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 60,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 60,
+          "startOffset": 22,
+          "endOffset": 30,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 154,
+          "endOffset": 158,
+          "text": "laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 213,
+          "endOffset": 221,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 312,
+          "endOffset": 316,
+          "text": "laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 548,
+          "endOffset": 553,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 1,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 1,
+          "startOffset": 18,
+          "endOffset": 26,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 49,
+          "endOffset": 56,
+          "text": "the law",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 181,
+          "endOffset": 188,
+          "text": "the law",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 218,
+          "endOffset": 226,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 2621,
+          "endOffset": 2626,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 2628,
+          "endOffset": 2639,
+          "text": "Do the laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 3,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 10,
+          "endOffset": 23,
+          "text": "Then the laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 45,
+          "endOffset": 53,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 547,
+          "endOffset": 554,
+          "text": "us laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 1467,
+          "endOffset": 1475,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 1744,
+          "endOffset": 1752,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 2785,
+          "endOffset": 2796,
+          "text": "us the laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 3166,
+          "endOffset": 3171,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 5,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 5,
+          "startOffset": 26,
+          "endOffset": 34,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 40,
+          "endOffset": 48,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 902,
+          "endOffset": 910,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 1417,
+          "endOffset": 1425,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 1934,
+          "endOffset": 1942,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 2166,
+          "endOffset": 2171,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 3684,
+          "endOffset": 3692,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 4006,
+          "endOffset": 4011,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 4590,
+          "endOffset": 4595,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 4609,
+          "endOffset": 4614,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 7,
+          "startOffset": 30,
+          "endOffset": 38,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 8,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 8,
+          "startOffset": 25,
+          "endOffset": 30,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        }
+      ],
+      "ignoredContextMatches": []
+    },
+    "modern-en": {
+      "sourcePath": "app/public/data/editions/crito-modern-en.json",
+      "sourceSha256": "5ff432e7e028e7caff6b11984a50ca0db43f3ce976b68af8f5466f7f23293add",
+      "chapterCount": 3,
+      "paragraphCount": 95,
+      "paragraphHashes": {
+        "1": [
+          "fcdb96e7a1fa52451db0df8c94c1bdab58a33b353399ebb101d0ce48a083213f",
+          "0d7661a6d6333e02150eceb1adce3bd50223c1d3059f570dbc623ae58f935299",
+          "e31ad8c9c72ff91f00df6ef05b45d6322a4ca56a5edcb5e5955312693270e826",
+          "bf2663a757a72ed4dfc9b1dfdacb4f47deee12f1cecbadebc92336d9fefeeb26",
+          "8beb0f8e38b09ea8451e896385e243fbba1677f7cad84e2774bec20523a540b5",
+          "3d16322f1da4aebb7c25909632a35eeb0a038a33a21c1d715873cbaf5e1e3a93",
+          "94d395d25f865babc2bb746c3adf652cc01486676c53494678b78984f32fa5d7",
+          "257abd09472256c501f23dee01d4fcc83d4f07c9c1f0ac27e4b1e7029f6533f6",
+          "26623a1cf4721528ad086aa4af71745bfbe3f11bddcbd23f88f189917fc92d61",
+          "9cf46375724e2daddcb606d8b808d51ea7b39e476c92dd9aebfb71d9cbeb1fce",
+          "181ca08f92f220028177d1d5bb4f441b66931cf6fe5f823f3abb466e1b6ce9e2",
+          "a65b376614d64d6e6271f6ce4a4b02ac891b592f9a444ff048d7155959a7f351",
+          "5feff8cb05fb5a35ce888a0f19bc8d5b419667b22ee6d6693baede4569a5d44a",
+          "93aeb156b6c983553d29695495b4ad890071ab6085386ee522dc57770bbf4369",
+          "d9fadfa950041c5856c50220783bcd642c3b1615388d267b32f796c0609fc725",
+          "b2afbb47d17c32ad5785e6b8f8ee01d03c6464d70194f2239e976ae53211aa02",
+          "b02e87986c3b6a72f1ab2816e4805c0b70a122492da0cc8748a4fb673d015101",
+          "41be4f9af6ffd63269c5bc128d08d95c907b359d5d96580d5875888c8585311f",
+          "72f0e367187fdff6f9c7f4e25e21140a0214e8eec6ce7ba953bf490fb0957be7",
+          "9eab86af2869e3b55bfe8b59dfc7a6702981da3c1ba3d90a8b6e3d95144bceb3",
+          "f7055d8f271e1bf58b551450416fa4f76f5ffb61859cf6c3abf602970a999f21",
+          "506f9ab159110a7755a22e6bc496e7d4cad1660038075ed8ac26fcf20f87717d",
+          "2abaec6cabad250d5a52300fd1107bdaad1e22012fb68d62eb258ab056915a0e",
+          "e0e81e4a6a6770f9365853a4c4a94b9ae09f3a92a5d04ba4e530163bf772d3fc",
+          "95bc6b6f21355668633334865da90a3a28a660eeeb80552f3f79539a2585e313"
+        ],
+        "2": [
+          "7bb5ebd6ef9d48ac42967c8116dbeacabc568ecfee9378fb8617e37014515792",
+          "2ea04e3e5067959b445d7301042cf8cea228997decf385145448889b4b31e2a9",
+          "895dc99e44ed4f52d0f498af3bbded006f309884ef6541609877513cc8f082c0",
+          "cd97657852b6f06a80e1f3cd91c26ce9ada39a4bc2ecb32895d882d99f74bac8",
+          "1f5f4a20f4db6454f539868d843f6d1a2fd64ebd4e3d4b3eb63e8d6d992859cb",
+          "1b11f2c6372324c9260f3385a664bdeb1b3bc8c3678c71541a45e8af0902b156",
+          "598678e7e6f0751065704ac02ecb9aef12263a751632d6b03d85c1c9643313cc",
+          "0164155c38f9c3e6d48dbade37638ac1cf1008bb40bffd28f1d4b2df61e78764",
+          "ec35b550cdc2216555f02d06e769258aa302dc2be8752f4e917e9d823241f6b9",
+          "992967d261e8756a7835395d794a257259332fd9811e290ff75effcfb034efae",
+          "e7ebd14a34bd3fc68dd7cc0569e798acb26d29b886179d34bc1371359cb4dd5e",
+          "7e6557dce76c5d0a7831e732fcb687bf65420b21dc09994873455d82bf6829d2",
+          "ec35b550cdc2216555f02d06e769258aa302dc2be8752f4e917e9d823241f6b9",
+          "339a52da24d607f7e92cfb89865c594b55380fce0f58d456d63ebbb455107a50",
+          "dba7e7585b7ffd3573a1690803421fbfcacac3a4541bd5dbb751dc253d02ed10",
+          "1202d167c435912ea6a3d35ecd648956b2175ae50d66c471b1a735656e412257",
+          "15d58c9d6d4cd070881bcf596ddc889a2349d9949b8fdf5895372ce84b29bfd7",
+          "0fd74fa494c00cf298334f64fc5757deaf5d65d5f79b6f620c0b1f8a4dfdde07",
+          "4ba19fd2881762369b757a12ec984803c901e6886f8c12cd79f75d711e7815e5",
+          "d2f1becd971f6bf6dfdbc46124ba64d487b01cc776b28144f33ade1245c0f859",
+          "5990a1687e03dcbe235b05b3e8a40f5cdca82e21f655ad41d44b2ce3b1b9664d",
+          "ce4c96c7c7f4e378a2dd366fcb578a95f2e0ae85796e178d8125cbe00c7f00d4",
+          "e7bcfeeec4642dda6301cee0cff5717a19a2cdadbb16c9754aec9884749cfc7f",
+          "d32eefbfa4d62a4273bce6d4aa47c937c9d2761d6d64648d52ff3c801c29afd8",
+          "588686e5743a7c936fdccc27f03b4a7dd9b3f018e5a36f5f4f3df56a9bc8c9a7",
+          "80db81e859057ab5197789c8efab240736bc5a66ed61a657e6fe1ae8985049a2",
+          "e7ebd14a34bd3fc68dd7cc0569e798acb26d29b886179d34bc1371359cb4dd5e",
+          "f9edc83cddb3586aa7a18642242fac0b54e216c4d5112df126ab98a06d707679",
+          "e6d1682f630e112764e8bf569337a395db766257173ab5536c7ddb048ad5ed88",
+          "8883d286e4b562c27b35eea1ccdc1fe1cb1de8227de58bde2735577eb35fc607",
+          "e6d1682f630e112764e8bf569337a395db766257173ab5536c7ddb048ad5ed88",
+          "05ffa4d12596b4c0b362fb7ca959387c2ce55a687eb5c140cf1ed9c4543f4da0",
+          "1056903d0d472f072f2790487f90d5ce3b5377c381ccfe7c2ad8dbddc2a246ca",
+          "2a0fcedc1f2ab4fe25ea9e7f107fdaf644a52b1570d081a52658cf5f1febd05e",
+          "1e5fda6c0b0603149260c41d5bea1879e9d5ed90532b360894d4963c19077dc1",
+          "99b73b650284597d4d2aa2915c07a187984cfd0e71c4f6d07035fe44ebd535bb",
+          "ee8339e88688c7e05d3e8df87d1c265c6336c1abc575dfe2011f91c8eb54737b",
+          "fef381a2900f2c86f16b84dd361099ef4744f867ac216fae579c5d1f99572167",
+          "e7ebd14a34bd3fc68dd7cc0569e798acb26d29b886179d34bc1371359cb4dd5e",
+          "1031230120b11ef6b4e3108b60128d5ad38938401d8c800c0bcec72db8003296",
+          "c5a7d4378354422d6bca75da41405ba9e66042262c090d6dd307cf0a3d5e081a",
+          "b81db414c28f2e5cb7e311a5edca3c53a0456361bfa633ae1179a6dd8d6c700b",
+          "c3b25219cae37efc699f2a2b919e588ed9aa89512e371ce8f87a12c09b116ea4",
+          "fcdb3440fa16577ae1e128e4886ff27064b815a4b9e802124941c4bf4f2fd5d7",
+          "e7ebd14a34bd3fc68dd7cc0569e798acb26d29b886179d34bc1371359cb4dd5e",
+          "d8478606906be58c5174afb2562bff3415001b09da41775bfc743487f1a54340",
+          "e6d1682f630e112764e8bf569337a395db766257173ab5536c7ddb048ad5ed88",
+          "172fe4f3bbc273618308703c4f0a19db2223e8109525f2b58a1566d4d38d6ffe",
+          "6dbedbb64aae68a3f5e51373040758e9c148fc5c51eb1a85afe751356bedff46",
+          "4c0e79142579ac9a528083ebad93a5258e4dd348ac3663616e8e09bfeadf82d6",
+          "0e0fa63231b5d27cfbd34ef8ea8debc1c838cf65be84756714f6c51b16ed47bd",
+          "501609259c1d4e385519c4ec94f17203a83f00b3eee558437b63a3d68619530c",
+          "82e22749f650076ce3e0ef77e8056a8f235f31543afc180bc825e8e532b27c6a",
+          "af311eb449830a83be560b253657de6a2cb9a9e079a7dabd958d8bdba296afef",
+          "bd6f67629876e3d96c9d5266a1669df5eb59e5611fba8cce190bae3ca13add31",
+          "5212b96bf3b6e5cf6f731ab815537fa791828fca13cec782486b019d40231bde",
+          "c0101fdc49327842ffb817b1cd1c1da59dd03aff7e41149d82ceb578101aaea8",
+          "42ffada36e4594233323de2d98b8680611d088b83c388cd73bd26bd2e45df4bd",
+          "d99ca45487987ba5d65060e148155dbad0233d3aa49da398ae91f3da11b00106",
+          "189ff58615c1cc6e681bfdc5c2ebab1b4e90ddf4d95cde7f4c2fe3e9f78d7797",
+          "4b56c927f839afa972a74bac4dd950154cd5b5f71b14783f9d4c9b99e7a7602f"
+        ],
+        "3": [
+          "d0b8e54a2d92abbf3a4ec9ef41178f5c6675725c4a5a52caa4a3069fd6df1051",
+          "e0cee58a327cfa38b388fe5f11fbdf06b440c13f3d11d8e4dc816321e475e11c",
+          "9e56dba78962b70677a9cbf5042b7daff4a70b6d7ede692864dddb8e0e5c4f68",
+          "fa1c4d355b4a4bd820b2d4faba8b2b201abf0105653e2cfc2d3fb56de5547190",
+          "cd55b77106f3738e9bcc76a4f0b32e08710492cf818d0504bd61027875aa64ca",
+          "90697ec2725651941a25242b21f2683f4c8b3b6b511a94b1be2dc7ace0969f2d",
+          "cdc8549be534b52f3179b6bdb77a8f3b7c6f8a3f125d185f253a16ca76da5b00",
+          "b986ce6fc0c2b68323d81e9fb96158e02cb0eea3694d252f059b5889750b23b1",
+          "e5422d5088c59a85434046a04aeb51d71d431512a9384bcf2c40501c6a5e5998"
+        ]
+      },
+      "characters": [
+        {
+          "id": "socrates",
+          "kind": "person",
+          "storyRole": "central",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 8
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 8
+          },
+          "snapshots": [
+            {
+              "id": "socrates-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 8
+              },
+              "name": "Socrates",
+              "subtitle": "",
+              "body": "The Athenian philosopher, imprisoned after his trial and awaiting execution.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "crito",
+          "kind": "person",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 47
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 0,
+            "offset": 47
+          },
+          "snapshots": [
+            {
+              "id": "crito-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 0,
+                "offset": 47
+              },
+              "name": "Crito",
+              "subtitle": "",
+              "body": "Socrates’ close friend, visiting him in prison.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 0,
+                  "throughOffset": 47
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "simmias",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 317
+          },
+          "firstMention": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 317
+          },
+          "snapshots": [
+            {
+              "id": "simmias-identity",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 6,
+                "offset": 317
+              },
+              "name": "Simmias",
+              "subtitle": "",
+              "body": "A friend of Socrates from Thebes.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 6,
+                  "throughOffset": 317
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cebes",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 389
+          },
+          "firstMention": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 389
+          },
+          "snapshots": [
+            {
+              "id": "cebes-identity",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 6,
+                "offset": 389
+              },
+              "name": "Cebes",
+              "subtitle": "",
+              "body": "A friend of Socrates, mentioned alongside Simmias.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 6,
+                  "throughOffset": 389
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "homer",
+          "kind": "person",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 161
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 161
+          },
+          "snapshots": [
+            {
+              "id": "homer-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 22,
+                "offset": 161
+              },
+              "name": "Homer",
+              "subtitle": "",
+              "body": "The Greek poet traditionally credited with the Iliad and Odyssey. The dream quotes a line from the Iliad.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 22,
+                  "throughOffset": 161
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "keeper",
+          "kind": "unnamed-person",
+          "storyRole": "supporting",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 4,
+            "offset": 41
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 4,
+            "offset": 41
+          },
+          "snapshots": [
+            {
+              "id": "keeper-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 4,
+                "offset": 41
+              },
+              "name": "The prison keeper",
+              "subtitle": "",
+              "body": "The prison attendant who admits Crito to see Socrates.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 4,
+                  "throughOffset": 41
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "dream-woman",
+          "kind": "dream-figure",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 17
+          },
+          "firstMention": {
+            "chapterNumber": 1,
+            "paragraphIndex": 22,
+            "offset": 17
+          },
+          "snapshots": [
+            {
+              "id": "dream-woman-identity",
+              "availableAt": {
+                "chapterNumber": 1,
+                "paragraphIndex": 22,
+                "offset": 17
+              },
+              "name": "The woman in the dream",
+              "subtitle": "",
+              "body": "The unnamed woman who addresses Socrates in his dream.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 1,
+                  "paragraphIndex": 22,
+                  "throughOffset": 17
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "laws",
+          "kind": "personification",
+          "storyRole": "major",
+          "roleVisibleAt": {
+            "chapterNumber": 3,
+            "paragraphIndex": 0,
+            "offset": 110
+          },
+          "firstMention": {
+            "chapterNumber": 3,
+            "paragraphIndex": 0,
+            "offset": 110
+          },
+          "snapshots": [
+            {
+              "id": "laws-identity",
+              "availableAt": {
+                "chapterNumber": 3,
+                "paragraphIndex": 0,
+                "offset": 110
+              },
+              "name": "The Laws of Athens",
+              "subtitle": "",
+              "body": "Athens’ laws imagined as speakers in Socrates’ argument, rather than people physically present.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 3,
+                  "paragraphIndex": 0,
+                  "throughOffset": 110
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "children",
+          "kind": "group",
+          "storyRole": "reference",
+          "roleVisibleAt": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 997
+          },
+          "firstMention": {
+            "chapterNumber": 2,
+            "paragraphIndex": 6,
+            "offset": 997
+          },
+          "snapshots": [
+            {
+              "id": "children-identity",
+              "availableAt": {
+                "chapterNumber": 2,
+                "paragraphIndex": 6,
+                "offset": 997
+              },
+              "name": "Socrates’ children",
+              "subtitle": "",
+              "body": "Socrates’ children, whose upbringing concerns Crito. They are not named in this dialogue.",
+              "editorialBasis": "Reviewed ordinary identity for recognition; trigger is not a claim that every identity fact precedes the selected name.",
+              "evidence": [
+                {
+                  "chapterNumber": 2,
+                  "paragraphIndex": 6,
+                  "throughOffset": 997
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "mentions": [
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 0,
+          "startOffset": 42,
+          "endOffset": 47,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 1,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 3,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 4,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "keeper",
+          "chapterNumber": 1,
+          "paragraphIndex": 4,
+          "startOffset": 28,
+          "endOffset": 41,
+          "text": "prison keeper",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 5,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 6,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 8,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 9,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 9,
+          "startOffset": 14,
+          "endOffset": 22,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 10,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 10,
+          "startOffset": 41,
+          "endOffset": 46,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 11,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 12,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 13,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 14,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 15,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 15,
+          "startOffset": 143,
+          "endOffset": 151,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 16,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 16,
+          "startOffset": 21,
+          "endOffset": 26,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 17,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 18,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 19,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 20,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 21,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "dream-woman",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 12,
+          "endOffset": 17,
+          "text": "woman",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 81,
+          "endOffset": 89,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "homer",
+          "chapterNumber": 1,
+          "paragraphIndex": 22,
+          "startOffset": 156,
+          "endOffset": 161,
+          "text": "Homer",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 1,
+          "paragraphIndex": 23,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 23,
+          "startOffset": 29,
+          "endOffset": 37,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 1,
+          "paragraphIndex": 24,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 0,
+          "startOffset": 28,
+          "endOffset": 36,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 1,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 1,
+          "startOffset": 73,
+          "endOffset": 78,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 2,
+          "startOffset": 24,
+          "endOffset": 32,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 3,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 3,
+          "startOffset": 23,
+          "endOffset": 28,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 4,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 4,
+          "startOffset": 55,
+          "endOffset": 63,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 5,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 5,
+          "startOffset": 15,
+          "endOffset": 20,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "simmias",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 310,
+          "endOffset": 317,
+          "text": "Simmias",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "cebes",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 384,
+          "endOffset": 389,
+          "text": "Cebes",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 808,
+          "endOffset": 816,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "children",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 980,
+          "endOffset": 997,
+          "text": "your own children",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 6,
+          "startOffset": 2078,
+          "endOffset": 2086,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 33,
+          "endOffset": 38,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 1026,
+          "endOffset": 1031,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 7,
+          "startOffset": 1249,
+          "endOffset": 1254,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 8,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 9,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 10,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 11,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 12,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 13,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 14,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 15,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 16,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 17,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 18,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 19,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 20,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 21,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 22,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 23,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 23,
+          "startOffset": 41,
+          "endOffset": 46,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 24,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 24,
+          "startOffset": 27,
+          "endOffset": 35,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 25,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 26,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 27,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 28,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 29,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 30,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 31,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 32,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 33,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 34,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 34,
+          "startOffset": 12,
+          "endOffset": 20,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 35,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 36,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 37,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 38,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 39,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 40,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 40,
+          "startOffset": 30,
+          "endOffset": 38,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 41,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 42,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 43,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 44,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 45,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 46,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 47,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 48,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 49,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 49,
+          "startOffset": 15,
+          "endOffset": 20,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 50,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 50,
+          "startOffset": 19,
+          "endOffset": 27,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 51,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 52,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 53,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 54,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 55,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 55,
+          "startOffset": 126,
+          "endOffset": 131,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 56,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 57,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 58,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 59,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 2,
+          "paragraphIndex": 60,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 2,
+          "paragraphIndex": 60,
+          "startOffset": 22,
+          "endOffset": 30,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 106,
+          "endOffset": 110,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 172,
+          "endOffset": 180,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 257,
+          "endOffset": 261,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 0,
+          "startOffset": 468,
+          "endOffset": 473,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 1,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 1,
+          "startOffset": 18,
+          "endOffset": 26,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 53,
+          "endOffset": 57,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 161,
+          "endOffset": 165,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 195,
+          "endOffset": 203,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 2296,
+          "endOffset": 2301,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 2,
+          "startOffset": 2311,
+          "endOffset": 2315,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 3,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 19,
+          "endOffset": 23,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 45,
+          "endOffset": 53,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 504,
+          "endOffset": 508,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 1290,
+          "endOffset": 1298,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 2436,
+          "endOffset": 2440,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 4,
+          "startOffset": 2740,
+          "endOffset": 2745,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 5,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 5,
+          "startOffset": 25,
+          "endOffset": 33,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 36,
+          "endOffset": 44,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 556,
+          "endOffset": 560,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 783,
+          "endOffset": 791,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 1587,
+          "endOffset": 1595,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 1793,
+          "endOffset": 1798,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 3072,
+          "endOffset": 3080,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 3367,
+          "endOffset": 3372,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "laws",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 3759,
+          "endOffset": 3763,
+          "text": "Laws",
+          "resolution": "reviewed-context"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 3892,
+          "endOffset": 3897,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 6,
+          "startOffset": 3911,
+          "endOffset": 3916,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 7,
+          "startOffset": 0,
+          "endOffset": 5,
+          "text": "CRITO",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 7,
+          "startOffset": 30,
+          "endOffset": 38,
+          "text": "Socrates",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "socrates",
+          "chapterNumber": 3,
+          "paragraphIndex": 8,
+          "startOffset": 0,
+          "endOffset": 8,
+          "text": "SOCRATES",
+          "resolution": "reviewed-name"
+        },
+        {
+          "characterId": "crito",
+          "chapterNumber": 3,
+          "paragraphIndex": 8,
+          "startOffset": 25,
+          "endOffset": 30,
+          "text": "Crito",
+          "resolution": "reviewed-name"
+        }
+      ],
+      "ignoredContextMatches": []
+    }
+  }
+}

@@ -37,3 +37,18 @@ it('does not let a superseded rejection hide the new clip or its highlighting', 
   expect(h.result.current.playing).toBe(true)
   expect(h.result.current.follow).toMatchObject({ kind: 'word', paragraphIndex: 1 })
 })
+
+it('blocks held-edition playback without fetching audio or changing follow state', async () => {
+  const fetch = vi.fn(); vi.stubGlobal('fetch', fetch)
+  const createAudio = vi.fn()
+  const paragraphs = ['In the beginning']
+  const followParagraphs: [] = []
+  const h = renderHook(() => useLabListen({ playbackUnavailable: true, bookId: 'bible', audioEdition: 'kjv-en', paragraphs, followParagraphs, createAudio }))
+  await act(async () => {
+    expect(await h.result.current.start()).toBe(false)
+    expect(await h.result.current.startAtPlace({ paragraphIndex: 0 })).toBe(false)
+    h.result.current.resume()
+  })
+  expect(fetch).not.toHaveBeenCalled(); expect(createAudio).not.toHaveBeenCalled()
+  expect(h.result.current.playing).toBe(false); expect(h.result.current.follow).toEqual({kind:'none'})
+})

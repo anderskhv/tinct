@@ -1,4 +1,4 @@
-import { fullShelf, pairedSamples } from './entry-model.js?v=20260909-1'
+import { fullShelf, pairedSamples } from './entry-model.js?v=20260910-availability-1'
 import { wholeBookProgress } from './library-2-model.js'
 import {
   readerPreviewSearch,
@@ -31,7 +31,7 @@ import {
   writeReaderOrigin,
   shelfScrollLeft,
   showPopularShelf,
-} from './library-model.js?v=20260908-9'
+} from './library-model.js?v=20260910-availability-1'
 
 {
   const root = document.querySelector('#tinct-onboarding-worlds-v5')
@@ -84,6 +84,7 @@ import {
   const integer = (value, minimum = 0) => Number.isInteger(value) && value >= minimum ? value : null
   const selectedBook = () => state.booksById.get(state.selectedBookId)
   const v1Editions = book => book.editions.filter(edition => edition.language !== 'da')
+  const selectableEditions = book => v1Editions(book).filter(edition => edition.discoveryAvailable !== false)
   const formatWordCount = count => count ? `${new Intl.NumberFormat().format(count)} words` : 'Length unavailable'
   const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -95,7 +96,7 @@ import {
   }
 
   function defaultEdition(book) {
-    const editions = v1Editions(book).filter(edition => edition.availability.chapterText)
+    const editions = selectableEditions(book).filter(edition => edition.availability.chapterText)
     return editions.find(edition => edition.style === 'original' && edition.language === 'en')
       || editions.find(edition => edition.style === 'modern' && edition.language === 'en')
       || editions[0]
@@ -791,13 +792,13 @@ import {
   }
 
   function compareCandidates(book, primaryKey) {
-    const editions = v1Editions(book)
+    const editions = selectableEditions(book)
     const primary = editions.find(edition => edition.key === primaryKey)
     if (!primary?.aligned) return []
     return editions.filter(edition => edition.key !== primary.key && edition.availability.compare)
   }
 
-  const versionMenuMarkup = (which, editions, selectedKey) => editions.map(edition => `<button type="button" role="option" data-version-pick="${escapeHtml(which)}" data-version-edition="${escapeHtml(edition.key)}" aria-selected="${edition.key === selectedKey}"><b>${escapeHtml(translationName(edition))}</b></button>`).join('')
+  const versionMenuMarkup = (which, editions, selectedKey) => editions.map(edition => `<button type="button" role="option" data-version-pick="${escapeHtml(which)}" ${edition.discoveryAvailable === false ? 'disabled' : ''} data-version-edition="${escapeHtml(edition.key)}" aria-selected="${edition.key === selectedKey}"><b>${escapeHtml(translationName(edition))}</b></button>`).join('')
 
   const chevronDown = '<svg class="tov5-version-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>'
 
@@ -811,7 +812,9 @@ import {
   }
 
   function renderVersions(book) {
-    const editions = v1Editions(book).filter(edition => edition.availability.chapterText)
+    const editions = selectableEditions(book).filter(edition => edition.availability.chapterText)
+    const retained = v1Editions(book).find(edition => edition.key === state.selectedEditionKey && edition.discoveryAvailable === false)
+    if (retained) editions.unshift(retained)
     const host = root.querySelector('[data-book-versions]')
     const primaryKey = state.selectedEditionKey
     const candidates = compareCandidates(book, primaryKey)
@@ -1278,7 +1281,7 @@ import {
   // The library restores its own scroll position on the way back.
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
 
-  fetch('/lab/catalogue.json?v=20260907-4').then(response => {
+  fetch('/lab/catalogue.json?v=20260910-availability-1').then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
     return response.json()
   }).then(catalogue => {

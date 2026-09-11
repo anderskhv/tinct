@@ -44,29 +44,26 @@ jobs:
       - name: Record deployed bundle hash
         id: bundle
         run: |
-          bundle=$(grep -oE '/assets/index-[^"]+\.js' dist/app.html | head -1)
-          if [ -z "$bundle" ]; then
-            echo '::error::could not read bundle hash from dist/app.html'
-            exit 1
-          fi
+          bundle=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' dist/app.html | head -1)
+          test -n "$bundle"
           echo "path=$bundle" >> "$GITHUB_OUTPUT"
-          echo "Deployed bundle: $bundle"
 
-      # wrangler returns before Cloudflare finishes serving the new assets. Production
-      # HTML can briefly reference a different hash than the one we just uploaded, so
-      # wait on the bundle from dist/app.html — not whatever /reader returns.
+      # Confirm the exact build we deployed, not any previously served bundle.
       - name: Wait for the new bundle to be served
         run: |
-          bundle="${{ steps.bundle.outputs.path }}"
+          expected=$(grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' dist/app.html | head -1)
+          test -n "$expected"
           for attempt in $(seq 1 30); do
-            if curl -sf "https://tinct.app$bundle" \
-                 | head -c 200 | grep -qE 'var |function |const |import |Object\.'; then
-              echo "serving $bundle after ${attempt} attempt(s)"
+            bundle=$(curl -sf https://tinct.app/reader \
+              | grep -oE '/assets/index-[A-Za-z0-9_-]+\.js' | head -1)
+            if [ "$bundle" = "$expected" ] && curl -sf "https://tinct.app$bundle" -o /tmp/tinct-live-bundle.js \
+                 && cmp -s "dist$expected" /tmp/tinct-live-bundle.js; then
+              echo "serving verified $bundle after ${attempt} attempt(s)"
               exit 0
             fi
             sleep 5
           done
-          echo "::error::deployed bundle $bundle was not served after 150s"
+          echo '::error::expected bundle was not verified after 150s'
           exit 1
 
       - name: Smoke test production

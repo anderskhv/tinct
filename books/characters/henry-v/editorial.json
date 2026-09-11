@@ -1,0 +1,1687 @@
+{
+  "bookId": "henry-v",
+  "contentVersion": "2026-09-10.1",
+  "coverage": "All twenty-three scenes in both original-en and modern-en: named cast, speaking and stage roles, the named French and English nobility of the battle rolls, and the historical, classical and religious figures cited in the play.",
+  "entities": [
+    {
+      "id": "king-henry",
+      "name": "King Henry V",
+      "body": "The young King of England, who presses a claim to the crown of France.",
+      "aliases": [
+        "KING HENRY V",
+        "KING HENRY",
+        "King Henry",
+        "Harry",
+        "Harry le Roy",
+        "Le Roy",
+        "Henry Plantagenet"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            14,
+            22
+          ],
+          "body": "The King of England, who gives Pistol the name Harry le Roy while he walks the camp unknown."
+        },
+        {
+          "after": [
+            21,
+            22
+          ],
+          "body": "The King of England, victor on the field the heralds name Agincourt."
+        }
+      ]
+    },
+    {
+      "id": "french-king",
+      "name": "The King of France",
+      "body": "The French king, Katharine’s father; the play never gives his name.",
+      "aliases": [
+        "FRENCH KING",
+        "French King",
+        "King of France"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dauphin",
+      "name": "The Dauphin",
+      "body": "The French king’s son and heir, who sends King Henry a mocking gift.",
+      "aliases": [
+        "DAUPHIN",
+        "Dauphin"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "constable",
+      "name": "The Constable of France",
+      "body": "Charles Delabreth, High Constable of France and commander of its army.",
+      "aliases": [
+        "CONSTABLE",
+        "Constable",
+        "Charles Delabreth",
+        "Delabreth"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fluellen",
+      "name": "Fluellen",
+      "body": "A Welsh captain in the English army, devoted to the ancient disciplines of war.",
+      "aliases": [
+        "FLUELLEN",
+        "Fluellen"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pistol",
+      "name": "Pistol",
+      "body": "An ensign in the English army, formerly of Falstaff’s London company.",
+      "aliases": [
+        "PISTOL",
+        "Pistol",
+        "Ancient Pistol",
+        "Anchient Pistol",
+        "Ensign Pistol"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            11
+          ],
+          "body": "An ensign in the English army, now married to the Hostess."
+        }
+      ]
+    },
+    {
+      "id": "exeter",
+      "name": "The Duke of Exeter",
+      "body": "King Henry’s uncle, who carries his demands to the French court.",
+      "aliases": [
+        "EXETER",
+        "Exeter"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "katharine",
+      "name": "Princess Katharine",
+      "body": "The French king’s daughter, whom King Henry claims as part of his terms.",
+      "aliases": [
+        "KATHARINE",
+        "KATHERINE",
+        "Katharine",
+        "Katherine",
+        "Kate"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            23,
+            13
+          ],
+          "body": "The French king’s daughter, named by King Henry as the first article of his terms."
+        }
+      ]
+    },
+    {
+      "id": "chorus",
+      "name": "The Chorus",
+      "body": "The speaker who opens each act and asks the audience to imagine what the stage cannot show.",
+      "aliases": [
+        "CHORUS",
+        "Chorus"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "montjoy",
+      "name": "Montjoy",
+      "body": "The French herald, who carries his king’s messages to King Henry.",
+      "aliases": [
+        "MONTJOY",
+        "Montjoy"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "canterbury",
+      "name": "The Archbishop of Canterbury",
+      "body": "The Archbishop, who lays out King Henry’s claim to France.",
+      "aliases": [
+        "CANTERBURY",
+        "Canterbury",
+        "Archbishop of Canterbury"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orleans",
+      "name": "The Duke of Orleans",
+      "body": "Charles, Duke of Orleans, a French nobleman and the king’s nephew.",
+      "aliases": [
+        "ORLEANS",
+        "Orleans"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gower",
+      "name": "Gower",
+      "body": "An English captain and Fluellen’s friend.",
+      "aliases": [
+        "GOWER",
+        "Gower"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "williams",
+      "name": "Michael Williams",
+      "body": "A soldier in the English army who argues with the disguised King on the eve of battle.",
+      "aliases": [
+        "WILLIAMS",
+        "Williams",
+        "Michael Williams"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gloucester",
+      "name": "The Duke of Gloucester",
+      "body": "King Henry’s brother, who directs the siege works at Harfleur.",
+      "aliases": [
+        "GLOUCESTER",
+        "Gloucester"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bedford",
+      "name": "The Duke of Bedford",
+      "body": "King Henry’s brother.",
+      "aliases": [
+        "BEDFORD",
+        "Bedford"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clarence",
+      "name": "The Duke of Clarence",
+      "body": "King Henry’s brother.",
+      "aliases": [
+        "Clarence"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "westmorland",
+      "name": "The Earl of Westmorland",
+      "body": "An English nobleman of King Henry’s council.",
+      "aliases": [
+        "WESTMORLAND",
+        "Westmorland"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "warwick",
+      "name": "The Earl of Warwick",
+      "body": "An English nobleman in King Henry’s train.",
+      "aliases": [
+        "WARWICK",
+        "Warwick"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "salisbury",
+      "name": "The Earl of Salisbury",
+      "body": "An English nobleman who takes his charge before Agincourt.",
+      "aliases": [
+        "SALISBURY",
+        "Salisbury"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "huntingdon",
+      "name": "The Earl of Huntingdon",
+      "body": "An English nobleman at the French court for the peace terms.",
+      "aliases": [
+        "Huntingdon",
+        "Huntington"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "york",
+      "name": "The Duke of York",
+      "body": "Edward, Duke of York, who asks to lead the vanguard at Agincourt.",
+      "aliases": [
+        "YORK",
+        "York"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ely",
+      "name": "The Bishop of Ely",
+      "body": "The Bishop, who presses King Henry’s French claim alongside Canterbury.",
+      "aliases": [
+        "ELY",
+        "Ely",
+        "Bishop of Ely"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "scroop",
+      "name": "Lord Scroop",
+      "body": "Henry, Lord Scroop of Masham, one of King Henry’s intimates.",
+      "aliases": [
+        "SCROOP",
+        "Scroop",
+        "Henry Lord Scroop",
+        "Masham"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cambridge",
+      "name": "The Earl of Cambridge",
+      "body": "Richard, Earl of Cambridge.",
+      "aliases": [
+        "CAMBRIDGE",
+        "Cambridge"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "grey",
+      "name": "Sir Thomas Grey",
+      "body": "A knight of Northumberland.",
+      "aliases": [
+        "GREY",
+        "Grey"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "erpingham",
+      "name": "Sir Thomas Erpingham",
+      "body": "An old English knight, whose cloak the King borrows the night before Agincourt.",
+      "aliases": [
+        "ERPINGHAM",
+        "Erpingham",
+        "Sir Thomas Erpingham"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jamy",
+      "name": "Captain Jamy",
+      "body": "A Scottish captain in the English army.",
+      "aliases": [
+        "JAMY",
+        "Jamy",
+        "Captain James"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "macmorris",
+      "name": "Captain Macmorris",
+      "body": "An Irish captain in the English army, in charge of the mines at Harfleur.",
+      "aliases": [
+        "MACMORRIS",
+        "Macmorris"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bates",
+      "name": "John Bates",
+      "body": "A soldier in the English army.",
+      "aliases": [
+        "BATES",
+        "Bates",
+        "John Bates"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "court",
+      "name": "Alexander Court",
+      "body": "A soldier in the English army; not the Macedonian king Fluellen argues about later.",
+      "aliases": [
+        "COURT",
+        "Alexander Court"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bardolph",
+      "name": "Bardolph",
+      "body": "A lieutenant in the English army, formerly of Falstaff’s London company.",
+      "aliases": [
+        "BARDOLPH",
+        "Bardolph"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            12,
+            32
+          ],
+          "body": "A lieutenant of the English army, condemned for robbing a church."
+        }
+      ]
+    },
+    {
+      "id": "nym",
+      "name": "Nym",
+      "body": "A corporal in the English army, formerly of Falstaff’s London company.",
+      "aliases": [
+        "NYM",
+        "Nym"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hostess",
+      "name": "The Hostess",
+      "body": "Nell Quickly, who keeps a London tavern and has married Pistol.",
+      "aliases": [
+        "HOSTESS",
+        "Hostess",
+        "Nell",
+        "Quickly"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            3,
+            11
+          ],
+          "body": "Nell Quickly, who keeps a London tavern and has married Pistol."
+        }
+      ]
+    },
+    {
+      "id": "boy",
+      "name": "The Boy",
+      "body": "The boy who serves Pistol, Bardolph and Nym, and interprets for Pistol in France.",
+      "aliases": [
+        "BOY",
+        "Boy"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "queen-isabel",
+      "name": "Queen Isabel",
+      "body": "The Queen of France, Katharine’s mother.",
+      "aliases": [
+        "QUEEN ISABEL",
+        "Queen Isabel"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alice",
+      "name": "Alice",
+      "body": "An old gentlewoman attending Princess Katharine, who has been in England.",
+      "aliases": [
+        "ALICE",
+        "Alice"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "burgundy",
+      "name": "The Duke of Burgundy",
+      "body": "The French duke who brokers the meeting between the two kings.",
+      "aliases": [
+        "BURGUNDY",
+        "Burgundy"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bourbon",
+      "name": "The Duke of Bourbon",
+      "body": "John, Duke of Bourbon, a French nobleman.",
+      "aliases": [
+        "BOURBON",
+        "Bourbon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rambures",
+      "name": "Lord Rambures",
+      "body": "A French lord, master of the crossbows.",
+      "aliases": [
+        "RAMBURES",
+        "Rambures"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "grandpre",
+      "name": "Lord Grandpré",
+      "body": "A French lord who describes the English army on the morning of Agincourt.",
+      "aliases": [
+        "GRANDPRÉ",
+        "Grandpré"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "berry",
+      "name": "The Duke of Berry",
+      "body": "A French duke summoned to the defence.",
+      "aliases": [
+        "Berry"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brittany",
+      "name": "The Duke of Brittany",
+      "body": "A French duke summoned to the defence.",
+      "aliases": [
+        "Brittany"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brabant",
+      "name": "The Duke of Brabant",
+      "body": "Anthony, Duke of Brabant, brother to the Duke of Burgundy.",
+      "aliases": [
+        "Brabant"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alencon",
+      "name": "The Duke of Alençon",
+      "body": "John, Duke of Alençon, from whose helmet King Henry took a glove.",
+      "aliases": [
+        "Alençon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bar",
+      "name": "The Duke of Bar",
+      "body": "Edward, Duke of Bar, a French nobleman.",
+      "aliases": [
+        "Duke of Bar"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chatillon",
+      "name": "Jacques Chatillon",
+      "body": "Admiral of France.",
+      "aliases": [
+        "Jacques Chatillon",
+        "Jacques of Chatillon",
+        "Chatillon"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boucicault",
+      "name": "Lord Boucicault",
+      "body": "A French lord, taken prisoner at Agincourt.",
+      "aliases": [
+        "Boucicault"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guichard-dauphin",
+      "name": "Sir Guichard Dauphin",
+      "body": "Great Master of France; a nobleman of that surname, not the king’s son.",
+      "aliases": [
+        "Sir Guichard Dauphin",
+        "Guichard Dauphin",
+        "Guichard"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "vaudemont",
+      "name": "Vaudemont",
+      "body": "A French earl named among the dead at Agincourt.",
+      "aliases": [
+        "Vaudemont"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beaumont",
+      "name": "Beaumont",
+      "body": "A French earl named among the dead at Agincourt.",
+      "aliases": [
+        "Beaumont"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "roussi",
+      "name": "Roussi",
+      "body": "A French earl named among the dead at Agincourt.",
+      "aliases": [
+        "Roussi"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fauconbridge",
+      "name": "Fauconbridge",
+      "body": "A French earl named among the dead at Agincourt.",
+      "aliases": [
+        "Fauconbridge"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "foix",
+      "name": "Foix",
+      "body": "A French earl named among the dead at Agincourt.",
+      "aliases": [
+        "Foix"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lestrale",
+      "name": "Lestrale",
+      "body": "A French earl named among the dead at Agincourt.",
+      "aliases": [
+        "Lestrale"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marle",
+      "name": "Marle",
+      "body": "A French earl named among the dead at Agincourt.",
+      "aliases": [
+        "Marle"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charolois",
+      "name": "Charolois",
+      "body": "A French lord called to the field.",
+      "aliases": [
+        "Charolois"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "governor",
+      "name": "The Governor of Harfleur",
+      "body": "The governor who yields the town to King Henry.",
+      "aliases": [
+        "GOVERNOR",
+        "Governor"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "french-soldier",
+      "name": "Monsieur Le Fer",
+      "body": "A French gentleman-soldier taken prisoner by Pistol on the field.",
+      "aliases": [
+        "FRENCH SOLDIER",
+        "Monsieur le Fer",
+        "Master Fer"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "english-herald",
+      "name": "The English herald",
+      "body": "King Henry’s herald, who brings him the count of the dead.",
+      "aliases": [
+        "HERALD"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "french-court-messenger",
+      "name": "The messenger at the French court",
+      "body": "The messenger who announces the English embassy to the French king.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "french-camp-messenger",
+      "name": "The messenger in the French camp",
+      "body": "The messenger who brings the French commanders word of the English position.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "french-ambassador",
+      "name": "The French ambassador",
+      "body": "The ambassador who delivers the Dauphin’s answer and his gift to King Henry.",
+      "aliases": [
+        "FIRST AMBASSADOR",
+        "AMBASSADOR"
+      ],
+      "category": "supporting",
+      "kind": "unnamed-role",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "french-ambassadors",
+      "name": "The French ambassadors",
+      "body": "The embassy sent from France to King Henry’s court.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "english-ambassadors",
+      "name": "The English ambassadors",
+      "body": "The embassy King Henry sends into France, headed by Exeter.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "attendants",
+      "name": "The attendants",
+      "body": "The attendants waiting on King Henry at his court.",
+      "aliases": [
+        "Attendants"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lords",
+      "name": "The lords",
+      "body": "The English and French lords at the two courts.",
+      "aliases": [
+        "LORDS",
+        "Lords"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ladies",
+      "name": "The ladies",
+      "body": "The ladies attending the French queen and princess.",
+      "aliases": [
+        "Ladies"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "soldiers",
+      "name": "The soldiers",
+      "body": "The soldiers of the English army.",
+      "aliases": [
+        "Soldiers"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "citizens",
+      "name": "The citizens of Harfleur",
+      "body": "The townspeople on the walls when King Henry demands the town.",
+      "aliases": [
+        "citizens"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "falstaff",
+      "name": "Sir John Falstaff",
+      "body": "The old knight of King Henry’s wild years, whose London company Pistol, Bardolph and Nym come from.",
+      "aliases": [
+        "Sir John Falstaff",
+        "Falstaff"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": [
+        {
+          "after": [
+            5,
+            2
+          ],
+          "body": "The old knight of King Henry’s wild years; Pistol brings his company word that he has died."
+        }
+      ]
+    },
+    {
+      "id": "henry-fourth",
+      "name": "King Henry the Fourth",
+      "body": "King Henry’s father, who took the crown from Richard the Second; the play names him only as the King’s father.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "richard-second",
+      "name": "King Richard the Second",
+      "body": "The king King Henry’s father deposed, for whose soul King Henry pays priests to sing.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "henry-sixth",
+      "name": "Henry the Sixth",
+      "body": "King Henry’s infant son, crowned King of France and England after him.",
+      "aliases": [
+        "Henry the Sixth"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "edward-third",
+      "name": "King Edward the Third",
+      "body": "King Henry’s great-grandfather, from whom the claim to France descends.",
+      "aliases": [
+        "Edward the Third",
+        "King Edward"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "black-prince",
+      "name": "Edward the Black Prince",
+      "body": "King Henry’s great-uncle, victor over the French at Crécy.",
+      "aliases": [
+        "Edward the Black Prince",
+        "Edward, Black Prince of Wales",
+        "Edward the Plack Prince of Wales"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "king-of-scots",
+      "name": "The King of Scots",
+      "body": "A Scottish king taken prisoner by the English and sent into France.",
+      "aliases": [
+        "King of Scots"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "holy-roman-emperor",
+      "name": "The Emperor",
+      "body": "The Holy Roman Emperor, expected in England to mediate the peace; he is never named.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "suffolk",
+      "name": "The Earl of Suffolk",
+      "body": "An English nobleman who dies at Agincourt beside the Duke of York.",
+      "aliases": [
+        "Suffolk"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ketly",
+      "name": "Sir Richard Ketly",
+      "body": "An English knight named among the dead at Agincourt.",
+      "aliases": [
+        "Sir Richard Ketly",
+        "Ketly"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "davy-gam",
+      "name": "Davy Gam",
+      "body": "A Welsh esquire named among the English dead at Agincourt.",
+      "aliases": [
+        "Davy Gam"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "talbot",
+      "name": "Talbot",
+      "body": "An English commander named in King Henry’s roll of remembered names.",
+      "aliases": [
+        "Talbot"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "doll-tearsheet",
+      "name": "Doll Tearsheet",
+      "body": "A London woman of Pistol’s old company, whose death he hears of at the end.",
+      "aliases": [
+        "Doll Tearsheet",
+        "Doll"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pharamond",
+      "name": "Pharamond",
+      "body": "The legendary Frankish king the French cite as the founder of the Salic law.",
+      "aliases": [
+        "Pharamond"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-the-great",
+      "name": "Charlemagne",
+      "body": "The Frankish emperor who subdued the Saxons and settled the French beyond the Sala.",
+      "aliases": [
+        "Charles the Great",
+        "Charlemagne"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charlemain",
+      "name": "Charlemain",
+      "body": "A later Frankish king in Canterbury’s pedigree, father of Lady Lingare; the text keeps him distinct from Charlemagne.",
+      "aliases": [
+        "Charlemain"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pepin",
+      "name": "King Pepin",
+      "body": "The Frankish king who deposed Childeric and claimed France through the female line.",
+      "aliases": [
+        "King Pepin",
+        "Pepin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "childeric",
+      "name": "Childeric",
+      "body": "The Frankish king deposed by Pepin.",
+      "aliases": [
+        "Childeric"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "blithild",
+      "name": "Blithild",
+      "body": "King Clothair’s daughter, from whom Pepin claimed descent.",
+      "aliases": [
+        "Blithild"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clothair",
+      "name": "King Clothair",
+      "body": "A Frankish king, Blithild’s father.",
+      "aliases": [
+        "King Clothair",
+        "Clothair"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hugh-capet",
+      "name": "Hugh Capet",
+      "body": "The French king who took the crown from Charles, Duke of Lorraine.",
+      "aliases": [
+        "Hugh Capet",
+        "Capet"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-lorraine",
+      "name": "Charles, Duke of Lorraine",
+      "body": "The last male heir of Charlemagne’s line, displaced by Hugh Capet.",
+      "aliases": [
+        "Charles the Duke of Lorraine",
+        "Charles Duke of Lorraine"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lingare",
+      "name": "Lady Lingare",
+      "body": "Charlemain’s daughter, from whom Hugh Capet traced his title.",
+      "aliases": [
+        "Lady Lingare",
+        "Lingare"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ermengare",
+      "name": "Lady Ermengare",
+      "body": "Daughter of Charles, Duke of Lorraine, and ancestress of Queen Isabel the grandmother.",
+      "aliases": [
+        "Lady Ermengare",
+        "Ermengare"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lewis-emperor",
+      "name": "Lewis the Emperor",
+      "body": "A Frankish emperor in Canterbury’s pedigree, son of Charlemagne.",
+      "aliases": [
+        "Lewis the Emperor"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lewis-tenth",
+      "name": "King Lewis the Tenth",
+      "body": "The French king who wore the crown uneasily until his descent through the female line satisfied him.",
+      "aliases": [
+        "King Lewis the Tenth",
+        "Lewis the Tenth"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "isabel-grandmother",
+      "name": "Queen Isabel",
+      "body": "King Lewis the Tenth’s grandmother in Canterbury’s pedigree; a different Queen Isabel from the French queen in the play.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "alexander-the-great",
+      "name": "Alexander the Great",
+      "body": "The Macedonian king, whom Fluellen compares to King Henry.",
+      "aliases": [
+        "Alexander the Great",
+        "Alexander the Pig",
+        "Alexander"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "philip-of-macedon",
+      "name": "Philip of Macedon",
+      "body": "Alexander the Great’s father.",
+      "aliases": [
+        "Philip of Macedon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cleitus",
+      "name": "Cleitus",
+      "body": "The friend Alexander killed in drink.",
+      "aliases": [
+        "Cleitus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pompey-the-great",
+      "name": "Pompey the Great",
+      "body": "The Roman general whose camp Fluellen holds up as a model of discipline.",
+      "aliases": [
+        "Pompey the Great",
+        "Pompey"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mark-antony",
+      "name": "Mark Antony",
+      "body": "The Roman commander Fluellen names as a byword for valour.",
+      "aliases": [
+        "Mark Antony"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agamemnon",
+      "name": "Agamemnon",
+      "body": "The Greek commander at Troy, Fluellen’s measure of greatness of soul.",
+      "aliases": [
+        "Agamemnon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "caesar",
+      "name": "Caesar",
+      "body": "The Roman conqueror whose triumphal return the Chorus likens King Henry’s to.",
+      "aliases": [
+        "Caesar"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brutus",
+      "name": "Brutus",
+      "body": "The Roman who hid his purpose under an appearance of folly.",
+      "aliases": [
+        "Brutus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "herod",
+      "name": "Herod",
+      "body": "The king of Judea whose soldiers killed the children, in King Henry’s threat to Harfleur.",
+      "aliases": [
+        "Herod"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "adam",
+      "name": "Adam",
+      "body": "The first man, whose offending nature the Archbishop says was whipped out of the King.",
+      "aliases": [
+        "Adam"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arthur",
+      "name": "Arthur",
+      "body": "King Arthur; the Hostess puts Falstaff in “Arthur’s bosom”, meaning Abraham’s.",
+      "aliases": [
+        "Arthur"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cadwallader",
+      "name": "Cadwallader",
+      "body": "The Welsh king Pistol invokes when he refuses Fluellen’s leek.",
+      "aliases": [
+        "Cadwallader"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-george",
+      "name": "Saint George",
+      "body": "The patron saint of England, King Henry’s battle cry.",
+      "aliases": [
+        "Saint George"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-david",
+      "name": "Saint David",
+      "body": "The patron saint of Wales, whose day the Welsh mark by wearing the leek.",
+      "aliases": [
+        "Saint Davy",
+        "Saint David",
+        "Saint Tavy"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-denis",
+      "name": "Saint Denis",
+      "body": "The patron saint of France.",
+      "aliases": [
+        "Saint Denis"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "saint-crispin",
+      "name": "Saint Crispin and Saint Crispian",
+      "body": "The paired saints whose feast day falls on the day of the battle.",
+      "aliases": [
+        "Crispin Crispian",
+        "Crispin Crispianus",
+        "Crispian",
+        "Crispin"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lucifer",
+      "name": "Lucifer",
+      "body": "The chief of the fallen angels, in Fluellen’s oath.",
+      "aliases": [
+        "Lucifer",
+        "Lucifier"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "beelzebub",
+      "name": "Beelzebub",
+      "body": "A devil named beside Lucifer in Fluellen’s oath.",
+      "aliases": [
+        "Beelzebub",
+        "Belzebub"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "barbason",
+      "name": "Barbason",
+      "body": "A demon whose name Nym says cannot be used to conjure him.",
+      "aliases": [
+        "Barbason"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cressid",
+      "name": "Cressid",
+      "body": "The faithless lover of the Troy story, invoked in Pistol’s insult.",
+      "aliases": [
+        "Cressid"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jove",
+      "name": "Jove",
+      "body": "The Roman king of the gods, who comes in thunder.",
+      "aliases": [
+        "Jove"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "body": "The Roman god of war.",
+      "aliases": [
+        "Mars"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "phoebus",
+      "name": "Phoebus",
+      "body": "The sun god, also called Hyperion here.",
+      "aliases": [
+        "Phoebus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hyperion",
+      "name": "Hyperion",
+      "body": "The sun god whose horse the labourer helps to saddle at dawn.",
+      "aliases": [
+        "Hyperion"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hermes",
+      "name": "Hermes",
+      "body": "The Greek god whose pipe the Dauphin says his horse outplays.",
+      "aliases": [
+        "Hermes"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "body": "The winged messenger god; the Chorus calls the English youth “English Mercuries”.",
+      "aliases": [
+        "Mercuries"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pegasus",
+      "name": "Pegasus",
+      "body": "The winged horse of Greek myth.",
+      "aliases": [
+        "Pegasus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "perseus",
+      "name": "Perseus",
+      "body": "The Greek hero who rode Pegasus.",
+      "aliases": [
+        "Perseus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "parca",
+      "name": "Parca",
+      "body": "The fate who spins and cuts the thread of life.",
+      "aliases": [
+        "Parca"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fortune",
+      "name": "Fortune",
+      "body": "Fortune painted blind on her rolling stone, turning men’s luck.",
+      "aliases": [
+        "Fortune"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "empress",
+      "name": "The gracious empress",
+      "body": "The reigning queen the Chorus addresses his own London audience about; she is not named in the play.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "irish-general",
+      "name": "The general from Ireland",
+      "body": "The commander the Chorus imagines returning from Ireland; the play does not name him.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    }
+  ]
+}

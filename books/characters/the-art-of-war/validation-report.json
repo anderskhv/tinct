@@ -1,0 +1,31 @@
+{
+  "bookId": "the-art-of-war",
+  "scope": "Complete treatise in both English editions: named authorial figure, historical/legendary references and the specifically named illustrative snake. Generic commanders and dynasties excluded.",
+  "authoredEntries": 7,
+  "editions": {
+    "original-en": {
+      "sourceSha256": "60beeb94051b07312e0c554ce215a73ebc87e503006e7832cba7e09309be1d61",
+      "chapters": 13,
+      "paragraphs": 445,
+      "entries": 7,
+      "mentions": 21,
+      "omittedEntities": []
+    },
+    "modern-en": {
+      "sourceSha256": "bf41e7a3a441202531c419e259f908a16b2e0f32fc2fd38beef00755e5267cf5",
+      "chapters": 13,
+      "paragraphs": 445,
+      "entries": 5,
+      "mentions": 17,
+      "omittedEntities": [
+        "chu",
+        "kuei"
+      ]
+    }
+  },
+  "limits": [
+    "Authoring-agent source review; not independent editorial approval.",
+    "Named cast, speaking roles and named references; no claim of pronoun or every generic-title coverage.",
+    "No runtime registration or production verification in this content package."
+  ]
+}

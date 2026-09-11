@@ -68,7 +68,7 @@
   }
 
   function searchBooks() {
-    const books = state.catalogue.books
+    const books = state.catalogue.books.filter(book => book.discoveryAvailable !== false)
     const query = normalize(state.query)
     if (!query) return books
 
@@ -324,7 +324,7 @@
     },
   }
 
-  fetch('/lab/catalogue.json?v=20260903-2').then(response => {
+  fetch('/lab/catalogue.json?v=20260910-availability-1').then(response => {
     if (!response.ok) throw new Error(`Catalogue request failed (${response.status})`)
     return response.json()
   }).then(catalogue => {
