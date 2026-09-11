@@ -66,15 +66,36 @@ def list_pods(key: str) -> list[dict]:
     rows = []
     for pod in pods:
         runtime = pod.get("runtime") or {}
+        status = pod.get("desiredStatus") or pod.get("status")
+        uptime = runtime.get("uptimeInSeconds")
+        if uptime is None and status == "RUNNING":
+            # The REST pod list carries no runtime block, so without this a
+            # running pod reads as zero uptime and the deadline never fires.
+            uptime = seconds_since(pod.get("lastStartedAt"))
         rows.append({
             "id": pod.get("id"),
             "name": pod.get("name") or "",
-            "status": pod.get("desiredStatus") or pod.get("status"),
+            "status": status,
             "costPerHr": pod.get("costPerHr"),
-            "uptimeSeconds": runtime.get("uptimeInSeconds"),
+            "uptimeSeconds": uptime,
             "gpu": (pod.get("machine") or {}).get("gpuDisplayName") or pod.get("gpuTypeId"),
         })
     return rows
+
+
+def seconds_since(started: str | None) -> float | None:
+    """Uptime from a RunPod timestamp such as '2026-09-11 12:35:42.57 +0000 UTC'."""
+    if not started:
+        return None
+    import datetime
+    text = started.replace(" UTC", "").strip()
+    for fmt in ("%Y-%m-%d %H:%M:%S.%f %z", "%Y-%m-%d %H:%M:%S %z", "%Y-%m-%dT%H:%M:%S.%f%z", "%Y-%m-%dT%H:%M:%S%z"):
+        try:
+            when = datetime.datetime.strptime(text, fmt)
+        except ValueError:
+            continue
+        return max(0.0, (datetime.datetime.now(datetime.timezone.utc) - when).total_seconds())
+    return None
 
 
 def stop_pod(key: str, pod_id: str, terminate: bool) -> tuple[int, dict | None]:
