@@ -54,6 +54,44 @@ GitHub**. Neither is `docs/audio-edition-availability-2026-09-10.md`. There is
 no eligibility or hold gating anywhere in the pushed app code. That work exists
 only on the Mac.
 
+## The full census
+
+A complete sweep of every English edition on production, run from this cloud
+session, is in `artifacts/audio-highlight-census-2026-09-11/`:
+
+| | |
+| --- | --- |
+| Chapters with a recording | 12,411 |
+| Chapters with word timings | 7,547 |
+| Chapters missing word timings | 4,864 |
+| Audio hours total | 1,742.9 |
+| Audio hours missing timings | 1,103.5 |
+
+By edition: **11 complete, 123 partial, 65 with no timings, 2 with no audio.**
+Only **8 of 100 books** have one complete English edition. The 1,103.5 missing
+hours corroborate the 1,094.67 measured on the Mac the day before; the
+difference is the unflagged editions this sweep also covers.
+
+The cheapest real progress available: **29 editions are within five chapters of
+complete — 74 chapters, 37.1 audio hours.** Clearing that queue takes complete
+English editions from 11 to 40. `finish-first-queue.json` has it in order. That
+is the batch to run first when GPU access returns, ahead of re-attacking the
+hard classes.
+
+## Are the timings that exist any good?
+
+Yes, as far as automated cross-checking can establish. `verify_timings.py` was
+run over a 500-chapter spread across 134 editions — 11,373 paragraphs and
+1,269,102 timed words. **All 500 passed every check.** 498 matched the edition
+text perfectly on their weakest paragraph; the lowest worst-paragraph score in
+the sample was 0.9231, well clear of the 0.85 gate.
+
+Nobody had checked this before. It means the remaining work is genuinely about
+the 4,864 chapters with no timings, not about repairing the 7,547 that have
+them. It does not replace acoustic review: a sidecar can match the text
+perfectly and still drift against the recording, which is what the plan's
+anchor checks exist for.
+
 ## The safety problem this turned up
 
 `app/tts/pod-watchdog.py` is the thing that actually stops RunPod pods — it
