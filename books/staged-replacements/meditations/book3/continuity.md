@@ -1,7 +1,9 @@
-# Continuity sheet — Meditations, Book III (candidate v1)
+# Continuity sheet — Meditations, Book III (candidate v1, updated for v2)
 
 Written alongside drafting `candidate-v1.json`, after Books II and I were
-accepted, and describing what the frozen draft actually did. Term renderings
+accepted, and describing what the frozen draft actually did; entries marked "v2"
+record where the round-1 review corrections changed a decision. The full change
+list is in `changes-v1-to-v2.md`. Term renderings
 follow `../GLOSSARY.md`; the pattern for applying review findings follows
 `../book2/ACCEPTANCE.md` and `../book1/ACCEPTANCE.md` (decisions D8 and D10 in
 the ledger).
@@ -69,7 +71,10 @@ the ledger).
 - **III.2** — "Have a certain fashion contrary to the purpose of the baker's
   art" → "have a certain shape contrary to…"; "the lion's eyebrows" kept (it
   is Long's image, odd in any century); "ears of corn" kept as Long has it;
-  "examine them severally" → "examine them one by one"; "consequent upon" →
+  "examine them severally" → "examine them one by one"; "are beautiful in a
+  manner, and in a peculiar way" → "are in a way beautiful, and in a peculiar
+  way" (v2; v1 had "beautiful in a way, and in a peculiar way", the glossary's
+  rendering producing two "way"s three words apart; review finding 2.1); "consequent upon" →
   "follow on"; "young persons" → "the young".
 - **III.3** — "The Chaldaei" → "the Chaldaeans" (the English form of the same
   name, as "Alexander the Platonic" → "Platonist" in Book I); "Pompeius" and
@@ -84,7 +89,10 @@ the ledger).
   good"; "the over-curious feeling and the malignant" → "the over-curious
   feeling and the malicious"; "use himself to think" → "accustom himself to
   think"; "What hast thou now in thy thoughts?" → "What is in your thoughts
-  now?"; "no longer delays being among the number of the best" → "no longer
+  now?" with no comma after the question mark (v2; review finding 4.2); "and a
+  man should hold on to the opinion not of all" kept as Long's own-voice rule
+  after the semicolon, not a third thing the good man remembers (v2; v1 had
+  "and that a man should"; review finding 4.1); "no longer delays being among the number of the best" → "no longer
   puts off being…"; "makes the matter for his activity" → "makes the material
   of his activity"; "both at home and from home" → "both at home and away from
   home". The dagger-marked sentence "For the lot which is assigned to each man
@@ -92,18 +100,27 @@ the ledger).
   Long's bracketed "[deity]" folded into the glossary rendering "the god
   within him".
 - **III.5** — "Labor not unwillingly" → "Do not work unwillingly"; "let
-  studied ornament set off thy thoughts" → "dress up your thoughts"; "engaged
+  studied ornament set off thy thoughts" → "set off your thoughts" (v2; v1 had
+  "dress up", which adds a note of disguise Long does not have; review finding
+  5.1); "and engaged in matter political" → "and engaged in political matters"
+  with Long's "and … and … and" chain intact (v2; v1 dropped the first "and"); "engaged
   in matter political" → "engaged in political matters"; "having need neither
   of oath nor of any man's testimony" → "needing neither oath nor any man's
   testimony"; "stand erect, not be kept erect by others" → "stand upright, not
   be held upright by others".
 - **III.6** — "Thy own mind's self-satisfaction in the things which it enables
-  thee to do" → "your own mind's contentment with itself in the things it
+  thee to do" → "your own mind's satisfaction with itself in the things it
   enables you to do": Long's "self-satisfaction" now means smugness; the
   rendering says only what Long's compound says (the mind satisfied with
-  itself), no more. Long's "[or, practically]" is an alternative rendering
-  inside his sentence, folded as "rationally and politically, or practically,
-  good"; "[to the better things]" folded as "fit in with the better things".
+  itself), no more (v2; v1 had "contentment with itself", which collided with
+  Long's own "contentment" in III.11 and "content" in III.16; review finding
+  6.1). Long's "[or, practically]" is an alternative rendering of one Greek
+  adverb, not a supplement to the sense, and is dropped as apparatus: "what is
+  rationally and politically good" (v2; v1 folded it as "rationally and
+  politically, or practically, good"; review finding 6.3). "But do thou, I say"
+  → "But you, I say" (v2; v1 kept "do you", which parses as a question; review
+  finding 6.2); "maintain thy judgment" → "maintain your judgment" (v2; v1 had
+  "hold to", a third "hold to / keep to" in two lines); "[to the better things]" folded as "fit in with the better things".
   "Obtain the superiority all at once" → "gain the upper hand all at once".
   Long's dialogue dashes ("—But that which is useful is the better.—Well,
   then…") kept as dashes. "As an animal" kept (see table).
@@ -111,8 +128,12 @@ the ledger).
   compel thee" → "Never value as profitable to yourself anything that will
   compel you"; "acts no tragic part" → "plays no tragic part"; "flying from
   [death]" → "fleeing death" (bracket folded); "a member of a civil community"
-  → "a member of a community" (glossary).
-- **III.8** — "Chastened and purified" → "disciplined and purified"; "any sore
+  → "a member of a community" (glossary); "he cares not at all" → "he does not
+  care at all" (v2; v1 left the verb-plus-"not" form, the only one in the book;
+  review finding 7.1).
+- **III.8** — "Chastened and purified" kept (v2; v1 had "disciplined and
+  purified", which echoed III.1 "a disciplined reason" where Long has two
+  different words; "chastened" is current English); "any sore
   skinned over" kept; "[to other things]" and "[from other things]" folded as
   "bound to other things, nor yet detached from them".
 - **III.9** — Three sentences kept as three; "friendship towards men" →
@@ -125,7 +146,11 @@ the ledger).
 - **III.11** — "In its nudity" → "in its nakedness"; "nothing is so productive
   of elevation of mind as to be able to examine" → "nothing so produces
   elevation of mind as being able to examine"; "Wherefore" → "Therefore";
-  "such-like" → "suchlike". The dagger-marked "according to the apportionment
+  "such-like" → "suchlike"; "every object which is presented to thee" → "every
+  object that is presented to you", the passive kept both times as Long has it
+  (v2; v1 had "presents itself" the second time; review finding 11.1); "But I
+  know; for this reason I behave" kept with Long's bare semicolon (v2, flow
+  read; v1 added "and"). The dagger-marked "according to the apportionment
   and spinning of the thread of destiny, and suchlike coincidence and chance"
   stands as Long has it apart from that hyphen. "With benevolence and justice"
   → "with kindness and justice" (Book I family). "In things indifferent I
@@ -140,16 +165,20 @@ the ledger).
 - **III.14** — "Wander at hazard" → "wander at random"; "Hellenes" → "Greeks"
   (as "Grecian" → "Greek" in Book I); "which thou wast reserving for thy old
   age" → "that you were saving for your old age".
-- **III.15** — "Signified" → "meant"; "effected" → "done"; the one-sentence
+- **III.15** — "Signified" → "meant"; "effected" → "accomplished" (v2; v1 had
+  "done", which repeated the "done" four words earlier and let the last clause
+  be misread; review finding 15.1); the one-sentence
   meditation stays one sentence.
 - **III.16** — "To the body belong sensation" → "to the body belongs
   sensation" (grammar only; Long's singular noun kept); "men who have made
   themselves into women" kept as Long has it (Marcus's own contrast, as
   "womanish" in II.10); "a Phalaris and a Nero" kept without gloss; "when they
-  have shut the doors" → "once they have shut the doors"; "the divinity which
+  have shut the doors" kept (v2; v1 had "once", a shade of "as soon as"); "the divinity which
   is planted in his breast" → "the god within his breast"; "preserve it
   tranquil" → "keep it calm"; "deviate from the way" → "turn aside from the
-  road".
+  way" (v2; v1 had "road", more concrete than Long's "way", which also keeps the
+  sense of manner; review finding 16.1); "a simple, modest, and contented life"
+  with the serial comma of the staged original (v2; review finding 16.2).
 
 ## Nothing imported from other translations
 

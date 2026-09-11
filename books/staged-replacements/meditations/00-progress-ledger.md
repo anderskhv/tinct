@@ -71,6 +71,19 @@ session. Kept current at every push.
   `scripts/build_book_package.py 3` from `scripts/candidates/book3.py`.
   **Stopped for independent review** (step 4). Findings expected under
   `book3/review/`.
+- 2026-09-11 — **Book III accepted** (steps 4–8). Round-1 independent review
+  (`book3/review/findings-v1.md`): Accept after corrections, 0 substantive +
+  12 minor (5 worth improving, 7 optional preference). All applied in
+  `book3/candidate-v2.json` (sha256 `b7038469…`) via
+  `scripts/build_book3_v2.py`; every change listed in
+  `book3/changes-v1-to-v2.md`; 6.3 resolved by dropping Long's "[or,
+  practically]" as apparatus (D11); four "also noted" points applied (Long's
+  own word restored: set off, maintain, chastened, when) and four declined
+  with reasons; changed passages verified by word diff; dagger clauses III.3,
+  III.4, III.11 verbatim; flow read done with one further within-Long fix
+  (III.11 "But I know; for this reason"); acceptance recorded in
+  `book3/ACCEPTANCE.md`. `continuity.md`, `provenance.json`, `manifest.json`
+  and `README.md` updated. No new glossary row.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -97,16 +110,15 @@ session. Kept current at every push.
 | D8 | Apply every review finding in Book II, including the discretionary ones, and record the two glossary/continuity reversals (II.1 "share of the divine", II.16 "ourselves"). | Each proposed wording stayed inside Long and the glossary; declining any would have needed a reason better than the reviewer's, and none existed. Sets the pattern for later books: minor findings are applied unless `continuity.md` already records a considered reason not to. |
 | D7 | Chapter titles `Book 1`…`Book 12`, matching the served file's title style. | Keeps the app's existing chapter labelling; a change of style is not this task's call. |
 | D10 | In Book I, Long's "undeviating" is kept in all three places (I.8, I.14, I.16), not only in the dagger-marked I.14. | Dagger clauses stand verbatim (Book II rule); rendering the same Long word two ways in one book would be a worse inconsistency than keeping a slightly formal but current word. Pattern for later books: where a dagger clause fixes a word, the unmarked uses of the same word in that book follow it. |
+| D11 | Long's bracketed *alternative renderings* ("[or, practically]", III.6) are apparatus and are dropped; his bracketed *supplements* ("[deity]", "[death]", "[to other things]") are folded into prose as before. | A second translation of one Greek word is Long talking to the reader about his choices, like a cross-reference, not part of Marcus's sentence; folded, it reads as if Marcus named a third kind of good. Raised by the Book III reviewer (finding 6.3). Each drop is listed in the book's `continuity.md`. |
 | D9 | On a session collision, the first pushed version stands; the later session discards its duplicate, records any residual point here, and stops. | One accepted text per book and one frozen candidate per review round; two hashes for the same step would be unreadable to the coordinator and the reviewer. |
 
 ## Next
 
-1. **Waiting on the coordinator: independent review of Book III**
-   (`book3/review-instructions.md`, `book3/review-packets/`). On findings:
-   `book3/candidate-v2.json` via a change script in the Book I/II pattern,
-   verification, flow read, `book3/ACCEPTANCE.md`.
-2. Then Books IV … XII in numerical order, each with its own review round.
-   Book IV is not started until Book III is accepted.
+1. **Book IV** (steps 1–3): `book4/source-book4.json` from chapter 4 of the
+   staged Long, candidate v1 frozen, packets of three, then stop for the
+   coordinator's independent review.
+2. Then Books V … XII in numerical order, each with its own review round.
 
 ## Needs Anders (listed, not waited on)
 

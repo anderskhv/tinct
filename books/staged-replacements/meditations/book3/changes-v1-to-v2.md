@@ -1,0 +1,31 @@
+# Changes v1 → v2 — Meditations, Book III
+
+Every change made to `candidate-v1.json` to produce `candidate-v2.json`, by paragraph ID, with the round-1 finding it answers (`review/findings-v1.md`). Applied mechanically by `scripts/build_book3_v2.py`; each "old" string matched exactly once in its paragraph. Paragraphs not listed are byte-identical between v1 and v2.
+
+| Paragraph | Finding | v1 | v2 |
+|---|---|---|---|
+| B03-P002 (III.2) | 2.1 | are beautiful in a way, and in a peculiar way excite a desire to eat | are in a way beautiful, and in a peculiar way excite a desire to eat |
+| B03-P004 (III.4) | 4.1 | ; and that a man should hold to the opinion not of all, but only of those who confessedly live according to nature. | ; and a man should hold to the opinion not of all, but only of those who confessedly live according to nature. |
+| B03-P004 (III.4) | 4.2 | What is in your thoughts now?, you could at once answer | What is in your thoughts now? you could at once answer |
+| B03-P005 (III.5) | 5.1 | nor let studied ornament dress up your thoughts | nor let studied ornament set off your thoughts |
+| B03-P005 (III.5) | 5 (also noted) | manly and of ripe age, engaged in political matters, and a Roman, and a ruler | manly and of ripe age, and engaged in political matters, and a Roman, and a ruler |
+| B03-P006 (III.6) | 6.1 | your own mind's contentment with itself in the things it enables you to do | your own mind's satisfaction with itself in the things it enables you to do |
+| B03-P006 (III.6) | 6.2 | But do you, I say, simply and freely choose the better, and hold to it. | But you, I say, simply and freely choose the better, and hold to it. |
+| B03-P006 (III.6) | 6.3 | should come into competition with what is rationally and politically, or practically, good. | should come into competition with what is rationally and politically good. |
+| B03-P006 (III.6) | 6 (also noted) | say so, and hold to your judgment without arrogance | say so, and maintain your judgment without arrogance |
+| B03-P007 (III.7) | 7.1 | he cares not at all: | he does not care at all: |
+| B03-P008 (III.8) | 8 (also noted) | In the mind of one who is disciplined and purified | In the mind of one who is chastened and purified |
+| B03-P011 (III.11) | 11.1 | every object that presents itself to you in life | every object that is presented to you in life |
+| B03-P015 (III.15) | 15.1 | for this is not done by the eyes, but by another kind of vision. | for this is not accomplished by the eyes, but by another kind of vision. |
+| B03-P016 (III.16) | 16.1 | nor does he turn aside from the road that leads to the end of life | nor does he turn aside from the way that leads to the end of life |
+| B03-P016 (III.16) | 16.2 | a simple, modest and contented life | a simple, modest, and contented life |
+| B03-P016 (III.16) | 16 (also noted) | do their impure deeds once they have shut the doors | do their impure deeds when they have shut the doors |
+| B03-P011 (III.11) | flow read (step 7) | But I know; and for this reason I behave toward him | But I know; for this reason I behave toward him |
+
+**Paragraphs changed:** 9 of 16 (III.2, III.4, III.5, III.6, III.7, III.8, III.11, III.15, III.16). Unchanged: III.1, III.3, III.9, III.10, III.12, III.13, III.14.
+
+**Findings not applied:** none of the twelve numbered findings was declined. All five "worth improving" findings (4.1, 6.1, 6.2, 7.1, 15.1) and all seven "optional preference" findings (2.1, 4.2, 5.1, 6.3, 11.1, 16.1, 16.2) were applied. On 6.3 the drafter took the first of the reviewer's two clean options and dropped Long's "[or, practically]": it is an alternative rendering of one Greek adverb, not a supplement to the sense, so it belongs with the cross-references and citations the glossary classes as apparatus; "politically good" stands on its own beside "political matters" (III.5), "political community" and "member of a community" (III.7), all of which the edition already asks the reader to take in Marcus's sense. Recorded in `continuity.md`. Of the reviewer's "also noted, optional" points, four were applied, each restoring Long's own word where it is already modern (the reviewer's chapter-level finding 4): III.5 "and engaged in political matters" (the "and … and … and" chain restored, as in Book I); III.6 "maintain your judgment" (Long's verb; avoids a third "hold to / keep to" in two lines); III.8 "chastened and purified" (Long's word, current English, and it removes an echo of III.1 "a disciplined reason" that Long does not have); III.16 "when they have shut the doors" (Long's plain "when"). Four were left as v1 has them, each with a reason: III.11 "how long it is the nature of this thing to endure that now makes an impression on me" keeps Long's order, because the reordering ("the nature of this thing that now makes an impression on me to endure") separates "the nature of this thing" from "to endure" by a nine-word clause and is no clearer; III.1 "his understanding" and III.13 "your principles" supply a possessive the reviewer called harmless and the obvious reading; III.2 "ears of corn" is Long's word, the reviewer proposed no change, and `continuity.md` already records it. The reviewer's optional note that "and for this reason" (III.11) adds an "and" Long does not have was taken up at the flow read (last row of the table). Five `continuity.md` entries are superseded and updated there: III.5 ("set off" restored), III.6 ("satisfaction with itself"; the bracket dropped), III.8 ("chastened"), III.15 ("accomplished") and III.16 ("the way"; "when").
+
+**Flow read (step 7):** `candidate-v2-readable.md` read continuously III.1–III.16 after the first build. One change made from it, listed last in the table: III.11, where "But I know; and for this reason I behave toward him" carried an "and" that Long does not have ("But I know; for this reason I behave towards him"); the reviewer had noted it as harmless, and the read confirmed that Long's bare semicolon gives the turn more force. Nothing else changed; see `ACCEPTANCE.md`.
+
+**Hashes:** candidate-v1.json `7079d32b01a836a672dff6a512822cc881284be10cebfef2bdd28b45337c326a`; candidate-v2.json `b7038469eec969a7c24db8023114bb278083207526609a622ce2bd84d0391bb0`.

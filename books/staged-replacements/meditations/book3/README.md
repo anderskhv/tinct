@@ -1,7 +1,9 @@
-# Meditations, Book III — package (draft frozen, awaiting independent review)
+# Meditations, Book III — package (accepted as candidate v2)
 
-Steps 1–3 of `../WORKFLOW.md` are done for Book III; step 4 (independent
-review) is the coordinator's reviewer session, not this agent.
+All eight steps of `../WORKFLOW.md` are done for Book III. The accepted text is
+`candidate-v2.json` (sha256 `b7038469…`), see `ACCEPTANCE.md`. Step 4
+(independent review) was the coordinator's reviewer session, not this agent;
+its findings are under `review/`.
 
 ## Files
 
@@ -20,7 +22,14 @@ review) is the coordinator's reviewer session, not this agent.
    paragraphs and one of one (16 = 5×3 + 1), each with one paragraph of
    context before and after marked `CONTEXT ONLY`. No self-review verdicts.
 7. `review-instructions.md` — the independent-review instructions, verbatim.
-8. `manifest.json` — packet → paragraph-ID map with a coverage check.
+8. `manifest.json` — packet → paragraph-ID map with a coverage check, plus the
+   v1 and v2 hashes.
+9. `review/findings-v1.md` — the independent review of v1 (0 substantive, 12
+   minor; Accept after corrections).
+10. `candidate-v2.json`, `candidate-v2-readable.md`, `changes-v1-to-v2.md` —
+    the corrected candidate, built by `../scripts/build_book3_v2.py` from the
+    frozen v1; every change listed with the finding it answers.
+11. `ACCEPTANCE.md` — accepted hash, findings applied / declined, flow read.
 
 ## Mechanical checks
 
@@ -41,18 +50,18 @@ for e in man['packets']:
     t=open('book3/'+e['packet']).read()
     for pid in e['assigned_paragraph_ids']:
         k=int(pid[-3:])-1; assert src['paragraphs'][k] in t and cand['paragraphs'][k] in t
+v2=json.load(open('book3/candidate-v2.json')); assert len(v2['paragraphs'])==16
+assert all(p.startswith(f'{i+1}. ') for i,p in enumerate(v2['paragraphs']))
+md2=open('book3/candidate-v2-readable.md').read(); assert all(p in md2 for p in v2['paragraphs'])
 for k,s in [(2,'which is as much inferior as that which serves it is superior'),(3,'For the lot which is assigned to each man is carried along with him and carries him along with it.'),(10,'apportionment and spinning of the thread of destiny')]:
-    assert s in src['paragraphs'][k] and s in cand['paragraphs'][k]
+    assert s in src['paragraphs'][k] and s in cand['paragraphs'][k] and s in v2['paragraphs'][k]
 print('OK'); print(hashlib.sha256(open('book3/candidate-v1.json','rb').read()).hexdigest())
+print(hashlib.sha256(open('book3/candidate-v2.json','rb').read()).hexdigest())
 PY
 ```
 
-Expected: `7079d32b…`.
+Expected: `7079d32b…` (v1, frozen) and `b7038469…` (v2, accepted).
 
 ## Next action
 
-Coordinator: hand `review-instructions.md` and `review-packets/` to a fresh
-independent-review session. Findings come back under `book3/review/`. This
-agent then applies supported corrections to `candidate-v2.json`, verifies the
-changed passages, reads the whole book for flow, and records acceptance in
-`ACCEPTANCE.md` before starting Book IV.
+None for Book III. The thread continues with Book IV (`../book4/`).

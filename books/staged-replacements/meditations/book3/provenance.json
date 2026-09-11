@@ -21,5 +21,15 @@
  },
  "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary and the Book II and Book I acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
  "build_script": "scripts/build_book_package.py 3 (candidate text frozen in scripts/candidates/book3.py; regenerates source-book3.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
- "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
+ "candidate_v2_json_sha256": "b7038469eec969a7c24db8023114bb278083207526609a622ce2bd84d0391bb0",
+ "review_round_1": "review/findings-v1.md (independent reviewer session, 2026-09-11): Accept after corrections; 0 substantive, 12 minor (5 worth improving, 7 optional preference). All applied in candidate-v2.json via scripts/build_book3_v2.py; see changes-v1-to-v2.md.",
+ "word_counts_v2": {
+  "source": 2821,
+  "candidate": 2774,
+  "ratio": 0.983,
+  "min_paragraph_ratio": 0.94,
+  "note": "screening signal only; not evidence of semantic completeness"
+ },
+ "accepted": "candidate-v2.json, see ACCEPTANCE.md"
 }
