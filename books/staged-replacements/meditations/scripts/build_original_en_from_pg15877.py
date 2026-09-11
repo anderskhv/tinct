@@ -32,6 +32,7 @@ for b in sorted(books):
         t=s
         t=re.sub(r'\[[A-Z]\]','',t)
         t=t.replace('+','')
+        t=re.sub(r'\[Illustration:[^\]]*\]','',t)
         t=re.sub(r'\[\[Greek: ([^\]]*)\]\]', r'(Greek: \1)', t)
         t=re.sub(r'\[Greek: ([^\]]*)\]', r'(Greek: \1)', t)
         t=t.replace('---','—').replace('--','—')
@@ -50,4 +51,4 @@ for b,n in sorted(verse_secs): print(f'--- {b}.{n}:', out[b][n-1])
 chapters=[{'number':b,'title':f'Book {b}','paragraphs':out[b]} for b in sorted(out)]
 json.dump({'chapters':chapters}, open(f'{S}/meditations-original-en.staged.json','w'), ensure_ascii=False, indent=2)
 allt=' '.join(s for b in out for s in out[b])
-print('leftover checks: [X]', len(re.findall(r'\[[A-Z]\]',allt)), 'plus', allt.count('+'), 'Greek', len(re.findall(r'\(Greek:',allt)), 'underscore', allt.count('_'), 'dbl-hyphen', allt.count('--'))
+print('leftover checks: [X]', len(re.findall(r'\[[A-Z]\]',allt)), 'plus', allt.count('+'), 'Greek', len(re.findall(r'\(Greek:',allt)), 'underscore', allt.count('_'), 'dbl-hyphen', allt.count('--'), 'illustration', allt.count('[Illustration'))

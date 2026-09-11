@@ -84,6 +84,28 @@ session. Kept current at every push.
   (III.11 "But I know; for this reason"); acceptance recorded in
   `book3/ACCEPTANCE.md`. `continuity.md`, `provenance.json`, `manifest.json`
   and `README.md` updated. No new glossary row.
+- 2026-09-11 — **Staged original rebuilt** (Book IV step 1). Three PG
+  illustration captions had survived into the staged Long (`[Illustration: …]`
+  appended to IV.20, V.8, IX.21). `scripts/build_original_en_from_pg15877.py`
+  now strips them; the file was rebuilt, sha256 `7bf2d1b1…` → `b0ecf3da…`,
+  487 paragraphs before and after, only those three paragraphs changed,
+  chapters 1–3 byte-identical (so Books I–III's `source-bookN.json` and
+  acceptances stand; a note was added to their `provenance.json`). Recorded in
+  `PROVENANCE.md` §4 (D12).
+- 2026-09-11 — **Book IV drafted and frozen** (steps 1–3): `book4/candidate-v1.json`
+  (sha256 `d85924d1…`), 51 paragraphs 1:1 with Long's IV.1–IV.51, word ratio
+  0.993 (min paragraph 0.83, a dropped cross-reference). Source verified from
+  the rebuilt staged Long chapter 4 into `book4/source-book4.json` (sha256
+  `eeef63f6…`). Five glossary rows added before drafting (perturbation →
+  disturbance; seminal → generative; mutation/transmutation →
+  change/transformation; vulgar → commonplace / the common sort of men; "the
+  All" → the whole) and "reasonable animal" added to the rational-being row.
+  Nine dagger clauses named in `review-instructions.md` and kept as Long has
+  them. Readable copy, `continuity.md`, `provenance.json`, `manifest.json`,
+  `README.md`, `review-instructions.md` and seventeen review packets (17×3)
+  pushed, built by `scripts/build_book_package.py 4` from
+  `scripts/candidates/book4.py`. **Stopped for independent review** (step 4).
+  Findings expected under `book4/review/`.
 - 2026-09-11 — **Session collision, twice.** Two content sessions were spawned
   on this thread for the Book II corrections step (this one and
   `session_01UqGstUkaLuExn3RNzcxUs8`, the one whose pushes stand). Both ran
@@ -111,14 +133,17 @@ session. Kept current at every push.
 | D7 | Chapter titles `Book 1`…`Book 12`, matching the served file's title style. | Keeps the app's existing chapter labelling; a change of style is not this task's call. |
 | D10 | In Book I, Long's "undeviating" is kept in all three places (I.8, I.14, I.16), not only in the dagger-marked I.14. | Dagger clauses stand verbatim (Book II rule); rendering the same Long word two ways in one book would be a worse inconsistency than keeping a slightly formal but current word. Pattern for later books: where a dagger clause fixes a word, the unmarked uses of the same word in that book follow it. |
 | D11 | Long's bracketed *alternative renderings* ("[or, practically]", III.6) are apparatus and are dropped; his bracketed *supplements* ("[deity]", "[death]", "[to other things]") are folded into prose as before. | A second translation of one Greek word is Long talking to the reader about his choices, like a cross-reference, not part of Marcus's sentence; folded, it reads as if Marcus named a third kind of good. Raised by the Book III reviewer (finding 6.3). Each drop is listed in the book's `continuity.md`. |
+| D12 | The staged original may be rebuilt to remove PG apparatus that the build missed, provided the paragraph count and every already-accepted chapter are byte-identical before and after, and the hash change is recorded here, in `PROVENANCE.md` §4 and in each affected `provenance.json`. | The staged file is this package's own artefact, and an illustration caption is not Long's text; leaving it would put "[Illustration: …]" into the edition. Chapters 1–3 unchanged, so no acceptance is reopened. |
 | D9 | On a session collision, the first pushed version stands; the later session discards its duplicate, records any residual point here, and stops. | One accepted text per book and one frozen candidate per review round; two hashes for the same step would be unreadable to the coordinator and the reviewer. |
 
 ## Next
 
-1. **Book IV** (steps 1–3): `book4/source-book4.json` from chapter 4 of the
-   staged Long, candidate v1 frozen, packets of three, then stop for the
-   coordinator's independent review.
+1. **Waiting on the coordinator: independent review of Book IV**
+   (`book4/review-instructions.md`, `book4/review-packets/`, 17 packets). On
+   findings: `book4/candidate-v2.json` via a change script in the established
+   pattern, verification, flow read, `book4/ACCEPTANCE.md`.
 2. Then Books V … XII in numerical order, each with its own review round.
+   Book V is not started until Book IV is accepted.
 
 ## Needs Anders (listed, not waited on)
 

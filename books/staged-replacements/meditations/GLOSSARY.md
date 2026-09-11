@@ -15,9 +15,9 @@ which of Long's variants belong together; the candidate never uses the Greek.
 | the nature of the whole; the nature of the universe | **the nature of the whole** | *hē tōn holōn physis*. One phrase for both of Long's variants. |
 | the universal nature | **the universal nature** | Long's phrase for the same idea in later books; kept as its own phrase so the reader meets the same term Long uses there. |
 | the common nature | **the common nature** | *koinē physis*, the nature all things share; Marcus contrasts it with "my own nature". Kept distinct. |
-| the whole; the universe; the whole universe; the world (kosmos) | **the whole**; **the universe** | As Long has them. "Whole" is kept where Long has it because Marcus's argument is often about part and whole. |
+| the whole; the universe; the whole universe; the world (kosmos); the All | **the whole**; **the universe** | As Long has them. "Whole" is kept where Long has it because Marcus's argument is often about part and whole. Long's "the All" (IV.27, VII.75) is rendered "the whole". Added in Book IV. |
 | reason; the reason (of the universe, of our common nature) | **reason** | *logos*. Never "rationality" or "logic". |
-| rational animal; rational being; rational soul | **rational being** | *zōon logikon*. "Animal" in Long means "living creature"; a modern reader hears something else. |
+| rational animal; reasonable animal; rational being; rational soul | **rational being** | *zōon logikon*. "Animal" in Long means "living creature"; a modern reader hears something else. Long's "reasonable animal" (IV.5, IV.29, V.16, IX.8) is the same term. Added in Book IV. |
 | social animal; social (acts, reason, life) | **social being**; **social** | *koinōnikos*. "Social act" and "social life" stay as they are. |
 | unsocial | **unsocial** | Not "antisocial" (a modern clinical sense) and not "unsociable" (shy). |
 | the ruling faculty; the ruling part; the ruling principle; that which rules within | **the ruling part** | *to hēgemonikon*. One rendering for all four of Long's variants. Where a first use in a book needs it, "the ruling part, the part of you that governs the rest" is the only permitted gloss, once. |
@@ -48,6 +48,10 @@ which of Long's variants belong together; the candidate never uses the Greek.
 | dissatisfied; dissatisfaction | **discontented**; **discontent** | Long's word is neither "vexed" nor "discontent"; rendered with the "discontent" family for consistency (decided in Book II v2, II.2 and II.13). |
 | in a manner | **in a way** | Long's hedge (II.10, III.2); "in a manner" now reads as "in a fashion". Decided in Book II v2. |
 | daemons (plural, of spirits expelled by charlatans) | **spirits** | I.6. These are not Marcus's *daimōn*; the glossary's "the god within" does not apply. Decided in Book I. |
+| perturbation(s); free from perturbation | **disturbance(s)**; **free from disturbance** | *tarachē*. IV.3, IV.37, VI.16, VII.16, IX.31 and others. "Perturbation" is dated and, in modern use, mild; "disturbance" is the plain word for the same state and is Long's own verb ("do not disturb thyself", IV.26). Added in Book IV. |
+| seminal principle(s); seminal intelligence | **generative principle(s)**; **generative intelligence** | *logos spermatikos*, the seed-like reason from which things grow. IV.14, IV.21, VI.24. "Seminal" now means "highly influential", which is not the sense; "generative" says what "seminal" said (of seed, producing). Where Long has "seed" itself (IV.36) it stays "seed". Added in Book IV. |
+| mutation; transmutation; transmuted | **change**; **transformation**; **transformed** | Long's own "change" and "transformation" are used elsewhere for the same idea (IV.3 "The universe is transformation", IV.36, IV.42); "mutation" now suggests genetics. IV.14, IV.21, IV.39, IX.19. Added in Book IV. |
+| vulgar (notion, help, comfort); the vulgar | **commonplace**; **the common sort of men** | Long's "vulgar" means common or ordinary, not crude. "The common sort of men" is Long's own phrase (IV.3). IV.20, IV.36, IV.50, IX.3. Added in Book IV. |
 | a man; men (generic) | **a man**; **men** | Long's generic "man" is kept. Rewriting it would be a modern imposition, and Marcus's "as a Roman and a man" is his own. "Human being" is used only where Long uses it (V.1). |
 
 ## Voice and form

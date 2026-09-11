@@ -1,0 +1,26 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/meditations-modern-en-20260911-v2",
+ "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
+ "staged_original_sha256": "b0ecf3da6984c95a54ca36e1c60d20a01ad95fc6bb6e7544740e9c82717cf67f",
+ "staged_original_note": "Rebuilt at Book IV step 1 to strip three PG illustration captions (IV.20, V.8, IX.21); previous sha256 7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443. 487 paragraphs before and after; only those three paragraphs changed; chapters 1-3 byte-identical. See PROVENANCE.md section 4 and ledger D12.",
+ "chapter_extracted": {
+  "number": 4,
+  "title": "Book 4",
+  "paragraphs": 51,
+  "extraction": "found by chapter.number == 4 in the staged original-en; paragraphs byte-identical"
+ },
+ "source_book4_json_sha256": "eeef63f6f95d815775f02eb1b27df2c37c979b3e123add30aeca925010dd70ca",
+ "candidate_v1_json_sha256": "d85924d15db06abeee303c86e0cc9530c832f6c82561dc31fd0ce89ad5720648",
+ "translation_source": "George Long, 1862. Project Gutenberg #15877 (source/pg15877-long-1862.txt, sha256 6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b), with the mechanical normalisations listed in PROVENANCE.md section 4. The only source used for the candidate; no other translation consulted for wording.",
+ "word_counts": {
+  "source": 4308,
+  "candidate": 4276,
+  "ratio": 0.993,
+  "min_paragraph_ratio": 0.83,
+  "note": "screening signal only; not evidence of semantic completeness. The two lowest ratios (IV.41 0.83, IV.45 0.91) are cross-references dropped as apparatus."
+ },
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary (five rows added for Book IV first) and the Book II, I and III acceptance records read first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book_package.py 4 (candidate text frozen in scripts/candidates/book4.py; regenerates source-book4.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+}

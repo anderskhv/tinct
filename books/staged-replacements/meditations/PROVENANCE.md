@@ -132,6 +132,11 @@ reproducible by running the script):
   VIII.35, VIII.38, VIII.51, IX.6, IX.26, IX.27, X.9, X.19, X.25, X.31, XI.8,
   XI.15, XI.17, XII.16). Drafters and reviewers should treat these passages as
   textually uncertain in the Greek.
+- PG illustration captions ("[Illustration: INTERIOR OF THE PARTHENON]" and the
+  like) removed. Three had survived the first build, appended to IV.20, V.8 and
+  IX.21; found at Book IV step 1 (2026-09-11) and fixed in the script, which
+  changed the staged file's sha256 from `7bf2d1b1…` to `b0ecf3da…`. Only those
+  three paragraphs changed; the count is still 487; chapters 1–3 byte-identical.
 - Long's own square-bracket supplements (e.g. "[I learned]", "[only]",
   "[the world]") are **kept**; they are part of his translation.
 - Long's in-text cross-references (e.g. "(vi. 28)" at II.12, "(vi. 44; ix. 28)"

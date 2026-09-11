@@ -26,5 +26,6 @@
  "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json.",
  "candidate_v2_json_sha256": "8fcc64e2940259bc9d353dbe860553420089a35658b7cef4b627b16e20f337cd",
  "review_round_1": "review/findings-v1.md (independent reviewer session, 2026-09-11): Accept after corrections; 5 substantive, 20 minor. All applied in candidate-v2.json; see changes-v1-to-v2.md.",
- "accepted": "candidate-v2.json, see ACCEPTANCE.md"
+ "accepted": "candidate-v2.json, see ACCEPTANCE.md",
+ "staged_original_note": "The staged original recorded above (7bf2d1b1...) was rebuilt on 2026-09-11 at Book IV step 1 to strip three PG illustration captions from IV.20, V.8 and IX.21; new sha256 b0ecf3da6984c95a54ca36e1c60d20a01ad95fc6bb6e7544740e9c82717cf67f. Chapter 2 is byte-identical before and after, so source-book2.json and this book's acceptance are unaffected."
 }
