@@ -26,7 +26,7 @@ efficiently. Each batch's agent writes:
 
 Status key: `[ ]` not started · `[~]` in progress · `[x]` done and spot-checked.
 
-- [ ] B1 — odyssey, ulysses, gilgamesh, iliad, the-aeneid
+- [x] B1 — odyssey, ulysses, gilgamesh, iliad, the-aeneid — DONE. odyssey LIGHT EDIT (20/24 books good, 4 name-swap-only). **iliad modern-en is essentially Butler 1898 with Greek names substituted — RETRANSLATE** (14/24 books word-ratio 1.00, 34 byte-identical long paragraphs). **ulysses is 67% unmodernized (episodes 11-18) and where it does intervene it breaks a pun and invents an attribution — SOURCE+GLOSSES**, not a rewrite. the-aeneid modern-en is de-versified Dryden with archaic diction intact — RETRANSLATE from a better PD core (Mackail 1885 prose). **gilgamesh BLOCKED: original-en shares verbatim text with a compilation under a 2014 all-rights-reserved copyright notice; translator/year null in registry.** See cross-cutting-findings.md for 2 methodology notes (pct_identical_long_paragraphs unreliable against name-swap-only texts; 60% truncation threshold too loose for formulaic/repetition-heavy texts).
 - [ ] B2 — war-and-peace, anna-karenina, ivan-ilyich, crime-and-punishment, brothers-karamazov, notes-from-underground
 - [x] B3 — bible — DONE. **CRITICAL: modern-en verified verbatim NIV (2011, Biblica, all rights reserved) — live commercial copyright exposure, not just quality.** Also ~166 verses deleted across 92 chs, 32 chs with verse-boundary displacement (Jer 16→25, Rev 14→22, etc.), 1 Chr, Acts, Ps runs. Rec: USE HUMAN EDITION (BSB, confirmed public domain/CC0 2023-04-30). modern-da inherits same defects. See per-book-notes/bible.md.
 - [ ] B4 — hamlet, macbeth, midsummer, romeo-and-juliet, the-tempest

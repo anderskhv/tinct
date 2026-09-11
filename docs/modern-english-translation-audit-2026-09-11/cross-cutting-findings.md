@@ -88,3 +88,40 @@ register switch (a real characterization signal — e.g. commoners speak in
 prose, nobles in verse, and a character shifting from verse to prose
 mid-scene is meaningful). Recorded here as a scope note for the executive
 report, not a modern-en-specific defect.
+
+## Two more methodology notes (from B1, epic poetry)
+
+3. **`pct_identical_long_paragraphs` misses paraphrase-that-isn't.** It
+   returned 0.0% for the Odyssey's 4 unmodernized books (Butler with only
+   proper-name swaps defeats byte-for-byte identity) and 0.7% for Ulysses,
+   where apostrophe-normalized identity is actually ~53% in the "Sirens"
+   episode and ~43% in "Circe," and Penelope's eight ~3,000-word paragraphs
+   are 99.8% unchanged. Per-chapter word-token similarity (already in the
+   Phase 1 data, just not surfaced per-chapter in the summary) is the more
+   reliable signal — see item 2 above, this reinforces the same tooling
+   recommendation from a different angle (name-substitution vs. section-
+   level drift).
+4. **The 60% truncation-ratio threshold is too loose for formulaic or
+   repetition-heavy texts.** In Gilgamesh it caught only 1 of 9 real
+   compressions the batch found by hand; systematic collapse of formulaic
+   repetition (e.g. a five-fold funeral refrain reduced, or "twelve
+   double-hours of darkness" reduced to four) compresses by roughly
+   30-40%, under the 60% floor. A 72% threshold reportedly surfaced the
+   rest in this batch's own check. Worth a corpus-wide re-run with a
+   tighter threshold in any future revision of the mechanical script,
+   particularly for the Bible and other formula-heavy/oral-tradition texts
+   (Homer's type-scenes, Beowulf's kennings).
+
+## Rights/provenance risk found outside the Bible (from B1)
+
+**Gilgamesh's `original-en` file has an unresolved provenance/rights
+question of its own**, separate from and in addition to the Bible finding.
+Two distinctive passages match verbatim a web compilation
+(human.libretexts.org / a Jason Colavito page) that asserts "© 2014 Jason
+Colavito, all rights reserved"; other passages in our file are absent from
+that compilation; ellipsis/lacuna markers (standard in every scholarly
+Gilgamesh translation, since large parts of the epic are damaged/missing
+on the tablets) appear to have been silently removed or filled; and the
+registry's `translator`/`year` fields are both `null`. This book is marked
+BLOCKED pending provenance research, independent of its modern-en quality
+(which is otherwise reasonable, "Good with fixes").
