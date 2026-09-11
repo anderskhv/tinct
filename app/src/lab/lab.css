@@ -831,7 +831,10 @@
   color: #8a8172;
   font: 0.62rem/1.35 'IBM Plex Mono', ui-monospace, monospace;
   letter-spacing: 0.05em;
-  white-space: nowrap;
+  /* A long chapter title (the Odyssey's "Book 1 — The gods in council—…")
+     wraps between the two rules instead of running off a phone screen. */
+  text-align: center;
+  overflow-wrap: anywhere;
 }
 
 .lab-ask-location::before,
@@ -4604,6 +4607,7 @@
 }
 .lab-account-nudge-dismiss {
   flex: 0 0 auto;
+  position: relative;
   padding: .1rem .3rem;
   border: 0;
   background: transparent;
@@ -4611,6 +4615,12 @@
   line-height: 1;
   color: #6a6555;
   cursor: pointer;
+}
+/* The × paints at 20px; the finger gets a 44px target. */
+.lab-account-nudge-dismiss::before {
+  content: '';
+  position: absolute;
+  inset: -11px -12px;
 }
 .lab.is-night .lab-account-nudge { color: var(--lab-ink-muted); border-color: var(--lab-border); }
 .lab.is-night .lab-account-nudge a { color: var(--lab-ink); }
@@ -5087,11 +5097,25 @@
 }
 
 .lab[data-chrome-version="v2"] .lab-v2-dismiss {
+  position: relative;
   background: var(--lab-v2-disc-open);
   color: var(--lab-v2-quiet);
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
   font-size: 18px;
   line-height: 1;
+}
+
+/* The 30px discs keep their size; the tap target underneath is 44px. */
+.lab[data-chrome-version="v2"] .lab-v2-dismiss::before,
+.lab[data-chrome-version="v2"] .lab-v2-confirm::before,
+.lab[data-chrome-version="v2"] .lab-v2-back::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+}
+.lab[data-chrome-version="v2"] .lab-v2-confirm,
+.lab[data-chrome-version="v2"] .lab-v2-back {
+  position: relative;
 }
 
 .lab[data-chrome-version="v2"] .lab-v2-confirm {
@@ -6489,6 +6513,7 @@
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline .lab-ask-send { order: 3; background: var(--lab-ink); color: var(--lab-paper); }
 .lab[data-chrome-version="v2"] .lab-ask-composer.is-multiline button[hidden] { display: none; }
 .lab[data-chrome-version="v2"] .lab-ask-copy {
+  position: relative;
   display: inline-grid;
   place-items: center;
   width: 32px;
@@ -6498,6 +6523,11 @@
   background: transparent;
   color: var(--lab-ink-muted);
   cursor: pointer;
+}
+.lab[data-chrome-version="v2"] .lab-ask-copy::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
 }
 .lab[data-chrome-version="v2"] .lab-audio-dismiss {
   position: absolute;
