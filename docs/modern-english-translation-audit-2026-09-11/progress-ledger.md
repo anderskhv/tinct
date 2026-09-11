@@ -33,7 +33,7 @@ Status key: `[ ]` not started · `[~]` in progress · `[x]` done and spot-checke
 - [ ] B5 — comedy-of-errors, merchant-of-venice, henry-v, as-you-like-it, winters-tale
 - [ ] B6 — julius-caesar, twelfth-night, measure-for-measure, henry-iv-part-2, merry-wives-of-windsor
 - [ ] B7 — othello, king-lear, much-ado-about-nothing, taming-of-the-shrew, antony-and-cleopatra
-- [ ] B8 — richard-iii, coriolanus, cymbeline
+- [x] B8 — richard-iii, coriolanus, cymbeline — DONE. richard-iii Strong/LIGHT EDIT; coriolanus Good with fixes/LIGHT EDIT; cymbeline Good with fixes/LIGHT EDIT but **Acts 5.3-5.5 (23.5% of the play) barely modernized while book-level flags read clean** — same split-quality pattern as B15's Paradise Lost/Beowulf. Confirmed: no rights-clear human modern-English Shakespeare translation exists anywhere (Play On Shakespeare is complete but commercially licensed; everything free is either noncommercial-restricted or original-language). See cross-cutting-findings.md.
 - [ ] B9 — the-republic, apology, symposium, phaedo, crito, phaedrus
 - [ ] B10 — meditations, the-manual, nicomachean-ethics, aristotle-politics, poetics
 - [ ] B11 — oedipus-rex, oedipus-at-colonus, antigone, oresteia, bacchae, medea
