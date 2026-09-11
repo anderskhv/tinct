@@ -1299,6 +1299,23 @@ html,body,#tinct-onboarding-worlds-v5 { overflow-x:visible; }
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 148px; }
     #tinct-onboarding-worlds-v5 .lib-now-shelf::before { flex-basis:calc(50% - 74px - 16px); }
   }
+  /* Desktop (2026-09-11): the row and the caption stop stacking in the left
+     ~700px of a 1900px page. The section becomes two columns — covers on
+     the left, wrapping into rows instead of scrolling, and the caption on
+     the right beside them — under one full-width head, lined up with the
+     three-column Finished grid below. The shelf's bleed margins and snap
+     points are for a scrolling row and go with it; fitNowShelf() in
+     src/labReadingMemory.ts reads the wrap and keeps the scroll-driven
+     focus off, so focus here comes from clicks alone. */
+  @media (min-width:1280px) {
+    #tinct-onboarding-worlds-v5 .lib-reading-now { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2fr); column-gap:64px; row-gap:28px; align-items:start; }
+    #tinct-onboarding-worlds-v5 .lib-reading-now > .lib-sec-head { grid-column:1 / -1; }
+    #tinct-onboarding-worlds-v5 .lib-now-shelf { flex-wrap:wrap; gap:28px 24px; margin:0; padding:4px 0 6px; overflow:visible; scroll-snap-type:none; }
+    #tinct-onboarding-worlds-v5 .lib .lib-now-item { flex:0 0 176px; scroll-snap-align:none; }
+    #tinct-onboarding-worlds-v5 .lib-now-caption { padding-top:4px; }
+    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-h1 { font-size:42px; }
+    #tinct-onboarding-worlds-v5 .lib-now-caption .lib-recap-summary { max-width:60ch; }
+  }
   @media (prefers-reduced-motion:reduce) {
     #tinct-onboarding-worlds-v5 .lib .lib-now-item { transition:none; }
   }

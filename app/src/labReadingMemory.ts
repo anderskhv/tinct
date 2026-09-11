@@ -656,9 +656,31 @@ function fitNowShelf(): void {
   if (!shelf) return
   const items = [...shelf.querySelectorAll<HTMLElement>('[data-now-index]')]
   if (!items.length) return
-  const gap = Number.parseFloat(getComputedStyle(shelf).columnGap) || 0
+  const style = getComputedStyle(shelf)
+  // Desktop (≥1280px, lab/index.html): the covers wrap into rows beside the
+  // caption instead of scrolling. A wrapped row has no middle to read, so it
+  // is flush whatever its width, and the scroll-driven focus stays off.
+  const wrapped = style.flexWrap === 'wrap'
+  shelf.classList.toggle('is-grid', wrapped)
+  const gap = Number.parseFloat(style.columnGap) || 0
   const content = items.reduce((total, item) => total + item.offsetWidth, 0) + gap * (items.length - 1)
-  shelf.classList.toggle('is-flush', content <= shelf.clientWidth + 1)
+  shelf.classList.toggle('is-flush', wrapped || content <= shelf.clientWidth + 1)
+}
+
+/**
+ * The row's shape is measured, so a resize — a window dragged across the
+ * 1280px line, a tablet turned — measures it again and attaches or detaches
+ * the scroll-driven focus to match.
+ */
+let nowResizeFrame = 0
+function refitNowShelfOnResize(): void {
+  if (nowResizeFrame) return
+  nowResizeFrame = requestAnimationFrame(() => {
+    nowResizeFrame = 0
+    if (!lastList.readingNow.length) return
+    fitNowShelf()
+    observeNowShelf()
+  })
 }
 
 /**
@@ -990,6 +1012,7 @@ section?.addEventListener('click', (event) => {
   }
 })
 
+window.addEventListener('resize', refitNowShelfOnResize)
 window.addEventListener('tinct:lab-auth-state', () => { void render() })
 window.addEventListener('tinct:lab-catalogue-ready', () => { void render() })
 window.addEventListener('pageshow', () => { void render() })
