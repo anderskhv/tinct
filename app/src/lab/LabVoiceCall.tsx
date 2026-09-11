@@ -1,17 +1,27 @@
 import { useEffect, useRef } from 'react'
 import {
   LAB_CALL_COPY,
+  labCallCaption,
   labCallCue,
   type LabCallCue,
   type LabCallView,
 } from './labVoiceCall'
+import {
+  VoiceControl,
+  VoiceEndIcon,
+  VoiceMicIcon,
+  VoiceReconnectIcon,
+  VoiceTranscriptIcon,
+} from './LabVoiceIcons'
+import { VoiceOrb } from './VoiceOrb'
 
 /**
- * The phone call surface: one circle, one large status line, a connection line
- * kept apart from it, and four plain controls.
+ * The phone call surface (locked 2026-09-11): the book line and connection
+ * at the top, the dotted orb and one large status word in the middle with an
+ * optional italic caption, and three round icon buttons at the bottom.
  *
  * Every indicator here is driven by the view it is handed, and that view is a
- * pure function of session events. The one thing this component reads for
+ * pure function of session events. The one thing this surface reads for
  * itself is the assistant's real loudness while she speaks, and only through
  * `getAssistantLevel`, which returns null rather than inventing a number.
  */
@@ -22,6 +32,10 @@ interface LabVoiceCallProps {
   getAssistantLevel?: () => number | null
   reducedMotion?: boolean
   notice?: string | null
+  /** "The Odyssey, Book IX": the book and chapter the conversation is about. */
+  bookLine?: string
+  /** The newest thing the assistant said, for the caption while she speaks. */
+  utterance?: string | null
   onMuteToggle: () => void
   onTranscript: () => void
   onEnd: () => void
@@ -65,79 +79,15 @@ function playCallCue(cue: LabCallCue) {
   } catch { /* a browser that refuses the tone still shows the state */ }
 }
 
-function CallCircle({
-  view,
-  getAssistantLevel,
-  reducedMotion,
-}: {
-  view: LabCallView
-  getAssistantLevel?: () => number | null
-  reducedMotion: boolean
-}) {
-  const nodeRef = useRef<HTMLDivElement | null>(null)
-  const levelSourceRef = useRef<'audio' | 'unavailable'>('unavailable')
-
-  // The speaking circle follows the assistant's own playback. If the audio path
-  // exposes no level, the circle holds still and says so in the DOM rather than
-  // running a timed animation that would only look like speech.
-  useEffect(() => {
-    const node = nodeRef.current
-    if (!node) return
-    if (view.motion !== 'pulse' || reducedMotion || !getAssistantLevel) {
-      node.style.setProperty('--lab-call-level', '0')
-      return
-    }
-    let frame = 0
-    let smoothed = 0
-    let stopped = false
-    const tick = () => {
-      if (stopped) return
-      const level = getAssistantLevel()
-      if (level == null) {
-        levelSourceRef.current = 'unavailable'
-        node.dataset.levelSource = 'unavailable'
-        node.style.setProperty('--lab-call-level', '0')
-        return
-      }
-      levelSourceRef.current = 'audio'
-      node.dataset.levelSource = 'audio'
-      smoothed = smoothed + (level - smoothed) * 0.35
-      node.style.setProperty('--lab-call-level', smoothed.toFixed(3))
-      frame = requestAnimationFrame(tick)
-    }
-    frame = requestAnimationFrame(tick)
-    return () => {
-      stopped = true
-      cancelAnimationFrame(frame)
-      node.style.setProperty('--lab-call-level', '0')
-    }
-  }, [getAssistantLevel, reducedMotion, view.motion])
-
-  const motion = reducedMotion ? 'still' : view.motion
-  return (
-    <div
-      className={`lab-call-circle is-${view.status} motion-${motion}`}
-      data-testid="lab-call-circle"
-      data-status={view.status}
-      data-motion={motion}
-      data-broken={view.broken ? 'true' : 'false'}
-      ref={nodeRef}
-      aria-hidden="true"
-    >
-      <svg viewBox="0 0 200 200" className="lab-call-ring">
-        <circle className="lab-call-ring-track" cx="100" cy="100" r="86" />
-        <circle className="lab-call-ring-mark" cx="100" cy="100" r="86" />
-      </svg>
-      <span className="lab-call-core" />
-    </div>
-  )
-}
+export const LAB_CALL_ORB_PX = 280
 
 export function LabVoiceCall({
   view,
   getAssistantLevel,
   reducedMotion = false,
   notice,
+  bookLine,
+  utterance = null,
   onMuteToggle,
   onTranscript,
   onEnd,
@@ -150,6 +100,8 @@ export function LabVoiceCall({
     if (cue) playCallCue(cue)
   }, [view])
 
+  const motion = reducedMotion ? 'still' : view.motion
+  const caption = labCallCaption(view, utterance)
   return (
     <div
       className={`lab-call is-${view.status}`}
@@ -159,65 +111,71 @@ export function LabVoiceCall({
       role="dialog"
       aria-label={LAB_CALL_COPY.callLabel}
     >
-      <p className="lab-call-connection" data-testid="lab-call-connection">
-        <span className="lab-call-connection-dot" aria-hidden="true" />
-        <span className="lab-call-connection-label">{LAB_CALL_COPY.connectionLabel}</span>
-        <span className="lab-call-connection-value">{view.connectionText}</span>
-      </p>
+      <div className="lab-call-top">
+        {bookLine && <span className="lab-call-book" data-testid="lab-call-book">{bookLine}</span>}
+        <p className="lab-call-connection" data-testid="lab-call-connection">
+          <span className="lab-call-connection-dot" aria-hidden="true" />
+          <span className="lab-call-connection-value">{view.connectionText}</span>
+        </p>
+      </div>
 
       <div className="lab-call-stage">
-        <CallCircle view={view} getAssistantLevel={getAssistantLevel} reducedMotion={reducedMotion} />
-        <p className="lab-call-status" data-testid="lab-call-status" aria-live="polite">
-          {view.statusText}
-        </p>
-        {view.micOff && view.status !== 'muted' && (
-          <p className="lab-call-micoff" data-testid="lab-call-micoff">{LAB_CALL_COPY.micOff}</p>
-        )}
-        {view.status === 'disconnected' && (
-          <p className="lab-call-help" data-testid="lab-call-help">{LAB_CALL_COPY.disconnectedHelp}</p>
-        )}
-        {notice && <p className="lab-call-notice" data-testid="lab-call-notice">{notice}</p>}
+        <VoiceOrb
+          status={view.status}
+          motion={motion}
+          broken={view.broken}
+          getAssistantLevel={getAssistantLevel}
+          reducedMotion={reducedMotion}
+          size={LAB_CALL_ORB_PX}
+          className="lab-call-circle"
+        />
+        <div className="lab-call-words">
+          <p className="lab-call-status" data-testid="lab-call-status" aria-live="polite">
+            {view.statusText}
+          </p>
+          {caption && <p className="lab-call-caption" data-testid="lab-call-caption">{caption}</p>}
+          {view.micOff && view.status !== 'muted' && (
+            <p className="lab-call-micoff" data-testid="lab-call-micoff">{LAB_CALL_COPY.micOff}</p>
+          )}
+          {view.status === 'disconnected' && (
+            <p className="lab-call-help" data-testid="lab-call-help">{LAB_CALL_COPY.disconnectedHelp}</p>
+          )}
+          {notice && <p className="lab-call-notice" data-testid="lab-call-notice">{notice}</p>}
+        </div>
       </div>
 
       <div className="lab-call-controls">
-        <button
-          type="button"
-          className="lab-call-transcript"
-          data-testid="lab-call-transcript"
+        {view.showReconnect ? (
+          <VoiceControl
+            testId="lab-call-reconnect"
+            word={LAB_CALL_COPY.reconnect}
+            icon={<VoiceReconnectIcon />}
+            onClick={onReconnect}
+          />
+        ) : (
+          <VoiceControl
+            testId="lab-call-mute"
+            word={view.micOff ? LAB_CALL_COPY.unmute : LAB_CALL_COPY.mute}
+            icon={<VoiceMicIcon off={view.micOff} />}
+            on={view.micOff}
+            pressed={view.micOff}
+            onClick={onMuteToggle}
+          />
+        )}
+        <VoiceControl
+          testId="lab-call-transcript"
+          word={LAB_CALL_COPY.transcript}
+          icon={<VoiceTranscriptIcon />}
           onClick={onTranscript}
-        >
-          {LAB_CALL_COPY.transcript}
-        </button>
-        <div className="lab-call-buttons">
-          {view.showReconnect ? (
-            <button
-              type="button"
-              className="lab-call-button is-reconnect"
-              data-testid="lab-call-reconnect"
-              onClick={onReconnect}
-            >
-              {LAB_CALL_COPY.reconnect}
-            </button>
-          ) : (
-            <button
-              type="button"
-              className={`lab-call-button is-mute${view.micOff ? ' is-on' : ''}`}
-              data-testid="lab-call-mute"
-              aria-pressed={view.micOff}
-              onClick={onMuteToggle}
-            >
-              {view.micOff ? LAB_CALL_COPY.unmute : LAB_CALL_COPY.mute}
-            </button>
-          )}
-          <button
-            type="button"
-            className="lab-call-button is-end"
-            data-testid="lab-call-end"
-            onClick={onEnd}
-          >
-            {LAB_CALL_COPY.end}
-          </button>
-        </div>
+        />
+        <VoiceControl
+          testId="lab-call-end"
+          word={LAB_CALL_COPY.endWord}
+          label={LAB_CALL_COPY.end}
+          icon={<VoiceEndIcon />}
+          filled
+          onClick={onEnd}
+        />
       </div>
     </div>
   )

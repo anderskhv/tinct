@@ -83,7 +83,8 @@ import { LabNativePaginator, shrinkNativePageAfterPaint } from './LabNativePagin
 import { LabChapterCover } from './LabChapterCover'
 import { LabVoiceActionPanel } from './LabVoiceActionPanel'
 import { LabVoiceCall, LabVoiceCallBar } from './LabVoiceCall.tsx'
-import { labCallRestore, labCallView, type LabCallAnchor } from './labVoiceCall'
+import { LabVoiceDesktopPanel, LabVoicePill } from './LabVoiceDesktop.tsx'
+import { labCallRestore, labCallUtterance, labCallView, type LabCallAnchor } from './labVoiceCall'
 import { LabPageMeasurePaint, LabPassage } from './LabPassage'
 import { LabInTheBook } from './LabInTheBook'
 import { bibleBookOpeningTitle, bibleFallbackSource, loadLabBookSource, nextLabChapter, prevLabChapter, prefetchLabChapterTexts, type LabMark, type LabSource } from './labSource'
@@ -338,9 +339,14 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const appearanceProfile: LabAppearanceProfile = showPhoneChrome ? 'phone' : 'desktop'
   // The full-screen call interface is Chrome V2, phone only. Every other
   // surface keeps the conversation overlay it ships with, untouched.
-  const voiceCallSurface = chromeV2 && showPhoneChrome
+  // Chrome V2 models Talk as a call on both platforms: the reader's own
+  // `callOpen` intent, an anchor for their place, and one `LabCallView`. The
+  // phone draws it full screen; the desktop draws it in the companion panel
+  // (or, minimized, as a pill) — see the 2026-09-11 voice surface brief.
+  const voiceCallSurface = chromeV2
   const voiceCallSurfaceRef = useRef(voiceCallSurface)
   voiceCallSurfaceRef.current = voiceCallSurface
+  const voicePanelSurface = chromeV2 && !showPhoneChrome
   const [readerHandoff] = useState(() => source ? null : consumeLabReaderHandoffForPage())
   const { user: authUser, likelyAuthenticated } = useAuth()
   const boot = bootLabReading(source)
@@ -490,6 +496,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   callOpenRef.current = callOpen
   const callAnchorRef = useRef<LabCallAnchor | null>(null)
   const endCallRef = useRef<() => void>(() => {})
+  // Desktop only: the panel collapsed to the corner pill. Rendering state; it
+  // never touches the session or the reader's place.
+  const [callMinimized, setCallMinimized] = useState(false)
+  // The paragraph the conversation is about, tinted on the desktop page.
+  const [callParagraph, setCallParagraph] = useState<number | null>(null)
   // True from the moment the reader asks for a call until the session reports
   // its first transport fact. It is the only place "no report yet" is read as
   // connecting; after that, no session means no connection.
@@ -1995,7 +2006,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     if (ask.voiceActive) {
       setChrome('talking')
       setPeekBook(false)
-      setDesktopAskOpen(true)
+      // A V2 call draws its own desktop panel; the chat pane stays closed.
+      if (!(voiceCallSurfaceRef.current && callOpenRef.current)) setDesktopAskOpen(true)
       return
     }
     if (!wasTalking) return
@@ -2017,8 +2029,10 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     } else {
       // Voice that ended with a notice (mic refused, token missing, timed
       // out) keeps the desktop companion open as Chat, the way the phone
-      // sheet stays up, so the reader sees why and can type instead.
-      if (!askNoticeRef.current) setDesktopAskOpen(false)
+      // sheet stays up, so the reader sees why and can type instead. So does
+      // a V2 call the reader handed over to Chat: its chrome is already
+      // 'reading' and the companion it opened is Chat's, not Talk's.
+      if (!askNoticeRef.current && chromeRef.current === 'talking') setDesktopAskOpen(false)
       setChrome(current => (current === 'talking' ? labAfterTalk(returnToRef.current) : current))
     }
   }, [ask.voiceActive, ask.voiceConnection, resumeListenAfterAsk, voiceTrial])
@@ -2101,8 +2115,12 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const paintedChapterLabel = initialResolving || handoffWritesSuspended ? '' : book.chapterLabel
   const voiceOverlayOpen = showPhoneChrome && !voiceCallSurface && chrome === 'talking' && !phoneAskOpen
   // The full-screen call, and what is left of it while the transcript is open.
-  const callFullScreen = voiceCallSurface && callOpen && !phoneAskOpen
-  const callBarVisible = voiceCallSurface && callOpen && phoneAskOpen
+  const callFullScreen = voiceCallSurface && showPhoneChrome && callOpen && !phoneAskOpen
+  const callBarVisible = voiceCallSurface && showPhoneChrome && callOpen && phoneAskOpen
+  // The desktop conversation: the companion panel, or the pill while minimized.
+  const desktopVoiceOpen = voicePanelSurface && callOpen
+  const callUtterance = labCallUtterance(ask.turns)
+  const callBookLine = `${book.bookTitle}, ${book.chapterLabel}`
   const callConnection = callAwaitingConnection && ask.voiceConnection === 'idle'
     ? ('connecting' as const)
     : ask.voiceConnection
@@ -3071,8 +3089,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       setCallAwaitingConnection(true)
       setChrome('talking')
       setPhoneAskOpen(false)
+      setDesktopAskOpen(false)
       setInTheBookOpen(false)
       setPeekBook(false)
+      setCallMinimized(false)
+      setCallParagraph(focusParagraph ?? placeRef.current.paragraphIndex)
       setCallOpen(true)
       startCallVoice()
       return
@@ -3090,11 +3111,18 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     void ask.startVoice().then((started) => {
       if (!started) setVoiceGate('off')
     })
-  }, [ask, captureCallAnchor, dictation.stop, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
+  }, [ask, captureCallAnchor, dictation.stop, focusParagraph, interruptHearForAsk, openPhoneAsk, showPhoneChrome, startCallVoice, voiceCallSurface])
+
+  // A move the conversation makes (a jump to a paragraph) moves the tint.
+  useEffect(() => {
+    if (!callOpen || focusParagraph == null) return
+    setCallParagraph(focusParagraph)
+  }, [callOpen, focusParagraph])
 
   /** The call's own end: stop the session, close the surface, give the place back. */
   const endCall = useCallback(() => {
     setCallOpen(false)
+    setCallMinimized(false)
     ask.stopVoice()
     ask.setMicMuted(false)
     resumeListenAfterAsk()
@@ -3132,6 +3160,16 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
         resumeListenAfterAsk()
         return
       }
+      if (chromeV2 && callOpen) {
+        // Chat chosen during a desktop call: the call ends here (its place
+        // given back), and the companion opens as Chat in its stead. Audio
+        // the call interrupted stays paused for Chat and resumes on close.
+        setCallOpen(false)
+        setCallMinimized(false)
+        ask.setMicMuted(false)
+        restoreCallAnchor()
+        setChrome(current => (current === 'talking' ? 'reading' : current))
+      }
       interruptHearForAsk()
       setDesktopAskOpen(true)
       if (ask.voiceActive) ask.stopVoice()
@@ -3146,7 +3184,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     openPhoneAsk()
     if (ask.voiceActive) ask.stopVoice()
     else stayInAskRef.current = false
-  }, [ask, chrome, chromeV2, desktopAskOpen, interruptHearForAsk, openPhoneAsk, resumeListenAfterAsk, showPhoneChrome])
+  }, [ask, callOpen, chrome, chromeV2, desktopAskOpen, interruptHearForAsk, openPhoneAsk, restoreCallAnchor, resumeListenAfterAsk, showPhoneChrome])
 
   const openContentsPassage = useCallback((place: ContentsPlace, chat?: ChatConversation, chapterOnly = false) => {
     const bookId = book.bookId || 'bible'
@@ -3427,7 +3465,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       data-compare-active={(showPhoneChrome ? mobileCompareActive : desktopCompareActive) ? 'true' : 'false'}
       data-desktop-paging={desktopPaging ? 'true' : undefined}
       data-desktop-view={desktopCompareActive ? 'compare' : 'read'}
-      data-desktop-panel={!showPhoneChrome && desktopAskOpen ? (chrome === 'talking' ? 'talk' : 'chat') : 'none'}
+      data-desktop-panel={desktopVoiceOpen
+        ? (callMinimized ? 'pill' : 'talk')
+        : !showPhoneChrome && desktopAskOpen ? (chrome === 'talking' ? 'talk' : 'chat') : 'none'}
       data-voice-surface={voiceLabView}
       data-voice-version={voiceVersion}
       {...(chromeV2 ? {
@@ -3666,6 +3706,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             markedIndexes={mobileCompareActive ? new Set<number>() : markedIndexes}
             onMark={mobileCompareActive ? undefined : handleMark}
             focusParagraph={focusParagraph}
+            discussedParagraph={desktopVoiceOpen ? callParagraph : null}
             dimmed={voiceOverlayOpen}
             peek={chrome === 'hearing' && peekBook}
             readingPage={readingPage}
@@ -3749,7 +3790,32 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
             onReturn={() => setPhoneAskOpen(false)}
           />
         )}
-        {((!showPhoneChrome && desktopAskOpen) || phoneAsk) && (
+        {desktopVoiceOpen && !callMinimized && (
+          <LabVoiceDesktopPanel
+            view={callView}
+            turns={ask.turns}
+            getAssistantLevel={ask.getAssistantLevel}
+            reducedMotion={reducedMotion}
+            notice={ask.notice}
+            onMuteToggle={toggleCallMute}
+            onEnd={endCall}
+            onReconnect={reconnectCall}
+            onMinimize={() => setCallMinimized(true)}
+          />
+        )}
+        {desktopVoiceOpen && callMinimized && (
+          <LabVoicePill
+            view={callView}
+            turns={ask.turns}
+            getAssistantLevel={ask.getAssistantLevel}
+            reducedMotion={reducedMotion}
+            onMuteToggle={toggleCallMute}
+            onEnd={endCall}
+            onReconnect={reconnectCall}
+            onExpand={() => setCallMinimized(false)}
+          />
+        )}
+        {((!showPhoneChrome && desktopAskOpen && !desktopVoiceOpen) || phoneAsk) && (
           <LabAskPane
             chromeV2={chromeV2}
             focusTurnId={chromeV2 ? contentsConversation?.messages.find(message => message.role === 'user')?.id : undefined}
@@ -4089,7 +4155,7 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
       </div>}
 
       <LabVoiceActionPanel
-        active={ask.voiceActive}
+        active={ask.voiceActive && !(chromeV2 && callOpen)}
         view={voiceLabView}
         darkMode={resolvedDarkMode}
         fontSize={prefs.fontSize}
@@ -4239,6 +4305,8 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
           getAssistantLevel={ask.getAssistantLevel}
           reducedMotion={reducedMotion}
           notice={ask.notice}
+          bookLine={callBookLine}
+          utterance={callUtterance}
           onMuteToggle={toggleCallMute}
           onTranscript={openCallTranscript}
           onEnd={endCall}

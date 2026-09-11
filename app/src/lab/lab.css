@@ -4615,18 +4615,6 @@
 .lab.is-night .lab-account-nudge { color: var(--lab-ink-muted); border-color: var(--lab-border); }
 .lab.is-night .lab-account-nudge a { color: var(--lab-ink); }
 
-/* The two call-circle motions. Keyframes cannot carry a selector, so they
-   live above the V2 region; only V2 rules ever reference them. */
-@keyframes lab-call-turn {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes lab-call-breathe {
-  0%, 100% { transform: scale(0.92); opacity: 0.78; }
-  50% { transform: scale(1.04); opacity: 1; }
-}
-
 /* ── Tablets (2026-09-11) ────────────────────────────────────────────────
    Landscape tablets (900px and wider) take the desktop surface — the
    two-column spread — through LAB_PHONE_QUERY in labChrome.ts. Upright
@@ -5812,21 +5800,128 @@
 .lab[data-chrome-version="v2"] .lab-ask-composer .lab-ask-send { order: 3; }
 
 
-/* ── The phone call surface ────────────────────────────────────────────────
-   A quiet circle, one large status line, and the connection kept apart from
-   it. Phone only; every rule is behind the flag like the rest of V2. */
+/* ── The voice surface (locked 2026-09-11) ────────────────────────────────
+   Monochrome: ink on paper, bone on night. No accent colour, no monospace,
+   no uppercase anywhere on it. The orb is a dotted sphere on a 2D canvas
+   (VoiceOrb.tsx) drawn in its own CSS `color`. Phone: the full-screen call.
+   Desktop: the companion panel, or the corner pill while minimized. Every
+   rule is behind the V2 flag like the rest of the chrome. */
 
 .lab[data-chrome-version="v2"] {
-  --lab-call-accent: #1f4a5c;
-  --lab-call-accent-soft: rgba(31, 74, 92, 0.16);
-  --lab-call-hairline: rgba(11, 11, 11, 0.12);
+  --lab-call-ink: #0b0b0b;
+  --lab-call-muted: #6a6256;
+  --lab-call-hairline: #c8c0ae;
+  --lab-call-rule: rgba(123, 108, 85, 0.18);
+  --lab-call-tint: rgba(11, 11, 11, 0.08);
+  --lab-call-panel: rgba(249, 245, 236, 0.96);
+  --lab-call-panel-border: rgba(123, 108, 85, 0.22);
+  --lab-call-panel-shadow: -18px 0 42px rgba(53, 43, 30, 0.1);
+  --lab-call-pill-shadow: 0 14px 36px rgba(53, 43, 30, 0.14);
 }
 
 .lab[data-chrome-version="v2"].is-night {
-  --lab-call-accent: #86b6c6;
-  --lab-call-accent-soft: rgba(134, 182, 198, 0.18);
-  --lab-call-hairline: rgba(250, 246, 238, 0.16);
+  --lab-call-ink: #f1eadb;
+  --lab-call-muted: #8c8577;
+  --lab-call-hairline: rgba(241, 234, 219, 0.26);
+  --lab-call-rule: rgba(209, 182, 142, 0.2);
+  --lab-call-tint: rgba(241, 234, 219, 0.1);
+  --lab-call-panel: rgba(62, 52, 42, 0.92);
+  --lab-call-panel-border: rgba(209, 182, 142, 0.2);
+  --lab-call-panel-shadow: 0 22px 54px rgba(0, 0, 0, 0.28);
+  --lab-call-pill-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
 }
+
+/* The orb draws in currentColor; the canvas is sized by the component. */
+.lab[data-chrome-version="v2"] .lab-voice-orb {
+  position: relative;
+  flex: none;
+  display: block;
+  color: var(--lab-call-ink);
+}
+
+.lab[data-chrome-version="v2"] .lab-voice-orb-canvas {
+  display: block;
+}
+
+/* Round icon buttons with one word beneath: 60px on the phone, 52px on the
+   desktop. Stroke icons; End is a filled ink disc with a paper X. */
+.lab[data-chrome-version="v2"] .lab-voice-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--lab-call-ink);
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lab[data-chrome-version="v2"] .lab-voice-control-disc {
+  display: grid;
+  place-items: center;
+  width: var(--lab-voice-control-size, 60px);
+  height: var(--lab-voice-control-size, 60px);
+  border: 1px solid var(--lab-call-hairline);
+  border-radius: 50%;
+  color: var(--lab-call-ink);
+  transition: background-color 120ms ease;
+}
+
+.lab[data-chrome-version="v2"] .lab-voice-control.is-on .lab-voice-control-disc {
+  background: color-mix(in srgb, var(--lab-call-ink) 10%, transparent);
+}
+
+.lab[data-chrome-version="v2"] .lab-voice-control.is-filled .lab-voice-control-disc {
+  border-color: var(--lab-call-ink);
+  background: var(--lab-call-ink);
+  color: var(--lab-paper);
+}
+
+.lab[data-chrome-version="v2"] .lab-voice-control-word {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: var(--lab-voice-control-word, 15px);
+  line-height: 1.2;
+  color: var(--lab-call-muted);
+}
+
+.lab[data-chrome-version="v2"] .lab-voice-control:focus-visible .lab-voice-control-disc {
+  outline: 2px solid var(--lab-call-ink);
+  outline-offset: 3px;
+}
+
+/* "• Connected" beside the book line; hollow while the line is not open. */
+.lab[data-chrome-version="v2"] .lab-call-connection,
+.lab[data-chrome-version="v2"] .lab-voice-connection {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: normal;
+  color: var(--lab-call-muted);
+}
+
+.lab[data-chrome-version="v2"] .lab-call-connection-dot,
+.lab[data-chrome-version="v2"] .lab-voice-connection-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lab-call-ink);
+}
+
+.lab[data-chrome-version="v2"] [data-connection="connecting"] .lab-call-connection-dot,
+.lab[data-chrome-version="v2"] [data-connection="connecting"] .lab-voice-connection-dot,
+.lab[data-chrome-version="v2"] [data-connection="lost"] .lab-call-connection-dot,
+.lab[data-chrome-version="v2"] [data-connection="lost"] .lab-voice-connection-dot {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--lab-call-muted);
+}
+
+/* ── Phone: the full-screen call ──────────────────────────────────────── */
 
 /* z-index sits above the V2 header (330): a call owns the whole screen. */
 .lab[data-chrome-version="v2"] .lab-call {
@@ -5835,221 +5930,321 @@
   z-index: 340;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 1rem;
+  box-sizing: border-box;
   padding:
-    calc(1.35rem + env(safe-area-inset-top, 0px))
-    1.5rem
-    calc(1.6rem + env(safe-area-inset-bottom, 0px));
+    calc(2.2rem + env(safe-area-inset-top, 0px))
+    1.75rem
+    calc(2.5rem + env(safe-area-inset-bottom, 0px));
   background: var(--lab-paper);
-  color: var(--lab-ink);
+  color: var(--lab-call-ink);
+  font-family: 'EB Garamond', Georgia, serif;
   text-align: center;
 }
 
-.lab[data-chrome-version="v2"] .lab-call-connection {
+.lab[data-chrome-version="v2"] .lab-call-top {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 0;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.66rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--lab-ink-muted);
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 17px;
+  color: var(--lab-call-muted);
 }
 
-.lab[data-chrome-version="v2"] .lab-call-connection-dot {
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 50%;
-  background: var(--lab-ink-faint);
+.lab[data-chrome-version="v2"] .lab-call-book {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
 }
 
-.lab[data-chrome-version="v2"] .lab-call[data-connection="connected"] .lab-call-connection-dot {
-  background: var(--lab-call-accent);
+.lab[data-chrome-version="v2"] .lab-call-top .lab-call-connection {
+  flex: none;
+  font-size: 17px;
 }
-
-.lab[data-chrome-version="v2"] .lab-call[data-connection="lost"] .lab-call-connection-dot {
-  background: transparent;
-  box-shadow: inset 0 0 0 1.5px var(--lab-call-accent);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-connection-value { color: var(--lab-ink); }
 
 .lab[data-chrome-version="v2"] .lab-call-stage {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.6rem;
+  gap: 28px;
+  min-height: 0;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-circle {
-  position: relative;
-  width: min(56vw, 232px);
-  height: min(56vw, 232px);
-  display: grid;
-  place-items: center;
+  max-width: min(72vw, 280px);
+  max-height: min(72vw, 280px);
 }
 
-.lab[data-chrome-version="v2"] .lab-call-ring {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-ring-track {
-  fill: none;
-  stroke: var(--lab-call-hairline);
-  stroke-width: 2;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-ring-mark {
-  fill: none;
-  stroke: var(--lab-call-accent);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  transform-origin: 50% 50%;
-}
-
-/* A closed circle while the line is open, a broken ring while it is not. */
-.lab[data-chrome-version="v2"] .lab-call-circle[data-broken="true"] .lab-call-ring-mark {
-  stroke-dasharray: 118 422;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-circle.motion-rotate .lab-call-ring-mark {
-  animation: lab-call-turn 2.8s linear infinite;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-circle.is-disconnected .lab-call-ring-track { stroke: transparent; }
-
-.lab[data-chrome-version="v2"] .lab-call-circle.is-disconnected .lab-call-ring-mark {
-  stroke: var(--lab-call-accent);
-  stroke-width: 6;
-  stroke-dasharray: 74 44;
-  animation: none;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-core {
-  position: relative;
-  width: 52%;
-  height: 52%;
-  border-radius: 50%;
-  background: var(--lab-call-accent);
-  opacity: 0.9;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-circle.motion-breathe .lab-call-core {
-  animation: lab-call-breathe 4.2s ease-in-out infinite;
-}
-
-/* Speaking: the size is the assistant's own loudness, written frame by frame
-   from an analyser on her playback. With no level the circle simply rests. */
-.lab[data-chrome-version="v2"] .lab-call-circle.motion-pulse .lab-call-core {
-  transform: scale(calc(0.82 + var(--lab-call-level, 0) * 0.34));
-  transition: transform 60ms linear;
-}
-
-.lab[data-chrome-version="v2"] .lab-call-circle.is-muted .lab-call-core,
-.lab[data-chrome-version="v2"] .lab-call-circle.is-disconnected .lab-call-core {
-  background: transparent;
-  box-shadow: inset 0 0 0 2px var(--lab-call-accent-soft);
-}
-
-.lab[data-chrome-version="v2"] .lab-call-circle.is-connecting .lab-call-core,
-.lab[data-chrome-version="v2"] .lab-call-circle.is-thinking .lab-call-core {
-  opacity: 0.35;
+.lab[data-chrome-version="v2"] .lab-call-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-status {
   margin: 0;
-  font-family: 'Playfair Display', 'EB Garamond', Georgia, serif;
-  font-size: 2rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 34px;
   line-height: 1.15;
   letter-spacing: -0.01em;
+  color: var(--lab-call-ink);
 }
 
+.lab[data-chrome-version="v2"] .lab-call-caption,
 .lab[data-chrome-version="v2"] .lab-call-micoff,
 .lab[data-chrome-version="v2"] .lab-call-help,
 .lab[data-chrome-version="v2"] .lab-call-notice {
-  margin: -0.7rem 0 0;
-  max-width: 22rem;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.72rem;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  color: var(--lab-ink-muted);
+  margin: 0;
+  max-width: 300px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--lab-call-muted);
 }
 
-.lab[data-chrome-version="v2"] .lab-call-micoff {
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--lab-ink);
+.lab[data-chrome-version="v2"] .lab-call-caption {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-controls {
   display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+/* ── Desktop: the companion panel ─────────────────────────────────────── */
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+  justify-self: end;
+  width: min(560px, 48%);
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border: 1px solid var(--lab-call-panel-border);
+  border-radius: 4px;
+  background: var(--lab-call-panel);
+  box-shadow: var(--lab-call-panel-shadow);
+  backdrop-filter: blur(24px) saturate(1.08);
+  -webkit-backdrop-filter: blur(24px) saturate(1.08);
+  color: var(--lab-call-ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  overflow: hidden;
+  z-index: 160;
+  --lab-voice-control-size: 52px;
+  --lab-voice-control-word: 14px;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-head {
+  flex: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-minimize,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-expand {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--lab-call-muted);
+  cursor: pointer;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-minimize:hover,
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-expand:hover {
+  color: var(--lab-call-ink);
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-stage {
+  flex: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.1rem;
+  gap: 6px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid var(--lab-call-rule);
+  text-align: center;
 }
 
-.lab[data-chrome-version="v2"] .lab-call-transcript {
-  border: 0;
-  background: none;
-  padding: 0.4rem 0.2rem;
-  font-family: 'EB Garamond', Georgia, serif;
-  font-size: 1.02rem;
-  color: var(--lab-call-accent);
-  text-decoration: underline;
-  text-underline-offset: 0.28em;
-  cursor: pointer;
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-status {
+  margin: 6px 0 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
-.lab[data-chrome-version="v2"] .lab-call-buttons {
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection {
+  font-size: 15px;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel .lab-voice-connection-dot {
+  width: 5px;
+  height: 5px;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-line {
+  margin: 4px 0 0;
+  max-width: 26rem;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--lab-call-muted);
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-thread {
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
-  gap: 0.75rem;
-  width: 100%;
-  max-width: 22rem;
+  flex-direction: column;
+  gap: 22px;
+  padding: 26px 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.lab[data-chrome-version="v2"] .lab-call-button {
-  flex: 1;
-  min-height: 3rem;
-  border: 1px solid var(--lab-border);
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-empty {
+  margin: 0;
+  font-style: italic;
+  color: var(--lab-call-muted);
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn-label {
+  font-size: 15px;
+  font-style: italic;
+  color: var(--lab-call-muted);
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-turn-text {
+  margin: 0;
+  color: var(--lab-call-ink);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: var(--lab-call-ink);
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-panel-controls {
+  flex: none;
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  padding: 14px 0 10px;
+  border-top: 1px solid var(--lab-call-rule);
+}
+
+/* ── Desktop: the pill in the corner ──────────────────────────────────── */
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill {
+  position: absolute;
+  right: 40px;
+  bottom: 34px;
+  z-index: 170;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: calc(100% - 80px);
+  box-sizing: border-box;
+  padding: 10px 14px 10px 10px;
+  border: 1px solid var(--lab-call-panel-border);
   border-radius: 999px;
-  background: transparent;
-  color: var(--lab-ink);
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.74rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  background: var(--lab-call-panel);
+  box-shadow: var(--lab-call-pill-shadow);
+  backdrop-filter: blur(24px) saturate(1.08);
+  -webkit-backdrop-filter: blur(24px) saturate(1.08);
+  color: var(--lab-call-ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  --lab-voice-control-size: 52px;
+}
+
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-orb {
+  flex: none;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: inherit;
   cursor: pointer;
 }
 
-.lab[data-chrome-version="v2"] .lab-call-button.is-on {
-  border-color: var(--lab-call-accent);
-  background: var(--lab-call-accent-soft);
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-words {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  max-width: 340px;
 }
 
-.lab[data-chrome-version="v2"] .lab-call-button.is-end,
-.lab[data-chrome-version="v2"] .lab-call-button.is-reconnect {
-  border-color: var(--lab-call-accent);
-  background: var(--lab-call-accent);
-  color: var(--lab-paper);
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-status {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
-/* On a dropped call Reconnect is the one obvious action, so End steps back
-   to an outline rather than competing with it. */
-.lab[data-chrome-version="v2"] .lab-call[data-connection="lost"] .lab-call-button.is-end {
-  background: transparent;
-  border-color: var(--lab-border);
-  color: var(--lab-ink);
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--lab-call-muted);
 }
 
-/* The compact controls that stay over the transcript while the call runs. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-voice-pill-controls {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 6px;
+}
+
+/* The passage under discussion, tinted on the page in both desktop states. */
+.lab.is-desktop[data-chrome-version="v2"] .lab-hearing-line.is-discussed {
+  background: var(--lab-call-tint);
+  box-shadow: -6px 0 0 var(--lab-call-tint), 6px 0 0 var(--lab-call-tint);
+}
+
+/* The compact controls that stay over the transcript while the phone call
+   runs. Layout unchanged; the accent gave way to ink. */
 .lab[data-chrome-version="v2"] .lab-call-bar {
   flex: none;
   z-index: 301;
@@ -6079,7 +6274,7 @@
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: var(--lab-call-accent);
+  background: var(--lab-call-ink);
   flex: none;
   align-self: center;
 }
@@ -6087,7 +6282,7 @@
 .lab[data-chrome-version="v2"] .lab-call-bar-dot.is-disconnected,
 .lab[data-chrome-version="v2"] .lab-call-bar-dot.is-muted {
   background: transparent;
-  box-shadow: inset 0 0 0 1.5px var(--lab-call-accent);
+  box-shadow: inset 0 0 0 1.5px var(--lab-call-ink);
 }
 
 .lab[data-chrome-version="v2"] .lab-call-bar-back {
@@ -6104,10 +6299,9 @@
 }
 
 .lab[data-chrome-version="v2"] .lab-call-bar-connection {
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 0.85rem;
   color: var(--lab-ink-muted);
 }
 
@@ -6117,32 +6311,22 @@
   border-radius: 999px;
   background: transparent;
   color: var(--lab-ink);
-  padding: 0.4rem 0.62rem;
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 0.9rem;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .lab[data-chrome-version="v2"] .lab-call-bar-action.is-on {
-  border-color: var(--lab-call-accent);
-  background: var(--lab-call-accent-soft);
+  border-color: var(--lab-call-ink);
+  background: color-mix(in srgb, var(--lab-call-ink) 10%, transparent);
 }
 
 .lab[data-chrome-version="v2"] .lab-call-bar-action.is-end {
-  border-color: var(--lab-call-accent);
-  background: var(--lab-call-accent);
+  border-color: var(--lab-call-ink);
+  background: var(--lab-call-ink);
   color: var(--lab-paper);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .lab[data-chrome-version="v2"] .lab-call-circle .lab-call-ring-mark,
-  .lab[data-chrome-version="v2"] .lab-call-circle .lab-call-core {
-    animation: none !important;
-    transition: none !important;
-  }
 }
 
 /* V2 contents controls remain reachable above the chapter scroll. */

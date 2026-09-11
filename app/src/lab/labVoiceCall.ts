@@ -38,14 +38,21 @@ export const LAB_CALL_COPY = {
   connectionConnecting: 'Connecting',
   connectionLost: 'Not connected',
   connectionLabel: 'Connection',
-  /** The exact control label the owner specified. Do not paraphrase. */
-  transcript: 'See transcript in real time.',
+  /** The word under the three-lines button. The underlined link is retired (2026-09-11). */
+  transcript: 'Transcript',
+  /** The accessible name of End; the phone bar still shows it in full. */
   end: 'End conversation',
+  /** The word under the X. */
+  endWord: 'End',
   mute: 'Mute',
   unmute: 'Unmute',
   reconnect: 'Reconnect',
   backToCall: 'Back to the conversation',
   callLabel: 'Voice conversation',
+  /** The caption while the microphone is open and nothing is being said. */
+  askAboutPage: 'Ask about this page.',
+  minimize: 'Minimize the conversation',
+  expand: 'Open the conversation',
 } as const
 
 export interface LabCallInput {
@@ -159,6 +166,39 @@ export function labCallView(input: LabCallInput): LabCallView {
     micOff: input.micMuted,
     showReconnect: false,
   }
+}
+
+/** How much of an utterance the one-line caption and the pill carry. */
+export const LAB_CALL_CAPTION_CHARS = 120
+
+/**
+ * The newest thing the assistant said, as one line: whitespace collapsed
+ * and, when it runs long, the tail of it behind an ellipsis, since the end
+ * of a sentence is what she is saying now.
+ */
+export function labCallUtterance(turns: ReadonlyArray<{ role: 'user' | 'assistant'; content: string }>): string | null {
+  for (let index = turns.length - 1; index >= 0; index -= 1) {
+    const turn = turns[index]
+    if (turn.role !== 'assistant') continue
+    const text = turn.content.replace(/\s+/g, ' ').trim()
+    if (!text) continue
+    if (text.length <= LAB_CALL_CAPTION_CHARS) return text
+    const tail = text.slice(text.length - LAB_CALL_CAPTION_CHARS)
+    const cut = tail.indexOf(' ')
+    return `\u2026${cut > 0 && cut < 24 ? tail.slice(cut + 1) : tail}`
+  }
+  return null
+}
+
+/**
+ * The italic line under the status word. While she speaks it is what she is
+ * saying; while the microphone is open it invites the reader; otherwise
+ * nothing, because the status word already says what is happening.
+ */
+export function labCallCaption(view: Pick<LabCallView, 'status'>, utterance: string | null): string | null {
+  if (view.status === 'speaking') return utterance
+  if (view.status === 'listening') return LAB_CALL_COPY.askAboutPage
+  return null
 }
 
 /** Sounds the call may announce itself with. */

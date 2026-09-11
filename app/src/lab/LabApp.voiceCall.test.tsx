@@ -90,7 +90,7 @@ describe('Talk on the phone with Chrome V2', () => {
     it('opens the existing chat view with the call still live', async () => {
       await openCall()
       const control = screen.getByTestId('lab-call-transcript')
-      expect(control.textContent).toBe('See transcript in real time.')
+      expect(control.textContent).toBe('Transcript')
       fireEvent.click(control)
 
       await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
@@ -153,6 +153,128 @@ describe('Talk on the phone with Chrome V2', () => {
     })
     expect(screen.getByTestId('lab-call-reconnect')).toBeTruthy()
     expect(screen.queryByText('Listening.')).toBeNull()
+  })
+})
+
+function renderDesktop(search = '?chrome=v2') {
+  return render(
+    <LabApp pathname="/lab/desktop" search={search} source={fallbackLabSource()} authToken={null} />,
+  )
+}
+
+async function openDesktopCall() {
+  const rendered = renderDesktop()
+  tapTalk()
+  await waitFor(() => expect(screen.getByTestId('lab-voice-panel')).toBeTruthy())
+  return rendered
+}
+
+const readerPlace = () => {
+  const root = screen.getByTestId('lab-root')
+  return `${root.getAttribute('data-chapter')}|${root.getAttribute('data-place')}`
+}
+
+describe('Talk on the desktop with Chrome V2', () => {
+  it('opens the conversation in the companion panel, not the chat pane and not full screen', async () => {
+    await openDesktopCall()
+    const root = screen.getByTestId('lab-root')
+    expect(root.getAttribute('data-desktop-panel')).toBe('talk')
+    expect(screen.getByTestId('lab-voice-panel-orb')).toBeTruthy()
+    expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Connecting.')
+    expect(screen.queryByTestId('lab-call')).toBeNull()
+    expect(screen.queryByTestId('lab-ask-pane')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-pill')).toBeNull()
+    // Mute and End are in the panel; the transcript is the panel body.
+    expect(screen.getByTestId('lab-voice-panel-mute')).toBeTruthy()
+    expect(screen.getByTestId('lab-voice-panel-end')).toBeTruthy()
+    expect(screen.getByTestId('lab-voice-panel-thread')).toBeTruthy()
+  })
+
+  it('tints the passage under discussion on the page', async () => {
+    await openDesktopCall()
+    await waitFor(() => expect(document.querySelector('.lab-hearing-line.is-discussed')).toBeTruthy())
+  })
+
+  describe('minimizing', () => {
+    it('collapses the panel to the pill with the call still running', async () => {
+      await openDesktopCall()
+      fireEvent.click(screen.getByTestId('lab-voice-panel-minimize'))
+      expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
+      const pill = screen.getByTestId('lab-voice-pill')
+      expect(pill).toBeTruthy()
+      expect(screen.getByTestId('lab-voice-pill-status').textContent).toBe('Connecting.')
+      expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('pill')
+      expect(screen.getByTestId('lab-root').getAttribute('data-chrome-state')).toBe('talking')
+      // Still tinted while minimized.
+      expect(document.querySelector('.lab-hearing-line.is-discussed')).toBeTruthy()
+    })
+
+    it('restores the panel from the orb, the Transcript button and the expand control', async () => {
+      await openDesktopCall()
+      for (const control of ['lab-voice-pill-orb', 'lab-voice-pill-transcript', 'lab-voice-pill-expand']) {
+        fireEvent.click(screen.getByTestId('lab-voice-panel-minimize'))
+        expect(screen.getByTestId('lab-voice-pill')).toBeTruthy()
+        fireEvent.click(screen.getByTestId(control))
+        expect(screen.queryByTestId('lab-voice-pill')).toBeNull()
+        expect(screen.getByTestId('lab-voice-panel')).toBeTruthy()
+      }
+    })
+
+    it('never moves the reader\u2019s place', async () => {
+      await openDesktopCall()
+      const before = readerPlace()
+      fireEvent.click(screen.getByTestId('lab-voice-panel-minimize'))
+      expect(readerPlace()).toBe(before)
+      fireEvent.click(screen.getByTestId('lab-voice-pill-expand'))
+      expect(readerPlace()).toBe(before)
+      fireEvent.click(screen.getByTestId('lab-voice-panel-end'))
+      await waitFor(() => expect(screen.queryByTestId('lab-voice-panel')).toBeNull())
+      expect(readerPlace()).toBe(before)
+    })
+
+    it('mutes and ends from the pill', async () => {
+      await openDesktopCall()
+      fireEvent.click(screen.getByTestId('lab-voice-panel-minimize'))
+      fireEvent.click(screen.getByTestId('lab-voice-pill-end'))
+      await waitFor(() => expect(screen.queryByTestId('lab-voice-pill')).toBeNull())
+      expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
+      expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('none')
+    })
+  })
+
+  it('ends from the panel and returns to reading with the tint gone', async () => {
+    await openDesktopCall()
+    fireEvent.click(screen.getByTestId('lab-voice-panel-end'))
+    await waitFor(() => expect(screen.queryByTestId('lab-voice-panel')).toBeNull())
+    expect(screen.getByTestId('lab-root').getAttribute('data-chrome-state')).toBe('reading')
+    expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('none')
+    expect(document.querySelector('.lab-hearing-line.is-discussed')).toBeNull()
+  })
+
+  it('gives up on a connection that never lands, and offers Reconnect in the panel', async () => {
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    renderDesktop()
+    tapTalk()
+    await waitFor(() => expect(screen.getByTestId('lab-voice-panel')).toBeTruthy())
+    await vi.advanceTimersByTimeAsync(9000)
+    await waitFor(() => {
+      expect(screen.getByTestId('lab-voice-panel-status').textContent).toBe('Disconnected')
+    })
+    expect(screen.getByTestId('lab-voice-panel-reconnect')).toBeTruthy()
+    expect(screen.queryByTestId('lab-voice-panel-mute')).toBeNull()
+    expect(screen.queryByText('Listening.')).toBeNull()
+  })
+
+  it('hands over to Chat when the reader picks it during a call', async () => {
+    await openDesktopCall()
+    const before = readerPlace()
+    fireEvent.click(screen.getByTestId('lab-super'))
+    fireEvent.click(screen.getByTestId('lab-super-row-chat'))
+    await waitFor(() => expect(screen.getByTestId('lab-ask-pane')).toBeTruthy())
+    expect(screen.queryByTestId('lab-voice-panel')).toBeNull()
+    expect(screen.queryByTestId('lab-voice-pill')).toBeNull()
+    expect(screen.getByTestId('lab-root').getAttribute('data-desktop-panel')).toBe('chat')
+    expect(readerPlace()).toBe(before)
   })
 })
 
