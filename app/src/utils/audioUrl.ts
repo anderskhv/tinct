@@ -2,8 +2,10 @@
 // bucket can stay private. The Worker reads from the AUDIO_BUCKET binding and
 // applies the access/rate-limit policy at one origin.
 
+import { isNativeCapacitor } from './nativePlatform'
+
 function isCapacitor(): boolean {
-  return typeof window !== 'undefined' && !!(window as Record<string, unknown>).Capacitor
+  return isNativeCapacitor()
 }
 
 /** Where worker endpoints live when running in Capacitor — must call the

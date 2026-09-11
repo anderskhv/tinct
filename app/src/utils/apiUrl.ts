@@ -1,9 +1,9 @@
 // API base URL — relative for web, absolute for Capacitor (Android/iOS)
 // In Capacitor, the app runs from file:// or capacitor:// so relative /api/ calls
 // would go to the local Capacitor server, not the production Cloudflare Worker.
-const isCapacitor = typeof window !== 'undefined' && !!(window as Record<string, unknown>).Capacitor
+import { isNativeCapacitor } from './nativePlatform'
 
-export const API_BASE = isCapacitor
+export const API_BASE = isNativeCapacitor()
   ? 'https://tinct.ahvelplund.workers.dev'
   : ''
 
