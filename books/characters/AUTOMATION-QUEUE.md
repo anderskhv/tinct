@@ -7,6 +7,12 @@ status record.
 
 Branch: `claude/tinct-character-content-1n5iqq`. Every session works here and
 pushes here. Content commits only — no app code, no deploys, no edition text.
+This branch is where the character-content work lives; it is not on `main`, so
+anyone looking for this file in a `main` checkout will not find it.
+
+What is already live is recorded in `INTEGRATION-STATUS.md` and re-measured with
+`python3 books/characters/serving_check.py`. Read it before assuming a book still
+needs work.
 
 ## Two lanes, and why
 
@@ -68,7 +74,9 @@ Not automated. `odyssey`, `iliad`, `the-aeneid`, `divine-comedy`,
 Plus the three partials, which carry live or drafted work that must be
 preserved rather than replaced: `war-and-peace` (45-entry draft),
 `bible` (Baruch only, live in three English editions), `the-awakening`
-(live pilot needing the approved shortening).
+(live pilot needing the approved shortening). `bible` and `the-awakening` are
+served in production today — confirmed by the serving check — so their existing
+files are live content, not drafts.
 
 ## Procedure for each session
 
@@ -95,6 +103,9 @@ preserved rather than replaced: `war-and-peace` (45-entry draft),
 7. Write focused tests for the real ambiguities you found, not for things that
    cannot fail. Run them and then the full suite:
    `python3 -m unittest discover -s books/characters -p 'test_*.py'`
+7b. **Run the editorial checks.** Mention counts prove nothing about identity;
+    these are the checks that do. See "Editorial checks" below and record the
+    answers in the package README.
 8. Write `<id>/README.md` covering scope, binding decisions, source defects,
    omissions, commands and the release checks. Set `status.json` to
    `validated-package` / `awaiting-integration`.
@@ -111,11 +122,56 @@ preserved rather than replaced: `war-and-peace` (45-entry draft),
   moves every UTF-16 offset in the file.
 - **No paid generation APIs**, no `generate-editions.cjs`. Author in the agent
   conversation and write to files.
-- **Do not mark anything live.** `validated-package` / `awaiting-integration`
-  is the ceiling. Production verification belongs to the release owner.
+- **This lane never sets `appStatus`.** `validated-package` /
+  `awaiting-integration` is the ceiling for a book you author. Integration and
+  production verification belong to the Codex release owner, and what is live is
+  a fact to be measured, not assumed: `python3 books/characters/serving_check.py`
+  probes tinct.app and `INTEGRATION-STATUS.md` records the result. Some packages
+  already are live — never re-author or re-queue a book without checking there
+  first.
+- **Passing tests is not evidence of correct identification.** The coverage
+  tests prove a name was bound, never that it was bound to the right person, and
+  a test you write yourself will happily encode your own misreading. Before you
+  call a package done, run the editorial checks below.
 - If a book turns out harder than its lane suggests — namesakes you cannot
-  resolve from the text, a disguise, a concealed identity — **stop, set its
-  status back to `not-started`, note why under Blocked below, and push.**
+  resolve from the text, a disguise, a concealed identity, a reference you
+  cannot pin to one person — **stop, set its status back to `not-started`, note
+  why under Blocked below, and push.** This escape hatch is the point of the
+  lane split. Using it is a correct outcome; guessing is not.
+
+## Editorial checks
+
+Run these before setting a package to `validated-package`, and write the answers
+into its README. They take minutes and they are the only thing standing between a
+green test suite and a reader being shown the wrong person.
+
+1. **Namesakes.** List every given name or surname that occurs for more than one
+   person in the book. For each, read every occurrence and say in the README how
+   they are told apart. If any occurrence cannot be resolved from the text
+   itself, that book goes back to `not-started` under Blocked — do not pick the
+   likelier one.
+2. **Person or not.** Walk the entity list and confirm each is a person, group or
+   named concept and not a place, a book, a school, a coin, an animal, a ship or
+   a personified abstraction miscast as a human. Cities named after founders and
+   works named after authors are the usual traps.
+3. **Scriptural and mythological references.** Where the author retells a
+   narrative, check that each figure is the one the author means and that the
+   card says who they are without importing the whole story. Record any figure
+   you deliberately left unbound and why.
+4. **Ambiguous or generic references.** Bare "the Philosopher", "our author",
+   "the Stagirite", pronoun-only references, and honorifics shared by several
+   people. Bind only the ones the text settles; list the rest in the README as
+   deliberately unbound.
+5. **Spot-read the bindings.** Pick at least ten mentions at random from each
+   edition, read the surrounding sentence, and confirm the bound span really is
+   that person. Say in the README that you did this and what you found.
+6. **Both editions independently.** Divergences between original and modern are
+   normal — a name replaced by a common noun, an entity present in one edition
+   only. Record those as `omittedEntities` with the reason; never assume the two
+   editions agree.
+
+If any of these leaves you unsure, use the escape hatch. An honest Blocked entry
+costs one session; a confidently wrong card costs a reader's trust in the book.
 
 ## Blocked
 

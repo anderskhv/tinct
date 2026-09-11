@@ -5,7 +5,25 @@
     "original-en",
     "modern-en"
   ],
-  "nextAction": "Maintain source fingerprint checks on future edition changes",
+  "nextAction": "Restored by main95029ffe2; preserve both English character editions. Audio eligibility is independent.",
+  "priorProductionVerification": {
+    "reportedBy": "release owner",
+    "date": "2026-09-10",
+    "bundle": "index-D_c4t1iT.js",
+    "workerVersion": "07acbcbd-0c28-4cfc-b6e7-358ae2d3542b",
+    "report": "docs/character-cards-four-2026-09-10.md",
+    "evidenceCommit": "10de86bb",
+    "artifacts": "/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-characters-four/",
+    "checks": "Both edition pairs; exact bundle and asset bytes; 60 live card scenarios plus four documented modern omissions; 15 smoke checks."
+  },
+  "servingCheck": {
+    "date": "2026-09-11",
+    "host": "https://tinct.app",
+    "result": "404 \u2014 sidecar not served",
+    "finding": "Verified 2026-09-10 from a local checkout; that integration commit (10de86bb) and its evidence doc are not on origin, and origin/main does not register this book in supportedEditions. Not being served today.",
+    "nextAction": "Release owner pushes the integration commit, redeploys, then re-runs books/characters/serving_check.py and restores appStatus: live.",
+    "detail": "books/characters/INTEGRATION-STATUS.md"
+  },
   "productionVerification": {
     "reportedBy": "release owner",
     "date": "2026-09-10",
@@ -15,5 +33,11 @@
     "evidenceCommit": "10de86bb",
     "artifacts": "/Users/andershvelplund/.codex/visualizations/2026/09/10/tinct-characters-four/",
     "checks": "Both edition pairs; exact bundle and asset bytes; 60 live card scenarios plus four documented modern omissions; 15 smoke checks."
+  },
+  "recoveryVerification": {
+    "date": "2026-09-11",
+    "commit": "95029ffe2",
+    "workflowRun": 34579232785,
+    "bundle": "index-DnUXeTyY.js"
   }
 }
