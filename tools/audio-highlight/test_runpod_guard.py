@@ -70,25 +70,25 @@ class GuardTest(unittest.TestCase):
     # --- the three limits ---
 
     def test_pod_over_the_rate_ceiling_is_stopped(self):
-        self.pods = [pod("tinct-wordtiming-01", rate=1.40, minutes=2)]
+        self.pods = [pod("tinct-audio-wordtiming-01", rate=1.40, minutes=2)]
         _, report, _ = self.run_guard("enforce", "--apply")
-        self.assertEqual(self.stopped, [("stop", "pod-tinct-wordtiming-01")])
+        self.assertEqual(self.stopped, [("stop", "pod-tinct-audio-wordtiming-01")])
         self.assertIn("rate", report["actions"][0]["reasons"][0])
 
     def test_pod_past_the_deadline_is_stopped(self):
-        self.pods = [pod("tinct-wordtiming-01", minutes=55)]
+        self.pods = [pod("tinct-audio-wordtiming-01", minutes=55)]
         _, report, _ = self.run_guard("enforce", "--max-minutes", "50", "--apply")
-        self.assertEqual(self.stopped, [("stop", "pod-tinct-wordtiming-01")])
+        self.assertEqual(self.stopped, [("stop", "pod-tinct-audio-wordtiming-01")])
         self.assertIn("uptime", report["actions"][0]["reasons"][0])
 
     def test_crossing_the_envelope_stops_everything_owned(self):
-        self.pods = [pod("tinct-wordtiming-01", minutes=10), pod("tinct-wordtiming-02", minutes=10)]
+        self.pods = [pod("tinct-audio-wordtiming-01", minutes=10), pod("tinct-audio-wordtiming-02", minutes=10)]
         _, report, _ = self.run_guard("enforce", "--budget", "25", "--spent", "24.90", "--apply")
         self.assertEqual(len(self.stopped), 2)
         self.assertTrue(all("envelope" in r for a in report["actions"] for r in a["reasons"] if "envelope" in r))
 
     def test_a_pod_inside_every_limit_is_left_running(self):
-        self.pods = [pod("tinct-wordtiming-01", minutes=12, rate=0.44)]
+        self.pods = [pod("tinct-audio-wordtiming-01", minutes=12, rate=0.44)]
         code, report, _ = self.run_guard("enforce", "--apply")
         self.assertEqual(self.stopped, [])
         self.assertEqual(report["actions"], [])
@@ -99,7 +99,7 @@ class GuardTest(unittest.TestCase):
     def test_pods_that_are_not_ours_are_never_touched(self):
         self.pods = [
             pod("someone-elses-retained-pod", minutes=9999, rate=4.00),
-            pod("tinct-audio-generation-legacy", minutes=9999, rate=4.00),
+            pod("grieving_coffee_cod", minutes=9999, rate=4.00),
         ]
         _, report, output = self.run_guard("enforce", "--apply")
         self.assertEqual(self.stopped, [], "a pod outside the owner prefix must never be stopped")
@@ -108,29 +108,45 @@ class GuardTest(unittest.TestCase):
         self.assertIn("left alone", output)
 
     def test_stop_all_still_only_touches_owned_pods(self):
-        self.pods = [pod("tinct-wordtiming-01"), pod("unrelated-retained-pod")]
+        self.pods = [pod("tinct-audio-wordtiming-01"), pod("unrelated-retained-pod")]
         self.run_guard("stop-all", "--apply")
-        self.assertEqual(self.stopped, [("stop", "pod-tinct-wordtiming-01")])
+        self.assertEqual(self.stopped, [("stop", "pod-tinct-audio-wordtiming-01")])
+
+    def test_the_default_prefix_matches_how_pods_are_really_named(self):
+        # The names observed on the account: if the prefix drifts from these,
+        # the guard silently stops policing its own pods.
+        self.pods = [pod("tinct-audio-bounded-trial-20260911-05", minutes=99),
+                     pod("tinct-words-shard-4", minutes=99)]
+        _, report, _ = self.run_guard("enforce", "--apply")
+        self.assertEqual(len(self.stopped), 2, "real Tinct pod names must be treated as owned")
+        self.assertEqual(report["foreignPodsLeftAlone"], [])
+
+    def test_an_unowned_pod_that_is_running_hot_is_called_out(self):
+        self.pods = [pod("grieving_coffee_cod", minutes=600, rate=2.50)]
+        _, report, output = self.run_guard("enforce", "--apply")
+        self.assertEqual(self.stopped, [], "still must not touch it")
+        self.assertEqual(len(report["unownedRunningPods"]), 1)
+        self.assertIn("will not stop it", output)
 
     def test_without_apply_nothing_is_stopped(self):
-        self.pods = [pod("tinct-wordtiming-01", minutes=99, rate=9.99)]
+        self.pods = [pod("tinct-audio-wordtiming-01", minutes=99, rate=9.99)]
         _, report, output = self.run_guard("enforce")
         self.assertEqual(self.stopped, [], "a dry run must not act")
         self.assertTrue(report["actions"], "a dry run should still report what it would do")
         self.assertIn("dry run", output)
 
     def test_terminate_deletes_instead_of_stopping(self):
-        self.pods = [pod("tinct-wordtiming-01", minutes=99)]
+        self.pods = [pod("tinct-audio-wordtiming-01", minutes=99)]
         self.run_guard("enforce", "--terminate", "--apply")
-        self.assertEqual(self.stopped, [("terminate", "pod-tinct-wordtiming-01")])
+        self.assertEqual(self.stopped, [("terminate", "pod-tinct-audio-wordtiming-01")])
 
     def test_already_exited_pod_is_not_stopped_again(self):
-        self.pods = [pod("tinct-wordtiming-01", minutes=99, status="EXITED")]
+        self.pods = [pod("tinct-audio-wordtiming-01", minutes=99, status="EXITED")]
         self.run_guard("enforce", "--apply")
         self.assertEqual(self.stopped, [])
 
     def test_spend_estimate_counts_running_time(self):
-        self.pods = [pod("tinct-wordtiming-01", minutes=30, rate=0.44)]
+        self.pods = [pod("tinct-audio-wordtiming-01", minutes=30, rate=0.44)]
         _, report, _ = self.run_guard("enforce", "--spent", "0.10")
         self.assertAlmostEqual(report["estimatedRunningCost"], 0.22, places=3)
         self.assertAlmostEqual(report["estimatedTotalSpend"], 0.32, places=3)
