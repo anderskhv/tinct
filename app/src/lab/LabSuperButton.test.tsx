@@ -34,10 +34,10 @@ function fakeFrames() {
 describe('the ×-morph', () => {
   it('steps through the ladder, and a render mid-morph does not put it back', () => {
     const frames = fakeFrames()
-    const { rerender } = render(<LabSuperButton open={false} onToggle={() => {}} hint />)
+    const { rerender } = render(<LabSuperButton open={false} onToggle={() => {}} label="Menu" />)
     expect(shown()).toBe(0)
 
-    rerender(<LabSuperButton open onToggle={() => {}} hint />)
+    rerender(<LabSuperButton open onToggle={() => {}} label="Menu" />)
     frames.advance(0)
     frames.advance(60)
     const midway = shown()
@@ -45,8 +45,8 @@ describe('the ×-morph', () => {
     expect(midway).toBeLessThan(LAST)
 
     // A parent re-render while the loop is halfway up the ladder — the press
-    // disc, a hint clearing, anything — must leave the morph where it is.
-    rerender(<LabSuperButton open onToggle={() => {}} hint={false} />)
+    // disc, a label change, anything — must leave the morph where it is.
+    rerender(<LabSuperButton open onToggle={() => {}} label="Reader menu" />)
     expect(shown()).toBe(midway)
     // And exactly one frame is showing at any moment: no × drawn over a t.
     const visible = [...screen.getByTestId('lab-super').querySelectorAll('.lab-super-frame')]
@@ -73,21 +73,22 @@ describe('the ×-morph', () => {
 })
 
 describe('the first view', () => {
-  it('counts as seen when it has reached the ×, and not when a finger cut it short', () => {
+  it('ends on the first pointerdown, and on its own clock otherwise', () => {
     vi.useFakeTimers()
-    const seen: boolean[] = []
-    render(<LabSuperButton open={false} onToggle={() => {}} firstView onFirstViewEnd={value => seen.push(value)} />)
+    let ended = 0
+    render(<LabSuperButton open={false} onToggle={() => {}} firstView onFirstViewEnd={() => { ended += 1 }} />)
     expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(true)
-    // A touch in the first frames: nobody saw it.
     act(() => { vi.advanceTimersByTime(40) })
     fireEvent.pointerDown(document.body)
-    expect(seen).toEqual([false])
+    expect(ended).toBe(1)
     expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false)
 
     cleanup()
-    render(<LabSuperButton open={false} onToggle={() => {}} firstView onFirstViewEnd={value => seen.push(value)} />)
+    render(<LabSuperButton open={false} onToggle={() => {}} firstView onFirstViewEnd={() => { ended += 1 }} />)
+    expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(true)
     act(() => { vi.advanceTimersByTime(LAB_SUPER_SPIN_MS + 5) })
-    expect(seen).toEqual([false, true])
+    expect(ended).toBe(2)
+    expect(screen.getByTestId('lab-super').classList.contains('is-spinning')).toBe(false)
   })
 })
 

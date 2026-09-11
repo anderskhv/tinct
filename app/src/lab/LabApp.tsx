@@ -59,11 +59,7 @@ import { LAB_SUPER_FIRST_VIEW_DELAY_MS, LAB_V2_PLAY_PX } from './labSuperGlyph'
 import type { LabSuperMenuId } from './labSuperMenu'
 import {
   LAB_LIBRARY_URL,
-  LAB_SUPER_FIRST_VIEW,
-  LAB_SUPER_MENU_OPENED,
   labAccountUrl,
-  labSeenOnce,
-  markLabSeenOnce,
   bibleEditions,
   labFontFamilyCss,
   labReadingFont,
@@ -415,7 +411,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   const [superMenuOpen, setSuperMenuOpen] = useState(false)
   const [superSheet, setSuperSheet] = useState<LabV2SheetLayer | null>(null)
   const [superFirstView, setSuperFirstView] = useState(false)
-  const [superHint, setSuperHint] = useState(false)
   const superFirstViewRef = useRef(false)
   const revealOnlyRef = useRef(false)
   const [reducedMotion, setReducedMotion] = useState(false)
@@ -3259,20 +3254,11 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
   // ── Chrome V2 ────────────────────────────────────────────────────────
   const accountId = authUser?.id ?? null
 
-  // The teal full stop says there is something new behind the mark. It is
-  // cleared the first time the menu is opened, and never comes back.
-  useEffect(() => {
-    if (!chromeV2) return
-    setSuperHint(!labSeenOnce(LAB_SUPER_MENU_OPENED, accountId))
-  }, [chromeV2, accountId])
-
   const openSuperMenu = useCallback(() => {
     setTocOpen(false)
     setGearOpen(false)
-    setSuperHint(false)
-    markLabSeenOnce(LAB_SUPER_MENU_OPENED, accountId)
     setSuperMenuOpen(true)
-  }, [accountId])
+  }, [])
 
   const handleSuperToggle = useCallback(() => {
     if (superMenuOpen) setSuperMenuOpen(false)
@@ -3291,23 +3277,24 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     window.location.assign(chromeV2 ? `${LAB_LIBRARY_URL}${readerPreviewSearch(window.location.search)}` : LAB_LIBRARY_URL)
   }, [chromeV2, handleChat, handleDesktopCompare, handleMobileCompare, handleTalk, rememberLibraryPlace, showPhoneChrome])
 
-  // The first view: 400 ms after the first page has laid out, never on load
-  // and never over playing audio. It runs at most once per visit; it counts
-  // as seen — and so never runs again — only once it has reached the ×. A
-  // finger landing on the page in the first half-second cuts it short, and a
-  // spin cut before anyone could have seen it is not the one view they get.
+  // The first view: the mark spins once per reader load, 400 ms after the
+  // first page has laid out, and never over playing audio. `superFirstViewRef`
+  // is the per-mount latch, so nothing that re-runs this effect later — a late
+  // auth resolve, a re-layout — can arm it a second time in the same visit.
+  // It is not persisted: a fresh load spins again. (It used to be once-ever
+  // per identity, which with the identity flipping from device to account on
+  // sign-in meant it replayed at the wrong moments and then never again.)
   const readerLaidOut = book.paragraphs.length > 0 && !initialResolving
   useEffect(() => {
     if (!chromeV2 || !readerLaidOut) return
     if (superFirstViewRef.current) return
-    if (labSeenOnce(LAB_SUPER_FIRST_VIEW, accountId)) return
     const timer = window.setTimeout(() => {
       if (superFirstViewRef.current || listenPlayingRef.current) return
       superFirstViewRef.current = true
       setSuperFirstView(true)
     }, LAB_SUPER_FIRST_VIEW_DELAY_MS)
     return () => window.clearTimeout(timer)
-  }, [accountId, chromeV2, readerLaidOut])
+  }, [chromeV2, readerLaidOut])
 
   // The version pill leaves on a clock, not on animationend: a clock still
   // runs when the animation was cut short, and it is the same clock in both
@@ -3320,10 +3307,9 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
     return () => window.clearTimeout(timer)
   }, [versionPill])
 
-  const handleFirstViewEnd = useCallback((seen: boolean) => {
+  const handleFirstViewEnd = useCallback(() => {
     setSuperFirstView(false)
-    if (seen) markLabSeenOnce(LAB_SUPER_FIRST_VIEW, accountId)
-  }, [accountId])
+  }, [])
 
   const closePhoneAsk = useCallback(() => {
     if (callOpen) endCall()
@@ -3533,7 +3519,6 @@ export function LabApp({ pathname, search, online, source, authToken }: LabAppPr
               <LabSuperButton
                 open={superMenuOpen}
                 onToggle={handleSuperToggle}
-                hint={superHint}
                 firstView={superFirstView}
                 onFirstViewEnd={handleFirstViewEnd}
                 reducedMotion={reducedMotion}

@@ -4772,23 +4772,6 @@
   opacity: 1;
 }
 
-/* The wordmark's teal full stop, at the letter's baseline right. */
-.lab[data-chrome-version="v2"] .lab-super-stop {
-  position: absolute;
-  top: 21.6px;
-  left: 27.5px;
-  width: 4.5px;
-  height: 4.5px;
-  border-radius: 50%;
-  background: #1f4a5c;
-  opacity: 0;
-  transition: opacity 160ms ease;
-}
-
-.lab[data-chrome-version="v2"] .lab-super.has-hint .lab-super-stop {
-  opacity: 1;
-}
-
 /* The first view. 0 → 405° — the × angle — held, then settled back to 360°;
    the scale rides a second element so the rotation keeps one curve. */
 @keyframes lab-super-spin {
@@ -5734,14 +5717,7 @@
 
 /* ── Sizes ───────────────────────────────────────────────────────────────
    The two glyphs render 15% larger on the same 44px targets: the mark
-   24 → 27.6px, Play 18 → 20.7px. Proportions are the grid's and untouched;
-   the full stop follows the mark's baseline right at the same scale. */
-.lab[data-chrome-version="v2"] .lab-super-stop {
-  top: 21.5px;
-  left: 28.3px;
-  width: 5px;
-  height: 5px;
-}
+   24 → 27.6px, Play 18 → 20.7px. Proportions are the grid's and untouched. */
 
 /* ── Follow paint ──────────────────────────────────────────────────────
    Unspoken text at 55% of the reading ink, spoken text at full ink, and a

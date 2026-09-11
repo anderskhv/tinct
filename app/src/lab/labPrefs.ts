@@ -99,10 +99,10 @@ export interface LabStoredPrefs {
   seenOnce: Record<string, boolean>
 }
 
-/** The super button's first view — the spin — is shown once per identity. */
-export const LAB_SUPER_FIRST_VIEW = 'super-first-view'
-/** The teal full stop is cleared the first time the menu is opened. */
-export const LAB_SUPER_MENU_OPENED = 'super-menu-opened'
+// Retired keys, no longer read or written: `super-first-view` (the spin is
+// now once per reader load, not once per identity) and `super-menu-opened`
+// (the teal full stop on the super button is gone). Stale entries in stored
+// prefs are ignored.
 
 /**
  * Who a one-shot introduction has been shown to. Signed in, that is the
