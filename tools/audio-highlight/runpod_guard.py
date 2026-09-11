@@ -156,7 +156,13 @@ def main() -> int:
     owned = [p for p in pods if p["name"].startswith(args.owner_prefix)]
     foreign = [p for p in pods if not p["name"].startswith(args.owner_prefix)]
 
-    live = [p for p in owned if (p["uptimeSeconds"] or 0) > 0 or p["status"] == "RUNNING"]
+    # Only pods actually RUNNING bill against the envelope. An EXITED pod's
+    # uptimeSeconds can still be positive here — it is the fallback age since
+    # its last start timestamp (see _age_seconds), not time it is billing now
+    # — and treating that as running cost is exactly the bug that inflated
+    # the envelope to $242+ from days-old exited pods on 2026-09-11 and
+    # stopped healthy live pods as "over budget". Only RUNNING pods bill.
+    live = [p for p in owned if p["status"] == "RUNNING"]
     running_cost = sum((p["costPerHr"] or 0) * (p["uptimeSeconds"] or 0) / 3600 for p in live)
     total_spend = args.spent + running_cost
 

@@ -200,6 +200,24 @@ class GuardTest(unittest.TestCase):
         self.assertEqual(self.stopped, [("stop", "pod-tinct-wordtiming-01")])
         self.assertTrue(any("unmeasurable" in r for r in report["actions"][0]["reasons"]))
 
+    def test_exited_pods_never_inflate_the_envelope(self):
+        # 2026-09-11: exited pods' fallback age (days since their last start
+        # timestamp, not billing time) was counted as running cost, reading
+        # the envelope as $242+ from nine days-old exited pods and stopping
+        # every live pod as "over budget". An exited pod bills nothing now,
+        # however old its start timestamp.
+        import datetime
+        started = (datetime.datetime.now(datetime.timezone.utc)
+                   - datetime.timedelta(days=5)).isoformat().replace("+00:00", "Z")
+        old_exited = pod("tinct-words-shard-1", rate=0.74, status="EXITED",
+                          runtime_uptime=False, started_at=started)
+        healthy_live = pod("tinct-words-run2-1", minutes=10, rate=0.19)
+        self.pods = [old_exited, healthy_live]
+        _, report, _ = self.run_guard("enforce", "--budget", "20", "--apply")
+        self.assertLess(report["estimatedTotalSpend"], 1.0,
+                         "an exited pod's stale start timestamp must not count as running cost")
+        self.assertEqual(self.stopped, [], "the live pod is well within every limit and must stay up")
+
     def test_an_exited_pod_without_uptime_is_left_alone(self):
         self.pods = [pod("tinct-wordtiming-01", runtime_uptime=False, status="EXITED")]
         self.run_guard("enforce", "--apply")
