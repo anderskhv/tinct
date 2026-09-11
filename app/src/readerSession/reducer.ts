@@ -1,3 +1,4 @@
+import { migrateWithheldEdition } from '../data/withheldEditions'
 import type { ReaderBookContext, ReaderLocation, ReaderSessionEvent, ReaderSessionState } from './types'
 
 function chapterNumbers(context: ReaderBookContext): number[] {
@@ -88,7 +89,9 @@ export function readerSessionReducer(state: ReaderSessionState, event: ReaderSes
         chapterNumber: restored?.chapterNumber ?? 1,
         paragraphIndex: restored?.paragraphIndex,
         scrollFraction: clampScrollFraction(restored?.scrollFraction ?? 0),
-        editionKey: restored?.editionKey ?? firstEditionKey(event.context),
+        editionKey: restored?.editionKey
+          ? migrateWithheldEdition(event.context.book.id, restored.editionKey)
+          : firstEditionKey(event.context),
         activeView: restored?.activeView ?? state.location.activeView,
         source: 'book-open',
         revision: nextRevision(state),
@@ -109,19 +112,24 @@ export function readerSessionReducer(state: ReaderSessionState, event: ReaderSes
       return { ...state, status: 'ready', pendingBookId: undefined, location: base }
     }
 
-    case 'RESTORE_POSITION':
-      if (!isValidLocation(event.location, event.context)) return state
+    case 'RESTORE_POSITION': {
+      const restoredLocation: ReaderLocation = {
+        ...event.location,
+        editionKey: migrateWithheldEdition(event.context.book.id, event.location.editionKey),
+      }
+      if (!isValidLocation(restoredLocation, event.context)) return state
       return {
         ...state,
         status: 'ready',
         pendingBookId: undefined,
         location: {
-          ...event.location,
+          ...restoredLocation,
           scrollFraction: clampScrollFraction(event.location.scrollFraction),
           source: event.source,
           revision: nextRevision(state),
         },
       }
+    }
 
     case 'USER_SELECT_CHAPTER': {
       const next = {

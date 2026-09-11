@@ -14,6 +14,7 @@
   var MEMORY_KEY = 'tinct:reading-memory'
   var POSITION_KEY = 'tinct-lab-position'
   var MAX_AGE = 30 * 24 * 60 * 60 * 1000
+  var ROW_MAX = 12
   /**
    * A signed-in reader who read within this window is taken straight back
    * into the book; anything older, or no reading at all, opens the library.
@@ -154,7 +155,22 @@
       hero = { bookId: bookId, title: title, chapterLabel: chapterLabel, headline: headline, coverSrc: safeSrc(h.coverSrc), coverSrcSet: safeSrc(h.coverSrc) ? str(h.coverSrcSet, 4000) : null, note: str(h.note, 40) }
     }
     var count = function (v) { return typeof v === 'number' && v >= 0 && v <= 10000 ? Math.floor(v) : 0 }
-    return { at: raw.at, userId: userId, readingNow: count(raw.readingNow), finished: count(raw.finished), hero: hero }
+    // The cards after the hero (src/lab/labLibraryBoot.ts `row`): same
+    // checks, same cap, never the hero's own book twice.
+    var row = []
+    if (hero && Array.isArray(raw.row)) {
+      for (var i = 0; i < raw.row.length && row.length < ROW_MAX; i++) {
+        var c = raw.row[i]
+        if (!c || typeof c !== 'object') continue
+        var cardId = str(c.bookId, 80), cardTitle = str(c.title, 200)
+        if (!cardId || !cardTitle || cardId === hero.bookId) continue
+        var dup = false
+        for (var j = 0; j < row.length; j++) if (row[j].bookId === cardId) dup = true
+        if (dup) continue
+        row.push({ bookId: cardId, title: cardTitle, coverSrc: safeSrc(c.coverSrc), coverSrcSet: safeSrc(c.coverSrc) ? str(c.coverSrcSet, 4000) : null })
+      }
+    }
+    return { at: raw.at, userId: userId, readingNow: count(raw.readingNow), finished: count(raw.finished), hero: hero, row: row }
   }
   function deviceHasReading(storage) {
     var memory = readJson(storage, MEMORY_KEY)
@@ -269,34 +285,46 @@
     var wrap = el('section', 'lib-reading-now')
     wrap.setAttribute('data-reading-now-section', '')
     wrap.setAttribute('aria-label', 'Reading now')
-    wrap.appendChild(sectionHead('Reading now', hero ? Math.max(1, snapshot.readingNow) : '', 'data-reading-now-head'))
-    var shelf = el('div', 'lib-now-shelf is-single')
+    var row = hero && snapshot.row ? snapshot.row : []
+    wrap.appendChild(sectionHead('Reading now', hero ? Math.max(1 + row.length, snapshot.readingNow) : '', 'data-reading-now-head'))
+    var shelf = el('div', row.length ? 'lib-now-shelf' : 'lib-now-shelf is-single')
     shelf.setAttribute('data-now-shelf', '')
-    var card = el('div', 'lib-now-item is-focused')
-    card.setAttribute('data-now-index', '0')
-    var open = el('button', 'lib-now-open')
-    open.type = 'button'
-    if (hero) {
-      card.setAttribute('data-now-book', hero.bookId)
-      open.setAttribute('data-recap-open', hero.bookId)
+    shelf.setAttribute('role', 'group')
+    shelf.setAttribute('aria-label', 'Books you are reading')
+    /** One card, the shape src/labReadingMemory.ts reconciles into rather than replaces. */
+    function cardNode(book, index, focused) {
+      var card = el('div', focused ? 'lib-now-item is-focused' : 'lib-now-item')
+      card.setAttribute('data-now-index', String(index))
+      var open = el('button', 'lib-now-open')
+      open.type = 'button'
+      if (book) {
+        card.setAttribute('data-now-book', book.bookId)
+        open.setAttribute('data-recap-open', book.bookId)
+        open.setAttribute('aria-current', String(focused))
+      }
+      open.appendChild(coverNode(book))
+      card.appendChild(open)
+      if (book) {
+        // Same control as the confirmed render (labReadingMemory.ts) and as the
+        // classic app's Continue-reading pill, so it does not appear a frame late.
+        var remove = el('button', 'lib-now-remove', '\u00d7')
+        remove.type = 'button'
+        remove.setAttribute('data-now-remove', book.bookId)
+        remove.setAttribute('aria-label', 'Remove ' + book.title + ' from currently reading')
+        card.appendChild(remove)
+      }
+      return card
     }
-    open.appendChild(coverNode(hero))
-    card.appendChild(open)
-    if (hero) {
-      // Same control as the confirmed render (labReadingMemory.ts) and as the
-      // classic app's Continue-reading pill, so it does not appear a frame late.
-      var remove = el('button', 'lib-now-remove', '\u00d7')
-      remove.type = 'button'
-      remove.setAttribute('data-now-remove', hero.bookId)
-      remove.setAttribute('aria-label', 'Remove ' + hero.title + ' from currently reading')
-      card.appendChild(remove)
-    }
-    shelf.appendChild(card)
+    shelf.appendChild(cardNode(hero, 0, true))
+    for (var r = 0; r < row.length; r++) shelf.appendChild(cardNode(row[r], r + 1, false))
     wrap.appendChild(shelf)
     var caption = el('div', 'lib-now-caption')
     caption.setAttribute('data-now-caption', '')
     if (hero) {
       section.setAttribute('data-boot-recap', 'snapshot')
+      // Title first, then the chapter eyebrow and the headline — the order
+      // nowCaptionMarkup in src/labReadingMemory.ts renders.
+      caption.appendChild(el('p', 'lib-lede', hero.title))
       caption.appendChild(el('p', 'lib-eyebrow', 'Last time you read · ' + hero.chapterLabel))
       caption.appendChild(el('h1', 'lib-h1', hero.headline))
       // The reserved "so far" block — three lines, empty. src/labReadingMemory.ts
@@ -306,7 +334,6 @@
       // down. It is left out entirely in the one case both paints can already
       // answer: straight back out of this book's reader, no summary coming.
       if (!state.noRecapSummary) caption.appendChild(summaryBlock())
-      caption.appendChild(el('p', 'lib-lede', hero.title))
       var cta = el('div', 'lib-now-cta')
       var button = el('button', 'lib-cta', 'Continue reading')
       button.type = 'button'
@@ -318,10 +345,12 @@
       section.setAttribute('data-boot-recap', 'skeleton')
       section.setAttribute('aria-busy', 'true')
       caption.className = 'lib-now-caption lib-boot-skel'
+      // Same order as the snapshot paint, so the bars reserve the lines
+      // where the text will land.
+      caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
       caption.appendChild(el('p', 'lib-eyebrow lib-boot-bar'))
       caption.appendChild(el('h1', 'lib-h1 lib-boot-bar'))
       caption.appendChild(summaryBlock())
-      caption.appendChild(el('p', 'lib-lede lib-boot-bar'))
       var skCta = el('div', 'lib-now-cta')
       var skButton = el('button', 'lib-cta', 'Continue reading')
       skButton.type = 'button'

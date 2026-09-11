@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import {
   LAB_SUPER_SPIN_MS,
-  LAB_SUPER_SPIN_TO_OVERSHOOT_MS,
   LAB_TEE_MORPH_FRAMES,
   LAB_V2_MARK_PX,
   labTeeFrameIndexAt,
@@ -10,16 +9,10 @@ import {
 export interface LabSuperButtonProps {
   open: boolean
   onToggle: () => void
-  /** The teal full stop that says there is something new behind the mark. */
-  hint?: boolean
-  /** Run the once-ever spin. The parent owns when that is allowed. */
+  /** Run the spin. The parent owns when that is allowed. */
   firstView?: boolean
-  /** Called when the spin finishes or a touch ends it — either way, it is seen. */
-  /**
-   * `seen` is whether the spin got as far as the × before it ended. A spin
-   * cut short by a finger in its first frames was not seen by anyone.
-   */
-  onFirstViewEnd?: (seen: boolean) => void
+  /** Called when the spin finishes or a touch ends it. */
+  onFirstViewEnd?: () => void
   reducedMotion?: boolean
   label?: string
 }
@@ -31,8 +24,7 @@ const LAST_FRAME = LAB_TEE_MORPH_FRAMES.length - 1
  *
  * No container at rest — the mark sits on the paper. Pressing gives it a soft
  * disc for 80 ms; opening the menu morphs the letter into an ×, and closing
- * runs the same 220 ms in reverse. The first time a reader ever sees it, and
- * only then, it spins once.
+ * runs the same 220 ms in reverse. Once per reader load it spins once.
  *
  * Nothing here does layout work while it moves. The morph is a ladder of
  * pre-drawn frames — every one of them in the DOM from the start, laid out
@@ -43,7 +35,6 @@ const LAST_FRAME = LAB_TEE_MORPH_FRAMES.length - 1
 export function LabSuperButton({
   open,
   onToggle,
-  hint = false,
   firstView = false,
   onFirstViewEnd,
   reducedMotion = false,
@@ -89,23 +80,18 @@ export function LabSuperButton({
     }
   }, [open, reducedMotion])
 
-  // The first view. It ends on its own, or on the first touch anywhere — and
-  // either way it counts as seen, so it never runs a second time.
+  // The first view. It ends on its own, or on the first touch anywhere.
   useEffect(() => {
     if (!firstView) return
     setSpinning(true)
     const spin = spinRef.current
     spin?.style.setProperty('will-change', 'transform')
-    const startedAt = performance.now()
     const finish = () => {
       window.clearTimeout(timer)
       window.removeEventListener('pointerdown', finish, true)
       spin?.style.removeProperty('will-change')
       setSpinning(false)
-      // Seen once it has reached the ×: a touch in the first frames ends it
-      // before it has shown anything, and that does not spend the one view.
-      const ran = performance.now() - startedAt
-      onFirstViewEnd?.(reducedMotion || ran >= LAB_SUPER_SPIN_TO_OVERSHOOT_MS)
+      onFirstViewEnd?.()
     }
     const timer = window.setTimeout(finish, reducedMotion ? 240 : LAB_SUPER_SPIN_MS)
     window.addEventListener('pointerdown', finish, true)
@@ -121,7 +107,6 @@ export function LabSuperButton({
   if (pressed) classes.push('is-pressed')
   if (reducedMotion) classes.push('is-reduced')
   if (spinning) classes.push(reducedMotion ? 'is-arriving' : 'is-spinning')
-  if (hint && !open) classes.push('has-hint')
 
   return (
     <button
@@ -129,7 +114,6 @@ export function LabSuperButton({
       className={classes.join(' ')}
       data-testid="lab-super"
       data-open={open ? 'true' : 'false'}
-      data-hint={hint && !open ? 'true' : 'false'}
       aria-label={label}
       aria-expanded={open}
       aria-haspopup="menu"
@@ -183,7 +167,6 @@ export function LabSuperButton({
           </span>
         </span>
       </span>
-      <span className="lab-super-stop" aria-hidden="true" />
     </button>
   )
 }

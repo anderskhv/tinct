@@ -13,9 +13,79 @@ export async function sha256(data: string | ArrayBuffer): Promise<string> {
   const bytes = typeof data === 'string' ? new TextEncoder().encode(data) : data
   return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), byte => byte.toString(16).padStart(2, '0')).join('')
 }
-const supportedEditions: Record<string, string[]> = { 'us-founding-documents': ['original-en', 'modern-en'], 'kant-groundwork': ['original-en', 'modern-en'], 'descartes-meditations': ['original-en', 'modern-en'], 'the-awakening': ['original-en', 'modern-en'], bible: ['kjv-en', 'web-en', 'modern-en'], hamlet: ['original-en', 'modern-en'], macbeth: ['original-en', 'modern-en'], crito: ['original-en', 'modern-en'], apology: ['original-en', 'modern-en'], 'the-manual': ['original-en', 'modern-en'], 'the-art-of-war': ['original-en', 'modern-en'], 'measure-for-measure': ['original-en', 'modern-en'], 'henry-v': ['original-en', 'modern-en'], 'winters-tale': ['original-en', 'modern-en'], 'cymbeline': ['original-en', 'modern-en'], 'coriolanus': ['original-en', 'modern-en'], 'antony-and-cleopatra': ['original-en', 'modern-en'], 'richard-iii': ['original-en', 'modern-en'], 'henry-iv-part-2': ['original-en', 'modern-en'], 'merry-wives-of-windsor': ['original-en', 'modern-en'] }
+const EN = ['original-en', 'modern-en']
+/**
+ * Released character packages: the editions each package was reviewed against,
+ * and the release revision that versions its sidecar URL. Bump the revision when
+ * a package is re-published so readers stop hitting the immutable old URL.
+ */
+export const characterReleases: Record<string, { editions: string[]; revision: string }> = {
+  // 2026-09-09.2 — pilots
+  'the-awakening': { editions: EN, revision: '2026-09-09.2' },
+  bible: { editions: ['kjv-en', 'web-en'], revision: '2026-09-09.2' },
+  // 2026-09-10.1 — Hamlet, Macbeth, four philosophy/reference, nine plays
+  hamlet: { editions: EN, revision: '2026-09-10.1' },
+  macbeth: { editions: EN, revision: '2026-09-10.1' },
+  crito: { editions: EN, revision: '2026-09-10.1' },
+  apology: { editions: EN, revision: '2026-09-10.1' },
+  'the-manual': { editions: EN, revision: '2026-09-10.1' },
+  'the-art-of-war': { editions: EN, revision: '2026-09-10.1' },
+  'measure-for-measure': { editions: EN, revision: '2026-09-10.1' },
+  'henry-v': { editions: EN, revision: '2026-09-10.1' },
+  'winters-tale': { editions: EN, revision: '2026-09-10.1' },
+  cymbeline: { editions: EN, revision: '2026-09-10.1' },
+  coriolanus: { editions: EN, revision: '2026-09-10.1' },
+  'antony-and-cleopatra': { editions: EN, revision: '2026-09-10.1' },
+  'richard-iii': { editions: EN, revision: '2026-09-10.1' },
+  'henry-iv-part-2': { editions: EN, revision: '2026-09-10.1' },
+  'merry-wives-of-windsor': { editions: EN, revision: '2026-09-10.1' },
+  // 2026-09-11.1 — three reference packages
+  'us-founding-documents': { editions: EN, revision: '2026-09-11.1' },
+  'kant-groundwork': { editions: EN, revision: '2026-09-11.1' },
+  'descartes-meditations': { editions: EN, revision: '2026-09-11.1' },
+  // 2026-09-11.2 — bulk release of the validated queue
+  'a-little-princess': { editions: EN, revision: '2026-09-11.2' },
+  antigone: { editions: EN, revision: '2026-09-11.2' },
+  'around-the-world-80-days': { editions: EN, revision: '2026-09-11.2' },
+  bacchae: { editions: EN, revision: '2026-09-11.2' },
+  beowulf: { editions: EN, revision: '2026-09-11.2' },
+  candide: { editions: EN, revision: '2026-09-11.2' },
+  'comedy-of-errors': { editions: EN, revision: '2026-09-11.2' },
+  'communist-manifesto': { editions: EN, revision: '2026-09-11.2' },
+  'discourse-on-inequality': { editions: EN, revision: '2026-09-11.2' },
+  'frederick-douglass': { editions: EN, revision: '2026-09-11.2' },
+  gilgamesh: { editions: EN, revision: '2026-09-11.2' },
+  'heart-of-darkness': { editions: EN, revision: '2026-09-11.2' },
+  'hume-enquiry': { editions: EN, revision: '2026-09-11.2' },
+  'ivan-ilyich': { editions: EN, revision: '2026-09-11.2' },
+  'jekyll-and-hyde': { editions: EN, revision: '2026-09-11.2' },
+  'julius-caesar': { editions: EN, revision: '2026-09-11.2' },
+  'jungle-book': { editions: EN, revision: '2026-09-11.2' },
+  'king-lear': { editions: EN, revision: '2026-09-11.2' },
+  medea: { editions: EN, revision: '2026-09-11.2' },
+  'merchant-of-venice': { editions: EN, revision: '2026-09-11.2' },
+  midsummer: { editions: EN, revision: '2026-09-11.2' },
+  'much-ado-about-nothing': { editions: EN, revision: '2026-09-11.2' },
+  'notes-from-underground': { editions: EN, revision: '2026-09-11.2' },
+  'oedipus-at-colonus': { editions: EN, revision: '2026-09-11.2' },
+  'oedipus-rex': { editions: EN, revision: '2026-09-11.2' },
+  'on-liberty': { editions: EN, revision: '2026-09-11.2' },
+  oresteia: { editions: EN, revision: '2026-09-11.2' },
+  othello: { editions: EN, revision: '2026-09-11.2' },
+  phaedo: { editions: EN, revision: '2026-09-11.2' },
+  phaedrus: { editions: EN, revision: '2026-09-11.2' },
+  poetics: { editions: EN, revision: '2026-09-11.2' },
+  'romeo-and-juliet': { editions: EN, revision: '2026-09-11.2' },
+  'social-contract': { editions: EN, revision: '2026-09-11.2' },
+  symposium: { editions: EN, revision: '2026-09-11.2' },
+  'the-prince': { editions: EN, revision: '2026-09-11.2' },
+  'twelfth-night': { editions: EN, revision: '2026-09-11.2' },
+  utilitarianism: { editions: EN, revision: '2026-09-11.2' },
+  werther: { editions: EN, revision: '2026-09-11.2' },
+}
+const supportedEditions = (bookId: string): string[] | undefined => characterReleases[bookId]?.editions
 export async function verifyCharacters(asset: CharacterAsset, bookId: string, editionKey: string, raw: ArrayBuffer): Promise<VerifiedCharacters | null> {
-  if (!supportedEditions[bookId]?.includes(editionKey) || asset.bookId !== bookId || asset.schemaVersion !== 1 || asset.language !== 'en' || asset.normalization !== 'prose-reader-v1' || asset.offsetUnit !== 'utf16') return null
+  if (!supportedEditions(bookId)?.includes(editionKey) || asset.bookId !== bookId || asset.schemaVersion !== 1 || asset.language !== 'en' || asset.normalization !== 'prose-reader-v1' || asset.offsetUnit !== 'utf16') return null
   const edition = asset.editions?.[editionKey]
   if (!edition || !Array.isArray(edition.characters) || !Array.isArray(edition.mentions) || !edition.paragraphHashes || await sha256(raw) !== edition.sourceSha256) return null
   const source = JSON.parse(new TextDecoder().decode(raw)) as { chapters: { number: number; paragraphs: string[] }[] }
@@ -40,11 +110,11 @@ export async function verifyCharacters(asset: CharacterAsset, bookId: string, ed
 }
 const loads = new Map<string, Promise<VerifiedCharacters | null>>()
 export function loadCharacters(bookId?: string, editionKey?: string): Promise<VerifiedCharacters | null> {
-  if (!bookId || !editionKey || !supportedEditions[bookId]?.includes(editionKey)) return Promise.resolve(null)
+  if (!bookId || !editionKey || !supportedEditions(bookId)?.includes(editionKey)) return Promise.resolve(null)
   const key = `${bookId}:${editionKey}`
   if (!loads.has(key)) loads.set(key, (async () => {
     try {
-      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${['us-founding-documents', 'kant-groundwork', 'descartes-meditations'].includes(bookId) ? '2026-09-11.1' : ['hamlet', 'macbeth', 'crito', 'apology', 'the-manual', 'the-art-of-war', 'measure-for-measure', 'henry-v', 'winters-tale', 'cymbeline', 'coriolanus', 'antony-and-cleopatra', 'richard-iii', 'henry-iv-part-2', 'merry-wives-of-windsor'].includes(bookId) ? '2026-09-10.1' : '2026-09-09.2'}`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
+      const [asset, source] = await Promise.all([fetch(`/data/characters/${bookId}.v1.json?v=${characterReleases[bookId].revision}`), fetch(`/data/editions/${bookId}-${editionKey}.json`)])
       if (!asset.ok || !source.ok) return null
       return await verifyCharacters(await asset.json(), bookId, editionKey, await source.arrayBuffer())
     } catch { return null }

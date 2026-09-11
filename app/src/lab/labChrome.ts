@@ -94,6 +94,25 @@ export function labVoicePhaseLabel(phase: 'idle' | 'connecting' | 'listening' | 
 
 export type LabLayoutHint = 'phone' | 'desktop' | null
 
+/**
+ * Viewports that get the phone surface (single column, phone chrome). Until
+ * 2026-09-11 this was `(max-width: 1024px)`, which put every tablet — an
+ * iPad in landscape included — on the phone layout: one 620px column in the
+ * middle of a 1024px page with 200px margins either side. Now:
+ *
+ *  - under 900px wide: phone, whatever the orientation (a phone, a small
+ *    tablet held upright, a narrow window);
+ *  - 900–1024px wide in PORTRAIT: phone surface still (an iPad upright is
+ *    768–834px wide; two desktop columns would be too narrow to read), but
+ *    lab.css widens the measure and steps the type down from 700px;
+ *  - 900px and wider in LANDSCAPE: the desktop surface, whose measured
+ *    two-column spread is the layout an open book has.
+ *
+ * `isLabPhoneSurface` still forces the phone surface for an iPhone user
+ * agent, a touch screen at most 430px wide, and a `/lab/phone` override.
+ */
+export const LAB_PHONE_QUERY = '(max-width: 899px), ((max-width: 1024px) and (orientation: portrait))'
+
 /** iPhone Safari can report a wide layout-viewport (desktop site / 980px). */
 export function isIosHandheldUserAgent(userAgent: string): boolean {
   return /iPhone|iPod/i.test(userAgent)

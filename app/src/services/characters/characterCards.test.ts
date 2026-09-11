@@ -92,7 +92,7 @@ it('requests the current content revision instead of an immutable old URL', asyn
   } finally { vi.unstubAllGlobals() }
 })
 
-describe.each(['kjv-en', 'web-en', 'modern-en'])('Bible Baruch %s', key => {
+describe.each(['kjv-en', 'web-en'])('Bible Baruch %s', key => {
   it('resolves Jeremiah 45, excludes other Baruchs and preserves explicit highlights', async () => {
     const bible = JSON.parse(readFileSync('public/data/characters/bible.v1.json', 'utf8'))
     const raw = readFileSync(`public/data/editions/bible-${key}.json`)

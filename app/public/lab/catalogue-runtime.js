@@ -335,9 +335,21 @@ import {
     return candidates.filter(candidate => !seen.has(candidate.bookId) && seen.add(candidate.bookId))
   }
 
+  /**
+   * Chapters the reader turned past, from the reader's own position record
+   * (sequential numbers, keyed by library bookId). The finished-set progress
+   * rule for the Bible reads this; reading-memory.js passes a richer union
+   * (record + completed memory sessions) when it renders the recap.
+   */
+  function finishedChaptersFor(bookId) {
+    const snapshot = readJson(LAB_POSITION_KEY)
+    const list = snapshot && typeof snapshot === 'object' && snapshot.finished && typeof snapshot.finished === 'object' ? snapshot.finished[bookId] : null
+    return Array.isArray(list) ? list.filter(Number.isInteger) : []
+  }
+
   function progressFor(resume) {
     const book = state.booksById.get(resume.bookId)
-    return wholeBookProgress(book, resume, progressRecord(resume.bookId), completionRecord(resume.bookId).completed)
+    return wholeBookProgress(book, resume, { completed: completionRecord(resume.bookId).completed, finishedChapters: finishedChaptersFor(resume.bookId) })
   }
 
   function resumeSavedPlace(resume) {
@@ -1251,9 +1263,13 @@ import {
     openBookPage,
     visibleBooks,
     coverFor: bookId => state.booksById.has(bookId) ? coverFor(state.booksById.get(bookId)) : null,
-    bookProgress: (bookId, place) => {
+    bookProgress: (bookId, place, finishedChapters = null) => {
       const book = state.booksById.get(bookId)
-      return book ? wholeBookProgress(book, place, progressRecord(bookId), completionRecord(bookId).completed) : null
+      if (!book) return null
+      return wholeBookProgress(book, place, {
+        completed: completionRecord(bookId).completed,
+        finishedChapters: Array.isArray(finishedChapters) ? finishedChapters : finishedChaptersFor(bookId),
+      })
     },
     libraryState: () => ({ mode: state.libraryMode, shelfIndex: state.shelfIndex, shelf: state.shelfBooks.map(book => book.id), query: state.query, expandedHouseId: state.expandedHouseId, world: state.world }),
     setLibraryMode,

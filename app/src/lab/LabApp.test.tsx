@@ -1717,7 +1717,7 @@ describe('lab chrome', () => {
 
     fireEvent.click(screen.getByTestId('lab-phone-compare'))
     expect(screen.getByTestId('lab-root').getAttribute('data-compare-active')).toBe('true')
-    expect(screen.getByTestId('lab-root').getAttribute('data-reader-edition')).toBe('modern-en')
+    expect(screen.getByTestId('lab-root').getAttribute('data-reader-edition')).toBe('web-en')
     expect(screen.getByTestId('lab-reading-stage').textContent).toContain('Modern wording')
     expect(screen.queryByTestId('lab-compare-col')).toBeNull()
 
@@ -1873,7 +1873,7 @@ describe('lab bible book', () => {
       if (url.includes('bible-kjv-en/ch0002.json')) {
         return { ok: true, json: async () => ({ number: 2, title: 'Genesis 2', paragraphs: ['Thus the heavens and the earth were finished.', 'And on the seventh day God ended his work.'] }) }
       }
-      if (url.includes('bible-modern-en')) return { ok: true, json: async () => ({ paragraphs: [] }) }
+      if (url.includes('bible-web-en')) return { ok: true, json: async () => ({ paragraphs: [] }) }
       if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
       if (url.includes('audio-manifest')) {
         return { ok: true, json: async () => ({ chapter: 1, paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 4 }] }) }
@@ -1998,7 +1998,7 @@ describe('lab bible book', () => {
       if (url.includes('bible-kjv-en/ch0002.json')) {
         return { ok: true, json: async () => ({ number: 2, title: 'Genesis 2', paragraphs: genesis2 }) }
       }
-      if (url.includes('bible-modern-en')) return { ok: true, json: async () => ({ paragraphs: [] }) }
+      if (url.includes('bible-web-en')) return { ok: true, json: async () => ({ paragraphs: [] }) }
       if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
       if (url.includes('audio-manifest')) {
         return { ok: true, json: async () => ({ chapter: 1, paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 4 }] }) }
@@ -2113,7 +2113,7 @@ describe('lab bible book', () => {
           }),
         }
       }
-      if (url.includes('bible-modern-en')) return { ok: true, json: async () => ({ paragraphs: [] }) }
+      if (url.includes('bible-web-en')) return { ok: true, json: async () => ({ paragraphs: [] }) }
       if (url.includes('bible-threads.json')) return { ok: true, json: async () => ({ characters: [] }) }
       if (url.includes('audio-manifest')) {
         return { ok: true, json: async () => ({ chapter: 644, paragraphs: [{ paragraph: 0, file: 'p0.mp3', duration: 4 }] }) }

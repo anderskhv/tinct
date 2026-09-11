@@ -36,13 +36,20 @@ function chapterIndex(structure, chapterNumber) {
   return exact >= 0 ? exact : clamp(Math.trunc(chapterNumber || 1) - 1, 0, structure.chapters.length - 1)
 }
 
-export function wholeBookProgress(book, resume, progressRecord = null, completed = false) {
-  if (completed) return 100
-  const structure = book?.readingStructure
-  if (!structure?.chapters?.length || !Number.isFinite(structure.totalParagraphs) || structure.totalParagraphs <= 0) return null
-  const index = chapterIndex(structure, resume?.chapterNumber || 1)
-  const chapter = structure.chapters[index]
-  const prior = structure.chapters.slice(0, index).reduce((sum, item) => sum + item.paragraphCount, 0)
+/**
+ * Books read out of order. Their "N% read" is the paragraph-weighted set of
+ * chapters the reader has finished, not the distance of the current place
+ * from the front cover (decision 2026-09-11: position for every book except
+ * the Bible; the Bible uses finished chapters).
+ */
+export const NONLINEAR_BOOK_IDS = new Set(['bible'])
+
+export function isNonlinearBook(bookId) {
+  return NONLINEAR_BOOK_IDS.has(bookId)
+}
+
+/** How far into `chapter` the resume record sits, 0..1, viewport-independent when it can be. */
+function chapterFraction(resume, chapter) {
   const pageFraction = Number.isInteger(resume?.page) && Number.isInteger(resume?.totalPages) && resume.totalPages > 0
     ? clamp((resume.page + clamp(Number(resume.scrollFraction) || 0, 0, 1)) / resume.totalPages, 0, 1)
     : 0
@@ -52,12 +59,40 @@ export function wholeBookProgress(book, resume, progressRecord = null, completed
   const paragraphFraction = Number.isInteger(resume?.paragraphIndex) && chapter.paragraphCount > 0
     ? clamp(resume.paragraphIndex / chapter.paragraphCount, 0, 1)
     : 0
-  let completedUnits = prior + Math.max(canonicalFraction, paragraphFraction) * chapter.paragraphCount
-  const highest = Number.isInteger(progressRecord?.highestCompletedChapter)
-    ? clamp(progressRecord.highestCompletedChapter, 0, structure.chapters.length)
-    : 0
-  if (highest > 0) {
-    completedUnits = Math.max(completedUnits, structure.chapters.slice(0, highest).reduce((sum, item) => sum + item.paragraphCount, 0))
+  return Math.max(canonicalFraction, paragraphFraction)
+}
+
+/**
+ * Whole-book progress, in paragraphs read over paragraphs in the book.
+ *
+ *  - Linear books: every chapter before the resume chapter, plus the fraction
+ *    of the resume chapter the place sits at. The legacy reader's monotonic
+ *    `highestCompletedChapter` high-water mark is NOT consulted: one visit to
+ *    Hebrews claimed Genesis→Philemon as read forever ("97% read" at Proverbs
+ *    18), and for a linear book the place already says how far the reader is.
+ *  - Non-linear books (the Bible): the paragraphs of every finished chapter
+ *    (`options.finishedChapters`, sequential numbers from the reader's
+ *    finished record and completed reading-memory sessions), plus the
+ *    fraction of the resume chapter when it is not itself finished.
+ *    Paragraph-weighted, so Psalm 117 and Psalm 119 are not worth the same.
+ *    A missed completion reads low, never high.
+ *
+ * `options.completed` (an explicit book-completed mark) is 100 for both.
+ */
+export function wholeBookProgress(book, resume, options = {}) {
+  if (options.completed) return 100
+  const structure = book?.readingStructure
+  if (!structure?.chapters?.length || !Number.isFinite(structure.totalParagraphs) || structure.totalParagraphs <= 0) return null
+  const index = chapterIndex(structure, resume?.chapterNumber || 1)
+  const chapter = structure.chapters[index]
+  let completedUnits
+  if (isNonlinearBook(book?.id)) {
+    const finished = new Set(Array.isArray(options.finishedChapters) ? options.finishedChapters : [])
+    completedUnits = structure.chapters.reduce((sum, item) => sum + (finished.has(item.number) ? item.paragraphCount : 0), 0)
+    if (!finished.has(chapter.number)) completedUnits += chapterFraction(resume, chapter) * chapter.paragraphCount
+  } else {
+    const prior = structure.chapters.slice(0, index).reduce((sum, item) => sum + item.paragraphCount, 0)
+    completedUnits = prior + chapterFraction(resume, chapter) * chapter.paragraphCount
   }
   return clamp((completedUnits / structure.totalParagraphs) * 100, 0, 99.9)
 }

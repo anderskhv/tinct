@@ -37,6 +37,17 @@ export interface LabLibraryBootHero {
   note: string | null
 }
 
+/** A Reading-now card after the hero: enough to paint its cover before any module has loaded. */
+export interface LabLibraryBootCard {
+  bookId: string
+  title: string
+  coverSrc: string | null
+  coverSrcSet: string | null
+}
+
+/** Cards the boot paints after the hero. The row is a row, not a list: a dozen is more than a screen. */
+export const LAB_LIBRARY_BOOT_ROW_MAX = 12
+
 export interface LabLibraryBootSnapshot {
   v: typeof LAB_LIBRARY_BOOT_VERSION
   at: number
@@ -45,6 +56,12 @@ export interface LabLibraryBootSnapshot {
   readingNow: number
   finished: number
   hero: LabLibraryBootHero | null
+  /**
+   * The Reading-now cards after the hero, in row order (2026-09-11). The boot
+   * paints every cover the confirmed render will show, so the row does not
+   * go from one card to N when the module lands. Absent in older snapshots.
+   */
+  row: LabLibraryBootCard[]
 }
 
 function browserStorage(): StorageLike | null {
@@ -95,7 +112,19 @@ export function parseLabLibraryBootSnapshot(raw: unknown, now = Date.now()): Lab
     }
   }
   const count = (value: unknown) => typeof value === 'number' && Number.isInteger(value) && value >= 0 && value <= 10_000 ? value : 0
-  return { v: LAB_LIBRARY_BOOT_VERSION, at: src.at, userId, readingNow: count(src.readingNow), finished: count(src.finished), hero }
+  const row: LabLibraryBootCard[] = []
+  if (hero && Array.isArray(src.row)) {
+    for (const item of src.row) {
+      if (row.length >= LAB_LIBRARY_BOOT_ROW_MAX) break
+      if (!item || typeof item !== 'object') continue
+      const c = item as Record<string, unknown>
+      const bookId = text(c.bookId, 80)
+      const title = text(c.title, 200)
+      if (!bookId || !title || bookId === hero.bookId || row.some(card => card.bookId === bookId)) continue
+      row.push({ bookId, title, coverSrc: safeCoverSource(c.coverSrc), coverSrcSet: safeCoverSource(c.coverSrc) ? text(c.coverSrcSet, 4_000) : null })
+    }
+  }
+  return { v: LAB_LIBRARY_BOOT_VERSION, at: src.at, userId, readingNow: count(src.readingNow), finished: count(src.finished), hero, row }
 }
 
 export function readLabLibraryBootSnapshot(storage: StorageLike | null = browserStorage(), now = Date.now()): LabLibraryBootSnapshot | null {
@@ -144,22 +173,32 @@ export function snapshotWithReaderPlace(existing: LabLibraryBootSnapshot | null,
   const base = existing && existing.userId === input.userId ? existing : null
   const sameBook = base?.hero?.bookId === input.bookId
   const sameChapter = sameBook && base?.hero?.chapterLabel === input.chapterLabel
+  // The book the reader is in may already be on the row: its card supplies
+  // the cover the hero would otherwise lose, and leaves the row.
+  const fromRow = !sameBook ? base?.row.find(card => card.bookId === input.bookId) ?? null : null
   const hero: LabLibraryBootHero = {
     bookId: input.bookId,
     title: input.title,
     chapterLabel: input.chapterLabel,
     headline: sameChapter && base?.hero ? base.hero.headline : stoppedInHeadline(input.chapterLabel),
-    coverSrc: sameBook && base?.hero ? base.hero.coverSrc : null,
-    coverSrcSet: sameBook && base?.hero ? base.hero.coverSrcSet : null,
+    coverSrc: sameBook && base?.hero ? base.hero.coverSrc : fromRow?.coverSrc ?? null,
+    coverSrcSet: sameBook && base?.hero ? base.hero.coverSrcSet : fromRow?.coverSrcSet ?? null,
     note: sameChapter && base?.hero ? base.hero.note : null,
+  }
+  // The row keeps its order; a hero that steps down goes to its front, the
+  // way the confirmed list would order it (newest first).
+  const row = (base?.row ?? []).filter(card => card.bookId !== input.bookId)
+  if (base?.hero && !sameBook) {
+    row.unshift({ bookId: base.hero.bookId, title: base.hero.title, coverSrc: base.hero.coverSrc, coverSrcSet: base.hero.coverSrcSet })
   }
   return {
     v: LAB_LIBRARY_BOOT_VERSION,
     at: input.now,
     userId: input.userId,
-    readingNow: base ? (base.hero && !sameBook ? base.readingNow + 1 : Math.max(1, base.readingNow)) : 1,
+    readingNow: base ? (base.hero && !sameBook && !fromRow ? base.readingNow + 1 : Math.max(1, base.readingNow)) : 1,
     finished: base?.finished ?? 0,
     hero,
+    row: row.slice(0, LAB_LIBRARY_BOOT_ROW_MAX),
   }
 }
 
