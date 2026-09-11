@@ -28,7 +28,7 @@ Status key: `[ ]` not started · `[~]` in progress · `[x]` done and spot-checke
 
 - [ ] B1 — odyssey, ulysses, gilgamesh, iliad, the-aeneid
 - [ ] B2 — war-and-peace, anna-karenina, ivan-ilyich, crime-and-punishment, brothers-karamazov, notes-from-underground
-- [ ] B3 — bible (dedicated batch; largest book, special canon/rights handling)
+- [x] B3 — bible — DONE. **CRITICAL: modern-en verified verbatim NIV (2011, Biblica, all rights reserved) — live commercial copyright exposure, not just quality.** Also ~166 verses deleted across 92 chs, 32 chs with verse-boundary displacement (Jer 16→25, Rev 14→22, etc.), 1 Chr, Acts, Ps runs. Rec: USE HUMAN EDITION (BSB, confirmed public domain/CC0 2023-04-30). modern-da inherits same defects. See per-book-notes/bible.md.
 - [ ] B4 — hamlet, macbeth, midsummer, romeo-and-juliet, the-tempest
 - [ ] B5 — comedy-of-errors, merchant-of-venice, henry-v, as-you-like-it, winters-tale
 - [ ] B6 — julius-caesar, twelfth-night, measure-for-measure, henry-iv-part-2, merry-wives-of-windsor
@@ -93,3 +93,7 @@ Status key: `[ ]` not started · `[~]` in progress · `[x]` done and spot-checke
 | B20 | dispatched | American founding documents |
 | B21 | queued | misc essays + Don Quixote/Montaigne — hit 20-concurrent-subagent limit, retry once a slot frees |
 | B22 | queued | Treasure Island (staged) — hit 20-concurrent-subagent limit, retry once a slot frees |
+
+## URGENT — flagged during audit, outside normal severity triage
+
+**Bible `modern-en` (and `modern-da`, which inherits it) is verbatim copyrighted NIV text (2011, Biblica), not an AI paraphrase.** Verified against Bible Gateway at 11 verse-groups, 6 books, 4 genres — distinctive NIV-only wording and name spellings reproduced exactly against the KJV it's nominally aligned to. This is live in production, serving the complete 66-book NIV (~31,000 verses) inside a paid commercial product; Biblica's stated permission threshold is ≤500 verses / <25% of a book without written license. This is a legal/product-risk finding, not just an editorial one, and is out of scope for this audit to fix (review-only). Recommend Anders see this immediately rather than wait for the full report. See `per-book-notes/bible.md` for full evidence.
