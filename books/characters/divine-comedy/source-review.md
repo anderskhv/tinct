@@ -506,6 +506,12 @@ So came they from the band where Dido is, Approaching us athwart the air malign,
 
 The queen of Carthage who killed herself for love and broke faith with Sychaeus’s ashes.
 
+## original-en · sychaeus · 5:20
+
+The next is she who killed herself for love, And broke faith with the ashes of Sichaeus; Then Cleopatra the voluptuous.”
+
+Dido’s dead husband, whose ashes she broke faith with.
+
 ## original-en · cleopatra · 5:20
 
 The next is she who killed herself for love, And broke faith with the ashes of Sichaeus; Then Cleopatra the voluptuous.”
@@ -1202,9 +1208,9 @@ But I, why thither come, or who concedes it? I not Aeneas am, I am not Paul, Nor
 
 The apostle whose journey to the third heaven Dante names beside Aeneas’s as precedent.
 
-## original-en · john-baptist · 30:24
+## original-en · john-baptist · 19:5
 
-There is Romena, where I counterfeited The currency imprinted with the Baptist, For which I left my body burned above.
+To me less ample seemed they not, nor greater Than those that in my beautiful Saint John Are fashioned for the place of the baptisers,
 
 John the Baptist, the patron Florence adopted in place of Mars.
 
@@ -1322,6 +1328,12 @@ After the dolorous discomfiture When Charlemagne the holy emprise lost, So terri
 
 The emperor whose rout at Roncesvalles cost him his holy campaign.
 
+## original-en · roland · 31:5
+
+After the dolorous discomfiture When Charlemagne the holy emprise lost, So terribly Orlando sounded not.
+
+The paladin whose horn sounded at Roncesvalles.
+
 ## original-en · robert-guiscard · 28:4
 
 With those who felt the agony of blows By making counterstand to Robert Guiscard, And all the rest, whose bones are gathered still
@@ -1362,7 +1374,7 @@ The god of poetry, invoked at the opening of the Paradiso.
 
 Them wilt thou see among that people vain Who hope in Talamone, and will lose there More hope than in discovering the Diana;
 
-The goddess of the moon and the hunt.
+The goddess of the moon and the hunt; Trivia is her name at the crossroads, and in Heaven it is the moon she smiles from.
 
 ## original-en · minerva · 64:22
 
@@ -1393,6 +1405,12 @@ The goddesses of poetry, invoked at the outset of each canticle.
 From Circe had departed, who concealed me More than a year there near unto Gaeta, Or ever yet Aeneas named it so,
 
 The enchantress who kept Ulysses near Gaeta for more than a year.
+
+## original-en · phaethon · 17:35
+
+A greater fear I do not think there was What time abandoned Phaeton the reins, Whereby the heavens, as still appears, were scorched;
+
+The boy who dropped the reins of the sun’s chariot and scorched the sky.
 
 ## original-en · arachne · 17:5
 
@@ -1554,7 +1572,7 @@ A people the poem calls the vainest in the world.
 
 Not the sole Bolognese am I who weeps here; Nay, rather is this place so full of them, That not so many tongues to-day are taught
 
-Named in the ditch of the panders.
+Named in the ditch of the panders, and again by the two Jovial Friars.
 
 ## original-en · genoese · 33:50
 
@@ -1688,6 +1706,12 @@ O German Albert! who abandonest Her that has grown recalcitrant and savage, And 
 
 The emperor reproached for abandoning Italy.
 
+## original-en · rudolf · 41:31
+
+Rudolph the Emperor was, who had the power To heal the wounds that Italy have slain, So that through others slowly she revives.
+
+The Emperor Rudolf of Habsburg, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not; Charles Martel names him as a grandfather of the kings Sicily never got.
+
 ## original-en · ottocar · 41:33
 
 His name was Ottocar; and in swaddling-clothes Far better he than bearded Winceslaus His son, who feeds in luxury and ease.
@@ -1711,6 +1735,12 @@ Peter of Aragon, singing in the valley of the princes beside the large-nosed kin
 The plant is as inferior to its seed, As more than Beatrice and Margaret Costanza boasteth of her husband still.
 
 A queen named in the comparison of wives who boast of their husbands.
+
+## original-en · constance-aragon · 37:47
+
+See now if thou hast power to make me happy, By making known unto my good Costanza How thou hast seen me, and this ban beside,
+
+Peter of Aragon’s widow, who still boasts of her husband.
 
 ## original-en · marquis-william · 41:44
 
@@ -1922,9 +1952,9 @@ Hugh Capet was I called upon the earth; From me were born the Louises and Philip
 
 The son of a Parisian butcher and root of the French royal line, who denounces his own descendants.
 
-## original-en · charles-of-anjou · 54:22
+## original-en · charles-of-anjou · 19:32
 
-Charles came to Italy, and for amends A victim made of Conradin, and then Thrust Thomas back to heaven, for amends.
+Therefore stay here, for thou art justly punished, And keep safe guard o’er the ill-gotten money, Which caused thee to be valiant against Charles.
 
 Charles of Anjou, who came to Italy, made a victim of Conradin and, for amends, thrust Thomas back to heaven.
 
@@ -1934,11 +1964,11 @@ Charles came to Italy, and for amends A victim made of Conradin, and then Thrust
 
 The young Hohenstaufen whom Charles of Anjou executed.
 
-## original-en · thomas-aquinas-purg · 54:22
+## original-en · thomas-aquinas · 54:22
 
 Charles came to Italy, and for amends A victim made of Conradin, and then Thrust Thomas back to heaven, for amends.
 
-Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.
+Thomas Aquinas, the Dominican whom Charles of Anjou is said to have thrust back to heaven; in the sphere of the sun he speaks for the twelve wise lights and tells the life of Saint Francis.
 
 ## original-en · fabricius · 54:8
 
@@ -2304,7 +2334,7 @@ The nymph Diana drove out of the forest for tasting the poison of Venus.
 
 This also ended, cried they: “To the wood Diana ran, and drove forth Helice Therefrom, who had of Venus felt the poison.”
 
-The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.
+The goddess of love, whose poison Helice tasted; also the planet, called Cytherea, and the Cyprian goddess the old world blamed for the madness of love.
 
 ## original-en · titus · 55:27
 
@@ -2462,11 +2492,11 @@ Preceded there the vessel benedight, Dancing with girded loins, the humble Psalm
 
 David, dancing before the Ark with his robes girded up.
 
-## original-en · justinian-purg · 40:29
+## original-en · justinian · 40:29
 
 What boots it, that for thee Justinian The bridle mend, if empty be the saddle? Withouten this the shame would be the less.
 
-The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.
+The emperor who repaired the bridle of the law — Sordello asks what good it did with the saddle empty — and who, in the sphere of Mercury, tells the whole flight of the Roman eagle from Troy to Charlemagne.
 
 ## original-en · clement-iv · 37:41
 
@@ -2485,6 +2515,936 @@ The Roman whose name stands for the partisan who makes himself a tyrant.
 “Or ever to this mountain were directed The souls deserving to ascend to God, My bones were buried by Octavian.
 
 The emperor who had Virgil’s bones buried at Naples.
+
+## original-en · marsyas · 68:6
+
+Enter into my bosom, thou, and breathe As at the time when Marsyas thou didst draw Out of the scabbard of those limbs of his.
+
+The satyr who challenged Apollo to a contest of music and was flayed for losing; Dante asks the god to draw him out of himself the same way.
+
+## original-en · glaucus · 68:22
+
+Such at her aspect inwardly became As Glaucus, tasting of the herb that made him Peer of the other gods beneath the sea.
+
+The fisherman who tasted a herb and became a sea god; Dante uses him for the change he has no word for.
+
+## original-en · intelligences · 75:36
+
+This cannot be, if the Intelligences That keep these stars in motion are not maimed, And maimed the First that has not made them perfect.
+
+The blessed angelic minds that turn the spheres — Dante’s astronomy and his theology are the same science.
+
+## original-en · pegasea · 85:27
+
+O divine Pegasea, thou who genius Dost glorious make, and render it long-lived, And this through thee the cities and the kingdoms,
+
+The Muse invoked by the name of Pegasus, asked to make genius last as long as the cities it praises.
+
+## original-en · polyhymnia · 90:18
+
+If at this moment sounded all the tongues That Polyhymnia and her sisters made Most lubrical with their delicious milk,
+
+The Muse of sacred song, named with her sisters when Dante says even all of them together could not tell what Beatrice’s smile was like.
+
+## original-en · samuel · 71:9
+
+He of the Seraphim most absorbed in God, Moses, and Samuel, and whichever John Thou mayst select, I say, and even Mary,
+
+The prophet, named with Moses and Mary among the souls closest to God — none of whom, Beatrice says, sits higher in Heaven than the Seraphim Dante is looking at.
+
+## original-en · gabriel · 71:15
+
+And Holy Church under an aspect human Gabriel and Michael represent to you, And him who made Tobias whole again.
+
+The archangel of the Annunciation, shown to men in human shape because human sight needs a shape; he crowns Mary in the eighth heaven.
+
+## original-en · mercury · 71:20
+
+This principle ill understood once warped The whole world nearly, till it went astray Invoking Jove and Mercury and Mars.
+
+The god the old world worshipped in the planet, named with Jupiter and Mars as proof of how badly the doctrine of the spheres was misread.
+
+## original-en · tobias · 71:15
+
+And Holy Church under an aspect human Gabriel and Michael represent to you, And him who made Tobias whole again.
+
+The man in the Book of Tobit whose blindness an angel healed; the angel is named in scripture and not here.
+
+## original-en · lawrence · 71:27
+
+If their will had been perfect, like to that Which Lawrence fast upon his gridiron held, And Mutius made severe to his own hand,
+
+The deacon held to the gridiron, named with Mucius for a will that did not bend under fire.
+
+## original-en · mucius · 71:27
+
+If their will had been perfect, like to that Which Lawrence fast upon his gridiron held, And Mutius made severe to his own hand,
+
+The Roman who thrust his own right hand into the flame before the enemy king, named with Saint Lawrence for the same unbending will.
+
+## original-en · nebuchadnezzar · 71:4
+
+Beatrice did as Daniel had done Relieving Nebuchadnezzar from the wrath Which rendered him unjustly merciless,
+
+The king whose forgotten dream made him cruel until Daniel recovered it; Beatrice does for Dante what Daniel did for him.
+
+## original-en · jephthah · 72:21
+
+Let mortals never take a vow in jest; Be faithful and not blind in doing that, As Jephthah was in his first offering,
+
+The judge who vowed the first thing to meet him on his return and had to keep the vow against his daughter — Dante’s example of a vow that should have been broken.
+
+## original-en · iphigenia · 72:23
+
+Whence wept Iphigenia her fair face, And made for her both wise and simple weep, Who heard such kind of worship spoken of.’
+
+The daughter Agamemnon sacrificed for a wind, named beside Jephthah’s daughter: the same crime made twice by wise men and fools alike.
+
+## original-en · agapetus · 73:5
+
+But blessed Agapetus, he who was The supreme pastor, to the faith sincere Pointed me out the way by words of his.
+
+The pope who talked Justinian out of the heresy that Christ had one nature only.
+
+## original-en · belisarius · 73:8
+
+And to my Belisarius I commended The arms, to which was heaven’s right hand so joined It was a signal that I should repose.
+
+The general to whom Justinian handed the armies, so plainly favoured by Heaven that the emperor took it as leave to stop fighting and start legislating.
+
+## original-en · sabines · 73:13
+
+Thou knowest what it achieved from Sabine wrong Down to Lucretia’s sorrow, in seven kings O’ercoming round about the neighboring nations;
+
+The women carried off by the first Romans; Justinian dates the eagle’s career from that theft to Lucretia’s suicide.
+
+## original-en · brennus · 73:14
+
+Thou knowest what it achieved, borne by the Romans Illustrious against Brennus, against Pyrrhus, Against the other princes and confederates.
+
+The Gaulish chief the Roman standard beat back, named first in Justinian’s roll of defeated enemies.
+
+## original-en · torquatus · 73:15
+
+Torquatus thence and Quinctius, who from locks Unkempt was named, Decii and Fabii, Received the fame I willingly embalm;
+
+A Roman commander of the early republic, one of the names Justinian says the eagle made famous rather than the other way round.
+
+## original-en · cincinnatus · 73:15
+
+Torquatus thence and Quinctius, who from locks Unkempt was named, Decii and Fabii, Received the fame I willingly embalm;
+
+The dictator called from his plough, named in the poem by his nickname — the unkempt hair — and again in Cacciaguida’s Florence as a measure of how far the city has fallen.
+
+## original-en · decii · 73:15
+
+Torquatus thence and Quinctius, who from locks Unkempt was named, Decii and Fabii, Received the fame I willingly embalm;
+
+A Roman family whose men gave their own lives in battle by ritual devotion, named in Justinian’s roll of republican fame.
+
+## original-en · fabii · 73:15
+
+Torquatus thence and Quinctius, who from locks Unkempt was named, Decii and Fabii, Received the fame I willingly embalm;
+
+A Roman family of the early republic, named with the Decii among the houses the eagle made glorious.
+
+## original-en · pompey · 73:17
+
+Beneath it triumphed while they yet were young Pompey and Scipio, and to the hill Beneath which thou wast born it bitter seemed;
+
+The young commander who triumphed under the republic’s eagle and, grown old, lost to Caesar at Pharsalia.
+
+## original-en · juba · 73:23
+
+From thence it came like lightning upon Juba; Then wheeled itself again into your West, Where the Pompeian clarion it heard.
+
+The African king struck down by Caesar’s lightning march after Pharsalia.
+
+## original-en · janus · 73:26
+
+With him it ran even to the Red Sea shore; With him it placed the world in so great peace, That unto Janus was his temple closed.
+
+The god whose temple stood open in war; Justinian’s proof of the peace Augustus made is that its door was shut.
+
+## original-en · ghibellines · 73:34
+
+Let, let the Ghibellines ply their handicraft Beneath some other standard; for this ever Ill follows he who it and justice parts.
+
+The imperial party, told to stop conducting their faction under the eagle’s sign — the banner is not theirs.
+
+## original-en · guelfs · 73:35
+
+And let not this new Charles e’er strike it down, He and his Guelfs, but let him fear the talons That from a nobler lion stripped the fell.
+
+The papal party, whose new Charles is warned that the eagle has stripped the hide off stronger lions.
+
+## original-en · arabs · 73:16
+
+It struck to earth the pride of the Arabians, Who, following Hannibal, had passed across The Alpine ridges, Po, from which thou glidest;
+
+Justinian’s name for the Carthaginians who crossed the Alps with Hannibal.
+
+## original-en · romeo · 73:42
+
+And in the compass of this present pearl Shineth the sheen of Romeo, of whom The grand and beauteous work was ill rewarded.
+
+The pilgrim steward who made Raymond Berengar rich and married off four daughters to four kings, was accused of theft, and walked out with nothing.
+
+## original-en · raymond-berenger · 73:44
+
+Four daughters, and each one of them a queen, Had Raymond Berenger, and this for him Did Romeo, a poor man and a pilgrim;
+
+The count of Provence whose four daughters all became queens, through the work of his steward Romeo.
+
+## original-en · charles-martel · 76:0
+
+Beautiful Clemence, after that thy Charles Had me enlightened, he narrated to me The treacheries his seed should undergo;
+
+The eldest son of Charles II, who died at twenty-four; he greets Dante as a friend from Florence and explains why a mild father breeds a grasping son.
+
+## original-en · charles-ii · 73:35
+
+And let not this new Charles e’er strike it down, He and his Guelfs, but let him fear the talons That from a nobler lion stripped the fell.
+
+Charles the Second of Naples, the Cripple of Jerusalem — the new Charles warned off the eagle, mourned while still alive, and marked in the Eagle’s book with one virtue against many vices.
+
+## original-en · charles-of-valois · 54:23
+
+A time I see, not very distant now, Which draweth forth another Charles from France, The better to make known both him and his.
+
+The Charles drawn out of France with the lance of treachery, who took Florence for the Black Guelfs and left it in ruins.
+
+## original-en · clemence · 76:0
+
+Beautiful Clemence, after that thy Charles Had me enlightened, he narrated to me The treacheries his seed should undergo;
+
+The woman Charles Martel addresses when he foretells the wrongs his line will suffer — his wife or his daughter; the poem does not say which.
+
+## original-en · dione · 75:2
+
+But both Dione honoured they and Cupid, That as her mother, this one as her son, And said that he had sat in Dido’s lap;
+
+The mother of Venus in the old mythology, and in Dante’s sky the planet Venus itself.
+
+## original-en · cupid · 75:2
+
+But both Dione honoured they and Cupid, That as her mother, this one as her son, And said that he had sat in Dido’s lap;
+
+The son of Venus, whom the old poets sent to sit in Dido’s lap in the shape of her guest’s child.
+
+## original-en · solon · 75:41
+
+Hence one is Solon born, another Xerxes, Another Melchisedec, and another he Who, flying through the air, his son did lose.
+
+The Athenian lawgiver, named as one of the unlike natures Providence scatters among brothers.
+
+## original-en · melchisedec · 75:41
+
+Hence one is Solon born, another Xerxes, Another Melchisedec, and another he Who, flying through the air, his son did lose.
+
+The priest-king of Genesis, named with Solon and Xerxes to show how differently men are born to their work.
+
+## original-en · esau · 75:43
+
+Thence happens it that Esau differeth In seed from Jacob; and Quirinus comes From sire so vile that he is given to Mars.
+
+The twin who differed from his brother in the womb; Dante’s proof that nature does not follow family.
+
+## original-en · jacob · 75:43
+
+Thence happens it that Esau differeth In seed from Jacob; and Quirinus comes From sire so vile that he is given to Mars.
+
+Esau’s twin, named for the same argument — and, in the last heaven, one of the patriarchs seated in the rose.
+
+## original-en · quirinus · 75:43
+
+Thence happens it that Esau differeth In seed from Jacob; and Quirinus comes From sire so vile that he is given to Mars.
+
+Romulus under his godlike name, born of so low a father that Rome assigned him to Mars instead.
+
+## original-en · cunizza · 76:10
+
+Out of one root were born both I and it; Cunizza was I called, and here I shine Because the splendour of this star o’ercame me.
+
+Ezzelino’s sister, who lived by love and says so without apology; she shines in Venus and prophesies ruin for the March of Treviso.
+
+## original-en · folco · 76:31
+
+Folco that people called me unto whom My name was known; and now with me this heaven Imprints itself, as I did once with it;
+
+Folquet of Marseille, troubadour turned bishop, who burned as hotly as Dido in his youth and here remembers it without shame.
+
+## original-en · belus · 76:32
+
+For more the daughter of Belus never burned, Offending both Sichaeus and Creusa, Than I, so long as it became my locks,
+
+The father of Dido, named so that Folco can measure his own youth against hers.
+
+## original-en · creusa · 76:32
+
+For more the daughter of Belus never burned, Offending both Sichaeus and Creusa, Than I, so long as it became my locks,
+
+The wife Aeneas lost at Troy, wronged along with Sychaeus when Dido took Aeneas in.
+
+## original-en · demophoon · 76:33
+
+Nor yet that Rodophean, who deluded was by Demophoon, nor yet Alcides, When Iole he in his heart had locked.
+
+The man whose broken promise killed Phyllis of Rhodope, named by Folco among the great loves.
+
+## original-en · iole · 76:33
+
+Nor yet that Rodophean, who deluded was by Demophoon, nor yet Alcides, When Iole he in his heart had locked.
+
+The girl Hercules locked in his heart, which cost him his life through Deianira’s jealousy.
+
+## original-en · rahab · 76:38
+
+Then know thou, that within there is at rest Rahab, and being to our order joined, With her in its supremest grade ’tis sealed.
+
+The harlot of Jericho who hid Joshua’s spies; she is the highest soul in the sphere of Venus and the first that Christ’s harrowing took there.
+
+## original-en · albert-of-cologne · 77:32
+
+He who is nearest to me on the right My brother and master was; and he Albertus Is of Cologne, I Thomas of Aquinum.
+
+Albertus Magnus, Aquinas’s own master, standing at his right in the first crown of lights.
+
+## original-en · gratian · 77:34
+
+That next effulgence issues from the smile Of Gratian, who assisted both the courts In such wise that it pleased in Paradise.
+
+The canonist whose Decretum reconciled church law with civil law, which Paradise counts as a service.
+
+## original-en · peter-lombard · 77:35
+
+The other which near by adorns our choir That Peter was who, e’en as the poor widow, Offered his treasure unto Holy Church.
+
+The author of the Sentences, the textbook every medieval theologian was trained on; he offered his one talent to the Church as the widow offered her mite.
+
+## original-en · solomon · 77:36
+
+The fifth light, that among us is the fairest, Breathes forth from such a love, that all the world Below is greedy to learn tidings of it.
+
+The fifth and brightest of the twelve lights, whose wisdom the world is still hungry for; Aquinas has to explain that his unequalled seeing was kingly prudence, not universal knowledge.
+
+## original-en · dionysius-areopagite · 95:43
+
+And Dionysius with so great desire To contemplate these Orders set himself, He named them and distinguished them as I do.
+
+The Areopagite, credited with the book on the angelic orders; Paradise confirms he got them right, having heard them from Saint Paul.
+
+## original-en · isidore · 77:43
+
+See farther onward flame the burning breath Of Isidore, of Beda, and of Richard Who was in contemplation more than man.
+
+Isidore of Seville, whose encyclopaedia carried the ancient world into the Middle Ages.
+
+## original-en · bede · 77:43
+
+See farther onward flame the burning breath Of Isidore, of Beda, and of Richard Who was in contemplation more than man.
+
+The English monk and historian, named with Isidore and Richard among the burning spirits.
+
+## original-en · richard-st-victor · 77:43
+
+See farther onward flame the burning breath Of Isidore, of Beda, and of Richard Who was in contemplation more than man.
+
+Richard of Saint Victor, whose writing on contemplation made him, Aquinas says, more than a man at it.
+
+## original-en · siger · 77:45
+
+It is the light eternal of Sigier, Who, reading lectures in the Street of Straw, Did syllogize invidious verities.”
+
+Siger of Brabant, who lectured in the Street of Straw in Paris and drew hatred for conclusions that were merely true; Aquinas, who argued against him on earth, names him with honour here.
+
+## original-en · parmenides · 80:41
+
+And in the world proofs manifest thereof Parmenides, Melissus, Brissus are, And many who went on and knew not whither;
+
+A Greek philosopher, named with Melissus and Bryson among those who set out confidently and did not know where they were going.
+
+## original-en · melissus · 80:41
+
+And in the world proofs manifest thereof Parmenides, Melissus, Brissus are, And many who went on and knew not whither;
+
+A Greek philosopher named with Parmenides as a warning against quick conclusions.
+
+## original-en · bryson · 80:41
+
+And in the world proofs manifest thereof Parmenides, Melissus, Brissus are, And many who went on and knew not whither;
+
+A Greek geometer who claimed to have squared the circle, named among the confident and wrong.
+
+## original-en · sabellius · 80:42
+
+Thus did Sabellius, Arius, and those fools Who have been even as swords unto the Scriptures In rendering distorted their straight faces.
+
+A heresiarch on the Trinity, named with Arius as one of the swords that twisted scripture out of true.
+
+## original-en · arius · 80:42
+
+Thus did Sabellius, Arius, and those fools Who have been even as swords unto the Scriptures In rendering distorted their straight faces.
+
+The heresiarch who denied the Son’s full divinity, named with Sabellius for the same distortion.
+
+## original-en · dame-bertha · 80:46
+
+Let not Dame Bertha nor Ser Martin think, Seeing one steal, another offering make, To see them in the arbitrament divine;
+
+Any ordinary woman — the medieval equivalent of Jane Doe — warned with Ser Martin not to judge who is saved and who is damned.
+
+## original-en · ser-martin · 80:46
+
+Let not Dame Bertha nor Ser Martin think, Seeing one steal, another offering make, To see them in the arbitrament divine;
+
+Any ordinary man, named with Dame Bertha in Aquinas’s warning against confident judgement of souls.
+
+## original-en · francis · 27:37
+
+Francis came afterward, when I was dead, For me; but one of the black Cherubim Said to him: ‘Take him not; do me no wrong;
+
+Francis of Assisi, whose life Aquinas tells as a marriage to Poverty; the sun that rose over the world from Ascesi — better called Orient. He comes for Guido da Montefeltro’s soul in the Inferno and loses it to a black Cherub.
+
+## original-en · poverty · 78:24
+
+But that too darkly I may not proceed, Francis and Poverty for these two lovers Take thou henceforward in my speech diffuse.
+
+The widow no one had courted for eleven hundred years, since her first husband died on the cross; Francis married her in front of his father and his bishop.
+
+## original-en · bernard-quintavalle · 78:26
+
+So much so that the venerable Bernard First bared his feet, and after so great peace Ran, and, in running, thought himself too slow.
+
+Bernard of Quintavalle, the first man to follow Francis — he stripped his feet bare and ran, and thought he was running too slowly.
+
+## original-en · ubaldo · 78:14
+
+Between Tupino and the stream that falls Down from the hill elect of blessed Ubald, A fertile slope of lofty mountain hangs,
+
+The blessed bishop of Gubbio, whose chosen hill Dante uses to fix the position of Assisi.
+
+## original-en · amyclas · 78:22
+
+Naught it availed to hear, that with Amyclas Found her unmoved at sounding of his voice He who struck terror into all the world;
+
+The fisherman too poor to fear Caesar, who did not stir when the voice that terrified the world called at his door; Poverty stood by him and nobody noticed.
+
+## original-en · pietro-bernardone · 78:29
+
+Nor cowardice of heart weighed down his brow At being son of Peter Bernardone, Nor for appearing marvellously scorned;
+
+Francis’s father, the cloth merchant he renounced in public — a shame the poem says Francis bore like a king.
+
+## original-en · innocent-iii · 78:30
+
+But regally his hard determination To Innocent he opened, and from him Received the primal seal upon his Order.
+
+Pope Innocent the Third, who gave Francis’s rule its first seal.
+
+## original-en · honorius · 78:32
+
+Incoronated with a second crown Was through Honorius by the Eternal Spirit The holy purpose of this Archimandrite.
+
+Pope Honorius the Third, who confirmed the Franciscan rule a second time.
+
+## original-en · dominic · 77:31
+
+Of the lambs was I of the holy flock Which Dominic conducteth by a road Where well one fattens if he strayeth not.
+
+The founder of the Preachers, whose life Bonaventure tells as Aquinas told Francis’s: a champion sent against heresy, and a wheel of the chariot the Church rode in.
+
+## original-en · felix · 79:26
+
+O thou his father, Felix verily! O thou his mother, verily Joanna, If this, interpreted, means as is said!
+
+Dominic’s father, whose name means happy — the poem says it meant it truly.
+
+## original-en · joanna · 79:26
+
+O thou his father, Felix verily! O thou his mother, verily Joanna, If this, interpreted, means as is said!
+
+Dominic’s mother, whose name Dante reads as ‘grace of God’.
+
+## original-en · ostiense · 79:27
+
+Not for the world which people toil for now In following Ostiense and Taddeo, But through his longing after the true manna,
+
+The cardinal of Ostia, a commentator on canon law; his name and Taddeo’s stand for the profitable studies men take up instead of theology.
+
+## original-en · taddeo · 79:27
+
+Not for the world which people toil for now In following Ostiense and Taddeo, But through his longing after the true manna,
+
+A famous physician of Bologna, named with Ostiense for the lucrative learning that draws students away from the bread of Heaven.
+
+## original-en · bonaventure · 79:42
+
+Bonaventura of Bagnoregio’s life Am I, who always in great offices Postponed considerations sinister.
+
+The Franciscan minister general, who tells the life of Dominic in return for Aquinas telling the life of Francis — and names his own order’s deserters while he is at it.
+
+## original-en · illuminato · 79:43
+
+Here are Illuminato and Agostino, Who of the first barefooted beggars were That with the cord the friends of God became.
+
+One of the first companions of Francis, who went with him to Egypt.
+
+## original-en · augustine-of-assisi · 79:43
+
+Here are Illuminato and Agostino, Who of the first barefooted beggars were That with the cord the friends of God became.
+
+An early Franciscan, named with Illuminato among the first to go barefoot and take the cord; Longfellow spells him Agostino.
+
+## original-en · hugh-st-victor · 79:44
+
+Hugh of Saint Victor is among them here, And Peter Mangiador, and Peter of Spain, Who down below in volumes twelve is shining;
+
+The theologian of the Paris abbey, named among the lights of Bonaventure’s crown.
+
+## original-en · peter-mangiatore · 79:44
+
+Hugh of Saint Victor is among them here, And Peter Mangiador, and Peter of Spain, Who down below in volumes twelve is shining;
+
+Peter Comestor, ‘the eater’ — so called for devouring books; Longfellow keeps the Italian, Mangiador.
+
+## original-en · peter-of-spain · 79:44
+
+Hugh of Saint Victor is among them here, And Peter Mangiador, and Peter of Spain, Who down below in volumes twelve is shining;
+
+The logician whose twelve books of Summulae were the standard textbook — and who became Pope John XXI.
+
+## original-en · nathan · 79:45
+
+Nathan the seer, and metropolitan Chrysostom, and Anselmus, and Donatus Who deigned to lay his hand to the first art;
+
+The prophet who told David his own crime back to him as a parable.
+
+## original-en · chrysostom · 79:45
+
+Nathan the seer, and metropolitan Chrysostom, and Anselmus, and Donatus Who deigned to lay his hand to the first art;
+
+John Chrysostom, patriarch of Constantinople, the golden-mouthed preacher.
+
+## original-en · anselm-canterbury · 79:45
+
+Nathan the seer, and metropolitan Chrysostom, and Anselmus, and Donatus Who deigned to lay his hand to the first art;
+
+Anselm of Canterbury, named among the lights; Longfellow spells him Anselmus.
+
+## original-en · donatus · 79:45
+
+Nathan the seer, and metropolitan Chrysostom, and Anselmus, and Donatus Who deigned to lay his hand to the first art;
+
+The grammarian whose textbook taught the first of the liberal arts to the whole Middle Ages.
+
+## original-en · rabanus · 79:46
+
+Here is Rabanus, and beside me here Shines the Calabrian Abbot Joachim, He with the spirit of prophecy endowed.
+
+Rabanus Maurus, the Carolingian scholar and commentator on scripture.
+
+## original-en · joachim · 79:46
+
+Here is Rabanus, and beside me here Shines the Calabrian Abbot Joachim, He with the spirit of prophecy endowed.
+
+The Calabrian abbot Joachim of Fiore, gifted with prophecy — praised here by a Franciscan, though his followers had split the order.
+
+## original-en · anchises · 1:24
+
+A poet was I, and I sang that just Son of Anchises, who came forth from Troy, After that Ilion the superb was burned.
+
+Aeneas’s father, who reached out to his son in Elysium; Cacciaguida greets Dante with the same tenderness.
+
+## original-en · cacciaguida · 82:44
+
+Did Mary give me, with loud cries invoked, And in your ancient Baptistery at once Christian and Cacciaguida I became.
+
+Dante’s great-great-grandfather, who was christened in the Baptistery, knighted by the Emperor Conrad and died on crusade; he describes the old Florence, names the houses, and tells Dante he will be exiled.
+
+## original-en · eliseo · 82:45
+
+Moronto was my brother, and Eliseo; From Val di Pado came to me my wife, And from that place thy surname was derived.
+
+One of Cacciaguida’s two brothers; the family name may have come from him.
+
+## original-en · moronto · 82:45
+
+Moronto was my brother, and Eliseo; From Val di Pado came to me my wife, And from that place thy surname was derived.
+
+One of Cacciaguida’s two brothers, named once and never again.
+
+## original-en · emperor-conrad · 82:46
+
+I followed afterward the Emperor Conrad, And he begirt me of his chivalry, So much I pleased him with my noble deeds.
+
+The Emperor Conrad the Third, who knighted Cacciaguida and took him on the crusade he died in.
+
+## original-en · bellincion-berti · 82:37
+
+Bellincion Berti saw I go begirt With leather and with bone, and from the mirror His dame depart without a painted face;
+
+A great Florentine of the plain old city, who went about belted in leather and bone; his wife left her mirror unpainted.
+
+## original-en · cianghella · 82:42
+
+As great a marvel then would have been held A Lapo Salterello, a Cianghella, As Cincinnatus or Cornelia now.
+
+A Florentine woman of Dante’s own day, notorious enough that the old city would have gawked at her.
+
+## original-en · lapo-salterello · 82:42
+
+As great a marvel then would have been held A Lapo Salterello, a Cianghella, As Cincinnatus or Cornelia now.
+
+A Florentine lawyer and politician of Dante’s day, named with Cianghella as the kind of citizen the old city could not have imagined.
+
+## original-en · old-florentine-houses · 82:38
+
+And him of Nerli saw, and him of Vecchio, Contented with their simple suits of buff And with the spindle and the flax their dames.
+
+Cacciaguida’s roll of the families who made the city when it was small and at peace. Almost all of them were ruined, exiled or absorbed within a century, and Dante names them the way a man reads gravestones.
+
+## original-en · ubertino-donato · 83:39
+
+Already rising was, but from low people; So that it pleased not Ubertin Donato That his wife’s father should make him their kin.
+
+A Florentine who was displeased when his father-in-law married another daughter into the Adimari — one small snub, still remembered.
+
+## original-en · guinevere · 83:4
+
+Whence Beatrice, who stood somewhat apart, Smiling, appeared like unto her who coughed At the first failing writ of Guenever.
+
+Arthur’s queen, whose first slip with Lancelot drew a cough from her lady-in-waiting; Beatrice’s smile at Dante is the same kind of warning.
+
+## original-en · thomas-apostle · 83:42
+
+Each one that bears the beautiful escutcheon Of the great baron whose renown and name The festival of Thomas keepeth fresh,
+
+The apostle, whose feast day keeps alive the name of the great baron of Florence.
+
+## original-en · hugh-the-great · 83:42
+
+Each one that bears the beautiful escutcheon Of the great baron whose renown and name The festival of Thomas keepeth fresh,
+
+Hugh of Tuscany, the imperial vicar who knighted several Florentine families into his own arms; Dante keeps his memory with the feast of Saint Thomas.
+
+## original-en · clymene · 84:0
+
+As came to Clymene, to be made certain Of that which he had heard against himself, He who makes fathers chary still to children,
+
+Phaethon’s mother, who confirmed to him what he had heard about his father — and so made every father since wary of his son’s questions.
+
+## original-en · hippolytus · 84:15
+
+As forth from Athens went Hippolytus, By reason of his step-dame false and cruel, So thou from Florence must perforce depart.
+
+The son driven out of Athens by his stepmother’s lie; Cacciaguida uses him to tell Dante how exile comes — undeserved, and arranged.
+
+## original-en · clement-v · 84:27
+
+But ere the Gascon cheat the noble Henry, Some sparkles of his virtue shall appear In caring not for silver nor for toil.
+
+Pope Clement the Fifth, who called the Emperor Henry into Italy and then worked against him.
+
+## original-en · henry-vii · 84:27
+
+But ere the Gascon cheat the noble Henry, Some sparkles of his virtue shall appear In caring not for silver nor for toil.
+
+Henry the Seventh of Luxembourg, the emperor Dante hoped would set Italy right; a throne is already crowned and waiting for him in the rose.
+
+## original-en · bartolommeo-scala · 84:23
+
+Thine earliest refuge and thine earliest inn Shall be the mighty Lombard’s courtesy, Who on the Ladder bears the holy bird,
+
+Bartolommeo della Scala of Verona, Dante’s first host in exile, who bears the imperial eagle over the ladder of his arms.
+
+## original-en · maccabee · 85:13
+
+And at the name of the great Maccabee I saw another move itself revolving, And gladness was the whip unto that top.
+
+Judas Maccabaeus, whose name spins a light like a top in the cross of Mars.
+
+## original-en · william-of-orange · 85:15
+
+William thereafterward, and Renouard, And the Duke Godfrey, did attract my sight Along upon that Cross, and Robert Guiscard.
+
+The hero of a French epic cycle, a warrior who ended as a monk; named with his companion Renouard.
+
+## original-en · renouard · 85:15
+
+William thereafterward, and Renouard, And the Duke Godfrey, did attract my sight Along upon that Cross, and Robert Guiscard.
+
+The giant Saracen convert of the William of Orange poems, who fought with a club.
+
+## original-en · godfrey · 85:15
+
+William thereafterward, and Renouard, And the Duke Godfrey, did attract my sight Along upon that Cross, and Robert Guiscard.
+
+Godfrey of Bouillon, who led the First Crusade and took Jerusalem.
+
+## original-en · cripple-of-jerusalem · 86:42
+
+Be seen the Cripple of Jerusalem, His goodness represented by an I, While the reverse an M shall represent;
+
+Charles the Second of Naples as the Eagle’s book records him: one stroke of a letter for his goodness against a thousand for his vices.
+
+## original-en · persians · 86:37
+
+What to your kings may not the Persians say, When they that volume opened shall behold In which are written down all their dispraises?
+
+The heathen who will stand up at the judgement and ask Christian kings what the record says about them.
+
+## original-en · ethiopians · 60:6
+
+Nor to me only is thine answer needful; For all of these have greater thirst for it Than for cold water Ethiop or Indian.
+
+Thirsty for cold water in Purgatory, and in Paradise the heathen who will condemn Christians when the two companies are divided.
+
+## original-en · ripheus · 87:22
+
+Who would believe, down in the errant world, That e’er the Trojan Ripheus in this round Could be the fifth one of the holy lights?
+
+A Trojan named once by Virgil as the most just of his people; Dante puts him in the eye of the Eagle, a pagan saved, and offers no explanation the reader can check.
+
+## original-en · william-of-sicily · 87:20
+
+And he, whom in the downward arc thou seest, Guglielmo was, whom the same land deplores That weepeth Charles and Frederick yet alive;
+
+William the Second of Sicily, called the Good, mourned by the land that now has to endure Charles and Frederick alive.
+
+## original-en · peter-damian · 88:40
+
+I in that place was Peter Damiano; And Peter the Sinner was I in the house Of Our Lady on the Adriatic shore.
+
+The hermit of the Adriatic who became a cardinal against his will; he answers Dante out of the ladder of gold and then breaks off into a cry against fat prelates.
+
+## original-en · benedict · 99:11
+
+And under him thus to divide were chosen Francis, and Benedict, and Augustine, And down to us the rest from round to round.
+
+The founder of Western monasticism, who cleared Monte Cassino of its pagans; he shows Dante the ladder and says his rule is now waste paper.
+
+## original-en · macarius · 89:16
+
+Here is Macarius, here is Romualdus, Here are my brethren, who within the cloisters Their footsteps stayed and kept a steadfast heart.”
+
+An early desert father, named by Benedict among his own.
+
+## original-en · romualdus · 89:16
+
+Here is Macarius, here is Romualdus, Here are my brethren, who within the cloisters Their footsteps stayed and kept a steadfast heart.”
+
+Romuald, founder of the Camaldolese hermits, named by Benedict with Macarius.
+
+## original-en · hyperion · 89:47
+
+The aspect of thy son, Hyperion, Here I sustained, and saw how move themselves Around and near him Maia and Dione.
+
+The Titan father of the sun in the old mythology; Dante looks back down through the spheres and names the planets by their gods.
+
+## original-en · maia · 89:47
+
+The aspect of thy son, Hyperion, Here I sustained, and saw how move themselves Around and near him Maia and Dione.
+
+The mother of Mercury, and so Dante’s name for the planet.
+
+## original-en · james-apostle · 66:25
+
+Peter and John and James conducted were, And, overcome, recovered at the word By which still greater slumbers have been broken,
+
+The apostle, who examines Dante on hope; the baron of Compostela, for whose sake Galicia is a place of pilgrimage.
+
+## original-en · john-evangelist · 63:34
+
+And such as thou shalt find them in his pages, Such were they here; saving that in their plumage John is with me, and differeth from him.
+
+The evangelist who lay on Christ’s breast and was taken from the cross to care for his mother; he examines Dante on love, and puts down the legend that he went to Heaven in the body.
+
+## original-en · ananias · 93:3
+
+Because the Lady, who through this divine Region conducteth thee, has in her look The power the hand of Ananias had.”
+
+The disciple whose hands restored Saul’s sight; Beatrice’s look does as much for Dante’s.
+
+## original-en · linus · 94:13
+
+“The spouse of Christ has never nurtured been On blood of mine, of Linus and of Cletus, To be made use of in acquest of gold;
+
+An early pope and martyr, named by Saint Peter with Cletus among those whose blood was not shed to buy gold.
+
+## original-en · cletus · 94:13
+
+“The spouse of Christ has never nurtured been On blood of mine, of Linus and of Cletus, To be made use of in acquest of gold;
+
+An early pope and martyr, named with Linus in Peter’s indictment of his own successors.
+
+## original-en · sixtus · 94:14
+
+But in acquest of this delightful life Sixtus and Pius, Urban and Calixtus, After much lamentation, shed their blood.
+
+A martyred pope, named in Peter’s roll of those who died for the life of Heaven and not for a bank.
+
+## original-en · pope-pius · 94:14
+
+But in acquest of this delightful life Sixtus and Pius, Urban and Calixtus, After much lamentation, shed their blood.
+
+A martyred pope, named with Sixtus, Callixtus and Urban.
+
+## original-en · callixtus · 94:14
+
+But in acquest of this delightful life Sixtus and Pius, Urban and Calixtus, After much lamentation, shed their blood.
+
+A martyred pope in Peter’s roll.
+
+## original-en · urban · 94:14
+
+But in acquest of this delightful life Sixtus and Pius, Urban and Calixtus, After much lamentation, shed their blood.
+
+A martyred pope, the last named in Peter’s roll before he turns on the living ones.
+
+## original-en · gascons · 94:19
+
+To drink our blood the Caorsines and Gascons Are making ready. O thou good beginning, Unto how vile an end must thou needs fall!
+
+With the Cahorsines, the nations Peter says are preparing to drink the blood of the Church — Clement the Fifth’s countrymen and John the Twenty-Second’s.
+
+## original-en · cahorsines · 94:19
+
+To drink our blood the Caorsines and Gascons Are making ready. O thou good beginning, Unto how vile an end must thou needs fall!
+
+Named with the Gascons in Peter’s prophecy; Cahors was a byword for usury and the birthplace of Pope John XXII.
+
+## original-en · europa · 94:27
+
+So that I saw the mad track of Ulysses Past Gades, and this side, well nigh the shore Whereon became Europa a sweet burden.
+
+The girl Jove carried off in the shape of a bull; Dante marks how far he has travelled by the shore where she was taken.
+
+## original-en · leda · 94:32
+
+The virtue that her look endowed me with From the fair nest of Leda tore me forth, And up into the swiftest heaven impelled me.
+
+The mother of the Twins; Dante calls Gemini her fair nest, and Beatrice’s look lifts him out of it.
+
+## original-en · thrones · 76:20
+
+Above us there are mirrors, Thrones you call them, From which shines out on us God Judicant, So that this utterance seems good to us.”
+
+The third angelic order, mirrors in which God’s judgement is reflected down to the spheres below.
+
+## original-en · dominions · 95:40
+
+The three Divine are in this hierarchy, First the Dominions, and the Virtues next; And the third order is that of the Powers.
+
+The fourth angelic order, first of the second hierarchy.
+
+## original-en · virtues · 95:40
+
+The three Divine are in this hierarchy, First the Dominions, and the Virtues next; And the third order is that of the Powers.
+
+The fifth angelic order, named between the Dominions and the Powers.
+
+## original-en · powers · 95:40
+
+The three Divine are in this hierarchy, First the Dominions, and the Virtues next; And the third order is that of the Powers.
+
+The sixth angelic order, closing the second hierarchy.
+
+## original-en · principalities · 95:41
+
+Then in the dances twain penultimate The Principalities and Archangels wheel; The last is wholly of angelic sports.
+
+The seventh angelic order, wheeling in the penultimate dances.
+
+## original-en · archangels · 95:41
+
+Then in the dances twain penultimate The Principalities and Archangels wheel; The last is wholly of angelic sports.
+
+The eighth angelic order, named with the Principalities.
+
+## original-en · boreas · 95:26
+
+Even as remaineth splendid and serene The hemisphere of air, when Boreas Is blowing from that cheek where he is mildest,
+
+The north wind, whose gentler cheek leaves the sky clear; Dante uses it for the air after Beatrice has swept an error away.
+
+## original-en · jerome · 96:12
+
+Jerome has written unto you of angels Created a long lapse of centuries Or ever yet the other world was made;
+
+The church father who wrote that the angels were made long ages before the rest of creation — which Beatrice contradicts, gently, on the authority of scripture.
+
+## original-en · anthony · 96:41
+
+By this Saint Anthony his pig doth fatten, And many others, who are worse than pigs, Paying in money without mark of coinage.
+
+Saint Anthony the Abbot, whose pig is fattened on the offerings of the credulous, along with others the poem says are more piggish still.
+
+## original-en · spaniards · 96:33
+
+And lies; for of its own accord the light Hid itself; whence to Spaniards and to Indians, As to the Jews, did such eclipse respond.
+
+Named with the Indians and the Jews as witnesses that the darkness at the Crucifixion was seen everywhere, not only at Jerusalem.
+
+## original-en · indians · 41:24
+
+Gold and fine silver, and scarlet and pearl-white, The Indian wood resplendent and serene, Fresh emerald the moment it is broken,
+
+Named for their forests and their thirst, and with the Spaniards as witnesses to the eclipse at the Crucifixion.
+
+## original-en · bernard-clairvaux · 98:33
+
+And she, the Queen of Heaven, for whom I burn Wholly with love, will grant us every grace, Because that I her faithful Bernard am.”
+
+Bernard of Clairvaux, who takes over from Beatrice for the last three cantos, shows Dante the order of the rose, and makes the prayer to the Virgin that wins him the final sight.
+
+## original-en · veronica · 98:34
+
+As he who peradventure from Croatia Cometh to gaze at our Veronica, Who through its ancient fame is never sated,
+
+The cloth at Saint Peter’s said to carry the face of Christ; Dante uses the pilgrim who comes from Croatia to stare at it for his own staring at Bernard.
+
+## original-en · sarah · 99:3
+
+Sarah, Rebecca, Judith, and her who was Ancestress of the Singer, who for dole Of the misdeed said, ‘Miserere mei,’
+
+Abraham’s wife, seated in the rose in the line of Hebrew women that divides the flower.
+
+## original-en · rebecca · 99:3
+
+Sarah, Rebecca, Judith, and her who was Ancestress of the Singer, who for dole Of the misdeed said, ‘Miserere mei,’
+
+Isaac’s wife, named in the line of Hebrew women below Eve, Mary, Rachel and Beatrice.
+
+## original-en · judith · 99:3
+
+Sarah, Rebecca, Judith, and her who was Ancestress of the Singer, who for dole Of the misdeed said, ‘Miserere mei,’
+
+The woman who killed Holofernes, seated in the rose with Sarah and Rebecca.
+
+## original-en · anna · 99:44
+
+Opposite Peter seest thou Anna seated, So well content to look upon her daughter, Her eyes she moves not while she sings Hosanna.
+
+The mother of Mary, seated opposite Saint Peter and so content with looking at her daughter that she will not turn her eyes even to sing.
+
+## original-en · augustine · 77:39
+
+Within that other little light is smiling The advocate of the Christian centuries, Out of whose rhetoric Augustine was furnished.
+
+Augustine of Hippo, seated with Francis and Benedict beneath John the Baptist; the advocate of the Christian ages supplied him his rhetoric.
+
+## original-en · orosius · 77:39
+
+Within that other little light is smiling The advocate of the Christian centuries, Out of whose rhetoric Augustine was furnished.
+
+Paulus Orosius, whose history against the pagans armed Augustine with his arguments; the poem names his work and not his name.
+
+## original-en · sibyl · 100:21
+
+Even thus the snow is in the sun unsealed, Even thus upon the wind in the light leaves Were the soothsayings of the Sibyl lost.
+
+The prophetess whose answers were written on light leaves and scattered by the wind — Dante’s figure for how much of the vision he has already lost.
 
 ## modern-en · dante · 64:18
 
@@ -3870,7 +4830,7 @@ The god of poetry, invoked at the opening of the Paradiso.
 
 You will find them among that foolish people who pin their hopes on Talamone, and will lose more hope there than in finding the underground Diana.
 
-The goddess of the moon and the hunt.
+The goddess of the moon and the hunt; Trivia is her name at the crossroads, and in Heaven it is the moon she smiles from.
 
 ## modern-en · minerva · 64:22
 
@@ -4074,7 +5034,7 @@ A people the poem calls the vainest in the world.
 
 I am not the only Bolognese weeping here. In fact, this place is so packed with them that not as many tongues today are taught
 
-Named in the ditch of the panders.
+Named in the ditch of the panders, and again by the two Jovial Friars.
 
 ## modern-en · genoese · 33:50
 
@@ -4212,7 +5172,7 @@ The emperor reproached for abandoning Italy.
 
 that was the Emperor Rudolf, who had the power to heal the wounds that have killed Italy, so that she now revives only slowly through others.
 
-The Emperor Rudolf, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not.
+The Emperor Rudolf of Habsburg, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not; Charles Martel names him as a grandfather of the kings Sicily never got.
 
 ## modern-en · ottocar · 41:33
 
@@ -4244,9 +5204,9 @@ The plant is as inferior to its seed as, more than Beatrice and Margaret, Consta
 
 A queen named in the comparison of wives who boast of their husbands.
 
-## modern-en · constance-aragon · 41:42
+## modern-en · constance-aragon · 37:47
 
-The plant is as inferior to its seed as, more than Beatrice and Margaret, Constance still boasts of her husband.
+See now if you can make me happy by telling my good Constance how you have seen me, and about this banishment —
 
 Peter of Aragon’s widow, who still boasts of her husband.
 
@@ -4472,9 +5432,9 @@ Hugh Capet was I called on earth. From me were born the Louises and the Philips 
 
 The son of a Parisian butcher and root of the French royal line, who denounces his own descendants.
 
-## modern-en · charles-of-anjou · 54:22
+## modern-en · charles-of-anjou · 19:32
 
-Charles came to Italy, and for amends made a victim of Conradin. Then he thrust Thomas back to heaven — for amends.
+So stay right where you are, for you are justly punished. And guard well the ill-gotten money that made you so bold against Charles.
 
 Charles of Anjou, who came to Italy, made a victim of Conradin and, for amends, thrust Thomas back to heaven.
 
@@ -4484,11 +5444,11 @@ Charles came to Italy, and for amends made a victim of Conradin. Then he thrust 
 
 The young Hohenstaufen whom Charles of Anjou executed.
 
-## modern-en · thomas-aquinas-purg · 54:22
+## modern-en · thomas-aquinas · 54:22
 
 Charles came to Italy, and for amends made a victim of Conradin. Then he thrust Thomas back to heaven — for amends.
 
-Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.
+Thomas Aquinas, the Dominican whom Charles of Anjou is said to have thrust back to heaven; in the sphere of the sun he speaks for the twelve wise lights and tells the life of Saint Francis.
 
 ## modern-en · fabricius · 54:8
 
@@ -4860,7 +5820,7 @@ The nymph Diana drove out of the forest for tasting the poison of Venus.
 
 When that too was done, they cried: "Diana ran to the forest and drove out Helice, who had tasted the poison of Venus!"
 
-The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.
+The goddess of love, whose poison Helice tasted; also the planet, called Cytherea, and the Cyprian goddess the old world blamed for the madness of love.
 
 ## modern-en · titus · 55:27
 
@@ -5048,11 +6008,11 @@ There before the blessed vessel danced the humble Psalmist, his robes girded up 
 
 David, dancing before the Ark with his robes girded up.
 
-## modern-en · justinian-purg · 40:29
+## modern-en · justinian · 40:29
 
 What good does it do that Justinian repaired the bridle, if the saddle is empty? Without it, the shame would be less.
 
-The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.
+The emperor who repaired the bridle of the law — Sordello asks what good it did with the saddle empty — and who, in the sphere of Mercury, tells the whole flight of the Roman eagle from Troy to Charlemagne.
 
 ## modern-en · clement-iv · 37:41
 
@@ -5071,3 +6031,939 @@ The Roman whose name stands for the partisan who makes himself a tyrant.
 "Before the souls worthy of ascending to God were ever directed to this mountain, my bones were buried by Octavian.
 
 The emperor who had Virgil’s bones buried at Naples.
+
+## modern-en · marsyas · 68:6
+
+Enter my breast and breathe your power through me, as you did when you drew Marsyas from the sheath of his own limbs.
+
+The satyr who challenged Apollo to a contest of music and was flayed for losing; Dante asks the god to draw him out of himself the same way.
+
+## modern-en · glaucus · 68:22
+
+Gazing at her, I was inwardly transformed — as Glaucus was when he tasted the herb that made him a god among the other gods beneath the sea.
+
+The fisherman who tasted a herb and became a sea god; Dante uses him for the change he has no word for.
+
+## modern-en · intelligences · 69:42
+
+The motion and power of the holy spheres must proceed from the blessed Intelligences that turn them, just as a hammer's craft comes from the artisan.
+
+The blessed angelic minds that turn the spheres — Dante’s astronomy and his theology are the same science.
+
+## modern-en · pegasea · 85:27
+
+O divine Pegasea, you who give genius its glory and its long life, as genius gives glory to cities and kingdoms,
+
+The Muse invoked by the name of Pegasus, asked to make genius last as long as the cities it praises.
+
+## modern-en · polyhymnia · 90:18
+
+If all the tongues that Polyhymnia and her sisters made most rich with their delicious milk were sounding now to help me,
+
+The Muse of sacred song, named with her sisters when Dante says even all of them together could not tell what Beatrice’s smile was like.
+
+## modern-en · samuel · 71:9
+
+The highest of the Seraphim, the one most absorbed in God — Moses, Samuel, whichever John you choose, even Mary herself —
+
+The prophet, named with Moses and Mary among the souls closest to God — none of whom, Beatrice says, sits higher in Heaven than the Seraphim Dante is looking at.
+
+## modern-en · gabriel · 71:15
+
+And Holy Church represents Gabriel and Michael to you in human form, along with the angel who healed Tobias.
+
+The archangel of the Annunciation, shown to men in human shape because human sight needs a shape; he crowns Mary in the eighth heaven.
+
+## modern-en · mercury · 71:20
+
+This principle, badly misunderstood, once led nearly the whole world astray — into worshipping Jupiter, Mercury, and Mars.
+
+The god the old world worshipped in the planet, named with Jupiter and Mars as proof of how badly the doctrine of the spheres was misread.
+
+## modern-en · tobias · 71:15
+
+And Holy Church represents Gabriel and Michael to you in human form, along with the angel who healed Tobias.
+
+The man in the Book of Tobit whose blindness an angel healed; the angel is named in scripture and not here.
+
+## modern-en · lawrence · 71:27
+
+If their will had been as absolute as the will that held Lawrence fast on the gridiron, or that made Mucius thrust his own hand into the fire,
+
+The deacon held to the gridiron, named with Mucius for a will that did not bend under fire.
+
+## modern-en · mucius · 71:27
+
+If their will had been as absolute as the will that held Lawrence fast on the gridiron, or that made Mucius thrust his own hand into the fire,
+
+The Roman who thrust his own right hand into the flame before the enemy king, named with Saint Lawrence for the same unbending will.
+
+## modern-en · nebuchadnezzar · 71:4
+
+Beatrice did what Daniel once did when he relieved Nebuchadnezzar of the rage that had made him unjustly cruel.
+
+The king whose forgotten dream made him cruel until Daniel recovered it; Beatrice does for Dante what Daniel did for him.
+
+## modern-en · jephthah · 72:21
+
+Let mortals never take a vow lightly. Be faithful and not reckless in making them — as Jephthah was with his first offering,
+
+The judge who vowed the first thing to meet him on his return and had to keep the vow against his daughter — Dante’s example of a vow that should have been broken.
+
+## modern-en · iphigenia · 72:23
+
+Over whom Iphigenia wept for her fair face, and who made both the wise and the simple weep who heard about such worship.
+
+The daughter Agamemnon sacrificed for a wind, named beside Jephthah’s daughter: the same crime made twice by wise men and fools alike.
+
+## modern-en · agapetus · 73:5
+
+But blessed Agapetus, who was the supreme shepherd, directed me with his words toward the true faith.
+
+The pope who talked Justinian out of the heresy that Christ had one nature only.
+
+## modern-en · belisarius · 73:8
+
+To my Belisarius I entrusted the armies. Heaven's right hand so favored him that it was a sign for me to rest from war.
+
+The general to whom Justinian handed the armies, so plainly favoured by Heaven that the emperor took it as leave to stop fighting and start legislating.
+
+## modern-en · sabines · 73:13
+
+You know what it achieved, from the rape of the Sabine women down to Lucretia's grief, through seven kings, conquering all the neighboring peoples.
+
+The women carried off by the first Romans; Justinian dates the eagle’s career from that theft to Lucretia’s suicide.
+
+## modern-en · brennus · 73:14
+
+You know what it achieved when carried by the illustrious Romans against Brennus, against Pyrrhus, against all the other princes and their leagues.
+
+The Gaulish chief the Roman standard beat back, named first in Justinian’s roll of defeated enemies.
+
+## modern-en · torquatus · 73:15
+
+From these campaigns, Torquatus, Quinctius — named for his unkempt hair — the Decii and the Fabii all received the fame I gladly preserve.
+
+A Roman commander of the early republic, one of the names Justinian says the eagle made famous rather than the other way round.
+
+## modern-en · cincinnatus · 73:15
+
+From these campaigns, Torquatus, Quinctius — named for his unkempt hair — the Decii and the Fabii all received the fame I gladly preserve.
+
+The dictator called from his plough, named in the poem by his nickname — the unkempt hair — and again in Cacciaguida’s Florence as a measure of how far the city has fallen.
+
+## modern-en · decii · 73:15
+
+From these campaigns, Torquatus, Quinctius — named for his unkempt hair — the Decii and the Fabii all received the fame I gladly preserve.
+
+A Roman family whose men gave their own lives in battle by ritual devotion, named in Justinian’s roll of republican fame.
+
+## modern-en · fabii · 73:15
+
+From these campaigns, Torquatus, Quinctius — named for his unkempt hair — the Decii and the Fabii all received the fame I gladly preserve.
+
+A Roman family of the early republic, named with the Decii among the houses the eagle made glorious.
+
+## modern-en · pompey · 73:17
+
+Under it, while still young men, Scipio and Pompey triumphed. And to the hill beneath which you were born, it showed a bitter face.
+
+The young commander who triumphed under the republic’s eagle and, grown old, lost to Caesar at Pharsalia.
+
+## modern-en · juba · 73:23
+
+From there it fell like lightning upon Juba, then wheeled again toward your West, where it heard the Pompeian trumpet.
+
+The African king struck down by Caesar’s lightning march after Pharsalia.
+
+## modern-en · janus · 73:26
+
+With Augustus it ran to the shore of the Red Sea. With him it set the world in such deep peace that the temple of Janus was closed.
+
+The god whose temple stood open in war; Justinian’s proof of the peace Augustus made is that its door was shut.
+
+## modern-en · ghibellines · 73:34
+
+Let the Ghibellines carry on their scheming under some other banner. This one is always ill-served by anyone who separates it from justice.
+
+The imperial party, told to stop conducting their faction under the eagle’s sign — the banner is not theirs.
+
+## modern-en · guelfs · 73:35
+
+And let this new Charles not strike it down — he and his Guelfs — but let him fear the talons that have stripped the hide from a far nobler lion.
+
+The papal party, whose new Charles is warned that the eagle has stripped the hide off stronger lions.
+
+## modern-en · arabs · 73:16
+
+It struck down the pride of the Arabs who followed Hannibal across the Alpine ridges — the Po, from which you descend.
+
+Justinian’s name for the Carthaginians who crossed the Alps with Hannibal.
+
+## modern-en · romeo · 73:42
+
+And within the compass of this present pearl shines the light of Romeo, whose great and noble work was repaid with treachery.
+
+The pilgrim steward who made Raymond Berengar rich and married off four daughters to four kings, was accused of theft, and walked out with nothing.
+
+## modern-en · raymond-berenger · 73:44
+
+Raymond Berenger had four daughters, each one of them a queen. Romeo accomplished this for him — a poor man, a pilgrim.
+
+The count of Provence whose four daughters all became queens, through the work of his steward Romeo.
+
+## modern-en · charles-martel · 76:0
+
+After your Charles had enlightened me, beautiful Clemence, he told me of the treacheries that his descendants would suffer.
+
+The eldest son of Charles II, who died at twenty-four; he greets Dante as a friend from Florence and explains why a mild father breeds a grasping son.
+
+## modern-en · charles-ii · 73:35
+
+And let this new Charles not strike it down — he and his Guelfs — but let him fear the talons that have stripped the hide from a far nobler lion.
+
+Charles the Second of Naples, the Cripple of Jerusalem — the new Charles warned off the eagle, mourned while still alive, and marked in the Eagle’s book with one virtue against many vices.
+
+## modern-en · charles-of-valois · 54:23
+
+I see a time, not very far from now, that draws forth another Charles from France, to make both himself and his family better known.
+
+The Charles drawn out of France with the lance of treachery, who took Florence for the Black Guelfs and left it in ruins.
+
+## modern-en · clemence · 76:0
+
+After your Charles had enlightened me, beautiful Clemence, he told me of the treacheries that his descendants would suffer.
+
+The woman Charles Martel addresses when he foretells the wrongs his line will suffer — his wife or his daughter; the poem does not say which.
+
+## modern-en · dione · 75:2
+
+But also honored Dione as her mother and Cupid as her son, and told how he had sat in Dido's lap.
+
+The mother of Venus in the old mythology, and in Dante’s sky the planet Venus itself.
+
+## modern-en · cupid · 75:2
+
+But also honored Dione as her mother and Cupid as her son, and told how he had sat in Dido's lap.
+
+The son of Venus, whom the old poets sent to sit in Dido’s lap in the shape of her guest’s child.
+
+## modern-en · solon · 75:41
+
+And so one person is born a Solon, another a Xerxes, another a Melchisedec, and another the one who lost his son while flying through the air.
+
+The Athenian lawgiver, named as one of the unlike natures Providence scatters among brothers.
+
+## modern-en · melchisedec · 75:41
+
+And so one person is born a Solon, another a Xerxes, another a Melchisedec, and another the one who lost his son while flying through the air.
+
+The priest-king of Genesis, named with Solon and Xerxes to show how differently men are born to their work.
+
+## modern-en · esau · 75:43
+
+That is why Esau differs from Jacob in the seed, and why Quirinus comes from a father so lowly that he is credited to Mars.
+
+The twin who differed from his brother in the womb; Dante’s proof that nature does not follow family.
+
+## modern-en · jacob · 75:43
+
+That is why Esau differs from Jacob in the seed, and why Quirinus comes from a father so lowly that he is credited to Mars.
+
+Esau’s twin, named for the same argument — and, in the last heaven, one of the patriarchs seated in the rose.
+
+## modern-en · quirinus · 75:43
+
+That is why Esau differs from Jacob in the seed, and why Quirinus comes from a father so lowly that he is credited to Mars.
+
+Romulus under his godlike name, born of so low a father that Rome assigned him to Mars instead.
+
+## modern-en · cunizza · 76:10
+
+Both I and that torch were born from one root. My name was Cunizza, and I shine here because the splendor of this star overcame me.
+
+Ezzelino’s sister, who lived by love and says so without apology; she shines in Venus and prophesies ruin for the March of Treviso.
+
+## modern-en · folco · 76:31
+
+The people who knew my name called me Folco. And now this heaven is stamped by me, as I was once stamped by it.
+
+Folquet of Marseille, troubadour turned bishop, who burned as hotly as Dido in his youth and here remembers it without shame.
+
+## modern-en · belus · 76:32
+
+For the daughter of Belus never burned more fiercely — wronging both Sichaeus and Creusa — than I did, so long as it suited my youthful hair.
+
+The father of Dido, named so that Folco can measure his own youth against hers.
+
+## modern-en · creusa · 76:32
+
+For the daughter of Belus never burned more fiercely — wronging both Sichaeus and Creusa — than I did, so long as it suited my youthful hair.
+
+The wife Aeneas lost at Troy, wronged along with Sychaeus when Dido took Aeneas in.
+
+## modern-en · demophoon · 76:33
+
+Nor did the woman of Rhodope who was betrayed by Demophoon, nor Hercules when he had locked Iole in his heart.
+
+The man whose broken promise killed Phyllis of Rhodope, named by Folco among the great loves.
+
+## modern-en · iole · 76:33
+
+Nor did the woman of Rhodope who was betrayed by Demophoon, nor Hercules when he had locked Iole in his heart.
+
+The girl Hercules locked in his heart, which cost him his life through Deianira’s jealousy.
+
+## modern-en · rahab · 76:38
+
+Know, then, that within it rests Rahab. And being joined to our order, she seals it at its highest rank.
+
+The harlot of Jericho who hid Joshua’s spies; she is the highest soul in the sphere of Venus and the first that Christ’s harrowing took there.
+
+## modern-en · albert-of-cologne · 77:32
+
+The one nearest to me on my right was my brother and my master: Albert of Cologne. And I am Thomas of Aquinas.
+
+Albertus Magnus, Aquinas’s own master, standing at his right in the first crown of lights.
+
+## modern-en · gratian · 77:34
+
+The next light shines from the smile of Gratian, who served both the ecclesiastical and the civil courts in a way that pleased Paradise.
+
+The canonist whose Decretum reconciled church law with civil law, which Paradise counts as a service.
+
+## modern-en · peter-lombard · 77:35
+
+The next one adorning our choir was Peter Lombard, who, like the poor widow, offered his treasure to Holy Church.
+
+The author of the Sentences, the textbook every medieval theologian was trained on; he offered his one talent to the Church as the widow offered her mite.
+
+## modern-en · solomon · 77:36
+
+The fifth light — the most beautiful among us — breathes from such love that the whole world below hungers for news of it.
+
+The fifth and brightest of the twelve lights, whose wisdom the world is still hungry for; Aquinas has to explain that his unequalled seeing was kingly prudence, not universal knowledge.
+
+## modern-en · dionysius-areopagite · 95:43
+
+And Dionysius set himself with such desire to contemplate these orders that he named and distinguished them just as I do.
+
+The Areopagite, credited with the book on the angelic orders; Paradise confirms he got them right, having heard them from Saint Paul.
+
+## modern-en · isidore · 77:43
+
+See, flaming farther on, the ardent spirits of Isidore, of Bede, and of Richard, who in contemplation was more than a man.
+
+Isidore of Seville, whose encyclopaedia carried the ancient world into the Middle Ages.
+
+## modern-en · bede · 77:43
+
+See, flaming farther on, the ardent spirits of Isidore, of Bede, and of Richard, who in contemplation was more than a man.
+
+The English monk and historian, named with Isidore and Richard among the burning spirits.
+
+## modern-en · richard-st-victor · 77:43
+
+See, flaming farther on, the ardent spirits of Isidore, of Bede, and of Richard, who in contemplation was more than a man.
+
+Richard of Saint Victor, whose writing on contemplation made him, Aquinas says, more than a man at it.
+
+## modern-en · siger · 77:45
+
+It is the eternal light of Siger, who, lecturing in the Street of Straw, proved uncomfortable truths by rigorous logic."
+
+Siger of Brabant, who lectured in the Street of Straw in Paris and drew hatred for conclusions that were merely true; Aquinas, who argued against him on earth, names him with honour here.
+
+## modern-en · ariadne · 80:4
+
+Now picture all of these forming two constellations in the sky, like the one Ariadne made at the moment she felt the chill of death.
+
+The daughter of Minos, whose crown became a constellation; Dante asks the reader to picture two such crowns turning against each other.
+
+## modern-en · parmenides · 80:41
+
+And clear proof of this in the world are Parmenides, Melissus, Bryson, and many others who went forward without knowing where.
+
+A Greek philosopher, named with Melissus and Bryson among those who set out confidently and did not know where they were going.
+
+## modern-en · melissus · 80:41
+
+And clear proof of this in the world are Parmenides, Melissus, Bryson, and many others who went forward without knowing where.
+
+A Greek philosopher named with Parmenides as a warning against quick conclusions.
+
+## modern-en · bryson · 80:41
+
+And clear proof of this in the world are Parmenides, Melissus, Bryson, and many others who went forward without knowing where.
+
+A Greek geometer who claimed to have squared the circle, named among the confident and wrong.
+
+## modern-en · sabellius · 80:42
+
+So too did Sabellius and Arius, and those fools who were like swords to Scripture, distorting its straight meaning.
+
+A heresiarch on the Trinity, named with Arius as one of the swords that twisted scripture out of true.
+
+## modern-en · arius · 80:42
+
+So too did Sabellius and Arius, and those fools who were like swords to Scripture, distorting its straight meaning.
+
+The heresiarch who denied the Son’s full divinity, named with Sabellius for the same distortion.
+
+## modern-en · dame-bertha · 80:46
+
+Let neither Dame Bertha nor Ser Martin suppose, when they see one man steal and another make an offering, that they are seeing them as divine judgment sees them.
+
+Any ordinary woman — the medieval equivalent of Jane Doe — warned with Ser Martin not to judge who is saved and who is damned.
+
+## modern-en · ser-martin · 80:46
+
+Let neither Dame Bertha nor Ser Martin suppose, when they see one man steal and another make an offering, that they are seeing them as divine judgment sees them.
+
+Any ordinary man, named with Dame Bertha in Aquinas’s warning against confident judgement of souls.
+
+## modern-en · francis · 27:37
+
+When I died, Saint Francis came for me. But one of the black Cherubim said: 'Do not take him! Do not wrong me!
+
+Francis of Assisi, whose life Aquinas tells as a marriage to Poverty; the sun that rose over the world from Ascesi — better called Orient. He comes for Guido da Montefeltro’s soul in the Inferno and loses it to a black Cherub.
+
+## modern-en · poverty · 78:24
+
+But lest I proceed too darkly — take Francis and Poverty as the two lovers I have been describing.
+
+The widow no one had courted for eleven hundred years, since her first husband died on the cross; Francis married her in front of his father and his bishop.
+
+## modern-en · bernard-quintavalle · 78:26
+
+So much so that the venerable Bernard was the first to strip his feet bare. He ran after such great peace and, even running, thought himself too slow.
+
+Bernard of Quintavalle, the first man to follow Francis — he stripped his feet bare and ran, and thought he was running too slowly.
+
+## modern-en · ubaldo · 78:14
+
+Between the Tupino and the stream that falls from the hill chosen by blessed Ubaldo, a fertile slope hangs from a high mountain.
+
+The blessed bishop of Gubbio, whose chosen hill Dante uses to fix the position of Assisi.
+
+## modern-en · amyclas · 78:22
+
+It did not help that she was found unmoved beside Amyclas at the voice of him who terrified the whole world.
+
+The fisherman too poor to fear Caesar, who did not stir when the voice that terrified the world called at his door; Poverty stood by him and nobody noticed.
+
+## modern-en · pietro-bernardone · 78:29
+
+No cowardice of heart weighed down his brow at being the son of Pietro Bernardone, nor at appearing marvelously despised.
+
+Francis’s father, the cloth merchant he renounced in public — a shame the poem says Francis bore like a king.
+
+## modern-en · innocent-iii · 78:30
+
+But with royal resolve he revealed his hard determination to Pope Innocent, and from him received the first seal upon his Order.
+
+Pope Innocent the Third, who gave Francis’s rule its first seal.
+
+## modern-en · honorius · 78:32
+
+The holy purpose of this great shepherd was crowned a second time through Pope Honorius, by the Eternal Spirit.
+
+Pope Honorius the Third, who confirmed the Franciscan rule a second time.
+
+## modern-en · dominic · 77:31
+
+I was one of the lambs in the holy flock that Dominic leads along a path where they grow fat if they do not stray.
+
+The founder of the Preachers, whose life Bonaventure tells as Aquinas told Francis’s: a champion sent against heresy, and a wheel of the chariot the Church rode in.
+
+## modern-en · felix · 79:26
+
+O Felix, truly your name means happy, his father! O Joanna, truly his mother — if her name, interpreted, means what they say!
+
+Dominic’s father, whose name means happy — the poem says it meant it truly.
+
+## modern-en · joanna · 79:26
+
+O Felix, truly your name means happy, his father! O Joanna, truly his mother — if her name, interpreted, means what they say!
+
+Dominic’s mother, whose name Dante reads as ‘grace of God’.
+
+## modern-en · ostiense · 79:27
+
+Not for the sake of the world people labor for now, following Ostiense and Taddeo, but driven by hunger for the true bread of heaven,
+
+The cardinal of Ostia, a commentator on canon law; his name and Taddeo’s stand for the profitable studies men take up instead of theology.
+
+## modern-en · taddeo · 79:27
+
+Not for the sake of the world people labor for now, following Ostiense and Taddeo, but driven by hunger for the true bread of heaven,
+
+A famous physician of Bologna, named with Ostiense for the lucrative learning that draws students away from the bread of Heaven.
+
+## modern-en · bonaventure · 79:42
+
+I am Bonaventure of Bagnoregio, who in great offices always put the lesser considerations last.
+
+The Franciscan minister general, who tells the life of Dominic in return for Aquinas telling the life of Francis — and names his own order’s deserters while he is at it.
+
+## modern-en · illuminato · 79:43
+
+Here are Illuminato and Augustino, who were among the first barefoot beggars and, taking the cord, became friends of God.
+
+One of the first companions of Francis, who went with him to Egypt.
+
+## modern-en · augustine-of-assisi · 79:43
+
+Here are Illuminato and Augustino, who were among the first barefoot beggars and, taking the cord, became friends of God.
+
+An early Franciscan, named with Illuminato among the first to go barefoot and take the cord; Longfellow spells him Agostino.
+
+## modern-en · hugh-st-victor · 79:44
+
+Hugh of Saint Victor is among them here, and Peter Mangiatore, and Peter of Spain, whose twelve volumes still shine in the world below.
+
+The theologian of the Paris abbey, named among the lights of Bonaventure’s crown.
+
+## modern-en · peter-mangiatore · 79:44
+
+Hugh of Saint Victor is among them here, and Peter Mangiatore, and Peter of Spain, whose twelve volumes still shine in the world below.
+
+Peter Comestor, ‘the eater’ — so called for devouring books; Longfellow keeps the Italian, Mangiador.
+
+## modern-en · peter-of-spain · 79:44
+
+Hugh of Saint Victor is among them here, and Peter Mangiatore, and Peter of Spain, whose twelve volumes still shine in the world below.
+
+The logician whose twelve books of Summulae were the standard textbook — and who became Pope John XXI.
+
+## modern-en · nathan · 79:45
+
+Nathan the prophet, and the great Chrysostom, and Anselm, and Donatus, who was pleased to set his hand to the first of the liberal arts.
+
+The prophet who told David his own crime back to him as a parable.
+
+## modern-en · chrysostom · 79:45
+
+Nathan the prophet, and the great Chrysostom, and Anselm, and Donatus, who was pleased to set his hand to the first of the liberal arts.
+
+John Chrysostom, patriarch of Constantinople, the golden-mouthed preacher.
+
+## modern-en · anselm-canterbury · 79:45
+
+Nathan the prophet, and the great Chrysostom, and Anselm, and Donatus, who was pleased to set his hand to the first of the liberal arts.
+
+Anselm of Canterbury, named among the lights; Longfellow spells him Anselmus.
+
+## modern-en · donatus · 79:45
+
+Nathan the prophet, and the great Chrysostom, and Anselm, and Donatus, who was pleased to set his hand to the first of the liberal arts.
+
+The grammarian whose textbook taught the first of the liberal arts to the whole Middle Ages.
+
+## modern-en · rabanus · 79:46
+
+Here is Rabanus, and beside me here shines the Calabrian Abbot Joachim, who was endowed with the spirit of prophecy.
+
+Rabanus Maurus, the Carolingian scholar and commentator on scripture.
+
+## modern-en · joachim · 79:46
+
+Here is Rabanus, and beside me here shines the Calabrian Abbot Joachim, who was endowed with the spirit of prophecy.
+
+The Calabrian abbot Joachim of Fiore, gifted with prophecy — praised here by a Franciscan, though his followers had split the order.
+
+## modern-en · anchises · 1:24
+
+I was a poet, and I sang of the righteous son of Anchises who sailed from Troy after proud Ilion was burned.
+
+Aeneas’s father, who reached out to his son in Elysium; Cacciaguida greets Dante with the same tenderness.
+
+## modern-en · cacciaguida · 82:44
+
+Mary gave me — called upon with loud cries in her labor pains — and in your ancient Baptistery I became both a Christian and Cacciaguida.
+
+Dante’s great-great-grandfather, who was christened in the Baptistery, knighted by the Emperor Conrad and died on crusade; he describes the old Florence, names the houses, and tells Dante he will be exiled.
+
+## modern-en · eliseo · 82:45
+
+Moronto and Eliseo were my brothers. My wife came to me from the valley of the Po, and from her came your family surname.
+
+One of Cacciaguida’s two brothers; the family name may have come from him.
+
+## modern-en · moronto · 82:45
+
+Moronto and Eliseo were my brothers. My wife came to me from the valley of the Po, and from her came your family surname.
+
+One of Cacciaguida’s two brothers, named once and never again.
+
+## modern-en · emperor-conrad · 82:46
+
+Then I followed Emperor Conrad, and he girded me with his knighthood, so greatly did I rise in his good graces through my deeds.
+
+The Emperor Conrad the Third, who knighted Cacciaguida and took him on the crusade he died in.
+
+## modern-en · bellincion-berti · 82:37
+
+Bellincion Berti I saw go belted in leather and bone, and his wife come away from the mirror without a painted face.
+
+A great Florentine of the plain old city, who went about belted in leather and bone; his wife left her mirror unpainted.
+
+## modern-en · cianghella · 82:42
+
+A Cianghella or a Lapo Salterello would have been as much a marvel then as Cincinnatus or Cornelia would be today.
+
+A Florentine woman of Dante’s own day, notorious enough that the old city would have gawked at her.
+
+## modern-en · lapo-salterello · 82:42
+
+A Cianghella or a Lapo Salterello would have been as much a marvel then as Cincinnatus or Cornelia would be today.
+
+A Florentine lawyer and politician of Dante’s day, named with Cianghella as the kind of citizen the old city could not have imagined.
+
+## modern-en · old-florentine-houses · 82:38
+
+I saw the lords of Nerli and Vecchietti content with plain, unlined leather, and their wives content with spindle and thread.
+
+Cacciaguida’s roll of the families who made the city when it was small and at peace. Almost all of them were ruined, exiled or absorbed within a century, and Dante names them the way a man reads gravestones.
+
+## modern-en · ubertino-donato · 83:39
+
+Was already rising, though from humble roots. And it displeased Ubertino Donato that his father-in-law had made him their kinsman.
+
+A Florentine who was displeased when his father-in-law married another daughter into the Adimari — one small snub, still remembered.
+
+## modern-en · guinevere · 83:4
+
+At which Beatrice, standing somewhat apart, smiled and appeared like the lady-in-waiting who coughed at the first recorded slip of Guinevere.
+
+Arthur’s queen, whose first slip with Lancelot drew a cough from her lady-in-waiting; Beatrice’s smile at Dante is the same kind of warning.
+
+## modern-en · thomas-apostle · 83:42
+
+Everyone who bears the beautiful coat of arms of the great baron whose memory and name are kept alive on the feast of Saint Thomas
+
+The apostle, whose feast day keeps alive the name of the great baron of Florence.
+
+## modern-en · hugh-the-great · 83:42
+
+Everyone who bears the beautiful coat of arms of the great baron whose memory and name are kept alive on the feast of Saint Thomas
+
+Hugh of Tuscany, the imperial vicar who knighted several Florentine families into his own arms; Dante keeps his memory with the feast of Saint Thomas.
+
+## modern-en · clymene · 84:0
+
+As Phaethon came to Clymene to be made certain of what he had heard spoken against him — the one who still makes fathers wary with their children —
+
+Phaethon’s mother, who confirmed to him what he had heard about his father — and so made every father since wary of his son’s questions.
+
+## modern-en · hippolytus · 84:15
+
+As Hippolytus was driven from Athens by his false and cruel stepmother, so you must depart from Florence.
+
+The son driven out of Athens by his stepmother’s lie; Cacciaguida uses him to tell Dante how exile comes — undeserved, and arranged.
+
+## modern-en · clement-v · 84:27
+
+But before the Gascon deceives the noble Henry, some sparks of his virtue will appear in his indifference to money and to toil.
+
+Pope Clement the Fifth, who called the Emperor Henry into Italy and then worked against him.
+
+## modern-en · henry-vii · 84:27
+
+But before the Gascon deceives the noble Henry, some sparks of his virtue will appear in his indifference to money and to toil.
+
+Henry the Seventh of Luxembourg, the emperor Dante hoped would set Italy right; a throne is already crowned and waiting for him in the rose.
+
+## modern-en · bartolommeo-scala · 84:23
+
+Your first refuge and your first inn will be the courtesy of the great Lombard who bears the sacred bird upon the ladder.
+
+Bartolommeo della Scala of Verona, Dante’s first host in exile, who bears the imperial eagle over the ladder of his arms.
+
+## modern-en · maccabee · 85:13
+
+And at the name of the great Maccabee, I saw another light spin and revolve, and gladness was the whip that drove that top.
+
+Judas Maccabaeus, whose name spins a light like a top in the cross of Mars.
+
+## modern-en · william-of-orange · 85:15
+
+Then William of Orange, Renouard, Duke Godfrey, and Robert Guiscard drew my sight along that cross.
+
+The hero of a French epic cycle, a warrior who ended as a monk; named with his companion Renouard.
+
+## modern-en · renouard · 85:15
+
+Then William of Orange, Renouard, Duke Godfrey, and Robert Guiscard drew my sight along that cross.
+
+The giant Saracen convert of the William of Orange poems, who fought with a club.
+
+## modern-en · godfrey · 85:15
+
+Then William of Orange, Renouard, Duke Godfrey, and Robert Guiscard drew my sight along that cross.
+
+Godfrey of Bouillon, who led the First Crusade and took Jerusalem.
+
+## modern-en · cripple-of-jerusalem · 86:42
+
+There will be seen the Cripple of Jerusalem, his goodness marked with a single 'I' while his vices fill an 'M.'
+
+Charles the Second of Naples as the Eagle’s book records him: one stroke of a letter for his goodness against a thousand for his vices.
+
+## modern-en · persians · 86:37
+
+What will the Persians say to your kings when they see that book opened in which all their disgraces are recorded?
+
+The heathen who will stand up at the judgement and ask Christian kings what the record says about them.
+
+## modern-en · ethiopians · 60:6
+
+Your answer is needed not by me alone. All of these thirst for it more than Ethiopians or Indians thirst for cold water.
+
+Thirsty for cold water in Purgatory, and in Paradise the heathen who will condemn Christians when the two companies are divided.
+
+## modern-en · ripheus · 87:22
+
+Who down in your erring world would believe that Ripheus the Trojan was the fifth of the holy lights in this arc?
+
+A Trojan named once by Virgil as the most just of his people; Dante puts him in the eye of the Eagle, a pagan saved, and offers no explanation the reader can check.
+
+## modern-en · william-of-sicily · 87:20
+
+And the one you see on the downward arc was William, whom that land mourns which weeps for Charles and Frederick still alive.
+
+William the Second of Sicily, called the Good, mourned by the land that now has to endure Charles and Frederick alive.
+
+## modern-en · peter-damian · 88:40
+
+In that place I was Peter Damian. And I was Peter the Sinner in the house of Our Lady on the Adriatic shore.
+
+The hermit of the Adriatic who became a cardinal against his will; he answers Dante out of the ladder of gold and then breaks off into a cry against fat prelates.
+
+## modern-en · benedict · 99:11
+
+And beneath him, chosen to create this division, sit Francis, Benedict, and Augustine, and others, descending from tier to tier all the way down to us.
+
+The founder of Western monasticism, who cleared Monte Cassino of its pagans; he shows Dante the ladder and says his rule is now waste paper.
+
+## modern-en · macarius · 89:16
+
+Here is Macarius, here is Romualdus, here are my brothers who kept their feet within the cloister and held a steadfast heart."
+
+An early desert father, named by Benedict among his own.
+
+## modern-en · romualdus · 89:16
+
+Here is Macarius, here is Romualdus, here are my brothers who kept their feet within the cloister and held a steadfast heart."
+
+Romuald, founder of the Camaldolese hermits, named by Benedict with Macarius.
+
+## modern-en · hyperion · 89:47
+
+I endured the sight of your son, Hyperion — the sun — and saw how Maia and Dione move around and near him.
+
+The Titan father of the sun in the old mythology; Dante looks back down through the spheres and names the planets by their gods.
+
+## modern-en · maia · 89:47
+
+I endured the sight of your son, Hyperion — the sun — and saw how Maia and Dione move around and near him.
+
+The mother of Mercury, and so Dante’s name for the planet.
+
+## modern-en · james-apostle · 66:24
+
+Just as Peter, John, and James were led to see the blossoming apple tree that makes the angels hungry for its fruit and keeps eternal wedding feasts in heaven —
+
+The apostle, who examines Dante on hope; the baron of Compostela, for whose sake Galicia is a place of pilgrimage.
+
+## modern-en · john-evangelist · 63:34
+
+Just as you will find them in his pages, so they were here — except that in the matter of their wings, John agrees with me and differs from him.
+
+The evangelist who lay on Christ’s breast and was taken from the cross to care for his mother; he examines Dante on love, and puts down the legend that he went to Heaven in the body.
+
+## modern-en · ananias · 93:3
+
+Because the Lady who guides you through this divine realm has in her look the same power that the hand of Ananias had."
+
+The disciple whose hands restored Saul’s sight; Beatrice’s look does as much for Dante’s.
+
+## modern-en · linus · 94:13
+
+"The Bride of Christ was not nourished on my blood, and the blood of Linus and of Cletus, to be used for the acquisition of gold.
+
+An early pope and martyr, named by Saint Peter with Cletus among those whose blood was not shed to buy gold.
+
+## modern-en · cletus · 94:13
+
+"The Bride of Christ was not nourished on my blood, and the blood of Linus and of Cletus, to be used for the acquisition of gold.
+
+An early pope and martyr, named with Linus in Peter’s indictment of his own successors.
+
+## modern-en · sixtus · 94:14
+
+It was to acquire this joyful life that Sixtus and Pius, Callixtus and Urban, shed their blood after much weeping.
+
+A martyred pope, named in Peter’s roll of those who died for the life of Heaven and not for a bank.
+
+## modern-en · pope-pius · 94:14
+
+It was to acquire this joyful life that Sixtus and Pius, Callixtus and Urban, shed their blood after much weeping.
+
+A martyred pope, named with Sixtus, Callixtus and Urban.
+
+## modern-en · callixtus · 94:14
+
+It was to acquire this joyful life that Sixtus and Pius, Callixtus and Urban, shed their blood after much weeping.
+
+A martyred pope in Peter’s roll.
+
+## modern-en · urban · 94:14
+
+It was to acquire this joyful life that Sixtus and Pius, Callixtus and Urban, shed their blood after much weeping.
+
+A martyred pope, the last named in Peter’s roll before he turns on the living ones.
+
+## modern-en · gascons · 94:19
+
+Cahorsines and Gascons are preparing to drink our blood. O fair beginning, to what a vile ending must you fall!
+
+With the Cahorsines, the nations Peter says are preparing to drink the blood of the Church — Clement the Fifth’s countrymen and John the Twenty-Second’s.
+
+## modern-en · cahorsines · 94:19
+
+Cahorsines and Gascons are preparing to drink our blood. O fair beginning, to what a vile ending must you fall!
+
+Named with the Gascons in Peter’s prophecy; Cahors was a byword for usury and the birthplace of Pope John XXII.
+
+## modern-en · europa · 94:27
+
+So that I saw, beyond Cadiz, the mad crossing of Ulysses, and on this side, nearly the shore where Europa made herself a sweet burden.
+
+The girl Jove carried off in the shape of a bull; Dante marks how far he has travelled by the shore where she was taken.
+
+## modern-en · leda · 94:32
+
+And the power that her gaze bestowed upon me plucked me from the fair nest of Leda and launched me into the swiftest heaven.
+
+The mother of the Twins; Dante calls Gemini her fair nest, and Beatrice’s look lifts him out of it.
+
+## modern-en · thrones · 76:20
+
+Above us there are mirrors — you call them Thrones — from which God in His judgment shines down upon us. That is why we speak as we do."
+
+The third angelic order, mirrors in which God’s judgement is reflected down to the spheres below.
+
+## modern-en · dominions · 95:40
+
+In that hierarchy are the three divinities: first Dominions, then Virtues, and the third are Powers.
+
+The fourth angelic order, first of the second hierarchy.
+
+## modern-en · virtues · 95:40
+
+In that hierarchy are the three divinities: first Dominions, then Virtues, and the third are Powers.
+
+The fifth angelic order, named between the Dominions and the Powers.
+
+## modern-en · powers · 95:40
+
+In that hierarchy are the three divinities: first Dominions, then Virtues, and the third are Powers.
+
+The sixth angelic order, closing the second hierarchy.
+
+## modern-en · principalities · 95:41
+
+Then, in the two penultimate dances, the Principalities and Archangels wheel. The last is all of angelic play.
+
+The seventh angelic order, wheeling in the penultimate dances.
+
+## modern-en · archangels · 95:41
+
+Then, in the two penultimate dances, the Principalities and Archangels wheel. The last is all of angelic play.
+
+The eighth angelic order, named with the Principalities.
+
+## modern-en · boreas · 95:26
+
+As the hemisphere of air remains splendid and serene when Boreas blows from his gentler cheek,
+
+The north wind, whose gentler cheek leaves the sky clear; Dante uses it for the air after Beatrice has swept an error away.
+
+## modern-en · jerome · 96:12
+
+Jerome wrote for you that the angels were created long ages before the rest of the world was made.
+
+The church father who wrote that the angels were made long ages before the rest of creation — which Beatrice contradicts, gently, on the authority of scripture.
+
+## modern-en · anthony · 96:41
+
+On this Saint Anthony fattens his pig, and others too, who are far more piggish — paying with money that bears no stamp of value.
+
+Saint Anthony the Abbot, whose pig is fattened on the offerings of the credulous, along with others the poem says are more piggish still.
+
+## modern-en · spaniards · 96:33
+
+And he lies, for the light hid itself on its own. And so to the Spaniards and the Indians, as well as to the Jews, this eclipse appeared.
+
+Named with the Indians and the Jews as witnesses that the darkness at the Crucifixion was seen everywhere, not only at Jerusalem.
+
+## modern-en · indians · 41:24
+
+Gold and fine silver, scarlet and pearl-white, Indian wood bright and clear, fresh emerald the moment it is broken —
+
+Named for their forests and their thirst, and with the Spaniards as witnesses to the eclipse at the Crucifixion.
+
+## modern-en · bernard-clairvaux · 98:33
+
+And the Queen of Heaven, for whom I burn wholly with love, will grant us every grace, because I am her faithful Bernard."
+
+Bernard of Clairvaux, who takes over from Beatrice for the last three cantos, shows Dante the order of the rose, and makes the prayer to the Virgin that wins him the final sight.
+
+## modern-en · veronica · 98:34
+
+As someone who comes perhaps from Croatia to gaze at our Veronica, and whose ancient hunger is never sated,
+
+The cloth at Saint Peter’s said to carry the face of Christ; Dante uses the pilgrim who comes from Croatia to stare at it for his own staring at Bernard.
+
+## modern-en · sarah · 99:3
+
+Sarah, Rebecca, Judith, and the woman who was the ancestress of the Singer who cried 'Miserere mei' in grief for his sin —
+
+Abraham’s wife, seated in the rose in the line of Hebrew women that divides the flower.
+
+## modern-en · rebecca · 99:3
+
+Sarah, Rebecca, Judith, and the woman who was the ancestress of the Singer who cried 'Miserere mei' in grief for his sin —
+
+Isaac’s wife, named in the line of Hebrew women below Eve, Mary, Rachel and Beatrice.
+
+## modern-en · judith · 99:3
+
+Sarah, Rebecca, Judith, and the woman who was the ancestress of the Singer who cried 'Miserere mei' in grief for his sin —
+
+The woman who killed Holofernes, seated in the rose with Sarah and Rebecca.
+
+## modern-en · anna · 99:44
+
+Opposite Peter, you see Anna seated, so content to gaze upon her daughter that she does not move her eyes even while she sings Hosanna.
+
+The mother of Mary, seated opposite Saint Peter and so content with looking at her daughter that she will not turn her eyes even to sing.
+
+## modern-en · augustine · 77:39
+
+In that other small light smiles the advocate of the Christian ages, whose eloquence provided Augustine with his rhetoric.
+
+Augustine of Hippo, seated with Francis and Benedict beneath John the Baptist; the advocate of the Christian ages supplied him his rhetoric.
+
+## modern-en · orosius · 77:39
+
+In that other small light smiles the advocate of the Christian ages, whose eloquence provided Augustine with his rhetoric.
+
+Paulus Orosius, whose history against the pagans armed Augustine with his arguments; the poem names his work and not his name.
+
+## modern-en · sibyl · 100:21
+
+So the snow melts in the sun. So the prophecies of the Sibyl, written on light leaves, were lost upon the wind.
+
+The prophetess whose answers were written on light leaves and scattered by the wind — Dante’s figure for how much of the vision he has already lost.

@@ -682,3 +682,48 @@ At 9:36 Dryden compresses Virgil's "Liger killed Emathion, Asilas killed Corynae
 | **Doto** and **Pirithous** are named only in the prose | Recorded as `omittedEntities` for the original — entities absent, not unresolved bindings |
 
 No edition file was changed. Any repair to these bytes invalidates the recorded hashes and requires a restored-text review and a rebuild.
+
+## Opus batch 6: The Divine Comedy
+
+Authored on branch `claude/tinct-character-content-1n5iqq`. Queued, not production verified.
+
+| Book | Content commit | Original / modern entries | Builder |
+|---|---|---:|---|
+| The Divine Comedy | COMMIT | 574 / 587 | build_divine_comedy.py |
+
+| Book | original-en | modern-en |
+|---|---|---|
+| The Divine Comedy | 494a37942b0005c1a6ca5fab8720dcd8db1f1a7c1ec80831d7bab9bdcbd4c452 | 5938ed2727d6a26ed7928e97b382254d7d2acfd382d180604e97b518a2660ad2 |
+
+589 authored entities, 1,144 exact mentions in the original and 1,211 in the modern, across all 100 cantos and 4,812 paragraphs per edition — the largest source in the library. Commands: `python3 books/characters/build_divine_comedy.py --check`, then `python3 -m unittest discover -s books/characters -p 'test_*.py'`. Shared dependencies: `build_reviewed.py` and `reviewed_aliases.py`; neither was changed.
+
+### Release review points
+
+The original is Longfellow's blank verse and the modern edition is prose. They align paragraph for paragraph across all 100 cantos. Longfellow capitalises every verse line-opening, so the inventory was built from the prose and checked back against the verse.
+
+**Namesakes are the whole difficulty of this book, and the reason the builder carries position tables rather than a name list.** Five men called Guido in the Inferno; two Brutuses, two Alexanders, two Buosos; three Ugolins and two Bonifaces in the Purgatorio; and in the Paradiso **four men called Peter inside two cantos** (Peter Lombard 77:35, Peter Mangiatore and Peter of Spain in one line at 79:44, Peter Damian 88:40, Saint Peter everywhere else, Pietro Bernardone at 78:29), **two Bernards** (Quintavalle at 78:26, Clairvaux from canto 31 on), **two Dionysii** (the tyrant of Syracuse, the Areopagite), **two Thomases** (Aquinas, and the apostle at 83:42), **three Williams** (Monferrato, Orange, Sicily), **two Anselms**, **two Hughs**, **four Charleses** and **four Alberts**.
+
+Spot-check, in order of risk: 50:41 Currado da Palazzo against 42:39 Currado Malaspina; 15:36 "Francis of Accorso" against Francis of Assisi; 77:35 Peter Lombard against Saint Peter; 87:20 William of Sicily against the Marquis William of Monferrato; 37:47 Manfred's daughter Constance against 37:37 his grandmother the Empress.
+
+**Five figures the poem never names are bound by circumstance**, each on a span that exists in both editions: Solomon ("the fifth light" / "regal prudence" / "kingly prudence"), Hugh the Great ("the great baron"), Orosius ("the advocate of the Christian ages"), Charles II ("the Cripple of Jerusalem") and Clement V ("the Gascon"). A test asserts that no Solomon mention quotes his name, because the poem does not contain it.
+
+**One editorial decision worth a second opinion.** Cacciaguida's roll-call of the old Florentine houses in Paradiso XV–XVI names about thirty families in forty lines. They are bound to **one card**, *The old houses of Florence*, rather than thirty near-identical ones. Gianni del Soldanieri, a person, keeps his own card at Inferno 32:40.
+
+### Deliberately unbound, documented
+
+"Whichever John you choose" (71:9), where Beatrice declines to say which John she means; "Count Guido" (83:32), who is not one of the five; Can Grande della Scala (84:25); and Agamemnon, the Sultan, Boethius and Hezekiah, each identified by a circumstance the two editions phrase too differently to share a span.
+
+### Source defects, none blocking enablement
+
+None. Both editions parse cleanly, align paragraph for paragraph across all 100 chapters, and carry no printed line numbers or compositor debris. Fifteen entities are absent from Longfellow's verse and two from the prose — translation choices, recorded as `omittedEntities` and asserted by a test. **No entity is absent from both**, which is the check that distinguishes paraphrase from a binding that was never made.
+
+### Required production checks
+
+Register both English editions, version the immutable asset URL, run the normal app gates and deploy, then open the production reader and confirm on the fetched asset:
+
+1. Canto 33 of the Inferno shows Ugolino and his four children, and canto 16 of the Purgatorio shows Currado da Palazzo — not Currado Malaspina.
+2. Paradiso X–XII show Peter Lombard, Peter Mangiatore and Peter of Spain as three distinct cards.
+3. "The fifth light" at 77:36 shows the Solomon card in both editions.
+4. Paradiso XVI shows *The old houses of Florence* on the family names and nothing on the place names beside them.
+
+Report live evidence back to the package `status.json` and the generated inventory only after those checks pass. Validated is not deployed.

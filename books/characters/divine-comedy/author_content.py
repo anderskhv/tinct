@@ -114,7 +114,7 @@ for row in [
 ('semiramis','Semiramis','The Assyrian queen who made lust lawful, first of the carnal sinners named.','Semiramis','supporting'),
 ('ninus','Ninus','Semiramis’s husband, whom she succeeded.','Ninus','reference'),
 ('dido','Dido','The queen of Carthage who killed herself for love and broke faith with Sychaeus’s ashes.','Dido','supporting'),
-('sychaeus','Sychaeus','Dido’s dead husband, whose ashes she broke faith with.','Sychaeus','reference'),
+('sychaeus','Sychaeus','Dido’s dead husband, whose ashes she broke faith with.','Sychaeus|Sichaeus','reference'),
 ('cleopatra','Cleopatra','The Egyptian queen, among the carnal sinners.','Cleopatra','reference'),
 ('helen','Helen','The woman for whose sake the Trojan war was fought.','Helen','reference'),
 ('achilles','Achilles','The Greek hero who at the last fought against Love.','Achilles','supporting'),
@@ -131,7 +131,7 @@ for row in [
 ('photinus','Photinus','The deacon said to have led Pope Anastasius astray.','Photinus','reference'),
 ('alexander-tyrant','Alexander','A tyrant boiling in the river of blood, named beside Dionysius.','',''),
 ('alexander-great','Alexander','Alexander the Great, whose army in India saw flames fall unbroken from the sky.','',''),
-('dionysius','Dionysius','The tyrant of Syracuse, boiling in the river of blood.','Dionysius','reference'),
+('dionysius','Dionysius','The tyrant of Syracuse, boiling in the river of blood.','','reference'),
 ('azzolino','Azzolino','Ezzelino da Romano, the black-haired tyrant in the river of blood.','Azzolino','reference'),
 ('obizzo','Obizzo','Obizzo d’Este, the fair-haired tyrant in the river of blood, killed by his own stepson.','Obizzo','reference'),
 ('attila','Attila','The scourge of the earth, deep in the boiling blood.','Attila','reference'),
@@ -151,7 +151,7 @@ for row in [
 ('gualdrada','Gualdrada','The Florentine woman named as Guido Guerra’s grandmother.','Gualdrada','reference'),
 ('tegghiaio','Tegghiaio','Tegghiaio Aldobrandi, whose counsel Florence should have heeded.','Tegghiaio','reference'),
 ('jacopo-rusticucci','Jacopo Rusticucci','A Florentine who blames his savage wife for his ruin, one of the three on the burning sand.','',''),
-('guglielmo-borsiere','Guglielmo Borsiere','A Florentine newly arrived in Hell, who has been telling the others how the city has changed.','Guglielmo','reference'),
+('guglielmo-borsiere','Guglielmo Borsiere','A Florentine newly arrived in Hell, who has been telling the others how the city has changed.','','reference'),
 ('vitaliano','Vitaliano','A Paduan usurer, expected in Hell by the one already there.','Vitaliano','reference'),
 ('venedico','Venedico','Venedico Caccianemico, a Bolognese who sold his own sister to the Marquis.','Venedico','supporting'),
 ('ghisola','Ghisola','Venedico’s sister, whom he persuaded to satisfy the Marquis.','Ghisola','reference'),
@@ -217,12 +217,12 @@ for row in [
 ('mordred','The one Arthur pierced','The traitor whose breast and shadow were broken by one blow of his own father’s hand.','','reference','unnamed-person'),
 ('focaccia','Focaccia','A traitor of Pistoia named among the frozen.','Focaccia','reference'),
 ('sassol','Sassol Mascheroni','A Florentine traitor named among the frozen.','Sassol','reference'),
-('gianni-soldanier','Gianni del Soldanieri','A Florentine traitor in the ice; Longfellow drops the final vowel.','Soldanieri|Soldanier','reference'),
+('gianni-soldanier','Gianni del Soldanieri','A Florentine traitor in the ice; Longfellow drops the final vowel.','','reference'),
 ('ganelon','Ganelon','The betrayer of Roland at Roncesvalles. Longfellow spells him Ganellon.','Ganelon|Ganellon','reference'),
 ('tebaldello','Tebaldello','The man who opened Faenza’s gates while the city slept.','Tebaldello','reference'),
 ('ugolino','Ugolino','Count Ugolino della Gherardesca, who gnaws the head of the archbishop who starved him and his children in the tower.','Ugolino','major'),
 ('ruggieri','Ruggieri','Archbishop Ruggieri of Pisa, who locked Ugolino and his sons in the tower and threw away the key.','Ruggieri','supporting'),
-('anselmuccio','Anselm','One of Ugolino’s children in the tower, who asks his father why he stares.','Anselm|Anselmuccio','supporting'),
+('anselmuccio','Anselm','One of Ugolino’s children in the tower, who asks his father why he stares.','Anselmuccio','supporting'),
 ('gaddo','Gaddo','One of Ugolino’s children, who falls at his father’s feet in the tower.','Gaddo','supporting'),
 ('uguccione','Uguccione','One of Ugolino’s children in the tower.','Uguccione','reference'),
 ('brigata','Brigata','One of Ugolino’s children in the tower.','Brigata','reference'),
@@ -260,20 +260,20 @@ for row in [
 ('scipio','Scipio','The Roman who became the heir of glory by routing Hannibal.','Scipio','reference'),
 ('hannibal','Hannibal','The Carthaginian routed by Scipio.','Hannibal','reference'),
 ('charlemagne','Charlemagne','The emperor whose rout at Roncesvalles cost him his holy campaign.','Charlemagne','reference'),
-('roland','Roland','The paladin whose horn sounded at Roncesvalles.','Roland','reference'),
+('roland','Roland','The paladin whose horn sounded at Roncesvalles.','Roland|Orlando','reference'),
 ('robert-guiscard','Robert Guiscard','The Norman conqueror in Apulia, whose wars left bones still gathered on the field.','Robert|Guiscard','reference'),
 ('jove','Jove','The chief of the pagan gods, whose thunderbolt and whose blacksmith are invoked.','Jove|Jupiter','supporting','deity'),
 ('juno','Juno','The goddess whose rage against the Theban house drove Athamas mad.','Juno','reference','deity'),
 ('mars','Mars','The god of war, Florence’s first patron before the Baptist.','Mars','supporting','deity'),
 ('neptune','Neptune','The god of the sea.','Neptune','reference','deity'),
 ('apollo','Apollo','The god of poetry, invoked at the opening of the Paradiso.','Apollo','supporting','deity'),
-('diana','Diana','The goddess of the moon and the hunt.','Diana','reference','deity'),
+('diana','Diana','The goddess of the moon and the hunt; Trivia is her name at the crossroads, and in Heaven it is the moon she smiles from.','Diana|Trivia','reference','deity'),
 ('minerva','Minerva','The goddess of wisdom.','Minerva','reference','deity'),
 ('bacchus','Bacchus','The god of wine; Thebes is called his city.','Bacchus','reference','deity'),
 ('latona','Latona','The mother of Apollo and Diana, who gave birth on Delos.','Latona','reference','deity'),
 ('muses','The Muses','The goddesses of poetry, invoked at the outset of each canticle.','Muses','supporting','group'),
 ('circe','Circe','The enchantress who kept Ulysses near Gaeta for more than a year.','Circe','reference','deity'),
-('phaethon','Phaethon','The boy who dropped the reins of the sun’s chariot and scorched the sky.','Phaethon','reference','mythological-figure'),
+('phaethon','Phaethon','The boy who dropped the reins of the sun’s chariot and scorched the sky.','Phaethon|Phaeton','reference','mythological-figure'),
 ('arachne','Arachne','The weaver turned spider, named for the pattern of Geryon’s hide.','Arachne','reference','mythological-figure'),
 ('narcissus','Narcissus','The boy who pined at his own reflection; his mirror is the water Master Adam thirsts for.','Narcissus','reference','mythological-figure'),
 ('theseus','Theseus','The Duke of Athens who killed the Minotaur, and whom the Furies wish they had punished.','Theseus','reference','mythological-figure'),
@@ -306,9 +306,9 @@ for row in [
 ('seraphim','The Seraphim','The highest order of angels.','Seraphim','reference','group'),
 ('thebans','The Thebans','The people who saw the earth open for Amphiaraus.','Thebans','reference','group'),
 ('sienese','The Sienese','A people the poem calls the vainest in the world.','Sienese','reference','group'),
-('bolognese','The Bolognese','Named in the ditch of the panders.','Bolognese','reference','group'),
+('bolognese','The Bolognese','Named in the ditch of the panders, and again by the two Jovial Friars.','','reference','group'),
 ('genoese','The Genoese','A people at odds with every virtue, in the poem’s judgment.','Genoese','reference','group'),
-('lombards','The Lombards','The people of Virgil’s parents.','Lombard|Lombards','reference','group'),
+('lombards','The Lombards','The people of Virgil’s parents.','Lombards','reference','group'),
 ('mantuans','The Mantuans','The people of Virgil’s city.','Mantuan|Mantuans','reference','group'),
 ('tuscans','The Tuscans','The people of Dante’s region.','Tuscan|Tuscans','supporting','group'),
 ('aretines','The Aretines','The people of Arezzo.','Aretine|Aretines','reference','group'),
@@ -333,7 +333,7 @@ for row in [
 ('lady-of-brabant','The Lady of Brabant','The woman Pierre de la Brosse warns to take heed while she is still in the world.','Brabant','reference'),
 ('sordello','Sordello','The poet of Mantua who springs up at the sound of Virgil’s birthplace and embraces him, then shows the travellers the valley of the princes.','Sordello','major'),
 ('albert-of-germany','German Albert','The emperor reproached for abandoning Italy.','',''),
-('rudolf','Rudolf','The Emperor Rudolf, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not.','Rudolf','supporting'),
+('rudolf','Rudolf','The Emperor Rudolf of Habsburg, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not; Charles Martel names him as a grandfather of the kings Sicily never got.','Rudolf|Rudolph','supporting'),
 ('ottocar','Ottocar','The king who governed the land of the Moldau, better in swaddling clothes than his son was bearded.','Ottocar','supporting'),
 ('wenceslaus','Wenceslaus','Ottocar’s son, who feeds on luxury and ease.','Wenceslaus','reference'),
 ('henry-of-navarre','The large-nosed one','The king of Navarre seated in the valley, father-in-law of the Plague of France.','','supporting','unnamed-person'),
@@ -341,11 +341,11 @@ for row in [
 ('margaret','Margaret','A queen named in the comparison of wives who boast of their husbands.','Margaret','reference'),
 ('constance-aragon','Constance','Peter of Aragon’s widow, who still boasts of her husband.','',''),
 ('henry-of-england','Henry','Henry of England, the monarch of the simple life, seated alone with a better harvest in his descendants.','',''),
-('marquis-william','William','The Marquis William of Monferrato, seated lowest and looking upward, whose war made Alessandria weep.','William','supporting'),
+('marquis-william','William','The Marquis William of Monferrato, seated lowest and looking upward, whose war made Alessandria weep.','','supporting'),
 ('frederick-sicily','Frederick','Frederick of Sicily, who holds a kingdom but not the better heritage.','',''),
 ('james-aragon','James','James of Aragon, who holds a kingdom but not the better heritage.','',''),
 ('nino','Nino','Judge Nino Visconti of Gallura, delighted to be found among the saved, who speaks bitterly of his widow’s remarriage.','Nino','supporting'),
-('currado-malaspina','Currado','Currado Malaspina the younger, who foretells that Dante will learn the worth of his house within seven years.','Currado','supporting'),
+('currado-malaspina','Currado','Currado Malaspina the younger, who foretells that Dante will learn the worth of his house within seven years.','','supporting'),
 ('lucia-purg','placeholder','unused','',''),
 ('omberto','Omberto','Omberto Aldobrandeschi, crushed under his stone on the terrace of pride, whose family arrogance killed him.','Omberto','supporting'),
 ('guglielmo-aldobrandeschi','Guglielmo Aldobrandeschi','Omberto’s father, head of a great Tuscan family.','Aldobrandeschi','reference'),
@@ -381,7 +381,7 @@ for row in [
 ('philip-the-fair-2','placeholder','unused','',''),
 ('charles-of-anjou','Charles','Charles of Anjou, who came to Italy, made a victim of Conradin and, for amends, thrust Thomas back to heaven.','',''),
 ('conradin','Conradin','The young Hohenstaufen whom Charles of Anjou executed.','Conradin','reference'),
-('thomas-aquinas-purg','Thomas','Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.','',''),
+('thomas-aquinas','Thomas','Thomas Aquinas, the Dominican whom Charles of Anjou is said to have thrust back to heaven; in the sphere of the sun he speaks for the twelve wise lights and tells the life of Saint Francis.','','major','religious-figure'),
 ('fabricius','Fabricius','The Roman who chose virtue with poverty over wealth with vice.','Fabricius','reference'),
 ('nicholas-saint','Nicholas','Saint Nicholas, whose generosity to the three maidens guided their youth toward honour.','',''),
 ('pygmalion-tyre','Pygmalion','Dido’s brother, whose hunger for gold made him traitor, thief and parricide.','',''),
@@ -454,7 +454,7 @@ for row in [
 ('lycurgus-purg','Lycurgus','The king whose sons saw their mother again, a comparison for Statius meeting Virgil.','','reference','mythological-figure'),
 ('erysichthon','Erysichthon','The man withered by famine, a comparison for the gluttons.','Erysichthon','reference','mythological-figure'),
 ('helice','Helice','The nymph Diana drove out of the forest for tasting the poison of Venus.','Helice','reference','mythological-figure'),
-('venus','Venus','The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.','Venus|Cytherea','reference','deity'),
+('venus','Venus','The goddess of love, whose poison Helice tasted; also the planet, called Cytherea, and the Cyprian goddess the old world blamed for the madness of love.','Venus|Cytherea|Cyprian','reference','deity'),
 ('titus','Titus','The emperor who avenged the wounds from which the blood Judas sold poured out.','Titus','reference'),
 ('domitian','Domitian','The emperor whose persecution of the Christians drew Statius’s tears.','Domitian','reference'),
 ('juvenal','Juvenal','The satirist who came down to Limbo and told Virgil of Statius’s affection.','Juvenal','reference'),
@@ -492,15 +492,225 @@ for row in [
 ('samaritan-woman','The Samaritan woman','The woman who begged for the water of grace, recalled for the thirst that is never quenched.','Samaritan','reference','religious-figure'),
 ('luke','Luke','The evangelist who writes how Christ appeared to two travellers on the road.','Luke','reference','religious-figure'),
 ('psalmist','The humble Psalmist','David, dancing before the Ark with his robes girded up.','Psalmist','supporting','religious-figure'),
-('justinian-purg','Justinian','The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.','','supporting'),
+('justinian','Justinian','The emperor who repaired the bridle of the law — Sordello asks what good it did with the saddle empty — and who, in the sphere of Mercury, tells the whole flight of the Roman eagle from Troy to Charlemagne.','','major'),
 ('clement-iv','Clement','Pope Clement the Fourth, who sent the pastor of Cosenza to hunt down Manfred’s bones.','',''),
 ('marcellus-purg','Marcellus','The Roman whose name stands for the partisan who makes himself a tyrant.','','reference'),
 ('octavian','Octavian','The emperor who had Virgil’s bones buried at Naples.','Octavian','reference'),
 ]:add(*row)
+
+# ====================================================== Paradiso (chapters 68-100)
+# The Paradiso is a poem of teachers. Almost every soul Dante meets here is a
+# theologian, a founder or an emperor, and almost none of them is introduced.
+# Thomas Aquinas names twenty-three people in two cantos without explaining one.
+
+# -------------------------------------------------- the spheres and their poets
+for row in [
+('marsyas','Marsyas','The satyr who challenged Apollo to a contest of music and was flayed for losing; Dante asks the god to draw him out of himself the same way.','Marsyas','reference','mythological-figure'),
+('glaucus','Glaucus','The fisherman who tasted a herb and became a sea god; Dante uses him for the change he has no word for.','Glaucus','reference','mythological-figure'),
+('intelligences','The Intelligences','The blessed angelic minds that turn the spheres — Dante’s astronomy and his theology are the same science.','Intelligences','reference','group'),
+('pegasea','Pegasea','The Muse invoked by the name of Pegasus, asked to make genius last as long as the cities it praises.','Pegasea','reference','deity'),
+('polyhymnia','Polyhymnia','The Muse of sacred song, named with her sisters when Dante says even all of them together could not tell what Beatrice’s smile was like.','Polyhymnia','reference','deity'),
+]:add(*row)
+
+# ------------------------------------------------------- Paradiso IV-V: the vows
+for row in [
+('samuel','Samuel','The prophet, named with Moses and Mary among the souls closest to God — none of whom, Beatrice says, sits higher in Heaven than the Seraphim Dante is looking at.','Samuel','reference','religious-figure'),
+('gabriel','Gabriel','The archangel of the Annunciation, shown to men in human shape because human sight needs a shape; he crowns Mary in the eighth heaven.','Gabriel','supporting','angel'),
+('mercury','Mercury','The god the old world worshipped in the planet, named with Jupiter and Mars as proof of how badly the doctrine of the spheres was misread.','Mercury','reference','deity'),
+('tobias','Tobias','The man in the Book of Tobit whose blindness an angel healed; the angel is named in scripture and not here.','Tobias','reference','religious-figure'),
+('lawrence','Lawrence','The deacon held to the gridiron, named with Mucius for a will that did not bend under fire.','Lawrence','reference','religious-figure'),
+('mucius','Mucius','The Roman who thrust his own right hand into the flame before the enemy king, named with Saint Lawrence for the same unbending will.','Mucius|Mutius','reference'),
+('nebuchadnezzar','Nebuchadnezzar','The king whose forgotten dream made him cruel until Daniel recovered it; Beatrice does for Dante what Daniel did for him.','Nebuchadnezzar','reference','religious-figure'),
+('jephthah','Jephthah','The judge who vowed the first thing to meet him on his return and had to keep the vow against his daughter — Dante’s example of a vow that should have been broken.','Jephthah','reference','religious-figure'),
+('iphigenia','Iphigenia','The daughter Agamemnon sacrificed for a wind, named beside Jephthah’s daughter: the same crime made twice by wise men and fools alike.','Iphigenia','reference','mythological-figure'),
+]:add(*row)
+
+# ------------------------------- Paradiso VI: Justinian and the flight of the eagle
+for row in [
+('agapetus','Agapetus','The pope who talked Justinian out of the heresy that Christ had one nature only.','Agapetus','reference','religious-figure'),
+('belisarius','Belisarius','The general to whom Justinian handed the armies, so plainly favoured by Heaven that the emperor took it as leave to stop fighting and start legislating.','Belisarius','supporting'),
+('sabines','The Sabine women','The women carried off by the first Romans; Justinian dates the eagle’s career from that theft to Lucretia’s suicide.','Sabine','reference','group'),
+('brennus','Brennus','The Gaulish chief the Roman standard beat back, named first in Justinian’s roll of defeated enemies.','Brennus','reference'),
+('torquatus','Torquatus','A Roman commander of the early republic, one of the names Justinian says the eagle made famous rather than the other way round.','Torquatus','reference'),
+('cincinnatus','Quinctius Cincinnatus','The dictator called from his plough, named in the poem by his nickname — the unkempt hair — and again in Cacciaguida’s Florence as a measure of how far the city has fallen.','Quinctius|Cincinnatus','reference'),
+('decii','The Decii','A Roman family whose men gave their own lives in battle by ritual devotion, named in Justinian’s roll of republican fame.','Decii','reference','group'),
+('fabii','The Fabii','A Roman family of the early republic, named with the Decii among the houses the eagle made glorious.','Fabii','reference','group'),
+('pompey','Pompey','The young commander who triumphed under the republic’s eagle and, grown old, lost to Caesar at Pharsalia.','Pompey|Pompeian','reference'),
+('juba','Juba','The African king struck down by Caesar’s lightning march after Pharsalia.','Juba','reference'),
+('janus','Janus','The god whose temple stood open in war; Justinian’s proof of the peace Augustus made is that its door was shut.','Janus','reference','deity'),
+('ghibellines','The Ghibellines','The imperial party, told to stop conducting their faction under the eagle’s sign — the banner is not theirs.','Ghibellines','reference','group'),
+('guelfs','The Guelfs','The papal party, whose new Charles is warned that the eagle has stripped the hide off stronger lions.','Guelfs|Guelphs','reference','group'),
+('arabs','The Arabs','Justinian’s name for the Carthaginians who crossed the Alps with Hannibal.','Arabs|Arabians','reference','group'),
+('romeo','Romeo','The pilgrim steward who made Raymond Berengar rich and married off four daughters to four kings, was accused of theft, and walked out with nothing.','Romeo','supporting'),
+('raymond-berenger','Raymond Berengar','The count of Provence whose four daughters all became queens, through the work of his steward Romeo.','Berengar|Berenger','supporting'),
+]:add(*row)
+
+# ------------------------------------- Paradiso VIII-IX: Venus, Charles Martel, Folco
+for row in [
+('charles-martel','Charles Martel','The eldest son of Charles II, who died at twenty-four; he greets Dante as a friend from Florence and explains why a mild father breeds a grasping son.','','major'),
+('charles-ii','Charles II','Charles the Second of Naples, the Cripple of Jerusalem — the new Charles warned off the eagle, mourned while still alive, and marked in the Eagle’s book with one virtue against many vices.','','supporting'),
+('charles-of-valois','Charles of Valois','The Charles drawn out of France with the lance of treachery, who took Florence for the Black Guelfs and left it in ruins.','','supporting'),
+('clemence','Clemence','The woman Charles Martel addresses when he foretells the wrongs his line will suffer — his wife or his daughter; the poem does not say which.','Clemence','reference'),
+('dione','Dione','The mother of Venus in the old mythology, and in Dante’s sky the planet Venus itself.','Dione','reference','deity'),
+('cupid','Cupid','The son of Venus, whom the old poets sent to sit in Dido’s lap in the shape of her guest’s child.','Cupid','reference','deity'),
+('solon','Solon','The Athenian lawgiver, named as one of the unlike natures Providence scatters among brothers.','Solon','reference'),
+('melchisedec','Melchisedec','The priest-king of Genesis, named with Solon and Xerxes to show how differently men are born to their work.','Melchisedec','reference','religious-figure'),
+('esau','Esau','The twin who differed from his brother in the womb; Dante’s proof that nature does not follow family.','Esau','reference','religious-figure'),
+('jacob','Jacob','Esau’s twin, named for the same argument — and, in the last heaven, one of the patriarchs seated in the rose.','Jacob','reference','religious-figure'),
+('quirinus','Quirinus','Romulus under his godlike name, born of so low a father that Rome assigned him to Mars instead.','Quirinus','reference'),
+('cunizza','Cunizza','Ezzelino’s sister, who lived by love and says so without apology; she shines in Venus and prophesies ruin for the March of Treviso.','Cunizza','major'),
+('folco','Folco','Folquet of Marseille, troubadour turned bishop, who burned as hotly as Dido in his youth and here remembers it without shame.','Folco','major'),
+('belus','Belus','The father of Dido, named so that Folco can measure his own youth against hers.','Belus','reference','mythological-figure'),
+('creusa','Creusa','The wife Aeneas lost at Troy, wronged along with Sychaeus when Dido took Aeneas in.','Creusa','reference','mythological-figure'),
+('demophoon','Demophoon','The man whose broken promise killed Phyllis of Rhodope, named by Folco among the great loves.','Demophoon','reference','mythological-figure'),
+('iole','Iole','The girl Hercules locked in his heart, which cost him his life through Deianira’s jealousy.','Iole','reference','mythological-figure'),
+('rahab','Rahab','The harlot of Jericho who hid Joshua’s spies; she is the highest soul in the sphere of Venus and the first that Christ’s harrowing took there.','Rahab','supporting','religious-figure'),
+]:add(*row)
+
+# --------------------------------------- Paradiso X-XIII: the twelve wise lights
+for row in [
+('albert-of-cologne','Albert of Cologne','Albertus Magnus, Aquinas’s own master, standing at his right in the first crown of lights.','Albertus','supporting','religious-figure'),
+('gratian','Gratian','The canonist whose Decretum reconciled church law with civil law, which Paradise counts as a service.','Gratian','reference','religious-figure'),
+('peter-lombard','Peter Lombard','The author of the Sentences, the textbook every medieval theologian was trained on; he offered his one talent to the Church as the widow offered her mite.','','supporting','religious-figure'),
+('solomon','Solomon','The fifth and brightest of the twelve lights, whose wisdom the world is still hungry for; Aquinas has to explain that his unequalled seeing was kingly prudence, not universal knowledge.','','major','religious-figure'),
+('dionysius-areopagite','Dionysius','The Areopagite, credited with the book on the angelic orders; Paradise confirms he got them right, having heard them from Saint Paul.','','supporting','religious-figure'),
+('isidore','Isidore','Isidore of Seville, whose encyclopaedia carried the ancient world into the Middle Ages.','Isidore','reference','religious-figure'),
+('bede','Bede','The English monk and historian, named with Isidore and Richard among the burning spirits.','Bede|Beda','reference','religious-figure'),
+('richard-st-victor','Richard','Richard of Saint Victor, whose writing on contemplation made him, Aquinas says, more than a man at it.','Richard','reference','religious-figure'),
+('siger','Siger','Siger of Brabant, who lectured in the Street of Straw in Paris and drew hatred for conclusions that were merely true; Aquinas, who argued against him on earth, names him with honour here.','Siger|Sigier','supporting','religious-figure'),
+('ariadne','Ariadne','The daughter of Minos, whose crown became a constellation; Dante asks the reader to picture two such crowns turning against each other.','Ariadne','reference','mythological-figure'),
+('parmenides','Parmenides','A Greek philosopher, named with Melissus and Bryson among those who set out confidently and did not know where they were going.','Parmenides','reference'),
+('melissus','Melissus','A Greek philosopher named with Parmenides as a warning against quick conclusions.','Melissus','reference'),
+('bryson','Bryson','A Greek geometer who claimed to have squared the circle, named among the confident and wrong.','Bryson|Brissus','reference'),
+('sabellius','Sabellius','A heresiarch on the Trinity, named with Arius as one of the swords that twisted scripture out of true.','Sabellius','reference','religious-figure'),
+('arius','Arius','The heresiarch who denied the Son’s full divinity, named with Sabellius for the same distortion.','Arius','reference','religious-figure'),
+('dame-bertha','Dame Bertha','Any ordinary woman — the medieval equivalent of Jane Doe — warned with Ser Martin not to judge who is saved and who is damned.','Bertha','reference'),
+('ser-martin','Ser Martin','Any ordinary man, named with Dame Bertha in Aquinas’s warning against confident judgement of souls.','Martin','reference'),
+]:add(*row)
+
+# --------------------------- Paradiso XI-XII: the two founders and their companies
+for row in [
+('francis','Francis','Francis of Assisi, whose life Aquinas tells as a marriage to Poverty; the sun that rose over the world from Ascesi — better called Orient. He comes for Guido da Montefeltro’s soul in the Inferno and loses it to a black Cherub.','','major','religious-figure'),
+('poverty','Poverty','The widow no one had courted for eleven hundred years, since her first husband died on the cross; Francis married her in front of his father and his bishop.','Poverty','supporting','personification'),
+('bernard-quintavalle','Bernard','Bernard of Quintavalle, the first man to follow Francis — he stripped his feet bare and ran, and thought he was running too slowly.','','supporting','religious-figure'),
+('ubaldo','Ubaldo','The blessed bishop of Gubbio, whose chosen hill Dante uses to fix the position of Assisi.','Ubaldo|Ubald','reference','religious-figure'),
+('amyclas','Amyclas','The fisherman too poor to fear Caesar, who did not stir when the voice that terrified the world called at his door; Poverty stood by him and nobody noticed.','Amyclas','reference'),
+('pietro-bernardone','Pietro Bernardone','Francis’s father, the cloth merchant he renounced in public — a shame the poem says Francis bore like a king.','Bernardone','reference'),
+('innocent-iii','Innocent','Pope Innocent the Third, who gave Francis’s rule its first seal.','Innocent','reference','religious-figure'),
+('honorius','Honorius','Pope Honorius the Third, who confirmed the Franciscan rule a second time.','Honorius','reference','religious-figure'),
+('dominic','Dominic','The founder of the Preachers, whose life Bonaventure tells as Aquinas told Francis’s: a champion sent against heresy, and a wheel of the chariot the Church rode in.','Dominic','major','religious-figure'),
+('felix','Felix','Dominic’s father, whose name means happy — the poem says it meant it truly.','Felix','reference'),
+('joanna','Joanna','Dominic’s mother, whose name Dante reads as ‘grace of God’.','Joanna','reference'),
+('ostiense','Ostiense','The cardinal of Ostia, a commentator on canon law; his name and Taddeo’s stand for the profitable studies men take up instead of theology.','Ostiense','reference','religious-figure'),
+('taddeo','Taddeo','A famous physician of Bologna, named with Ostiense for the lucrative learning that draws students away from the bread of Heaven.','Taddeo','reference'),
+('bonaventure','Bonaventure','The Franciscan minister general, who tells the life of Dominic in return for Aquinas telling the life of Francis — and names his own order’s deserters while he is at it.','Bonaventure|Bonaventura','major','religious-figure'),
+('illuminato','Illuminato','One of the first companions of Francis, who went with him to Egypt.','Illuminato','reference','religious-figure'),
+('augustine-of-assisi','Augustino','An early Franciscan, named with Illuminato among the first to go barefoot and take the cord; Longfellow spells him Agostino.','Augustino|Agostino','reference','religious-figure'),
+('hugh-st-victor','Hugh of Saint Victor','The theologian of the Paris abbey, named among the lights of Bonaventure’s crown.','','reference','religious-figure'),
+('peter-mangiatore','Peter Mangiatore','Peter Comestor, ‘the eater’ — so called for devouring books; Longfellow keeps the Italian, Mangiador.','Mangiatore|Mangiador','reference','religious-figure'),
+('peter-of-spain','Peter of Spain','The logician whose twelve books of Summulae were the standard textbook — and who became Pope John XXI.','','reference','religious-figure'),
+('nathan','Nathan','The prophet who told David his own crime back to him as a parable.','Nathan','reference','religious-figure'),
+('chrysostom','Chrysostom','John Chrysostom, patriarch of Constantinople, the golden-mouthed preacher.','Chrysostom','reference','religious-figure'),
+('anselm-canterbury','Anselm','Anselm of Canterbury, named among the lights; Longfellow spells him Anselmus.','Anselmus','reference','religious-figure'),
+('donatus','Donatus','The grammarian whose textbook taught the first of the liberal arts to the whole Middle Ages.','Donatus','reference'),
+('rabanus','Rabanus','Rabanus Maurus, the Carolingian scholar and commentator on scripture.','Rabanus','reference','religious-figure'),
+('joachim','Joachim','The Calabrian abbot Joachim of Fiore, gifted with prophecy — praised here by a Franciscan, though his followers had split the order.','Joachim','supporting','religious-figure'),
+]:add(*row)
+
+# -------------------------------- Paradiso XV-XVII: Cacciaguida and the old Florence
+for row in [
+('anchises','Anchises','Aeneas’s father, who reached out to his son in Elysium; Cacciaguida greets Dante with the same tenderness.','Anchises','reference','mythological-figure'),
+('cacciaguida','Cacciaguida','Dante’s great-great-grandfather, who was christened in the Baptistery, knighted by the Emperor Conrad and died on crusade; he describes the old Florence, names the houses, and tells Dante he will be exiled.','Cacciaguida','central'),
+('eliseo','Eliseo','One of Cacciaguida’s two brothers; the family name may have come from him.','Eliseo','reference'),
+('moronto','Moronto','One of Cacciaguida’s two brothers, named once and never again.','Moronto','reference'),
+('emperor-conrad','Conrad','The Emperor Conrad the Third, who knighted Cacciaguida and took him on the crusade he died in.','Conrad','supporting'),
+('bellincion-berti','Bellincion Berti','A great Florentine of the plain old city, who went about belted in leather and bone; his wife left her mirror unpainted.','Berti|Bellincion|Bellincione','supporting'),
+('cianghella','Cianghella','A Florentine woman of Dante’s own day, notorious enough that the old city would have gawked at her.','Cianghella','reference'),
+('lapo-salterello','Lapo Salterello','A Florentine lawyer and politician of Dante’s day, named with Cianghella as the kind of citizen the old city could not have imagined.','Salterello','reference'),
+('old-florentine-houses','The old houses of Florence','Cacciaguida’s roll of the families who made the city when it was small and at peace. Almost all of them were ruined, exiled or absorbed within a century, and Dante names them the way a man reads gravestones.','Ughi|Catellini|Filippi|Greci|Ormanni|Alberichi|Sannella|Arca|Ardinghi|Bostichi|Ravignani|Pressa|Galigaio|Sacchetti|Giuochi|Fifanti|Barucci|Galli|Calfucci|Sizii|Arrigucci|Gualterotti|Importuni|Nerli|Vecchietti|Infangato|Caponsacco|Giuda','supporting','group'),
+('ubertino-donato','Ubertino Donato','A Florentine who was displeased when his father-in-law married another daughter into the Adimari — one small snub, still remembered.','Ubertino|Ubertin','reference'),
+('guinevere','Guinevere','Arthur’s queen, whose first slip with Lancelot drew a cough from her lady-in-waiting; Beatrice’s smile at Dante is the same kind of warning.','Guinevere|Guenever','reference','literary-figure'),
+('thomas-apostle','Thomas','The apostle, whose feast day keeps alive the name of the great baron of Florence.','','reference','religious-figure'),
+('hugh-the-great','The great baron','Hugh of Tuscany, the imperial vicar who knighted several Florentine families into his own arms; Dante keeps his memory with the feast of Saint Thomas.','','reference'),
+('clymene','Clymene','Phaethon’s mother, who confirmed to him what he had heard about his father — and so made every father since wary of his son’s questions.','Clymene','reference','mythological-figure'),
+('hippolytus','Hippolytus','The son driven out of Athens by his stepmother’s lie; Cacciaguida uses him to tell Dante how exile comes — undeserved, and arranged.','Hippolytus','reference','mythological-figure'),
+('clement-v','The Gascon','Pope Clement the Fifth, who called the Emperor Henry into Italy and then worked against him.','Gascon','supporting','religious-figure'),
+('henry-vii','Henry','Henry the Seventh of Luxembourg, the emperor Dante hoped would set Italy right; a throne is already crowned and waiting for him in the rose.','','supporting'),
+('bartolommeo-scala','The great Lombard','Bartolommeo della Scala of Verona, Dante’s first host in exile, who bears the imperial eagle over the ladder of his arms.','','supporting'),
+]:add(*row)
+
+# ------------------------------ Paradiso XVIII-XX: the cross, the eagle, the just
+for row in [
+('maccabee','The Maccabee','Judas Maccabaeus, whose name spins a light like a top in the cross of Mars.','Maccabee','reference','religious-figure'),
+('william-of-orange','William of Orange','The hero of a French epic cycle, a warrior who ended as a monk; named with his companion Renouard.','','supporting'),
+('renouard','Renouard','The giant Saracen convert of the William of Orange poems, who fought with a club.','Renouard','reference','literary-figure'),
+('godfrey','Godfrey','Godfrey of Bouillon, who led the First Crusade and took Jerusalem.','Godfrey','supporting'),
+('cripple-of-jerusalem','The Cripple of Jerusalem','Charles the Second of Naples as the Eagle’s book records him: one stroke of a letter for his goodness against a thousand for his vices.','','reference'),
+('persians','The Persians','The heathen who will stand up at the judgement and ask Christian kings what the record says about them.','Persians','reference','group'),
+('ethiopians','The Ethiopians','Thirsty for cold water in Purgatory, and in Paradise the heathen who will condemn Christians when the two companies are divided.','Ethiopian|Ethiopians|Ethiop','reference','group'),
+('ripheus','Ripheus','A Trojan named once by Virgil as the most just of his people; Dante puts him in the eye of the Eagle, a pagan saved, and offers no explanation the reader can check.','Ripheus','supporting','literary-figure'),
+('william-of-sicily','William','William the Second of Sicily, called the Good, mourned by the land that now has to endure Charles and Frederick alive.','','supporting'),
+]:add(*row)
+
+# --------------------------- Paradiso XXI-XXII: the contemplatives and their ladder
+for row in [
+('peter-damian','Peter Damian','The hermit of the Adriatic who became a cardinal against his will; he answers Dante out of the ladder of gold and then breaks off into a cry against fat prelates.','Damian|Damiano','major','religious-figure'),
+('benedict','Benedict','The founder of Western monasticism, who cleared Monte Cassino of its pagans; he shows Dante the ladder and says his rule is now waste paper.','Benedict','major','religious-figure'),
+('macarius','Macarius','An early desert father, named by Benedict among his own.','Macarius','reference','religious-figure'),
+('romualdus','Romualdus','Romuald, founder of the Camaldolese hermits, named by Benedict with Macarius.','Romualdus|Romuald','reference','religious-figure'),
+('hyperion','Hyperion','The Titan father of the sun in the old mythology; Dante looks back down through the spheres and names the planets by their gods.','Hyperion','reference','deity'),
+('maia','Maia','The mother of Mercury, and so Dante’s name for the planet.','Maia','reference','deity'),
+]:add(*row)
+
+# ------------------------- Paradiso XXIV-XXVII: the examinations and Peter’s anger
+for row in [
+('james-apostle','James','The apostle, who examines Dante on hope; the baron of Compostela, for whose sake Galicia is a place of pilgrimage.','','supporting','religious-figure'),
+('john-evangelist','John','The evangelist who lay on Christ’s breast and was taken from the cross to care for his mother; he examines Dante on love, and puts down the legend that he went to Heaven in the body.','','supporting','religious-figure'),
+('ananias','Ananias','The disciple whose hands restored Saul’s sight; Beatrice’s look does as much for Dante’s.','Ananias','reference','religious-figure'),
+('linus','Linus','An early pope and martyr, named by Saint Peter with Cletus among those whose blood was not shed to buy gold.','Linus','reference','religious-figure'),
+('cletus','Cletus','An early pope and martyr, named with Linus in Peter’s indictment of his own successors.','Cletus','reference','religious-figure'),
+('sixtus','Sixtus','A martyred pope, named in Peter’s roll of those who died for the life of Heaven and not for a bank.','Sixtus','reference','religious-figure'),
+('pope-pius','Pius','A martyred pope, named with Sixtus, Callixtus and Urban.','Pius','reference','religious-figure'),
+('callixtus','Callixtus','A martyred pope in Peter’s roll.','Callixtus|Calixtus','reference','religious-figure'),
+('urban','Urban','A martyred pope, the last named in Peter’s roll before he turns on the living ones.','Urban','reference','religious-figure'),
+('gascons','The Gascons','With the Cahorsines, the nations Peter says are preparing to drink the blood of the Church — Clement the Fifth’s countrymen and John the Twenty-Second’s.','Gascons','reference','group'),
+('cahorsines','The Cahorsines','Named with the Gascons in Peter’s prophecy; Cahors was a byword for usury and the birthplace of Pope John XXII.','Cahorsines|Caorsines','reference','group'),
+('europa','Europa','The girl Jove carried off in the shape of a bull; Dante marks how far he has travelled by the shore where she was taken.','Europa','reference','mythological-figure'),
+('leda','Leda','The mother of the Twins; Dante calls Gemini her fair nest, and Beatrice’s look lifts him out of it.','Leda','reference','mythological-figure'),
+]:add(*row)
+
+# ------------------------------- Paradiso XXVIII-XXIX: the orders of the angels
+for row in [
+('thrones','The Thrones','The third angelic order, mirrors in which God’s judgement is reflected down to the spheres below.','Thrones','supporting','angel'),
+('dominions','The Dominions','The fourth angelic order, first of the second hierarchy.','Dominions','reference','angel'),
+('virtues','The Virtues','The fifth angelic order, named between the Dominions and the Powers.','','reference','angel'),
+('powers','The Powers','The sixth angelic order, closing the second hierarchy.','Powers','reference','angel'),
+('principalities','The Principalities','The seventh angelic order, wheeling in the penultimate dances.','Principalities','reference','angel'),
+('archangels','The Archangels','The eighth angelic order, named with the Principalities.','Archangels','reference','angel'),
+('boreas','Boreas','The north wind, whose gentler cheek leaves the sky clear; Dante uses it for the air after Beatrice has swept an error away.','Boreas','reference','deity'),
+('jerome','Jerome','The church father who wrote that the angels were made long ages before the rest of creation — which Beatrice contradicts, gently, on the authority of scripture.','Jerome','reference','religious-figure'),
+('anthony','Anthony','Saint Anthony the Abbot, whose pig is fattened on the offerings of the credulous, along with others the poem says are more piggish still.','Anthony','reference','religious-figure'),
+('spaniards','The Spaniards','Named with the Indians and the Jews as witnesses that the darkness at the Crucifixion was seen everywhere, not only at Jerusalem.','Spaniards','reference','group'),
+('indians','The Indians','Named for their forests and their thirst, and with the Spaniards as witnesses to the eclipse at the Crucifixion.','Indians|Indian','reference','group'),
+]:add(*row)
+
+# ------------------------------------ Paradiso XXXI-XXXIII: the rose and the vision
+for row in [
+('bernard-clairvaux','Bernard','Bernard of Clairvaux, who takes over from Beatrice for the last three cantos, shows Dante the order of the rose, and makes the prayer to the Virgin that wins him the final sight.','','central','religious-figure'),
+('veronica','The Veronica','The cloth at Saint Peter’s said to carry the face of Christ; Dante uses the pilgrim who comes from Croatia to stare at it for his own staring at Bernard.','Veronica','reference'),
+('sarah','Sarah','Abraham’s wife, seated in the rose in the line of Hebrew women that divides the flower.','Sarah','reference','religious-figure'),
+('rebecca','Rebecca','Isaac’s wife, named in the line of Hebrew women below Eve, Mary, Rachel and Beatrice.','Rebecca','reference','religious-figure'),
+('judith','Judith','The woman who killed Holofernes, seated in the rose with Sarah and Rebecca.','Judith','reference','religious-figure'),
+('anna','Anna','The mother of Mary, seated opposite Saint Peter and so content with looking at her daughter that she will not turn her eyes even to sing.','Anna','reference','religious-figure'),
+('augustine','Augustine','Augustine of Hippo, seated with Francis and Benedict beneath John the Baptist; the advocate of the Christian ages supplied him his rhetoric.','Augustine','supporting','religious-figure'),
+('orosius','The advocate of the Christian ages','Paulus Orosius, whose history against the pagans armed Augustine with his arguments; the poem names his work and not his name.','','reference','religious-figure'),
+('sibyl','The Sibyl','The prophetess whose answers were written on light leaves and scattered by the wind — Dante’s figure for how much of the vision he has already lost.','Sibyl','reference','mythological-figure'),
+]:add(*row)
+
 entities[:]=[e for e in entities if e['name']!='placeholder']
-print(len(entities),'entities after Purgatorio')
+print(len(entities),'entities after Paradiso')
 Path(__file__).parent.joinpath('editorial.json').write_text(json.dumps(dict(
- contentVersion='2026-09-11.1',
- coverage='Both full English editions. INFERNO (chapters 1-34) is authored; Purgatorio (35-67) and Paradiso (68-100) are in progress. Named people, gods, angels, devils, personified powers, named monsters and named peoples. Places, rivers, mountains and book titles are not cast, except where a river of the underworld is treated as a power.',
+ contentVersion='2026-09-11.2',
+ coverage='Both full English editions. All three canticles are authored: Inferno (chapters 1-34), Purgatorio (35-67) and Paradiso (68-100). Named people, gods, angels, devils, personified powers, named monsters and named peoples. Places, rivers, mountains and book titles are not cast, except where a river of the underworld is treated as a power.',
  entities=entities),ensure_ascii=False,indent=2)+'\n')
 print(len(entities),'entities')

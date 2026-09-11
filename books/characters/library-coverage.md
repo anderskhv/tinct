@@ -21,7 +21,7 @@ Only published BOOKS entries are included. Existing Threads content is not evide
 | Crime and Punishment (`crime-and-punishment`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Republic (`the-republic`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | Meditations (`meditations`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
-| The Divine Comedy (`divine-comedy`) | in-progress | Lane B authoring in progress: 100 cantos, 4,812 paragraphs per edition — the largest source in the library. Cast is overwhelmingly historical and scriptural figures rather than invented characters |
+| The Divine Comedy (`divine-comedy`) | validated-package | Awaiting integration by the release owner. 589 entities across all 100 cantos; the largest package in the library. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding. |
 | Jane Eyre (`jane-eyre`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |
 | The Aeneid (`the-aeneid`) | validated-package | Release owner: compare fingerprints, register both English editions and verify the three Pallases and the monster-named galleys in production |
 | Paradise Lost (`paradise-lost`) | not-started | Review source, author concise identities and categories, bind mentions and spoiler gates |

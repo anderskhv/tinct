@@ -1,6 +1,6 @@
 {
-  "contentVersion": "2026-09-11.1",
-  "coverage": "Both full English editions. INFERNO (chapters 1-34) is authored; Purgatorio (35-67) and Paradiso (68-100) are in progress. Named people, gods, angels, devils, personified powers, named monsters and named peoples. Places, rivers, mountains and book titles are not cast, except where a river of the underworld is treated as a power.",
+  "contentVersion": "2026-09-11.2",
+  "coverage": "Both full English editions. All three canticles are authored: Inferno (chapters 1-34), Purgatorio (35-67) and Paradiso (68-100). Named people, gods, angels, devils, personified powers, named monsters and named peoples. Places, rivers, mountains and book titles are not cast, except where a river of the underworld is treated as a power.",
   "entities": [
     {
       "id": "dante",
@@ -1013,7 +1013,8 @@
       "name": "Sychaeus",
       "body": "Dido’s dead husband, whose ashes she broke faith with.",
       "aliases": [
-        "Sychaeus"
+        "Sychaeus",
+        "Sichaeus"
       ],
       "category": "reference",
       "kind": "person",
@@ -1209,9 +1210,7 @@
       "id": "dionysius",
       "name": "Dionysius",
       "body": "The tyrant of Syracuse, boiling in the river of blood.",
-      "aliases": [
-        "Dionysius"
-      ],
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -1437,9 +1436,7 @@
       "id": "guglielmo-borsiere",
       "name": "Guglielmo Borsiere",
       "body": "A Florentine newly arrived in Hell, who has been telling the others how the city has changed.",
-      "aliases": [
-        "Guglielmo"
-      ],
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -2194,10 +2191,7 @@
       "id": "gianni-soldanier",
       "name": "Gianni del Soldanieri",
       "body": "A Florentine traitor in the ice; Longfellow drops the final vowel.",
-      "aliases": [
-        "Soldanieri",
-        "Soldanier"
-      ],
+      "aliases": [],
       "category": "reference",
       "kind": "person",
       "subtitle": "",
@@ -2257,7 +2251,6 @@
       "name": "Anselm",
       "body": "One of Ugolino’s children in the tower, who asks his father why he stares.",
       "aliases": [
-        "Anselm",
         "Anselmuccio"
       ],
       "category": "supporting",
@@ -2648,7 +2641,8 @@
       "name": "Roland",
       "body": "The paladin whose horn sounded at Roncesvalles.",
       "aliases": [
-        "Roland"
+        "Roland",
+        "Orlando"
       ],
       "category": "reference",
       "kind": "person",
@@ -2732,9 +2726,10 @@
     {
       "id": "diana",
       "name": "Diana",
-      "body": "The goddess of the moon and the hunt.",
+      "body": "The goddess of the moon and the hunt; Trivia is her name at the crossroads, and in Heaven it is the moon she smiles from.",
       "aliases": [
-        "Diana"
+        "Diana",
+        "Trivia"
       ],
       "category": "reference",
       "kind": "deity",
@@ -2806,7 +2801,8 @@
       "name": "Phaethon",
       "body": "The boy who dropped the reins of the sun’s chariot and scorched the sky.",
       "aliases": [
-        "Phaethon"
+        "Phaethon",
+        "Phaeton"
       ],
       "category": "reference",
       "kind": "mythological-figure",
@@ -3144,10 +3140,8 @@
     {
       "id": "bolognese",
       "name": "The Bolognese",
-      "body": "Named in the ditch of the panders.",
-      "aliases": [
-        "Bolognese"
-      ],
+      "body": "Named in the ditch of the panders, and again by the two Jovial Friars.",
+      "aliases": [],
       "category": "reference",
       "kind": "group",
       "subtitle": "",
@@ -3170,7 +3164,6 @@
       "name": "The Lombards",
       "body": "The people of Virgil’s parents.",
       "aliases": [
-        "Lombard",
         "Lombards"
       ],
       "category": "reference",
@@ -3421,9 +3414,10 @@
     {
       "id": "rudolf",
       "name": "Rudolf",
-      "body": "The Emperor Rudolf, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not.",
+      "body": "The Emperor Rudolf of Habsburg, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not; Charles Martel names him as a grandfather of the kings Sicily never got.",
       "aliases": [
-        "Rudolf"
+        "Rudolf",
+        "Rudolph"
       ],
       "category": "supporting",
       "kind": "person",
@@ -3510,9 +3504,7 @@
       "id": "marquis-william",
       "name": "William",
       "body": "The Marquis William of Monferrato, seated lowest and looking upward, whose war made Alessandria weep.",
-      "aliases": [
-        "William"
-      ],
+      "aliases": [],
       "category": "supporting",
       "kind": "person",
       "subtitle": "",
@@ -3554,9 +3546,7 @@
       "id": "currado-malaspina",
       "name": "Currado",
       "body": "Currado Malaspina the younger, who foretells that Dante will learn the worth of his house within seven years.",
-      "aliases": [
-        "Currado"
-      ],
+      "aliases": [],
       "category": "supporting",
       "kind": "person",
       "subtitle": "",
@@ -3948,12 +3938,12 @@
       "snapshots": []
     },
     {
-      "id": "thomas-aquinas-purg",
+      "id": "thomas-aquinas",
       "name": "Thomas",
-      "body": "Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.",
+      "body": "Thomas Aquinas, the Dominican whom Charles of Anjou is said to have thrust back to heaven; in the sphere of the sun he speaks for the twelve wise lights and tells the life of Saint Francis.",
       "aliases": [],
-      "category": "",
-      "kind": "person",
+      "category": "major",
+      "kind": "religious-figure",
       "subtitle": "",
       "snapshots": []
     },
@@ -4678,10 +4668,11 @@
     {
       "id": "venus",
       "name": "Venus",
-      "body": "The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.",
+      "body": "The goddess of love, whose poison Helice tasted; also the planet, called Cytherea, and the Cyprian goddess the old world blamed for the madness of love.",
       "aliases": [
         "Venus",
-        "Cytherea"
+        "Cytherea",
+        "Cyprian"
       ],
       "category": "reference",
       "kind": "deity",
@@ -5059,11 +5050,11 @@
       "snapshots": []
     },
     {
-      "id": "justinian-purg",
+      "id": "justinian",
       "name": "Justinian",
-      "body": "The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.",
+      "body": "The emperor who repaired the bridle of the law — Sordello asks what good it did with the saddle empty — and who, in the sphere of Mercury, tells the whole flight of the Roman eagle from Troy to Charlemagne.",
       "aliases": [],
-      "category": "supporting",
+      "category": "major",
       "kind": "person",
       "subtitle": "",
       "snapshots": []
@@ -5097,6 +5088,1885 @@
       ],
       "category": "reference",
       "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "marsyas",
+      "name": "Marsyas",
+      "body": "The satyr who challenged Apollo to a contest of music and was flayed for losing; Dante asks the god to draw him out of himself the same way.",
+      "aliases": [
+        "Marsyas"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "glaucus",
+      "name": "Glaucus",
+      "body": "The fisherman who tasted a herb and became a sea god; Dante uses him for the change he has no word for.",
+      "aliases": [
+        "Glaucus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "intelligences",
+      "name": "The Intelligences",
+      "body": "The blessed angelic minds that turn the spheres — Dante’s astronomy and his theology are the same science.",
+      "aliases": [
+        "Intelligences"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pegasea",
+      "name": "Pegasea",
+      "body": "The Muse invoked by the name of Pegasus, asked to make genius last as long as the cities it praises.",
+      "aliases": [
+        "Pegasea"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "polyhymnia",
+      "name": "Polyhymnia",
+      "body": "The Muse of sacred song, named with her sisters when Dante says even all of them together could not tell what Beatrice’s smile was like.",
+      "aliases": [
+        "Polyhymnia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "samuel",
+      "name": "Samuel",
+      "body": "The prophet, named with Moses and Mary among the souls closest to God — none of whom, Beatrice says, sits higher in Heaven than the Seraphim Dante is looking at.",
+      "aliases": [
+        "Samuel"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gabriel",
+      "name": "Gabriel",
+      "body": "The archangel of the Annunciation, shown to men in human shape because human sight needs a shape; he crowns Mary in the eighth heaven.",
+      "aliases": [
+        "Gabriel"
+      ],
+      "category": "supporting",
+      "kind": "angel",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "body": "The god the old world worshipped in the planet, named with Jupiter and Mars as proof of how badly the doctrine of the spheres was misread.",
+      "aliases": [
+        "Mercury"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "tobias",
+      "name": "Tobias",
+      "body": "The man in the Book of Tobit whose blindness an angel healed; the angel is named in scripture and not here.",
+      "aliases": [
+        "Tobias"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lawrence",
+      "name": "Lawrence",
+      "body": "The deacon held to the gridiron, named with Mucius for a will that did not bend under fire.",
+      "aliases": [
+        "Lawrence"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "mucius",
+      "name": "Mucius",
+      "body": "The Roman who thrust his own right hand into the flame before the enemy king, named with Saint Lawrence for the same unbending will.",
+      "aliases": [
+        "Mucius",
+        "Mutius"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nebuchadnezzar",
+      "name": "Nebuchadnezzar",
+      "body": "The king whose forgotten dream made him cruel until Daniel recovered it; Beatrice does for Dante what Daniel did for him.",
+      "aliases": [
+        "Nebuchadnezzar"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jephthah",
+      "name": "Jephthah",
+      "body": "The judge who vowed the first thing to meet him on his return and had to keep the vow against his daughter — Dante’s example of a vow that should have been broken.",
+      "aliases": [
+        "Jephthah"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iphigenia",
+      "name": "Iphigenia",
+      "body": "The daughter Agamemnon sacrificed for a wind, named beside Jephthah’s daughter: the same crime made twice by wise men and fools alike.",
+      "aliases": [
+        "Iphigenia"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "agapetus",
+      "name": "Agapetus",
+      "body": "The pope who talked Justinian out of the heresy that Christ had one nature only.",
+      "aliases": [
+        "Agapetus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "belisarius",
+      "name": "Belisarius",
+      "body": "The general to whom Justinian handed the armies, so plainly favoured by Heaven that the emperor took it as leave to stop fighting and start legislating.",
+      "aliases": [
+        "Belisarius"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sabines",
+      "name": "The Sabine women",
+      "body": "The women carried off by the first Romans; Justinian dates the eagle’s career from that theft to Lucretia’s suicide.",
+      "aliases": [
+        "Sabine"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "brennus",
+      "name": "Brennus",
+      "body": "The Gaulish chief the Roman standard beat back, named first in Justinian’s roll of defeated enemies.",
+      "aliases": [
+        "Brennus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "torquatus",
+      "name": "Torquatus",
+      "body": "A Roman commander of the early republic, one of the names Justinian says the eagle made famous rather than the other way round.",
+      "aliases": [
+        "Torquatus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cincinnatus",
+      "name": "Quinctius Cincinnatus",
+      "body": "The dictator called from his plough, named in the poem by his nickname — the unkempt hair — and again in Cacciaguida’s Florence as a measure of how far the city has fallen.",
+      "aliases": [
+        "Quinctius",
+        "Cincinnatus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "decii",
+      "name": "The Decii",
+      "body": "A Roman family whose men gave their own lives in battle by ritual devotion, named in Justinian’s roll of republican fame.",
+      "aliases": [
+        "Decii"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "fabii",
+      "name": "The Fabii",
+      "body": "A Roman family of the early republic, named with the Decii among the houses the eagle made glorious.",
+      "aliases": [
+        "Fabii"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pompey",
+      "name": "Pompey",
+      "body": "The young commander who triumphed under the republic’s eagle and, grown old, lost to Caesar at Pharsalia.",
+      "aliases": [
+        "Pompey",
+        "Pompeian"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "juba",
+      "name": "Juba",
+      "body": "The African king struck down by Caesar’s lightning march after Pharsalia.",
+      "aliases": [
+        "Juba"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "janus",
+      "name": "Janus",
+      "body": "The god whose temple stood open in war; Justinian’s proof of the peace Augustus made is that its door was shut.",
+      "aliases": [
+        "Janus"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ghibellines",
+      "name": "The Ghibellines",
+      "body": "The imperial party, told to stop conducting their faction under the eagle’s sign — the banner is not theirs.",
+      "aliases": [
+        "Ghibellines"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guelfs",
+      "name": "The Guelfs",
+      "body": "The papal party, whose new Charles is warned that the eagle has stripped the hide off stronger lions.",
+      "aliases": [
+        "Guelfs",
+        "Guelphs"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arabs",
+      "name": "The Arabs",
+      "body": "Justinian’s name for the Carthaginians who crossed the Alps with Hannibal.",
+      "aliases": [
+        "Arabs",
+        "Arabians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "romeo",
+      "name": "Romeo",
+      "body": "The pilgrim steward who made Raymond Berengar rich and married off four daughters to four kings, was accused of theft, and walked out with nothing.",
+      "aliases": [
+        "Romeo"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "raymond-berenger",
+      "name": "Raymond Berengar",
+      "body": "The count of Provence whose four daughters all became queens, through the work of his steward Romeo.",
+      "aliases": [
+        "Berengar",
+        "Berenger"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-martel",
+      "name": "Charles Martel",
+      "body": "The eldest son of Charles II, who died at twenty-four; he greets Dante as a friend from Florence and explains why a mild father breeds a grasping son.",
+      "aliases": [],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-ii",
+      "name": "Charles II",
+      "body": "Charles the Second of Naples, the Cripple of Jerusalem — the new Charles warned off the eagle, mourned while still alive, and marked in the Eagle’s book with one virtue against many vices.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "charles-of-valois",
+      "name": "Charles of Valois",
+      "body": "The Charles drawn out of France with the lance of treachery, who took Florence for the Black Guelfs and left it in ruins.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clemence",
+      "name": "Clemence",
+      "body": "The woman Charles Martel addresses when he foretells the wrongs his line will suffer — his wife or his daughter; the poem does not say which.",
+      "aliases": [
+        "Clemence"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dione",
+      "name": "Dione",
+      "body": "The mother of Venus in the old mythology, and in Dante’s sky the planet Venus itself.",
+      "aliases": [
+        "Dione"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cupid",
+      "name": "Cupid",
+      "body": "The son of Venus, whom the old poets sent to sit in Dido’s lap in the shape of her guest’s child.",
+      "aliases": [
+        "Cupid"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "solon",
+      "name": "Solon",
+      "body": "The Athenian lawgiver, named as one of the unlike natures Providence scatters among brothers.",
+      "aliases": [
+        "Solon"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melchisedec",
+      "name": "Melchisedec",
+      "body": "The priest-king of Genesis, named with Solon and Xerxes to show how differently men are born to their work.",
+      "aliases": [
+        "Melchisedec"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "esau",
+      "name": "Esau",
+      "body": "The twin who differed from his brother in the womb; Dante’s proof that nature does not follow family.",
+      "aliases": [
+        "Esau"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jacob",
+      "name": "Jacob",
+      "body": "Esau’s twin, named for the same argument — and, in the last heaven, one of the patriarchs seated in the rose.",
+      "aliases": [
+        "Jacob"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "quirinus",
+      "name": "Quirinus",
+      "body": "Romulus under his godlike name, born of so low a father that Rome assigned him to Mars instead.",
+      "aliases": [
+        "Quirinus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cunizza",
+      "name": "Cunizza",
+      "body": "Ezzelino’s sister, who lived by love and says so without apology; she shines in Venus and prophesies ruin for the March of Treviso.",
+      "aliases": [
+        "Cunizza"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "folco",
+      "name": "Folco",
+      "body": "Folquet of Marseille, troubadour turned bishop, who burned as hotly as Dido in his youth and here remembers it without shame.",
+      "aliases": [
+        "Folco"
+      ],
+      "category": "major",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "belus",
+      "name": "Belus",
+      "body": "The father of Dido, named so that Folco can measure his own youth against hers.",
+      "aliases": [
+        "Belus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "creusa",
+      "name": "Creusa",
+      "body": "The wife Aeneas lost at Troy, wronged along with Sychaeus when Dido took Aeneas in.",
+      "aliases": [
+        "Creusa"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "demophoon",
+      "name": "Demophoon",
+      "body": "The man whose broken promise killed Phyllis of Rhodope, named by Folco among the great loves.",
+      "aliases": [
+        "Demophoon"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "iole",
+      "name": "Iole",
+      "body": "The girl Hercules locked in his heart, which cost him his life through Deianira’s jealousy.",
+      "aliases": [
+        "Iole"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rahab",
+      "name": "Rahab",
+      "body": "The harlot of Jericho who hid Joshua’s spies; she is the highest soul in the sphere of Venus and the first that Christ’s harrowing took there.",
+      "aliases": [
+        "Rahab"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "albert-of-cologne",
+      "name": "Albert of Cologne",
+      "body": "Albertus Magnus, Aquinas’s own master, standing at his right in the first crown of lights.",
+      "aliases": [
+        "Albertus"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gratian",
+      "name": "Gratian",
+      "body": "The canonist whose Decretum reconciled church law with civil law, which Paradise counts as a service.",
+      "aliases": [
+        "Gratian"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter-lombard",
+      "name": "Peter Lombard",
+      "body": "The author of the Sentences, the textbook every medieval theologian was trained on; he offered his one talent to the Church as the widow offered her mite.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "solomon",
+      "name": "Solomon",
+      "body": "The fifth and brightest of the twelve lights, whose wisdom the world is still hungry for; Aquinas has to explain that his unequalled seeing was kingly prudence, not universal knowledge.",
+      "aliases": [],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dionysius-areopagite",
+      "name": "Dionysius",
+      "body": "The Areopagite, credited with the book on the angelic orders; Paradise confirms he got them right, having heard them from Saint Paul.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "isidore",
+      "name": "Isidore",
+      "body": "Isidore of Seville, whose encyclopaedia carried the ancient world into the Middle Ages.",
+      "aliases": [
+        "Isidore"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bede",
+      "name": "Bede",
+      "body": "The English monk and historian, named with Isidore and Richard among the burning spirits.",
+      "aliases": [
+        "Bede",
+        "Beda"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "richard-st-victor",
+      "name": "Richard",
+      "body": "Richard of Saint Victor, whose writing on contemplation made him, Aquinas says, more than a man at it.",
+      "aliases": [
+        "Richard"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "siger",
+      "name": "Siger",
+      "body": "Siger of Brabant, who lectured in the Street of Straw in Paris and drew hatred for conclusions that were merely true; Aquinas, who argued against him on earth, names him with honour here.",
+      "aliases": [
+        "Siger",
+        "Sigier"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ariadne",
+      "name": "Ariadne",
+      "body": "The daughter of Minos, whose crown became a constellation; Dante asks the reader to picture two such crowns turning against each other.",
+      "aliases": [
+        "Ariadne"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "parmenides",
+      "name": "Parmenides",
+      "body": "A Greek philosopher, named with Melissus and Bryson among those who set out confidently and did not know where they were going.",
+      "aliases": [
+        "Parmenides"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "melissus",
+      "name": "Melissus",
+      "body": "A Greek philosopher named with Parmenides as a warning against quick conclusions.",
+      "aliases": [
+        "Melissus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bryson",
+      "name": "Bryson",
+      "body": "A Greek geometer who claimed to have squared the circle, named among the confident and wrong.",
+      "aliases": [
+        "Bryson",
+        "Brissus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sabellius",
+      "name": "Sabellius",
+      "body": "A heresiarch on the Trinity, named with Arius as one of the swords that twisted scripture out of true.",
+      "aliases": [
+        "Sabellius"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "arius",
+      "name": "Arius",
+      "body": "The heresiarch who denied the Son’s full divinity, named with Sabellius for the same distortion.",
+      "aliases": [
+        "Arius"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dame-bertha",
+      "name": "Dame Bertha",
+      "body": "Any ordinary woman — the medieval equivalent of Jane Doe — warned with Ser Martin not to judge who is saved and who is damned.",
+      "aliases": [
+        "Bertha"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ser-martin",
+      "name": "Ser Martin",
+      "body": "Any ordinary man, named with Dame Bertha in Aquinas’s warning against confident judgement of souls.",
+      "aliases": [
+        "Martin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "francis",
+      "name": "Francis",
+      "body": "Francis of Assisi, whose life Aquinas tells as a marriage to Poverty; the sun that rose over the world from Ascesi — better called Orient. He comes for Guido da Montefeltro’s soul in the Inferno and loses it to a black Cherub.",
+      "aliases": [],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "poverty",
+      "name": "Poverty",
+      "body": "The widow no one had courted for eleven hundred years, since her first husband died on the cross; Francis married her in front of his father and his bishop.",
+      "aliases": [
+        "Poverty"
+      ],
+      "category": "supporting",
+      "kind": "personification",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bernard-quintavalle",
+      "name": "Bernard",
+      "body": "Bernard of Quintavalle, the first man to follow Francis — he stripped his feet bare and ran, and thought he was running too slowly.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ubaldo",
+      "name": "Ubaldo",
+      "body": "The blessed bishop of Gubbio, whose chosen hill Dante uses to fix the position of Assisi.",
+      "aliases": [
+        "Ubaldo",
+        "Ubald"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "amyclas",
+      "name": "Amyclas",
+      "body": "The fisherman too poor to fear Caesar, who did not stir when the voice that terrified the world called at his door; Poverty stood by him and nobody noticed.",
+      "aliases": [
+        "Amyclas"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pietro-bernardone",
+      "name": "Pietro Bernardone",
+      "body": "Francis’s father, the cloth merchant he renounced in public — a shame the poem says Francis bore like a king.",
+      "aliases": [
+        "Bernardone"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "innocent-iii",
+      "name": "Innocent",
+      "body": "Pope Innocent the Third, who gave Francis’s rule its first seal.",
+      "aliases": [
+        "Innocent"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "honorius",
+      "name": "Honorius",
+      "body": "Pope Honorius the Third, who confirmed the Franciscan rule a second time.",
+      "aliases": [
+        "Honorius"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dominic",
+      "name": "Dominic",
+      "body": "The founder of the Preachers, whose life Bonaventure tells as Aquinas told Francis’s: a champion sent against heresy, and a wheel of the chariot the Church rode in.",
+      "aliases": [
+        "Dominic"
+      ],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "felix",
+      "name": "Felix",
+      "body": "Dominic’s father, whose name means happy — the poem says it meant it truly.",
+      "aliases": [
+        "Felix"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "joanna",
+      "name": "Joanna",
+      "body": "Dominic’s mother, whose name Dante reads as ‘grace of God’.",
+      "aliases": [
+        "Joanna"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ostiense",
+      "name": "Ostiense",
+      "body": "The cardinal of Ostia, a commentator on canon law; his name and Taddeo’s stand for the profitable studies men take up instead of theology.",
+      "aliases": [
+        "Ostiense"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "taddeo",
+      "name": "Taddeo",
+      "body": "A famous physician of Bologna, named with Ostiense for the lucrative learning that draws students away from the bread of Heaven.",
+      "aliases": [
+        "Taddeo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bonaventure",
+      "name": "Bonaventure",
+      "body": "The Franciscan minister general, who tells the life of Dominic in return for Aquinas telling the life of Francis — and names his own order’s deserters while he is at it.",
+      "aliases": [
+        "Bonaventure",
+        "Bonaventura"
+      ],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "illuminato",
+      "name": "Illuminato",
+      "body": "One of the first companions of Francis, who went with him to Egypt.",
+      "aliases": [
+        "Illuminato"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "augustine-of-assisi",
+      "name": "Augustino",
+      "body": "An early Franciscan, named with Illuminato among the first to go barefoot and take the cord; Longfellow spells him Agostino.",
+      "aliases": [
+        "Augustino",
+        "Agostino"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hugh-st-victor",
+      "name": "Hugh of Saint Victor",
+      "body": "The theologian of the Paris abbey, named among the lights of Bonaventure’s crown.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter-mangiatore",
+      "name": "Peter Mangiatore",
+      "body": "Peter Comestor, ‘the eater’ — so called for devouring books; Longfellow keeps the Italian, Mangiador.",
+      "aliases": [
+        "Mangiatore",
+        "Mangiador"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter-of-spain",
+      "name": "Peter of Spain",
+      "body": "The logician whose twelve books of Summulae were the standard textbook — and who became Pope John XXI.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "nathan",
+      "name": "Nathan",
+      "body": "The prophet who told David his own crime back to him as a parable.",
+      "aliases": [
+        "Nathan"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "chrysostom",
+      "name": "Chrysostom",
+      "body": "John Chrysostom, patriarch of Constantinople, the golden-mouthed preacher.",
+      "aliases": [
+        "Chrysostom"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anselm-canterbury",
+      "name": "Anselm",
+      "body": "Anselm of Canterbury, named among the lights; Longfellow spells him Anselmus.",
+      "aliases": [
+        "Anselmus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "donatus",
+      "name": "Donatus",
+      "body": "The grammarian whose textbook taught the first of the liberal arts to the whole Middle Ages.",
+      "aliases": [
+        "Donatus"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rabanus",
+      "name": "Rabanus",
+      "body": "Rabanus Maurus, the Carolingian scholar and commentator on scripture.",
+      "aliases": [
+        "Rabanus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "joachim",
+      "name": "Joachim",
+      "body": "The Calabrian abbot Joachim of Fiore, gifted with prophecy — praised here by a Franciscan, though his followers had split the order.",
+      "aliases": [
+        "Joachim"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anchises",
+      "name": "Anchises",
+      "body": "Aeneas’s father, who reached out to his son in Elysium; Cacciaguida greets Dante with the same tenderness.",
+      "aliases": [
+        "Anchises"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cacciaguida",
+      "name": "Cacciaguida",
+      "body": "Dante’s great-great-grandfather, who was christened in the Baptistery, knighted by the Emperor Conrad and died on crusade; he describes the old Florence, names the houses, and tells Dante he will be exiled.",
+      "aliases": [
+        "Cacciaguida"
+      ],
+      "category": "central",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "eliseo",
+      "name": "Eliseo",
+      "body": "One of Cacciaguida’s two brothers; the family name may have come from him.",
+      "aliases": [
+        "Eliseo"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "moronto",
+      "name": "Moronto",
+      "body": "One of Cacciaguida’s two brothers, named once and never again.",
+      "aliases": [
+        "Moronto"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "emperor-conrad",
+      "name": "Conrad",
+      "body": "The Emperor Conrad the Third, who knighted Cacciaguida and took him on the crusade he died in.",
+      "aliases": [
+        "Conrad"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bellincion-berti",
+      "name": "Bellincion Berti",
+      "body": "A great Florentine of the plain old city, who went about belted in leather and bone; his wife left her mirror unpainted.",
+      "aliases": [
+        "Berti",
+        "Bellincion",
+        "Bellincione"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cianghella",
+      "name": "Cianghella",
+      "body": "A Florentine woman of Dante’s own day, notorious enough that the old city would have gawked at her.",
+      "aliases": [
+        "Cianghella"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "lapo-salterello",
+      "name": "Lapo Salterello",
+      "body": "A Florentine lawyer and politician of Dante’s day, named with Cianghella as the kind of citizen the old city could not have imagined.",
+      "aliases": [
+        "Salterello"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "old-florentine-houses",
+      "name": "The old houses of Florence",
+      "body": "Cacciaguida’s roll of the families who made the city when it was small and at peace. Almost all of them were ruined, exiled or absorbed within a century, and Dante names them the way a man reads gravestones.",
+      "aliases": [
+        "Ughi",
+        "Catellini",
+        "Filippi",
+        "Greci",
+        "Ormanni",
+        "Alberichi",
+        "Sannella",
+        "Arca",
+        "Ardinghi",
+        "Bostichi",
+        "Ravignani",
+        "Pressa",
+        "Galigaio",
+        "Sacchetti",
+        "Giuochi",
+        "Fifanti",
+        "Barucci",
+        "Galli",
+        "Calfucci",
+        "Sizii",
+        "Arrigucci",
+        "Gualterotti",
+        "Importuni",
+        "Nerli",
+        "Vecchietti",
+        "Infangato",
+        "Caponsacco",
+        "Giuda"
+      ],
+      "category": "supporting",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ubertino-donato",
+      "name": "Ubertino Donato",
+      "body": "A Florentine who was displeased when his father-in-law married another daughter into the Adimari — one small snub, still remembered.",
+      "aliases": [
+        "Ubertino",
+        "Ubertin"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "guinevere",
+      "name": "Guinevere",
+      "body": "Arthur’s queen, whose first slip with Lancelot drew a cough from her lady-in-waiting; Beatrice’s smile at Dante is the same kind of warning.",
+      "aliases": [
+        "Guinevere",
+        "Guenever"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thomas-apostle",
+      "name": "Thomas",
+      "body": "The apostle, whose feast day keeps alive the name of the great baron of Florence.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hugh-the-great",
+      "name": "The great baron",
+      "body": "Hugh of Tuscany, the imperial vicar who knighted several Florentine families into his own arms; Dante keeps his memory with the feast of Saint Thomas.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clymene",
+      "name": "Clymene",
+      "body": "Phaethon’s mother, who confirmed to him what he had heard about his father — and so made every father since wary of his son’s questions.",
+      "aliases": [
+        "Clymene"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hippolytus",
+      "name": "Hippolytus",
+      "body": "The son driven out of Athens by his stepmother’s lie; Cacciaguida uses him to tell Dante how exile comes — undeserved, and arranged.",
+      "aliases": [
+        "Hippolytus"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "clement-v",
+      "name": "The Gascon",
+      "body": "Pope Clement the Fifth, who called the Emperor Henry into Italy and then worked against him.",
+      "aliases": [
+        "Gascon"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "henry-vii",
+      "name": "Henry",
+      "body": "Henry the Seventh of Luxembourg, the emperor Dante hoped would set Italy right; a throne is already crowned and waiting for him in the rose.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bartolommeo-scala",
+      "name": "The great Lombard",
+      "body": "Bartolommeo della Scala of Verona, Dante’s first host in exile, who bears the imperial eagle over the ladder of his arms.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maccabee",
+      "name": "The Maccabee",
+      "body": "Judas Maccabaeus, whose name spins a light like a top in the cross of Mars.",
+      "aliases": [
+        "Maccabee"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william-of-orange",
+      "name": "William of Orange",
+      "body": "The hero of a French epic cycle, a warrior who ended as a monk; named with his companion Renouard.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "renouard",
+      "name": "Renouard",
+      "body": "The giant Saracen convert of the William of Orange poems, who fought with a club.",
+      "aliases": [
+        "Renouard"
+      ],
+      "category": "reference",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "godfrey",
+      "name": "Godfrey",
+      "body": "Godfrey of Bouillon, who led the First Crusade and took Jerusalem.",
+      "aliases": [
+        "Godfrey"
+      ],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cripple-of-jerusalem",
+      "name": "The Cripple of Jerusalem",
+      "body": "Charles the Second of Naples as the Eagle’s book records him: one stroke of a letter for his goodness against a thousand for his vices.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "persians",
+      "name": "The Persians",
+      "body": "The heathen who will stand up at the judgement and ask Christian kings what the record says about them.",
+      "aliases": [
+        "Persians"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ethiopians",
+      "name": "The Ethiopians",
+      "body": "Thirsty for cold water in Purgatory, and in Paradise the heathen who will condemn Christians when the two companies are divided.",
+      "aliases": [
+        "Ethiopian",
+        "Ethiopians",
+        "Ethiop"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ripheus",
+      "name": "Ripheus",
+      "body": "A Trojan named once by Virgil as the most just of his people; Dante puts him in the eye of the Eagle, a pagan saved, and offers no explanation the reader can check.",
+      "aliases": [
+        "Ripheus"
+      ],
+      "category": "supporting",
+      "kind": "literary-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "william-of-sicily",
+      "name": "William",
+      "body": "William the Second of Sicily, called the Good, mourned by the land that now has to endure Charles and Frederick alive.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "peter-damian",
+      "name": "Peter Damian",
+      "body": "The hermit of the Adriatic who became a cardinal against his will; he answers Dante out of the ladder of gold and then breaks off into a cry against fat prelates.",
+      "aliases": [
+        "Damian",
+        "Damiano"
+      ],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "benedict",
+      "name": "Benedict",
+      "body": "The founder of Western monasticism, who cleared Monte Cassino of its pagans; he shows Dante the ladder and says his rule is now waste paper.",
+      "aliases": [
+        "Benedict"
+      ],
+      "category": "major",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "macarius",
+      "name": "Macarius",
+      "body": "An early desert father, named by Benedict among his own.",
+      "aliases": [
+        "Macarius"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "romualdus",
+      "name": "Romualdus",
+      "body": "Romuald, founder of the Camaldolese hermits, named by Benedict with Macarius.",
+      "aliases": [
+        "Romualdus",
+        "Romuald"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "hyperion",
+      "name": "Hyperion",
+      "body": "The Titan father of the sun in the old mythology; Dante looks back down through the spheres and names the planets by their gods.",
+      "aliases": [
+        "Hyperion"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "maia",
+      "name": "Maia",
+      "body": "The mother of Mercury, and so Dante’s name for the planet.",
+      "aliases": [
+        "Maia"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "james-apostle",
+      "name": "James",
+      "body": "The apostle, who examines Dante on hope; the baron of Compostela, for whose sake Galicia is a place of pilgrimage.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "john-evangelist",
+      "name": "John",
+      "body": "The evangelist who lay on Christ’s breast and was taken from the cross to care for his mother; he examines Dante on love, and puts down the legend that he went to Heaven in the body.",
+      "aliases": [],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "ananias",
+      "name": "Ananias",
+      "body": "The disciple whose hands restored Saul’s sight; Beatrice’s look does as much for Dante’s.",
+      "aliases": [
+        "Ananias"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "linus",
+      "name": "Linus",
+      "body": "An early pope and martyr, named by Saint Peter with Cletus among those whose blood was not shed to buy gold.",
+      "aliases": [
+        "Linus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cletus",
+      "name": "Cletus",
+      "body": "An early pope and martyr, named with Linus in Peter’s indictment of his own successors.",
+      "aliases": [
+        "Cletus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sixtus",
+      "name": "Sixtus",
+      "body": "A martyred pope, named in Peter’s roll of those who died for the life of Heaven and not for a bank.",
+      "aliases": [
+        "Sixtus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "pope-pius",
+      "name": "Pius",
+      "body": "A martyred pope, named with Sixtus, Callixtus and Urban.",
+      "aliases": [
+        "Pius"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "callixtus",
+      "name": "Callixtus",
+      "body": "A martyred pope in Peter’s roll.",
+      "aliases": [
+        "Callixtus",
+        "Calixtus"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "urban",
+      "name": "Urban",
+      "body": "A martyred pope, the last named in Peter’s roll before he turns on the living ones.",
+      "aliases": [
+        "Urban"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "gascons",
+      "name": "The Gascons",
+      "body": "With the Cahorsines, the nations Peter says are preparing to drink the blood of the Church — Clement the Fifth’s countrymen and John the Twenty-Second’s.",
+      "aliases": [
+        "Gascons"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "cahorsines",
+      "name": "The Cahorsines",
+      "body": "Named with the Gascons in Peter’s prophecy; Cahors was a byword for usury and the birthplace of Pope John XXII.",
+      "aliases": [
+        "Cahorsines",
+        "Caorsines"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "europa",
+      "name": "Europa",
+      "body": "The girl Jove carried off in the shape of a bull; Dante marks how far he has travelled by the shore where she was taken.",
+      "aliases": [
+        "Europa"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "leda",
+      "name": "Leda",
+      "body": "The mother of the Twins; Dante calls Gemini her fair nest, and Beatrice’s look lifts him out of it.",
+      "aliases": [
+        "Leda"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "thrones",
+      "name": "The Thrones",
+      "body": "The third angelic order, mirrors in which God’s judgement is reflected down to the spheres below.",
+      "aliases": [
+        "Thrones"
+      ],
+      "category": "supporting",
+      "kind": "angel",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "dominions",
+      "name": "The Dominions",
+      "body": "The fourth angelic order, first of the second hierarchy.",
+      "aliases": [
+        "Dominions"
+      ],
+      "category": "reference",
+      "kind": "angel",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "virtues",
+      "name": "The Virtues",
+      "body": "The fifth angelic order, named between the Dominions and the Powers.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "angel",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "powers",
+      "name": "The Powers",
+      "body": "The sixth angelic order, closing the second hierarchy.",
+      "aliases": [
+        "Powers"
+      ],
+      "category": "reference",
+      "kind": "angel",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "principalities",
+      "name": "The Principalities",
+      "body": "The seventh angelic order, wheeling in the penultimate dances.",
+      "aliases": [
+        "Principalities"
+      ],
+      "category": "reference",
+      "kind": "angel",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "archangels",
+      "name": "The Archangels",
+      "body": "The eighth angelic order, named with the Principalities.",
+      "aliases": [
+        "Archangels"
+      ],
+      "category": "reference",
+      "kind": "angel",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "boreas",
+      "name": "Boreas",
+      "body": "The north wind, whose gentler cheek leaves the sky clear; Dante uses it for the air after Beatrice has swept an error away.",
+      "aliases": [
+        "Boreas"
+      ],
+      "category": "reference",
+      "kind": "deity",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "jerome",
+      "name": "Jerome",
+      "body": "The church father who wrote that the angels were made long ages before the rest of creation — which Beatrice contradicts, gently, on the authority of scripture.",
+      "aliases": [
+        "Jerome"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anthony",
+      "name": "Anthony",
+      "body": "Saint Anthony the Abbot, whose pig is fattened on the offerings of the credulous, along with others the poem says are more piggish still.",
+      "aliases": [
+        "Anthony"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "spaniards",
+      "name": "The Spaniards",
+      "body": "Named with the Indians and the Jews as witnesses that the darkness at the Crucifixion was seen everywhere, not only at Jerusalem.",
+      "aliases": [
+        "Spaniards"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "indians",
+      "name": "The Indians",
+      "body": "Named for their forests and their thirst, and with the Spaniards as witnesses to the eclipse at the Crucifixion.",
+      "aliases": [
+        "Indians",
+        "Indian"
+      ],
+      "category": "reference",
+      "kind": "group",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "bernard-clairvaux",
+      "name": "Bernard",
+      "body": "Bernard of Clairvaux, who takes over from Beatrice for the last three cantos, shows Dante the order of the rose, and makes the prayer to the Virgin that wins him the final sight.",
+      "aliases": [],
+      "category": "central",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "veronica",
+      "name": "The Veronica",
+      "body": "The cloth at Saint Peter’s said to carry the face of Christ; Dante uses the pilgrim who comes from Croatia to stare at it for his own staring at Bernard.",
+      "aliases": [
+        "Veronica"
+      ],
+      "category": "reference",
+      "kind": "person",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sarah",
+      "name": "Sarah",
+      "body": "Abraham’s wife, seated in the rose in the line of Hebrew women that divides the flower.",
+      "aliases": [
+        "Sarah"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "rebecca",
+      "name": "Rebecca",
+      "body": "Isaac’s wife, named in the line of Hebrew women below Eve, Mary, Rachel and Beatrice.",
+      "aliases": [
+        "Rebecca"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "judith",
+      "name": "Judith",
+      "body": "The woman who killed Holofernes, seated in the rose with Sarah and Rebecca.",
+      "aliases": [
+        "Judith"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "anna",
+      "name": "Anna",
+      "body": "The mother of Mary, seated opposite Saint Peter and so content with looking at her daughter that she will not turn her eyes even to sing.",
+      "aliases": [
+        "Anna"
+      ],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "augustine",
+      "name": "Augustine",
+      "body": "Augustine of Hippo, seated with Francis and Benedict beneath John the Baptist; the advocate of the Christian ages supplied him his rhetoric.",
+      "aliases": [
+        "Augustine"
+      ],
+      "category": "supporting",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "orosius",
+      "name": "The advocate of the Christian ages",
+      "body": "Paulus Orosius, whose history against the pagans armed Augustine with his arguments; the poem names his work and not his name.",
+      "aliases": [],
+      "category": "reference",
+      "kind": "religious-figure",
+      "subtitle": "",
+      "snapshots": []
+    },
+    {
+      "id": "sibyl",
+      "name": "The Sibyl",
+      "body": "The prophetess whose answers were written on light leaves and scattered by the wind — Dante’s figure for how much of the vision he has already lost.",
+      "aliases": [
+        "Sibyl"
+      ],
+      "category": "reference",
+      "kind": "mythological-figure",
       "subtitle": "",
       "snapshots": []
     }

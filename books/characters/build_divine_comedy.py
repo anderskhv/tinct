@@ -26,7 +26,7 @@ SPLIT={
  'Alexander':({(12,35):'alexander-tyrant',(14,10):'alexander-great'},None),
  'Rinier':  ({(12,45):['rinier-corneto','rinier-pazzo']},None),
  'Buoso':   ({(25,46):'buoso-abati',(30,14):'buoso-donati'},None),
- 'Michael': ({(7,3):'michael',(20,38):'michael-scot'},None),
+ 'Michael': ({(7,3):'michael',(20,38):'michael-scot',(71,15):'michael'},None),
  'Jacopo':  ({(6,26):'jacopo-rusticucci',(13,44):'jacopo-sant-andrea',
               (16,14):'jacopo-rusticucci'},None),
  'Alberto': ({(29,36):'alberto-siena'},None),
@@ -36,25 +36,62 @@ SPLIT={
  'Simon':   ({(19,0):'simon-magus'},None),
  'Boniface':({(19,17):'boniface',(58,9):'boniface-ravenna'},None),
  # Purgatorio namesakes.
- 'Thomas':  ({(54,22):'thomas-aquinas-purg'},None),
+ 'Thomas':  ({(54,22):'thomas-aquinas',(77,32):'thomas-aquinas',(79,36):'thomas-aquinas',
+              (79,47):'thomas-aquinas',(81,1):'thomas-aquinas',(83,42):'thomas-apostle'},None),
  'Nicholas':({},'nicholas-saint'),
  'Pygmalion':({(54,34):'pygmalion-tyre'},'pygmalion'),
  'Orestes': ({(47,10):'orestes-purg'},None),
  'Marco':   ({(50,15):'marco-lombardo',(50,43):'marco-lombardo'},None),
- 'Charles': ({(54,22):'charles-of-anjou'},None),
+ 'Charles': ({(19,32):'charles-of-anjou',(39,22):'charles-of-anjou',(45,45):'charles-of-anjou',
+              (54,22):'charles-of-anjou',(54,23):'charles-of-valois',(73,35):'charles-ii',
+              (75,23):'charles-ii',(76,0):'charles-martel',(87,20):'charles-ii'},None),
  'Clement': ({},'clement-iv'),
- 'Henry':   ({(41,43):'henry-of-england'},None),
- 'Peter':   ({(41,41):'peter-of-aragon'},'peter'),
- 'Frederick':({(41,39):'frederick-sicily'},'frederick-ii'),
- 'James':   ({(41,39):'james-aragon'},None),
- 'Constance':({(41,42):'constance-aragon'},'constance-empress'),
- 'Costanza': ({},'constance-empress'),
- 'Albert':  ({(32,18):'albert-alberti',(29,36):'alberto-siena',(40,32):'albert-of-germany'},None),
+ 'Henry':   ({(41,43):'henry-of-england',(84,27):'henry-vii',(97,45):'henry-vii'},None),
+ 'Peter':   ({(41,41):'peter-of-aragon',(77,35):'peter-lombard',(78,29):'pietro-bernardone',
+              (79,44):['peter-mangiatore','peter-of-spain'],(88,40):'peter-damian'},'peter'),
+ # Frederick Novello and Frederick Tignoso carry their own surnames; the
+ # emperor must not be bound over the top of them.
+ 'Frederick':({(40,5):None,(48,35):None,(41,39):'frederick-sicily',
+               (87,20):'frederick-sicily'},'frederick-ii'),
+ 'James':   ({(41,39):'james-aragon',(66,24):'james-apostle',(66,25):'james-apostle'},None),
+ 'John':    ({(19,5):'john-baptist',(63,34):'john-evangelist',(66,24):'john-evangelist',
+              (66,25):'john-evangelist',(83,8):'john-baptist',(99,10):'john-baptist',
+              (99,42):'john-evangelist'},None),
+ # Manfred's daughter and his grandmother share the name; he speaks of both.
+ 'Constance':({(37,47):'constance-aragon',(41,42):'constance-aragon'},'constance-empress'),
+ 'Costanza': ({(37,47):'constance-aragon',(41,42):'constance-aragon'},'constance-empress'),
+ 'Albert':  ({(32,18):'albert-alberti',(29,36):'alberto-siena',(40,32):'albert-of-germany',
+              (77,32):'albert-of-cologne',(86,38):'albert-of-germany'},None),
+
+ # Paradiso namesakes.
+ 'Anselm':  ({(33,16):'anselmuccio',(79,45):'anselm-canterbury'},None),
+ 'Dionysius':({(12,35):'dionysius',(95,43):'dionysius-areopagite'},None),
+ 'Bernard': ({(78,26):'bernard-quintavalle'},'bernard-clairvaux'),
+ 'Hugh':    ({(54,16):'hugh-capet',(79,44):'hugh-st-victor'},None),
+ 'William': ({(41,44):'marquis-william',(85,15):'william-of-orange',
+              (87,20):'william-of-sicily'},None),
+ 'Guglielmo':({(16,23):'guglielmo-borsiere',(45,19):'guglielmo-aldobrandeschi',
+               (87,20):'william-of-sicily'},None),
+ # Lombardy the region, the Lombard people, Peter Lombard and the great
+ # Lombard of Verona. Only the last three are cast.
+ 'Lombard': ({(73,31):'lombards',(84,23):'bartolommeo-scala'},None),
+ 'Soldanier':({(32,40):'gianni-soldanier'},'old-florentine-houses'),
+ 'Soldanieri':({(32,40):'gianni-soldanier'},'old-florentine-houses'),
+ # The angelic order, not the three theological virtues of Purgatorio VII.
+ 'Virtues': ({(95,40):'virtues'},None),
+ # Currado Malaspina in the valley of the princes; Currado da Palazzo in
+ # Marco Lombardo's roll of the three old men.
+ 'Currado': ({(42,21):'currado-malaspina',(42,39):'currado-malaspina',
+              (50,41):'currado-da-palazzo'},None),
+ # Longfellow writes Francesco d'Accorso as "Francis of Accorso".
+ 'Francis': ({(15,36):'francesco-accorso'},'francis'),
+ # Franco Bolognese's surname is not the Bolognese people.
+ 'Bolognese':({(45,27):None},'bolognese'),
  'Ugolin':  ({(48,34):'ugolin-dazzo',(48,40):'ugolin-fantoli'},None),
  'Pallas':  ({(46,10):'pallas-goddess'},None),
  'Lycurgus':({},'lycurgus-purg'),
  'Argus':   ({},'argus-purg'),
- 'Justinian':({},'justinian-purg'),
+ 'Justinian':({},'justinian'),
  'Marcellus':({},'marcellus-purg'),
 
  # Adam is the first father everywhere except the canto of the counterfeiters.
@@ -76,6 +113,11 @@ def bind(edition,ch,pi,text,entities):
  # Figures the poem identifies only by circumstance. Each rule carries an
  # alternative for Longfellow's wording and one for the prose.
  for pat,who in [
+  (r'fifth light','solomon'),
+  (r'regal prudence|kingly prudence','solomon'),
+  (r'great baron','hugh-the-great'),
+  (r'advocate of the Christian','orosius'),
+  (r'Cripple of Jerusalem','cripple-of-jerusalem'),
   (r'grand old man|great Old Man','old-man-of-crete'),
   (r'elders of (?:Saint|Santa) Zita','santa-zita-elder'),
   (r'the kingdom of Navarre','ciampolo'),

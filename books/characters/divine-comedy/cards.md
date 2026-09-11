@@ -932,7 +932,7 @@ The god of poetry, invoked at the opening of the Paradiso.
 
 ## Diana · reference
 
-The goddess of the moon and the hunt.
+The goddess of the moon and the hunt; Trivia is her name at the crossroads, and in Heaven it is the moon she smiles from.
 
 ## Minerva · reference
 
@@ -1068,7 +1068,7 @@ A people the poem calls the vainest in the world.
 
 ## The Bolognese · reference
 
-Named in the ditch of the panders.
+Named in the ditch of the panders, and again by the two Jovial Friars.
 
 ## The Genoese · reference
 
@@ -1160,7 +1160,7 @@ The emperor reproached for abandoning Italy.
 
 ## Rudolf · supporting
 
-The Emperor Rudolf, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not.
+The Emperor Rudolf of Habsburg, seated highest in the valley of the princes, who could have healed Italy’s wounds and did not; Charles Martel names him as a grandfather of the kings Sicily never got.
 
 ## Ottocar · supporting
 
@@ -1342,9 +1342,9 @@ Charles of Anjou, who came to Italy, made a victim of Conradin and, for amends, 
 
 The young Hohenstaufen whom Charles of Anjou executed.
 
-## Thomas · 
+## Thomas · major
 
-Thomas Aquinas, whom Charles of Anjou is said to have thrust back to heaven.
+Thomas Aquinas, the Dominican whom Charles of Anjou is said to have thrust back to heaven; in the sphere of the sun he speaks for the twelve wise lights and tells the life of Saint Francis.
 
 ## Fabricius · reference
 
@@ -1592,7 +1592,7 @@ The nymph Diana drove out of the forest for tasting the poison of Venus.
 
 ## Venus · reference
 
-The goddess of love, whose poison Helice tasted; also the planet, called Cytherea.
+The goddess of love, whose poison Helice tasted; also the planet, called Cytherea, and the Cyprian goddess the old world blamed for the madness of love.
 
 ## Titus · reference
 
@@ -1718,9 +1718,9 @@ The evangelist who writes how Christ appeared to two travellers on the road.
 
 David, dancing before the Ark with his robes girded up.
 
-## Justinian · supporting
+## Justinian · major
 
-The emperor who repaired the bridle of the law; Sordello asks what good it did with the saddle empty.
+The emperor who repaired the bridle of the law — Sordello asks what good it did with the saddle empty — and who, in the sphere of Mercury, tells the whole flight of the Roman eagle from Troy to Charlemagne.
 
 ## Clement · 
 
@@ -1733,3 +1733,627 @@ The Roman whose name stands for the partisan who makes himself a tyrant.
 ## Octavian · reference
 
 The emperor who had Virgil’s bones buried at Naples.
+
+## Marsyas · reference
+
+The satyr who challenged Apollo to a contest of music and was flayed for losing; Dante asks the god to draw him out of himself the same way.
+
+## Glaucus · reference
+
+The fisherman who tasted a herb and became a sea god; Dante uses him for the change he has no word for.
+
+## The Intelligences · reference
+
+The blessed angelic minds that turn the spheres — Dante’s astronomy and his theology are the same science.
+
+## Pegasea · reference
+
+The Muse invoked by the name of Pegasus, asked to make genius last as long as the cities it praises.
+
+## Polyhymnia · reference
+
+The Muse of sacred song, named with her sisters when Dante says even all of them together could not tell what Beatrice’s smile was like.
+
+## Samuel · reference
+
+The prophet, named with Moses and Mary among the souls closest to God — none of whom, Beatrice says, sits higher in Heaven than the Seraphim Dante is looking at.
+
+## Gabriel · supporting
+
+The archangel of the Annunciation, shown to men in human shape because human sight needs a shape; he crowns Mary in the eighth heaven.
+
+## Mercury · reference
+
+The god the old world worshipped in the planet, named with Jupiter and Mars as proof of how badly the doctrine of the spheres was misread.
+
+## Tobias · reference
+
+The man in the Book of Tobit whose blindness an angel healed; the angel is named in scripture and not here.
+
+## Lawrence · reference
+
+The deacon held to the gridiron, named with Mucius for a will that did not bend under fire.
+
+## Mucius · reference
+
+The Roman who thrust his own right hand into the flame before the enemy king, named with Saint Lawrence for the same unbending will.
+
+## Nebuchadnezzar · reference
+
+The king whose forgotten dream made him cruel until Daniel recovered it; Beatrice does for Dante what Daniel did for him.
+
+## Jephthah · reference
+
+The judge who vowed the first thing to meet him on his return and had to keep the vow against his daughter — Dante’s example of a vow that should have been broken.
+
+## Iphigenia · reference
+
+The daughter Agamemnon sacrificed for a wind, named beside Jephthah’s daughter: the same crime made twice by wise men and fools alike.
+
+## Agapetus · reference
+
+The pope who talked Justinian out of the heresy that Christ had one nature only.
+
+## Belisarius · supporting
+
+The general to whom Justinian handed the armies, so plainly favoured by Heaven that the emperor took it as leave to stop fighting and start legislating.
+
+## The Sabine women · reference
+
+The women carried off by the first Romans; Justinian dates the eagle’s career from that theft to Lucretia’s suicide.
+
+## Brennus · reference
+
+The Gaulish chief the Roman standard beat back, named first in Justinian’s roll of defeated enemies.
+
+## Torquatus · reference
+
+A Roman commander of the early republic, one of the names Justinian says the eagle made famous rather than the other way round.
+
+## Quinctius Cincinnatus · reference
+
+The dictator called from his plough, named in the poem by his nickname — the unkempt hair — and again in Cacciaguida’s Florence as a measure of how far the city has fallen.
+
+## The Decii · reference
+
+A Roman family whose men gave their own lives in battle by ritual devotion, named in Justinian’s roll of republican fame.
+
+## The Fabii · reference
+
+A Roman family of the early republic, named with the Decii among the houses the eagle made glorious.
+
+## Pompey · reference
+
+The young commander who triumphed under the republic’s eagle and, grown old, lost to Caesar at Pharsalia.
+
+## Juba · reference
+
+The African king struck down by Caesar’s lightning march after Pharsalia.
+
+## Janus · reference
+
+The god whose temple stood open in war; Justinian’s proof of the peace Augustus made is that its door was shut.
+
+## The Ghibellines · reference
+
+The imperial party, told to stop conducting their faction under the eagle’s sign — the banner is not theirs.
+
+## The Guelfs · reference
+
+The papal party, whose new Charles is warned that the eagle has stripped the hide off stronger lions.
+
+## The Arabs · reference
+
+Justinian’s name for the Carthaginians who crossed the Alps with Hannibal.
+
+## Romeo · supporting
+
+The pilgrim steward who made Raymond Berengar rich and married off four daughters to four kings, was accused of theft, and walked out with nothing.
+
+## Raymond Berengar · supporting
+
+The count of Provence whose four daughters all became queens, through the work of his steward Romeo.
+
+## Charles Martel · major
+
+The eldest son of Charles II, who died at twenty-four; he greets Dante as a friend from Florence and explains why a mild father breeds a grasping son.
+
+## Charles II · supporting
+
+Charles the Second of Naples, the Cripple of Jerusalem — the new Charles warned off the eagle, mourned while still alive, and marked in the Eagle’s book with one virtue against many vices.
+
+## Charles of Valois · supporting
+
+The Charles drawn out of France with the lance of treachery, who took Florence for the Black Guelfs and left it in ruins.
+
+## Clemence · reference
+
+The woman Charles Martel addresses when he foretells the wrongs his line will suffer — his wife or his daughter; the poem does not say which.
+
+## Dione · reference
+
+The mother of Venus in the old mythology, and in Dante’s sky the planet Venus itself.
+
+## Cupid · reference
+
+The son of Venus, whom the old poets sent to sit in Dido’s lap in the shape of her guest’s child.
+
+## Solon · reference
+
+The Athenian lawgiver, named as one of the unlike natures Providence scatters among brothers.
+
+## Melchisedec · reference
+
+The priest-king of Genesis, named with Solon and Xerxes to show how differently men are born to their work.
+
+## Esau · reference
+
+The twin who differed from his brother in the womb; Dante’s proof that nature does not follow family.
+
+## Jacob · reference
+
+Esau’s twin, named for the same argument — and, in the last heaven, one of the patriarchs seated in the rose.
+
+## Quirinus · reference
+
+Romulus under his godlike name, born of so low a father that Rome assigned him to Mars instead.
+
+## Cunizza · major
+
+Ezzelino’s sister, who lived by love and says so without apology; she shines in Venus and prophesies ruin for the March of Treviso.
+
+## Folco · major
+
+Folquet of Marseille, troubadour turned bishop, who burned as hotly as Dido in his youth and here remembers it without shame.
+
+## Belus · reference
+
+The father of Dido, named so that Folco can measure his own youth against hers.
+
+## Creusa · reference
+
+The wife Aeneas lost at Troy, wronged along with Sychaeus when Dido took Aeneas in.
+
+## Demophoon · reference
+
+The man whose broken promise killed Phyllis of Rhodope, named by Folco among the great loves.
+
+## Iole · reference
+
+The girl Hercules locked in his heart, which cost him his life through Deianira’s jealousy.
+
+## Rahab · supporting
+
+The harlot of Jericho who hid Joshua’s spies; she is the highest soul in the sphere of Venus and the first that Christ’s harrowing took there.
+
+## Albert of Cologne · supporting
+
+Albertus Magnus, Aquinas’s own master, standing at his right in the first crown of lights.
+
+## Gratian · reference
+
+The canonist whose Decretum reconciled church law with civil law, which Paradise counts as a service.
+
+## Peter Lombard · supporting
+
+The author of the Sentences, the textbook every medieval theologian was trained on; he offered his one talent to the Church as the widow offered her mite.
+
+## Solomon · major
+
+The fifth and brightest of the twelve lights, whose wisdom the world is still hungry for; Aquinas has to explain that his unequalled seeing was kingly prudence, not universal knowledge.
+
+## Dionysius · supporting
+
+The Areopagite, credited with the book on the angelic orders; Paradise confirms he got them right, having heard them from Saint Paul.
+
+## Isidore · reference
+
+Isidore of Seville, whose encyclopaedia carried the ancient world into the Middle Ages.
+
+## Bede · reference
+
+The English monk and historian, named with Isidore and Richard among the burning spirits.
+
+## Richard · reference
+
+Richard of Saint Victor, whose writing on contemplation made him, Aquinas says, more than a man at it.
+
+## Siger · supporting
+
+Siger of Brabant, who lectured in the Street of Straw in Paris and drew hatred for conclusions that were merely true; Aquinas, who argued against him on earth, names him with honour here.
+
+## Ariadne · reference
+
+The daughter of Minos, whose crown became a constellation; Dante asks the reader to picture two such crowns turning against each other.
+
+## Parmenides · reference
+
+A Greek philosopher, named with Melissus and Bryson among those who set out confidently and did not know where they were going.
+
+## Melissus · reference
+
+A Greek philosopher named with Parmenides as a warning against quick conclusions.
+
+## Bryson · reference
+
+A Greek geometer who claimed to have squared the circle, named among the confident and wrong.
+
+## Sabellius · reference
+
+A heresiarch on the Trinity, named with Arius as one of the swords that twisted scripture out of true.
+
+## Arius · reference
+
+The heresiarch who denied the Son’s full divinity, named with Sabellius for the same distortion.
+
+## Dame Bertha · reference
+
+Any ordinary woman — the medieval equivalent of Jane Doe — warned with Ser Martin not to judge who is saved and who is damned.
+
+## Ser Martin · reference
+
+Any ordinary man, named with Dame Bertha in Aquinas’s warning against confident judgement of souls.
+
+## Francis · major
+
+Francis of Assisi, whose life Aquinas tells as a marriage to Poverty; the sun that rose over the world from Ascesi — better called Orient. He comes for Guido da Montefeltro’s soul in the Inferno and loses it to a black Cherub.
+
+## Poverty · supporting
+
+The widow no one had courted for eleven hundred years, since her first husband died on the cross; Francis married her in front of his father and his bishop.
+
+## Bernard · supporting
+
+Bernard of Quintavalle, the first man to follow Francis — he stripped his feet bare and ran, and thought he was running too slowly.
+
+## Ubaldo · reference
+
+The blessed bishop of Gubbio, whose chosen hill Dante uses to fix the position of Assisi.
+
+## Amyclas · reference
+
+The fisherman too poor to fear Caesar, who did not stir when the voice that terrified the world called at his door; Poverty stood by him and nobody noticed.
+
+## Pietro Bernardone · reference
+
+Francis’s father, the cloth merchant he renounced in public — a shame the poem says Francis bore like a king.
+
+## Innocent · reference
+
+Pope Innocent the Third, who gave Francis’s rule its first seal.
+
+## Honorius · reference
+
+Pope Honorius the Third, who confirmed the Franciscan rule a second time.
+
+## Dominic · major
+
+The founder of the Preachers, whose life Bonaventure tells as Aquinas told Francis’s: a champion sent against heresy, and a wheel of the chariot the Church rode in.
+
+## Felix · reference
+
+Dominic’s father, whose name means happy — the poem says it meant it truly.
+
+## Joanna · reference
+
+Dominic’s mother, whose name Dante reads as ‘grace of God’.
+
+## Ostiense · reference
+
+The cardinal of Ostia, a commentator on canon law; his name and Taddeo’s stand for the profitable studies men take up instead of theology.
+
+## Taddeo · reference
+
+A famous physician of Bologna, named with Ostiense for the lucrative learning that draws students away from the bread of Heaven.
+
+## Bonaventure · major
+
+The Franciscan minister general, who tells the life of Dominic in return for Aquinas telling the life of Francis — and names his own order’s deserters while he is at it.
+
+## Illuminato · reference
+
+One of the first companions of Francis, who went with him to Egypt.
+
+## Augustino · reference
+
+An early Franciscan, named with Illuminato among the first to go barefoot and take the cord; Longfellow spells him Agostino.
+
+## Hugh of Saint Victor · reference
+
+The theologian of the Paris abbey, named among the lights of Bonaventure’s crown.
+
+## Peter Mangiatore · reference
+
+Peter Comestor, ‘the eater’ — so called for devouring books; Longfellow keeps the Italian, Mangiador.
+
+## Peter of Spain · reference
+
+The logician whose twelve books of Summulae were the standard textbook — and who became Pope John XXI.
+
+## Nathan · reference
+
+The prophet who told David his own crime back to him as a parable.
+
+## Chrysostom · reference
+
+John Chrysostom, patriarch of Constantinople, the golden-mouthed preacher.
+
+## Anselm · reference
+
+Anselm of Canterbury, named among the lights; Longfellow spells him Anselmus.
+
+## Donatus · reference
+
+The grammarian whose textbook taught the first of the liberal arts to the whole Middle Ages.
+
+## Rabanus · reference
+
+Rabanus Maurus, the Carolingian scholar and commentator on scripture.
+
+## Joachim · supporting
+
+The Calabrian abbot Joachim of Fiore, gifted with prophecy — praised here by a Franciscan, though his followers had split the order.
+
+## Anchises · reference
+
+Aeneas’s father, who reached out to his son in Elysium; Cacciaguida greets Dante with the same tenderness.
+
+## Cacciaguida · central
+
+Dante’s great-great-grandfather, who was christened in the Baptistery, knighted by the Emperor Conrad and died on crusade; he describes the old Florence, names the houses, and tells Dante he will be exiled.
+
+## Eliseo · reference
+
+One of Cacciaguida’s two brothers; the family name may have come from him.
+
+## Moronto · reference
+
+One of Cacciaguida’s two brothers, named once and never again.
+
+## Conrad · supporting
+
+The Emperor Conrad the Third, who knighted Cacciaguida and took him on the crusade he died in.
+
+## Bellincion Berti · supporting
+
+A great Florentine of the plain old city, who went about belted in leather and bone; his wife left her mirror unpainted.
+
+## Cianghella · reference
+
+A Florentine woman of Dante’s own day, notorious enough that the old city would have gawked at her.
+
+## Lapo Salterello · reference
+
+A Florentine lawyer and politician of Dante’s day, named with Cianghella as the kind of citizen the old city could not have imagined.
+
+## The old houses of Florence · supporting
+
+Cacciaguida’s roll of the families who made the city when it was small and at peace. Almost all of them were ruined, exiled or absorbed within a century, and Dante names them the way a man reads gravestones.
+
+## Ubertino Donato · reference
+
+A Florentine who was displeased when his father-in-law married another daughter into the Adimari — one small snub, still remembered.
+
+## Guinevere · reference
+
+Arthur’s queen, whose first slip with Lancelot drew a cough from her lady-in-waiting; Beatrice’s smile at Dante is the same kind of warning.
+
+## Thomas · reference
+
+The apostle, whose feast day keeps alive the name of the great baron of Florence.
+
+## The great baron · reference
+
+Hugh of Tuscany, the imperial vicar who knighted several Florentine families into his own arms; Dante keeps his memory with the feast of Saint Thomas.
+
+## Clymene · reference
+
+Phaethon’s mother, who confirmed to him what he had heard about his father — and so made every father since wary of his son’s questions.
+
+## Hippolytus · reference
+
+The son driven out of Athens by his stepmother’s lie; Cacciaguida uses him to tell Dante how exile comes — undeserved, and arranged.
+
+## The Gascon · supporting
+
+Pope Clement the Fifth, who called the Emperor Henry into Italy and then worked against him.
+
+## Henry · supporting
+
+Henry the Seventh of Luxembourg, the emperor Dante hoped would set Italy right; a throne is already crowned and waiting for him in the rose.
+
+## The great Lombard · supporting
+
+Bartolommeo della Scala of Verona, Dante’s first host in exile, who bears the imperial eagle over the ladder of his arms.
+
+## The Maccabee · reference
+
+Judas Maccabaeus, whose name spins a light like a top in the cross of Mars.
+
+## William of Orange · supporting
+
+The hero of a French epic cycle, a warrior who ended as a monk; named with his companion Renouard.
+
+## Renouard · reference
+
+The giant Saracen convert of the William of Orange poems, who fought with a club.
+
+## Godfrey · supporting
+
+Godfrey of Bouillon, who led the First Crusade and took Jerusalem.
+
+## The Cripple of Jerusalem · reference
+
+Charles the Second of Naples as the Eagle’s book records him: one stroke of a letter for his goodness against a thousand for his vices.
+
+## The Persians · reference
+
+The heathen who will stand up at the judgement and ask Christian kings what the record says about them.
+
+## The Ethiopians · reference
+
+Thirsty for cold water in Purgatory, and in Paradise the heathen who will condemn Christians when the two companies are divided.
+
+## Ripheus · supporting
+
+A Trojan named once by Virgil as the most just of his people; Dante puts him in the eye of the Eagle, a pagan saved, and offers no explanation the reader can check.
+
+## William · supporting
+
+William the Second of Sicily, called the Good, mourned by the land that now has to endure Charles and Frederick alive.
+
+## Peter Damian · major
+
+The hermit of the Adriatic who became a cardinal against his will; he answers Dante out of the ladder of gold and then breaks off into a cry against fat prelates.
+
+## Benedict · major
+
+The founder of Western monasticism, who cleared Monte Cassino of its pagans; he shows Dante the ladder and says his rule is now waste paper.
+
+## Macarius · reference
+
+An early desert father, named by Benedict among his own.
+
+## Romualdus · reference
+
+Romuald, founder of the Camaldolese hermits, named by Benedict with Macarius.
+
+## Hyperion · reference
+
+The Titan father of the sun in the old mythology; Dante looks back down through the spheres and names the planets by their gods.
+
+## Maia · reference
+
+The mother of Mercury, and so Dante’s name for the planet.
+
+## James · supporting
+
+The apostle, who examines Dante on hope; the baron of Compostela, for whose sake Galicia is a place of pilgrimage.
+
+## John · supporting
+
+The evangelist who lay on Christ’s breast and was taken from the cross to care for his mother; he examines Dante on love, and puts down the legend that he went to Heaven in the body.
+
+## Ananias · reference
+
+The disciple whose hands restored Saul’s sight; Beatrice’s look does as much for Dante’s.
+
+## Linus · reference
+
+An early pope and martyr, named by Saint Peter with Cletus among those whose blood was not shed to buy gold.
+
+## Cletus · reference
+
+An early pope and martyr, named with Linus in Peter’s indictment of his own successors.
+
+## Sixtus · reference
+
+A martyred pope, named in Peter’s roll of those who died for the life of Heaven and not for a bank.
+
+## Pius · reference
+
+A martyred pope, named with Sixtus, Callixtus and Urban.
+
+## Callixtus · reference
+
+A martyred pope in Peter’s roll.
+
+## Urban · reference
+
+A martyred pope, the last named in Peter’s roll before he turns on the living ones.
+
+## The Gascons · reference
+
+With the Cahorsines, the nations Peter says are preparing to drink the blood of the Church — Clement the Fifth’s countrymen and John the Twenty-Second’s.
+
+## The Cahorsines · reference
+
+Named with the Gascons in Peter’s prophecy; Cahors was a byword for usury and the birthplace of Pope John XXII.
+
+## Europa · reference
+
+The girl Jove carried off in the shape of a bull; Dante marks how far he has travelled by the shore where she was taken.
+
+## Leda · reference
+
+The mother of the Twins; Dante calls Gemini her fair nest, and Beatrice’s look lifts him out of it.
+
+## The Thrones · supporting
+
+The third angelic order, mirrors in which God’s judgement is reflected down to the spheres below.
+
+## The Dominions · reference
+
+The fourth angelic order, first of the second hierarchy.
+
+## The Virtues · reference
+
+The fifth angelic order, named between the Dominions and the Powers.
+
+## The Powers · reference
+
+The sixth angelic order, closing the second hierarchy.
+
+## The Principalities · reference
+
+The seventh angelic order, wheeling in the penultimate dances.
+
+## The Archangels · reference
+
+The eighth angelic order, named with the Principalities.
+
+## Boreas · reference
+
+The north wind, whose gentler cheek leaves the sky clear; Dante uses it for the air after Beatrice has swept an error away.
+
+## Jerome · reference
+
+The church father who wrote that the angels were made long ages before the rest of creation — which Beatrice contradicts, gently, on the authority of scripture.
+
+## Anthony · reference
+
+Saint Anthony the Abbot, whose pig is fattened on the offerings of the credulous, along with others the poem says are more piggish still.
+
+## The Spaniards · reference
+
+Named with the Indians and the Jews as witnesses that the darkness at the Crucifixion was seen everywhere, not only at Jerusalem.
+
+## The Indians · reference
+
+Named for their forests and their thirst, and with the Spaniards as witnesses to the eclipse at the Crucifixion.
+
+## Bernard · central
+
+Bernard of Clairvaux, who takes over from Beatrice for the last three cantos, shows Dante the order of the rose, and makes the prayer to the Virgin that wins him the final sight.
+
+## The Veronica · reference
+
+The cloth at Saint Peter’s said to carry the face of Christ; Dante uses the pilgrim who comes from Croatia to stare at it for his own staring at Bernard.
+
+## Sarah · reference
+
+Abraham’s wife, seated in the rose in the line of Hebrew women that divides the flower.
+
+## Rebecca · reference
+
+Isaac’s wife, named in the line of Hebrew women below Eve, Mary, Rachel and Beatrice.
+
+## Judith · reference
+
+The woman who killed Holofernes, seated in the rose with Sarah and Rebecca.
+
+## Anna · reference
+
+The mother of Mary, seated opposite Saint Peter and so content with looking at her daughter that she will not turn her eyes even to sing.
+
+## Augustine · supporting
+
+Augustine of Hippo, seated with Francis and Benedict beneath John the Baptist; the advocate of the Christian ages supplied him his rhetoric.
+
+## The advocate of the Christian ages · reference
+
+Paulus Orosius, whose history against the pagans armed Augustine with his arguments; the poem names his work and not his name.
+
+## The Sibyl · reference
+
+The prophetess whose answers were written on light leaves and scattered by the wind — Dante’s figure for how much of the vision he has already lost.

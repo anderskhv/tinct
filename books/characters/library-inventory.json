@@ -420,9 +420,12 @@
     {
       "bookId": "divine-comedy",
       "title": "The Divine Comedy",
-      "contentStatus": "in-progress",
+      "contentStatus": "validated-package",
       "appStatus": "not-integrated",
-      "reviewedEditions": [],
+      "reviewedEditions": [
+        "original-en",
+        "modern-en"
+      ],
       "sources": [
         {
           "edition": "modern-en",
@@ -440,7 +443,7 @@
         }
       ],
       "existingThreadCandidates": 22,
-      "nextAction": "Lane B authoring in progress: 100 cantos, 4,812 paragraphs per edition — the largest source in the library. Cast is overwhelmingly historical and scriptural figures rather than invented characters"
+      "nextAction": "Awaiting integration by the release owner. 589 entities across all 100 cantos; the largest package in the library. Content review is the authoring agent's own; independent editorial approval and production verification are still outstanding."
     },
     {
       "bookId": "jane-eyre",

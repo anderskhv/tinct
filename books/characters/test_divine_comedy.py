@@ -1,5 +1,5 @@
-"""Focused checks for the Comedy. Inferno (chapters 1-34) is authored;
-Purgatorio and Paradiso are still in progress."""
+"""Focused checks for the Comedy. All three canticles are authored:
+Inferno (chapters 1-34), Purgatorio (35-67), Paradiso (68-100)."""
 import unittest
 from build_divine_comedy import compile_package
 
@@ -56,7 +56,8 @@ class DivineComedy(unittest.TestCase):
 
     def test_the_archangel_against_michael_scot(self):
         for ed in ['original-en','modern-en']:
-            self.assertEqual(where(ed,'michael'),[(7,3)],ed)
+            # The archangel is also named in Paradiso IV; the astrologer is not.
+            self.assertEqual(where(ed,'michael'),[(7,3),(71,15)],ed)
             self.assertEqual(where(ed,'michael-scot'),[(20,38)],ed)
 
     def test_figures_the_poem_does_not_name(self):
@@ -86,8 +87,60 @@ class DivineComedy(unittest.TestCase):
     def test_edition_divergences_are_recorded_not_repaired(self):
         self.assertEqual(sorted(REPORT['editions']['modern-en']['omittedEntities']),
                          ['camicion','mahomet'])
-        for cid in ['sychaeus','azzolino','roland','rudolf','wenceslaus','terence']:
+        for cid in ['azzolino','wenceslaus','terence','ariadne']:
             self.assertIn(cid,REPORT['editions']['original-en']['omittedEntities'])
+
+    def test_paradiso_namesakes(self):
+        for ed in ['original-en','modern-en']:
+            # Francis's first follower against the doctor of the last cantos.
+            self.assertEqual(where(ed,'bernard-quintavalle'),[(78,26)],ed)
+            self.assertTrue(all(c>90 for c,_ in where(ed,'bernard-clairvaux')),ed)
+            # Four men called Peter inside two cantos.
+            self.assertEqual(where(ed,'peter-lombard'),[(77,35)],ed)
+            # Longfellow writes "Peter Mangiador", so the first name and the
+            # surname are two mentions of him in the same line.
+            self.assertEqual(set(where(ed,'peter-mangiatore')),{(79,44)},ed)
+            self.assertEqual(where(ed,'peter-of-spain'),[(79,44)],ed)
+            # "I was Peter Damian, and I was Peter the Sinner" — three
+            # mentions of one man in one tercet.
+            self.assertEqual(set(where(ed,'peter-damian')),{(88,40)},ed)
+            # The tyrant of Syracuse against the author of the angelic orders.
+            self.assertEqual(where(ed,'dionysius'),[(12,35)],ed)
+            self.assertEqual(where(ed,'dionysius-areopagite'),[(95,43)],ed)
+            # Aquinas speaks in the sun; the apostle only lends his feast day.
+            self.assertEqual(where(ed,'thomas-apostle'),[(83,42)],ed)
+            self.assertIn((77,32),where(ed,'thomas-aquinas'))
+            # Three Williams, one to each canticle.
+            self.assertEqual(where(ed,'marquis-william'),[(41,44)],ed)
+            self.assertEqual(where(ed,'william-of-orange'),[(85,15)],ed)
+            self.assertEqual(where(ed,'william-of-sicily'),[(87,20)],ed)
+
+    def test_the_emperor_is_not_bound_over_two_other_fredericks(self):
+        # Frederick Novello and Frederick Tignoso carry their own surnames.
+        for ed in ['original-en','modern-en']:
+            self.assertNotIn((40,5),where(ed,'frederick-ii'),ed)
+            self.assertNotIn((48,35),where(ed,'frederick-ii'),ed)
+
+    def test_manfreds_daughter_is_not_his_grandmother(self):
+        # Purgatorio 3 names both Constances; Paradiso 3 only the Empress.
+        for ed in ['original-en','modern-en']:
+            self.assertIn((37,37),where(ed,'constance-empress'),ed)
+            self.assertIn((37,47),where(ed,'constance-aragon'),ed)
+            self.assertIn((70,39),where(ed,'constance-empress'),ed)
+
+    def test_solomon_is_bound_by_circumstance_and_never_by_name(self):
+        # The poem never writes his name; he is the fifth light.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(sorted(where(ed,'solomon')),[(77,36),(80,15),(80,34)],ed)
+            self.assertFalse(any(m['text']=='Solomon' for m in mentions(ed)),ed)
+
+    def test_the_roll_of_old_florentine_houses(self):
+        # One card for the whole roll-call of Paradiso XV-XVI, and the traitor
+        # of the Inferno keeps his own.
+        for ed in ['original-en','modern-en']:
+            self.assertEqual(where(ed,'gianni-soldanier'),[(32,40)],ed)
+            self.assertTrue(all(c in (82,83) for c,_ in where(ed,'old-florentine-houses')),ed)
+            self.assertGreater(len(where(ed,'old-florentine-houses')),20,ed)
 
     def test_purgatorio_namesakes(self):
         for ed in ['original-en','modern-en']:
