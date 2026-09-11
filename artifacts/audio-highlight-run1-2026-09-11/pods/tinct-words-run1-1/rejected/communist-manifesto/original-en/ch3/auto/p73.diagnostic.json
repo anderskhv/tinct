@@ -1,0 +1,210 @@
+{
+  "complete": true,
+  "signature": "606537f50896b9ba61de4ee5a43700710e945164e2d75185b01f812dec050cba",
+  "attempts": [
+    {
+      "asr_seconds": 0.11228936165571213,
+      "alignment_seconds": 5.9217214584350586e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "3. Abolition of all right of inheritance.",
+        "hotwords": "Abolition"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 3. Abolition of all right of inheritance.",
+          "start": 0.05,
+          "end": 2.83,
+          "words": [
+            {
+              "text": " 3.",
+              "start": 0.05,
+              "end": 0.71,
+              "probability": 0.603515625
+            },
+            {
+              "text": " Abolition",
+              "start": 1.15,
+              "end": 1.53,
+              "probability": 0.959228515625
+            },
+            {
+              "text": " of",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.98486328125
+            },
+            {
+              "text": " all",
+              "start": 1.77,
+              "end": 1.99,
+              "probability": 0.865234375
+            },
+            {
+              "text": " right",
+              "start": 1.99,
+              "end": 2.21,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " of",
+              "start": 2.21,
+              "end": 2.37,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " inheritance.",
+              "start": 2.37,
+              "end": 2.83,
+              "probability": 0.9912109375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "3.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "raw": "Abolition",
+          "start": 1.15,
+          "end": 1.53
+        },
+        {
+          "raw": "of",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "all",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "raw": "right",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "raw": "of",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "raw": "inheritance.",
+          "start": 2.37,
+          "end": 2.83
+        }
+      ],
+      "expected_tokens": [
+        "3.",
+        "Abolition",
+        "of",
+        "all",
+        "right",
+        "of",
+        "inheritance."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "3.",
+          "start": 0.05,
+          "end": 0.71
+        },
+        {
+          "text": "Abolition",
+          "start": 1.15,
+          "end": 1.53
+        },
+        {
+          "text": "of",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "all",
+          "start": 1.77,
+          "end": 1.99
+        },
+        {
+          "text": "right",
+          "start": 1.99,
+          "end": 2.21
+        },
+        {
+          "text": "of",
+          "start": 2.21,
+          "end": 2.37
+        },
+        {
+          "text": "inheritance.",
+          "start": 2.37,
+          "end": 2.83
+        }
+      ],
+      "stats": {
+        "expected_words": 7,
+        "heard_words": 7,
+        "matched_words": 7
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11236944049596786
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "624afba403f2e4b2351cb7b9e9ac7d8ac42ca6838a23c7b4b115ccaf613850c1",
+  "selected_reasons": []
+}

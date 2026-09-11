@@ -1,0 +1,7 @@
+[2026-09-11T12:35:43Z] created dsrtidan8r3ju1 tinct-words-run1-4 gpu=None $0.19/hr
+[2026-09-11T12:35:44Z] waiting: pod RUNNING agent HTTP 404
+[2026-09-11T12:36:02Z] phase deps at 0.3 min; setup={}
+[2026-09-11T12:36:02Z] 0.3 min: deps {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-11T12:36:33Z] phase model at 0.8 min; setup={"versions": {"faster-whisper": "1.2.1", "ctranslate2": "4.8.2", "av": "18.1.0"}, "commit": "a3780bee4a0683ed3968478e442bfbd2f861173e"}
+[2026-09-11T12:36:33Z] 0.8 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}
+[2026-09-11T12:37:12Z] 1.4 min: model {"arm_chapters_passed": 0, "arm_chapters_rejected": 0, "arm_chapters_running": 0}

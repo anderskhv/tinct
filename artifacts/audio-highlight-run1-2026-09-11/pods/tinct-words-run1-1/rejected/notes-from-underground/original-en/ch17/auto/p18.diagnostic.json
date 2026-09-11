@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "3653cafaf5eb9f7d2ce7a33fd17b319da58d431ec9fd42cbbc11cc5073667dae",
+  "attempts": [
+    {
+      "asr_seconds": 0.09930984675884247,
+      "alignment_seconds": 4.466623067855835e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"In this house?\"",
+        "hotwords": "In"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In this house?",
+          "start": 0.05,
+          "end": 0.99,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.55,
+              "probability": 0.3154296875
+            },
+            {
+              "text": " this",
+              "start": 0.55,
+              "end": 0.71,
+              "probability": 0.95068359375
+            },
+            {
+              "text": " house?",
+              "start": 0.71,
+              "end": 0.99,
+              "probability": 0.96875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "raw": "this",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "raw": "house?",
+          "start": 0.71,
+          "end": 0.99
+        }
+      ],
+      "expected_tokens": [
+        "\"In",
+        "this",
+        "house?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"In",
+          "start": 0.05,
+          "end": 0.55
+        },
+        {
+          "text": "this",
+          "start": 0.55,
+          "end": 0.71
+        },
+        {
+          "text": "house?\"",
+          "start": 0.71,
+          "end": 0.99
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09936869889497757
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "36977025cd8af201bbc4a92fd560f0eca1254b6e90caf993aa0d90e6bbaa68b9",
+  "selected_reasons": []
+}

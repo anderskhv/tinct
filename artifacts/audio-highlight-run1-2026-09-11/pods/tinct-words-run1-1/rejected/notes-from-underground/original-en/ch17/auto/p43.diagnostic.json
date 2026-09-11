@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "signature": "bf66d575114c2a691fd3f147949df2c8f7cb1d076ffc6960514640d9b348fadc",
+  "attempts": [
+    {
+      "asr_seconds": 0.09882470965385437,
+      "alignment_seconds": 3.552436828613281e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "Silence.",
+        "hotwords": "Silence"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Silence.",
+          "start": 0.11,
+          "end": 0.77,
+          "words": [
+            {
+              "text": " Silence.",
+              "start": 0.11,
+              "end": 0.77,
+              "probability": 0.85498046875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Silence.",
+          "start": 0.11,
+          "end": 0.77
+        }
+      ],
+      "expected_tokens": [
+        "Silence."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "Silence.",
+          "start": 0.11,
+          "end": 0.77
+        }
+      ],
+      "stats": {
+        "expected_words": 1,
+        "heard_words": 1,
+        "matched_words": 1
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.09887126088142395
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "0c4f9e63c09951bfdbb09426a768deaa07273119439f6c4c4dafa3a03cf176d2",
+  "selected_reasons": []
+}

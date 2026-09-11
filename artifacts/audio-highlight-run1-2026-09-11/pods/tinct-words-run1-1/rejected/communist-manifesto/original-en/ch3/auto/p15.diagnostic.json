@@ -1,0 +1,4827 @@
+{
+  "complete": true,
+  "signature": "bfec25e46dc361745d38a8925b5d32e0068ce08d136becd102f6b6c0d48430bf",
+  "attempts": [
+    {
+      "asr_seconds": 0.3281870484352112,
+      "alignment_seconds": 0.00022936612367630005,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "But does wage-labour create any property for the labourer? Not a bit. It creates capital, i.e., that kind of property which exploits wage-labour, and which cannot increase except upon condition of begetting a new supply of wage-labour for fresh exploitation. Property, in its present form, is based on the antagonism of capital and wage-labour. Let us examine both sides of this antagonism.",
+        "hotwords": "But, Not, It, Let"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But does wage-labour create any property for the labourer? Not a bit. It creates capital, i.e., that kind of property which exploits wage-labour, and which cannot increase except upon condition of begetting a new supply of wage-labour for fresh exploitation. Property, in its present form, is based on the antagonism of capital and wage-labour. Let us examine both sides of this antagonism.",
+          "start": 0.02,
+          "end": 24.1,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " does",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " wage",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": "-labour",
+              "start": 0.94,
+              "end": 1.24,
+              "probability": 0.4211069742838542
+            },
+            {
+              "text": " create",
+              "start": 1.24,
+              "end": 1.6,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " any",
+              "start": 1.6,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " property",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " for",
+              "start": 2.16,
+              "end": 2.42,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " labourer?",
+              "start": 2.54,
+              "end": 2.94,
+              "probability": 0.847412109375
+            },
+            {
+              "text": " Not",
+              "start": 3.46,
+              "end": 3.66,
+              "probability": 0.98095703125
+            },
+            {
+              "text": " a",
+              "start": 3.66,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bit.",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " It",
+              "start": 4.46,
+              "end": 4.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " creates",
+              "start": 4.66,
+              "end": 5.02,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " capital,",
+              "start": 5.02,
+              "end": 5.46,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " i",
+              "start": 5.9,
+              "end": 5.94,
+              "probability": 0.89404296875
+            },
+            {
+              "text": ".e.,",
+              "start": 5.94,
+              "end": 6.32,
+              "probability": 0.8207194010416666
+            },
+            {
+              "text": " that",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.994140625
+            },
+            {
+              "text": " kind",
+              "start": 6.66,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " property",
+              "start": 7.0,
+              "end": 7.32,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 7.32,
+              "end": 7.62,
+              "probability": 0.97607421875
+            },
+            {
+              "text": " exploits",
+              "start": 7.62,
+              "end": 8.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wage",
+              "start": 8.04,
+              "end": 8.38,
+              "probability": 0.998046875
+            },
+            {
+              "text": "-labour,",
+              "start": 8.38,
+              "end": 8.78,
+              "probability": 0.9169921875
+            },
+            {
+              "text": " and",
+              "start": 9.12,
+              "end": 9.3,
+              "probability": 0.99609375
+            },
+            {
+              "text": " which",
+              "start": 9.3,
+              "end": 9.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " cannot",
+              "start": 9.46,
+              "end": 9.78,
+              "probability": 0.98876953125
+            },
+            {
+              "text": " increase",
+              "start": 9.78,
+              "end": 10.24,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " except",
+              "start": 10.24,
+              "end": 10.64,
+              "probability": 0.966796875
+            },
+            {
+              "text": " upon",
+              "start": 10.64,
+              "end": 10.98,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " condition",
+              "start": 10.98,
+              "end": 11.4,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " of",
+              "start": 11.4,
+              "end": 11.68,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " begetting",
+              "start": 11.68,
+              "end": 12.02,
+              "probability": 0.956787109375
+            },
+            {
+              "text": " a",
+              "start": 12.02,
+              "end": 12.24,
+              "probability": 0.998046875
+            },
+            {
+              "text": " new",
+              "start": 12.24,
+              "end": 12.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " supply",
+              "start": 12.44,
+              "end": 12.82,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 12.82,
+              "end": 13.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wage",
+              "start": 13.04,
+              "end": 13.28,
+              "probability": 0.99755859375
+            },
+            {
+              "text": "-labour",
+              "start": 13.28,
+              "end": 13.64,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " for",
+              "start": 13.64,
+              "end": 13.84,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " fresh",
+              "start": 13.84,
+              "end": 14.14,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " exploitation.",
+              "start": 14.14,
+              "end": 14.8,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Property,",
+              "start": 15.84,
+              "end": 16.18,
+              "probability": 0.95849609375
+            },
+            {
+              "text": " in",
+              "start": 16.46,
+              "end": 16.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " its",
+              "start": 16.62,
+              "end": 16.76,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " present",
+              "start": 16.76,
+              "end": 17.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " form,",
+              "start": 17.1,
+              "end": 17.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 17.84,
+              "end": 18.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " based",
+              "start": 18.06,
+              "end": 18.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 18.28,
+              "end": 18.48,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 18.48,
+              "end": 18.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " antagonism",
+              "start": 18.6,
+              "end": 19.32,
+              "probability": 0.997802734375
+            },
+            {
+              "text": " of",
+              "start": 19.32,
+              "end": 19.54,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " capital",
+              "start": 19.54,
+              "end": 19.92,
+              "probability": 0.994140625
+            },
+            {
+              "text": " and",
+              "start": 19.92,
+              "end": 20.2,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " wage",
+              "start": 20.2,
+              "end": 20.44,
+              "probability": 0.99951171875
+            },
+            {
+              "text": "-labour.",
+              "start": 20.44,
+              "end": 20.82,
+              "probability": 0.9798177083333334
+            },
+            {
+              "text": " Let",
+              "start": 21.5,
+              "end": 21.62,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " us",
+              "start": 21.62,
+              "end": 21.76,
+              "probability": 0.998046875
+            },
+            {
+              "text": " examine",
+              "start": 21.76,
+              "end": 22.22,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " both",
+              "start": 22.22,
+              "end": 22.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " sides",
+              "start": 22.52,
+              "end": 22.88,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 22.88,
+              "end": 23.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " this",
+              "start": 23.1,
+              "end": 23.26,
+              "probability": 0.998046875
+            },
+            {
+              "text": " antagonism.",
+              "start": 23.26,
+              "end": 24.1,
+              "probability": 0.99658203125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "does",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "wage",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "-labour",
+          "start": 0.94,
+          "end": 1.24
+        },
+        {
+          "raw": "create",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "raw": "any",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "raw": "property",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "for",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "labourer?",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "raw": "Not",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "raw": "a",
+          "start": 3.66,
+          "end": 3.78
+        },
+        {
+          "raw": "bit.",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "It",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "raw": "creates",
+          "start": 4.66,
+          "end": 5.02
+        },
+        {
+          "raw": "capital,",
+          "start": 5.02,
+          "end": 5.46
+        },
+        {
+          "raw": "i",
+          "start": 5.9,
+          "end": 5.94
+        },
+        {
+          "raw": ".e.,",
+          "start": 5.94,
+          "end": 6.32
+        },
+        {
+          "raw": "that",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "raw": "kind",
+          "start": 6.66,
+          "end": 6.84
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "property",
+          "start": 7.0,
+          "end": 7.32
+        },
+        {
+          "raw": "which",
+          "start": 7.32,
+          "end": 7.62
+        },
+        {
+          "raw": "exploits",
+          "start": 7.62,
+          "end": 8.04
+        },
+        {
+          "raw": "wage",
+          "start": 8.04,
+          "end": 8.38
+        },
+        {
+          "raw": "-labour,",
+          "start": 8.38,
+          "end": 8.78
+        },
+        {
+          "raw": "and",
+          "start": 9.12,
+          "end": 9.3
+        },
+        {
+          "raw": "which",
+          "start": 9.3,
+          "end": 9.46
+        },
+        {
+          "raw": "cannot",
+          "start": 9.46,
+          "end": 9.78
+        },
+        {
+          "raw": "increase",
+          "start": 9.78,
+          "end": 10.24
+        },
+        {
+          "raw": "except",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "raw": "upon",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "raw": "condition",
+          "start": 10.98,
+          "end": 11.4
+        },
+        {
+          "raw": "of",
+          "start": 11.4,
+          "end": 11.68
+        },
+        {
+          "raw": "begetting",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "raw": "a",
+          "start": 12.02,
+          "end": 12.24
+        },
+        {
+          "raw": "new",
+          "start": 12.24,
+          "end": 12.44
+        },
+        {
+          "raw": "supply",
+          "start": 12.44,
+          "end": 12.82
+        },
+        {
+          "raw": "of",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "raw": "wage",
+          "start": 13.04,
+          "end": 13.28
+        },
+        {
+          "raw": "-labour",
+          "start": 13.28,
+          "end": 13.64
+        },
+        {
+          "raw": "for",
+          "start": 13.64,
+          "end": 13.84
+        },
+        {
+          "raw": "fresh",
+          "start": 13.84,
+          "end": 14.14
+        },
+        {
+          "raw": "exploitation.",
+          "start": 14.14,
+          "end": 14.8
+        },
+        {
+          "raw": "Property,",
+          "start": 15.84,
+          "end": 16.18
+        },
+        {
+          "raw": "in",
+          "start": 16.46,
+          "end": 16.62
+        },
+        {
+          "raw": "its",
+          "start": 16.62,
+          "end": 16.76
+        },
+        {
+          "raw": "present",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "raw": "form,",
+          "start": 17.1,
+          "end": 17.48
+        },
+        {
+          "raw": "is",
+          "start": 17.84,
+          "end": 18.06
+        },
+        {
+          "raw": "based",
+          "start": 18.06,
+          "end": 18.28
+        },
+        {
+          "raw": "on",
+          "start": 18.28,
+          "end": 18.48
+        },
+        {
+          "raw": "the",
+          "start": 18.48,
+          "end": 18.6
+        },
+        {
+          "raw": "antagonism",
+          "start": 18.6,
+          "end": 19.32
+        },
+        {
+          "raw": "of",
+          "start": 19.32,
+          "end": 19.54
+        },
+        {
+          "raw": "capital",
+          "start": 19.54,
+          "end": 19.92
+        },
+        {
+          "raw": "and",
+          "start": 19.92,
+          "end": 20.2
+        },
+        {
+          "raw": "wage",
+          "start": 20.2,
+          "end": 20.44
+        },
+        {
+          "raw": "-labour.",
+          "start": 20.44,
+          "end": 20.82
+        },
+        {
+          "raw": "Let",
+          "start": 21.5,
+          "end": 21.62
+        },
+        {
+          "raw": "us",
+          "start": 21.62,
+          "end": 21.76
+        },
+        {
+          "raw": "examine",
+          "start": 21.76,
+          "end": 22.22
+        },
+        {
+          "raw": "both",
+          "start": 22.22,
+          "end": 22.52
+        },
+        {
+          "raw": "sides",
+          "start": 22.52,
+          "end": 22.88
+        },
+        {
+          "raw": "of",
+          "start": 22.88,
+          "end": 23.1
+        },
+        {
+          "raw": "this",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "raw": "antagonism.",
+          "start": 23.26,
+          "end": 24.1
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "does",
+        "wage-labour",
+        "create",
+        "any",
+        "property",
+        "for",
+        "the",
+        "labourer?",
+        "Not",
+        "a",
+        "bit.",
+        "It",
+        "creates",
+        "capital,",
+        "i.e.,",
+        "that",
+        "kind",
+        "of",
+        "property",
+        "which",
+        "exploits",
+        "wage-labour,",
+        "and",
+        "which",
+        "cannot",
+        "increase",
+        "except",
+        "upon",
+        "condition",
+        "of",
+        "begetting",
+        "a",
+        "new",
+        "supply",
+        "of",
+        "wage-labour",
+        "for",
+        "fresh",
+        "exploitation.",
+        "Property,",
+        "in",
+        "its",
+        "present",
+        "form,",
+        "is",
+        "based",
+        "on",
+        "the",
+        "antagonism",
+        "of",
+        "capital",
+        "and",
+        "wage-labour.",
+        "Let",
+        "us",
+        "examine",
+        "both",
+        "sides",
+        "of",
+        "this",
+        "antagonism."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          15,
+          4,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ],
+        [
+          "equal",
+          16,
+          22,
+          18,
+          24
+        ],
+        [
+          "replace",
+          22,
+          23,
+          24,
+          26
+        ],
+        [
+          "equal",
+          23,
+          36,
+          26,
+          39
+        ],
+        [
+          "replace",
+          36,
+          37,
+          39,
+          41
+        ],
+        [
+          "equal",
+          37,
+          53,
+          41,
+          57
+        ],
+        [
+          "replace",
+          53,
+          54,
+          57,
+          59
+        ],
+        [
+          "equal",
+          54,
+          62,
+          59,
+          67
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 66
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ],
+        [
+          "replace",
+          22,
+          23,
+          24,
+          26
+        ],
+        [
+          "replace",
+          36,
+          37,
+          39,
+          41
+        ],
+        [
+          "replace",
+          53,
+          54,
+          57,
+          59
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "does",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "wage-labour",
+          "start": 0.7,
+          "end": 0.97
+        },
+        {
+          "text": "create",
+          "start": 1.24,
+          "end": 1.6
+        },
+        {
+          "text": "any",
+          "start": 1.6,
+          "end": 1.82
+        },
+        {
+          "text": "property",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "for",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "labourer?",
+          "start": 2.54,
+          "end": 2.94
+        },
+        {
+          "text": "Not",
+          "start": 3.46,
+          "end": 3.66
+        },
+        {
+          "text": "a",
+          "start": 3.66,
+          "end": 3.78
+        },
+        {
+          "text": "bit.",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "It",
+          "start": 4.46,
+          "end": 4.66
+        },
+        {
+          "text": "creates",
+          "start": 4.66,
+          "end": 5.02
+        },
+        {
+          "text": "capital,",
+          "start": 5.02,
+          "end": 5.46
+        },
+        {
+          "text": "i.e.,",
+          "start": 5.46,
+          "end": 5.89
+        },
+        {
+          "text": "that",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "text": "kind",
+          "start": 6.66,
+          "end": 6.84
+        },
+        {
+          "text": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "property",
+          "start": 7.0,
+          "end": 7.32
+        },
+        {
+          "text": "which",
+          "start": 7.32,
+          "end": 7.62
+        },
+        {
+          "text": "exploits",
+          "start": 7.62,
+          "end": 8.04
+        },
+        {
+          "text": "wage-labour,",
+          "start": 8.04,
+          "end": 8.58
+        },
+        {
+          "text": "and",
+          "start": 9.12,
+          "end": 9.3
+        },
+        {
+          "text": "which",
+          "start": 9.3,
+          "end": 9.46
+        },
+        {
+          "text": "cannot",
+          "start": 9.46,
+          "end": 9.78
+        },
+        {
+          "text": "increase",
+          "start": 9.78,
+          "end": 10.24
+        },
+        {
+          "text": "except",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "text": "upon",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "text": "condition",
+          "start": 10.98,
+          "end": 11.4
+        },
+        {
+          "text": "of",
+          "start": 11.4,
+          "end": 11.68
+        },
+        {
+          "text": "begetting",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "text": "a",
+          "start": 12.02,
+          "end": 12.24
+        },
+        {
+          "text": "new",
+          "start": 12.24,
+          "end": 12.44
+        },
+        {
+          "text": "supply",
+          "start": 12.44,
+          "end": 12.82
+        },
+        {
+          "text": "of",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "text": "wage-labour",
+          "start": 13.04,
+          "end": 13.34
+        },
+        {
+          "text": "for",
+          "start": 13.64,
+          "end": 13.84
+        },
+        {
+          "text": "fresh",
+          "start": 13.84,
+          "end": 14.14
+        },
+        {
+          "text": "exploitation.",
+          "start": 14.14,
+          "end": 14.8
+        },
+        {
+          "text": "Property,",
+          "start": 15.84,
+          "end": 16.18
+        },
+        {
+          "text": "in",
+          "start": 16.46,
+          "end": 16.62
+        },
+        {
+          "text": "its",
+          "start": 16.62,
+          "end": 16.76
+        },
+        {
+          "text": "present",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "text": "form,",
+          "start": 17.1,
+          "end": 17.48
+        },
+        {
+          "text": "is",
+          "start": 17.84,
+          "end": 18.06
+        },
+        {
+          "text": "based",
+          "start": 18.06,
+          "end": 18.28
+        },
+        {
+          "text": "on",
+          "start": 18.28,
+          "end": 18.48
+        },
+        {
+          "text": "the",
+          "start": 18.48,
+          "end": 18.6
+        },
+        {
+          "text": "antagonism",
+          "start": 18.6,
+          "end": 19.32
+        },
+        {
+          "text": "of",
+          "start": 19.32,
+          "end": 19.54
+        },
+        {
+          "text": "capital",
+          "start": 19.54,
+          "end": 19.92
+        },
+        {
+          "text": "and",
+          "start": 19.92,
+          "end": 20.2
+        },
+        {
+          "text": "wage-labour.",
+          "start": 20.2,
+          "end": 20.85
+        },
+        {
+          "text": "Let",
+          "start": 21.5,
+          "end": 21.62
+        },
+        {
+          "text": "us",
+          "start": 21.62,
+          "end": 21.76
+        },
+        {
+          "text": "examine",
+          "start": 21.76,
+          "end": 22.22
+        },
+        {
+          "text": "both",
+          "start": 22.22,
+          "end": 22.52
+        },
+        {
+          "text": "sides",
+          "start": 22.52,
+          "end": 22.88
+        },
+        {
+          "text": "of",
+          "start": 22.88,
+          "end": 23.1
+        },
+        {
+          "text": "this",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "text": "antagonism.",
+          "start": 23.26,
+          "end": 24.1
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 67,
+        "matched_words": 57
+      },
+      "match_ratio": 0.9193548387096774,
+      "rejection_reasons": [],
+      "seconds": 0.32851657271385193
+    },
+    {
+      "asr_seconds": 0.39466502517461777,
+      "alignment_seconds": 0.00023330003023147583,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "But, Not, It, Let"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " But does wage labor create any property for the laborer? Not a bit. It creates capital,",
+          "start": 0.02,
+          "end": 5.5,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " does",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " wage",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": " labor",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " create",
+              "start": 1.22,
+              "end": 1.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " any",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " property",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 2.16,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laborer?",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.968994140625
+            },
+            {
+              "text": " Not",
+              "start": 3.46,
+              "end": 3.68,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " a",
+              "start": 3.68,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bit.",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " It",
+              "start": 4.5,
+              "end": 4.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " creates",
+              "start": 4.66,
+              "end": 5.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " capital,",
+              "start": 5.02,
+              "end": 5.5,
+              "probability": 0.9970703125
+            }
+          ]
+        },
+        {
+          "text": " i.e., that kind of property which exploits wage labor, and which cannot increase except",
+          "start": 5.9,
+          "end": 10.64,
+          "words": [
+            {
+              "text": " i",
+              "start": 5.9,
+              "end": 5.94,
+              "probability": 0.8935546875
+            },
+            {
+              "text": ".e.,",
+              "start": 5.94,
+              "end": 6.32,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " that",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kind",
+              "start": 6.66,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " property",
+              "start": 7.0,
+              "end": 7.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 7.34,
+              "end": 7.62,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " exploits",
+              "start": 7.62,
+              "end": 8.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wage",
+              "start": 8.04,
+              "end": 8.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " labor,",
+              "start": 8.38,
+              "end": 8.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 9.12,
+              "end": 9.3,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " which",
+              "start": 9.3,
+              "end": 9.46,
+              "probability": 0.998046875
+            },
+            {
+              "text": " cannot",
+              "start": 9.46,
+              "end": 9.78,
+              "probability": 0.9892578125
+            },
+            {
+              "text": " increase",
+              "start": 9.78,
+              "end": 10.24,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " except",
+              "start": 10.24,
+              "end": 10.64,
+              "probability": 0.9521484375
+            }
+          ]
+        },
+        {
+          "text": " upon condition of begetting a new supply of wage labor for fresh exploitation. Property,",
+          "start": 10.64,
+          "end": 16.18,
+          "words": [
+            {
+              "text": " upon",
+              "start": 10.64,
+              "end": 10.98,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " condition",
+              "start": 10.98,
+              "end": 11.42,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " of",
+              "start": 11.42,
+              "end": 11.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " begetting",
+              "start": 11.68,
+              "end": 12.02,
+              "probability": 0.95654296875
+            },
+            {
+              "text": " a",
+              "start": 12.02,
+              "end": 12.24,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " new",
+              "start": 12.24,
+              "end": 12.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " supply",
+              "start": 12.44,
+              "end": 12.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 12.82,
+              "end": 13.04,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wage",
+              "start": 13.04,
+              "end": 13.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " labor",
+              "start": 13.28,
+              "end": 13.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 13.62,
+              "end": 13.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fresh",
+              "start": 13.84,
+              "end": 14.14,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " exploitation.",
+              "start": 14.14,
+              "end": 14.82,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " Property,",
+              "start": 15.84,
+              "end": 16.18,
+              "probability": 0.97265625
+            }
+          ]
+        },
+        {
+          "text": " in its present form, is based on the antagonism of capital and wage labor. Let us examine",
+          "start": 16.46,
+          "end": 22.2,
+          "words": [
+            {
+              "text": " in",
+              "start": 16.46,
+              "end": 16.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " its",
+              "start": 16.62,
+              "end": 16.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " present",
+              "start": 16.76,
+              "end": 17.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " form,",
+              "start": 17.1,
+              "end": 17.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 17.84,
+              "end": 18.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " based",
+              "start": 18.06,
+              "end": 18.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 18.28,
+              "end": 18.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 18.48,
+              "end": 18.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " antagonism",
+              "start": 18.6,
+              "end": 19.3,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 19.3,
+              "end": 19.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " capital",
+              "start": 19.54,
+              "end": 19.94,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 19.94,
+              "end": 20.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wage",
+              "start": 20.2,
+              "end": 20.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " labor.",
+              "start": 20.42,
+              "end": 20.8,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " Let",
+              "start": 21.48,
+              "end": 21.62,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " us",
+              "start": 21.62,
+              "end": 21.76,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " examine",
+              "start": 21.76,
+              "end": 22.2,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " both sides of this antagonism.",
+          "start": 22.2,
+          "end": 24.1,
+          "words": [
+            {
+              "text": " both",
+              "start": 22.2,
+              "end": 22.52,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " sides",
+              "start": 22.52,
+              "end": 22.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 22.9,
+              "end": 23.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " this",
+              "start": 23.1,
+              "end": 23.26,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " antagonism.",
+              "start": 23.26,
+              "end": 24.1,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "does",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "wage",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "labor",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "create",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "raw": "any",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "property",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "for",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "laborer?",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "Not",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "raw": "bit.",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "It",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "raw": "creates",
+          "start": 4.66,
+          "end": 5.02
+        },
+        {
+          "raw": "capital,",
+          "start": 5.02,
+          "end": 5.5
+        },
+        {
+          "raw": "i",
+          "start": 5.9,
+          "end": 5.94
+        },
+        {
+          "raw": ".e.,",
+          "start": 5.94,
+          "end": 6.32
+        },
+        {
+          "raw": "that",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "raw": "kind",
+          "start": 6.66,
+          "end": 6.84
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "property",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "raw": "which",
+          "start": 7.34,
+          "end": 7.62
+        },
+        {
+          "raw": "exploits",
+          "start": 7.62,
+          "end": 8.04
+        },
+        {
+          "raw": "wage",
+          "start": 8.04,
+          "end": 8.38
+        },
+        {
+          "raw": "labor,",
+          "start": 8.38,
+          "end": 8.74
+        },
+        {
+          "raw": "and",
+          "start": 9.12,
+          "end": 9.3
+        },
+        {
+          "raw": "which",
+          "start": 9.3,
+          "end": 9.46
+        },
+        {
+          "raw": "cannot",
+          "start": 9.46,
+          "end": 9.78
+        },
+        {
+          "raw": "increase",
+          "start": 9.78,
+          "end": 10.24
+        },
+        {
+          "raw": "except",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "raw": "upon",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "raw": "condition",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "raw": "of",
+          "start": 11.42,
+          "end": 11.68
+        },
+        {
+          "raw": "begetting",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "raw": "a",
+          "start": 12.02,
+          "end": 12.24
+        },
+        {
+          "raw": "new",
+          "start": 12.24,
+          "end": 12.44
+        },
+        {
+          "raw": "supply",
+          "start": 12.44,
+          "end": 12.82
+        },
+        {
+          "raw": "of",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "raw": "wage",
+          "start": 13.04,
+          "end": 13.28
+        },
+        {
+          "raw": "labor",
+          "start": 13.28,
+          "end": 13.62
+        },
+        {
+          "raw": "for",
+          "start": 13.62,
+          "end": 13.84
+        },
+        {
+          "raw": "fresh",
+          "start": 13.84,
+          "end": 14.14
+        },
+        {
+          "raw": "exploitation.",
+          "start": 14.14,
+          "end": 14.82
+        },
+        {
+          "raw": "Property,",
+          "start": 15.84,
+          "end": 16.18
+        },
+        {
+          "raw": "in",
+          "start": 16.46,
+          "end": 16.62
+        },
+        {
+          "raw": "its",
+          "start": 16.62,
+          "end": 16.76
+        },
+        {
+          "raw": "present",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "raw": "form,",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "raw": "is",
+          "start": 17.84,
+          "end": 18.06
+        },
+        {
+          "raw": "based",
+          "start": 18.06,
+          "end": 18.28
+        },
+        {
+          "raw": "on",
+          "start": 18.28,
+          "end": 18.48
+        },
+        {
+          "raw": "the",
+          "start": 18.48,
+          "end": 18.6
+        },
+        {
+          "raw": "antagonism",
+          "start": 18.6,
+          "end": 19.3
+        },
+        {
+          "raw": "of",
+          "start": 19.3,
+          "end": 19.54
+        },
+        {
+          "raw": "capital",
+          "start": 19.54,
+          "end": 19.94
+        },
+        {
+          "raw": "and",
+          "start": 19.94,
+          "end": 20.2
+        },
+        {
+          "raw": "wage",
+          "start": 20.2,
+          "end": 20.42
+        },
+        {
+          "raw": "labor.",
+          "start": 20.42,
+          "end": 20.8
+        },
+        {
+          "raw": "Let",
+          "start": 21.48,
+          "end": 21.62
+        },
+        {
+          "raw": "us",
+          "start": 21.62,
+          "end": 21.76
+        },
+        {
+          "raw": "examine",
+          "start": 21.76,
+          "end": 22.2
+        },
+        {
+          "raw": "both",
+          "start": 22.2,
+          "end": 22.52
+        },
+        {
+          "raw": "sides",
+          "start": 22.52,
+          "end": 22.9
+        },
+        {
+          "raw": "of",
+          "start": 22.9,
+          "end": 23.1
+        },
+        {
+          "raw": "this",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "raw": "antagonism.",
+          "start": 23.26,
+          "end": 24.1
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "does",
+        "wage-labour",
+        "create",
+        "any",
+        "property",
+        "for",
+        "the",
+        "labourer?",
+        "Not",
+        "a",
+        "bit.",
+        "It",
+        "creates",
+        "capital,",
+        "i.e.,",
+        "that",
+        "kind",
+        "of",
+        "property",
+        "which",
+        "exploits",
+        "wage-labour,",
+        "and",
+        "which",
+        "cannot",
+        "increase",
+        "except",
+        "upon",
+        "condition",
+        "of",
+        "begetting",
+        "a",
+        "new",
+        "supply",
+        "of",
+        "wage-labour",
+        "for",
+        "fresh",
+        "exploitation.",
+        "Property,",
+        "in",
+        "its",
+        "present",
+        "form,",
+        "is",
+        "based",
+        "on",
+        "the",
+        "antagonism",
+        "of",
+        "capital",
+        "and",
+        "wage-labour.",
+        "Let",
+        "us",
+        "examine",
+        "both",
+        "sides",
+        "of",
+        "this",
+        "antagonism."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          8,
+          4,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          15,
+          10,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ],
+        [
+          "equal",
+          16,
+          22,
+          18,
+          24
+        ],
+        [
+          "replace",
+          22,
+          23,
+          24,
+          26
+        ],
+        [
+          "equal",
+          23,
+          36,
+          26,
+          39
+        ],
+        [
+          "replace",
+          36,
+          37,
+          39,
+          41
+        ],
+        [
+          "equal",
+          37,
+          53,
+          41,
+          57
+        ],
+        [
+          "replace",
+          53,
+          54,
+          57,
+          59
+        ],
+        [
+          "equal",
+          54,
+          62,
+          59,
+          67
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 66
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ],
+        [
+          "replace",
+          22,
+          23,
+          24,
+          26
+        ],
+        [
+          "replace",
+          36,
+          37,
+          39,
+          41
+        ],
+        [
+          "replace",
+          53,
+          54,
+          57,
+          59
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "does",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "wage-labour",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "create",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "text": "any",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "property",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "for",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "labourer?",
+          "start": 2.54,
+          "end": 3.0
+        },
+        {
+          "text": "Not",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "text": "a",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "text": "bit.",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "It",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "text": "creates",
+          "start": 4.66,
+          "end": 5.02
+        },
+        {
+          "text": "capital,",
+          "start": 5.02,
+          "end": 5.5
+        },
+        {
+          "text": "i.e.,",
+          "start": 5.5,
+          "end": 5.91
+        },
+        {
+          "text": "that",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "text": "kind",
+          "start": 6.66,
+          "end": 6.84
+        },
+        {
+          "text": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "property",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "text": "which",
+          "start": 7.34,
+          "end": 7.62
+        },
+        {
+          "text": "exploits",
+          "start": 7.62,
+          "end": 8.04
+        },
+        {
+          "text": "wage-labour,",
+          "start": 8.04,
+          "end": 8.58
+        },
+        {
+          "text": "and",
+          "start": 9.12,
+          "end": 9.3
+        },
+        {
+          "text": "which",
+          "start": 9.3,
+          "end": 9.46
+        },
+        {
+          "text": "cannot",
+          "start": 9.46,
+          "end": 9.78
+        },
+        {
+          "text": "increase",
+          "start": 9.78,
+          "end": 10.24
+        },
+        {
+          "text": "except",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "text": "upon",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "text": "condition",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "text": "of",
+          "start": 11.42,
+          "end": 11.68
+        },
+        {
+          "text": "begetting",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "text": "a",
+          "start": 12.02,
+          "end": 12.24
+        },
+        {
+          "text": "new",
+          "start": 12.24,
+          "end": 12.44
+        },
+        {
+          "text": "supply",
+          "start": 12.44,
+          "end": 12.82
+        },
+        {
+          "text": "of",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "text": "wage-labour",
+          "start": 13.04,
+          "end": 13.33
+        },
+        {
+          "text": "for",
+          "start": 13.62,
+          "end": 13.84
+        },
+        {
+          "text": "fresh",
+          "start": 13.84,
+          "end": 14.14
+        },
+        {
+          "text": "exploitation.",
+          "start": 14.14,
+          "end": 14.82
+        },
+        {
+          "text": "Property,",
+          "start": 15.84,
+          "end": 16.18
+        },
+        {
+          "text": "in",
+          "start": 16.46,
+          "end": 16.62
+        },
+        {
+          "text": "its",
+          "start": 16.62,
+          "end": 16.76
+        },
+        {
+          "text": "present",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "text": "form,",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "text": "is",
+          "start": 17.84,
+          "end": 18.06
+        },
+        {
+          "text": "based",
+          "start": 18.06,
+          "end": 18.28
+        },
+        {
+          "text": "on",
+          "start": 18.28,
+          "end": 18.48
+        },
+        {
+          "text": "the",
+          "start": 18.48,
+          "end": 18.6
+        },
+        {
+          "text": "antagonism",
+          "start": 18.6,
+          "end": 19.3
+        },
+        {
+          "text": "of",
+          "start": 19.3,
+          "end": 19.54
+        },
+        {
+          "text": "capital",
+          "start": 19.54,
+          "end": 19.94
+        },
+        {
+          "text": "and",
+          "start": 19.94,
+          "end": 20.2
+        },
+        {
+          "text": "wage-labour.",
+          "start": 20.2,
+          "end": 20.84
+        },
+        {
+          "text": "Let",
+          "start": 21.48,
+          "end": 21.62
+        },
+        {
+          "text": "us",
+          "start": 21.62,
+          "end": 21.76
+        },
+        {
+          "text": "examine",
+          "start": 21.76,
+          "end": 22.2
+        },
+        {
+          "text": "both",
+          "start": 22.2,
+          "end": 22.52
+        },
+        {
+          "text": "sides",
+          "start": 22.52,
+          "end": 22.9
+        },
+        {
+          "text": "of",
+          "start": 22.9,
+          "end": 23.1
+        },
+        {
+          "text": "this",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "text": "antagonism.",
+          "start": 23.26,
+          "end": 24.1
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 67,
+        "matched_words": 56
+      },
+      "match_ratio": 0.9032258064516129,
+      "rejection_reasons": [],
+      "seconds": 0.3950045481324196
+    },
+    {
+      "asr_seconds": 0.44921547919511795,
+      "alignment_seconds": 0.00023461133241653442,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " But does wage labor create any property for the laborer?",
+          "start": 0.02,
+          "end": 2.9,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.83642578125
+            },
+            {
+              "text": " does",
+              "start": 0.48,
+              "end": 0.7,
+              "probability": 0.98193359375
+            },
+            {
+              "text": " wage",
+              "start": 0.7,
+              "end": 0.94,
+              "probability": 0.994140625
+            },
+            {
+              "text": " labor",
+              "start": 0.94,
+              "end": 1.22,
+              "probability": 0.85693359375
+            },
+            {
+              "text": " create",
+              "start": 1.22,
+              "end": 1.56,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " any",
+              "start": 1.56,
+              "end": 1.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " property",
+              "start": 1.82,
+              "end": 2.16,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " for",
+              "start": 2.16,
+              "end": 2.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 2.42,
+              "end": 2.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " laborer?",
+              "start": 2.54,
+              "end": 2.9,
+              "probability": 0.96923828125
+            }
+          ]
+        },
+        {
+          "text": " Not a bit.",
+          "start": 3.46,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " Not",
+              "start": 3.46,
+              "end": 3.68,
+              "probability": 0.97900390625
+            },
+            {
+              "text": " a",
+              "start": 3.68,
+              "end": 3.78,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " bit.",
+              "start": 3.78,
+              "end": 3.96,
+              "probability": 0.9990234375
+            }
+          ]
+        },
+        {
+          "text": " It creates capital, i.e., that kind of property which exploits wage labor and which cannot",
+          "start": 4.5,
+          "end": 9.78,
+          "words": [
+            {
+              "text": " It",
+              "start": 4.5,
+              "end": 4.66,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " creates",
+              "start": 4.66,
+              "end": 5.02,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " capital,",
+              "start": 5.02,
+              "end": 5.5,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " i",
+              "start": 5.9,
+              "end": 5.94,
+              "probability": 0.8935546875
+            },
+            {
+              "text": ".e.,",
+              "start": 5.94,
+              "end": 6.32,
+              "probability": 0.83056640625
+            },
+            {
+              "text": " that",
+              "start": 6.32,
+              "end": 6.66,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " kind",
+              "start": 6.66,
+              "end": 6.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 6.84,
+              "end": 7.0,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " property",
+              "start": 7.0,
+              "end": 7.34,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " which",
+              "start": 7.34,
+              "end": 7.62,
+              "probability": 0.95751953125
+            },
+            {
+              "text": " exploits",
+              "start": 7.62,
+              "end": 8.04,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " wage",
+              "start": 8.04,
+              "end": 8.38,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " labor",
+              "start": 8.38,
+              "end": 8.74,
+              "probability": 0.99609375
+            },
+            {
+              "text": " and",
+              "start": 8.74,
+              "end": 9.3,
+              "probability": 0.61376953125
+            },
+            {
+              "text": " which",
+              "start": 9.3,
+              "end": 9.44,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " cannot",
+              "start": 9.44,
+              "end": 9.78,
+              "probability": 0.990234375
+            }
+          ]
+        },
+        {
+          "text": " increase except upon condition of begetting a new supply of wage labor for fresh exploitation.",
+          "start": 9.78,
+          "end": 14.84,
+          "words": [
+            {
+              "text": " increase",
+              "start": 9.78,
+              "end": 10.24,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " except",
+              "start": 10.24,
+              "end": 10.64,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " upon",
+              "start": 10.64,
+              "end": 10.98,
+              "probability": 0.9921875
+            },
+            {
+              "text": " condition",
+              "start": 10.98,
+              "end": 11.42,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 11.42,
+              "end": 11.68,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " begetting",
+              "start": 11.68,
+              "end": 12.02,
+              "probability": 0.949462890625
+            },
+            {
+              "text": " a",
+              "start": 12.02,
+              "end": 12.22,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " new",
+              "start": 12.22,
+              "end": 12.44,
+              "probability": 0.998046875
+            },
+            {
+              "text": " supply",
+              "start": 12.44,
+              "end": 12.82,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " of",
+              "start": 12.82,
+              "end": 13.04,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wage",
+              "start": 13.04,
+              "end": 13.28,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " labor",
+              "start": 13.28,
+              "end": 13.62,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " for",
+              "start": 13.62,
+              "end": 13.84,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " fresh",
+              "start": 13.84,
+              "end": 14.14,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " exploitation.",
+              "start": 14.14,
+              "end": 14.84,
+              "probability": 0.99951171875
+            }
+          ]
+        },
+        {
+          "text": " Property, in its present form, is based on the antagonism of capital and wage labor.",
+          "start": 15.86,
+          "end": 20.8,
+          "words": [
+            {
+              "text": " Property,",
+              "start": 15.86,
+              "end": 16.2,
+              "probability": 0.974609375
+            },
+            {
+              "text": " in",
+              "start": 16.46,
+              "end": 16.62,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " its",
+              "start": 16.62,
+              "end": 16.76,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " present",
+              "start": 16.76,
+              "end": 17.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " form,",
+              "start": 17.1,
+              "end": 17.5,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " is",
+              "start": 17.82,
+              "end": 18.06,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " based",
+              "start": 18.06,
+              "end": 18.28,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " on",
+              "start": 18.28,
+              "end": 18.48,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 18.48,
+              "end": 18.6,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " antagonism",
+              "start": 18.6,
+              "end": 19.32,
+              "probability": 0.999267578125
+            },
+            {
+              "text": " of",
+              "start": 19.32,
+              "end": 19.54,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " capital",
+              "start": 19.54,
+              "end": 19.96,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " and",
+              "start": 19.96,
+              "end": 20.2,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " wage",
+              "start": 20.2,
+              "end": 20.42,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " labor.",
+              "start": 20.42,
+              "end": 20.8,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " Let us examine both sides of this antagonism.",
+          "start": 20.8,
+          "end": 24.1,
+          "words": [
+            {
+              "text": " Let",
+              "start": 20.8,
+              "end": 21.62,
+              "probability": 0.88818359375
+            },
+            {
+              "text": " us",
+              "start": 21.62,
+              "end": 21.78,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " examine",
+              "start": 21.78,
+              "end": 22.2,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " both",
+              "start": 22.2,
+              "end": 22.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " sides",
+              "start": 22.5,
+              "end": 22.88,
+              "probability": 0.998046875
+            },
+            {
+              "text": " of",
+              "start": 22.88,
+              "end": 23.1,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " this",
+              "start": 23.1,
+              "end": 23.26,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " antagonism.",
+              "start": 23.26,
+              "end": 24.1,
+              "probability": 0.9931640625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "does",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "raw": "wage",
+          "start": 0.7,
+          "end": 0.94
+        },
+        {
+          "raw": "labor",
+          "start": 0.94,
+          "end": 1.22
+        },
+        {
+          "raw": "create",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "raw": "any",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "raw": "property",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "raw": "for",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "raw": "the",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "raw": "laborer?",
+          "start": 2.54,
+          "end": 2.9
+        },
+        {
+          "raw": "Not",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "raw": "a",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "raw": "bit.",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "raw": "It",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "raw": "creates",
+          "start": 4.66,
+          "end": 5.02
+        },
+        {
+          "raw": "capital,",
+          "start": 5.02,
+          "end": 5.5
+        },
+        {
+          "raw": "i",
+          "start": 5.9,
+          "end": 5.94
+        },
+        {
+          "raw": ".e.,",
+          "start": 5.94,
+          "end": 6.32
+        },
+        {
+          "raw": "that",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "raw": "kind",
+          "start": 6.66,
+          "end": 6.84
+        },
+        {
+          "raw": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "raw": "property",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "raw": "which",
+          "start": 7.34,
+          "end": 7.62
+        },
+        {
+          "raw": "exploits",
+          "start": 7.62,
+          "end": 8.04
+        },
+        {
+          "raw": "wage",
+          "start": 8.04,
+          "end": 8.38
+        },
+        {
+          "raw": "labor",
+          "start": 8.38,
+          "end": 8.74
+        },
+        {
+          "raw": "and",
+          "start": 8.74,
+          "end": 9.3
+        },
+        {
+          "raw": "which",
+          "start": 9.3,
+          "end": 9.44
+        },
+        {
+          "raw": "cannot",
+          "start": 9.44,
+          "end": 9.78
+        },
+        {
+          "raw": "increase",
+          "start": 9.78,
+          "end": 10.24
+        },
+        {
+          "raw": "except",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "raw": "upon",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "raw": "condition",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "raw": "of",
+          "start": 11.42,
+          "end": 11.68
+        },
+        {
+          "raw": "begetting",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "raw": "a",
+          "start": 12.02,
+          "end": 12.22
+        },
+        {
+          "raw": "new",
+          "start": 12.22,
+          "end": 12.44
+        },
+        {
+          "raw": "supply",
+          "start": 12.44,
+          "end": 12.82
+        },
+        {
+          "raw": "of",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "raw": "wage",
+          "start": 13.04,
+          "end": 13.28
+        },
+        {
+          "raw": "labor",
+          "start": 13.28,
+          "end": 13.62
+        },
+        {
+          "raw": "for",
+          "start": 13.62,
+          "end": 13.84
+        },
+        {
+          "raw": "fresh",
+          "start": 13.84,
+          "end": 14.14
+        },
+        {
+          "raw": "exploitation.",
+          "start": 14.14,
+          "end": 14.84
+        },
+        {
+          "raw": "Property,",
+          "start": 15.86,
+          "end": 16.2
+        },
+        {
+          "raw": "in",
+          "start": 16.46,
+          "end": 16.62
+        },
+        {
+          "raw": "its",
+          "start": 16.62,
+          "end": 16.76
+        },
+        {
+          "raw": "present",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "raw": "form,",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "raw": "is",
+          "start": 17.82,
+          "end": 18.06
+        },
+        {
+          "raw": "based",
+          "start": 18.06,
+          "end": 18.28
+        },
+        {
+          "raw": "on",
+          "start": 18.28,
+          "end": 18.48
+        },
+        {
+          "raw": "the",
+          "start": 18.48,
+          "end": 18.6
+        },
+        {
+          "raw": "antagonism",
+          "start": 18.6,
+          "end": 19.32
+        },
+        {
+          "raw": "of",
+          "start": 19.32,
+          "end": 19.54
+        },
+        {
+          "raw": "capital",
+          "start": 19.54,
+          "end": 19.96
+        },
+        {
+          "raw": "and",
+          "start": 19.96,
+          "end": 20.2
+        },
+        {
+          "raw": "wage",
+          "start": 20.2,
+          "end": 20.42
+        },
+        {
+          "raw": "labor.",
+          "start": 20.42,
+          "end": 20.8
+        },
+        {
+          "raw": "Let",
+          "start": 20.8,
+          "end": 21.62
+        },
+        {
+          "raw": "us",
+          "start": 21.62,
+          "end": 21.78
+        },
+        {
+          "raw": "examine",
+          "start": 21.78,
+          "end": 22.2
+        },
+        {
+          "raw": "both",
+          "start": 22.2,
+          "end": 22.5
+        },
+        {
+          "raw": "sides",
+          "start": 22.5,
+          "end": 22.88
+        },
+        {
+          "raw": "of",
+          "start": 22.88,
+          "end": 23.1
+        },
+        {
+          "raw": "this",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "raw": "antagonism.",
+          "start": 23.26,
+          "end": 24.1
+        }
+      ],
+      "expected_tokens": [
+        "But",
+        "does",
+        "wage-labour",
+        "create",
+        "any",
+        "property",
+        "for",
+        "the",
+        "labourer?",
+        "Not",
+        "a",
+        "bit.",
+        "It",
+        "creates",
+        "capital,",
+        "i.e.,",
+        "that",
+        "kind",
+        "of",
+        "property",
+        "which",
+        "exploits",
+        "wage-labour,",
+        "and",
+        "which",
+        "cannot",
+        "increase",
+        "except",
+        "upon",
+        "condition",
+        "of",
+        "begetting",
+        "a",
+        "new",
+        "supply",
+        "of",
+        "wage-labour",
+        "for",
+        "fresh",
+        "exploitation.",
+        "Property,",
+        "in",
+        "its",
+        "present",
+        "form,",
+        "is",
+        "based",
+        "on",
+        "the",
+        "antagonism",
+        "of",
+        "capital",
+        "and",
+        "wage-labour.",
+        "Let",
+        "us",
+        "examine",
+        "both",
+        "sides",
+        "of",
+        "this",
+        "antagonism."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "equal",
+          3,
+          8,
+          4,
+          9
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "equal",
+          9,
+          15,
+          10,
+          16
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ],
+        [
+          "equal",
+          16,
+          22,
+          18,
+          24
+        ],
+        [
+          "replace",
+          22,
+          23,
+          24,
+          26
+        ],
+        [
+          "equal",
+          23,
+          36,
+          26,
+          39
+        ],
+        [
+          "replace",
+          36,
+          37,
+          39,
+          41
+        ],
+        [
+          "equal",
+          37,
+          53,
+          41,
+          57
+        ],
+        [
+          "replace",
+          53,
+          54,
+          57,
+          59
+        ],
+        [
+          "equal",
+          54,
+          62,
+          59,
+          67
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 8,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 15,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 22,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 33
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 34
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 35
+        },
+        {
+          "index": 33,
+          "source": "observed",
+          "heard_index": 36
+        },
+        {
+          "index": 34,
+          "source": "observed",
+          "heard_index": 37
+        },
+        {
+          "index": 35,
+          "source": "observed",
+          "heard_index": 38
+        },
+        {
+          "index": 36,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 37,
+          "source": "observed",
+          "heard_index": 41
+        },
+        {
+          "index": 38,
+          "source": "observed",
+          "heard_index": 42
+        },
+        {
+          "index": 39,
+          "source": "observed",
+          "heard_index": 43
+        },
+        {
+          "index": 40,
+          "source": "observed",
+          "heard_index": 44
+        },
+        {
+          "index": 41,
+          "source": "observed",
+          "heard_index": 45
+        },
+        {
+          "index": 42,
+          "source": "observed",
+          "heard_index": 46
+        },
+        {
+          "index": 43,
+          "source": "observed",
+          "heard_index": 47
+        },
+        {
+          "index": 44,
+          "source": "observed",
+          "heard_index": 48
+        },
+        {
+          "index": 45,
+          "source": "observed",
+          "heard_index": 49
+        },
+        {
+          "index": 46,
+          "source": "observed",
+          "heard_index": 50
+        },
+        {
+          "index": 47,
+          "source": "observed",
+          "heard_index": 51
+        },
+        {
+          "index": 48,
+          "source": "observed",
+          "heard_index": 52
+        },
+        {
+          "index": 49,
+          "source": "observed",
+          "heard_index": 53
+        },
+        {
+          "index": 50,
+          "source": "observed",
+          "heard_index": 54
+        },
+        {
+          "index": 51,
+          "source": "observed",
+          "heard_index": 55
+        },
+        {
+          "index": 52,
+          "source": "observed",
+          "heard_index": 56
+        },
+        {
+          "index": 53,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 54,
+          "source": "observed",
+          "heard_index": 59
+        },
+        {
+          "index": 55,
+          "source": "observed",
+          "heard_index": 60
+        },
+        {
+          "index": 56,
+          "source": "observed",
+          "heard_index": 61
+        },
+        {
+          "index": 57,
+          "source": "observed",
+          "heard_index": 62
+        },
+        {
+          "index": 58,
+          "source": "observed",
+          "heard_index": 63
+        },
+        {
+          "index": 59,
+          "source": "observed",
+          "heard_index": 64
+        },
+        {
+          "index": 60,
+          "source": "observed",
+          "heard_index": 65
+        },
+        {
+          "index": 61,
+          "source": "observed",
+          "heard_index": 66
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          2,
+          3,
+          2,
+          4
+        ],
+        [
+          "replace",
+          8,
+          9,
+          9,
+          10
+        ],
+        [
+          "replace",
+          15,
+          16,
+          16,
+          18
+        ],
+        [
+          "replace",
+          22,
+          23,
+          24,
+          26
+        ],
+        [
+          "replace",
+          36,
+          37,
+          39,
+          41
+        ],
+        [
+          "replace",
+          53,
+          54,
+          57,
+          59
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "But",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "does",
+          "start": 0.48,
+          "end": 0.7
+        },
+        {
+          "text": "wage-labour",
+          "start": 0.7,
+          "end": 0.96
+        },
+        {
+          "text": "create",
+          "start": 1.22,
+          "end": 1.56
+        },
+        {
+          "text": "any",
+          "start": 1.56,
+          "end": 1.82
+        },
+        {
+          "text": "property",
+          "start": 1.82,
+          "end": 2.16
+        },
+        {
+          "text": "for",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "text": "the",
+          "start": 2.42,
+          "end": 2.54
+        },
+        {
+          "text": "labourer?",
+          "start": 2.54,
+          "end": 3.0
+        },
+        {
+          "text": "Not",
+          "start": 3.46,
+          "end": 3.68
+        },
+        {
+          "text": "a",
+          "start": 3.68,
+          "end": 3.78
+        },
+        {
+          "text": "bit.",
+          "start": 3.78,
+          "end": 3.96
+        },
+        {
+          "text": "It",
+          "start": 4.5,
+          "end": 4.66
+        },
+        {
+          "text": "creates",
+          "start": 4.66,
+          "end": 5.02
+        },
+        {
+          "text": "capital,",
+          "start": 5.02,
+          "end": 5.5
+        },
+        {
+          "text": "i.e.,",
+          "start": 5.5,
+          "end": 5.91
+        },
+        {
+          "text": "that",
+          "start": 6.32,
+          "end": 6.66
+        },
+        {
+          "text": "kind",
+          "start": 6.66,
+          "end": 6.84
+        },
+        {
+          "text": "of",
+          "start": 6.84,
+          "end": 7.0
+        },
+        {
+          "text": "property",
+          "start": 7.0,
+          "end": 7.34
+        },
+        {
+          "text": "which",
+          "start": 7.34,
+          "end": 7.62
+        },
+        {
+          "text": "exploits",
+          "start": 7.62,
+          "end": 8.04
+        },
+        {
+          "text": "wage-labour,",
+          "start": 8.04,
+          "end": 8.39
+        },
+        {
+          "text": "and",
+          "start": 8.74,
+          "end": 9.3
+        },
+        {
+          "text": "which",
+          "start": 9.3,
+          "end": 9.44
+        },
+        {
+          "text": "cannot",
+          "start": 9.44,
+          "end": 9.78
+        },
+        {
+          "text": "increase",
+          "start": 9.78,
+          "end": 10.24
+        },
+        {
+          "text": "except",
+          "start": 10.24,
+          "end": 10.64
+        },
+        {
+          "text": "upon",
+          "start": 10.64,
+          "end": 10.98
+        },
+        {
+          "text": "condition",
+          "start": 10.98,
+          "end": 11.42
+        },
+        {
+          "text": "of",
+          "start": 11.42,
+          "end": 11.68
+        },
+        {
+          "text": "begetting",
+          "start": 11.68,
+          "end": 12.02
+        },
+        {
+          "text": "a",
+          "start": 12.02,
+          "end": 12.22
+        },
+        {
+          "text": "new",
+          "start": 12.22,
+          "end": 12.44
+        },
+        {
+          "text": "supply",
+          "start": 12.44,
+          "end": 12.82
+        },
+        {
+          "text": "of",
+          "start": 12.82,
+          "end": 13.04
+        },
+        {
+          "text": "wage-labour",
+          "start": 13.04,
+          "end": 13.33
+        },
+        {
+          "text": "for",
+          "start": 13.62,
+          "end": 13.84
+        },
+        {
+          "text": "fresh",
+          "start": 13.84,
+          "end": 14.14
+        },
+        {
+          "text": "exploitation.",
+          "start": 14.14,
+          "end": 14.84
+        },
+        {
+          "text": "Property,",
+          "start": 15.86,
+          "end": 16.2
+        },
+        {
+          "text": "in",
+          "start": 16.46,
+          "end": 16.62
+        },
+        {
+          "text": "its",
+          "start": 16.62,
+          "end": 16.76
+        },
+        {
+          "text": "present",
+          "start": 16.76,
+          "end": 17.1
+        },
+        {
+          "text": "form,",
+          "start": 17.1,
+          "end": 17.5
+        },
+        {
+          "text": "is",
+          "start": 17.82,
+          "end": 18.06
+        },
+        {
+          "text": "based",
+          "start": 18.06,
+          "end": 18.28
+        },
+        {
+          "text": "on",
+          "start": 18.28,
+          "end": 18.48
+        },
+        {
+          "text": "the",
+          "start": 18.48,
+          "end": 18.6
+        },
+        {
+          "text": "antagonism",
+          "start": 18.6,
+          "end": 19.32
+        },
+        {
+          "text": "of",
+          "start": 19.32,
+          "end": 19.54
+        },
+        {
+          "text": "capital",
+          "start": 19.54,
+          "end": 19.96
+        },
+        {
+          "text": "and",
+          "start": 19.96,
+          "end": 20.2
+        },
+        {
+          "text": "wage-labour.",
+          "start": 20.2,
+          "end": 20.5
+        },
+        {
+          "text": "Let",
+          "start": 20.8,
+          "end": 21.62
+        },
+        {
+          "text": "us",
+          "start": 21.62,
+          "end": 21.78
+        },
+        {
+          "text": "examine",
+          "start": 21.78,
+          "end": 22.2
+        },
+        {
+          "text": "both",
+          "start": 22.2,
+          "end": 22.5
+        },
+        {
+          "text": "sides",
+          "start": 22.5,
+          "end": 22.88
+        },
+        {
+          "text": "of",
+          "start": 22.88,
+          "end": 23.1
+        },
+        {
+          "text": "this",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "text": "antagonism.",
+          "start": 23.26,
+          "end": 24.1
+        }
+      ],
+      "stats": {
+        "expected_words": 62,
+        "heard_words": 67,
+        "matched_words": 56
+      },
+      "match_ratio": 0.9032258064516129,
+      "rejection_reasons": [],
+      "seconds": 0.4495481923222542
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "de1cc2af8fc540cf79efc4601726b295e90c7e01fc797afb6dffc07f25461c8b",
+  "selected_reasons": []
+}

@@ -1,0 +1,144 @@
+{
+  "complete": true,
+  "signature": "0940b86adc11a97262b5269374a17da7b18f954f34dccba560fbabbbda064b44",
+  "attempts": [
+    {
+      "asr_seconds": 0.07141752541065216,
+      "alignment_seconds": 4.5709311962127686e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"But one is sorry.\"",
+        "hotwords": "But"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " But one is sorry.",
+          "start": 0.05,
+          "end": 1.17,
+          "words": [
+            {
+              "text": " But",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7666015625
+            },
+            {
+              "text": " one",
+              "start": 0.51,
+              "end": 0.69,
+              "probability": 0.9794921875
+            },
+            {
+              "text": " is",
+              "start": 0.69,
+              "end": 0.87,
+              "probability": 0.998046875
+            },
+            {
+              "text": " sorry.",
+              "start": 0.87,
+              "end": 1.17,
+              "probability": 0.99267578125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "But",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "one",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "raw": "is",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "raw": "sorry.",
+          "start": 0.87,
+          "end": 1.17
+        }
+      ],
+      "expected_tokens": [
+        "\"But",
+        "one",
+        "is",
+        "sorry.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          4,
+          0,
+          4
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"But",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "one",
+          "start": 0.51,
+          "end": 0.69
+        },
+        {
+          "text": "is",
+          "start": 0.69,
+          "end": 0.87
+        },
+        {
+          "text": "sorry.\"",
+          "start": 0.87,
+          "end": 1.17
+        }
+      ],
+      "stats": {
+        "expected_words": 4,
+        "heard_words": 4,
+        "matched_words": 4
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.07147920876741409
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "5496115c764eb5c0f7a6b1a1c12cae77052723a73759d9a484b3c5c4c7b79c6e",
+  "selected_reasons": []
+}

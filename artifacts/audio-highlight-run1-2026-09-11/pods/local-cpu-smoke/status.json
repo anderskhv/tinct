@@ -1,0 +1,51 @@
+{
+ "phase": "done",
+ "started": 1789129016.5773478,
+ "setup": {
+  "versions": {
+   "faster-whisper": "1.2.1",
+   "ctranslate2": "4.8.2",
+   "av": "18.1.0"
+  },
+  "commit": "523d844b080b4d349e7241b32035f72e63c4878c",
+  "model_tree_sha256": "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+  "ld_library_path": "",
+  "gpu": "nvidia-smi not present",
+  "setup_seconds": 3.5
+ },
+ "job": {
+  "started": 1789129020.0966184,
+  "targets": 1,
+  "cohort_exit": 0,
+  "cohort_seconds": 3.1,
+  "cohort_chapters": 1,
+  "cohort_audio_seconds": 136.8,
+  "align_started": 1789129023.245568,
+  "command": [
+   "/tmp/claude-0/-home-user-tinct/0320788d-2b33-5f5f-9cec-810d9175972c/scratchpad/venv/bin/python",
+   "/tmp/claude-0/-home-user-tinct/0320788d-2b33-5f5f-9cec-810d9175972c/scratchpad/localrun/tools/audio-highlight/aligner/trial.py",
+   "--input",
+   "/tmp/claude-0/-home-user-tinct/0320788d-2b33-5f5f-9cec-810d9175972c/scratchpad/localrun/cohort/cohort.json",
+   "--output",
+   "/tmp/claude-0/-home-user-tinct/0320788d-2b33-5f5f-9cec-810d9175972c/scratchpad/localrun/out",
+   "--model-path",
+   "/tmp/claude-0/-home-user-tinct/0320788d-2b33-5f5f-9cec-810d9175972c/scratchpad/localrun/model",
+   "--model-sha256",
+   "f1fe271c349229677131d389a96d0a28062a6a2c2fee54a8ce119c43538315c5",
+   "--device",
+   "cpu",
+   "--compute-type",
+   "int8",
+   "--arms",
+   "off",
+   "auto",
+   "--max-seconds",
+   "1500",
+   "--run"
+  ],
+  "trial_exit": 0,
+  "align_seconds": 124.0,
+  "run_status": "complete",
+  "finished": 1789129147.2192733
+ }
+}

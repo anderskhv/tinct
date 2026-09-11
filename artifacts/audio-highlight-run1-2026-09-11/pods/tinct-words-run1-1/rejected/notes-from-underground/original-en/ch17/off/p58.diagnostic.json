@@ -1,0 +1,497 @@
+{
+  "complete": true,
+  "signature": "b749d634257bd0e91ae8528c226ef6b348bb39c60c2d9bd24fc1c11c22482bf6",
+  "attempts": [
+    {
+      "asr_seconds": 0.2018095850944519,
+      "alignment_seconds": 9.36165452003479e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " A wench would have died in hospital.",
+          "start": 0.02,
+          "end": 1.92,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.02,
+              "end": 0.54,
+              "probability": 0.90771484375
+            },
+            {
+              "text": " wench",
+              "start": 0.54,
+              "end": 0.8,
+              "probability": 0.904052734375
+            },
+            {
+              "text": " would",
+              "start": 0.8,
+              "end": 0.96,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " have",
+              "start": 0.96,
+              "end": 1.08,
+              "probability": 0.78564453125
+            },
+            {
+              "text": " died",
+              "start": 1.08,
+              "end": 1.32,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " in",
+              "start": 1.32,
+              "end": 1.52,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " hospital.",
+              "start": 1.52,
+              "end": 1.92,
+              "probability": 0.99365234375
+            }
+          ]
+        },
+        {
+          "text": " She knows all about it already.",
+          "start": 2.56,
+          "end": 3.96,
+          "words": [
+            {
+              "text": " She",
+              "start": 2.56,
+              "end": 2.74,
+              "probability": 0.9912109375
+            },
+            {
+              "text": " knows",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 2.98,
+              "end": 3.26,
+              "probability": 0.9921875
+            },
+            {
+              "text": " about",
+              "start": 3.26,
+              "end": 3.48,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " it",
+              "start": 3.48,
+              "end": 3.64,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " already.",
+              "start": 3.64,
+              "end": 3.96,
+              "probability": 0.9873046875
+            }
+          ]
+        },
+        {
+          "text": " She said wench, not girl.",
+          "start": 4.46,
+          "end": 6.06,
+          "words": [
+            {
+              "text": " She",
+              "start": 4.46,
+              "end": 4.48,
+              "probability": 0.99609375
+            },
+            {
+              "text": " said",
+              "start": 4.48,
+              "end": 4.72,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " wench,",
+              "start": 4.72,
+              "end": 5.26,
+              "probability": 0.6258544921875
+            },
+            {
+              "text": " not",
+              "start": 5.5,
+              "end": 5.78,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " girl.",
+              "start": 5.78,
+              "end": 6.06,
+              "probability": 0.99072265625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "raw": "wench",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "raw": "would",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "raw": "have",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "raw": "died",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "raw": "in",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "raw": "hospital.",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "raw": "She",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "raw": "knows",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "all",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "raw": "about",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "raw": "it",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "raw": "already.",
+          "start": 3.64,
+          "end": 3.96
+        },
+        {
+          "raw": "She",
+          "start": 4.46,
+          "end": 4.48
+        },
+        {
+          "raw": "said",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "raw": "wench,",
+          "start": 4.72,
+          "end": 5.26
+        },
+        {
+          "raw": "not",
+          "start": 5.5,
+          "end": 5.78
+        },
+        {
+          "raw": "girl.",
+          "start": 5.78,
+          "end": 6.06
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "wench",
+        "would",
+        "have",
+        "died",
+        "in",
+        "hospital",
+        "...\"",
+        "(She",
+        "knows",
+        "all",
+        "about",
+        "it",
+        "already:",
+        "she",
+        "said",
+        "\"wench,\"",
+        "not",
+        "\"girl.\")"
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          7,
+          0,
+          7
+        ],
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ],
+        [
+          "equal",
+          8,
+          19,
+          7,
+          18
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 17
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          7,
+          8,
+          7,
+          7
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.02,
+          "end": 0.54
+        },
+        {
+          "text": "wench",
+          "start": 0.54,
+          "end": 0.8
+        },
+        {
+          "text": "would",
+          "start": 0.8,
+          "end": 0.96
+        },
+        {
+          "text": "have",
+          "start": 0.96,
+          "end": 1.08
+        },
+        {
+          "text": "died",
+          "start": 1.08,
+          "end": 1.32
+        },
+        {
+          "text": "in",
+          "start": 1.32,
+          "end": 1.52
+        },
+        {
+          "text": "hospital",
+          "start": 1.52,
+          "end": 1.92
+        },
+        {
+          "text": "...\"",
+          "start": 1.92,
+          "end": 2.24
+        },
+        {
+          "text": "(She",
+          "start": 2.56,
+          "end": 2.74
+        },
+        {
+          "text": "knows",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "text": "all",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "text": "about",
+          "start": 3.26,
+          "end": 3.48
+        },
+        {
+          "text": "it",
+          "start": 3.48,
+          "end": 3.64
+        },
+        {
+          "text": "already:",
+          "start": 3.64,
+          "end": 3.96
+        },
+        {
+          "text": "she",
+          "start": 4.46,
+          "end": 4.48
+        },
+        {
+          "text": "said",
+          "start": 4.48,
+          "end": 4.72
+        },
+        {
+          "text": "\"wench,\"",
+          "start": 4.72,
+          "end": 5.26
+        },
+        {
+          "text": "not",
+          "start": 5.5,
+          "end": 5.78
+        },
+        {
+          "text": "\"girl.\")",
+          "start": 5.78,
+          "end": 6.06
+        }
+      ],
+      "stats": {
+        "expected_words": 19,
+        "heard_words": 18,
+        "matched_words": 18
+      },
+      "match_ratio": 0.9473684210526315,
+      "rejection_reasons": [],
+      "seconds": 0.20194045454263687
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "4439bac89da883cb752e0a427a23150083d587e9789f7d7acda4c74d40493296",
+  "selected_reasons": []
+}

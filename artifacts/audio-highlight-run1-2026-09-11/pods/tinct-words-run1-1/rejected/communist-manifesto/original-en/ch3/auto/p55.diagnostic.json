@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "680f2182b58ccd2ed18634f4e460a8556675d8f58ebe38dc227b22b111ca3fa4",
+  "attempts": [
+    {
+      "asr_seconds": 0.2054995596408844,
+      "alignment_seconds": 9.005516767501831e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "The charges against Communism made from a religious, a philosophical, and, generally, from an ideological standpoint, are not deserving of serious examination.",
+        "hotwords": "The, Communism"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " The charges against Communism made from a religious, a philosophical, and, generally, from an ideological standpoint, are not deserving of serious examination.",
+          "start": 0.02,
+          "end": 10.26,
+          "words": [
+            {
+              "text": " The",
+              "start": 0.02,
+              "end": 0.48,
+              "probability": 0.77197265625
+            },
+            {
+              "text": " charges",
+              "start": 0.48,
+              "end": 0.82,
+              "probability": 0.998046875
+            },
+            {
+              "text": " against",
+              "start": 0.82,
+              "end": 1.3,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " Communism",
+              "start": 1.3,
+              "end": 1.8,
+              "probability": 0.0924072265625
+            },
+            {
+              "text": " made",
+              "start": 1.8,
+              "end": 2.26,
+              "probability": 0.990234375
+            },
+            {
+              "text": " from",
+              "start": 2.26,
+              "end": 2.5,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " a",
+              "start": 2.5,
+              "end": 2.6,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " religious,",
+              "start": 2.6,
+              "end": 2.98,
+              "probability": 0.990234375
+            },
+            {
+              "text": " a",
+              "start": 3.74,
+              "end": 3.76,
+              "probability": 0.990234375
+            },
+            {
+              "text": " philosophical,",
+              "start": 3.76,
+              "end": 4.26,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " and,",
+              "start": 5.02,
+              "end": 5.26,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " generally,",
+              "start": 5.52,
+              "end": 5.9,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " from",
+              "start": 6.26,
+              "end": 6.34,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " an",
+              "start": 6.34,
+              "end": 6.48,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " ideological",
+              "start": 6.48,
+              "end": 6.88,
+              "probability": 0.994140625
+            },
+            {
+              "text": " standpoint,",
+              "start": 6.88,
+              "end": 7.66,
+              "probability": 0.986328125
+            },
+            {
+              "text": " are",
+              "start": 8.12,
+              "end": 8.24,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " not",
+              "start": 8.24,
+              "end": 8.42,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " deserving",
+              "start": 8.42,
+              "end": 8.86,
+              "probability": 1.0
+            },
+            {
+              "text": " of",
+              "start": 8.86,
+              "end": 9.1,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " serious",
+              "start": 9.1,
+              "end": 9.58,
+              "probability": 0.99609375
+            },
+            {
+              "text": " examination.",
+              "start": 9.58,
+              "end": 10.26,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "raw": "charges",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "raw": "against",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "raw": "Communism",
+          "start": 1.3,
+          "end": 1.8
+        },
+        {
+          "raw": "made",
+          "start": 1.8,
+          "end": 2.26
+        },
+        {
+          "raw": "from",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "raw": "a",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "raw": "religious,",
+          "start": 2.6,
+          "end": 2.98
+        },
+        {
+          "raw": "a",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "raw": "philosophical,",
+          "start": 3.76,
+          "end": 4.26
+        },
+        {
+          "raw": "and,",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "raw": "generally,",
+          "start": 5.52,
+          "end": 5.9
+        },
+        {
+          "raw": "from",
+          "start": 6.26,
+          "end": 6.34
+        },
+        {
+          "raw": "an",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "raw": "ideological",
+          "start": 6.48,
+          "end": 6.88
+        },
+        {
+          "raw": "standpoint,",
+          "start": 6.88,
+          "end": 7.66
+        },
+        {
+          "raw": "are",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "raw": "not",
+          "start": 8.24,
+          "end": 8.42
+        },
+        {
+          "raw": "deserving",
+          "start": 8.42,
+          "end": 8.86
+        },
+        {
+          "raw": "of",
+          "start": 8.86,
+          "end": 9.1
+        },
+        {
+          "raw": "serious",
+          "start": 9.1,
+          "end": 9.58
+        },
+        {
+          "raw": "examination.",
+          "start": 9.58,
+          "end": 10.26
+        }
+      ],
+      "expected_tokens": [
+        "The",
+        "charges",
+        "against",
+        "Communism",
+        "made",
+        "from",
+        "a",
+        "religious,",
+        "a",
+        "philosophical,",
+        "and,",
+        "generally,",
+        "from",
+        "an",
+        "ideological",
+        "standpoint,",
+        "are",
+        "not",
+        "deserving",
+        "of",
+        "serious",
+        "examination."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "The",
+          "start": 0.02,
+          "end": 0.48
+        },
+        {
+          "text": "charges",
+          "start": 0.48,
+          "end": 0.82
+        },
+        {
+          "text": "against",
+          "start": 0.82,
+          "end": 1.3
+        },
+        {
+          "text": "Communism",
+          "start": 1.3,
+          "end": 1.8
+        },
+        {
+          "text": "made",
+          "start": 1.8,
+          "end": 2.26
+        },
+        {
+          "text": "from",
+          "start": 2.26,
+          "end": 2.5
+        },
+        {
+          "text": "a",
+          "start": 2.5,
+          "end": 2.6
+        },
+        {
+          "text": "religious,",
+          "start": 2.6,
+          "end": 2.98
+        },
+        {
+          "text": "a",
+          "start": 3.74,
+          "end": 3.76
+        },
+        {
+          "text": "philosophical,",
+          "start": 3.76,
+          "end": 4.26
+        },
+        {
+          "text": "and,",
+          "start": 5.02,
+          "end": 5.26
+        },
+        {
+          "text": "generally,",
+          "start": 5.52,
+          "end": 5.9
+        },
+        {
+          "text": "from",
+          "start": 6.26,
+          "end": 6.34
+        },
+        {
+          "text": "an",
+          "start": 6.34,
+          "end": 6.48
+        },
+        {
+          "text": "ideological",
+          "start": 6.48,
+          "end": 6.88
+        },
+        {
+          "text": "standpoint,",
+          "start": 6.88,
+          "end": 7.66
+        },
+        {
+          "text": "are",
+          "start": 8.12,
+          "end": 8.24
+        },
+        {
+          "text": "not",
+          "start": 8.24,
+          "end": 8.42
+        },
+        {
+          "text": "deserving",
+          "start": 8.42,
+          "end": 8.86
+        },
+        {
+          "text": "of",
+          "start": 8.86,
+          "end": 9.1
+        },
+        {
+          "text": "serious",
+          "start": 9.1,
+          "end": 9.58
+        },
+        {
+          "text": "examination.",
+          "start": 9.58,
+          "end": 10.26
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.20563019067049026
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "78220c4372ecfca73bce6667c7b591f961d2636ba88cdcb68fb0b7e55ae7ad2d",
+  "selected_reasons": []
+}

@@ -1,0 +1,186 @@
+{
+  "complete": true,
+  "signature": "d1075e573685a9264d78dc70a91d3c73287041283b33726723a6003345b46961",
+  "attempts": [
+    {
+      "asr_seconds": 0.08886978775262833,
+      "alignment_seconds": 6.434321403503418e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " What? I asked with tender curiosity.",
+          "start": 0.05,
+          "end": 2.67,
+          "words": [
+            {
+              "text": " What?",
+              "start": 0.05,
+              "end": 0.69,
+              "probability": 0.08770751953125
+            },
+            {
+              "text": " I",
+              "start": 1.13,
+              "end": 1.23,
+              "probability": 0.8837890625
+            },
+            {
+              "text": " asked",
+              "start": 1.23,
+              "end": 1.53,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 1.53,
+              "end": 1.77,
+              "probability": 0.94580078125
+            },
+            {
+              "text": " tender",
+              "start": 1.77,
+              "end": 2.11,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " curiosity.",
+              "start": 2.11,
+              "end": 2.67,
+              "probability": 0.9951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "What?",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "raw": "I",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "raw": "asked",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "raw": "with",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "raw": "tender",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "raw": "curiosity.",
+          "start": 2.11,
+          "end": 2.67
+        }
+      ],
+      "expected_tokens": [
+        "\"What?\"",
+        "I",
+        "asked,",
+        "with",
+        "tender",
+        "curiosity."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          6,
+          0,
+          6
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"What?\"",
+          "start": 0.05,
+          "end": 0.69
+        },
+        {
+          "text": "I",
+          "start": 1.13,
+          "end": 1.23
+        },
+        {
+          "text": "asked,",
+          "start": 1.23,
+          "end": 1.53
+        },
+        {
+          "text": "with",
+          "start": 1.53,
+          "end": 1.77
+        },
+        {
+          "text": "tender",
+          "start": 1.77,
+          "end": 2.11
+        },
+        {
+          "text": "curiosity.",
+          "start": 2.11,
+          "end": 2.67
+        }
+      ],
+      "stats": {
+        "expected_words": 6,
+        "heard_words": 6,
+        "matched_words": 6
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08896023035049438
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "509029f1b53ec2c6148b023ef722c8f8e6d1383302861455aece507def8c3d77",
+  "selected_reasons": []
+}

@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "f1715d39d7b40d1a8fe7fb8a1793044e3a66c343a04c27a4a147160a47e2add7",
+  "attempts": [
+    {
+      "asr_seconds": 0.11635837703943253,
+      "alignment_seconds": 6.290525197982788e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "4. Confiscation of the property of all emigrants and rebels.",
+        "hotwords": "Confiscation"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 4. Confiscation of the property of all emigrants and rebels.",
+          "start": 0.08,
+          "end": 3.98,
+          "words": [
+            {
+              "text": " 4.",
+              "start": 0.08,
+              "end": 0.7,
+              "probability": 0.4833984375
+            },
+            {
+              "text": " Confiscation",
+              "start": 1.38,
+              "end": 1.92,
+              "probability": 0.9715169270833334
+            },
+            {
+              "text": " of",
+              "start": 1.92,
+              "end": 2.06,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " the",
+              "start": 2.06,
+              "end": 2.16,
+              "probability": 0.998046875
+            },
+            {
+              "text": " property",
+              "start": 2.16,
+              "end": 2.42,
+              "probability": 0.87255859375
+            },
+            {
+              "text": " of",
+              "start": 2.42,
+              "end": 2.74,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " all",
+              "start": 2.74,
+              "end": 2.98,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " emigrants",
+              "start": 2.98,
+              "end": 3.44,
+              "probability": 0.87744140625
+            },
+            {
+              "text": " and",
+              "start": 3.44,
+              "end": 3.7,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " rebels.",
+              "start": 3.7,
+              "end": 3.98,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "4.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "raw": "Confiscation",
+          "start": 1.38,
+          "end": 1.92
+        },
+        {
+          "raw": "of",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "raw": "the",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "raw": "property",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "raw": "of",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "raw": "all",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "raw": "emigrants",
+          "start": 2.98,
+          "end": 3.44
+        },
+        {
+          "raw": "and",
+          "start": 3.44,
+          "end": 3.7
+        },
+        {
+          "raw": "rebels.",
+          "start": 3.7,
+          "end": 3.98
+        }
+      ],
+      "expected_tokens": [
+        "4.",
+        "Confiscation",
+        "of",
+        "the",
+        "property",
+        "of",
+        "all",
+        "emigrants",
+        "and",
+        "rebels."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "4.",
+          "start": 0.08,
+          "end": 0.7
+        },
+        {
+          "text": "Confiscation",
+          "start": 1.38,
+          "end": 1.92
+        },
+        {
+          "text": "of",
+          "start": 1.92,
+          "end": 2.06
+        },
+        {
+          "text": "the",
+          "start": 2.06,
+          "end": 2.16
+        },
+        {
+          "text": "property",
+          "start": 2.16,
+          "end": 2.42
+        },
+        {
+          "text": "of",
+          "start": 2.42,
+          "end": 2.74
+        },
+        {
+          "text": "all",
+          "start": 2.74,
+          "end": 2.98
+        },
+        {
+          "text": "emigrants",
+          "start": 2.98,
+          "end": 3.44
+        },
+        {
+          "text": "and",
+          "start": 3.44,
+          "end": 3.7
+        },
+        {
+          "text": "rebels.",
+          "start": 3.7,
+          "end": 3.98
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11644992977380753
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "c919432e81a8a317e63d7c835a77d5327a0ba61f687b6998b871162334a88db2",
+  "selected_reasons": []
+}

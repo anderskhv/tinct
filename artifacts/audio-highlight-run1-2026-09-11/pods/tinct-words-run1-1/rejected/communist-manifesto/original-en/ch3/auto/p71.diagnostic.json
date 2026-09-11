@@ -1,0 +1,408 @@
+{
+  "complete": true,
+  "signature": "dbd0207a5733f36828ea04174d6fe019e3994acb83803f4e0de12ed1a996c1fe",
+  "attempts": [
+    {
+      "asr_seconds": 0.12174414098262787,
+      "alignment_seconds": 7.808208465576172e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "1. Abolition of property in land and application of all rents of land to public purposes.",
+        "hotwords": "Abolition"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 1. Abolition of property in land and application of all rents of land to public purposes.",
+          "start": 0.05,
+          "end": 6.63,
+          "words": [
+            {
+              "text": " 1.",
+              "start": 0.05,
+              "end": 0.73,
+              "probability": 0.63427734375
+            },
+            {
+              "text": " Abolition",
+              "start": 1.23,
+              "end": 1.61,
+              "probability": 0.916015625
+            },
+            {
+              "text": " of",
+              "start": 1.61,
+              "end": 1.91,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " property",
+              "start": 1.91,
+              "end": 2.27,
+              "probability": 0.9619140625
+            },
+            {
+              "text": " in",
+              "start": 2.27,
+              "end": 2.53,
+              "probability": 0.082275390625
+            },
+            {
+              "text": " land",
+              "start": 2.53,
+              "end": 2.89,
+              "probability": 0.98291015625
+            },
+            {
+              "text": " and",
+              "start": 2.89,
+              "end": 3.27,
+              "probability": 0.91845703125
+            },
+            {
+              "text": " application",
+              "start": 3.27,
+              "end": 3.77,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " of",
+              "start": 3.77,
+              "end": 4.41,
+              "probability": 0.9228515625
+            },
+            {
+              "text": " all",
+              "start": 4.41,
+              "end": 4.69,
+              "probability": 0.998046875
+            },
+            {
+              "text": " rents",
+              "start": 4.69,
+              "end": 4.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 4.91,
+              "end": 5.09,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " land",
+              "start": 5.09,
+              "end": 5.45,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " to",
+              "start": 5.45,
+              "end": 5.79,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " public",
+              "start": 5.79,
+              "end": 6.09,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " purposes.",
+              "start": 6.09,
+              "end": 6.63,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "1.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "raw": "Abolition",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "raw": "of",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "raw": "property",
+          "start": 1.91,
+          "end": 2.27
+        },
+        {
+          "raw": "in",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "raw": "land",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "raw": "and",
+          "start": 2.89,
+          "end": 3.27
+        },
+        {
+          "raw": "application",
+          "start": 3.27,
+          "end": 3.77
+        },
+        {
+          "raw": "of",
+          "start": 3.77,
+          "end": 4.41
+        },
+        {
+          "raw": "all",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "raw": "rents",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "raw": "of",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "raw": "land",
+          "start": 5.09,
+          "end": 5.45
+        },
+        {
+          "raw": "to",
+          "start": 5.45,
+          "end": 5.79
+        },
+        {
+          "raw": "public",
+          "start": 5.79,
+          "end": 6.09
+        },
+        {
+          "raw": "purposes.",
+          "start": 6.09,
+          "end": 6.63
+        }
+      ],
+      "expected_tokens": [
+        "1.",
+        "Abolition",
+        "of",
+        "property",
+        "in",
+        "land",
+        "and",
+        "application",
+        "of",
+        "all",
+        "rents",
+        "of",
+        "land",
+        "to",
+        "public",
+        "purposes."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          16,
+          0,
+          16
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "1.",
+          "start": 0.05,
+          "end": 0.73
+        },
+        {
+          "text": "Abolition",
+          "start": 1.23,
+          "end": 1.61
+        },
+        {
+          "text": "of",
+          "start": 1.61,
+          "end": 1.91
+        },
+        {
+          "text": "property",
+          "start": 1.91,
+          "end": 2.27
+        },
+        {
+          "text": "in",
+          "start": 2.27,
+          "end": 2.53
+        },
+        {
+          "text": "land",
+          "start": 2.53,
+          "end": 2.89
+        },
+        {
+          "text": "and",
+          "start": 2.89,
+          "end": 3.27
+        },
+        {
+          "text": "application",
+          "start": 3.27,
+          "end": 3.77
+        },
+        {
+          "text": "of",
+          "start": 3.77,
+          "end": 4.41
+        },
+        {
+          "text": "all",
+          "start": 4.41,
+          "end": 4.69
+        },
+        {
+          "text": "rents",
+          "start": 4.69,
+          "end": 4.91
+        },
+        {
+          "text": "of",
+          "start": 4.91,
+          "end": 5.09
+        },
+        {
+          "text": "land",
+          "start": 5.09,
+          "end": 5.45
+        },
+        {
+          "text": "to",
+          "start": 5.45,
+          "end": 5.79
+        },
+        {
+          "text": "public",
+          "start": 5.79,
+          "end": 6.09
+        },
+        {
+          "text": "purposes.",
+          "start": 6.09,
+          "end": 6.63
+        }
+      ],
+      "stats": {
+        "expected_words": 16,
+        "heard_words": 16,
+        "matched_words": 16
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.12185544520616531
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b88efb3eecf4610af70c6699681ed4e49fd914b0d5a7ff57604d45c1c78ff8c9",
+  "selected_reasons": []
+}

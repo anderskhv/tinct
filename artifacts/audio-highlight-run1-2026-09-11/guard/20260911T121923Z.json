@@ -1,0 +1,83 @@
+{
+ "checkedAt": "2026-09-11T12:19:26Z",
+ "ownerPrefix": "tinct-",
+ "ownedPods": [
+  {
+   "id": "hzbsxhjbp6pc22",
+   "name": "tinct-audio-bounded-trial-20260911-05",
+   "status": "EXITED",
+   "costPerHr": 0.49,
+   "uptimeSeconds": null,
+   "gpu": null
+  },
+  {
+   "id": "zzfifw9otrm1ju",
+   "name": "tinct-audio-bounded-trial-20260910-03",
+   "status": "EXITED",
+   "costPerHr": 0.49,
+   "uptimeSeconds": null,
+   "gpu": null
+  },
+  {
+   "id": "412necg7ee15ly",
+   "name": "tinct-audio-bounded-trial-20260910-01",
+   "status": "EXITED",
+   "costPerHr": 0.74,
+   "uptimeSeconds": null,
+   "gpu": null
+  },
+  {
+   "id": "3md393vtker2kv",
+   "name": "tinct-words-shard-4",
+   "status": "EXITED",
+   "costPerHr": 0.74,
+   "uptimeSeconds": null,
+   "gpu": null
+  },
+  {
+   "id": "jt1yuwyv0nraiu",
+   "name": "tinct-words-shard-3",
+   "status": "EXITED",
+   "costPerHr": 0.37,
+   "uptimeSeconds": null,
+   "gpu": null
+  },
+  {
+   "id": "x7z089mhfss16c",
+   "name": "tinct-words-shard-2",
+   "status": "EXITED",
+   "costPerHr": 0.37,
+   "uptimeSeconds": null,
+   "gpu": null
+  },
+  {
+   "id": "l5xyeag6i3mtrt",
+   "name": "tinct-words-shard-1",
+   "status": "EXITED",
+   "costPerHr": 0.37,
+   "uptimeSeconds": null,
+   "gpu": null
+  },
+  {
+   "id": "7fq3rxwizujyz7",
+   "name": "tinct-words-shard-1",
+   "status": "EXITED",
+   "costPerHr": 0.74,
+   "uptimeSeconds": null,
+   "gpu": null
+  }
+ ],
+ "foreignPodsLeftAlone": [
+  {
+   "id": "zurxlhqh2uc6tb",
+   "name": "grieving_coffee_cod",
+   "status": "EXITED"
+  }
+ ],
+ "estimatedRunningCost": 0,
+ "estimatedTotalSpend": 0.0,
+ "budget": 25.0,
+ "actions": [],
+ "applied": true,
+ "unownedRunningPods": []
+}

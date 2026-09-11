@@ -1,0 +1,657 @@
+{
+  "complete": true,
+  "signature": "47760987d63ee613e6ed03d898a21d5eaf4609433031c8a1dacbb8ea6fe3ac4b",
+  "attempts": [
+    {
+      "asr_seconds": 0.23326631635427475,
+      "alignment_seconds": 0.00010178983211517334,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "9. Combination of agriculture with manufacturing industries; gradual abolition of the distinction between town and country, by a more equable distribution of the population over the country.",
+        "hotwords": "Combination"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " 9. Combination of agriculture with manufacturing industries, gradual abolition of the distinction",
+          "start": 0.05,
+          "end": 6.85,
+          "words": [
+            {
+              "text": " 9.",
+              "start": 0.05,
+              "end": 0.77,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " Combination",
+              "start": 1.15,
+              "end": 1.73,
+              "probability": 0.923828125
+            },
+            {
+              "text": " of",
+              "start": 1.73,
+              "end": 2.03,
+              "probability": 0.99609375
+            },
+            {
+              "text": " agriculture",
+              "start": 2.03,
+              "end": 2.55,
+              "probability": 0.62109375
+            },
+            {
+              "text": " with",
+              "start": 2.55,
+              "end": 2.99,
+              "probability": 0.998046875
+            },
+            {
+              "text": " manufacturing",
+              "start": 2.99,
+              "end": 3.73,
+              "probability": 0.99609375
+            },
+            {
+              "text": " industries,",
+              "start": 3.73,
+              "end": 4.43,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " gradual",
+              "start": 5.17,
+              "end": 5.47,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " abolition",
+              "start": 5.47,
+              "end": 5.99,
+              "probability": 0.990234375
+            },
+            {
+              "text": " of",
+              "start": 5.99,
+              "end": 6.29,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " the",
+              "start": 6.29,
+              "end": 6.39,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " distinction",
+              "start": 6.39,
+              "end": 6.85,
+              "probability": 0.99755859375
+            }
+          ]
+        },
+        {
+          "text": " between town and country, by a more equable distribution of the population over the country.",
+          "start": 6.85,
+          "end": 12.21,
+          "words": [
+            {
+              "text": " between",
+              "start": 6.85,
+              "end": 7.31,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " town",
+              "start": 7.31,
+              "end": 7.71,
+              "probability": 0.9697265625
+            },
+            {
+              "text": " and",
+              "start": 7.71,
+              "end": 8.01,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " country,",
+              "start": 8.01,
+              "end": 8.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " by",
+              "start": 8.89,
+              "end": 9.09,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " a",
+              "start": 9.09,
+              "end": 9.21,
+              "probability": 0.998046875
+            },
+            {
+              "text": " more",
+              "start": 9.21,
+              "end": 9.35,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " equable",
+              "start": 9.35,
+              "end": 9.81,
+              "probability": 0.563232421875
+            },
+            {
+              "text": " distribution",
+              "start": 9.81,
+              "end": 10.29,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " of",
+              "start": 10.29,
+              "end": 10.63,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " the",
+              "start": 10.63,
+              "end": 10.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " population",
+              "start": 10.73,
+              "end": 11.17,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " over",
+              "start": 11.17,
+              "end": 11.69,
+              "probability": 0.99169921875
+            },
+            {
+              "text": " the",
+              "start": 11.69,
+              "end": 11.83,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " country.",
+              "start": 11.83,
+              "end": 12.21,
+              "probability": 0.99755859375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "9.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "raw": "Combination",
+          "start": 1.15,
+          "end": 1.73
+        },
+        {
+          "raw": "of",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "raw": "agriculture",
+          "start": 2.03,
+          "end": 2.55
+        },
+        {
+          "raw": "with",
+          "start": 2.55,
+          "end": 2.99
+        },
+        {
+          "raw": "manufacturing",
+          "start": 2.99,
+          "end": 3.73
+        },
+        {
+          "raw": "industries,",
+          "start": 3.73,
+          "end": 4.43
+        },
+        {
+          "raw": "gradual",
+          "start": 5.17,
+          "end": 5.47
+        },
+        {
+          "raw": "abolition",
+          "start": 5.47,
+          "end": 5.99
+        },
+        {
+          "raw": "of",
+          "start": 5.99,
+          "end": 6.29
+        },
+        {
+          "raw": "the",
+          "start": 6.29,
+          "end": 6.39
+        },
+        {
+          "raw": "distinction",
+          "start": 6.39,
+          "end": 6.85
+        },
+        {
+          "raw": "between",
+          "start": 6.85,
+          "end": 7.31
+        },
+        {
+          "raw": "town",
+          "start": 7.31,
+          "end": 7.71
+        },
+        {
+          "raw": "and",
+          "start": 7.71,
+          "end": 8.01
+        },
+        {
+          "raw": "country,",
+          "start": 8.01,
+          "end": 8.49
+        },
+        {
+          "raw": "by",
+          "start": 8.89,
+          "end": 9.09
+        },
+        {
+          "raw": "a",
+          "start": 9.09,
+          "end": 9.21
+        },
+        {
+          "raw": "more",
+          "start": 9.21,
+          "end": 9.35
+        },
+        {
+          "raw": "equable",
+          "start": 9.35,
+          "end": 9.81
+        },
+        {
+          "raw": "distribution",
+          "start": 9.81,
+          "end": 10.29
+        },
+        {
+          "raw": "of",
+          "start": 10.29,
+          "end": 10.63
+        },
+        {
+          "raw": "the",
+          "start": 10.63,
+          "end": 10.73
+        },
+        {
+          "raw": "population",
+          "start": 10.73,
+          "end": 11.17
+        },
+        {
+          "raw": "over",
+          "start": 11.17,
+          "end": 11.69
+        },
+        {
+          "raw": "the",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "raw": "country.",
+          "start": 11.83,
+          "end": 12.21
+        }
+      ],
+      "expected_tokens": [
+        "9.",
+        "Combination",
+        "of",
+        "agriculture",
+        "with",
+        "manufacturing",
+        "industries;",
+        "gradual",
+        "abolition",
+        "of",
+        "the",
+        "distinction",
+        "between",
+        "town",
+        "and",
+        "country,",
+        "by",
+        "a",
+        "more",
+        "equable",
+        "distribution",
+        "of",
+        "the",
+        "population",
+        "over",
+        "the",
+        "country."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          27,
+          0,
+          27
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 24,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 26
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "9.",
+          "start": 0.05,
+          "end": 0.77
+        },
+        {
+          "text": "Combination",
+          "start": 1.15,
+          "end": 1.73
+        },
+        {
+          "text": "of",
+          "start": 1.73,
+          "end": 2.03
+        },
+        {
+          "text": "agriculture",
+          "start": 2.03,
+          "end": 2.55
+        },
+        {
+          "text": "with",
+          "start": 2.55,
+          "end": 2.99
+        },
+        {
+          "text": "manufacturing",
+          "start": 2.99,
+          "end": 3.73
+        },
+        {
+          "text": "industries;",
+          "start": 3.73,
+          "end": 4.43
+        },
+        {
+          "text": "gradual",
+          "start": 5.17,
+          "end": 5.47
+        },
+        {
+          "text": "abolition",
+          "start": 5.47,
+          "end": 5.99
+        },
+        {
+          "text": "of",
+          "start": 5.99,
+          "end": 6.29
+        },
+        {
+          "text": "the",
+          "start": 6.29,
+          "end": 6.39
+        },
+        {
+          "text": "distinction",
+          "start": 6.39,
+          "end": 6.85
+        },
+        {
+          "text": "between",
+          "start": 6.85,
+          "end": 7.31
+        },
+        {
+          "text": "town",
+          "start": 7.31,
+          "end": 7.71
+        },
+        {
+          "text": "and",
+          "start": 7.71,
+          "end": 8.01
+        },
+        {
+          "text": "country,",
+          "start": 8.01,
+          "end": 8.49
+        },
+        {
+          "text": "by",
+          "start": 8.89,
+          "end": 9.09
+        },
+        {
+          "text": "a",
+          "start": 9.09,
+          "end": 9.21
+        },
+        {
+          "text": "more",
+          "start": 9.21,
+          "end": 9.35
+        },
+        {
+          "text": "equable",
+          "start": 9.35,
+          "end": 9.81
+        },
+        {
+          "text": "distribution",
+          "start": 9.81,
+          "end": 10.29
+        },
+        {
+          "text": "of",
+          "start": 10.29,
+          "end": 10.63
+        },
+        {
+          "text": "the",
+          "start": 10.63,
+          "end": 10.73
+        },
+        {
+          "text": "population",
+          "start": 10.73,
+          "end": 11.17
+        },
+        {
+          "text": "over",
+          "start": 11.17,
+          "end": 11.69
+        },
+        {
+          "text": "the",
+          "start": 11.69,
+          "end": 11.83
+        },
+        {
+          "text": "country.",
+          "start": 11.83,
+          "end": 12.21
+        }
+      ],
+      "stats": {
+        "expected_words": 27,
+        "heard_words": 27,
+        "matched_words": 27
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.23341894149780273
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "217c8ff27c8e2f93a43030503d2090df1e9eca7fde73cfcd4d978f3798c38801",
+  "selected_reasons": []
+}

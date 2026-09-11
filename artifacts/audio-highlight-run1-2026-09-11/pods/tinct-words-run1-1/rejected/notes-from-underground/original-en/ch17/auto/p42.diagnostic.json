@@ -1,0 +1,2543 @@
+{
+  "complete": true,
+  "signature": "452321fd3a6f044ed982ff73960d1d5d9e4d26a45cdd8ddcdd18379fac301b8b",
+  "attempts": [
+    {
+      "asr_seconds": 0.22516709566116333,
+      "alignment_seconds": 0.00014748424291610718,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Not from a cellar, but a basement. Oh, you know ... down below ... from a house of ill-fame. It was filthy all round ... Egg-shells, litter ... a stench. It was loathsome.\"",
+        "hotwords": "Not, Oh, It, Egg-shells"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Not from a cellar, but a basement. Oh, you know ... down below ... from a house of ill-fame. It was filthy all round. Egg-shells, litter ... a stench. It was loathsome.",
+          "start": 0.05,
+          "end": 9.65,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.80615234375
+            },
+            {
+              "text": " from",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cellar,",
+              "start": 0.87,
+              "end": 1.11,
+              "probability": 0.982421875
+            },
+            {
+              "text": " but",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " basement.",
+              "start": 1.41,
+              "end": 1.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Oh,",
+              "start": 2.37,
+              "end": 2.45,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " you",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " ...",
+              "start": 2.79,
+              "end": 3.05,
+              "probability": 7.516145706176758e-05
+            },
+            {
+              "text": " down",
+              "start": 3.05,
+              "end": 3.17,
+              "probability": 0.86767578125
+            },
+            {
+              "text": " below",
+              "start": 3.17,
+              "end": 3.55,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " ...",
+              "start": 3.55,
+              "end": 3.97,
+              "probability": 0.26416015625
+            },
+            {
+              "text": " from",
+              "start": 3.97,
+              "end": 4.03,
+              "probability": 0.90380859375
+            },
+            {
+              "text": " a",
+              "start": 4.03,
+              "end": 4.15,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " house",
+              "start": 4.15,
+              "end": 4.31,
+              "probability": 0.96728515625
+            },
+            {
+              "text": " of",
+              "start": 4.31,
+              "end": 4.49,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " ill",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.99462890625
+            },
+            {
+              "text": "-fame.",
+              "start": 4.63,
+              "end": 4.97,
+              "probability": 0.7742513020833334
+            },
+            {
+              "text": " It",
+              "start": 5.41,
+              "end": 5.43,
+              "probability": 0.97802734375
+            },
+            {
+              "text": " was",
+              "start": 5.43,
+              "end": 5.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " filthy",
+              "start": 5.55,
+              "end": 5.93,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " all",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.9775390625
+            },
+            {
+              "text": " round.",
+              "start": 6.17,
+              "end": 6.49,
+              "probability": 0.6083984375
+            },
+            {
+              "text": " Egg",
+              "start": 7.05,
+              "end": 7.13,
+              "probability": 0.94287109375
+            },
+            {
+              "text": "-shells,",
+              "start": 7.13,
+              "end": 7.63,
+              "probability": 0.6652882893880209
+            },
+            {
+              "text": " litter",
+              "start": 7.69,
+              "end": 7.79,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " ...",
+              "start": 7.79,
+              "end": 8.29,
+              "probability": 0.2418212890625
+            },
+            {
+              "text": " a",
+              "start": 8.29,
+              "end": 8.31,
+              "probability": 0.9560546875
+            },
+            {
+              "text": " stench.",
+              "start": 8.31,
+              "end": 8.73,
+              "probability": 0.993408203125
+            },
+            {
+              "text": " It",
+              "start": 8.99,
+              "end": 9.01,
+              "probability": 0.9853515625
+            },
+            {
+              "text": " was",
+              "start": 9.01,
+              "end": 9.13,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " loathsome.",
+              "start": 9.13,
+              "end": 9.65,
+              "probability": 0.98291015625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "from",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "a",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "cellar,",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "raw": "but",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "a",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "basement.",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "raw": "you",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "know",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "...",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "raw": "down",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "raw": "below",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "raw": "...",
+          "start": 3.55,
+          "end": 3.97
+        },
+        {
+          "raw": "from",
+          "start": 3.97,
+          "end": 4.03
+        },
+        {
+          "raw": "a",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "raw": "house",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "raw": "of",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "raw": "ill",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "-fame.",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "raw": "It",
+          "start": 5.41,
+          "end": 5.43
+        },
+        {
+          "raw": "was",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "raw": "filthy",
+          "start": 5.55,
+          "end": 5.93
+        },
+        {
+          "raw": "all",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "round.",
+          "start": 6.17,
+          "end": 6.49
+        },
+        {
+          "raw": "Egg",
+          "start": 7.05,
+          "end": 7.13
+        },
+        {
+          "raw": "-shells,",
+          "start": 7.13,
+          "end": 7.63
+        },
+        {
+          "raw": "litter",
+          "start": 7.69,
+          "end": 7.79
+        },
+        {
+          "raw": "...",
+          "start": 7.79,
+          "end": 8.29
+        },
+        {
+          "raw": "a",
+          "start": 8.29,
+          "end": 8.31
+        },
+        {
+          "raw": "stench.",
+          "start": 8.31,
+          "end": 8.73
+        },
+        {
+          "raw": "It",
+          "start": 8.99,
+          "end": 9.01
+        },
+        {
+          "raw": "was",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "raw": "loathsome.",
+          "start": 9.13,
+          "end": 9.65
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "from",
+        "a",
+        "cellar,",
+        "but",
+        "a",
+        "basement.",
+        "Oh,",
+        "you",
+        "know",
+        "...",
+        "down",
+        "below",
+        "...",
+        "from",
+        "a",
+        "house",
+        "of",
+        "ill-fame.",
+        "It",
+        "was",
+        "filthy",
+        "all",
+        "round",
+        "...",
+        "Egg-shells,",
+        "litter",
+        "...",
+        "a",
+        "stench.",
+        "It",
+        "was",
+        "loathsome.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          18,
+          0,
+          18
+        ],
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ],
+        [
+          "equal",
+          19,
+          24,
+          20,
+          25
+        ],
+        [
+          "replace",
+          24,
+          26,
+          25,
+          27
+        ],
+        [
+          "equal",
+          26,
+          33,
+          27,
+          34
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 27,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 29
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 30
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 31
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 32
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 33
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "replace",
+          18,
+          19,
+          18,
+          20
+        ],
+        [
+          "replace",
+          24,
+          26,
+          25,
+          27
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "from",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "a",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "cellar,",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "text": "but",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "a",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "basement.",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "text": "Oh,",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "text": "you",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "know",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "...",
+          "start": 2.79,
+          "end": 3.05
+        },
+        {
+          "text": "down",
+          "start": 3.05,
+          "end": 3.17
+        },
+        {
+          "text": "below",
+          "start": 3.17,
+          "end": 3.55
+        },
+        {
+          "text": "...",
+          "start": 3.55,
+          "end": 3.97
+        },
+        {
+          "text": "from",
+          "start": 3.97,
+          "end": 4.03
+        },
+        {
+          "text": "a",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "text": "house",
+          "start": 4.15,
+          "end": 4.31
+        },
+        {
+          "text": "of",
+          "start": 4.31,
+          "end": 4.49
+        },
+        {
+          "text": "ill-fame.",
+          "start": 4.49,
+          "end": 4.95
+        },
+        {
+          "text": "It",
+          "start": 5.41,
+          "end": 5.43
+        },
+        {
+          "text": "was",
+          "start": 5.43,
+          "end": 5.55
+        },
+        {
+          "text": "filthy",
+          "start": 5.55,
+          "end": 5.93
+        },
+        {
+          "text": "all",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "round",
+          "start": 6.17,
+          "end": 6.49
+        },
+        {
+          "text": "...",
+          "start": 6.49,
+          "end": 7.09
+        },
+        {
+          "text": "Egg-shells,",
+          "start": 7.09,
+          "end": 7.39
+        },
+        {
+          "text": "litter",
+          "start": 7.69,
+          "end": 7.79
+        },
+        {
+          "text": "...",
+          "start": 7.79,
+          "end": 8.29
+        },
+        {
+          "text": "a",
+          "start": 8.29,
+          "end": 8.31
+        },
+        {
+          "text": "stench.",
+          "start": 8.31,
+          "end": 8.73
+        },
+        {
+          "text": "It",
+          "start": 8.99,
+          "end": 9.01
+        },
+        {
+          "text": "was",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "text": "loathsome.\"",
+          "start": 9.13,
+          "end": 9.65
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 34,
+        "matched_words": 30
+      },
+      "match_ratio": 0.9090909090909091,
+      "rejection_reasons": [],
+      "seconds": 0.22537489235401154
+    },
+    {
+      "asr_seconds": 0.18450721353292465,
+      "alignment_seconds": 0.00014694035053253174,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "hotwords": "Not, Oh, It, Egg-shells"
+      },
+      "mode": "hotwords",
+      "raw_segments": [
+        {
+          "text": " Not from a cellar, but a basement. Oh, you know down below from a house of ill fame",
+          "start": 0.05,
+          "end": 4.97,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " from",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cellar,",
+              "start": 0.87,
+              "end": 1.11,
+              "probability": 0.982421875
+            },
+            {
+              "text": " but",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " basement.",
+              "start": 1.41,
+              "end": 1.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Oh,",
+              "start": 2.37,
+              "end": 2.45,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " you",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " down",
+              "start": 2.79,
+              "end": 3.15,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " below",
+              "start": 3.15,
+              "end": 3.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " from",
+              "start": 3.57,
+              "end": 4.03,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " a",
+              "start": 4.03,
+              "end": 4.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " house",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " of",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ill",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fame",
+              "start": 4.63,
+              "end": 4.97,
+              "probability": 0.4560546875
+            }
+          ]
+        },
+        {
+          "text": " It was filthy all round eggshells litter a stench. It was loathsome",
+          "start": 4.97,
+          "end": 9.69,
+          "words": [
+            {
+              "text": " It",
+              "start": 4.97,
+              "end": 5.41,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " was",
+              "start": 5.41,
+              "end": 5.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " filthy",
+              "start": 5.53,
+              "end": 5.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " round",
+              "start": 6.17,
+              "end": 6.61,
+              "probability": 0.5546875
+            },
+            {
+              "text": " eggshells",
+              "start": 6.61,
+              "end": 7.61,
+              "probability": 0.9597981770833334
+            },
+            {
+              "text": " litter",
+              "start": 7.61,
+              "end": 7.85,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " a",
+              "start": 7.85,
+              "end": 8.29,
+              "probability": 0.986328125
+            },
+            {
+              "text": " stench.",
+              "start": 8.29,
+              "end": 8.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " It",
+              "start": 8.79,
+              "end": 9.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 9.01,
+              "end": 9.13,
+              "probability": 1.0
+            },
+            {
+              "text": " loathsome",
+              "start": 9.13,
+              "end": 9.69,
+              "probability": 0.9851888020833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "from",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "a",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "cellar,",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "raw": "but",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "a",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "basement.",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "raw": "you",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "know",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "down",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "raw": "below",
+          "start": 3.15,
+          "end": 3.57
+        },
+        {
+          "raw": "from",
+          "start": 3.57,
+          "end": 4.03
+        },
+        {
+          "raw": "a",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "raw": "house",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "ill",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "fame",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "raw": "It",
+          "start": 4.97,
+          "end": 5.41
+        },
+        {
+          "raw": "was",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "raw": "filthy",
+          "start": 5.53,
+          "end": 5.93
+        },
+        {
+          "raw": "all",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "round",
+          "start": 6.17,
+          "end": 6.61
+        },
+        {
+          "raw": "eggshells",
+          "start": 6.61,
+          "end": 7.61
+        },
+        {
+          "raw": "litter",
+          "start": 7.61,
+          "end": 7.85
+        },
+        {
+          "raw": "a",
+          "start": 7.85,
+          "end": 8.29
+        },
+        {
+          "raw": "stench.",
+          "start": 8.29,
+          "end": 8.79
+        },
+        {
+          "raw": "It",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "raw": "was",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "raw": "loathsome",
+          "start": 9.13,
+          "end": 9.69
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "from",
+        "a",
+        "cellar,",
+        "but",
+        "a",
+        "basement.",
+        "Oh,",
+        "you",
+        "know",
+        "...",
+        "down",
+        "below",
+        "...",
+        "from",
+        "a",
+        "house",
+        "of",
+        "ill-fame.",
+        "It",
+        "was",
+        "filthy",
+        "all",
+        "round",
+        "...",
+        "Egg-shells,",
+        "litter",
+        "...",
+        "a",
+        "stench.",
+        "It",
+        "was",
+        "loathsome.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "delete",
+          10,
+          11,
+          10,
+          10
+        ],
+        [
+          "equal",
+          11,
+          13,
+          10,
+          12
+        ],
+        [
+          "delete",
+          13,
+          14,
+          12,
+          12
+        ],
+        [
+          "equal",
+          14,
+          18,
+          12,
+          16
+        ],
+        [
+          "replace",
+          18,
+          19,
+          16,
+          18
+        ],
+        [
+          "equal",
+          19,
+          24,
+          18,
+          23
+        ],
+        [
+          "delete",
+          24,
+          25,
+          23,
+          23
+        ],
+        [
+          "equal",
+          25,
+          27,
+          23,
+          25
+        ],
+        [
+          "delete",
+          27,
+          28,
+          25,
+          25
+        ],
+        [
+          "equal",
+          28,
+          33,
+          25,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          10,
+          11,
+          10,
+          10
+        ],
+        [
+          "delete",
+          13,
+          14,
+          12,
+          12
+        ],
+        [
+          "replace",
+          18,
+          19,
+          16,
+          18
+        ],
+        [
+          "delete",
+          24,
+          25,
+          23,
+          23
+        ],
+        [
+          "delete",
+          27,
+          28,
+          25,
+          25
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "from",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "a",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "cellar,",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "text": "but",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "a",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "basement.",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "text": "Oh,",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "text": "you",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "know",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "...",
+          "start": 2.79,
+          "end": 2.79
+        },
+        {
+          "text": "down",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "text": "below",
+          "start": 3.15,
+          "end": 3.57
+        },
+        {
+          "text": "...",
+          "start": 3.57,
+          "end": 3.57
+        },
+        {
+          "text": "from",
+          "start": 3.57,
+          "end": 4.03
+        },
+        {
+          "text": "a",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "text": "house",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "text": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "ill-fame.",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "text": "It",
+          "start": 4.97,
+          "end": 5.41
+        },
+        {
+          "text": "was",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "text": "filthy",
+          "start": 5.53,
+          "end": 5.93
+        },
+        {
+          "text": "all",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "round",
+          "start": 6.17,
+          "end": 6.61
+        },
+        {
+          "text": "...",
+          "start": 6.61,
+          "end": 6.61
+        },
+        {
+          "text": "Egg-shells,",
+          "start": 6.61,
+          "end": 7.61
+        },
+        {
+          "text": "litter",
+          "start": 7.61,
+          "end": 7.85
+        },
+        {
+          "text": "...",
+          "start": 7.85,
+          "end": 7.85
+        },
+        {
+          "text": "a",
+          "start": 7.85,
+          "end": 8.29
+        },
+        {
+          "text": "stench.",
+          "start": 8.29,
+          "end": 8.79
+        },
+        {
+          "text": "It",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "text": "was",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "text": "loathsome.\"",
+          "start": 9.13,
+          "end": 9.69
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 30,
+        "matched_words": 28
+      },
+      "match_ratio": 0.8484848484848485,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18470802903175354
+    },
+    {
+      "asr_seconds": 0.18203675001859665,
+      "alignment_seconds": 0.0001450851559638977,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Not from a cellar, but a basement. Oh, you know down below from a house of ill fame",
+          "start": 0.05,
+          "end": 4.97,
+          "words": [
+            {
+              "text": " Not",
+              "start": 0.05,
+              "end": 0.57,
+              "probability": 0.80517578125
+            },
+            {
+              "text": " from",
+              "start": 0.57,
+              "end": 0.73,
+              "probability": 0.998046875
+            },
+            {
+              "text": " a",
+              "start": 0.73,
+              "end": 0.87,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " cellar,",
+              "start": 0.87,
+              "end": 1.11,
+              "probability": 0.982421875
+            },
+            {
+              "text": " but",
+              "start": 1.15,
+              "end": 1.31,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " a",
+              "start": 1.31,
+              "end": 1.41,
+              "probability": 0.994140625
+            },
+            {
+              "text": " basement.",
+              "start": 1.41,
+              "end": 1.79,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " Oh,",
+              "start": 2.37,
+              "end": 2.45,
+              "probability": 0.97021484375
+            },
+            {
+              "text": " you",
+              "start": 2.49,
+              "end": 2.61,
+              "probability": 0.99609375
+            },
+            {
+              "text": " know",
+              "start": 2.61,
+              "end": 2.79,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " down",
+              "start": 2.79,
+              "end": 3.15,
+              "probability": 0.61865234375
+            },
+            {
+              "text": " below",
+              "start": 3.15,
+              "end": 3.57,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " from",
+              "start": 3.57,
+              "end": 4.03,
+              "probability": 0.84814453125
+            },
+            {
+              "text": " a",
+              "start": 4.03,
+              "end": 4.15,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " house",
+              "start": 4.15,
+              "end": 4.33,
+              "probability": 0.97509765625
+            },
+            {
+              "text": " of",
+              "start": 4.33,
+              "end": 4.49,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " ill",
+              "start": 4.49,
+              "end": 4.63,
+              "probability": 0.9921875
+            },
+            {
+              "text": " fame",
+              "start": 4.63,
+              "end": 4.97,
+              "probability": 0.4560546875
+            }
+          ]
+        },
+        {
+          "text": " It was filthy all round eggshells litter a stench. It was loathsome",
+          "start": 4.97,
+          "end": 9.69,
+          "words": [
+            {
+              "text": " It",
+              "start": 4.97,
+              "end": 5.41,
+              "probability": 0.56982421875
+            },
+            {
+              "text": " was",
+              "start": 5.41,
+              "end": 5.53,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " filthy",
+              "start": 5.53,
+              "end": 5.93,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " all",
+              "start": 5.93,
+              "end": 6.17,
+              "probability": 0.98681640625
+            },
+            {
+              "text": " round",
+              "start": 6.17,
+              "end": 6.61,
+              "probability": 0.5546875
+            },
+            {
+              "text": " eggshells",
+              "start": 6.61,
+              "end": 7.61,
+              "probability": 0.9597981770833334
+            },
+            {
+              "text": " litter",
+              "start": 7.61,
+              "end": 7.85,
+              "probability": 0.92529296875
+            },
+            {
+              "text": " a",
+              "start": 7.85,
+              "end": 8.29,
+              "probability": 0.986328125
+            },
+            {
+              "text": " stench.",
+              "start": 8.29,
+              "end": 8.79,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " It",
+              "start": 8.79,
+              "end": 9.01,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " was",
+              "start": 9.01,
+              "end": 9.13,
+              "probability": 1.0
+            },
+            {
+              "text": " loathsome",
+              "start": 9.13,
+              "end": 9.69,
+              "probability": 0.9851888020833334
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "raw": "from",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "raw": "a",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "raw": "cellar,",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "raw": "but",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "raw": "a",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "raw": "basement.",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "raw": "Oh,",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "raw": "you",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "raw": "know",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "raw": "down",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "raw": "below",
+          "start": 3.15,
+          "end": 3.57
+        },
+        {
+          "raw": "from",
+          "start": 3.57,
+          "end": 4.03
+        },
+        {
+          "raw": "a",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "raw": "house",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "raw": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "raw": "ill",
+          "start": 4.49,
+          "end": 4.63
+        },
+        {
+          "raw": "fame",
+          "start": 4.63,
+          "end": 4.97
+        },
+        {
+          "raw": "It",
+          "start": 4.97,
+          "end": 5.41
+        },
+        {
+          "raw": "was",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "raw": "filthy",
+          "start": 5.53,
+          "end": 5.93
+        },
+        {
+          "raw": "all",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "raw": "round",
+          "start": 6.17,
+          "end": 6.61
+        },
+        {
+          "raw": "eggshells",
+          "start": 6.61,
+          "end": 7.61
+        },
+        {
+          "raw": "litter",
+          "start": 7.61,
+          "end": 7.85
+        },
+        {
+          "raw": "a",
+          "start": 7.85,
+          "end": 8.29
+        },
+        {
+          "raw": "stench.",
+          "start": 8.29,
+          "end": 8.79
+        },
+        {
+          "raw": "It",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "raw": "was",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "raw": "loathsome",
+          "start": 9.13,
+          "end": 9.69
+        }
+      ],
+      "expected_tokens": [
+        "\"Not",
+        "from",
+        "a",
+        "cellar,",
+        "but",
+        "a",
+        "basement.",
+        "Oh,",
+        "you",
+        "know",
+        "...",
+        "down",
+        "below",
+        "...",
+        "from",
+        "a",
+        "house",
+        "of",
+        "ill-fame.",
+        "It",
+        "was",
+        "filthy",
+        "all",
+        "round",
+        "...",
+        "Egg-shells,",
+        "litter",
+        "...",
+        "a",
+        "stench.",
+        "It",
+        "was",
+        "loathsome.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ],
+        [
+          "delete",
+          10,
+          11,
+          10,
+          10
+        ],
+        [
+          "equal",
+          11,
+          13,
+          10,
+          12
+        ],
+        [
+          "delete",
+          13,
+          14,
+          12,
+          12
+        ],
+        [
+          "equal",
+          14,
+          18,
+          12,
+          16
+        ],
+        [
+          "replace",
+          18,
+          19,
+          16,
+          18
+        ],
+        [
+          "equal",
+          19,
+          24,
+          18,
+          23
+        ],
+        [
+          "delete",
+          24,
+          25,
+          23,
+          23
+        ],
+        [
+          "equal",
+          25,
+          27,
+          23,
+          25
+        ],
+        [
+          "delete",
+          27,
+          28,
+          25,
+          25
+        ],
+        [
+          "equal",
+          28,
+          33,
+          25,
+          30
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 13,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 18,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 22,
+          "source": "observed",
+          "heard_index": 21
+        },
+        {
+          "index": 23,
+          "source": "observed",
+          "heard_index": 22
+        },
+        {
+          "index": 24,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 25,
+          "source": "observed",
+          "heard_index": 23
+        },
+        {
+          "index": 26,
+          "source": "observed",
+          "heard_index": 24
+        },
+        {
+          "index": 27,
+          "source": "interpolated",
+          "heard_index": null
+        },
+        {
+          "index": 28,
+          "source": "observed",
+          "heard_index": 25
+        },
+        {
+          "index": 29,
+          "source": "observed",
+          "heard_index": 26
+        },
+        {
+          "index": 30,
+          "source": "observed",
+          "heard_index": 27
+        },
+        {
+          "index": 31,
+          "source": "observed",
+          "heard_index": 28
+        },
+        {
+          "index": 32,
+          "source": "observed",
+          "heard_index": 29
+        }
+      ],
+      "unresolved_gaps": [
+        [
+          "delete",
+          10,
+          11,
+          10,
+          10
+        ],
+        [
+          "delete",
+          13,
+          14,
+          12,
+          12
+        ],
+        [
+          "replace",
+          18,
+          19,
+          16,
+          18
+        ],
+        [
+          "delete",
+          24,
+          25,
+          23,
+          23
+        ],
+        [
+          "delete",
+          27,
+          28,
+          25,
+          25
+        ]
+      ],
+      "candidate_words": [
+        {
+          "text": "\"Not",
+          "start": 0.05,
+          "end": 0.57
+        },
+        {
+          "text": "from",
+          "start": 0.57,
+          "end": 0.73
+        },
+        {
+          "text": "a",
+          "start": 0.73,
+          "end": 0.87
+        },
+        {
+          "text": "cellar,",
+          "start": 0.87,
+          "end": 1.11
+        },
+        {
+          "text": "but",
+          "start": 1.15,
+          "end": 1.31
+        },
+        {
+          "text": "a",
+          "start": 1.31,
+          "end": 1.41
+        },
+        {
+          "text": "basement.",
+          "start": 1.41,
+          "end": 1.79
+        },
+        {
+          "text": "Oh,",
+          "start": 2.37,
+          "end": 2.45
+        },
+        {
+          "text": "you",
+          "start": 2.49,
+          "end": 2.61
+        },
+        {
+          "text": "know",
+          "start": 2.61,
+          "end": 2.79
+        },
+        {
+          "text": "...",
+          "start": 2.79,
+          "end": 2.79
+        },
+        {
+          "text": "down",
+          "start": 2.79,
+          "end": 3.15
+        },
+        {
+          "text": "below",
+          "start": 3.15,
+          "end": 3.57
+        },
+        {
+          "text": "...",
+          "start": 3.57,
+          "end": 3.57
+        },
+        {
+          "text": "from",
+          "start": 3.57,
+          "end": 4.03
+        },
+        {
+          "text": "a",
+          "start": 4.03,
+          "end": 4.15
+        },
+        {
+          "text": "house",
+          "start": 4.15,
+          "end": 4.33
+        },
+        {
+          "text": "of",
+          "start": 4.33,
+          "end": 4.49
+        },
+        {
+          "text": "ill-fame.",
+          "start": 4.49,
+          "end": 4.73
+        },
+        {
+          "text": "It",
+          "start": 4.97,
+          "end": 5.41
+        },
+        {
+          "text": "was",
+          "start": 5.41,
+          "end": 5.53
+        },
+        {
+          "text": "filthy",
+          "start": 5.53,
+          "end": 5.93
+        },
+        {
+          "text": "all",
+          "start": 5.93,
+          "end": 6.17
+        },
+        {
+          "text": "round",
+          "start": 6.17,
+          "end": 6.61
+        },
+        {
+          "text": "...",
+          "start": 6.61,
+          "end": 6.61
+        },
+        {
+          "text": "Egg-shells,",
+          "start": 6.61,
+          "end": 7.61
+        },
+        {
+          "text": "litter",
+          "start": 7.61,
+          "end": 7.85
+        },
+        {
+          "text": "...",
+          "start": 7.85,
+          "end": 7.85
+        },
+        {
+          "text": "a",
+          "start": 7.85,
+          "end": 8.29
+        },
+        {
+          "text": "stench.",
+          "start": 8.29,
+          "end": 8.79
+        },
+        {
+          "text": "It",
+          "start": 8.79,
+          "end": 9.01
+        },
+        {
+          "text": "was",
+          "start": 9.01,
+          "end": 9.13
+        },
+        {
+          "text": "loathsome.\"",
+          "start": 9.13,
+          "end": 9.69
+        }
+      ],
+      "stats": {
+        "expected_words": 33,
+        "heard_words": 30,
+        "matched_words": 28
+      },
+      "match_ratio": 0.8484848484848485,
+      "rejection_reasons": [
+        "observed_alignment_below_85_percent"
+      ],
+      "seconds": 0.18225760012865067
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "66397be7e828a87040d7b320d54a85cac2b2954bbf450cab0d21c24c8d607b99",
+  "selected_reasons": []
+}

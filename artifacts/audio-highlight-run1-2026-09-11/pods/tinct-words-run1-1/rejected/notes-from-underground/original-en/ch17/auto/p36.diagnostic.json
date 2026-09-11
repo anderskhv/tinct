@@ -1,0 +1,122 @@
+{
+  "complete": true,
+  "signature": "8a78fd785c9d734bee6d27fbff146d2f3391bc5b31c8a5c5d941879a2f6e7a8e",
+  "attempts": [
+    {
+      "asr_seconds": 0.08718319982290268,
+      "alignment_seconds": 4.365295171737671e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "We were silent.",
+        "hotwords": "We"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " We were silent.",
+          "start": 0.02,
+          "end": 1.04,
+          "words": [
+            {
+              "text": " We",
+              "start": 0.02,
+              "end": 0.56,
+              "probability": 0.90478515625
+            },
+            {
+              "text": " were",
+              "start": 0.56,
+              "end": 0.7,
+              "probability": 0.99609375
+            },
+            {
+              "text": " silent.",
+              "start": 0.7,
+              "end": 1.04,
+              "probability": 0.9921875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "raw": "were",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "raw": "silent.",
+          "start": 0.7,
+          "end": 1.04
+        }
+      ],
+      "expected_tokens": [
+        "We",
+        "were",
+        "silent."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          3,
+          0,
+          3
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "We",
+          "start": 0.02,
+          "end": 0.56
+        },
+        {
+          "text": "were",
+          "start": 0.56,
+          "end": 0.7
+        },
+        {
+          "text": "silent.",
+          "start": 0.7,
+          "end": 1.04
+        }
+      ],
+      "stats": {
+        "expected_words": 3,
+        "heard_words": 3,
+        "matched_words": 3
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.08724156022071838
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "1186ff05f8688e04bd6e3e71b53e8f00816524ea994dcb918d1cc4e3638ec92b",
+  "selected_reasons": []
+}

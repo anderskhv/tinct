@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "signature": "602e698d3bb947cc8aa1f6da330e30265886783e45d9183447c3ab27472eff07",
+  "attempts": [
+    {
+      "asr_seconds": 0.10978860408067703,
+      "alignment_seconds": 6.165355443954468e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "That answer meant \"Let me alone; I feel sick, sad.\"",
+        "hotwords": "That, Let, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " That answer meant, Let me alone, I feel sick, sad.",
+          "start": 0.05,
+          "end": 3.21,
+          "words": [
+            {
+              "text": " That",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.93798828125
+            },
+            {
+              "text": " answer",
+              "start": 0.59,
+              "end": 0.91,
+              "probability": 0.96142578125
+            },
+            {
+              "text": " meant,",
+              "start": 0.91,
+              "end": 1.19,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " Let",
+              "start": 1.49,
+              "end": 1.63,
+              "probability": 0.022918701171875
+            },
+            {
+              "text": " me",
+              "start": 1.63,
+              "end": 1.75,
+              "probability": 0.900390625
+            },
+            {
+              "text": " alone,",
+              "start": 1.75,
+              "end": 2.07,
+              "probability": 0.9921875
+            },
+            {
+              "text": " I",
+              "start": 2.35,
+              "end": 2.41,
+              "probability": 0.97705078125
+            },
+            {
+              "text": " feel",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " sick,",
+              "start": 2.61,
+              "end": 2.89,
+              "probability": 0.986328125
+            },
+            {
+              "text": " sad.",
+              "start": 3.21,
+              "end": 3.21,
+              "probability": 0.98876953125
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "That",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "answer",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "raw": "meant,",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "raw": "Let",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "raw": "me",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "raw": "alone,",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "raw": "I",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "raw": "feel",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "sick,",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "raw": "sad.",
+          "start": 3.21,
+          "end": 3.21
+        }
+      ],
+      "expected_tokens": [
+        "That",
+        "answer",
+        "meant",
+        "\"Let",
+        "me",
+        "alone;",
+        "I",
+        "feel",
+        "sick,",
+        "sad.\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          10,
+          0,
+          10
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "That",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "answer",
+          "start": 0.59,
+          "end": 0.91
+        },
+        {
+          "text": "meant",
+          "start": 0.91,
+          "end": 1.19
+        },
+        {
+          "text": "\"Let",
+          "start": 1.49,
+          "end": 1.63
+        },
+        {
+          "text": "me",
+          "start": 1.63,
+          "end": 1.75
+        },
+        {
+          "text": "alone;",
+          "start": 1.75,
+          "end": 2.07
+        },
+        {
+          "text": "I",
+          "start": 2.35,
+          "end": 2.41
+        },
+        {
+          "text": "feel",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "sick,",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "text": "sad.\"",
+          "start": 3.21,
+          "end": 3.21
+        }
+      ],
+      "stats": {
+        "expected_words": 10,
+        "heard_words": 10,
+        "matched_words": 10
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10987623780965805
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "872794c55728b649d7decef6e9cd1dab2e410bec459bc957ca3b03f5c8b5e5dc",
+  "selected_reasons": []
+}

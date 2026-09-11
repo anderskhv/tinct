@@ -1,0 +1,320 @@
+{
+  "complete": true,
+  "signature": "6554ba8ab74cbd4845b433431b10b66f55f6eb8f19f5349b00270138f142bd4f",
+  "attempts": [
+    {
+      "asr_seconds": 0.1593865156173706,
+      "alignment_seconds": 6.730109453201294e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"A girl like me?\" she whispered, hardly audibly; but I heard it.",
+        "hotwords": "A, I"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " A girl like me?\" she whispered, hardly audibly, but I heard it.",
+          "start": 0.05,
+          "end": 4.03,
+          "words": [
+            {
+              "text": " A",
+              "start": 0.05,
+              "end": 0.51,
+              "probability": 0.7939453125
+            },
+            {
+              "text": " girl",
+              "start": 0.51,
+              "end": 0.71,
+              "probability": 0.9921875
+            },
+            {
+              "text": " like",
+              "start": 0.71,
+              "end": 0.97,
+              "probability": 0.98974609375
+            },
+            {
+              "text": " me?\"",
+              "start": 0.97,
+              "end": 1.71,
+              "probability": 0.49977540969848633
+            },
+            {
+              "text": " she",
+              "start": 1.71,
+              "end": 1.79,
+              "probability": 0.638671875
+            },
+            {
+              "text": " whispered,",
+              "start": 1.79,
+              "end": 2.07,
+              "probability": 0.998046875
+            },
+            {
+              "text": " hardly",
+              "start": 2.41,
+              "end": 2.61,
+              "probability": 0.958984375
+            },
+            {
+              "text": " audibly,",
+              "start": 2.61,
+              "end": 3.09,
+              "probability": 0.955078125
+            },
+            {
+              "text": " but",
+              "start": 3.39,
+              "end": 3.47,
+              "probability": 0.912109375
+            },
+            {
+              "text": " I",
+              "start": 3.47,
+              "end": 3.61,
+              "probability": 0.986328125
+            },
+            {
+              "text": " heard",
+              "start": 3.61,
+              "end": 3.79,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " it.",
+              "start": 3.79,
+              "end": 4.03,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "raw": "girl",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "raw": "like",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "raw": "me?\"",
+          "start": 0.97,
+          "end": 1.71
+        },
+        {
+          "raw": "she",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "raw": "whispered,",
+          "start": 1.79,
+          "end": 2.07
+        },
+        {
+          "raw": "hardly",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "raw": "audibly,",
+          "start": 2.61,
+          "end": 3.09
+        },
+        {
+          "raw": "but",
+          "start": 3.39,
+          "end": 3.47
+        },
+        {
+          "raw": "I",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "raw": "heard",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "raw": "it.",
+          "start": 3.79,
+          "end": 4.03
+        }
+      ],
+      "expected_tokens": [
+        "\"A",
+        "girl",
+        "like",
+        "me?\"",
+        "she",
+        "whispered,",
+        "hardly",
+        "audibly;",
+        "but",
+        "I",
+        "heard",
+        "it."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          12,
+          0,
+          12
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"A",
+          "start": 0.05,
+          "end": 0.51
+        },
+        {
+          "text": "girl",
+          "start": 0.51,
+          "end": 0.71
+        },
+        {
+          "text": "like",
+          "start": 0.71,
+          "end": 0.97
+        },
+        {
+          "text": "me?\"",
+          "start": 0.97,
+          "end": 1.71
+        },
+        {
+          "text": "she",
+          "start": 1.71,
+          "end": 1.79
+        },
+        {
+          "text": "whispered,",
+          "start": 1.79,
+          "end": 2.07
+        },
+        {
+          "text": "hardly",
+          "start": 2.41,
+          "end": 2.61
+        },
+        {
+          "text": "audibly;",
+          "start": 2.61,
+          "end": 3.09
+        },
+        {
+          "text": "but",
+          "start": 3.39,
+          "end": 3.47
+        },
+        {
+          "text": "I",
+          "start": 3.47,
+          "end": 3.61
+        },
+        {
+          "text": "heard",
+          "start": 3.61,
+          "end": 3.79
+        },
+        {
+          "text": "it.",
+          "start": 3.79,
+          "end": 4.03
+        }
+      ],
+      "stats": {
+        "expected_words": 12,
+        "heard_words": 12,
+        "matched_words": 12
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.15948163717985153
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "71e5920e898031b3f364c61f1ba9b6b99a8ae14c3b63cbc2b5e221b458a359af",
+  "selected_reasons": []
+}

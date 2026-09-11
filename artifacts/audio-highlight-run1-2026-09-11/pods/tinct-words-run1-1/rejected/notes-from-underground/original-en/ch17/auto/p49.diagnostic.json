@@ -1,0 +1,518 @@
+{
+  "complete": true,
+  "signature": "d6bd489b29785d49c3abc79e2648aad268c803dd8f9a475d86c7b562d27190ce",
+  "attempts": [
+    {
+      "asr_seconds": 0.14725572615861893,
+      "alignment_seconds": 8.51750373840332e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Why water in the grave?\" she asked, with a sort of curiosity, but speaking even more harshly and abruptly than before.",
+        "hotwords": "Why"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Why water in the grave? she asked, with a sort of curiosity, but speaking even more harshly and abruptly than before.",
+          "start": 0.02,
+          "end": 7.34,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.02,
+              "end": 0.6,
+              "probability": 0.0775146484375
+            },
+            {
+              "text": " water",
+              "start": 0.6,
+              "end": 0.94,
+              "probability": 0.9423828125
+            },
+            {
+              "text": " in",
+              "start": 0.94,
+              "end": 1.1,
+              "probability": 0.99365234375
+            },
+            {
+              "text": " the",
+              "start": 1.1,
+              "end": 1.2,
+              "probability": 0.998046875
+            },
+            {
+              "text": " grave?",
+              "start": 1.2,
+              "end": 1.62,
+              "probability": 0.98779296875
+            },
+            {
+              "text": " she",
+              "start": 2.14,
+              "end": 2.24,
+              "probability": 0.63623046875
+            },
+            {
+              "text": " asked,",
+              "start": 2.24,
+              "end": 2.68,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " with",
+              "start": 2.92,
+              "end": 3.1,
+              "probability": 0.9833984375
+            },
+            {
+              "text": " a",
+              "start": 3.1,
+              "end": 3.2,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " sort",
+              "start": 3.2,
+              "end": 3.34,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " of",
+              "start": 3.34,
+              "end": 3.46,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " curiosity,",
+              "start": 3.46,
+              "end": 4.04,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " but",
+              "start": 4.44,
+              "end": 4.6,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " speaking",
+              "start": 4.6,
+              "end": 4.92,
+              "probability": 0.998046875
+            },
+            {
+              "text": " even",
+              "start": 4.92,
+              "end": 5.34,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " more",
+              "start": 5.34,
+              "end": 5.58,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " harshly",
+              "start": 5.58,
+              "end": 6.02,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " and",
+              "start": 6.02,
+              "end": 6.28,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " abruptly",
+              "start": 6.28,
+              "end": 6.6,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " than",
+              "start": 6.6,
+              "end": 6.94,
+              "probability": 0.99267578125
+            },
+            {
+              "text": " before.",
+              "start": 6.94,
+              "end": 7.34,
+              "probability": 0.99951171875
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "raw": "water",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "raw": "in",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "raw": "the",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "raw": "grave?",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "raw": "she",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "raw": "asked,",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "raw": "with",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "raw": "a",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "raw": "sort",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "raw": "of",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "raw": "curiosity,",
+          "start": 3.46,
+          "end": 4.04
+        },
+        {
+          "raw": "but",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "raw": "speaking",
+          "start": 4.6,
+          "end": 4.92
+        },
+        {
+          "raw": "even",
+          "start": 4.92,
+          "end": 5.34
+        },
+        {
+          "raw": "more",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "raw": "harshly",
+          "start": 5.58,
+          "end": 6.02
+        },
+        {
+          "raw": "and",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "raw": "abruptly",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "raw": "than",
+          "start": 6.6,
+          "end": 6.94
+        },
+        {
+          "raw": "before.",
+          "start": 6.94,
+          "end": 7.34
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "water",
+        "in",
+        "the",
+        "grave?\"",
+        "she",
+        "asked,",
+        "with",
+        "a",
+        "sort",
+        "of",
+        "curiosity,",
+        "but",
+        "speaking",
+        "even",
+        "more",
+        "harshly",
+        "and",
+        "abruptly",
+        "than",
+        "before."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          21,
+          0,
+          21
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.02,
+          "end": 0.6
+        },
+        {
+          "text": "water",
+          "start": 0.6,
+          "end": 0.94
+        },
+        {
+          "text": "in",
+          "start": 0.94,
+          "end": 1.1
+        },
+        {
+          "text": "the",
+          "start": 1.1,
+          "end": 1.2
+        },
+        {
+          "text": "grave?\"",
+          "start": 1.2,
+          "end": 1.62
+        },
+        {
+          "text": "she",
+          "start": 2.14,
+          "end": 2.24
+        },
+        {
+          "text": "asked,",
+          "start": 2.24,
+          "end": 2.68
+        },
+        {
+          "text": "with",
+          "start": 2.92,
+          "end": 3.1
+        },
+        {
+          "text": "a",
+          "start": 3.1,
+          "end": 3.2
+        },
+        {
+          "text": "sort",
+          "start": 3.2,
+          "end": 3.34
+        },
+        {
+          "text": "of",
+          "start": 3.34,
+          "end": 3.46
+        },
+        {
+          "text": "curiosity,",
+          "start": 3.46,
+          "end": 4.04
+        },
+        {
+          "text": "but",
+          "start": 4.44,
+          "end": 4.6
+        },
+        {
+          "text": "speaking",
+          "start": 4.6,
+          "end": 4.92
+        },
+        {
+          "text": "even",
+          "start": 4.92,
+          "end": 5.34
+        },
+        {
+          "text": "more",
+          "start": 5.34,
+          "end": 5.58
+        },
+        {
+          "text": "harshly",
+          "start": 5.58,
+          "end": 6.02
+        },
+        {
+          "text": "and",
+          "start": 6.02,
+          "end": 6.28
+        },
+        {
+          "text": "abruptly",
+          "start": 6.28,
+          "end": 6.6
+        },
+        {
+          "text": "than",
+          "start": 6.6,
+          "end": 6.94
+        },
+        {
+          "text": "before.",
+          "start": 6.94,
+          "end": 7.34
+        }
+      ],
+      "stats": {
+        "expected_words": 21,
+        "heard_words": 21,
+        "matched_words": 21
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.14739060401916504
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "b690626de00470938b41cb0350cdffebea6805acadaed6487cb8ea8abe781950",
+  "selected_reasons": []
+}

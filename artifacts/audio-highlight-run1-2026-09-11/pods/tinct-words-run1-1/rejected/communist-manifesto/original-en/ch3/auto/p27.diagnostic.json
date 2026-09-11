@@ -1,0 +1,540 @@
+{
+  "complete": true,
+  "signature": "e606f35d8c04aeaa7da71a52b154886789a5d5020828d2a5e1360cbb0be6a56b",
+  "attempts": [
+    {
+      "asr_seconds": 0.18102099001407623,
+      "alignment_seconds": 9.005516767501831e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "In one word, you reproach us with intending to do away with your property. Precisely so; that is just what we intend.",
+        "hotwords": "In, Precisely"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " In one word, you reproach us with intending to do away with your property. Precisely so. That is just what we intend.",
+          "start": 0.05,
+          "end": 7.47,
+          "words": [
+            {
+              "text": " In",
+              "start": 0.05,
+              "end": 0.53,
+              "probability": 0.94775390625
+            },
+            {
+              "text": " one",
+              "start": 0.53,
+              "end": 0.73,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " word,",
+              "start": 0.73,
+              "end": 1.05,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " you",
+              "start": 1.43,
+              "end": 1.49,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " reproach",
+              "start": 1.49,
+              "end": 1.91,
+              "probability": 0.990234375
+            },
+            {
+              "text": " us",
+              "start": 1.91,
+              "end": 2.07,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " with",
+              "start": 2.07,
+              "end": 2.25,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " intending",
+              "start": 2.25,
+              "end": 2.61,
+              "probability": 0.99072265625
+            },
+            {
+              "text": " to",
+              "start": 2.61,
+              "end": 2.89,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " do",
+              "start": 2.89,
+              "end": 3.05,
+              "probability": 0.99462890625
+            },
+            {
+              "text": " away",
+              "start": 3.05,
+              "end": 3.35,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " with",
+              "start": 3.35,
+              "end": 3.55,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " your",
+              "start": 3.55,
+              "end": 3.67,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " property.",
+              "start": 3.67,
+              "end": 4.13,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " Precisely",
+              "start": 4.89,
+              "end": 5.41,
+              "probability": 0.9964192708333334
+            },
+            {
+              "text": " so.",
+              "start": 5.41,
+              "end": 5.65,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " That",
+              "start": 6.17,
+              "end": 6.31,
+              "probability": 0.9931640625
+            },
+            {
+              "text": " is",
+              "start": 6.31,
+              "end": 6.47,
+              "probability": 0.99560546875
+            },
+            {
+              "text": " just",
+              "start": 6.47,
+              "end": 6.69,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " what",
+              "start": 6.69,
+              "end": 6.91,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " we",
+              "start": 6.91,
+              "end": 7.07,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " intend.",
+              "start": 7.07,
+              "end": 7.47,
+              "probability": 0.99853515625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "raw": "one",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "raw": "word,",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "raw": "you",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "raw": "reproach",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "raw": "us",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "raw": "with",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "raw": "intending",
+          "start": 2.25,
+          "end": 2.61
+        },
+        {
+          "raw": "to",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "raw": "do",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "raw": "away",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "raw": "with",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "raw": "your",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "raw": "property.",
+          "start": 3.67,
+          "end": 4.13
+        },
+        {
+          "raw": "Precisely",
+          "start": 4.89,
+          "end": 5.41
+        },
+        {
+          "raw": "so.",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "raw": "That",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "raw": "is",
+          "start": 6.31,
+          "end": 6.47
+        },
+        {
+          "raw": "just",
+          "start": 6.47,
+          "end": 6.69
+        },
+        {
+          "raw": "what",
+          "start": 6.69,
+          "end": 6.91
+        },
+        {
+          "raw": "we",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "raw": "intend.",
+          "start": 7.07,
+          "end": 7.47
+        }
+      ],
+      "expected_tokens": [
+        "In",
+        "one",
+        "word,",
+        "you",
+        "reproach",
+        "us",
+        "with",
+        "intending",
+        "to",
+        "do",
+        "away",
+        "with",
+        "your",
+        "property.",
+        "Precisely",
+        "so;",
+        "that",
+        "is",
+        "just",
+        "what",
+        "we",
+        "intend."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          22,
+          0,
+          22
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        },
+        {
+          "index": 17,
+          "source": "observed",
+          "heard_index": 17
+        },
+        {
+          "index": 18,
+          "source": "observed",
+          "heard_index": 18
+        },
+        {
+          "index": 19,
+          "source": "observed",
+          "heard_index": 19
+        },
+        {
+          "index": 20,
+          "source": "observed",
+          "heard_index": 20
+        },
+        {
+          "index": 21,
+          "source": "observed",
+          "heard_index": 21
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "In",
+          "start": 0.05,
+          "end": 0.53
+        },
+        {
+          "text": "one",
+          "start": 0.53,
+          "end": 0.73
+        },
+        {
+          "text": "word,",
+          "start": 0.73,
+          "end": 1.05
+        },
+        {
+          "text": "you",
+          "start": 1.43,
+          "end": 1.49
+        },
+        {
+          "text": "reproach",
+          "start": 1.49,
+          "end": 1.91
+        },
+        {
+          "text": "us",
+          "start": 1.91,
+          "end": 2.07
+        },
+        {
+          "text": "with",
+          "start": 2.07,
+          "end": 2.25
+        },
+        {
+          "text": "intending",
+          "start": 2.25,
+          "end": 2.61
+        },
+        {
+          "text": "to",
+          "start": 2.61,
+          "end": 2.89
+        },
+        {
+          "text": "do",
+          "start": 2.89,
+          "end": 3.05
+        },
+        {
+          "text": "away",
+          "start": 3.05,
+          "end": 3.35
+        },
+        {
+          "text": "with",
+          "start": 3.35,
+          "end": 3.55
+        },
+        {
+          "text": "your",
+          "start": 3.55,
+          "end": 3.67
+        },
+        {
+          "text": "property.",
+          "start": 3.67,
+          "end": 4.13
+        },
+        {
+          "text": "Precisely",
+          "start": 4.89,
+          "end": 5.41
+        },
+        {
+          "text": "so;",
+          "start": 5.41,
+          "end": 5.65
+        },
+        {
+          "text": "that",
+          "start": 6.17,
+          "end": 6.31
+        },
+        {
+          "text": "is",
+          "start": 6.31,
+          "end": 6.47
+        },
+        {
+          "text": "just",
+          "start": 6.47,
+          "end": 6.69
+        },
+        {
+          "text": "what",
+          "start": 6.69,
+          "end": 6.91
+        },
+        {
+          "text": "we",
+          "start": 6.91,
+          "end": 7.07
+        },
+        {
+          "text": "intend.",
+          "start": 7.07,
+          "end": 7.47
+        }
+      ],
+      "stats": {
+        "expected_words": 22,
+        "heard_words": 22,
+        "matched_words": 22
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.1811581626534462
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "9b4f0167d32df8fe203a3e53332e0e2560284708a10032f63e5cc6ce881f0cc7",
+  "selected_reasons": []
+}

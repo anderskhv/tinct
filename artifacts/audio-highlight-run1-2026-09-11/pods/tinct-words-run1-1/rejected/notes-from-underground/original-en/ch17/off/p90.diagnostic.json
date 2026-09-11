@@ -1,0 +1,428 @@
+{
+  "complete": true,
+  "signature": "d5a38377aec453c31c02c88157eb3a5ab7c318b39701ca37be7bd466b1c500a3",
+  "attempts": [
+    {
+      "asr_seconds": 0.1158234253525734,
+      "alignment_seconds": 7.32317566871643e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true
+      },
+      "mode": "off",
+      "raw_segments": [
+        {
+          "text": " Why have you come here? I asked her with a note of authority already in my voice",
+          "start": 0.05,
+          "end": 4.75,
+          "words": [
+            {
+              "text": " Why",
+              "start": 0.05,
+              "end": 0.59,
+              "probability": 0.265380859375
+            },
+            {
+              "text": " have",
+              "start": 0.59,
+              "end": 0.77,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " you",
+              "start": 0.77,
+              "end": 0.91,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " come",
+              "start": 0.91,
+              "end": 1.09,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " here?",
+              "start": 1.09,
+              "end": 1.51,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " I",
+              "start": 1.75,
+              "end": 1.97,
+              "probability": 0.9677734375
+            },
+            {
+              "text": " asked",
+              "start": 1.97,
+              "end": 2.25,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " her",
+              "start": 2.25,
+              "end": 2.47,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " with",
+              "start": 2.47,
+              "end": 2.89,
+              "probability": 0.81396484375
+            },
+            {
+              "text": " a",
+              "start": 2.89,
+              "end": 2.99,
+              "probability": 0.9951171875
+            },
+            {
+              "text": " note",
+              "start": 2.99,
+              "end": 3.15,
+              "probability": 0.99609375
+            },
+            {
+              "text": " of",
+              "start": 3.15,
+              "end": 3.25,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " authority",
+              "start": 3.25,
+              "end": 3.67,
+              "probability": 0.9462890625
+            },
+            {
+              "text": " already",
+              "start": 3.67,
+              "end": 4.05,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " in",
+              "start": 4.05,
+              "end": 4.27,
+              "probability": 0.9990234375
+            },
+            {
+              "text": " my",
+              "start": 4.27,
+              "end": 4.41,
+              "probability": 0.99951171875
+            },
+            {
+              "text": " voice",
+              "start": 4.41,
+              "end": 4.75,
+              "probability": 0.9990234375
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Why",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "raw": "have",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "raw": "you",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "raw": "come",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "raw": "here?",
+          "start": 1.09,
+          "end": 1.51
+        },
+        {
+          "raw": "I",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "raw": "asked",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "raw": "her",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "raw": "with",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "raw": "a",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "raw": "note",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "raw": "of",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "raw": "authority",
+          "start": 3.25,
+          "end": 3.67
+        },
+        {
+          "raw": "already",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "raw": "in",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "raw": "my",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "raw": "voice",
+          "start": 4.41,
+          "end": 4.75
+        }
+      ],
+      "expected_tokens": [
+        "\"Why",
+        "have",
+        "you",
+        "come",
+        "here?\"",
+        "I",
+        "asked",
+        "her,",
+        "with",
+        "a",
+        "note",
+        "of",
+        "authority",
+        "already",
+        "in",
+        "my",
+        "voice."
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          17,
+          0,
+          17
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        },
+        {
+          "index": 8,
+          "source": "observed",
+          "heard_index": 8
+        },
+        {
+          "index": 9,
+          "source": "observed",
+          "heard_index": 9
+        },
+        {
+          "index": 10,
+          "source": "observed",
+          "heard_index": 10
+        },
+        {
+          "index": 11,
+          "source": "observed",
+          "heard_index": 11
+        },
+        {
+          "index": 12,
+          "source": "observed",
+          "heard_index": 12
+        },
+        {
+          "index": 13,
+          "source": "observed",
+          "heard_index": 13
+        },
+        {
+          "index": 14,
+          "source": "observed",
+          "heard_index": 14
+        },
+        {
+          "index": 15,
+          "source": "observed",
+          "heard_index": 15
+        },
+        {
+          "index": 16,
+          "source": "observed",
+          "heard_index": 16
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Why",
+          "start": 0.05,
+          "end": 0.59
+        },
+        {
+          "text": "have",
+          "start": 0.59,
+          "end": 0.77
+        },
+        {
+          "text": "you",
+          "start": 0.77,
+          "end": 0.91
+        },
+        {
+          "text": "come",
+          "start": 0.91,
+          "end": 1.09
+        },
+        {
+          "text": "here?\"",
+          "start": 1.09,
+          "end": 1.51
+        },
+        {
+          "text": "I",
+          "start": 1.75,
+          "end": 1.97
+        },
+        {
+          "text": "asked",
+          "start": 1.97,
+          "end": 2.25
+        },
+        {
+          "text": "her,",
+          "start": 2.25,
+          "end": 2.47
+        },
+        {
+          "text": "with",
+          "start": 2.47,
+          "end": 2.89
+        },
+        {
+          "text": "a",
+          "start": 2.89,
+          "end": 2.99
+        },
+        {
+          "text": "note",
+          "start": 2.99,
+          "end": 3.15
+        },
+        {
+          "text": "of",
+          "start": 3.15,
+          "end": 3.25
+        },
+        {
+          "text": "authority",
+          "start": 3.25,
+          "end": 3.67
+        },
+        {
+          "text": "already",
+          "start": 3.67,
+          "end": 4.05
+        },
+        {
+          "text": "in",
+          "start": 4.05,
+          "end": 4.27
+        },
+        {
+          "text": "my",
+          "start": 4.27,
+          "end": 4.41
+        },
+        {
+          "text": "voice.",
+          "start": 4.41,
+          "end": 4.75
+        }
+      ],
+      "stats": {
+        "expected_words": 17,
+        "heard_words": 17,
+        "matched_words": 17
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.11592887341976166
+    }
+  ],
+  "selected_mode": "off",
+  "audio_sha256": "14b4ac6170e5df32b576c86583ffdb247ebd6246d168313b1549941670deae67",
+  "selected_reasons": []
+}

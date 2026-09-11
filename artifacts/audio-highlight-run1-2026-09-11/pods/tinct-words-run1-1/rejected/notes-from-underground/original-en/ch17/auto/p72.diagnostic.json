@@ -1,0 +1,232 @@
+{
+  "complete": true,
+  "signature": "f7f3ebd010fa1add277d980960dc428886f6a66e7ae3faa74cb96c71469a1c95",
+  "attempts": [
+    {
+      "asr_seconds": 0.10963379591703415,
+      "alignment_seconds": 5.618482828140259e-05,
+      "request": {
+        "language": "en",
+        "word_timestamps": true,
+        "vad_filter": true,
+        "initial_prompt": "\"Have you been engaged to be married? Eh?\"",
+        "hotwords": "Have, Eh"
+      },
+      "mode": "both",
+      "raw_segments": [
+        {
+          "text": " Have you been engaged to be married? Eh?",
+          "start": 0.08,
+          "end": 2.28,
+          "words": [
+            {
+              "text": " Have",
+              "start": 0.08,
+              "end": 0.5,
+              "probability": 0.87646484375
+            },
+            {
+              "text": " you",
+              "start": 0.5,
+              "end": 0.6,
+              "probability": 0.99853515625
+            },
+            {
+              "text": " been",
+              "start": 0.6,
+              "end": 0.7,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " engaged",
+              "start": 0.7,
+              "end": 1.0,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " to",
+              "start": 1.0,
+              "end": 1.2,
+              "probability": 0.99755859375
+            },
+            {
+              "text": " be",
+              "start": 1.2,
+              "end": 1.3,
+              "probability": 0.9970703125
+            },
+            {
+              "text": " married?",
+              "start": 1.3,
+              "end": 1.68,
+              "probability": 0.99658203125
+            },
+            {
+              "text": " Eh?",
+              "start": 2.12,
+              "end": 2.28,
+              "probability": 0.1337890625
+            }
+          ]
+        }
+      ],
+      "heard_words": [
+        {
+          "raw": "Have",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "raw": "you",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "raw": "been",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "raw": "engaged",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "raw": "to",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "raw": "be",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "raw": "married?",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "raw": "Eh?",
+          "start": 2.12,
+          "end": 2.28
+        }
+      ],
+      "expected_tokens": [
+        "\"Have",
+        "you",
+        "been",
+        "engaged",
+        "to",
+        "be",
+        "married?",
+        "Eh?\""
+      ],
+      "opcodes": [
+        [
+          "equal",
+          0,
+          8,
+          0,
+          8
+        ]
+      ],
+      "provenance": [
+        {
+          "index": 0,
+          "source": "observed",
+          "heard_index": 0
+        },
+        {
+          "index": 1,
+          "source": "observed",
+          "heard_index": 1
+        },
+        {
+          "index": 2,
+          "source": "observed",
+          "heard_index": 2
+        },
+        {
+          "index": 3,
+          "source": "observed",
+          "heard_index": 3
+        },
+        {
+          "index": 4,
+          "source": "observed",
+          "heard_index": 4
+        },
+        {
+          "index": 5,
+          "source": "observed",
+          "heard_index": 5
+        },
+        {
+          "index": 6,
+          "source": "observed",
+          "heard_index": 6
+        },
+        {
+          "index": 7,
+          "source": "observed",
+          "heard_index": 7
+        }
+      ],
+      "unresolved_gaps": [],
+      "candidate_words": [
+        {
+          "text": "\"Have",
+          "start": 0.08,
+          "end": 0.5
+        },
+        {
+          "text": "you",
+          "start": 0.5,
+          "end": 0.6
+        },
+        {
+          "text": "been",
+          "start": 0.6,
+          "end": 0.7
+        },
+        {
+          "text": "engaged",
+          "start": 0.7,
+          "end": 1.0
+        },
+        {
+          "text": "to",
+          "start": 1.0,
+          "end": 1.2
+        },
+        {
+          "text": "be",
+          "start": 1.2,
+          "end": 1.3
+        },
+        {
+          "text": "married?",
+          "start": 1.3,
+          "end": 1.68
+        },
+        {
+          "text": "Eh?\"",
+          "start": 2.12,
+          "end": 2.28
+        }
+      ],
+      "stats": {
+        "expected_words": 8,
+        "heard_words": 8,
+        "matched_words": 8
+      },
+      "match_ratio": 1.0,
+      "rejection_reasons": [],
+      "seconds": 0.10971538722515106
+    }
+  ],
+  "selected_mode": "both",
+  "audio_sha256": "f4dd3f34e81db68e28b996c3456837420c5d6fd15d553508459892555b898984",
+  "selected_reasons": []
+}
