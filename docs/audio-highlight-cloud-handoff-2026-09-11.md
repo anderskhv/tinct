@@ -174,6 +174,41 @@ Set both in the Claude Code web environment's secrets and in the repository's
 GitHub Actions secrets. The moment `RUNPOD_API_KEY` lands, the five-minute
 guard arms itself with no further action.
 
+## Setup, precisely
+
+Three actions, none of which involves sending a secret through a chat message.
+
+**1. Merge this branch to `main`.** GitHub only runs scheduled workflows from
+the default branch, so the six-hourly census and the five-minute GPU guard do
+not fire from a feature branch. Nothing here touches app code, so no deploy is
+required — but until this is on `main`, the cloud supervision is code, not a
+running service.
+
+**2. RunPod key.** RunPod console → Settings → API Keys → create a key with
+read/write. Add it as `RUNPOD_API_KEY` in two places:
+  - the repository's GitHub Actions secrets (Settings → Secrets and variables →
+    Actions → New repository secret), which arms the five-minute guard
+    automatically;
+  - the Claude Code web environment's secrets, so this session can see pod
+    state and stop pods directly.
+
+**3. R2 write credentials.** Cloudflare dashboard → R2 → Manage R2 API Tokens →
+Create API token with object read/write on `tinct-audio`. It returns an Access
+Key ID and a Secret Access Key. Add them to the same two places as:
+  - `R2_ACCESS_KEY_ID`
+  - `R2_SECRET_ACCESS_KEY`
+  - `R2_ENDPOINT` = `https://58f26c4a077e8c66e0b017d2399ae1b3.r2.cloudflarestorage.com`
+
+The account ID in that endpoint is not a secret; it already appears in every R2
+URL. The two keys are, and they should only ever be typed into a secrets field.
+
+A separate, smaller thing found along the way: `scripts/smoke-test.sh` greps for
+a landing-page title and an `/app` SPA route that the lab routing switch
+retired, so it has been failing on every deploy since — including the last one
+on `main`, where the deploy step itself succeeded and only the smoke test went
+red. Production is healthy; the test is stale. Worth fixing, because AGENTS.md
+treats a green deploy workflow as the confirmation that a release landed.
+
 ## Standing rules for whoever executes
 
 - One owner. This session does not start GPU work while the Mac controller's
