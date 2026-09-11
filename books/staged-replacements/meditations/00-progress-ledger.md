@@ -30,6 +30,12 @@ session. Kept current at every push.
   concept (nature, reason, the ruling part, the god within, providence, the
   common good, and the rest), plus voice and form rules, fixed before any
   drafting.
+- 2026-09-11 — **Book II drafted and frozen** (steps 2–3): `book2/candidate-v1.json`
+  (sha256 `42002ed4…`), 17 paragraphs 1:1 with Long's II.1–II.17, word ratio
+  0.945 (min paragraph 0.88). Readable copy, `continuity.md`,
+  `provenance.json`, `manifest.json`, `review-instructions.md` and six review
+  packets pushed. **Stopped for independent review** (step 4, coordinator's
+  reviewer session). Findings expected under `book2/review/`.
 
 ## Decided, and why
 
@@ -45,11 +51,10 @@ session. Kept current at every push.
 
 ## Next
 
-1. Book II package: `book2/source-book2.json`, `candidate-v1.json`,
-   `candidate-v1-readable.md`, `continuity.md`, `provenance.json`,
-   `manifest.json`, `review-instructions.md`, `review-packets/packet-01…06.md`
-   (17 paragraphs: five packets of three, one of two). Push 3, then stop and
-   wait for the coordinator's independent review under `book2/review/`.
+1. **Waiting on the coordinator:** independent review of Book II
+   (`book2/review-instructions.md`, `book2/review-packets/`). Nothing else in
+   this thread can proceed past step 3 without it; Book I is not started until
+   Book II is accepted, per the brief.
 2. On findings: `candidate-v2.json`, verification of changed passages, flow
    read, `ACCEPTANCE.md`. Then Book I, III … XII in numerical order, each
    through the same eight steps and its own review round.

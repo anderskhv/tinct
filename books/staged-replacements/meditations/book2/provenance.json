@@ -1,0 +1,27 @@
+{
+ "repository": "anderskhv/tinct",
+ "branch": "claude/meditations-modern-en-20260911-v2",
+ "base_commit_of_staged_original": "8daa3fa6",
+ "staged_original_path": "books/staged-replacements/meditations/meditations-original-en.staged.json",
+ "staged_original_sha256": "7bf2d1b175854b4adad90984a4bb61226e808a77148ad5f6d06041bacfaff443",
+ "chapter_extracted": {
+  "number": 2,
+  "title": "Book 2",
+  "paragraphs": 17,
+  "extraction": "found by chapter.number == 2 in the staged original-en; paragraphs byte-identical"
+ },
+ "source_book2_json_sha256": "0e112cf212105131590c2d5a869d48436bd04d1e7095d660bf644431b9b038b6",
+ "candidate_v1_json_sha256": "42002ed4b9d7003fba329a8a5f1d91142431b7e24f8f188178868255922ba07f",
+ "translation_source": "George Long, 1862. Project Gutenberg #15877 (source/pg15877-long-1862.txt, sha256 6584df7e90d6035eece30d8028527290bf2508076963ee0376cb41db9cf88d5b), with the mechanical normalisations listed in PROVENANCE.md section 4. The only source used for the candidate; no other translation consulted for wording.",
+ "served_original_en_note": "app/public/data/editions/meditations-original-en.json (sha256 4f811221abc8dd107da81c1a1ec7d75107094246c4353cd1884bba2943241afb) is Meric Casaubon 1634 (PG #2680), misattributed in the registry as Long; it is NOT the source of this candidate and its Book 2 has 14 paragraphs on a different section division. See PROVENANCE.md section 1.",
+ "word_counts": {
+  "source": 2351,
+  "candidate": 2221,
+  "ratio": 0.945,
+  "min_paragraph_ratio": 0.88,
+  "note": "screening signal only; not evidence of semantic completeness"
+ },
+ "generation_setting": "Drafted in-conversation by the content agent (Claude Fable 5.1 session), whole book read before drafting, glossary fixed first. Zero Anthropic API calls; no scripts calling any LLM API; generate-editions.cjs not run.",
+ "build_script": "scripts/build_book2_package.py (contains the frozen candidate text; regenerates source-book2.json, candidate-v1.json, candidate-v1-readable.md, manifest.json and review-packets/ deterministically)",
+ "frozen": "candidate-v1.json is frozen at the hash above. Corrections from independent review go to candidate-v2.json."
+}
