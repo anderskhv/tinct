@@ -22,9 +22,11 @@ and assigns one outcome:
   repair:audio      a sampled paragraph recording is missing or empty
   repair:text       the edition has no such chapter
 
-Sampling is first/middle/last spoken paragraph by default: enough to catch a
-chapter whose recordings never landed, not a guarantee that every paragraph is
-sound. That limit is recorded in the output rather than glossed.
+Every paragraph recording is checked by default. An earlier version sampled
+first/middle/last, which passed chapters missing a single paragraph out of
+eighty — the gap simply fell between the samples. `--samples N` restores the
+cheaper behaviour when that trade is made deliberately; the number checked is
+recorded in the output either way.
 
 Read-only. No credentials.
 """
@@ -86,7 +88,7 @@ def assess(book_id: str, edition_key: str, chapter: int, edition_text: dict, sam
 
     # Sample recordings: first, last, and evenly spaced between.
     if entries:
-        if samples >= len(entries):
+        if samples <= 0 or samples >= len(entries):
             picked = entries
         else:
             step = (len(entries) - 1) / max(1, samples - 1)
@@ -110,7 +112,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--targets", required=True, help="JSON: [{bookId, edition, chapter}, ...]")
     parser.add_argument("--out", required=True)
-    parser.add_argument("--samples", type=int, default=3, help="paragraph recordings sampled per chapter")
+    # Three samples proved far too few: on 2026-09-11 it passed four chapters
+    # whose recordings were each missing one or two paragraphs out of 18-82,
+    # because a gap in the middle of a long chapter falls between first, middle
+    # and last. Default to checking every paragraph; --samples trades accuracy
+    # for speed only when that is a conscious choice.
+    parser.add_argument("--samples", type=int, default=0,
+                        help="paragraph recordings checked per chapter; 0 checks every one")
     parser.add_argument("--workers", type=int, default=12)
     args = parser.parse_args()
 
